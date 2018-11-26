@@ -1,0 +1,36 @@
+title = "Test"
+url = "/test"
+layout = "octaskin"
+description = ""
+is_hidden = 0
+==
+<?php
+function onStart() {
+  $users = Db::table('backend_users')->get();
+  foreach ($users as $user) {
+    $this->page["rows"] .= $user->first_name;
+  }
+}
+?>
+==
+<section id="lt-header" class="lt-section lt-section-fullwidth section">
+  <div class="lt-container container">
+    <div class="lt-content lt-header-content">
+      {% partial "pages-about/header" %}
+    </div>
+  </div>
+</section>
+
+<section id="lt-mainpage" class="lt-section section">
+  <div class="lt-container container">
+    <div class="lt-content lt-mainpage-content">
+{% if user %}
+    <p>Hello {{ user.name }}</p>
+{% else %}
+    <p>Nobody is logged in</p>
+{% endif %}
+<a data-request="onLogout" data-request-data="redirect: '/good-bye'">Sign out</a>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,14 @@
+{
+    "name": "ebussola/userfacebook",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Leonardo Shinagawa",
+            "email": "leonardo@ebussola.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "facebook/php-sdk-v4" : "4.0.*"
+    }
+}

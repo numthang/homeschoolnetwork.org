@@ -1,0 +1,62 @@
+title = "Login"
+url = "/login"
+layout = "octaskin"
+is_hidden = 0
+
+[account]
+paramCode = "code"
+forceSecure = 0
+
+[session]
+security = "all"
+redirect = "home"
+
+[resetPassword]
+paramCode = "code"
+
+[sociallogin]
+==
+<section id="lt-header" class="lt-section lt-section-fullwidth section">
+  <div class="lt-container container">
+    <div class="lt-content lt-header-content">
+      {% partial "pages-about/header" %}
+    </div>
+  </div>
+</section>
+
+<section id="lt-mainpage" class="lt-section section">
+  <div class="lt-container container">
+    <div class="lt-content lt-mainpage-content">
+        {% if not user %}
+            <div class="row">
+        
+                <div class="col-md-6">
+                    <h3>Sign in</h3>
+                    {% partial account ~ '::signin' %}
+                    
+                    {% for name, link in social_login_links %}
+<a href="{{ link }}">{{ name }}</a>
+{% endfor %}
+{% component 'sociallogin' %}
+                    
+                    {% component 'resetPassword' %}
+                </div>
+        
+                <div class="col-md-6">
+                    {% partial account ~ '::register' %}
+                </div>
+        
+            </div>
+        {% else %}
+        <a data-request="onLogout" data-request-data="redirect: '/'">Sign out</a>
+
+            {% partial account ~ '::activation_check' %}
+        
+            {% partial account ~ '::update' %}
+        
+            {% partial account ~ '::deactivate_link' %}
+        
+        {% endif %}
+    </div>
+  </div>
+</section>

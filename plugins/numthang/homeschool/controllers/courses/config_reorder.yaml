@@ -1,0 +1,4 @@
+title: Courses
+modelClass: Numthang\Homeschool\Models\Course
+toolbar:
+    buttons: reorder_toolbar

@@ -1,0 +1,57 @@
+title = "Plugin components"
+url = "/demo/plugins"
+layout = "default"
+is_hidden = 0
+
+[demoTodo]
+max = 10
+==
+<div class="jumbotron title-js">
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <h1>Plugin components</h1>
+                <p>Plugins can provide components, simple building blocks that enrich any page or layout. Check out the todo example below.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    
+
+<form
+    data-request="{{ demoTodo }}::onAddItem"
+    data-request-update="'{{ demoTodo }}::list': '#result'"
+    data-request-success="$('#input-item').val('')"
+    data-request-flash>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">To Do List</h3>
+        </div>
+        <div class="panel-body">
+            <div class="input-group">
+                <input type="text" id="input-item" class="form-control" value="" name="newItem" placeholder="What needs to be done?"> 
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn btn-primary" data-attach-loading>Add</button>
+                </span>
+            </div>
+        </div>
+        <ul class="list-group" id="result">
+        </ul>
+    </div>
+</form>
+
+
+
+
+</div>
+
+<!-- Page Explanation -->
+<div class="container">{% partial "explain/plugins.htm" %}</div>
+
+<br />
+
+<div class="text-center">
+    <p><a target="_blank" href="http://octobercms.com/docs" class="btn btn-lg btn-default">Learn more at October's Documentation</a></p>
+</div>

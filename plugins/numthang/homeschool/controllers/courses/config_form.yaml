@@ -1,0 +1,10 @@
+name: Courses
+form: $/numthang/homeschool/models/course/fields.yaml
+modelClass: Numthang\Homeschool\Models\Course
+defaultRedirect: numthang/homeschool/courses
+create:
+    redirect: 'numthang/homeschool/courses/update/:id'
+    redirectClose: numthang/homeschool/courses
+update:
+    redirect: numthang/homeschool/courses
+    redirectClose: numthang/homeschool/courses

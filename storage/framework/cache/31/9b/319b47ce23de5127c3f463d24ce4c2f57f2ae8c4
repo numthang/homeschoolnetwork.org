@@ -1,0 +1,16 @@
+1543205323a:1:{s:15:"_addons/css.htm";a:5:{s:8:"fileName";s:15:"_addons/css.htm";s:7:"content";s:449:"{% if this.theme.load_animate_css %}
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+{% endif %}
+
+{% if this.theme.load_owl_carousel %}
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.6/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.6/assets/owl.theme.default.min.css" rel="stylesheet">
+{% endif %}
+";s:5:"mtime";i:1541856379;s:6:"markup";s:448:"{% if this.theme.load_animate_css %}
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+{% endif %}
+
+{% if this.theme.load_owl_carousel %}
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.6/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.6/assets/owl.theme.default.min.css" rel="stylesheet">
+{% endif %}";s:4:"code";N;}}

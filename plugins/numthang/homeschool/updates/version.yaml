@@ -1,0 +1,17 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table numthang_homeschool_course'
+    - builder_table_create_numthang_homeschool_course.php
+1.0.3:
+    - 'Updated table numthang_homeschool_course'
+    - builder_table_update_numthang_homeschool_course.php
+1.0.4:
+    - 'Updated table numthang_homeschool_course'
+    - builder_table_update_numthang_homeschool_course_2.php
+1.0.5:
+    - 'Updated table numthang_homeschool_course'
+    - builder_table_update_numthang_homeschool_course_3.php
+1.0.6:
+    - 'Updated table numthang_homeschool_course'
+    - builder_table_update_numthang_homeschool_course_4.php
