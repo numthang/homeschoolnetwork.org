@@ -346,4 +346,5 @@
   'Numthang\\Homeschool\\Models\\Course' => 'plugins/numthang/homeschool/models/Course.php',
   'RainLab\\Builder\\Classes\\ComponentHelper' => 'plugins/rainlab/builder/classes/ComponentHelper.php',
   'RainLab\\Builder\\Classes\\MigrationFileParser' => 'plugins/rainlab/builder/classes/MigrationFileParser.php',
+  'Backend\\FormWidgets\\Repeater' => 'modules/backend/formwidgets/Repeater.php',
 );

@@ -17,13 +17,13 @@ class ActorBox extends FormWidgetBase
 
     public function render(){
         $this->prepareVars();
-        //dump($this->vars['selectedValues']);
+        dump($this->vars['selectedValues'], $this->vars['actors']);
         return $this->makePartial('widget');
     }
 
     public function prepareVars(){
         $this->vars['id'] = $this->model->id;
-        $this->vars['actors'] = Actor::all()->lists('full_name', 'id');
+        $this->vars['actors'] = Actor::all()->lists('fullname', 'id');
         $this->vars['name'] = $this->formField->getName().'[]';
         if(!empty($this->getLoadValue())){
             $this->vars['selectedValues'] = $this->getLoadValue();

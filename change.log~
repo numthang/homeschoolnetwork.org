@@ -1,4 +1,15 @@
-test ไรวะ git add
+create multilanguage form
+with nice usability to the user when he typed in something wrong or forgot something
+an answer on the screen after sending
+an automated mail (multilanguage) to the user
+a data mail to the team and write the data in database at the same time
+
+I was bale to do a lot of this but the multilanguage thing
+especially the automated mails and the templating of the mails,  is very difficult
+we have programmed this plugins by our self:
+team display / events / faq / movie data / timeline / shop / ads. they are rough fix and need lots of improvements
+
+esoecially the forms are still a big open wound i cannot close. we do not yet use forms from ocotbercms but still from another system which is sad and unsafe
 
 เขียน Mind map web บ้านเรียน  จุดประสงค์หลัก คือ ต้องการให้คนเข้ามาแล้วได้ข้อมูลครบแล้วกระชับที่สุด
 

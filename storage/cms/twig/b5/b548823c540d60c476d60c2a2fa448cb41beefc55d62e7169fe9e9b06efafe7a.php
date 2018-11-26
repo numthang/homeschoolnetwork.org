@@ -99,7 +99,7 @@ class __TwigTemplate_833867edfb2a748840edba7d1c82538b93ddac191bd70e41c80be735a75
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "year", array()), "html", null, true);
             echo "</h5>
 
-            <h4>Actors</h4> <!--genres is Field Name in control-->
+            <h4>Actors</h4> <!--actors is Field Name in control -->
             ";
             // line 32
             $context['_parent'] = $context;
@@ -186,7 +186,7 @@ class __TwigTemplate_833867edfb2a748840edba7d1c82538b93ddac191bd70e41c80be735a75
             {% endfor %}
             <h5>{{ record.year }}</h5>
 
-            <h4>Actors</h4> <!--genres is Field Name in control-->
+            <h4>Actors</h4> <!--actors is Field Name in control -->
             {% for genre in record.genres %}
               {{ genre.genre_title }}   
             {% endfor %}

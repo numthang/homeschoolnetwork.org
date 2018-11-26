@@ -55,5 +55,5 @@ fields:
         type: relation
     actors:
         label: Actors
-        span: left
-        type: actorbox
+        span : left
+        type : actorbox
