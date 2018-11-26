@@ -36,7 +36,7 @@ notFoundMessage = "Record not found"
             </ul>
             <h4>Genres</h4> <!--genres is Field Name in control-->
             {% for genre in record.genres %}
-              {{ genre.genre_title }}   
+              {{ genre.genre_title }}   <br>
             {% endfor %}
             <h5>{{ record.year }}</h5>
 
