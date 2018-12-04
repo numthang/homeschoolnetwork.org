@@ -1,4 +1,4 @@
-1543917523a:1:{s:23:"pages-all/copyright.htm";a:5:{s:8:"fileName";s:23:"pages-all/copyright.htm";s:7:"content";s:117:"<div class="lt-row row">
+1543918663a:1:{s:23:"pages-all/copyright.htm";a:5:{s:8:"fileName";s:23:"pages-all/copyright.htm";s:7:"content";s:117:"<div class="lt-row row">
   {% content "copyright" %}
 </div>
 <div class="lt-row row">

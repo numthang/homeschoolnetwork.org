@@ -1,0 +1,93 @@
+description = "Default layout"
+==
+<!DOCTYPE html>
+<html>
+    <head>
+    	<meta charset="UTF-8">
+        <title>Flat UI - {{ this.page.title }}</title>
+        <meta name="title" content="{{ this.page.meta_title }}">
+        <meta name="description" content="{{ this.page.meta_description }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="OctoberCMS">
+        <meta name="generator" content="OctoberCMS">
+        <link rel="icon" type="image/png" href="{{ 'assets/images/logo.png'|theme }}">
+        {% styles %}
+        <link href="{{ [
+            'assets/less/theme.less'
+        ]|theme }}" rel="stylesheet">
+        
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+		<!--[if lt IE 9]>
+			<script src="{{ [
+				'assets/javascript/html5shiv.js',
+				'assets/javascript/respond.min.js',
+			]|theme }}"></script>
+		<![endif]-->
+    </head>
+    <body class="page-{{ this.page.id }} layout-{{ this.layout.id }}">
+
+        <!-- Header -->
+        <header id="layout-header" class="header-navbar">
+            <!-- Nav -->
+            {% partial "nav" %}
+        </header>
+
+        <!-- Content -->
+        <div id="layout-content">
+            {% page %}
+        </div>
+
+        <!-- Mailing List -->
+        <section id="layout-subscribe" class="subscribe-form">
+            {% partial "subscribe" %}
+        </section>
+
+        <!-- Footer -->
+        <footer id="layout-footer">
+            {% partial "footer" %}
+        </footer>
+
+        <!-- Scripts -->
+        <script src="{{ [
+            'assets/javascript/jquery.min.js',
+            
+            'assets/vendor/bootstrap/js/transition.js',
+            'assets/vendor/bootstrap/js/alert.js',
+            'assets/vendor/bootstrap/js/button.js',
+            'assets/vendor/bootstrap/js/carousel.js',
+            'assets/vendor/bootstrap/js/collapse.js',
+            'assets/vendor/bootstrap/js/dropdown.js',
+            'assets/vendor/bootstrap/js/modal.js',
+            'assets/vendor/bootstrap/js/tooltip.js',
+            'assets/vendor/bootstrap/js/popover.js',
+            'assets/vendor/bootstrap/js/scrollspy.js',
+            'assets/vendor/bootstrap/js/tab.js',
+            'assets/vendor/bootstrap/js/affix.js',
+
+            'assets/vendor/jquery-ui/js/jquery.ui.core.js',
+            'assets/vendor/jquery-ui/js/jquery.ui.widget.js',
+            'assets/vendor/jquery-ui/js/jquery.ui.mouse.js',
+            'assets/vendor/jquery-ui/js/jquery.ui.position.js',
+            'assets/vendor/jquery-ui/js/jquery.ui.button.js',
+            'assets/vendor/jquery-ui/js/jquery.ui.slider.js',
+            'assets/vendor/jquery-ui/js/jquery.ui.effects.js',
+            'assets/vendor/jquery-ui/js/jquery.ui.touchpunch.js',
+            
+            'assets/vendor/flat-ui/js/video.js',
+            'assets/vendor/flat-ui/js/bootstrap-switch.js',
+            'assets/vendor/flat-ui/js/bootstrap-tagsinput.js',
+            'assets/vendor/flat-ui/js/holder.js',
+            'assets/vendor/flat-ui/js/typeahead.jquery.js',
+            'assets/vendor/flat-ui/js/select2.js',
+            'assets/vendor/flat-ui/js/flatui-radiocheck.js',
+            
+            'assets/javascript/app.js'
+        ]|theme }}"></script>
+        <script>
+        	videojs.options.flash.swf = "{{ 'assets/vendor/flat-ui/js/video-js.swf'|theme }}";
+        </script>
+        {% framework extras %}
+        {% scripts %}
+
+    </body>
+</html>

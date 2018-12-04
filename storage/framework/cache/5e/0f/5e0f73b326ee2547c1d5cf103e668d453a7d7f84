@@ -1,0 +1,95 @@
+1543918686a:1:{s:18:"samples/signin.htm";a:8:{s:8:"fileName";s:18:"samples/signin.htm";s:7:"content";s:2062:"title = "Sign in"
+url = "/signin"
+layout = "default"
+==
+<div class="signin-container">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="signin">
+                    <div class="signin-screen">
+                        <div class="signin-icon">
+                            <img src="{{ 'assets/images/logo.png'|theme }}" alt="Welcome to Flat App" />
+                            <h4>Welcome to <small>Flat App</small></h4>
+                        </div>
+
+                        <div class="signin-form">
+                            <div class="form-group">
+                                <input
+                                    type="text"
+                                    class="form-control signin-field"
+                                    value=""
+                                    placeholder="Enter your email"
+                                    id="signin-email" />
+                                <label class="signin-field-icon fui-mail" for="signin-email"></label>
+                            </div>
+
+                            <div class="form-group">
+                                <input
+                                    type="password"
+                                    class="form-control signin-field"
+                                    value=""
+                                    placeholder="Password"
+                                    id="signin-pass" />
+                                <label class="signin-field-icon fui-lock" for="signin-pass"></label>
+                            </div>
+
+                            <a class="btn btn-primary btn-lg btn-block" href="#">Log in</a>
+
+                            <a class="signin-link" href="#">Lost your password?</a>
+                            <a class="signin-link" href="{{ 'samples/register'|page }}">Create an account</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>";s:5:"mtime";i:1543917368;s:6:"markup";s:2006:"<div class="signin-container">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="signin">
+                    <div class="signin-screen">
+                        <div class="signin-icon">
+                            <img src="{{ 'assets/images/logo.png'|theme }}" alt="Welcome to Flat App" />
+                            <h4>Welcome to <small>Flat App</small></h4>
+                        </div>
+
+                        <div class="signin-form">
+                            <div class="form-group">
+                                <input
+                                    type="text"
+                                    class="form-control signin-field"
+                                    value=""
+                                    placeholder="Enter your email"
+                                    id="signin-email" />
+                                <label class="signin-field-icon fui-mail" for="signin-email"></label>
+                            </div>
+
+                            <div class="form-group">
+                                <input
+                                    type="password"
+                                    class="form-control signin-field"
+                                    value=""
+                                    placeholder="Password"
+                                    id="signin-pass" />
+                                <label class="signin-field-icon fui-lock" for="signin-pass"></label>
+                            </div>
+
+                            <a class="btn btn-primary btn-lg btn-block" href="#">Log in</a>
+
+                            <a class="signin-link" href="#">Lost your password?</a>
+                            <a class="signin-link" href="{{ 'samples/register'|page }}">Create an account</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>";s:4:"code";N;s:5:"title";s:7:"Sign in";s:3:"url";s:7:"/signin";s:6:"layout";s:7:"default";}}
