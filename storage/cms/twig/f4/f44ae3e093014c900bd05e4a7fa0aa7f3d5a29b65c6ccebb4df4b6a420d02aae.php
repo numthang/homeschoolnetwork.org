@@ -41,7 +41,7 @@ class __TwigTemplate_e23104fdd9170ef1943e27bc128de1ef891b1d8c566eefa4b7105a03c2f
             <a class=\"navbar-brand\" href=\"";
         // line 77
         echo $this->extensions['Cms\Twig\Extension']->pageFilter("home");
-        echo "\">Flat</a>
+        echo "\">Homeschool Network</a>
         </div>
         <div class=\"collapse navbar-collapse navbar-main-collapse\">
             <ul class=\"nav navbar-nav navbar-right\">
@@ -239,7 +239,7 @@ class __TwigTemplate_e23104fdd9170ef1943e27bc128de1ef891b1d8c566eefa4b7105a03c2f
                 <span class=\"sr-only\">Toggle navigation</span>
                 <span class=\"fa fa-bars\"></span>
             </button>
-            <a class=\"navbar-brand\" href=\"{{ 'home'|page }}\">Flat</a>
+            <a class=\"navbar-brand\" href=\"{{ 'home'|page }}\">Homeschool Network</a>
         </div>
         <div class=\"collapse navbar-collapse navbar-main-collapse\">
             <ul class=\"nav navbar-nav navbar-right\">
