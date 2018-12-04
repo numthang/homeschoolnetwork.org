@@ -1,4 +1,4 @@
-1543226442a:1:{s:9:"about.htm";a:9:{s:8:"fileName";s:9:"about.htm";s:7:"content";s:631:"title = "About"
+1543917523a:1:{s:9:"about.htm";a:9:{s:8:"fileName";s:9:"about.htm";s:7:"content";s:631:"title = "About"
 url = "/about"
 layout = "octaskin"
 is_hidden = 0
@@ -26,7 +26,7 @@ function onStart()
       {% partial "pages-about/mainpage" %} 
     </div>
   </div>
-</section>";s:5:"mtime";i:1542449609;s:6:"markup";s:462:"<section id="lt-header" class="lt-section lt-section-fullwidth section">
+</section>";s:5:"mtime";i:1543916768;s:6:"markup";s:462:"<section id="lt-header" class="lt-section lt-section-fullwidth section">
   <div class="lt-container container">
     <div class="lt-content lt-header-content">
       {% partial "pages-about/header" %}
