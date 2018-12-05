@@ -1,4 +1,4 @@
-1543936786a:1:{s:11:"default.htm";a:6:{s:8:"fileName";s:11:"default.htm";s:7:"content";s:3490:"description = "Default layout"
+1544022793a:1:{s:11:"default.htm";a:6:{s:8:"fileName";s:11:"default.htm";s:7:"content";s:3579:"description = "Default layout"
 ==
 <!DOCTYPE html>
 <html>
@@ -37,10 +37,10 @@
             {% page %}
         </div>
 
-        <!-- Mailing List -->
+        <!-- Mailing List 
         <section id="layout-subscribe" class="subscribe-form">
             {% partial "subscribe" %}
-        </section>
+        </section>-->
 
         <!-- Footer -->
         <footer id="layout-footer">
@@ -90,8 +90,7 @@
         {% scripts %}
 
     </body>
-</html>
-";s:5:"mtime";i:1543917368;s:6:"markup";s:3455:"<!DOCTYPE html>
+</html>";s:5:"mtime";i:1544012872;s:6:"markup";s:3545:"<!DOCTYPE html>
 <html>
     <head>
     	<meta charset="UTF-8">
@@ -128,10 +127,10 @@
             {% page %}
         </div>
 
-        <!-- Mailing List -->
+        <!-- Mailing List 
         <section id="layout-subscribe" class="subscribe-form">
             {% partial "subscribe" %}
-        </section>
+        </section>-->
 
         <!-- Footer -->
         <footer id="layout-footer">

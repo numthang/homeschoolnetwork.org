@@ -45,7 +45,7 @@
 
 // Brand colors
 @brand-primary:             @wet-asphalt;
-@brand-secondary:           @silver;
+@brand-secondary:           @orange;
 @brand-success:             @emerald;
 @brand-warning:             @sun-flower;
 @brand-danger:              @alizarin;
@@ -69,7 +69,7 @@
 
 //** Global textual link color.
 @link-color:                @green-sea;
-@link-hover-color:          @turquoise;
+@link-hover-color:          @orange;
 //** Link hover decoration.
 @link-hover-decoration:     none;
 

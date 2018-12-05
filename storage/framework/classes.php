@@ -347,4 +347,10 @@
   'RainLab\\Builder\\Classes\\ComponentHelper' => 'plugins/rainlab/builder/classes/ComponentHelper.php',
   'RainLab\\Builder\\Classes\\MigrationFileParser' => 'plugins/rainlab/builder/classes/MigrationFileParser.php',
   'Backend\\FormWidgets\\Repeater' => 'modules/backend/formwidgets/Repeater.php',
+  'Backend\\FormWidgets\\PermissionEditor' => 'modules/backend/formwidgets/PermissionEditor.php',
+  'kurtjensen\\passage\\Plugin' => 'plugins/kurtjensen/passage/Plugin.php',
+  'KurtJensen\\Passage\\Services\\PassageServiceProvider' => 'plugins/kurtjensen/passage/services/PassageServiceProvider.php',
+  'KurtJensen\\Passage\\Models\\Variance' => 'plugins/kurtjensen/passage/models/Variance.php',
+  'KurtJensen\\Passage\\Models\\Key' => 'plugins/kurtjensen/passage/models/Key.php',
+  'Numthang\\Homeschool\\Components\\Courses' => 'plugins/numthang/homeschool/components/Courses.php',
 );

@@ -1,0 +1,28 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: kurtjensen.passage::lang.key.model
+
+# Model Form Field configuration
+form: $/kurtjensen/passage/models/key/fields.yaml
+
+# Model Class name
+modelClass: KurtJensen\Passage\Models\Key
+
+# Default redirect location
+defaultRedirect: kurtjensen/passage/keys
+
+# Create page
+create:
+    redirect: kurtjensen/passage/keys/update/:id
+    redirectClose: kurtjensen/passage/keys
+
+# Update page
+update:
+    redirect: kurtjensen/passage/keys
+    redirectClose: kurtjensen/passage/keys
+
+# Preview page
+preview:

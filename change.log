@@ -1,3 +1,24 @@
+สร้าง components
+1. สร้าง directory components/xxx 
+2. register component ใน [plugin_name]/Plugin.php ด้วย namespace ของ component บรรทัดบนสุด
+
+
+
+Introduction
+- บ้านเรียนคือ เอาไว้โดสะนาสั้นๆ หน้าแรกบนสุด แบ่งเป็น 
+- FAQ
+- ประเภทของบ้านเรียน
+
+ชั้นตอนการทำบ้านเรียน
+1. 
+- การเขียนแผนส่งเขต (ขอฟอร์มแบบ minimalist)
+- การยื่นแบบประเมิน (SAR) + ร่องรอยการเรียนรู้ (ขอฟอร์มแบบ minimalist)
+- ขั้นตอนการจดทะเบียนบ้านเรียนกับเขต ดู รูปและคำแนะนำที่ https://issuu.com/manncomely/docs/___________________________________
+- ไอเดียข้อมูลอื่นๆ ดู https://marvelapp.com/36ch6ej/screen/44315100
+- ไอเดียรูปภาพ ที่ต้องการ สามารถหาได้จาก shutterstock หรือเว็บอื่นๆ ถ้าเจอรูปที่ตรงแล้วคุ้มกว่าวาดเองให้พิจารณาซื้อ
+- ไอเดียรูปแบบเว็บดู http://wespace.in.th/
+
+
 create multilanguage form
 with nice usability to the user when he typed in something wrong or forgot something
 an answer on the screen after sending
@@ -12,16 +33,7 @@ team display / events / faq / movie data / timeline / shop / ads. they are rough
 
 esoecially the forms are still a big open wound i cannot close. we do not yet use forms from ocotbercms but still from another system which is sad and unsafe
 
-เขียน Mind map web บ้านเรียน  จุดประสงค์หลัก คือ ต้องการให้คนเข้ามาแล้วได้ข้อมูลครบแล้วกระชับที่สุด
 
-- บ้านเรียนคืออะไร
-- บ้านเรียนมีกี่แบบ
-- การเขียนแผนส่งเขต (ขอฟอร์มแบบ minimalist)
-- การยื่นแบบประเมิน (SAR) + ร่องรอยการเรียนรู้ (ขอฟอร์มแบบ minimalist)
-- ขั้นตอนการจดทะเบียนบ้านเรียนกับเขต ดู รูปและคำแนะนำที่ https://issuu.com/manncomely/docs/___________________________________
-- ไอเดียข้อมูลอื่นๆ ดู https://marvelapp.com/36ch6ej/screen/44315100
-- ไอเดียรูปภาพ ที่ต้องการ สามารถหาได้จาก shutterstock หรือเว็บอื่นๆ ถ้าเจอรูปที่ตรงแล้วคุ้มกว่าวาดเองให้พิจารณาซื้อ
-- ไอเดียรูปแบบเว็บดู http://wespace.in.th/
 
 
 Option (ไม่แน่ใจว่าจำเป็นหรือเปล่า)

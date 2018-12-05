@@ -88,7 +88,7 @@ class __TwigTemplate_c10c62e848ee2800b74b2d5cdae0d915aaf9ca195908b6929aa1da82087
         // line 36
         echo "        </div>
 
-        <!-- Mailing List -->
+        <!-- Mailing List 
         <section id=\"layout-subscribe\" class=\"subscribe-form\">
             ";
         // line 40
@@ -96,7 +96,7 @@ class __TwigTemplate_c10c62e848ee2800b74b2d5cdae0d915aaf9ca195908b6929aa1da82087
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("subscribe"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
         // line 41
-        echo "        </section>
+        echo "        </section>-->
 
         <!-- Footer -->
         <footer id=\"layout-footer\">
@@ -200,10 +200,10 @@ class __TwigTemplate_c10c62e848ee2800b74b2d5cdae0d915aaf9ca195908b6929aa1da82087
             {% page %}
         </div>
 
-        <!-- Mailing List -->
+        <!-- Mailing List 
         <section id=\"layout-subscribe\" class=\"subscribe-form\">
             {% partial \"subscribe\" %}
-        </section>
+        </section>-->
 
         <!-- Footer -->
         <footer id=\"layout-footer\">
