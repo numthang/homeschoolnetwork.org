@@ -2,7 +2,8 @@ columns:
     user_id:
         label: ID
         type: number
-    first_name:
+        searchable: true
+    name:
         label: ชื่อ
         type: text
         searchable: true

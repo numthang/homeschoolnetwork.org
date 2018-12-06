@@ -7,8 +7,7 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
       return [
-            'Numthang\Homeschool\Components\Courses' => 'actors',
-            'Watchlearn\Movies\Components\ActorForm' => 'actorform'
+            'Numthang\Homeschool\Components\Courses' => 'courses'
         ];
     }
 

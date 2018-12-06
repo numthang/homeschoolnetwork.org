@@ -2,9 +2,10 @@
 
 use Cms\Classes\ComponentBase;
 use Input;
-use Mail;
 use Validator;
 use Redirect;
+use Numthang\Homeschool\Models\Course;
+use Flash;
 
 class CourseForm extends ComponentBase
 {
@@ -12,13 +13,12 @@ class CourseForm extends ComponentBase
     public function componentDetails(){
         return [
             'name' => 'Course Form',
-            'description' => 'Simple contact form'
+            'description' => 'Add homeschool course form'
         ];
     }
 
-
-    public function onSend(){
-        $validator = Validator::make(
+    public function onSave(){
+      $validator = Validator::make(
             [
                 'name' => Input::get('name'),
                 'email' => Input::get('email')
@@ -29,19 +29,14 @@ class CourseForm extends ComponentBase
             ]
         );
 
-        if($validator->fails()){
-            return Redirect::back()->withErrors($validator);
-        } else {
-            $vars = ['name' => Input::get('name'), 'email' => Input::get('email'), 'content' => Input::get('content')];
-
-            Mail::send('watchlearn.contact::mail.message', $vars, function($message) {
-
-                $message->to('youremail@gmail.com', 'Admin Person');
-                $message->subject('New message from contact form');
-
-            });
-        }
-
+      if($validator->fails()){
+          return Redirect::back()->withErrors($validator);
+      }
+      $course = new Course();
+      $course->name = Input::get('name');
+      $course->introduction = Input::get('introduction');
+      $course->save();
+      Flash::success('Course added!');
+      return Redirect::back();
     }
-
 }

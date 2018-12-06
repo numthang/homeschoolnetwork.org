@@ -38,7 +38,8 @@
       </div>
       <div class="form-group">
         <label for="homeschooler_name">Homeschooler Name</label>
-        <input type="text" class="form-control" id="homeschooler_name" name="homeschooler_name" placeholder="Enter homeschooler name : {{ errors.first('homeschooler_name') }}">
+        <input type="text" class="form-control" id="homeschooler_name" name="homeschooler_name" placeholder="Enter homeschooler name">
+        {{ errors.first('homeschooler_name') }}
       </div>
       <div class="form-group">
         <label for="message">Introduction</label>

@@ -34,8 +34,8 @@ class __TwigTemplate_50d75b90b0c13bf67cbd458e6327d67afc3bf48acd4fec898625a3fe6b4
         $context['_seq'] = twig_ensure_traversable(($context["courses"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["course"]) {
             // line 9
-            echo "    <li class=\"list-group-item\"><a href=\"#\">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["course"], "first_name", array()), "html", null, true);
+            echo "    <li class=\"list-group-item\" ><a href=\"#\" style=\"font-size: 18px; \">";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["course"], "name", array()), "html", null, true);
             echo "</a></li>
     ";
         }
@@ -79,7 +79,7 @@ class __TwigTemplate_50d75b90b0c13bf67cbd458e6327d67afc3bf48acd4fec898625a3fe6b4
   </div>
   <ul class=\"list-group filter-list-group\">
     {% for course in courses %}
-    <li class=\"list-group-item\"><a href=\"#\">{{ course.first_name }}</a></li>
+    <li class=\"list-group-item\" ><a href=\"#\" style=\"font-size: 18px; \">{{ course.name }}</a></li>
     {% endfor %}
   </ul>
 </div>

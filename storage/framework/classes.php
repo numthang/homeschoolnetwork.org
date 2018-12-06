@@ -353,4 +353,5 @@
   'KurtJensen\\Passage\\Models\\Variance' => 'plugins/kurtjensen/passage/models/Variance.php',
   'KurtJensen\\Passage\\Models\\Key' => 'plugins/kurtjensen/passage/models/Key.php',
   'Numthang\\Homeschool\\Components\\Courses' => 'plugins/numthang/homeschool/components/Courses.php',
+  'Numthang\\Homeschool\\Components\\CourseForm' => 'plugins/numthang/homeschool/components/CourseForm.php',
 );
