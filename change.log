@@ -1,24 +1,6 @@
-ประกาศการอัพเกรดเว็บไซต์
+https://goo.gl/maps/LEkdFQuzjNP2
 
-เกริ่น : เรามีเว็บแต่หลายปีมานี้ไม่ได้โปรโมทให้เข้าใช้งานแล้วเนื่องจาก ระบบเก่าเกินจะใช้งาน ตอนนี้กำลังทำเว็บใหม่ที่มี feature ใหม่ที่คิดว่าเป็นที่ประโยชน์ต่อผู้ที่ทำบ้านเรียนอย่างมาก คือ ระบบการเขียนแผนการศึกษาได้บนหน้าเว็บและสามารถให้ทางเขตเปิดอ่านดูได้ทางเว็บ ไม่ต้องพิมพ์กระดาษ แก้ไขเสร็จก็ไม่ต้องพิมพ์ออกมาดูแค่บอกว่าอัพเดทแล้วเท่านั้น
-
-สิ่งที่ต้องการ : ผมต้องการแบบฟอร์มกลางที่ กระชับ อ่านง่าย ไม่ยืดเยื้อ อยากให้ช่วยกันสังคายนาแบบฟอร์มมาตรฐานนี้ขึ้นมา เพื่อความเข้าใจตรงกันครับ
-
-คำถามถึงสมาชิก :
-
-1. การเขียนแผนของทุกท่าน ใช้แบบฟอร์มตัวไหนเป็นหลักหรือคิดขึ้นมาเอง? เท่าที่เรามี แผนการศึกษาบ้านเรียนน่าจะต่างคนต่างทำกันขึ้นมา ดูได้ที่ https://www.homeschoolnetwork.org/content/tag/%E0%B8%84%E0%B8%A5%E0%B8%B1%E0%B8%87%E0%B9%81%E0%B8%9C%E0%B8%99%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%A8%E0%B8%B6%E0%B8%81%E0%B8%A9%E0%B8%B2%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%99/1/
-
-2. จะเริ่มจากตรงไหนดี ถึงจะได้ฟอร์มกลางขึ้นมา
-
-จากรูปคือ ตัวอย่างฟอร์มออนไลน์ เบื้องต้น
-
-
-
-สร้าง components
-1. สร้าง directory components/xxx 
-2. register component ใน [plugin_name]/Plugin.php ด้วย namespace ของ component บรรทัดบนสุด
-
-
+เนื่องจากมีโอกาสสนิทสนมกับคุณไปรษณีย์ที่มาส่งขอบ่อยๆ วันนี้ได้คุยเรื่องการเลือกตั้งที่จะถึง เขาสนับสนุนเรา จึงเกิดไอเดียฝากส่งแผ่นพับแนะนำ #พรรคอนาคตใหม่ ฝากแนบไปให้ทุกบ้านที่คุณไปรษณีย์ไปส่งถึง เข้าเป้าทันที
 
 Introduction
 - บ้านเรียนคือ เอาไว้โดสะนาสั้นๆ หน้าแรกบนสุด แบ่งเป็น 
@@ -61,107 +43,9 @@ Technical
 3. ยกเลิก multi domain ใช้ระบบ author แทน
 4. แผนที่ คนทำบ้านเรียน
 
+==================================================================================================================
+October Hint
 
-เอกสารนี้ได้รวบรวม คำถามที่มักถูกถามบ่อย ๆ จากหลายที่หลายทางแล้ว กระทู้ที่มีประโยชน์มาร่วมไว้ บางกระทู้หัวเรื่องอาจจะดูไม่น่าสนใจ แต่สาระสำคัญอยู่ใน comment ซึ่งบางทีที่ comments กันก็ไม่ได้ตรงกับหัวข้อแต่คิดว่ามีประโยชน์ อย่างไรลองไล่ ๆ อ่านดูกันได้
-ทุกท่านสามารถแก้ไข เพิ่มเติมได้เพียงแต่ระมัดระวังให้ข้อมูลครบถ้วน อีกหน่อยใครถามคำถามสุดฮิต เรา ก็ช่วยกันเอาอันนี้แปะให้เขาได้ ระหว่างนี้ก็ช่วยกันเพิ่มกระทู้ที่น่าสนใจ
-
-สายด่วนปรึกษาปัญหาเกี่ยวกับจดทะเบียนการทำบ้านเรียน ศูนย์การเรียน กับเขตการศึกษา (ตามมาตรา 12 ) ติดต่อ 
-https://www.facebook.com/messages/t/LearningCenter12
-อยากทำ Home school เริ่มต้นอย่างไรดี
-http://www.homeschoolnetwork.org/content/tag/%E0%B9%80%E0%B8%A3%E0%B8%B4%E0%B9%88%E0%B8%A1%E0%B8%95%E0%B9%89%E0%B8%99%E0%B8%81%E0%B8%B1%E0%B8%9A%E0%B9%82%E0%B8%AE%E0%B8%A1%E0%B8%AA%E0%B8%84%E0%B8%B9%E0%B8%A5/1/
-
-http://foon.homeschoolnetwork.org/content/216.html
-ลักษณะของระบบการศึกษาในไทย ภาพรวมเพื่อความเข้าใจวิธีการได้มาของวุฒิทางการศึกษา
-https://www.facebook.com/groups/homeschoolnetwork/permalink/1352163564854313/
-หลักสูตร homeschool ชนิดต่าง ๆ 
-https://www.facebook.com/groups/homeschoolnetwork/permalink/1565383046865696/
- รวมคู่มือ แบบฟอร์ม ข้อกฎหมายต่าง ๆ เกี่ยวกับการจดทะเบียนบ้านเรียน ศูนย์การเรียน (การศึกษาทางเลือก ตามมาตรา 12) 
-http://www.alternativeeducation.or.th/downloads/
-รวม page บ้านเรียน สามารถใช้เป็นแนวทางการทำบ้านเรียนได้ (มีแนะนำศูนย์การเรียนทางไกลด้วย) https://www.facebook.com/groups/homeschoolnetwork/permalink/819840488086626/
-ทำอย่างไรให้คนที่บ้านยอมรับ Home school https://www.facebook.com/groups/homeschoolnetwork/permalink/723130084424334/
-จะทำโฮมสกูล ต้องทำอย่างไร ติดต่อใครบ้าง
-http://www.facebook.com/groups/homeschoolnetwork/permalink/358673334203346/
-http://www.facebook.com/groups/homeschoolnetwork/permalink/346985025372177/
-แนวทางการดำเนินงานการจัดการศึกษาขึ้นพื้นฐานโดยครอบครับ (ฉบับล่าสุด ออกเมื่อปี 2558)
-http://www.innoobec.com/wp-content/uploads/2015/05/a_w-%E0%B9%81%E0%B8%99%E0%B8%A7%E0%B8%97%E0%B8%B2%E0%B8%87%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%88%E0%B8%B1%E0%B8%94%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%A8%E0%B8%B6%E0%B8%81%E0%B8%A9%E0%B8%B2%E0%B8%82%E0%B8%B1%E0%B9%89%E0%B8%99%E0%B8%9E%E0%B8%B7%E0%B9%89%E0%B8%99%E0%B8%90%E0%B8%B2%E0%B8%99%E0%B9%82%E0%B8%94%E0%B8%A2%E0%B8%84%E0%B8%A3%E0%B8%AD%E0%B8%9A%E0%B8%84%E0%B8%A3%E0%B8%B1%E0%B8%A7-new-OK-.pdf
-อ่านศึกษาคู่มือการดำเนินการการจัดการศึกษาโดยครอบครัว ปี 2555 (ฉบับเก่า) http://www.homeschoolnetwork.org/upload/Homeschool/homeschool-handbook-2555.pdf
-จดทะเบียนดีไหม
-http://www.facebook.com/groups/homeschoolnetwork/permalink/306821226055224
-http://www.homeschoolnetwork.org/content/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B9%81%E0%B8%9A%E0%B8%9A%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%97%E0%B8%B3%E0%B9%82%E0%B8%AE%E0%B8%A1%E0%B8%AA%E0%B8%84%E0%B8%B9%E0%B8%A5.html
-จดทะเบียนอนุบาล
-http://www.facebook.com/groups/homeschoolnetwork/permalink/380188718718474/
-ทำไมจดทะเบียนบ้านเรียนอนุบาล จึงควรจดได้ตั้งแต่อายุ 3 ขวบแต่ไม่สามารถทำได้ และสำนักงานเขตจะรับจดที่ 4 ขวบเท่านั้น
-http://foon.homeschoolnetwork.org/content/248.html
-คำแนะนำการจดทะเบียนบ้านเรียน / ศูนย์การเรียนฉบับย่อ
-https://issuu.com/manncomely/docs/___________________________________
-วิธีการเขียนแผนสำหรับส่งเขตการศึกษา  
-http://foon.homeschoolnetwork.org/content/254.html
-
-ตัวอย่างแบบรายงานการประเมินคุณภาพผู้เรียน (SAR)
-
-http://www.homeschoolnetwork.org/content/295.html
-คำแนะนำในการเขียนแผนบ้านเรียนระดับอนุบาล 
-http://bit.ly/19xaety
-ตัวอย่างการเขียนแผนระดับต่างๆ
-http://www.homeschoolnetwork.org/content/tag/%E0%B8%84%E0%B8%A5%E0%B8%B1%E0%B8%87%E0%B9%81%E0%B8%9C%E0%B8%99%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%A8%E0%B8%B6%E0%B8%81%E0%B8%A9%E0%B8%B2%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%99/1/
-การเรียน รด. ของเด็กบ้านเรียน 
-http://www.lertchaimaster.com/doc/RDnfe.pdf
-https://www.facebook.com/groups/homeschoolnetwork/permalink/1476274492443219/
-หนังสืออ่านสำหรับการทำ Home School
-http://www.facebook.com/groups/homeschoolnetwork/permalink/341720742565272/
-http://www.facebook.com/groups/homeschoolnetwork/doc/290254371045243/
-หลักสูตรของโรงเรียนโฮมสคูลออนไลน์ต่างประเทศ ซึ่งเมื่อเรียบจบสามารถเทียบวุฒิ หรือสมัครวิทยาลัยนานาชาติ/มหาวิทาลัยในต่างประเทศได้
-https://www.facebook.com/groups/homeschoolnetwork/permalink/437323003005045/
-เทคนิค ประสบการณ์การทำ Home School ของคนอื่น ๆ 
-https://www.facebook.com/groups/homeschoolnetwork/permalink/847129792024362/
-http://www.facebook.com/groups/homeschoolnetwork/permalink/348066375264042/
-http://www.facebook.com/groups/homeschoolnetwork/permalink/328464733890873/
-http://www.facebook.com/groups/homeschoolnetwork/permalink/320651321338881/
-http://www.facebook.com/groups/homeschoolnetwork/permalink/314127025324644/
-http://www.facebook.com/groups/homeschoolnetwork/permalink/315967981807215/
-http://www.facebook.com/groups/homeschoolnetwork/permalink/303130103091003/
-http://www.facebook.com/groups/homeschoolnetwork/permalink/299587326778614/
-http://www.facebook.com/groups/homeschoolnetwork/permalink/298307583573255/
-
-Home school แล้วไปไหน (อนาคตของเด็กบ้านเรียน)
-Playlist เกี่ยวกับคนทำบ้านเรียนใน youtube https://www.youtube.com/playlist?list=PLo6993kzqGinAQB0N5OBjhSfhENdTvoG9
-https://www.facebook.com/groups/homeschoolnetwork/permalink/1446997935370875/
-http://www.facebook.com/groups/homeschoolnetwork/permalink/304620402941973/
-Home school ทำไม
-http://www.facebook.com/groups/homeschoolnetwork/permalink/369205659816780/
-http://www.facebook.com/groups/homeschoolnetwork/permalink/359776244093055/
-http://www.homeschoolnetwork.org/content/tag/%E0%B8%97%E0%B8%B3%E0%B9%84%E0%B8%A1%E0%B8%95%E0%B9%89%E0%B8%AD%E0%B8%87%E0%B9%82%E0%B8%AE%E0%B8%A1%E0%B8%AA%E0%B8%84%E0%B8%B9%E0%B8%A5/1/
-Home school VS school
-https://www.facebook.com/groups/homeschoolnetwork/permalink/523732144364130/
-http://www.facebook.com/groups/homeschoolnetwork/permalink/378858382184841/
-เรื่องเพื่อน / การเข้าสังคม
-http://www.facebook.com/groups/homeschoolnetwork/permalink/412181512185861/
-เด็กบ้านเรียนจะอยู่ในสังคมไทยได้ยังไง
-https://www.facebook.com/groups/homeschoolnetwork/permalink/1449340761803259/
-มีตัวอย่างเเย่ๆ ของเด็ก home school บ้างไหม
-https://www.facebook.com/groups/homeschoolnetwork/permalink/901904283213579/
-สถานที่ / Group ที่จะรวมกลุ่ม (บางกลุ่มไม่แน่นใจว่าเค้าเปิดขนาดไหน บางกลุ่มก็เลยไม่ได้เอามาลงนะ ถ้าคนดูแลกลุ่มเห็นก็เพิ่มได้เลย)
-
-ณ ปี 2560 วิธีหนึ่งที่สะดวกเบื้องต้น คือ การเช็คดูที่ กลุ่มเมฆ (tag ป้ายคำค้น) ของเว็บ site ซึ่งอยากแนะนำให้ทุกท่าน ลงทะเบียนและระบุจังหวัดของตนเอง เพื่อคนที่ทำบ้านเรียนด้วยกันจะได้หากันเจอ http://www.homeschoolnetwork.org/misc/hn/network/ หากไม่มีวิธีที่ใช้ได้ผลดีคือ ประกาศหา/ถามใน กลุ่ม https://www.facebook.com/groups/homeschoolnetwork
-http://www.facebook.com/groups/homeschoolnetwork/permalink/141722759231739/
-กลุ่มเด็กน้อย กทม. http://www.facebook.com/groups/137679809682751/
-เครือข่ายบ้านเรียนล้านนา (เชียงใหม่และภาคเหนือ) https://www.facebook.com/groups/HomeSchoolLanna/
-https://www.facebook.com/groups/NorthHomeSchool/
-ตลาดนัดบ้านเรียน พื้นที่ต่อเนื่องจาก Homeschool Network Group เป็นช่องทางสำหรับกลุ่มโฮมสคูล เพื่อการโฆษณา ขายของ ประชาสัมพันธ์ กิจกรรมสำหรับเด็ก ได้ทั้งแบบฟรีและไม่ฟรี รวมทั้งพ่อแม่ที่ต้องการหากิจกรรมดีๆ ให้กับเด็กๆ
-https://www.facebook.com/groups/HomeSchoolBazaar
-รวบรวมทั่วไปสำหรับมือใหม่อยากทำโฮมสคูล รวมทั้งตัวอย่างการเขียนแผนค่ะ (ไฟล์จากเน็ต ขออนุญาตผู้เกี่ยวข้องไว้ตรงนี้นะคะ)
-https://www.box.com/s/f0c5e42843470f7e3746
-Playlist ความรู้เชิงวิชาการเกี่ยวกับหลักสูตรแกนกลางและการปรับใช้ การวัดประเมินผลจะช่วยทำให้เราเข้าใจว่าทางภาครัฐอนุญาติให้เราจัดบ้านเรียน ด้วยหลักการอะไร อยู่บนพื้นฐาน จนท.มีวิธีคิดมุมมองแบบไหน แต่ส่วนตัวคิดว่าไม่ได้จำเป็นมาก ถึงรู้ก็ไม่ได้ทำให้เราจัดการเรียนรู้ให้ลูกได้ดีขึ้น แต่จะช่วยให้เราเข้าใจมุมมองของเจ้าหน้าที่รัฐและทำงานได้ราบรื่นขึ้น ถ้าใครจดทะเบียนกับเขตและมีเวลาพอก็แนะนำให้ศึกษาไว้ โดยเฉพาะการประเมินตามสภาพจริงที่จะใช้ในการประเมินเด็ก https://www.youtube.com/playlist?list=PLo6993kzqGilkIMVpuAoBn9T9Nj9a-jfy
-เลือกหนังให้ลูกดู
-http://www.facebook.com/groups/homeschoolnetwork/permalink/372006266203386/
-ไฟล์เอกสารของกลุ่ม มีเรื่องดี ๆ เยอะ แต่ต้องไล่ดูหน่อย
-http://www.facebook.com/groups/homeschoolnetwork/files/
-unschoolinghttp://www.facebook.com/groups/homeschoolnetwork/permalink/147545908649424/
-การสอนและหลักสูตร
-http://www.facebook.com/groups/homeschoolnetwork/permalink/346917812045565/
-ความเข้าใจ(ผิด)เรื่องการทำ HomeSchool 
-ตอน #1 https://www.facebook.com/HomeUnschool/posts/1758528707531897
-ตอน #2 https://www.facebook.com/HomeUnschool/posts/1758880804163354
-ตอน #3 https://www.facebook.com/HomeUnschool/posts/1759313464120088
-****หมายเหตุ****กำเนิด group
-http://www.facebook.com/groups/homeschoolnetwork/permalink/132701490133866/ 
+การสร้าง components
+1. สร้าง directory components/xxx 
+2. register component ใน [plugin_name]/Plugin.php ด้วย namespace ของ component บรรทัดบนสุด

@@ -1,52 +1,84 @@
-1544064029a:1:{s:8:"home.htm";a:8:{s:8:"fileName";s:8:"home.htm";s:7:"content";s:3391:"title = "Demonstration"
+1544352792a:1:{s:8:"home.htm";a:13:{s:8:"fileName";s:8:"home.htm";s:7:"content";s:4271:"title = "Home"
 url = "/"
 layout = "default"
-==
+is_hidden = 0
 
+[viewBag]
+localeUrl[th] = "/home"
+
+[sociallogin]
+
+[session]
+security = "all"
+
+[account]
+paramCode = "code"
+forceSecure = 0
+==
 <section class="home-title">
     <div class="container">
         <div class="row">
             <div class="col-sm-4">
-                <h3>Flat Theme for OctoberCMS</h3>
-                <p>You have the design, you have the code. We've created the product that will help your startup to look even better.</p>
+                <h3>เครือข่ายบ้านเรียน</h3>
+                Homeschool Network หรือ "เครือข่ายบ้านเรียน" เข้าใจการทำโฮมสคูลในประเทศไทยจบที่นี่ทีเดียว 
                 <div class="signup-form">
-                    <form>
-                        <div class="form-group">
-                            <input class="form-control" type="text" placeholder="Your E-mail">
-                        </div>
-                        <div class="form-group">
-                            <div>
-                                <input type="password" class="form-control" placeholder="Password">
-                            </div>
-                            <div>
-                                <input type="password" class="form-control" placeholder="Confirmation">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-block btn-info">Sign Up</button>
-                        </div>
-                    </form>
+                  {% if not user %}
+                  <form data-request="onSignin">
+                    <div class="form-group">
+                        <label for="userSigninLogin">{{ loginAttributeLabel }}</label>
+                        <input
+                            name="login"
+                            type="text"
+                            class="form-control"
+                            id="userSigninLogin"
+                            placeholder="Enter your {{ loginAttributeLabel|lower }}" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userSigninPassword">Password</label>
+                        <input
+                            name="password"
+                            type="password"
+                            class="form-control"
+                            id="userSigninPassword"
+                            placeholder="Enter your password" />
+                    </div>
+
+                    <button type="submit" class="btn btn-block btn-default">Sign in</button>
+                  </form>
+                  {% else %}
+                    {% partial account ~ '::activation_check' %}
+                    {% partial account ~ '::update' %}
+                    {% partial account ~ '::deactivate_link' %}
+                  {% endif %}
+                  {% component 'sociallogin' %}
                 </div>
-                <div class="additional-links">
+                <!--<div class="additional-links">
                     By signing up you agree to <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>
-                </div>
+                </div>-->
             </div>
             <div class="col-sm-7 col-sm-offset-1 player-wrapper">
                 <div class="player">
-                    <iframe src="http://player.vimeo.com/video/29568236?color=3498db" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                    <iframe width="560" height="316" src="https://www.youtube.com/embed/_VluJjS3IfQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="logos">
-    <div class="container">
-        <div><img src="{{ 'assets/images/logos/mashable.png'|theme }}" alt=""></div>
-        <div><img src="{{ 'assets/images/logos/guardian.png'|theme }}" alt=""></div>
-        <div><img src="{{ 'assets/images/logos/forbes.png'|theme }}" alt=""></div>
-        <div><img src="{{ 'assets/images/logos/red-bull.png'|theme }}" alt=""></div>
-        <div><img src="{{ 'assets/images/logos/ny-times.png'|theme }}" alt=""></div>
+<section class="google-ads">
+    <div class="container">ADS
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Homeschool Network Index Top 
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9939363335105757"
+     data-ad-slot="3572354287"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>-->
     </div>
 </section>
 
@@ -84,50 +116,71 @@ layout = "default"
 
 </div>
 
-<br />";s:5:"mtime";i:1543917368;s:6:"markup";s:3334:"<section class="home-title">
+<br />
+";s:5:"mtime";i:1544350550;s:6:"markup";s:4085:"<section class="home-title">
     <div class="container">
         <div class="row">
             <div class="col-sm-4">
-                <h3>Flat Theme for OctoberCMS</h3>
-                <p>You have the design, you have the code. We've created the product that will help your startup to look even better.</p>
+                <h3>เครือข่ายบ้านเรียน</h3>
+                Homeschool Network หรือ "เครือข่ายบ้านเรียน" เข้าใจการทำโฮมสคูลในประเทศไทยจบที่นี่ทีเดียว 
                 <div class="signup-form">
-                    <form>
-                        <div class="form-group">
-                            <input class="form-control" type="text" placeholder="Your E-mail">
-                        </div>
-                        <div class="form-group">
-                            <div>
-                                <input type="password" class="form-control" placeholder="Password">
-                            </div>
-                            <div>
-                                <input type="password" class="form-control" placeholder="Confirmation">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-block btn-info">Sign Up</button>
-                        </div>
-                    </form>
+                  {% if not user %}
+                  <form data-request="onSignin">
+                    <div class="form-group">
+                        <label for="userSigninLogin">{{ loginAttributeLabel }}</label>
+                        <input
+                            name="login"
+                            type="text"
+                            class="form-control"
+                            id="userSigninLogin"
+                            placeholder="Enter your {{ loginAttributeLabel|lower }}" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userSigninPassword">Password</label>
+                        <input
+                            name="password"
+                            type="password"
+                            class="form-control"
+                            id="userSigninPassword"
+                            placeholder="Enter your password" />
+                    </div>
+
+                    <button type="submit" class="btn btn-block btn-default">Sign in</button>
+                  </form>
+                  {% else %}
+                    {% partial account ~ '::activation_check' %}
+                    {% partial account ~ '::update' %}
+                    {% partial account ~ '::deactivate_link' %}
+                  {% endif %}
+                  {% component 'sociallogin' %}
                 </div>
-                <div class="additional-links">
+                <!--<div class="additional-links">
                     By signing up you agree to <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>
-                </div>
+                </div>-->
             </div>
             <div class="col-sm-7 col-sm-offset-1 player-wrapper">
                 <div class="player">
-                    <iframe src="http://player.vimeo.com/video/29568236?color=3498db" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                    <iframe width="560" height="316" src="https://www.youtube.com/embed/_VluJjS3IfQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="logos">
-    <div class="container">
-        <div><img src="{{ 'assets/images/logos/mashable.png'|theme }}" alt=""></div>
-        <div><img src="{{ 'assets/images/logos/guardian.png'|theme }}" alt=""></div>
-        <div><img src="{{ 'assets/images/logos/forbes.png'|theme }}" alt=""></div>
-        <div><img src="{{ 'assets/images/logos/red-bull.png'|theme }}" alt=""></div>
-        <div><img src="{{ 'assets/images/logos/ny-times.png'|theme }}" alt=""></div>
+<section class="google-ads">
+    <div class="container">ADS
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Homeschool Network Index Top 
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9939363335105757"
+     data-ad-slot="3572354287"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>-->
     </div>
 </section>
 
@@ -165,4 +218,4 @@ layout = "default"
 
 </div>
 
-<br />";s:4:"code";N;s:5:"title";s:13:"Demonstration";s:3:"url";s:1:"/";s:6:"layout";s:7:"default";}}
+<br />";s:4:"code";N;s:5:"title";s:4:"Home";s:3:"url";s:1:"/";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";s:7:"viewBag";a:1:{s:9:"localeUrl";a:1:{s:2:"th";s:5:"/home";}}s:11:"sociallogin";a:0:{}s:7:"session";a:1:{s:8:"security";s:3:"all";}s:7:"account";a:2:{s:9:"paramCode";s:4:"code";s:11:"forceSecure";s:1:"0";}}}

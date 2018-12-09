@@ -1,0 +1,108 @@
+title = "Home"
+url = "/"
+layout = "default"
+is_hidden = 0
+
+[viewBag]
+localeUrl[th] = "/home"
+
+[sociallogin]
+
+[session]
+security = "all"
+
+[account]
+paramCode = "code"
+forceSecure = 0
+==
+<section class="home-title">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <h3>เครือข่ายบ้านเรียน</h3>
+                Homeschool Network หรือ "เครือข่ายบ้านเรียน" เข้าใจการทำโฮมสคูลในประเทศไทยจบที่นี่ทีเดียว 
+                <div class="signup-form">
+                  {% if not user %}
+                  <form data-request="onSignin">
+                    <div class="form-group">
+                        <label for="userSigninLogin">{{ loginAttributeLabel }}</label>
+                        <input
+                            name="login"
+                            type="text"
+                            class="form-control"
+                            id="userSigninLogin"
+                            placeholder="Enter your {{ loginAttributeLabel|lower }}" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userSigninPassword">Password</label>
+                        <input
+                            name="password"
+                            type="password"
+                            class="form-control"
+                            id="userSigninPassword"
+                            placeholder="Enter your password" />
+                    </div>
+
+                    <button type="submit" class="btn btn-block btn-default">Sign in</button>
+                  </form>
+                  {% else %}
+                    {% partial account ~ '::activation_check' %}
+                    {% partial account ~ '::update' %}
+                    {% partial account ~ '::deactivate_link' %}
+                  {% endif %}
+                  {% component 'sociallogin' %}
+                </div>
+                <!--<div class="additional-links">
+                    By signing up you agree to <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>
+                </div>-->
+            </div>
+            <div class="col-sm-7 col-sm-offset-1 player-wrapper">
+                <div class="player">
+                    <iframe width="560" height="316" src="https://www.youtube.com/embed/_VluJjS3IfQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="google-ads">
+    <div class="container">
+    </div>
+</section>
+
+<br />
+
+<div class="container">
+
+    <!-- Services -->
+    <div class="row our-services">
+        <div class="col-sm-12">
+            <h4 class="headline"><span>What we do</span></h4>
+            <p>He hasn't got a freckle my mad as a middy. Trent from punchy maccas no dramas shazza got us some ripper. As dry as a bradman flamin lets throw a cut lunch commando.</p>
+
+            {% partial 'services' %}
+        </div>
+    </div>
+
+    <div class="recent-tweets">
+        <h4 class="headline"><span>Recent tweets</span></h4>
+        <div class="tweet">
+            <i class="fa fa-twitter"></i>
+            <p>
+                Salami turkey jowl rump jerky ball tip drumstick ground round tenderloin kielbasa hamburger prosciutto.
+                <a href="#">1 day ago</a>
+            </p>
+        </div>
+        <div class="tweet">
+            <i class="fa fa-twitter"></i>
+            <p>
+                Short loin pork belly beef, tenderloin swine ribeye tri-tip doner salami rump hamburger.
+                <a href="#">2 days ago</a>
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<br />

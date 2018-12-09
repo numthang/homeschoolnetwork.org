@@ -1,9 +1,9 @@
 
 .home-title {
     background: #f1f1f1;
-    background-image: url('../images/lines.png');
-    padding-top: 50px;
-    padding-bottom: 50px;
+    /*background-image: url('../images/lines.png');*/
+    padding-top: 30px;
+    padding-bottom: 0px;
     color: @text-color;
     position: relative;
     h3 {
@@ -30,15 +30,15 @@
         }
     }
     @media (max-width: 767px) {
-        padding-top:68px;
-        padding-bottom:70px;
+        padding-top:10px;
+        padding-bottom:10px;
         .player {
             margin: 40px 0 45px;
         }
     }
     @media (max-width: 480px) {
-        padding-top:68px;
-        padding-bottom:70px;
+        padding-top:10px;
+        padding-bottom:10px;
         h3 {
             font-size: 26px;
         }
@@ -48,7 +48,7 @@
     }
     .signup-form {
         form {
-            margin-top: 30px;
+            margin-top: 10px;
             margin-bottom: 20px;
             .form-group:first-child + .form-group {
                 display: table;

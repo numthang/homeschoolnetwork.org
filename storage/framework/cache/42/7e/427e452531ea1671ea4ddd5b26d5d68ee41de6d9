@@ -1,10 +1,10 @@
-1544064029a:1:{s:11:"default.htm";a:6:{s:8:"fileName";s:11:"default.htm";s:7:"content";s:3579:"description = "Default layout"
+1544352792a:1:{s:11:"default.htm";a:6:{s:8:"fileName";s:11:"default.htm";s:7:"content";s:3601:"description = "Default layout"
 ==
 <!DOCTYPE html>
 <html>
     <head>
     	<meta charset="UTF-8">
-        <title>Flat UI - {{ this.page.title }}</title>
+        <title>Homeschool Network (Thailand) - {{ this.page.title }}</title>
         <meta name="title" content="{{ this.page.meta_title }}">
         <meta name="description" content="{{ this.page.meta_description }}">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -90,11 +90,11 @@
         {% scripts %}
 
     </body>
-</html>";s:5:"mtime";i:1544012872;s:6:"markup";s:3545:"<!DOCTYPE html>
+</html>";s:5:"mtime";i:1544076274;s:6:"markup";s:3567:"<!DOCTYPE html>
 <html>
     <head>
     	<meta charset="UTF-8">
-        <title>Flat UI - {{ this.page.title }}</title>
+        <title>Homeschool Network (Thailand) - {{ this.page.title }}</title>
         <meta name="title" content="{{ this.page.meta_title }}">
         <meta name="description" content="{{ this.page.meta_description }}">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
