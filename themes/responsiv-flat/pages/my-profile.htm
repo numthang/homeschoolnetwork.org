@@ -1,24 +1,22 @@
-title = "Add Course"
-url = "/login/add/course"
+title = "My Profile"
+url = "/login/profile"
 layout = "default"
 is_hidden = 0
 
 [viewBag]
-localeUrl[th] = "/add-course"
-
-[courses]
-results = 0
-sortOrder = "name asc"
-
-[courseform]
+localeUrl[th] = "/my-profile"
 
 [session]
 security = "user"
 redirect = "login"
+
+[account]
+paramCode = "code"
+forceSecure = 0
 ==
 <section id="layout-title">
     <div class="container">
-        <h3>Add New Course for ... </h3>
+        <h3>Hello, {{ user.name }}</h3>
     </div>
 </section>
 
@@ -28,7 +26,7 @@ redirect = "login"
             {% component 'courses' %}
         </div>
         <div class="col-md-8">
-           {% component 'courseform' %}
+           {% component 'account' %}
         </div>
     </div>
 </div>

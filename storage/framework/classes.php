@@ -368,4 +368,5 @@
   'RainLab\\User\\Classes\\UserEventBase' => 'plugins/rainlab/user/classes/UserEventBase.php',
   'RainLab\\Location\\Behaviors\\LocationModel' => 'plugins/rainlab/location/behaviors/LocationModel.php',
   'RainLab\\UserPlus\\Components\\Notifications' => 'plugins/rainlab/userplus/components/Notifications.php',
+  'numthang\\profile\\Plugin' => 'plugins/numthang/profile/Plugin.php',
 );

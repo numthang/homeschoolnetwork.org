@@ -45,13 +45,16 @@ forceSecure = 0
                     </div>
 
                     <button type="submit" class="btn btn-block btn-default">Sign in</button>
+                    {% for name, link in social_login_links %}
+                      <a href="{{ link }}">{{ name }}</a>
+                    {% endfor %}
+                    {% component 'sociallogin' %}
                   </form>
                   {% else %}
-                    {% partial account ~ '::activation_check' %}
-                    {% partial account ~ '::update' %}
-                    {% partial account ~ '::deactivate_link' %}
+                    <a href="/login/profile">My profile</a><br>
+                    <a href="/login/add/course">New course</a><br>
+                    <a href="javascript:void(0);" data-request="onLogout" data-request-data="redirect: '/'">Sign out</a>
                   {% endif %}
-                  {% component 'sociallogin' %}
                 </div>
                 <!--<div class="additional-links">
                     By signing up you agree to <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>

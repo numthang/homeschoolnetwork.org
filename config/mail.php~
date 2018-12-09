@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'tric.ccc@gmail.com', 'name' => 'Homeschool Network'],
+    'from' => ['address' => 'tric.ccc@gmail.com', 'name' => 'OctoberCMS'],
 
     /*
     |--------------------------------------------------------------------------

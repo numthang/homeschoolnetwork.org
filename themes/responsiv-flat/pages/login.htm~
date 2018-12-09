@@ -27,6 +27,10 @@ paramCode = "code"
   }
 ?>
 ==
+
+{% if user %}
+
+{% endif %}
 <section id="layout-title">
     <div class="container">
         <h3>Sign in</h3>

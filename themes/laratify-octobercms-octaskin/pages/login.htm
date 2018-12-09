@@ -35,9 +35,9 @@ paramCode = "code"
                     {% partial account ~ '::signin' %}
                     
                     {% for name, link in social_login_links %}
-<a href="{{ link }}">{{ name }}</a>
-{% endfor %}
-{% component 'sociallogin' %}
+                    <a href="{{ link }}">{{ name }}</a>
+                    {% endfor %}
+                    {% component 'sociallogin' %}
                     
                     {% component 'resetPassword' %}
                 </div>
@@ -48,7 +48,7 @@ paramCode = "code"
         
             </div>
         {% else %}
-        <a data-request="onLogout" data-request-data="redirect: '/'">Sign out</a>
+        <a data-request="onLogout" data-request-data="redirect: '/'">Log out</a>
 
             {% partial account ~ '::activation_check' %}
         

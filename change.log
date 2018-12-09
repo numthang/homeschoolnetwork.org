@@ -49,3 +49,13 @@ October Hint
 การสร้าง components
 1. สร้าง directory components/xxx 
 2. register component ใน [plugin_name]/Plugin.php ด้วย namespace ของ component บรรทัดบนสุด
+
+เพิ่ม field table กรณีที่ไม่มี table ใน builder
+1. สร้าง plugin ใน builder ใหม่ เช่น Profile ใน ส่วนของ plugin ของเรา
+2. ใน folder plugins/numthang/profile/updates สร้าง add_new_fields.php
+3. copy ในไฟล์ update เช่น /rainlab/user/updates/create_users_table.php
+4. เปลี่ยน namespace ให้เป็นของเรา 
+5. สร้าง class ใหม่ เช่น AddNewFields ลบ drop function ออกด้วย
+6. เพิ่ม     - add_new_fields.php ใน version.yaml
+7. รัน php artisan plugin:refresh numthang.profile
+8. เพิ่ม function boot ใน Plugin.php

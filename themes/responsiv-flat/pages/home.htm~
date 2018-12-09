@@ -45,13 +45,16 @@ forceSecure = 0
                     </div>
 
                     <button type="submit" class="btn btn-block btn-default">Sign in</button>
+                    {% for name, link in social_login_links %}
+                      <a href="{{ link }}">{{ name }}</a>
+                    {% endfor %}
+                    {% component 'sociallogin' %}
                   </form>
                   {% else %}
-                    {% partial account ~ '::activation_check' %}
-                    {% partial account ~ '::update' %}
-                    {% partial account ~ '::deactivate_link' %}
+                    <a href="/login/profile">My profile</a><br>
+                    <a href="/login/add/course">New Course</a><br>
+                    <a href="javascript:void(0);" data-request="onLogout" data-request-data="redirect: '/'">Sign out</a>
                   {% endif %}
-                  {% component 'sociallogin' %}
                 </div>
                 <!--<div class="additional-links">
                     By signing up you agree to <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>
@@ -67,7 +70,18 @@ forceSecure = 0
 </section>
 
 <section class="google-ads">
-    <div class="container">
+    <div class="container">ADS
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Homeschool Network Index Top 
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9939363335105757"
+     data-ad-slot="3572354287"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>-->
     </div>
 </section>
 
