@@ -19,7 +19,13 @@ class AddNewFields extends Migration
 
     public function down()
     {
-        
+        $table->dropDown([
+          'homeschool_name',
+          'website',
+          'facebook',
+          'line',
+          'status'
+        ]);
     }
 
 }

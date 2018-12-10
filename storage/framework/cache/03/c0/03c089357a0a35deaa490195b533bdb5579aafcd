@@ -1,0 +1,53 @@
+1544458830a:1:{s:14:"add-course.htm";a:13:{s:8:"fileName";s:14:"add-course.htm";s:7:"content";s:653:"title = "Add Course"
+url = "/login/add/course"
+layout = "default"
+is_hidden = 0
+
+[viewBag]
+localeUrl[th] = "/add-course"
+
+[courses]
+results = 0
+sortOrder = "name asc"
+
+[courseform]
+
+[session]
+security = "user"
+redirect = "login"
+==
+<section id="layout-title">
+    <div class="container">
+        <h3>New course from {{ user.name }} </h3>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+          {% partial 'user-sidebar' %}
+          {% component 'courses' %}
+        </div>
+        <div class="col-md-8">
+           {% component 'courseform' %}
+        </div>
+    </div>
+</div>
+<br>";s:5:"mtime";i:1544445976;s:6:"markup";s:421:"<section id="layout-title">
+    <div class="container">
+        <h3>New course from {{ user.name }} </h3>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+          {% partial 'user-sidebar' %}
+          {% component 'courses' %}
+        </div>
+        <div class="col-md-8">
+           {% component 'courseform' %}
+        </div>
+    </div>
+</div>
+<br>";s:4:"code";N;s:5:"title";s:10:"Add Course";s:3:"url";s:17:"/login/add/course";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";s:7:"viewBag";a:1:{s:9:"localeUrl";a:1:{s:2:"th";s:11:"/add-course";}}s:7:"courses";a:2:{s:7:"results";s:1:"0";s:9:"sortOrder";s:8:"name asc";}s:10:"courseform";a:0:{}s:7:"session";a:2:{s:8:"security";s:4:"user";s:8:"redirect";s:5:"login";}}}

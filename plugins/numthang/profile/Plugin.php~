@@ -2,6 +2,7 @@
 
 use System\Classes\PluginBase;
 use Rainlab\User\Controllers\Users as UsersController;
+use Rainlab\User\Models\User as UserModel;
 
 class Plugin extends PluginBase
 {
@@ -14,27 +15,34 @@ class Plugin extends PluginBase
     }
 
     public function boot() {
+      UserModel::extend(function($model) {
+        $model->addFillable([
+          'website', 
+          'facebook', 
+          '
+        ]);
+      });
       UsersController::extendFormFields(function($form, $model, $context) {
         $form->addTabFields([
           'website' => [
             'label' => 'Website',
             'type' => 'text',
-            'tab' => 'rainlab.user::lang.user.profile'
+            'tab' => 'rainlab.userplus::lang.tab.profile'
           ], 
           'facebook' => [
             'label' => 'Facebook',
             'type' => 'text',
-            'tab' => 'rainlab.user::lang.user.account'
+            'tab' => 'rainlab.userplus::lang.tab.profile'
           ], 
-          'Line' => [
+          'line' => [
             'label' => 'Line',
             'type' => 'text',
-            'tab' => 'rainlab.user::lang.user.account'
+            'tab' => 'rainlab.userplus::lang.tab.profile'
           ], 
-          'Status' => [
+          'status' => [
             'label' => 'Status',
             'type' => 'text',
-            'tab' => 'rainlab.user::lang.user.account'
+            'tab' => 'rainlab.userplus::lang.tab.profile'
           ]
         ]);
       });

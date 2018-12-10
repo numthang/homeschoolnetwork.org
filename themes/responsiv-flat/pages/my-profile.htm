@@ -13,6 +13,10 @@ redirect = "login"
 [account]
 paramCode = "code"
 forceSecure = 0
+
+[courses]
+results = 0
+sortOrder = "name asc"
 ==
 <section id="layout-title">
     <div class="container">
@@ -23,10 +27,12 @@ forceSecure = 0
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-            {% component 'courses' %}
+          {% partial 'user-sidebar' %}
+          {% component 'courses' %}
         </div>
         <div class="col-md-8">
-           {% component 'account' %}
+           {% partial 'user-profile' %}
         </div>
     </div>
 </div>
+<br>

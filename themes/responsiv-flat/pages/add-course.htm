@@ -18,17 +18,19 @@ redirect = "login"
 ==
 <section id="layout-title">
     <div class="container">
-        <h3>Add New Course for ... </h3>
+        <h3>New course from {{ user.name }} </h3>
     </div>
 </section>
 
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-            {% component 'courses' %}
+          {% partial 'user-sidebar' %}
+          {% component 'courses' %}
         </div>
         <div class="col-md-8">
            {% component 'courseform' %}
         </div>
     </div>
 </div>
+<br>

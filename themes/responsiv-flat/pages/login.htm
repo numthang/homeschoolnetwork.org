@@ -16,8 +16,7 @@ paramCode = "code"
 [sociallogin]
 ==
 <?php
-
-  function onStart() {
+function onStart() {
     if(Auth::check()) {
       header('Location:/login/profile');
       exit;
@@ -29,7 +28,7 @@ paramCode = "code"
 ==
 <section id="layout-title">
     <div class="container">
-        <h3>Sign in</h3>
+        <h3>Log in</h3>
     </div>
 </section>
 

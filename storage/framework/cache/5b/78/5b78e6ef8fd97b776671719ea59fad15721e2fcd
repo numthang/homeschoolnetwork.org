@@ -1,0 +1,23 @@
+1544458830a:1:{s:16:"user-sidebar.htm";a:6:{s:8:"fileName";s:16:"user-sidebar.htm";s:7:"content";s:582:"[viewBag]
+==
+<!-- Categories -->
+<div class="panel panel-default">
+    <div class="panel-heading">
+        User Menu
+    </div>
+    <ul class="list-group filter-list-group">
+        <li class="list-group-item"><a href="/login/profile" style="font-size: 18px;">My Profile</a></li>
+        <li class="list-group-item"><a href="/login/add/course" style="font-size: 18px;">Add Course</a></li>
+        <li class="list-group-item"><a href="javascript:void(0);" data-request="onLogout" data-request-data="redirect: '/'" style="font-size: 18px;">Sign out</a></li>
+    </ul>
+</div>";s:5:"mtime";i:1544446117;s:6:"markup";s:569:"<!-- Categories -->
+<div class="panel panel-default">
+    <div class="panel-heading">
+        User Menu
+    </div>
+    <ul class="list-group filter-list-group">
+        <li class="list-group-item"><a href="/login/profile" style="font-size: 18px;">My Profile</a></li>
+        <li class="list-group-item"><a href="/login/add/course" style="font-size: 18px;">Add Course</a></li>
+        <li class="list-group-item"><a href="javascript:void(0);" data-request="onLogout" data-request-data="redirect: '/'" style="font-size: 18px;">Sign out</a></li>
+    </ul>
+</div>";s:4:"code";N;s:7:"viewBag";a:0:{}}}

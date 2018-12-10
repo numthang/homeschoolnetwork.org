@@ -1,0 +1,102 @@
+1544458830a:1:{s:13:"blog/post.htm";a:8:{s:8:"fileName";s:13:"blog/post.htm";s:7:"content";s:2597:"title = "Post"
+url = "/blog/post"
+layout = "default"
+==
+
+<section id="layout-title">
+    <div class="container">
+        <h3>Blog Post</h3>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+            <!-- Blog Post #1 -->
+            <div class="blog">
+                <img src="{{ 'assets/images/team/aleksey.png'|theme }}" alt="">
+                <div class="blog-desc">
+                    <h5>Children of the sun, see your time has just begun, searching for your ways, through adventures every day.</h5>
+                    <hr />
+                    <p class="text-muted">by John Doe on July 25, 2014</p>
+                    <a href="{{ 'blog/post'|page }}"><img class="img-responsive" src="{{ 'assets/images/blog/post1.jpg'|theme }}" alt=""></a>
+                    <p>Ten years ago a crack commando unit was sent to prison by a military court for a crime they didn't commit. These men promptly escaped from a maximum security stockade to the Los Angeles underground. Today, still wanted by the government, they survive as soldiers of fortune. If you have a problem and no one else can help, and if you can find them, maybe you can hire the A-team.</p>
+                    <p>Knight Rider, a shadowy flight into the dangerous world of a man who does not exist. Michael Knight, a young loner on a crusade to champion the cause of the innocent, the helpless in a world of criminals who operate above the law.</p>
+                    <p>Mutley, you snickering, floppy eared hound. When courage is needed, you're never around. Those medals you wear on your moth-eaten chest should be there for bungling at which you are best. So, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon. Howwww! Nab him, jab him, tab him, grab him, stop that pigeon now.</p>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <ul class="pager pull-right">
+                <li class="previous">
+                    <a href="#">
+                        <span class="fui-arrow-left"></span>
+                        Previous
+                    </a>
+                </li>
+                <li class="next">
+                    <a href="#">
+                        Next
+                        <span class="fui-arrow-right"></span>
+                    </a>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+
+        </div>
+        <div class="col-sm-3">
+
+            {% partial 'blog/sidebar' %}
+
+        </div>
+    </div>
+</div>";s:5:"mtime";i:1543917368;s:6:"markup";s:2540:"<section id="layout-title">
+    <div class="container">
+        <h3>Blog Post</h3>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+            <!-- Blog Post #1 -->
+            <div class="blog">
+                <img src="{{ 'assets/images/team/aleksey.png'|theme }}" alt="">
+                <div class="blog-desc">
+                    <h5>Children of the sun, see your time has just begun, searching for your ways, through adventures every day.</h5>
+                    <hr />
+                    <p class="text-muted">by John Doe on July 25, 2014</p>
+                    <a href="{{ 'blog/post'|page }}"><img class="img-responsive" src="{{ 'assets/images/blog/post1.jpg'|theme }}" alt=""></a>
+                    <p>Ten years ago a crack commando unit was sent to prison by a military court for a crime they didn't commit. These men promptly escaped from a maximum security stockade to the Los Angeles underground. Today, still wanted by the government, they survive as soldiers of fortune. If you have a problem and no one else can help, and if you can find them, maybe you can hire the A-team.</p>
+                    <p>Knight Rider, a shadowy flight into the dangerous world of a man who does not exist. Michael Knight, a young loner on a crusade to champion the cause of the innocent, the helpless in a world of criminals who operate above the law.</p>
+                    <p>Mutley, you snickering, floppy eared hound. When courage is needed, you're never around. Those medals you wear on your moth-eaten chest should be there for bungling at which you are best. So, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon. Howwww! Nab him, jab him, tab him, grab him, stop that pigeon now.</p>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <ul class="pager pull-right">
+                <li class="previous">
+                    <a href="#">
+                        <span class="fui-arrow-left"></span>
+                        Previous
+                    </a>
+                </li>
+                <li class="next">
+                    <a href="#">
+                        Next
+                        <span class="fui-arrow-right"></span>
+                    </a>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+
+        </div>
+        <div class="col-sm-3">
+
+            {% partial 'blog/sidebar' %}
+
+        </div>
+    </div>
+</div>";s:4:"code";N;s:5:"title";s:4:"Post";s:3:"url";s:10:"/blog/post";s:6:"layout";s:7:"default";}}
