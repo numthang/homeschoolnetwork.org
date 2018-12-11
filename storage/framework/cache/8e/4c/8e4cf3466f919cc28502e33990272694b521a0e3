@@ -1,8 +1,11 @@
-1544458830a:1:{s:19:"samples/contact.htm";a:8:{s:8:"fileName";s:19:"samples/contact.htm";s:7:"content";s:2814:"title = "Contact"
+1544527939a:1:{s:19:"samples/contact.htm";a:10:{s:8:"fileName";s:19:"samples/contact.htm";s:7:"content";s:1641:"title = "Contact"
 url = "/contact"
 layout = "default"
-==
+is_hidden = 0
 
+[renderForm]
+formCode = "contact-form"
+==
 <section id="layout-title">
     <div class="container">
         <h3>Contact us</h3>
@@ -14,32 +17,7 @@ layout = "default"
 
         <div class="col-md-7">
             <p>Beef ribs pig spare ribs boudin pork chop swine. Shankle pastrami ham, doner prosciutto cow t-bone kielbasa turkey pig venison tail chicken leberkas. </p>
-            <form role="form">
-                <div class="form-group">
-                    <label for="email">Your email address</label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter email">
-                </div>
-                <div class="form-group">
-                    <label for="name">Your name</label>
-                    <input type="text" class="form-control" id="name" placeholder="Enter name">
-                </div>
-                <div class="form-group">
-                    <label for="message">Your message</label>
-                    <textarea class="form-control" rows="7" id="message" placeholder="Enter message" style="resize: none"></textarea>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-6">
-                        <button type="submit" class="btn btn-lg btn-info">Send message</button>
-                    </div>
-                    <div class="col-sm-6">
-                        <label class="checkbox pull-right" for="checkbox1">
-                            <input type="checkbox" value="" id="checkbox1" data-toggle="checkbox">
-                            Send a copy to myself
-                        </label>
-                    </div>
-                </div>
-            </form>
+            {% component 'renderForm' %}
             <br /><br />
 
         </div>
@@ -70,8 +48,7 @@ layout = "default"
         </div>
 
     </div>
-</div>
-";s:5:"mtime";i:1543917368;s:6:"markup";s:2755:"<section id="layout-title">
+</div>";s:5:"mtime";i:1544527290;s:6:"markup";s:1530:"<section id="layout-title">
     <div class="container">
         <h3>Contact us</h3>
     </div>
@@ -82,32 +59,7 @@ layout = "default"
 
         <div class="col-md-7">
             <p>Beef ribs pig spare ribs boudin pork chop swine. Shankle pastrami ham, doner prosciutto cow t-bone kielbasa turkey pig venison tail chicken leberkas. </p>
-            <form role="form">
-                <div class="form-group">
-                    <label for="email">Your email address</label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter email">
-                </div>
-                <div class="form-group">
-                    <label for="name">Your name</label>
-                    <input type="text" class="form-control" id="name" placeholder="Enter name">
-                </div>
-                <div class="form-group">
-                    <label for="message">Your message</label>
-                    <textarea class="form-control" rows="7" id="message" placeholder="Enter message" style="resize: none"></textarea>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-6">
-                        <button type="submit" class="btn btn-lg btn-info">Send message</button>
-                    </div>
-                    <div class="col-sm-6">
-                        <label class="checkbox pull-right" for="checkbox1">
-                            <input type="checkbox" value="" id="checkbox1" data-toggle="checkbox">
-                            Send a copy to myself
-                        </label>
-                    </div>
-                </div>
-            </form>
+            {% component 'renderForm' %}
             <br /><br />
 
         </div>
@@ -138,4 +90,4 @@ layout = "default"
         </div>
 
     </div>
-</div>";s:4:"code";N;s:5:"title";s:7:"Contact";s:3:"url";s:8:"/contact";s:6:"layout";s:7:"default";}}
+</div>";s:4:"code";N;s:5:"title";s:7:"Contact";s:3:"url";s:8:"/contact";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";s:10:"renderForm";a:1:{s:8:"formCode";s:12:"contact-form";}}}

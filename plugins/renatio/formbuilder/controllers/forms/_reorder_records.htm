@@ -1,0 +1,10 @@
+<?php foreach ($records as $record): ?>
+
+    <li data-record-id="<?php echo $record->id ?>">
+        <div class="record">
+            <a href="javascript:;" class="move"></a>
+            <span><?php echo $record->label ? : $record->name ?></span>
+        </div>
+    </li>
+
+<?php endforeach; ?>

@@ -10,7 +10,6 @@ class AddNewFields extends Migration
     {
         Schema::table('users', function($table)
         {
-            $table->string('website')->nullable();
             $table->string('facebook')->nullable();
             $table->string('line')->nullable();
             $table->string('status')->nullable();
@@ -20,7 +19,6 @@ class AddNewFields extends Migration
     public function down()
     {
         $table->dropDown([
-          'website',
           'facebook',
           'line',
           'status'

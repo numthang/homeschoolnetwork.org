@@ -1,0 +1,116 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+
+    field_type:
+        label: renatio.formbuilder::lang.field.field_type
+        type: dropdown
+        options: listTypes
+        span: left
+
+    label:
+        label: renatio.formbuilder::lang.field.label
+        span: right
+
+    is_visible:
+        label: renatio.formbuilder::lang.field.is_visible
+        comment: renatio.formbuilder::lang.field.is_visible_comment
+        type: switch
+        default: true
+        span: left
+
+tabs:
+
+    fields:
+
+        name:
+            label: renatio.formbuilder::lang.field.name
+            tab: renatio.formbuilder::lang.tab.attributes
+            comment: renatio.formbuilder::lang.field.name_comment
+            span: left
+
+        default:
+            label: renatio.formbuilder::lang.field.default
+            tab: renatio.formbuilder::lang.tab.attributes
+            comment: renatio.formbuilder::lang.field.default_comment
+            span: right
+
+        placeholder:
+            label: renatio.formbuilder::lang.field.placeholder
+            tab: renatio.formbuilder::lang.tab.attributes
+            comment: renatio.formbuilder::lang.field.placeholder_comment
+            span: left
+
+        class:
+            label: renatio.formbuilder::lang.field.class
+            tab: renatio.formbuilder::lang.tab.attributes
+            comment: renatio.formbuilder::lang.field.class_comment
+            placeholder: class1 class2
+            span: right
+
+        custom_attributes:
+            label: renatio.formbuilder::lang.field.custom_attributes
+            tab: renatio.formbuilder::lang.tab.attributes
+            placeholder: id="custom_id"
+            comment: renatio.formbuilder::lang.field.custom_attributes_comment
+            span: left
+
+        options:
+            label: renatio.formbuilder::lang.field.options
+            tab: renatio.formbuilder::lang.tab.options
+            commentAbove: renatio.formbuilder::lang.field.options_comment
+            prompt: renatio.formbuilder::lang.field.options_comment_prompt
+            type: repeater
+            form:
+                fields:
+                    o_key:
+                        label: renatio.formbuilder::lang.field.option_key
+                        span: left
+                    o_label:
+                        label: renatio.formbuilder::lang.field.option_label
+                        span: right
+
+        validation:
+            label: renatio.formbuilder::lang.field.validation
+            tab: renatio.formbuilder::lang.tab.validation
+            placeholder: required|email
+            comment: renatio.formbuilder::lang.field.validation_comment
+            span: full
+
+        validation_messages:
+            label: renatio.formbuilder::lang.field.validation_messages
+            tab: renatio.formbuilder::lang.tab.validation
+            commentAbove: renatio.formbuilder::lang.field.validation_msg_comment
+            prompt: renatio.formbuilder::lang.field.validation_messages_prompt
+            type: repeater
+            form:
+                fields:
+                    rule:
+                        label: renatio.formbuilder::lang.field.rule
+                        span: left
+                    message:
+                        label: renatio.formbuilder::lang.field.message
+                        span: right
+
+        section:
+            label: renatio.formbuilder::lang.field.section
+            tab: renatio.formbuilder::lang.tab.misc
+            comment: renatio.formbuilder::lang.field.section_comment
+            type: dropdown
+            options: listSections
+            span: left
+
+        wrapper_class:
+            label: renatio.formbuilder::lang.field.wrapper_class
+            tab: renatio.formbuilder::lang.tab.misc
+            comment: renatio.formbuilder::lang.field.wrapper_class_comment
+            placeholder: class1 class2
+            span: right
+
+        comment:
+            label: renatio.formbuilder::lang.field.comment
+            tab: renatio.formbuilder::lang.tab.misc
+            comment: renatio.formbuilder::lang.field.comment_help
+            span: left

@@ -8,17 +8,17 @@
       <li class="active">
         <a href="#account" data-toggle="tab" title="welcome">
         <span class="round-tabs one">
-        <i class="fui-info-circle"></i>
+        <i class="fui-user"></i>
         </span> </a>
       </li>
       <li><a href="#profile" data-toggle="tab" title="profile">
         <span class="round-tabs two">
-        <i class="fui-chat"></i>
+        <i class="fui-location"></i>
         </span> </a>
       </li>
       <li><a href="#messages" data-toggle="tab" title="bootsnipp goodies">
         <span class="round-tabs three">
-        <i class="fui-chat"></i>
+        <i class="fui-home"></i>
         </span> </a>
       </li>
       <li><a href="#settings" data-toggle="tab" title="blah blah">
@@ -56,16 +56,16 @@
       </div>
     </div>
     <div class="tab-pane fade" id="profile">
-      <div class="form-group">
-        <label for="accountName">Full Name</label>
-        <input name="name" type="text" class="form-control" id="accountName" value="{{ user.name }}">
-      </div>
+      
     </div>
     <div class="tab-pane fade" id="messages">
       
     </div>
     <div class="tab-pane fade" id="settings">
-      
+      <div class="form-group">
+        <label>Facebook</label>
+        <input name="facebook" type="text" class="form-control" value="{{ user.facebook }}">
+      </div>
     </div>
     <div class="tab-pane fade" id="doner">
       

@@ -19,7 +19,9 @@ class Plugin extends PluginBase
         $model->addFillable([
           'website', 
           'facebook', 
-          '
+          'line',
+          'status',
+          'introduction'
         ]);
       });
       UsersController::extendFormFields(function($form, $model, $context) {
@@ -39,6 +41,11 @@ class Plugin extends PluginBase
             'type' => 'text',
             'tab' => 'rainlab.userplus::lang.tab.profile'
           ], 
+          'status' => [
+            'label' => 'Status',
+            'type' => 'text',
+            'tab' => 'rainlab.userplus::lang.tab.profile'
+          ]
           'status' => [
             'label' => 'Status',
             'type' => 'text',

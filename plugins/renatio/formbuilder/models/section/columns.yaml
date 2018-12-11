@@ -1,0 +1,24 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+
+    id:
+        label: renatio.formbuilder::lang.field.id
+
+    label:
+        label: renatio.formbuilder::lang.field.label
+        searchable: true
+
+    name:
+        label: renatio.formbuilder::lang.field.name
+        searchable: true
+
+    is_visible:
+        label: renatio.formbuilder::lang.field.is_visible
+        type: switch
+
+    created_at:
+        label: renatio.formbuilder::lang.field.created_at
+        type: datetime

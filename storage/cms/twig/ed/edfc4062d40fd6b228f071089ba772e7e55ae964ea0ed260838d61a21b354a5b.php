@@ -29,26 +29,21 @@ class __TwigTemplate_c364709c4db30ecadf4a2d5824f038c723d5d33080ba205d47ab7cb7e1d
       <li class=\"active\">
         <a href=\"#account\" data-toggle=\"tab\" title=\"welcome\">
         <span class=\"round-tabs one\">
-        <i class=\"fui-info-circle\"></i>
+        <i class=\"fui-user\"></i>
         </span> </a>
       </li>
       <li><a href=\"#profile\" data-toggle=\"tab\" title=\"profile\">
         <span class=\"round-tabs two\">
-        <i class=\"fui-chat\"></i>
+        <i class=\"fui-location\"></i>
         </span> </a>
       </li>
       <li><a href=\"#messages\" data-toggle=\"tab\" title=\"bootsnipp goodies\">
         <span class=\"round-tabs three\">
-        <i class=\"fui-chat\"></i>
+        <i class=\"fui-home\"></i>
         </span> </a>
       </li>
       <li><a href=\"#settings\" data-toggle=\"tab\" title=\"blah blah\">
         <span class=\"round-tabs four\">
-        <i class=\"fui-chat\"></i>
-        </span> </a>
-      </li>
-      <li><a href=\"#doner\" data-toggle=\"tab\" title=\"completed\">
-        <span class=\"round-tabs five\">
         <i class=\"fui-chat\"></i>
         </span> </a>
       </li>
@@ -59,7 +54,7 @@ class __TwigTemplate_c364709c4db30ecadf4a2d5824f038c723d5d33080ba205d47ab7cb7e1d
       <div class=\"form-group\">
         <label for=\"accountName\">Full Name</label>
         <input name=\"name\" type=\"text\" class=\"form-control\" id=\"accountName\" value=\"";
-        // line 38
+        // line 33
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "name", array()), "html", null, true);
         echo "\">
       </div>
@@ -67,7 +62,7 @@ class __TwigTemplate_c364709c4db30ecadf4a2d5824f038c723d5d33080ba205d47ab7cb7e1d
       <div class=\"form-group\">
           <label for=\"accountEmail\">Email</label>
           <input name=\"email\" type=\"email\" class=\"form-control\" id=\"accountEmail\" value=\"";
-        // line 43
+        // line 38
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "email", array()), "html", null, true);
         echo "\">
       </div>
@@ -83,22 +78,19 @@ class __TwigTemplate_c364709c4db30ecadf4a2d5824f038c723d5d33080ba205d47ab7cb7e1d
       </div>
     </div>
     <div class=\"tab-pane fade\" id=\"profile\">
-      <div class=\"form-group\">
-        <label>Facebook</label>
-        <input name=\"facebook\" type=\"text\" class=\"form-control\" value=\"";
-        // line 59
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "facebook", array()), "html", null, true);
-        echo "\">
-      </div>
+      
     </div>
     <div class=\"tab-pane fade\" id=\"messages\">
       
     </div>
     <div class=\"tab-pane fade\" id=\"settings\">
-      
-    </div>
-    <div class=\"tab-pane fade\" id=\"doner\">
-      
+      <div class=\"form-group\">
+        <label>Facebook</label>
+        <input name=\"facebook\" type=\"text\" class=\"form-control\" value=\"";
+        // line 60
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "facebook", array()), "html", null, true);
+        echo "\">
+      </div>
     </div>
     <div class=\"clearfix\"></div>
   </div>
@@ -110,7 +102,7 @@ class __TwigTemplate_c364709c4db30ecadf4a2d5824f038c723d5d33080ba205d47ab7cb7e1d
   <br>
 
 ";
-        // line 80
+        // line 72
         echo call_user_func_array($this->env->getFunction('form_close')->getCallable(), array("close"));
     }
 
@@ -126,7 +118,7 @@ class __TwigTemplate_c364709c4db30ecadf4a2d5824f038c723d5d33080ba205d47ab7cb7e1d
 
     public function getDebugInfo()
     {
-        return array (  114 => 80,  90 => 59,  71 => 43,  63 => 38,  23 => 1,);
+        return array (  106 => 72,  91 => 60,  66 => 38,  58 => 33,  23 => 1,);
     }
 
     public function getSourceContext()
@@ -139,26 +131,21 @@ class __TwigTemplate_c364709c4db30ecadf4a2d5824f038c723d5d33080ba205d47ab7cb7e1d
       <li class=\"active\">
         <a href=\"#account\" data-toggle=\"tab\" title=\"welcome\">
         <span class=\"round-tabs one\">
-        <i class=\"fui-info-circle\"></i>
+        <i class=\"fui-user\"></i>
         </span> </a>
       </li>
       <li><a href=\"#profile\" data-toggle=\"tab\" title=\"profile\">
         <span class=\"round-tabs two\">
-        <i class=\"fui-chat\"></i>
+        <i class=\"fui-location\"></i>
         </span> </a>
       </li>
       <li><a href=\"#messages\" data-toggle=\"tab\" title=\"bootsnipp goodies\">
         <span class=\"round-tabs three\">
-        <i class=\"fui-chat\"></i>
+        <i class=\"fui-home\"></i>
         </span> </a>
       </li>
       <li><a href=\"#settings\" data-toggle=\"tab\" title=\"blah blah\">
         <span class=\"round-tabs four\">
-        <i class=\"fui-chat\"></i>
-        </span> </a>
-      </li>
-      <li><a href=\"#doner\" data-toggle=\"tab\" title=\"completed\">
-        <span class=\"round-tabs five\">
         <i class=\"fui-chat\"></i>
         </span> </a>
       </li>
@@ -187,19 +174,16 @@ class __TwigTemplate_c364709c4db30ecadf4a2d5824f038c723d5d33080ba205d47ab7cb7e1d
       </div>
     </div>
     <div class=\"tab-pane fade\" id=\"profile\">
-      <div class=\"form-group\">
-        <label>Facebook</label>
-        <input name=\"facebook\" type=\"text\" class=\"form-control\" value=\"{{ user.facebook }}\">
-      </div>
+      
     </div>
     <div class=\"tab-pane fade\" id=\"messages\">
       
     </div>
     <div class=\"tab-pane fade\" id=\"settings\">
-      
-    </div>
-    <div class=\"tab-pane fade\" id=\"doner\">
-      
+      <div class=\"form-group\">
+        <label>Facebook</label>
+        <input name=\"facebook\" type=\"text\" class=\"form-control\" value=\"{{ user.facebook }}\">
+      </div>
     </div>
     <div class=\"clearfix\"></div>
   </div>

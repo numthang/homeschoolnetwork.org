@@ -1,0 +1,13 @@
+.flexbox-container {
+    display: flex;
+    height: 60vh;
+}
+
+.flex-item {
+    flex: 1;
+}
+
+iframe {
+    border: medium none;
+    height: 100%;
+}
