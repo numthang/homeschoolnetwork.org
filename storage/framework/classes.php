@@ -389,4 +389,7 @@
   'Renatio\\FormBuilder\\Models\\FormLog' => 'plugins/renatio/formbuilder/models/FormLog.php',
   'Renatio\\FormBuilder\\Utilities\\FieldValue' => 'plugins/renatio/formbuilder/utilities/FieldValue.php',
   'Renatio\\FormBuilder\\Listeners\\EmailSend' => 'plugins/renatio/formbuilder/listeners/EmailSend.php',
+  'Renatio\\FormBuilder\\Models\\FormLogExport' => 'plugins/renatio/formbuilder/models/FormLogExport.php',
+  'Renatio\\FormBuilder\\Behaviors\\FormLogController' => 'plugins/renatio/formbuilder/behaviors/FormLogController.php',
+  'RainLab\\Builder\\Validation\\ReservedValidator' => 'plugins/rainlab/builder/validation/ReservedValidator.php',
 );

@@ -1,4 +1,7 @@
 [viewBag]
+
+[renderForm]
+formCode = "homeschool"
 ==
 {{ form_ajax('onUpdate') }}
 
@@ -6,35 +9,32 @@
     <ul class="nav nav-tabs" id="myTab">
       <div class="liner"></div>
       <li class="active">
-        <a href="#account" data-toggle="tab" title="welcome">
+        <a href="#account" data-toggle="tab" title="Account">
         <span class="round-tabs one">
-        <i class="fui-user"></i>
+        <i class="fui-user"></i> Account
         </span> </a>
       </li>
-      <li><a href="#profile" data-toggle="tab" title="profile">
+      <li><a href="#profile" data-toggle="tab" title="Profile">
         <span class="round-tabs two">
-        <i class="fui-location"></i>
+        <i class="fui-location"></i> Profile
         </span> </a>
       </li>
-      <li><a href="#messages" data-toggle="tab" title="bootsnipp goodies">
-        <span class="round-tabs three">
-        <i class="fui-home"></i>
-        </span> </a>
-      </li>
-      <li><a href="#settings" data-toggle="tab" title="blah blah">
+      <li><a href="#settings" data-toggle="tab" title="Contact">
         <span class="round-tabs four">
-        <i class="fui-chat"></i>
-        </span> </a>
-      </li>
-      <li><a href="#doner" data-toggle="tab" title="completed">
-        <span class="round-tabs five">
-        <i class="fui-chat"></i>
+        <i class="fui-chat"></i> Contact
         </span> </a>
       </li>
     </ul>
   </div>
   <div class="tab-content">
     <div class="tab-pane fade in active" id="account">
+      <div class=" form-group">
+        <label for="status">Status</label>
+        <select class=" form-control" name="status" >
+          <option value="1" {{ user.status == 1 ? 'selected' : '' }}>Homeschool</option>
+          <option value="0" {{ user.status == 0 ? 'selected' : '' }}>Interested</option>          
+        </select>
+      </div>
       <div class="form-group">
         <label for="accountName">Full Name</label>
         <input name="name" type="text" class="form-control" id="accountName" value="{{ user.name }}">
@@ -56,19 +56,59 @@
       </div>
     </div>
     <div class="tab-pane fade" id="profile">
-      
-    </div>
-    <div class="tab-pane fade" id="messages">
-      
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label>Phone</label>
+            <input name="phone" type="text" class="form-control" value="{{ user.phone }}">
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label>Mobile</label>
+            <input name="mobile" type="text" class="form-control" value="{{ user.mobile }}">
+          </div>
+        </div>
+        <div class="col-sm-6">
+          {% if locationPluginEnabled() %}
+          <div class="{{ wrapper_class }} form-group">
+
+            <label>Country</label>
+
+              {{ form_select_country('country_id', user.country_id,
+              {
+                  class: class ~ ' form-control',
+                  emptyOption: 'SELECT COUNTRY'
+              }) }}
+          </div>
+
+        {% else %}
+
+            <p style="color: #ff0033;">
+                You must install <a target="_blank" href="https://octobercms.com/plugin/rainlab-location">Location Plugin</a> to use location fields!
+            </p>
+
+        {% endif %}
+        </div>
+        <div class="col-sm-6">
+          
+        </div>
+
+      </div>
     </div>
     <div class="tab-pane fade" id="settings">
       <div class="form-group">
         <label>Facebook</label>
         <input name="facebook" type="text" class="form-control" value="{{ user.facebook }}">
       </div>
-    </div>
-    <div class="tab-pane fade" id="doner">
-      
+      <div class="form-group">
+        <label>Line</label>
+        <input name="line" type="text" class="form-control" value="{{ user.line }}">
+      </div>
+      <div class="form-group">
+        <label>Website</label>
+        <input name="website" type="text" class="form-control" value="{{ user.website }}">
+      </div>
     </div>
     <div class="clearfix"></div>
   </div>

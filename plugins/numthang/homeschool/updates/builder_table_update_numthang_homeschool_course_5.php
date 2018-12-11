@@ -9,7 +9,7 @@ class BuilderTableUpdateNumthangHomeschoolCourse5 extends Migration
     {
         Schema::table('numthang_homeschool_course', function($table)
         {
-            $table->renameColumn('first_name', 'name');
+            $table->renameColumn('name', 'fname');
         });
     }
     
@@ -17,7 +17,7 @@ class BuilderTableUpdateNumthangHomeschoolCourse5 extends Migration
     {
         Schema::table('numthang_homeschool_course', function($table)
         {
-            $table->renameColumn('name', 'first_name');
+            $table->renameColumn('fname', 'name');
         });
     }
 }

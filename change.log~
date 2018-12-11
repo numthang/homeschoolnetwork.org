@@ -61,4 +61,6 @@ Extending user plugin backend form : เพิ่ม field table กรณีท
 8. เพิ่ม function boot ใน Plugin.php
 
 Extending user plugin fronend form 
+1. copy html form มาสร้าง partial ใหม่
+2. เพิ่ม function model UserModel::extend ใน boot
 

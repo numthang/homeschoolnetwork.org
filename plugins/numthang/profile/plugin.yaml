@@ -1,6 +1,6 @@
 plugin:
     name: 'numthang.profile::lang.plugin.name'
     description: 'numthang.profile::lang.plugin.description'
-    author: numthang
+    author: Numthang
     icon: oc-icon-adjust
     homepage: ''

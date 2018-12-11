@@ -15,7 +15,7 @@ class Plugin extends PluginBase
     }
 
     public function boot() {
-      UserModel::extend(function($model) {
+      UserModel::extend(function($model) {//ทำให้ save ข้อมูลเพิ่มได้
         $model->addFillable([
           'website', 
           'facebook', 
@@ -23,7 +23,7 @@ class Plugin extends PluginBase
           'status'
         ]);
       });
-      UsersController::extendFormFields(function($form, $model, $context) {
+      UsersController::extendFormFields(function($form, $model, $context) {//เพิ่ม user form ใน backend
         $form->addTabFields([
           'website' => [
             'label' => 'Website',

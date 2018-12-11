@@ -1,4 +1,6 @@
-https://goo.gl/maps/LEkdFQuzjNP2
+ALTER TABLE `users` ADD `website` VARCHAR(191) NOT NULL AFTER `mobile`, ADD `facebook` VARCHAR(191) NOT NULL AFTER `website`, ADD `line` VARCHAR(191) NOT NULL AFTER `facebook`, ADD `status` VARCHAR(191) NOT NULL AFTER `line`;
+
+
 
 เนื่องจากมีโอกาสสนิทสนมกับคุณไปรษณีย์ที่มาส่งขอบ่อยๆ วันนี้ได้คุยเรื่องการเลือกตั้งที่จะถึง เขาสนับสนุนเรา จึงเกิดไอเดียฝากส่งแผ่นพับแนะนำ #พรรคอนาคตใหม่ ฝากแนบไปให้ทุกบ้านที่คุณไปรษณีย์ไปส่งถึง เข้าเป้าทันที
 
