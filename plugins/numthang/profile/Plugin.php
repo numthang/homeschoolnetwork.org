@@ -20,7 +20,9 @@ class Plugin extends PluginBase
           'website', 
           'facebook', 
           'line',
-          'status'
+          'status',
+          'country_id',
+          'state_id'
         ]);
       });
       UsersController::extendFormFields(function($form, $model, $context) {//เพิ่ม user form ใน backend

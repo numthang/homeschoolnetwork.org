@@ -392,4 +392,5 @@
   'Renatio\\FormBuilder\\Models\\FormLogExport' => 'plugins/renatio/formbuilder/models/FormLogExport.php',
   'Renatio\\FormBuilder\\Behaviors\\FormLogController' => 'plugins/renatio/formbuilder/behaviors/FormLogController.php',
   'RainLab\\Builder\\Validation\\ReservedValidator' => 'plugins/rainlab/builder/validation/ReservedValidator.php',
+  'RainLab\\Location\\Models\\Setting' => 'plugins/rainlab/location/models/Setting.php',
 );
