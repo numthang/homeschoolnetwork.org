@@ -1,0 +1,30 @@
+1544779380a:1:{s:22:"pages-about/header.htm";a:5:{s:8:"fileName";s:22:"pages-about/header.htm";s:7:"content";s:576:"<div class="lt-row row">
+  <div class="lt-col col s12">
+    <div class="lt-parallax-header parallax-container" style="height: 400px;">
+      <div class="lt-parallax parallax"><img src="{{ 'assets/img/pages/about/header/img-01.jpg'|theme }}" alt="image"></div>
+      <div class="lt-parallax-content">
+        <div class="valign-wrapper" style="height: 400px;">
+          <div class="valign">
+            <h2 class="lt-title">About Octaskin</h2>
+            <p class="lt-subtitle flow-text">Who We Are</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+";s:5:"mtime";i:1543916768;s:6:"markup";s:575:"<div class="lt-row row">
+  <div class="lt-col col s12">
+    <div class="lt-parallax-header parallax-container" style="height: 400px;">
+      <div class="lt-parallax parallax"><img src="{{ 'assets/img/pages/about/header/img-01.jpg'|theme }}" alt="image"></div>
+      <div class="lt-parallax-content">
+        <div class="valign-wrapper" style="height: 400px;">
+          <div class="valign">
+            <h2 class="lt-title">About Octaskin</h2>
+            <p class="lt-subtitle flow-text">Who We Are</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>";s:4:"code";N;}}

@@ -1,0 +1,100 @@
+1544779380a:1:{s:8:"home.htm";a:9:{s:8:"fileName";s:8:"home.htm";s:7:"content";s:1394:"title = "Home"
+url = "/"
+layout = "octaskin"
+is_hidden = 0
+==
+
+<section id="lt-slideshow" class="lt-section lt-section-fullwidth section">
+  <div class="lt-container container">
+    <div class="lt-content lt-slideshow-content">
+      {% partial "pages-home/slideshow" %}
+    </div>
+  </div>
+</section>
+
+<section id="lt-feature" class="lt-section section">
+  <div class="lt-container container">
+    <div class="lt-content lt-feature-content">
+      {% partial "pages-home/feature" %}
+    </div>
+  </div>
+</section>
+
+<section id="lt-utility" class="lt-section section">
+  <div class="lt-container container">
+    <div class="lt-content lt-utility-content">
+      {% partial "pages-home/utility" %}
+    </div>
+  </div>
+</section>
+
+<section id="lt-mainpage" class="lt-section lt-section-fullwidth section">
+  <div class="lt-container container">
+    <div class="lt-content lt-mainpage-content">
+      {% partial "pages-home/mainpage" %}
+    </div>
+  </div>
+</section>
+
+<section id="lt-bottom" class="lt-section section">
+  <div class="lt-container container">
+    <div class="lt-content lt-bottom-content">
+      {% partial "pages-home/bottom" %}
+    </div>
+  </div>
+</section>
+
+<section id="lt-extension" class="lt-section section">
+  <div class="lt-container container">
+    <div class="lt-content lt-extension-content">
+      {% partial "pages-home/extension" %}
+    </div>
+  </div>
+</section>
+";s:5:"mtime";i:1543916768;s:6:"markup";s:1330:"<section id="lt-slideshow" class="lt-section lt-section-fullwidth section">
+  <div class="lt-container container">
+    <div class="lt-content lt-slideshow-content">
+      {% partial "pages-home/slideshow" %}
+    </div>
+  </div>
+</section>
+
+<section id="lt-feature" class="lt-section section">
+  <div class="lt-container container">
+    <div class="lt-content lt-feature-content">
+      {% partial "pages-home/feature" %}
+    </div>
+  </div>
+</section>
+
+<section id="lt-utility" class="lt-section section">
+  <div class="lt-container container">
+    <div class="lt-content lt-utility-content">
+      {% partial "pages-home/utility" %}
+    </div>
+  </div>
+</section>
+
+<section id="lt-mainpage" class="lt-section lt-section-fullwidth section">
+  <div class="lt-container container">
+    <div class="lt-content lt-mainpage-content">
+      {% partial "pages-home/mainpage" %}
+    </div>
+  </div>
+</section>
+
+<section id="lt-bottom" class="lt-section section">
+  <div class="lt-container container">
+    <div class="lt-content lt-bottom-content">
+      {% partial "pages-home/bottom" %}
+    </div>
+  </div>
+</section>
+
+<section id="lt-extension" class="lt-section section">
+  <div class="lt-container container">
+    <div class="lt-content lt-extension-content">
+      {% partial "pages-home/extension" %}
+    </div>
+  </div>
+</section>";s:4:"code";N;s:5:"title";s:4:"Home";s:3:"url";s:1:"/";s:6:"layout";s:8:"octaskin";s:9:"is_hidden";s:1:"0";}}

@@ -1,4 +1,4 @@
-1544595489a:1:{s:16:"user-profile.htm";a:7:{s:8:"fileName";s:16:"user-profile.htm";s:7:"content";s:5673:"[viewBag]
+1544796283a:1:{s:16:"user-profile.htm";a:7:{s:8:"fileName";s:16:"user-profile.htm";s:7:"content";s:5603:"[viewBag]
 
 [renderForm]
 formCode = "homeschool"
@@ -46,14 +46,14 @@ formCode = "homeschool"
         </div>
         <div class="col-sm-6">
           <div class="form-group">
-            <label for="accountName">First Name</label>
-            <input name="name" type="text" class="form-control" id="accountName" value="{{ user.name }}">
+            <label>First Name</label>
+            <input name="name" type="text" class="form-control" value="{{ user.name }}">
           </div>
         </div>
         <div class="col-sm-6">
           <div class="form-group">
-            <label for="accountName">Last Name</label>
-            <input name="surname" type="text" class="form-control" id="accountName" value="{{ user.surname }}">
+            <label>Last Name</label>
+            <input name="surname" type="text" class="form-control" value="{{ user.surname }}">
           </div>
         </div>
         
@@ -153,7 +153,7 @@ formCode = "homeschool"
   <br>
 
 {{ form_close() }}
-";s:5:"mtime";i:1544587635;s:6:"markup";s:5621:"{{ form_ajax('onUpdate') }}
+";s:5:"mtime";i:1544791484;s:6:"markup";s:5551:"{{ form_ajax('onUpdate') }}
 
   <div class="board-inner">
     <ul class="nav nav-tabs" id="myTab">
@@ -196,14 +196,14 @@ formCode = "homeschool"
         </div>
         <div class="col-sm-6">
           <div class="form-group">
-            <label for="accountName">First Name</label>
-            <input name="name" type="text" class="form-control" id="accountName" value="{{ user.name }}">
+            <label>First Name</label>
+            <input name="name" type="text" class="form-control" value="{{ user.name }}">
           </div>
         </div>
         <div class="col-sm-6">
           <div class="form-group">
-            <label for="accountName">Last Name</label>
-            <input name="surname" type="text" class="form-control" id="accountName" value="{{ user.surname }}">
+            <label>Last Name</label>
+            <input name="surname" type="text" class="form-control" value="{{ user.surname }}">
           </div>
         </div>
         

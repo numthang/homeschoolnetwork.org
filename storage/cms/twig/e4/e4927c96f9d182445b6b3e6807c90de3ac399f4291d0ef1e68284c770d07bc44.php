@@ -27,55 +27,125 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
       <li class=\"active\">
         <a href=\"#home\" data-toggle=\"tab\" title=\"welcome\">
         <span class=\"round-tabs one\">
-        <i class=\"fui-info-circle\"></i>
+          First 
         </span> </a>
       </li>
       <li><a href=\"#profile\" data-toggle=\"tab\" title=\"profile\">
         <span class=\"round-tabs two\">
-        <i class=\"fui-chat\"></i>
+          Second
         </span> </a>
       </li>
       <li><a href=\"#messages\" data-toggle=\"tab\" title=\"bootsnipp goodies\">
         <span class=\"round-tabs three\">
-        <i class=\"fui-chat\"></i>
+          Third
         </span> </a>
       </li>
       <li><a href=\"#settings\" data-toggle=\"tab\" title=\"blah blah\">
         <span class=\"round-tabs four\">
-        <i class=\"fui-chat\"></i>
+          Forth
         </span> </a>
       </li>
       <li><a href=\"#doner\" data-toggle=\"tab\" title=\"completed\">
         <span class=\"round-tabs five\">
-        <i class=\"fui-chat\"></i>
+          Fifth
         </span> </a>
       </li>
     </ul>
   </div>
   <div class=\"tab-content\">
+    <h4>Family Basic Information</h4>
     <div class=\"tab-pane fade in active\" id=\"home\">
-      <div class=\"form-group ";
-        // line 35
+      <div class=\"row\">
+        <div class=\"col-sm-12\">  
+          <div class=\"form-group ";
+        // line 38
         if (twig_get_attribute($this->env, $this->source, ($context["errors"] ?? null), "first", array(0 => "name"), "method")) {
             echo " has-error ";
         }
         echo "\">
-        <label for=\"name\">Homeschool Name</label>
-        <input type=\"text\" class=\"form-control\" id=\"name\"  name=\"name\" placeholder=\"Enter Homeschool name : ";
-        // line 37
+            <label>Homeschool Name</label>
+            <input type=\"text\" class=\"form-control\" name=\"name\" placeholder=\"Enter Homeschool name : ";
+        // line 40
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["errors"] ?? null), "first", array(0 => "name"), "method"), "html", null, true);
         echo "\">
-      </div>
-      <div class=\"form-group\">
-        <label for=\"homeschooler_name\">Homeschooler Name</label>
-        <input type=\"text\" class=\"form-control\" id=\"homeschooler_name\" name=\"homeschooler_name\" placeholder=\"Enter homeschooler name : ";
-        // line 41
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["errors"] ?? null), "first", array(0 => "homeschooler_name"), "method"), "html", null, true);
-        echo "\">
-      </div>
-      <div class=\"form-group\">
-        <label for=\"message\">Introduction</label>
-        <textarea class=\"form-control\" rows=\"10\" id=\"introduction\" name=\"introduction\" placeholder=\"Enter introduction\"></textarea>
+          </div>
+        </div>
+        <div class=\"col-sm-6\"> 
+          <div class=\"form-group\">
+            <label>Father's Name</label>
+            <input type=\"text\" class=\"form-control\" name=\"father\" placeholder=\"Enter father's name\">
+          </div>
+        </div>
+        <div class=\"col-sm-6\"> 
+          <div class=\"form-group\">
+            <label>Father's Degree</label>
+            <input type=\"text\" class=\"form-control\" name=\"father_degree\" placeholder=\"Enter father's degree\">
+          </div>
+        </div>
+        <div class=\"col-sm-12\"> 
+          <div class=\"form-group\">
+            <label>Father's Experience</label>
+            <textarea class=\"form-control\" name=\"father_exp\" placeholder=\"Enter father's experience\" rows=\"5\"></textarea>
+          </div>
+        </div>
+        <div class=\"col-sm-2\"> 
+          <div class=\"form-group\">
+            <label>Father's Age</label>
+            <input type=\"text\" class=\"form-control\" name=\"father_age\" placeholder=\"Age\">
+          </div>
+        </div>
+        <div class=\"col-sm-4\"> 
+          <div class=\"form-group\">
+            <label>Father's Job</label>
+            <input type=\"text\" class=\"form-control\" name=\"father_job\" placeholder=\"Enter father's job\">
+          </div>
+        </div>
+        <div class=\"col-sm-12\"> 
+          <div class=\"form-group\">
+            <label>Father's address</label>
+            <input type=\"text\" class=\"form-control\" name=\"father_addr\" placeholder=\"Enter father's address\">
+          </div>
+        </div>
+
+        <div class=\"col-sm-6\"> 
+          <div class=\"form-group\">
+            <label>Mother's Name</label>
+            <input type=\"text\" class=\"form-control\" name=\"mother\" placeholder=\"Enter mother's name\">
+          </div>
+        </div>
+        <div class=\"col-sm-6\"> 
+          <div class=\"form-group\">
+            <label>Mother's Degree</label>
+            <input type=\"text\" class=\"form-control\" name=\"mother_degree\" placeholder=\"Enter mother's degree\">
+          </div>
+        </div>
+        <div class=\"col-sm-12\"> 
+          <div class=\"form-group\">
+            <label>Mother's Experience</label>
+            <textarea class=\"form-control\" name=\"mother_exp\" placeholder=\"Enter mother's experience\" rows=\"5\"></textarea>
+          </div>
+        </div>
+        <div class=\"col-sm-2\"> 
+          <div class=\"form-group\">
+            <label>Mother's Age</label>
+            <input type=\"text\" class=\"form-control\" name=\"mother_age\" placeholder=\"Age\">
+          </div>
+        </div>
+        <div class=\"col-sm-4\"> 
+          <div class=\"form-group\">
+            <label>Mother's Job</label>
+            <input type=\"text\" class=\"form-control\" name=\"mother_job\" placeholder=\"Enter mother's job\">
+          </div>
+        </div>
+        <div class=\"col-sm-12\"> 
+          <div class=\"form-group\">
+            <label>Mother's address</label>
+            <input type=\"text\" class=\"form-control\" name=\"mother_addr\" placeholder=\"Enter mother's address\">
+          </div>
+        </div>
+
+
+        
       </div>
     </div>
     <div class=\"tab-pane fade\" id=\"profile\">
@@ -114,7 +184,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
 
     public function getDebugInfo()
     {
-        return array (  73 => 41,  66 => 37,  59 => 35,  23 => 1,);
+        return array (  69 => 40,  62 => 38,  23 => 1,);
     }
 
     public function getSourceContext()
@@ -126,44 +196,117 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
       <li class=\"active\">
         <a href=\"#home\" data-toggle=\"tab\" title=\"welcome\">
         <span class=\"round-tabs one\">
-        <i class=\"fui-info-circle\"></i>
+          First 
         </span> </a>
       </li>
       <li><a href=\"#profile\" data-toggle=\"tab\" title=\"profile\">
         <span class=\"round-tabs two\">
-        <i class=\"fui-chat\"></i>
+          Second
         </span> </a>
       </li>
       <li><a href=\"#messages\" data-toggle=\"tab\" title=\"bootsnipp goodies\">
         <span class=\"round-tabs three\">
-        <i class=\"fui-chat\"></i>
+          Third
         </span> </a>
       </li>
       <li><a href=\"#settings\" data-toggle=\"tab\" title=\"blah blah\">
         <span class=\"round-tabs four\">
-        <i class=\"fui-chat\"></i>
+          Forth
         </span> </a>
       </li>
       <li><a href=\"#doner\" data-toggle=\"tab\" title=\"completed\">
         <span class=\"round-tabs five\">
-        <i class=\"fui-chat\"></i>
+          Fifth
         </span> </a>
       </li>
     </ul>
   </div>
   <div class=\"tab-content\">
+    <h4>Family Basic Information</h4>
     <div class=\"tab-pane fade in active\" id=\"home\">
-      <div class=\"form-group {% if errors.first('name') %} has-error {% endif %}\">
-        <label for=\"name\">Homeschool Name</label>
-        <input type=\"text\" class=\"form-control\" id=\"name\"  name=\"name\" placeholder=\"Enter Homeschool name : {{ errors.first('name') }}\">
-      </div>
-      <div class=\"form-group\">
-        <label for=\"homeschooler_name\">Homeschooler Name</label>
-        <input type=\"text\" class=\"form-control\" id=\"homeschooler_name\" name=\"homeschooler_name\" placeholder=\"Enter homeschooler name : {{ errors.first('homeschooler_name') }}\">
-      </div>
-      <div class=\"form-group\">
-        <label for=\"message\">Introduction</label>
-        <textarea class=\"form-control\" rows=\"10\" id=\"introduction\" name=\"introduction\" placeholder=\"Enter introduction\"></textarea>
+      <div class=\"row\">
+        <div class=\"col-sm-12\">  
+          <div class=\"form-group {% if errors.first('name') %} has-error {% endif %}\">
+            <label>Homeschool Name</label>
+            <input type=\"text\" class=\"form-control\" name=\"name\" placeholder=\"Enter Homeschool name : {{ errors.first('name') }}\">
+          </div>
+        </div>
+        <div class=\"col-sm-6\"> 
+          <div class=\"form-group\">
+            <label>Father's Name</label>
+            <input type=\"text\" class=\"form-control\" name=\"father\" placeholder=\"Enter father's name\">
+          </div>
+        </div>
+        <div class=\"col-sm-6\"> 
+          <div class=\"form-group\">
+            <label>Father's Degree</label>
+            <input type=\"text\" class=\"form-control\" name=\"father_degree\" placeholder=\"Enter father's degree\">
+          </div>
+        </div>
+        <div class=\"col-sm-12\"> 
+          <div class=\"form-group\">
+            <label>Father's Experience</label>
+            <textarea class=\"form-control\" name=\"father_exp\" placeholder=\"Enter father's experience\" rows=\"5\"></textarea>
+          </div>
+        </div>
+        <div class=\"col-sm-2\"> 
+          <div class=\"form-group\">
+            <label>Father's Age</label>
+            <input type=\"text\" class=\"form-control\" name=\"father_age\" placeholder=\"Age\">
+          </div>
+        </div>
+        <div class=\"col-sm-4\"> 
+          <div class=\"form-group\">
+            <label>Father's Job</label>
+            <input type=\"text\" class=\"form-control\" name=\"father_job\" placeholder=\"Enter father's job\">
+          </div>
+        </div>
+        <div class=\"col-sm-12\"> 
+          <div class=\"form-group\">
+            <label>Father's address</label>
+            <input type=\"text\" class=\"form-control\" name=\"father_addr\" placeholder=\"Enter father's address\">
+          </div>
+        </div>
+
+        <div class=\"col-sm-6\"> 
+          <div class=\"form-group\">
+            <label>Mother's Name</label>
+            <input type=\"text\" class=\"form-control\" name=\"mother\" placeholder=\"Enter mother's name\">
+          </div>
+        </div>
+        <div class=\"col-sm-6\"> 
+          <div class=\"form-group\">
+            <label>Mother's Degree</label>
+            <input type=\"text\" class=\"form-control\" name=\"mother_degree\" placeholder=\"Enter mother's degree\">
+          </div>
+        </div>
+        <div class=\"col-sm-12\"> 
+          <div class=\"form-group\">
+            <label>Mother's Experience</label>
+            <textarea class=\"form-control\" name=\"mother_exp\" placeholder=\"Enter mother's experience\" rows=\"5\"></textarea>
+          </div>
+        </div>
+        <div class=\"col-sm-2\"> 
+          <div class=\"form-group\">
+            <label>Mother's Age</label>
+            <input type=\"text\" class=\"form-control\" name=\"mother_age\" placeholder=\"Age\">
+          </div>
+        </div>
+        <div class=\"col-sm-4\"> 
+          <div class=\"form-group\">
+            <label>Mother's Job</label>
+            <input type=\"text\" class=\"form-control\" name=\"mother_job\" placeholder=\"Enter mother's job\">
+          </div>
+        </div>
+        <div class=\"col-sm-12\"> 
+          <div class=\"form-group\">
+            <label>Mother's address</label>
+            <input type=\"text\" class=\"form-control\" name=\"mother_addr\" placeholder=\"Enter mother's address\">
+          </div>
+        </div>
+
+
+        
       </div>
     </div>
     <div class=\"tab-pane fade\" id=\"profile\">

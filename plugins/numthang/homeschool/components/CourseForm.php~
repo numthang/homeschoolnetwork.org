@@ -18,21 +18,25 @@ class CourseForm extends ComponentBase
     }
 
     public function onSave(){
-       $validator = Validator::make(
+      $validator = Validator::make(
             [
                 'name' => Input::get('name'),
                 'email' => Input::get('email')
             ],
             [
-                'name' => 'required|min:5',
+                'name' => 'min:5',
                 'email' => 'required|email'
             ]
         );
-       $course = new Course();
-       $course->name = Input::get('name');
-       $course->introduction = Input::get('introduction');
-       $course->save();
-       Flash::success('Course added!');
-       return Redirect::back();
+
+      if($validator->fails()){
+          return Redirect::back()->withErrors($validator);
+      }
+      $course = new Course();
+      $course->name = Input::get('name');
+      $course->introduction = Input::get('introduction');
+      $course->save();
+      Flash::success('Course added!');
+      return Redirect::back();
     }
 }

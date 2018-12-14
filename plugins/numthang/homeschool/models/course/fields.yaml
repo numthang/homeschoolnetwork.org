@@ -12,7 +12,7 @@ fields:
         type: dropdown
 tabs:
     fields:
-        first_name:
+        name:
             label: Text
             span: auto
             type: text

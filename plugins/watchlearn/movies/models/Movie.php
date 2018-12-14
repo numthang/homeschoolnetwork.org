@@ -26,7 +26,7 @@ class Movie extends Model
      */
     public $table = 'watchlearn_movies_';
 
-    //protected $jsonable = ['actors'];
+    //protected $jsonable = ['actors'];//ใช้กับ repeater field actor ซึ่งในภายหลังใช้แบบ form widget ที่มี autocomplete
 
     /* Relations */
 

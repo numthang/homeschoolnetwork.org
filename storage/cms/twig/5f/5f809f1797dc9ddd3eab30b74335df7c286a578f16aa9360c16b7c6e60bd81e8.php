@@ -45,7 +45,7 @@ class __TwigTemplate_627e38a918ed2b5945f719d10611707af24183680d45ddbb71fd5edf0fd
         // line 12
         echo "        </div>
         <div class=\"col-md-8\">
-           ";
+          ";
         // line 14
         $context['__cms_component_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->componentFunction("courseform"        , $context['__cms_component_params']        );
@@ -87,7 +87,7 @@ class __TwigTemplate_627e38a918ed2b5945f719d10611707af24183680d45ddbb71fd5edf0fd
           {% component 'courses' %}
         </div>
         <div class=\"col-md-8\">
-           {% component 'courseform' %}
+          {% component 'courseform' %}
         </div>
     </div>
 </div>

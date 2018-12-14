@@ -73,8 +73,8 @@ class __TwigTemplate_c364709c4db30ecadf4a2d5824f038c723d5d33080ba205d47ab7cb7e1d
         </div>
         <div class=\"col-sm-6\">
           <div class=\"form-group\">
-            <label for=\"accountName\">First Name</label>
-            <input name=\"name\" type=\"text\" class=\"form-control\" id=\"accountName\" value=\"";
+            <label>First Name</label>
+            <input name=\"name\" type=\"text\" class=\"form-control\" value=\"";
         // line 45
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "name", array()), "html", null, true);
         echo "\">
@@ -82,8 +82,8 @@ class __TwigTemplate_c364709c4db30ecadf4a2d5824f038c723d5d33080ba205d47ab7cb7e1d
         </div>
         <div class=\"col-sm-6\">
           <div class=\"form-group\">
-            <label for=\"accountName\">Last Name</label>
-            <input name=\"surname\" type=\"text\" class=\"form-control\" id=\"accountName\" value=\"";
+            <label>Last Name</label>
+            <input name=\"surname\" type=\"text\" class=\"form-control\" value=\"";
         // line 51
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "surname", array()), "html", null, true);
         echo "\">
@@ -285,14 +285,14 @@ class __TwigTemplate_c364709c4db30ecadf4a2d5824f038c723d5d33080ba205d47ab7cb7e1d
         </div>
         <div class=\"col-sm-6\">
           <div class=\"form-group\">
-            <label for=\"accountName\">First Name</label>
-            <input name=\"name\" type=\"text\" class=\"form-control\" id=\"accountName\" value=\"{{ user.name }}\">
+            <label>First Name</label>
+            <input name=\"name\" type=\"text\" class=\"form-control\" value=\"{{ user.name }}\">
           </div>
         </div>
         <div class=\"col-sm-6\">
           <div class=\"form-group\">
-            <label for=\"accountName\">Last Name</label>
-            <input name=\"surname\" type=\"text\" class=\"form-control\" id=\"accountName\" value=\"{{ user.surname }}\">
+            <label>Last Name</label>
+            <input name=\"surname\" type=\"text\" class=\"form-control\" value=\"{{ user.surname }}\">
           </div>
         </div>
         

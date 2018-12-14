@@ -40,22 +40,23 @@ formCode = "homeschool"
         </div>
         <div class="col-sm-6">
           <div class="form-group">
+              <label for="accountEmail">Email</label>
+              <input name="email" type="email" class="form-control" id="accountEmail" value="{{ user.email }}">
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
             <label for="accountName">First Name</label>
-            <input name="name" type="text" class="form-control" id="accountName" value="{{ user.name }}">
+            <input name="name" type="text" class="form-control" value="{{ user.name }}">
           </div>
         </div>
         <div class="col-sm-6">
           <div class="form-group">
             <label for="accountName">Last Name</label>
-            <input name="surname" type="text" class="form-control" id="accountName" value="{{ user.surname }}">
+            <input name="surname" type="text" class="form-control" value="{{ user.surname }}">
           </div>
         </div>
-        <div class="col-sm-6">
-          <div class="form-group">
-              <label for="accountEmail">Email</label>
-              <input name="email" type="email" class="form-control" id="accountEmail" value="{{ user.email }}">
-          </div>
-        </div>
+        
         <div class="col-sm-6">
           <div class="form-group">
               <label for="accountPassword">New Password</label>

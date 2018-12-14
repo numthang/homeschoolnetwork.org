@@ -1,0 +1,53 @@
+1544779380a:1:{s:11:"courses.htm";a:11:{s:8:"fileName";s:11:"courses.htm";s:7:"content";s:979:"title = "Courses"
+url = "/courses"
+layout = "octaskin"
+is_hidden = 0
+
+[builderList]
+modelClass = "Numthang\Homeschool\Models\Course"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "first_name"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+
+[builderDetails]
+modelClass = "Numthang\Homeschool\Models\Course"
+identifierValue = 1
+modelKeyColumn = "user_id"
+displayColumn = "introduction"
+notFoundMessage = "Record not found"
+==
+<section id="lt-header" class="lt-section lt-section-fullwidth section">
+  <div class="lt-container container">
+    <div class="lt-content lt-header-content">
+      {% partial "pages-about/header" %}
+    </div>
+  </div>
+</section>
+
+<section id="lt-mainpage" class="lt-section section">
+  <div class="lt-container container">
+    <div class="lt-content lt-mainpage-content">
+
+{% component 'builderList' %}{% component 'builderDetails' %}
+    </div>
+  </div>
+</section>";s:5:"mtime";i:1543916768;s:6:"markup";s:482:"<section id="lt-header" class="lt-section lt-section-fullwidth section">
+  <div class="lt-container container">
+    <div class="lt-content lt-header-content">
+      {% partial "pages-about/header" %}
+    </div>
+  </div>
+</section>
+
+<section id="lt-mainpage" class="lt-section section">
+  <div class="lt-container container">
+    <div class="lt-content lt-mainpage-content">
+
+{% component 'builderList' %}{% component 'builderDetails' %}
+    </div>
+  </div>
+</section>";s:4:"code";N;s:5:"title";s:7:"Courses";s:3:"url";s:8:"/courses";s:6:"layout";s:8:"octaskin";s:9:"is_hidden";s:1:"0";s:11:"builderList";a:8:{s:10:"modelClass";s:33:"Numthang\Homeschool\Models\Course";s:5:"scope";s:1:"-";s:10:"scopeValue";s:12:"{{ :scope }}";s:13:"displayColumn";s:10:"first_name";s:16:"noRecordsMessage";s:16:"No records found";s:11:"detailsPage";s:1:"-";s:19:"detailsUrlParameter";s:2:"id";s:10:"pageNumber";s:11:"{{ :page }}";}s:14:"builderDetails";a:5:{s:10:"modelClass";s:33:"Numthang\Homeschool\Models\Course";s:15:"identifierValue";s:1:"1";s:14:"modelKeyColumn";s:7:"user_id";s:13:"displayColumn";s:12:"introduction";s:15:"notFoundMessage";s:16:"Record not found";}}}

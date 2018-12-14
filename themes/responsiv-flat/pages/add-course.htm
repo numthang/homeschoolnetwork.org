@@ -15,6 +15,9 @@ sortOrder = "name asc"
 [session]
 security = "user"
 redirect = "login"
+
+[renderForm]
+formCode = "homeschool"
 ==
 <section id="layout-title">
     <div class="container">
@@ -29,7 +32,7 @@ redirect = "login"
           {% component 'courses' %}
         </div>
         <div class="col-md-8">
-           {% component 'courseform' %}
+          {% component 'courseform' %}
         </div>
     </div>
 </div>
