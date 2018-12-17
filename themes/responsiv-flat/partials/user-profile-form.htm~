@@ -1,18 +1,4 @@
 [viewBag]
-
-[renderForm]
-formCode = "homeschool"
-==
-<?php
-
-
-
-function onSave()
-{
-    // Sets a successful message
-    Flash::success('Settings successfully saved!');
-}
-?>
 ==
 {{ form_ajax('onUpdate') }}
 
