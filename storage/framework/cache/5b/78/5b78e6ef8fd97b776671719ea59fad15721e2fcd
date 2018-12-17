@@ -1,4 +1,8 @@
-1544796213a:1:{s:16:"user-sidebar.htm";a:6:{s:8:"fileName";s:16:"user-sidebar.htm";s:7:"content";s:582:"[viewBag]
+1545060294a:1:{s:16:"user-sidebar.htm";a:7:{s:8:"fileName";s:16:"user-sidebar.htm";s:7:"content";s:756:"[viewBag]
+
+[courses]
+results = 0
+sortOrder = "name asc"
 ==
 <!-- Categories -->
 <div class="panel panel-default">
@@ -10,7 +14,13 @@
         <li class="list-group-item"><a href="/login/add/course" style="font-size: 18px;">Add Course</a></li>
         <li class="list-group-item"><a href="javascript:void(0);" data-request="onLogout" data-request-data="redirect: '/'" style="font-size: 18px;">Sign out</a></li>
     </ul>
-</div>";s:5:"mtime";i:1544446117;s:6:"markup";s:569:"<!-- Categories -->
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+      Courses
+  </div>
+  {% component 'courses' %}
+</div>";s:5:"mtime";i:1545059692;s:6:"markup";s:697:"<!-- Categories -->
 <div class="panel panel-default">
     <div class="panel-heading">
         User Menu
@@ -20,4 +30,10 @@
         <li class="list-group-item"><a href="/login/add/course" style="font-size: 18px;">Add Course</a></li>
         <li class="list-group-item"><a href="javascript:void(0);" data-request="onLogout" data-request-data="redirect: '/'" style="font-size: 18px;">Sign out</a></li>
     </ul>
-</div>";s:4:"code";N;s:7:"viewBag";a:0:{}}}
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+      Courses
+  </div>
+  {% component 'courses' %}
+</div>";s:4:"code";N;s:7:"viewBag";a:0:{}s:7:"courses";a:2:{s:7:"results";s:1:"0";s:9:"sortOrder";s:8:"name asc";}}}

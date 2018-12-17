@@ -3,6 +3,17 @@
 [renderForm]
 formCode = "homeschool"
 ==
+<?php
+
+
+
+function onSave()
+{
+    // Sets a successful message
+    Flash::success('Settings successfully saved!');
+}
+?>
+==
 {{ form_ajax('onUpdate') }}
 
   <div class="board-inner">
@@ -46,13 +57,13 @@ formCode = "homeschool"
         </div>
         <div class="col-sm-6">
           <div class="form-group">
-            <label for="accountName">First Name</label>
+            <label>First Name</label>
             <input name="name" type="text" class="form-control" value="{{ user.name }}">
           </div>
         </div>
         <div class="col-sm-6">
           <div class="form-group">
-            <label for="accountName">Last Name</label>
+            <label>Last Name</label>
             <input name="surname" type="text" class="form-control" value="{{ user.surname }}">
           </div>
         </div>

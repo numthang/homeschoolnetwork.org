@@ -346,9 +346,9 @@ class Account extends ComponentBase
         if (Input::hasFile('avatar')) {
             $user->avatar = Input::file('avatar');
         }
-print_r(post());
+
         $user->fill(post());
-        $user->save();
+        #$user->save();
 
         /*
          * Password has changed, reauthenticate the user

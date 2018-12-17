@@ -1,11 +1,11 @@
 <?php namespace Numthang\Homeschool\Components;
 
+use Auth;
 use Cms\Classes\ComponentBase;
 use Numthang\Homeschool\Models\Course;
 
 class Courses extends ComponentBase
 {
-
     public function componentDetails(){
         return [
             'name' => 'Course list',
@@ -40,11 +40,12 @@ class Courses extends ComponentBase
     }
 
     public function onRun(){
-        $this->courses = $this->loadCourses();
+        $this->courses = $this->loadCourses();//กำหนดตัวแปร courses ไว้ล่างสุด
     }
 
     protected function loadCourses(){
-        $query = Course::all();
+        $user = Auth::getUser();
+        $query = Course::all()->where('user_id', '=', 2);
 
         /*if($this->property('sortOrder') == 'name asc'){
             $query = $query->sortBy('name');
@@ -61,6 +62,6 @@ class Courses extends ComponentBase
         return $query;
     }
 
-    #public $courses;//กำหนด ส่งค่าไปแสดง ใน default.htm
+    public $courses;//กำหนด ส่งค่าไปแสดง ใน default.htm
 
 }

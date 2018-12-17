@@ -17,7 +17,7 @@ class Course extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'numthang_homeschool_course';
+    public $table = 'numthang_homeschool_courses';
 
     /**
      * @var array Validation rules

@@ -9,7 +9,6 @@ use Flash;
 
 class CourseForm extends ComponentBase
 {
-
     public function componentDetails(){
         return [
             'name' => 'Course Form',
@@ -20,23 +19,23 @@ class CourseForm extends ComponentBase
     public function onSave(){
       $validator = Validator::make(
             [
-                'name' => Input::get('name'),
-                'email' => Input::get('email')
+                'name' => Input::get('name')
             ],
             [
-                'name' => 'required|min:5',
-                'email' => 'required|email'
+                'name' => 'required|min:5'
             ]
         );
 
       if($validator->fails()){
-          return Redirect::back()->withErrors($validator);
+        return Redirect::back()->withErrors($validator);
       }
       $course = new Course();
+      #print_r($course);
+      $course->user_id = Input::get('user_id');
       $course->name = Input::get('name');
-      $course->introduction = Input::get('introduction');
+      #$course->introduction = Input::get('introduction');
       $course->save();
-      Flash::success('Course added!');
+      Flash::success('Course '.$course->name.' added!');
       return Redirect::back();
     }
 }

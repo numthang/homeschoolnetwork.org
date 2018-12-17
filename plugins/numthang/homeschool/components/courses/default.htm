@@ -1,16 +1,10 @@
 {%  set courses = __SELF__.courses %}
 
-<div class="panel panel-default">
-  <div class="panel-heading">
-      Courses
-  </div>
   <ul class="list-group filter-list-group">
     {% for course in courses %}
     <li class="list-group-item" ><a href="#" style="font-size: 18px; ">{{ course.name }}</a></li>
     {% endfor %}
   </ul>
-</div>
-
 
 
 

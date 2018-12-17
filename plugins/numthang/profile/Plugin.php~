@@ -3,6 +3,8 @@
 use System\Classes\PluginBase;
 use Rainlab\User\Controllers\Users as UsersController;
 use Rainlab\User\Models\User as UserModel;
+use Flash;
+use Lang;
 
 class Plugin extends PluginBase
 {
@@ -21,8 +23,8 @@ class Plugin extends PluginBase
           'facebook', 
           'line',
           'status',
-          'country',
-          'state'
+          'country_id',
+          'state_id'
         ]);
       });
       UsersController::extendFormFields(function($form, $model, $context) {//เพิ่ม user form ใน backend

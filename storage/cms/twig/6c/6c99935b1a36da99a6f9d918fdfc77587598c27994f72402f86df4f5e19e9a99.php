@@ -30,7 +30,18 @@ class __TwigTemplate_95a37cb067a6d18c72d396c8eae0a23f9ef53f2a597722749da92de9c2e
         <li class=\"list-group-item\"><a href=\"/login/add/course\" style=\"font-size: 18px;\">Add Course</a></li>
         <li class=\"list-group-item\"><a href=\"javascript:void(0);\" data-request=\"onLogout\" data-request-data=\"redirect: '/'\" style=\"font-size: 18px;\">Sign out</a></li>
     </ul>
-</div>";
+</div>
+<div class=\"panel panel-default\">
+  <div class=\"panel-heading\">
+      Courses
+  </div>
+  ";
+        // line 16
+        $context['__cms_component_params'] = [];
+        echo $this->env->getExtension('Cms\Twig\Extension')->componentFunction("courses"        , $context['__cms_component_params']        );
+        unset($context['__cms_component_params']);
+        // line 17
+        echo "</div>";
     }
 
     public function getTemplateName()
@@ -38,9 +49,14 @@ class __TwigTemplate_95a37cb067a6d18c72d396c8eae0a23f9ef53f2a597722749da92de9c2e
         return "/home/vsites/homeschool.in.th/themes/responsiv-flat/partials/user-sidebar.htm";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  23 => 1,);
+        return array (  44 => 17,  40 => 16,  23 => 1,);
     }
 
     public function getSourceContext()
@@ -55,6 +71,12 @@ class __TwigTemplate_95a37cb067a6d18c72d396c8eae0a23f9ef53f2a597722749da92de9c2e
         <li class=\"list-group-item\"><a href=\"/login/add/course\" style=\"font-size: 18px;\">Add Course</a></li>
         <li class=\"list-group-item\"><a href=\"javascript:void(0);\" data-request=\"onLogout\" data-request-data=\"redirect: '/'\" style=\"font-size: 18px;\">Sign out</a></li>
     </ul>
+</div>
+<div class=\"panel panel-default\">
+  <div class=\"panel-heading\">
+      Courses
+  </div>
+  {% component 'courses' %}
 </div>", "/home/vsites/homeschool.in.th/themes/responsiv-flat/partials/user-sidebar.htm", "");
     }
 }

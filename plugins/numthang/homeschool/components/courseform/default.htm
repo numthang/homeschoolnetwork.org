@@ -1,4 +1,19 @@
 <form data-request="onSave">
+  <input type="hidden" name="user_id" value="{{ user.id }}">
+  <div class="row">
+    <div class="col-sm-6">  
+      <div class="form-group {% if errors.first('name') %} has-error {% endif %}">
+        <label>Course Name</label>
+        <input type="text" class="form-control" name="name" placeholder="Enter course name : {{ errors.first('name') }}">
+      </div>
+    </div>
+    <div class="col-sm-6">  
+      <div class="form-group">
+        <label>Homeschool Name</label>
+        <input type="text" class="form-control" name="homeschool_name" placeholder="Enter homeschool name : ">
+      </div>
+    </div>
+  </div>
   <div class="board-inner">
     <ul class="nav nav-tabs" id="myTab">
       <div class="liner"></div>
@@ -31,15 +46,9 @@
     </ul>
   </div>
   <div class="tab-content">
-    <h4>Family Basic Information</h4>
     <div class="tab-pane fade in active" id="home">
+      <h4>Family Basic Information</h4>
       <div class="row">
-        <div class="col-sm-12">  
-          <div class="form-group {% if errors.first('name') %} has-error {% endif %}">
-            <label>Homeschool Name</label>
-            <input type="text" class="form-control" name="name" placeholder="Enter Homeschool name : {{ errors.first('name') }}">
-          </div>
-        </div>
         <div class="col-sm-6"> 
           <div class="form-group">
             <label>Father's Name</label>
@@ -119,7 +128,7 @@
       </div>
     </div>
     <div class="tab-pane fade" id="profile">
-      
+      <h4>Homeschooler Profile</h4>
     </div>
     <div class="tab-pane fade" id="messages">
       

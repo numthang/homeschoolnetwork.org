@@ -21,6 +21,32 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
     {
         // line 1
         echo "<form data-request=\"onSave\">
+  <input type=\"hidden\" name=\"user_id\" value=\"";
+        // line 2
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "id", array()), "html", null, true);
+        echo "\">
+  <div class=\"row\">
+    <div class=\"col-sm-6\">  
+      <div class=\"form-group ";
+        // line 5
+        if (twig_get_attribute($this->env, $this->source, ($context["errors"] ?? null), "first", array(0 => "name"), "method")) {
+            echo " has-error ";
+        }
+        echo "\">
+        <label>Course Name</label>
+        <input type=\"text\" class=\"form-control\" name=\"name\" placeholder=\"Enter course name : ";
+        // line 7
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["errors"] ?? null), "first", array(0 => "name"), "method"), "html", null, true);
+        echo "\">
+      </div>
+    </div>
+    <div class=\"col-sm-6\">  
+      <div class=\"form-group\">
+        <label>Homeschool Name</label>
+        <input type=\"text\" class=\"form-control\" name=\"homeschool_name\" placeholder=\"Enter homeschool name : \">
+      </div>
+    </div>
+  </div>
   <div class=\"board-inner\">
     <ul class=\"nav nav-tabs\" id=\"myTab\">
       <div class=\"liner\"></div>
@@ -53,23 +79,9 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
     </ul>
   </div>
   <div class=\"tab-content\">
-    <h4>Family Basic Information</h4>
     <div class=\"tab-pane fade in active\" id=\"home\">
+      <h4>Family Basic Information</h4>
       <div class=\"row\">
-        <div class=\"col-sm-12\">  
-          <div class=\"form-group ";
-        // line 38
-        if (twig_get_attribute($this->env, $this->source, ($context["errors"] ?? null), "first", array(0 => "name"), "method")) {
-            echo " has-error ";
-        }
-        echo "\">
-            <label>Homeschool Name</label>
-            <input type=\"text\" class=\"form-control\" name=\"name\" placeholder=\"Enter Homeschool name : ";
-        // line 40
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["errors"] ?? null), "first", array(0 => "name"), "method"), "html", null, true);
-        echo "\">
-          </div>
-        </div>
         <div class=\"col-sm-6\"> 
           <div class=\"form-group\">
             <label>Father's Name</label>
@@ -149,7 +161,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
       </div>
     </div>
     <div class=\"tab-pane fade\" id=\"profile\">
-      
+      <h4>Homeschooler Profile</h4>
     </div>
     <div class=\"tab-pane fade\" id=\"messages\">
       
@@ -184,12 +196,27 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
 
     public function getDebugInfo()
     {
-        return array (  69 => 40,  62 => 38,  23 => 1,);
+        return array (  39 => 7,  32 => 5,  26 => 2,  23 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Twig_Source("<form data-request=\"onSave\">
+  <input type=\"hidden\" name=\"user_id\" value=\"{{ user.id }}\">
+  <div class=\"row\">
+    <div class=\"col-sm-6\">  
+      <div class=\"form-group {% if errors.first('name') %} has-error {% endif %}\">
+        <label>Course Name</label>
+        <input type=\"text\" class=\"form-control\" name=\"name\" placeholder=\"Enter course name : {{ errors.first('name') }}\">
+      </div>
+    </div>
+    <div class=\"col-sm-6\">  
+      <div class=\"form-group\">
+        <label>Homeschool Name</label>
+        <input type=\"text\" class=\"form-control\" name=\"homeschool_name\" placeholder=\"Enter homeschool name : \">
+      </div>
+    </div>
+  </div>
   <div class=\"board-inner\">
     <ul class=\"nav nav-tabs\" id=\"myTab\">
       <div class=\"liner\"></div>
@@ -222,15 +249,9 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
     </ul>
   </div>
   <div class=\"tab-content\">
-    <h4>Family Basic Information</h4>
     <div class=\"tab-pane fade in active\" id=\"home\">
+      <h4>Family Basic Information</h4>
       <div class=\"row\">
-        <div class=\"col-sm-12\">  
-          <div class=\"form-group {% if errors.first('name') %} has-error {% endif %}\">
-            <label>Homeschool Name</label>
-            <input type=\"text\" class=\"form-control\" name=\"name\" placeholder=\"Enter Homeschool name : {{ errors.first('name') }}\">
-          </div>
-        </div>
         <div class=\"col-sm-6\"> 
           <div class=\"form-group\">
             <label>Father's Name</label>
@@ -310,7 +331,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
       </div>
     </div>
     <div class=\"tab-pane fade\" id=\"profile\">
-      
+      <h4>Homeschooler Profile</h4>
     </div>
     <div class=\"tab-pane fade\" id=\"messages\">
       

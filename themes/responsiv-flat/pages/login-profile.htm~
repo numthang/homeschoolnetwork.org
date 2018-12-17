@@ -1,0 +1,42 @@
+title = "Login Profile"
+url = "/login/profile"
+layout = "default"
+is_hidden = 0
+
+[viewBag]
+
+[session]
+security = "user"
+redirect = "login"
+
+[account]
+paramCode = "code"
+forceSecure = 0
+
+[courses]
+results = 0
+sortOrder = "name asc"
+
+[renderForm]
+formCode = "default-form"
+==
+<section id="layout-title">
+    <div class="container">
+        <h3>Hello, {{ user.name }}</h3>
+    </div>
+</section>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+          {% partial 'user-sidebar' %}
+          {% component 'courses' %}
+        </div>
+        <div class="col-md-8">
+          {% flash %}
+            <p data-control="flash-message" data-interval="5" class="{{ type == 'error' ? 'danger' : type }}">{{ message }}<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></p>
+          {% endflash %}
+          {% partial 'user-profile-form' %}
+        </div>
+    </div>
+</div>
+<br>
