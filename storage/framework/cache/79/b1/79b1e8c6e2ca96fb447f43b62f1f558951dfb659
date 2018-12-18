@@ -1,4 +1,4 @@
-1545056356a:1:{s:22:"pages-about/header.htm";a:5:{s:8:"fileName";s:22:"pages-about/header.htm";s:7:"content";s:576:"<div class="lt-row row">
+1545137489a:1:{s:22:"pages-about/header.htm";a:5:{s:8:"fileName";s:22:"pages-about/header.htm";s:7:"content";s:576:"<div class="lt-row row">
   <div class="lt-col col s12">
     <div class="lt-parallax-header parallax-container" style="height: 400px;">
       <div class="lt-parallax parallax"><img src="{{ 'assets/img/pages/about/header/img-01.jpg'|theme }}" alt="image"></div>

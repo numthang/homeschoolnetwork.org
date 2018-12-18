@@ -1,4 +1,4 @@
-1545056357a:1:{s:15:"_addons/css.htm";a:5:{s:8:"fileName";s:15:"_addons/css.htm";s:7:"content";s:449:"{% if this.theme.load_animate_css %}
+1545137489a:1:{s:15:"_addons/css.htm";a:5:{s:8:"fileName";s:15:"_addons/css.htm";s:7:"content";s:449:"{% if this.theme.load_animate_css %}
   <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css" rel="stylesheet">
 {% endif %}
 

@@ -1,17 +1,28 @@
 <?php namespace Numthang\Homeschool;
 
 use System\Classes\PluginBase;
+use Numthang\Homeschool\Models\Course as CourseModel;
 
 class Plugin extends PluginBase
 {
     public function registerComponents()
     {
       return [
-            'Numthang\Homeschool\Components\Courses' => 'courses'
+            'Numthang\Homeschool\Components\Courses' => 'courses',
+            'Numthang\Homeschool\Components\CourseForm' => 'courseform'
         ];
     }
 
     public function registerSettings()
     {
+    }
+    public function boot() {
+      /*CourseModel::extend(function($model) {//ทำให้ save ข้อมูลด้วย fill() functionเพิ่มได้
+        $model->addFillable([
+          'user_id', 
+          'hs_name',
+          'name',
+        ]);
+      });*/
     }
 }

@@ -37,13 +37,18 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
         <input type=\"text\" class=\"form-control\" name=\"name\" placeholder=\"Enter course name : ";
         // line 7
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["errors"] ?? null), "first", array(0 => "name"), "method"), "html", null, true);
+        echo "\" value=\"";
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "name", array()), "html", null, true);
         echo "\">
       </div>
     </div>
     <div class=\"col-sm-6\">  
       <div class=\"form-group\">
         <label>Homeschool Name</label>
-        <input type=\"text\" class=\"form-control\" name=\"homeschool_name\" placeholder=\"Enter homeschool name : \">
+        <input type=\"text\" class=\"form-control\" name=\"hs_name\" placeholder=\"Enter homeschool name : \" value=\"";
+        // line 13
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "hs_name", array()), "html", null, true);
+        echo "\">
       </div>
     </div>
   </div>
@@ -85,7 +90,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
         <div class=\"col-sm-6\"> 
           <div class=\"form-group\">
             <label>Father's Name</label>
-            <input type=\"text\" class=\"form-control\" name=\"father\" placeholder=\"Enter father's name\">
+            <input type=\"text\" class=\"form-control\" name=\"father_name\" placeholder=\"Enter father's name\">
           </div>
         </div>
         <div class=\"col-sm-6\"> 
@@ -177,6 +182,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
   <div class=\"row\">
     <div class=\"col-sm-6\">
       <button type=\"submit\" class=\"btn btn-lg btn-info\">Save</button>
+      <button type=\"button\" data-request=\"onDelete\" data-request-confirm=\"Are you sure?\" class=\"btn btn-lg btn-danger\">Remove</button>
     </div>
   </div>
   <br>
@@ -196,7 +202,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
 
     public function getDebugInfo()
     {
-        return array (  39 => 7,  32 => 5,  26 => 2,  23 => 1,);
+        return array (  50 => 13,  39 => 7,  32 => 5,  26 => 2,  23 => 1,);
     }
 
     public function getSourceContext()
@@ -207,13 +213,13 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
     <div class=\"col-sm-6\">  
       <div class=\"form-group {% if errors.first('name') %} has-error {% endif %}\">
         <label>Course Name</label>
-        <input type=\"text\" class=\"form-control\" name=\"name\" placeholder=\"Enter course name : {{ errors.first('name') }}\">
+        <input type=\"text\" class=\"form-control\" name=\"name\" placeholder=\"Enter course name : {{ errors.first('name') }}\" value=\"{{ record.name }}\">
       </div>
     </div>
     <div class=\"col-sm-6\">  
       <div class=\"form-group\">
         <label>Homeschool Name</label>
-        <input type=\"text\" class=\"form-control\" name=\"homeschool_name\" placeholder=\"Enter homeschool name : \">
+        <input type=\"text\" class=\"form-control\" name=\"hs_name\" placeholder=\"Enter homeschool name : \" value=\"{{ record.hs_name }}\">
       </div>
     </div>
   </div>
@@ -255,7 +261,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
         <div class=\"col-sm-6\"> 
           <div class=\"form-group\">
             <label>Father's Name</label>
-            <input type=\"text\" class=\"form-control\" name=\"father\" placeholder=\"Enter father's name\">
+            <input type=\"text\" class=\"form-control\" name=\"father_name\" placeholder=\"Enter father's name\">
           </div>
         </div>
         <div class=\"col-sm-6\"> 
@@ -347,6 +353,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
   <div class=\"row\">
     <div class=\"col-sm-6\">
       <button type=\"submit\" class=\"btn btn-lg btn-info\">Save</button>
+      <button type=\"button\" data-request=\"onDelete\" data-request-confirm=\"Are you sure?\" class=\"btn btn-lg btn-danger\">Remove</button>
     </div>
   </div>
   <br>

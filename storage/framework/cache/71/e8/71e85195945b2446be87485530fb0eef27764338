@@ -1,0 +1,59 @@
+1545151560a:1:{s:17:"login/profile.htm";a:14:{s:8:"fileName";s:17:"login/profile.htm";s:7:"content";s:939:"title = "Login Profile"
+url = "/login/profile"
+layout = "default"
+is_hidden = 0
+
+[viewBag]
+
+[session]
+security = "user"
+redirect = "login"
+
+[account]
+paramCode = "code"
+forceSecure = 0
+
+[courses]
+results = 0
+sortOrder = "name asc"
+
+[renderForm]
+formCode = "default-form"
+==
+<section id="layout-title">
+    <div class="container">
+        <h3>Hello, {{ user.name }} {{ user.surname }}</h3>
+    </div>
+</section>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+          {% partial 'user-sidebar' %}
+        </div>
+        <div class="col-md-8">
+          {% flash %}
+            <p data-control="flash-message" data-interval="5" class="{{ type == 'error' ? 'danger' : type }}">{{ message }}<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></p>
+          {% endflash %}
+          {% partial 'user-profile-form' %}
+        </div>
+    </div>
+</div>
+<br>";s:5:"mtime";i:1545150959;s:6:"markup";s:665:"<section id="layout-title">
+    <div class="container">
+        <h3>Hello, {{ user.name }} {{ user.surname }}</h3>
+    </div>
+</section>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+          {% partial 'user-sidebar' %}
+        </div>
+        <div class="col-md-8">
+          {% flash %}
+            <p data-control="flash-message" data-interval="5" class="{{ type == 'error' ? 'danger' : type }}">{{ message }}<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></p>
+          {% endflash %}
+          {% partial 'user-profile-form' %}
+        </div>
+    </div>
+</div>
+<br>";s:4:"code";N;s:5:"title";s:13:"Login Profile";s:3:"url";s:14:"/login/profile";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";s:7:"viewBag";a:0:{}s:7:"session";a:2:{s:8:"security";s:4:"user";s:8:"redirect";s:5:"login";}s:7:"account";a:2:{s:9:"paramCode";s:4:"code";s:11:"forceSecure";s:1:"0";}s:7:"courses";a:2:{s:7:"results";s:1:"0";s:9:"sortOrder";s:8:"name asc";}s:10:"renderForm";a:1:{s:8:"formCode";s:12:"default-form";}}}

@@ -15,7 +15,7 @@ class Plugin extends PluginBase
     }
 
     public function boot() {
-      UserModel::extend(function($model) {//ทำให้ save ข้อมูลเพิ่มได้
+      UserModel::extend(function($model) {//กำหนด fillable field เพิ่ม
         $model->addFillable([
           'website', 
           'facebook', 

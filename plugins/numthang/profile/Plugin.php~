@@ -3,8 +3,6 @@
 use System\Classes\PluginBase;
 use Rainlab\User\Controllers\Users as UsersController;
 use Rainlab\User\Models\User as UserModel;
-use Flash;
-use Lang;
 
 class Plugin extends PluginBase
 {

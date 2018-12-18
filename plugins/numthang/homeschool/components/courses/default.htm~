@@ -1,8 +1,8 @@
 {%  set courses = __SELF__.courses %}
 
-  <ul>
+  <ul class="list-group filter-list-group">
     {% for course in courses %}
-    <li><a href="#" style="font-size: 18px; ">{{ course.name }}</a></li>
+    <li class="list-group-item" ><a href="#" style="font-size: 18px; ">{{ course.name }}</a></li>
     {% endfor %}
   </ul>
 

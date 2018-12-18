@@ -3,62 +3,75 @@ url = "/form-builder"
 layout = "default"
 is_hidden = 0
 
-[renderForm]
-formCode = "default-form"
-
 [viewBag]
 localeUrl[th] = "/form-builder"
+
+[renderForm]
+formCode = "default-form"
 ==
-{% if renderForm.form %}
+<section id="layout-title">
+    <div class="container">
+        <h3>Magic Forms</h3>
+    </div>
+</section>
 
-    <div class="{{ renderForm.id }}"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+     {% if renderForm.form %}
 
-    {% flash %}
-
-        {% if renderForm.form.code in message %}
-
-            <div class="alert alert-success">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                {{ message|replace({ (renderForm.form.code) : ''})|raw }}
-            </div>
-
-        {% endif %}
-
-    {% endflash %}
-
-    {{ form_open({
-            'id': renderForm.form.code,
-            'class': renderForm.form.css_class,
-            'data-request': renderForm ~ '::onSubmit',
-            'data-request-data': {form: renderForm.form.code}
-        })
-    }}
-
-        {% for section in renderForm.form.sections if not section.fields is empty %}
-
-            {{ section.html|raw }}
-
-        {% endfor %}
-
-        {% for field in renderForm.form.fields if not field.section %}
-
-            {% if (field.field_type.code == 'file_uploader') %}
-                {% partial renderForm ~ '::file_uploader' %}
-            {% else %}
-                {{ field.html|raw }}
+        <div class="{{ renderForm.id }}"></div>
+    
+        {% flash %}
+    
+            {% if renderForm.form.code in message %}
+    
+                <div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    {{ message|replace({ (renderForm.form.code) : ''})|raw }}
+                </div>
+    
             {% endif %}
-
-        {% endfor %}
-
-    {{ form_close() }}
-
-
-{% else %}
-
-    <p style="color: #ff0033;">
-        Form with code "{{ formCode }}" does not exist! Did you select correct form in component settings?
-    </p>
-
-{% endif %}
+    
+        {% endflash %}
+    
+        {{ form_open({
+                'id': renderForm.form.code,
+                'class': renderForm.form.css_class,
+                'data-request': renderForm ~ '::onSubmit',
+                'data-request-data': {form: renderForm.form.code}
+            })
+        }}
+    
+            {% for section in renderForm.form.sections if not section.fields is empty %}
+    
+                {{ section.html|raw }}
+    
+            {% endfor %}
+    
+            {% for field in renderForm.form.fields if not field.section %}
+    
+                {% if (field.field_type.code == 'file_uploader') %}
+                    {% partial renderForm ~ '::file_uploader' %}
+                {% else %}
+                    {{ field.html|raw }}
+                {% endif %}
+    
+            {% endfor %}
+    
+        {{ form_close() }}
+    
+    
+    {% else %}
+    
+        <p style="color: #ff0033;">
+            Form with code "{{ formCode }}" does not exist! Did you select correct form in component settings?
+        </p>
+    
+    {% endif %}
+    </div>
+  </div>
+</div>
+<br>

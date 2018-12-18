@@ -29,13 +29,24 @@ class CourseForm extends ComponentBase
       if($validator->fails()){
         return Redirect::back()->withErrors($validator);
       }
-      $course = new Course();
-      #print_r($course);
-      $course->user_id = Input::get('user_id');
-      $course->name = Input::get('name');
-      #$course->introduction = Input::get('introduction');
+
+      if($this->param('id'))//ถ้ามีการ update จะส่ง query id เข้ามา
+        $course = Course::find($this->param('id'));
+      else
+        $course = new Course();
+
+      #$course->user_id = Input::get('user_id');
+      #$course->name = Input::get('name');
+      #print_r(post());
+      $course->fill(post());
       $course->save();
-      Flash::success('Course added!');
-      return Redirect::back();
+      Flash::success('Course '.$course->name.' saved!');
+
+      return Redirect::to('/login/edit/course/'.$course->id);
+    }
+    public function onDelete() {
+      $course = new Course();
+      $course->where('id', '=', $this->param('id'))->delete();
+      return Redirect::to('/login/add/course')->with('message', $course->name.' Removed');
     }
 }

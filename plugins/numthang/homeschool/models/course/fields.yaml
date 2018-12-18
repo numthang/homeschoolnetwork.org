@@ -1,15 +1,3 @@
-fields:
-    introduction:
-        label: แนะนำตนเอง
-        size: large
-        span: auto
-        type: textarea
-    user_id:
-        label: บ้านเรียน
-        options:
-            1: tee
-        span: auto
-        type: dropdown
 tabs:
     fields:
         name:
