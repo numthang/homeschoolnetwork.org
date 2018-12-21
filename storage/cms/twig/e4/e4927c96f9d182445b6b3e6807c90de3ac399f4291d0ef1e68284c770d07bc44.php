@@ -86,35 +86,65 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
     <ul class=\"nav nav-tabs\" id=\"myTab\">
       <div class=\"liner\"></div>
       <li class=\"active\">
-        <a href=\"#home\" data-toggle=\"tab\" title=\"welcome\">
+        <a href=\"#first\" data-toggle=\"tab\" title=\"First\">
         <span class=\"round-tabs one\">
-          First 
+          1 
         </span> </a>
       </li>
-      <li><a href=\"#second\" data-toggle=\"tab\" title=\"second\">
+      <li><a href=\"#second\" data-toggle=\"tab\" title=\"Second\">
         <span class=\"round-tabs two\">
-          Second
+          2
         </span> </a>
       </li>
-      <li><a href=\"#messages\" data-toggle=\"tab\" title=\"bootsnipp goodies\">
+      <li><a href=\"#third\" data-toggle=\"tab\" title=\"Third\">
         <span class=\"round-tabs three\">
-          Third
+          3
         </span> </a>
       </li>
-      <li><a href=\"#settings\" data-toggle=\"tab\" title=\"blah blah\">
+      <li><a href=\"#forth\" data-toggle=\"tab\" title=\"Forth\">
         <span class=\"round-tabs four\">
-          Forth
+          4
         </span> </a>
       </li>
-      <li><a href=\"#doner\" data-toggle=\"tab\" title=\"completed\">
+      <li><a href=\"#fifth\" data-toggle=\"tab\" title=\"Fifth\">
         <span class=\"round-tabs five\">
-          Fifth
+          5
+        </span> </a>
+      </li>
+      <li><a href=\"#sixth\" data-toggle=\"tab\" title=\"Sixth\">
+        <span class=\"round-tabs six\">
+          6
+        </span> </a>
+      </li>
+      <li><a href=\"#seventh\" data-toggle=\"tab\" title=\"Seventh\">
+        <span class=\"round-tabs seven\">
+          7
+        </span> </a>
+      </li>
+      <li><a href=\"#eighth\" data-toggle=\"tab\" title=\"Eighth\">
+        <span class=\"round-tabs eight\">
+          8
+        </span> </a>
+      </li>
+      <li><a href=\"#ninth\" data-toggle=\"tab\" title=\"Ninth\">
+        <span class=\"round-tabs nine\">
+          9
+        </span> </a>
+      </li>
+      <li><a href=\"#tenth\" data-toggle=\"tab\" title=\"Tenth\">
+        <span class=\"round-tabs ten\">
+          10
+        </span> </a>
+      </li>
+      <li><a href=\"#eleventh\" data-toggle=\"tab\" title=\"Eleventh\">
+        <span class=\"round-tabs eleven\">
+          11
         </span> </a>
       </li>
     </ul>
   </div>
   <div class=\"tab-content\">
-    <div class=\"tab-pane fade in active\" id=\"home\">
+    <div class=\"tab-pane fade in active\" id=\"first\">
       <h4>Family Basic Information</h4>
       <div class=\"row\">
         <div class=\"col-sm-6\"> 
@@ -229,7 +259,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
         </div>
       </div>
     </div>
-    <div class=\"tab-pane fade\" id=\"messages\">
+    <div class=\"tab-pane fade\" id=\"third\">
       <h4>Class and Reason</h4>
       <div class=\"row\">
         <div class=\"col-sm-12\"> 
@@ -254,13 +284,71 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
       <div class=\"row\">
         <div class=\"col-sm-12\"> 
           <div class=\"form-group\">
-            <textarea class=\"form-control\" name=\"edu_type\" placeholder=\"ระบุความต้องการ เช่น ต้องการพึ่งตนเอง ลดค่าใช้จ่าย เป็นต้น\" rows=\"20\">
-              1. จัดการศึกษาแบบครอบครัวเดียว เนื่องจากไมสามารถรวมกิจกรรมกับกลุม บานเรียน หรือครอบครัวอื่น และมีความสนใจเฉพาะดานแตกตางกัน
+            <textarea class=\"form-control\" name=\"edu_type\" placeholder=\"\" rows=\"20\">1. จัดการศึกษาแบบครอบครัวเดียว เนื่องจากไมสามารถรวมกิจกรรมกับกลุม บานเรียน หรือครอบครัวอื่น และมีความสนใจเฉพาะดานแตกตางกัน
 2. จัดการศึกษาแบบมีขอตกลงรวมกับโรงเรียนหรือหนวยงานอื่น โดยมีการเขาไปใชทรัพยากรในโรงเรียนหรือเขาไปทํากิจกรรมรวมกัน เนื่องจากตองการใหบุตรไดมีความรูประสบการณที่สามารถเชื่อมโยงเขาสูระบบโรงเรียน
-                            3. จัดการศึกษาแบบกลุมครอบครัวที่มีแนวคิดคลายๆ กัน เปนการจําลองสังคมเล็กๆ เชื่อวาการ เชื่อมโยงกับกลุมเปนการชวยเสริมพัฒนาการของบุตรได
-              4. จัดการศึกษาแบบรวมศูนย จัดการแบบศูนยการเรียน เนื่องจากตองการใหบุตรมีสังคมพอแมทํางานนอกบานทั้งคูจึงมอบหมายใหผูที่เห็นวามีความเหมาะสมมาทําหนาที่จัดกระบวนการเรียนรู
-              5. อื่นๆ (ระบุ)
-            </textarea>
+3. จัดการศึกษาแบบกลุมครอบครัวที่มีแนวคิดคลายๆ กัน เปนการจําลองสังคมเล็กๆ เชื่อวาการ เชื่อมโยงกับกลุมเปนการชวยเสริมพัฒนาการของบุตรได
+4. จัดการศึกษาแบบรวมศูนย จัดการแบบศูนยการเรียน เนื่องจากตองการใหบุตรมีสังคมพอแมทํางานนอกบานทั้งคูจึงมอบหมายใหผูที่เห็นวามีความเหมาะสมมาทําหนาที่จัดกระบวนการเรียนรู
+5. อื่นๆ (ระบุ)</textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class=\"tab-pane fade\" id=\"sixth\">
+      <h4>Schedule Structure</h4>
+      <div class=\"row\">
+        <div class=\"col-sm-12\"> 
+          <div class=\"form-group\">
+            <textarea class=\"form-control\" name=\"schedule\" placeholder=\"\" rows=\"20\">กลุ่มประสบการณ์ /กลุ่มสาระการเรียนรู้ (ตามตารางในข้อ 7)</textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class=\"tab-pane fade\" id=\"seventh\">
+      <h4>Seventh</h4>
+      <div class=\"row\">
+        <div class=\"col-sm-12\"> 
+          <div class=\"form-group\">
+            <textarea class=\"form-control\" name=\"edu_purpose\" placeholder=\"\" rows=\"20\"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class=\"tab-pane fade\" id=\"eighth\">
+      <h4>Eighth</h4>
+      <div class=\"row\">
+        <div class=\"col-sm-12\"> 
+          <div class=\"form-group\">
+            <textarea class=\"form-control\" name=\"edu_purpose\" placeholder=\"\" rows=\"20\"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class=\"tab-pane fade\" id=\"ninth\">
+      <h4>ninth</h4>
+      <div class=\"row\">
+        <div class=\"col-sm-12\"> 
+          <div class=\"form-group\">
+            <textarea class=\"form-control\" name=\"edu_purpose\" placeholder=\"\" rows=\"20\"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class=\"tab-pane fade\" id=\"tenth\">
+      <h4>tenth</h4>
+      <div class=\"row\">
+        <div class=\"col-sm-12\"> 
+          <div class=\"form-group\">
+            <textarea class=\"form-control\" name=\"edu_purpose\" placeholder=\"\" rows=\"20\"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class=\"tab-pane fade\" id=\"eleventh\">
+      <h4>eleventh</h4>
+      <div class=\"row\">
+        <div class=\"col-sm-12\"> 
+          <div class=\"form-group\">
+            <textarea class=\"form-control\" name=\"edu_purpose\" placeholder=\"\" rows=\"20\"></textarea>
           </div>
         </div>
       </div>
@@ -326,35 +414,65 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
     <ul class=\"nav nav-tabs\" id=\"myTab\">
       <div class=\"liner\"></div>
       <li class=\"active\">
-        <a href=\"#home\" data-toggle=\"tab\" title=\"welcome\">
+        <a href=\"#first\" data-toggle=\"tab\" title=\"First\">
         <span class=\"round-tabs one\">
-          First 
+          1 
         </span> </a>
       </li>
-      <li><a href=\"#second\" data-toggle=\"tab\" title=\"second\">
+      <li><a href=\"#second\" data-toggle=\"tab\" title=\"Second\">
         <span class=\"round-tabs two\">
-          Second
+          2
         </span> </a>
       </li>
-      <li><a href=\"#messages\" data-toggle=\"tab\" title=\"bootsnipp goodies\">
+      <li><a href=\"#third\" data-toggle=\"tab\" title=\"Third\">
         <span class=\"round-tabs three\">
-          Third
+          3
         </span> </a>
       </li>
-      <li><a href=\"#settings\" data-toggle=\"tab\" title=\"blah blah\">
+      <li><a href=\"#forth\" data-toggle=\"tab\" title=\"Forth\">
         <span class=\"round-tabs four\">
-          Forth
+          4
         </span> </a>
       </li>
-      <li><a href=\"#doner\" data-toggle=\"tab\" title=\"completed\">
+      <li><a href=\"#fifth\" data-toggle=\"tab\" title=\"Fifth\">
         <span class=\"round-tabs five\">
-          Fifth
+          5
+        </span> </a>
+      </li>
+      <li><a href=\"#sixth\" data-toggle=\"tab\" title=\"Sixth\">
+        <span class=\"round-tabs six\">
+          6
+        </span> </a>
+      </li>
+      <li><a href=\"#seventh\" data-toggle=\"tab\" title=\"Seventh\">
+        <span class=\"round-tabs seven\">
+          7
+        </span> </a>
+      </li>
+      <li><a href=\"#eighth\" data-toggle=\"tab\" title=\"Eighth\">
+        <span class=\"round-tabs eight\">
+          8
+        </span> </a>
+      </li>
+      <li><a href=\"#ninth\" data-toggle=\"tab\" title=\"Ninth\">
+        <span class=\"round-tabs nine\">
+          9
+        </span> </a>
+      </li>
+      <li><a href=\"#tenth\" data-toggle=\"tab\" title=\"Tenth\">
+        <span class=\"round-tabs ten\">
+          10
+        </span> </a>
+      </li>
+      <li><a href=\"#eleventh\" data-toggle=\"tab\" title=\"Eleventh\">
+        <span class=\"round-tabs eleven\">
+          11
         </span> </a>
       </li>
     </ul>
   </div>
   <div class=\"tab-content\">
-    <div class=\"tab-pane fade in active\" id=\"home\">
+    <div class=\"tab-pane fade in active\" id=\"first\">
       <h4>Family Basic Information</h4>
       <div class=\"row\">
         <div class=\"col-sm-6\"> 
@@ -469,7 +587,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
         </div>
       </div>
     </div>
-    <div class=\"tab-pane fade\" id=\"messages\">
+    <div class=\"tab-pane fade\" id=\"third\">
       <h4>Class and Reason</h4>
       <div class=\"row\">
         <div class=\"col-sm-12\"> 
@@ -494,13 +612,71 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
       <div class=\"row\">
         <div class=\"col-sm-12\"> 
           <div class=\"form-group\">
-            <textarea class=\"form-control\" name=\"edu_type\" placeholder=\"ระบุความต้องการ เช่น ต้องการพึ่งตนเอง ลดค่าใช้จ่าย เป็นต้น\" rows=\"20\">
-              1. จัดการศึกษาแบบครอบครัวเดียว เนื่องจากไมสามารถรวมกิจกรรมกับกลุม บานเรียน หรือครอบครัวอื่น และมีความสนใจเฉพาะดานแตกตางกัน
+            <textarea class=\"form-control\" name=\"edu_type\" placeholder=\"\" rows=\"20\">1. จัดการศึกษาแบบครอบครัวเดียว เนื่องจากไมสามารถรวมกิจกรรมกับกลุม บานเรียน หรือครอบครัวอื่น และมีความสนใจเฉพาะดานแตกตางกัน
 2. จัดการศึกษาแบบมีขอตกลงรวมกับโรงเรียนหรือหนวยงานอื่น โดยมีการเขาไปใชทรัพยากรในโรงเรียนหรือเขาไปทํากิจกรรมรวมกัน เนื่องจากตองการใหบุตรไดมีความรูประสบการณที่สามารถเชื่อมโยงเขาสูระบบโรงเรียน
-                            3. จัดการศึกษาแบบกลุมครอบครัวที่มีแนวคิดคลายๆ กัน เปนการจําลองสังคมเล็กๆ เชื่อวาการ เชื่อมโยงกับกลุมเปนการชวยเสริมพัฒนาการของบุตรได
-              4. จัดการศึกษาแบบรวมศูนย จัดการแบบศูนยการเรียน เนื่องจากตองการใหบุตรมีสังคมพอแมทํางานนอกบานทั้งคูจึงมอบหมายใหผูที่เห็นวามีความเหมาะสมมาทําหนาที่จัดกระบวนการเรียนรู
-              5. อื่นๆ (ระบุ)
-            </textarea>
+3. จัดการศึกษาแบบกลุมครอบครัวที่มีแนวคิดคลายๆ กัน เปนการจําลองสังคมเล็กๆ เชื่อวาการ เชื่อมโยงกับกลุมเปนการชวยเสริมพัฒนาการของบุตรได
+4. จัดการศึกษาแบบรวมศูนย จัดการแบบศูนยการเรียน เนื่องจากตองการใหบุตรมีสังคมพอแมทํางานนอกบานทั้งคูจึงมอบหมายใหผูที่เห็นวามีความเหมาะสมมาทําหนาที่จัดกระบวนการเรียนรู
+5. อื่นๆ (ระบุ)</textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class=\"tab-pane fade\" id=\"sixth\">
+      <h4>Schedule Structure</h4>
+      <div class=\"row\">
+        <div class=\"col-sm-12\"> 
+          <div class=\"form-group\">
+            <textarea class=\"form-control\" name=\"schedule\" placeholder=\"\" rows=\"20\">กลุ่มประสบการณ์ /กลุ่มสาระการเรียนรู้ (ตามตารางในข้อ 7)</textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class=\"tab-pane fade\" id=\"seventh\">
+      <h4>Seventh</h4>
+      <div class=\"row\">
+        <div class=\"col-sm-12\"> 
+          <div class=\"form-group\">
+            <textarea class=\"form-control\" name=\"edu_purpose\" placeholder=\"\" rows=\"20\"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class=\"tab-pane fade\" id=\"eighth\">
+      <h4>Eighth</h4>
+      <div class=\"row\">
+        <div class=\"col-sm-12\"> 
+          <div class=\"form-group\">
+            <textarea class=\"form-control\" name=\"edu_purpose\" placeholder=\"\" rows=\"20\"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class=\"tab-pane fade\" id=\"ninth\">
+      <h4>ninth</h4>
+      <div class=\"row\">
+        <div class=\"col-sm-12\"> 
+          <div class=\"form-group\">
+            <textarea class=\"form-control\" name=\"edu_purpose\" placeholder=\"\" rows=\"20\"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class=\"tab-pane fade\" id=\"tenth\">
+      <h4>tenth</h4>
+      <div class=\"row\">
+        <div class=\"col-sm-12\"> 
+          <div class=\"form-group\">
+            <textarea class=\"form-control\" name=\"edu_purpose\" placeholder=\"\" rows=\"20\"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class=\"tab-pane fade\" id=\"eleventh\">
+      <h4>eleventh</h4>
+      <div class=\"row\">
+        <div class=\"col-sm-12\"> 
+          <div class=\"form-group\">
+            <textarea class=\"form-control\" name=\"edu_purpose\" placeholder=\"\" rows=\"20\"></textarea>
           </div>
         </div>
       </div>

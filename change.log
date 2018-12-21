@@ -1,4 +1,3 @@
-ออย บ้านดิน 338 ม. 6 คลองนิน เกาะลันตาใหญ่ กระบี่ 81150
 
 ALTER TABLE `users` ADD `website` VARCHAR(191) NOT NULL AFTER `mobile`, ADD `facebook` VARCHAR(191) NOT NULL AFTER `website`, ADD `line` VARCHAR(191) NOT NULL AFTER `facebook`, ADD `status` VARCHAR(191) NOT NULL AFTER `line`;
 

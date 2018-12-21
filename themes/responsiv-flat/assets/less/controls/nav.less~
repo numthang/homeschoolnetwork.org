@@ -6,11 +6,11 @@
 // Tabs
 //
 .nav-tabs {
-    border-bottom: 3px solid @brand-primary;
+    border-bottom: 2px solid @brand-primary;
     margin-bottom: 15px;
 }
 .nav-tabs > li {
-    margin-bottom: 0;
+    /*margin-bottom: 0; remove by tee*/
 }
 .nav-tabs > li > a {
     border-bottom: 0;
