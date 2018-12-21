@@ -23,6 +23,6 @@ class Plugin extends PluginBase
           'hs_name',
           'name',
         ]);
-      });*/
+      });*/ // กรณีนี้เป็น model ของเราเอง เลยเข้าไปแก้ไขใน Models/Course ใส่ ตัวแปร $fillable ได้โดยตรงไม่ต้อง extend
     }
 }

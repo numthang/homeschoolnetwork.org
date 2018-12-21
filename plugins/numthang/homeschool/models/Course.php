@@ -26,6 +26,6 @@ class Course extends Model
     ];
 
     protected $fillable = ['user_id', 'hs_name', 'name'];//กำหนด field ให้เป็น fillable
-    #protected $guarded = [];//ถ้าต้องการให้ fillable ทุก field เลือกอย่างใดอย่างหนึ่งกับ $fillable
+    protected $guarded = [];//ถ้าต้องการให้ fillable ทุก field เลือกอย่างใดอย่างหนึ่งกับ $fillable
 
 }

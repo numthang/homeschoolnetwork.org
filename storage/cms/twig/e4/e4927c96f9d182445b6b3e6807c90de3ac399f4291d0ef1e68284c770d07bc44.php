@@ -20,36 +20,66 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 1
-        echo "<form data-request=\"onSave\">
+        echo "<script src=\"https://code.jquery.com/jquery-1.9.1.min.js\"></script>
+<link id=\"bsdp-css\" href=\"https://uxsolutions.github.io/bootstrap-datepicker/bootstrap-datepicker/css/bootstrap-datepicker3.min.css\" rel=\"stylesheet\">
+<script src=\"https://uxsolutions.github.io/bootstrap-datepicker/bootstrap-datepicker/js/bootstrap-datepicker.min.js\"></script>
+
+<script type=\"text/javascript\">
+\$.fn.datepicker.defaults.format = \"dd/mm/yyyy\";
+</script>
+
+
+<form data-request=\"onSave\">
   <input type=\"hidden\" name=\"user_id\" value=\"";
-        // line 2
+        // line 11
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "id", array()), "html", null, true);
         echo "\">
   <div class=\"row\">
     <div class=\"col-sm-6\">  
       <div class=\"form-group ";
-        // line 5
+        // line 14
         if (twig_get_attribute($this->env, $this->source, ($context["errors"] ?? null), "first", array(0 => "name"), "method")) {
             echo " has-error ";
         }
         echo "\">
         <label>Course Name</label>
         <input type=\"text\" class=\"form-control\" name=\"name\" placeholder=\"Enter course name : ";
-        // line 7
+        // line 16
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["errors"] ?? null), "first", array(0 => "name"), "method"), "html", null, true);
         echo "\" value=\"";
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "name", array()), "html", null, true);
         echo "\">
-      </div>
+        ";
+        // line 17
+        if (twig_get_attribute($this->env, $this->source, ($context["errors"] ?? null), "first", array(0 => "name"), "method")) {
+            echo "<div class=\"alert alert-warning\" style=\"margin-top:4px;\">";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["errors"] ?? null), "first", array(0 => "name"), "method"), "html", null, true);
+            echo "</div>";
+        }
+        // line 18
+        echo "      </div>
     </div>
     <div class=\"col-sm-6\">  
-      <div class=\"form-group\">
+      <div class=\"form-group ";
+        // line 21
+        if (twig_get_attribute($this->env, $this->source, ($context["errors"] ?? null), "first", array(0 => "hs_name"), "method")) {
+            echo " has-error ";
+        }
+        echo "\">
         <label>Homeschool Name</label>
         <input type=\"text\" class=\"form-control\" name=\"hs_name\" placeholder=\"Enter homeschool name : \" value=\"";
-        // line 13
+        // line 23
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "hs_name", array()), "html", null, true);
         echo "\">
-      </div>
+        ";
+        // line 24
+        if (twig_get_attribute($this->env, $this->source, ($context["errors"] ?? null), "first", array(0 => "hs_name"), "method")) {
+            echo "<div class=\"alert alert-warning\" style=\"margin-top:4px;\">";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["errors"] ?? null), "first", array(0 => "hs_name"), "method"), "html", null, true);
+            echo "</div>";
+        }
+        // line 25
+        echo "      </div>
     </div>
   </div>
   <div class=\"board-inner\">
@@ -61,7 +91,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
           First 
         </span> </a>
       </li>
-      <li><a href=\"#profile\" data-toggle=\"tab\" title=\"profile\">
+      <li><a href=\"#second\" data-toggle=\"tab\" title=\"second\">
         <span class=\"round-tabs two\">
           Second
         </span> </a>
@@ -160,22 +190,80 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
             <input type=\"text\" class=\"form-control\" name=\"mother_addr\" placeholder=\"Enter mother's address\">
           </div>
         </div>
-
-
-        
       </div>
     </div>
-    <div class=\"tab-pane fade\" id=\"profile\">
+    <div class=\"tab-pane fade\" id=\"second\">
       <h4>Homeschooler Profile</h4>
+      2.1 Homeschooler Information
+      <div class=\"row\">
+        <div class=\"col-sm-6\"> 
+          <div class=\"form-group\">
+            <label>Student's Name</label>
+            <input type=\"text\" class=\"form-control\" name=\"student_name\" placeholder=\"Enter student's name\">
+          </div>
+        </div>
+        <div class=\"col-sm-6\"> 
+          <div class=\"form-group\">
+            <label>Birthday</label>
+            <div class=\"input-group date\" data-provide=\"datepicker\">
+              <input type=\"text\" class=\"form-control\" name=\"birth_date\">
+                <div class=\"input-group-addon\">
+                  <span class=\"glyphicon glyphicon-th\"></span>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class=\"col-sm-12\"> 
+          <div class=\"form-group\">
+            <label>School's Experience</label>
+            <textarea class=\"form-control\" name=\"school_exp\" placeholder=\"Enter school's experience\" rows=\"5\"></textarea>
+          </div>
+        </div>
+      </div>
+      2.2 Homeschooler Development
+      <div class=\"row\">
+        <div class=\"col-sm-12\"> 
+          <div class=\"form-group\">
+            <textarea class=\"form-control\" name=\"hs_development\" placeholder=\"พัฒนาการตามวัย, พัฒนาการตามความสามารถพิเศษ หรือ พัฒนาการตามความตองการพิเศษ\" rows=\"10\"></textarea>
+          </div>
+        </div>
+      </div>
     </div>
     <div class=\"tab-pane fade\" id=\"messages\">
-      
+      <h4>Class and Reason</h4>
+      <div class=\"row\">
+        <div class=\"col-sm-12\"> 
+          <div class=\"form-group\">
+            <textarea class=\"form-control\" name=\"class_reason\" placeholder=\"ระดับชั้น เช่น ประถมศึกษา (ชั้น ป.1 – ป.3) เหตุผลในการจัดการศึกษาของครอบครัว\" rows=\"20\"></textarea>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class=\"tab-pane fade\" id=\"settings\">
-      
+    <div class=\"tab-pane fade\" id=\"forth\">
+      <h4>Education Purpose</h4>
+      <div class=\"row\">
+        <div class=\"col-sm-12\"> 
+          <div class=\"form-group\">
+            <textarea class=\"form-control\" name=\"edu_purpose\" placeholder=\"ระบุความต้องการ เช่น ต้องการพึ่งตนเอง ลดค่าใช้จ่าย เป็นต้น\" rows=\"20\"></textarea>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class=\"tab-pane fade\" id=\"doner\">
-      
+    <div class=\"tab-pane fade\" id=\"fifth\">
+      <h4>Education Type</h4>
+      <div class=\"row\">
+        <div class=\"col-sm-12\"> 
+          <div class=\"form-group\">
+            <textarea class=\"form-control\" name=\"edu_type\" placeholder=\"ระบุความต้องการ เช่น ต้องการพึ่งตนเอง ลดค่าใช้จ่าย เป็นต้น\" rows=\"20\">
+              1. จัดการศึกษาแบบครอบครัวเดียว เนื่องจากไมสามารถรวมกิจกรรมกับกลุม บานเรียน หรือครอบครัวอื่น และมีความสนใจเฉพาะดานแตกตางกัน
+2. จัดการศึกษาแบบมีขอตกลงรวมกับโรงเรียนหรือหนวยงานอื่น โดยมีการเขาไปใชทรัพยากรในโรงเรียนหรือเขาไปทํากิจกรรมรวมกัน เนื่องจากตองการใหบุตรไดมีความรูประสบการณที่สามารถเชื่อมโยงเขาสูระบบโรงเรียน
+                            3. จัดการศึกษาแบบกลุมครอบครัวที่มีแนวคิดคลายๆ กัน เปนการจําลองสังคมเล็กๆ เชื่อวาการ เชื่อมโยงกับกลุมเปนการชวยเสริมพัฒนาการของบุตรได
+              4. จัดการศึกษาแบบรวมศูนย จัดการแบบศูนยการเรียน เนื่องจากตองการใหบุตรมีสังคมพอแมทํางานนอกบานทั้งคูจึงมอบหมายใหผูที่เห็นวามีความเหมาะสมมาทําหนาที่จัดกระบวนการเรียนรู
+              5. อื่นๆ (ระบุ)
+            </textarea>
+          </div>
+        </div>
+      </div>
     </div>
     <div class=\"clearfix\"></div>
   </div>
@@ -202,24 +290,35 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
 
     public function getDebugInfo()
     {
-        return array (  50 => 13,  39 => 7,  32 => 5,  26 => 2,  23 => 1,);
+        return array (  82 => 25,  76 => 24,  72 => 23,  65 => 21,  60 => 18,  54 => 17,  48 => 16,  41 => 14,  35 => 11,  23 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Twig_Source("<form data-request=\"onSave\">
+        return new Twig_Source("<script src=\"https://code.jquery.com/jquery-1.9.1.min.js\"></script>
+<link id=\"bsdp-css\" href=\"https://uxsolutions.github.io/bootstrap-datepicker/bootstrap-datepicker/css/bootstrap-datepicker3.min.css\" rel=\"stylesheet\">
+<script src=\"https://uxsolutions.github.io/bootstrap-datepicker/bootstrap-datepicker/js/bootstrap-datepicker.min.js\"></script>
+
+<script type=\"text/javascript\">
+\$.fn.datepicker.defaults.format = \"dd/mm/yyyy\";
+</script>
+
+
+<form data-request=\"onSave\">
   <input type=\"hidden\" name=\"user_id\" value=\"{{ user.id }}\">
   <div class=\"row\">
     <div class=\"col-sm-6\">  
       <div class=\"form-group {% if errors.first('name') %} has-error {% endif %}\">
         <label>Course Name</label>
         <input type=\"text\" class=\"form-control\" name=\"name\" placeholder=\"Enter course name : {{ errors.first('name') }}\" value=\"{{ record.name }}\">
+        {% if errors.first('name') %}<div class=\"alert alert-warning\" style=\"margin-top:4px;\">{{ errors.first('name') }}</div>{% endif %}
       </div>
     </div>
     <div class=\"col-sm-6\">  
-      <div class=\"form-group\">
+      <div class=\"form-group {% if errors.first('hs_name') %} has-error {% endif %}\">
         <label>Homeschool Name</label>
         <input type=\"text\" class=\"form-control\" name=\"hs_name\" placeholder=\"Enter homeschool name : \" value=\"{{ record.hs_name }}\">
+        {% if errors.first('hs_name') %}<div class=\"alert alert-warning\" style=\"margin-top:4px;\">{{ errors.first('hs_name') }}</div>{% endif %}
       </div>
     </div>
   </div>
@@ -232,7 +331,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
           First 
         </span> </a>
       </li>
-      <li><a href=\"#profile\" data-toggle=\"tab\" title=\"profile\">
+      <li><a href=\"#second\" data-toggle=\"tab\" title=\"second\">
         <span class=\"round-tabs two\">
           Second
         </span> </a>
@@ -331,22 +430,80 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
             <input type=\"text\" class=\"form-control\" name=\"mother_addr\" placeholder=\"Enter mother's address\">
           </div>
         </div>
-
-
-        
       </div>
     </div>
-    <div class=\"tab-pane fade\" id=\"profile\">
+    <div class=\"tab-pane fade\" id=\"second\">
       <h4>Homeschooler Profile</h4>
+      2.1 Homeschooler Information
+      <div class=\"row\">
+        <div class=\"col-sm-6\"> 
+          <div class=\"form-group\">
+            <label>Student's Name</label>
+            <input type=\"text\" class=\"form-control\" name=\"student_name\" placeholder=\"Enter student's name\">
+          </div>
+        </div>
+        <div class=\"col-sm-6\"> 
+          <div class=\"form-group\">
+            <label>Birthday</label>
+            <div class=\"input-group date\" data-provide=\"datepicker\">
+              <input type=\"text\" class=\"form-control\" name=\"birth_date\">
+                <div class=\"input-group-addon\">
+                  <span class=\"glyphicon glyphicon-th\"></span>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class=\"col-sm-12\"> 
+          <div class=\"form-group\">
+            <label>School's Experience</label>
+            <textarea class=\"form-control\" name=\"school_exp\" placeholder=\"Enter school's experience\" rows=\"5\"></textarea>
+          </div>
+        </div>
+      </div>
+      2.2 Homeschooler Development
+      <div class=\"row\">
+        <div class=\"col-sm-12\"> 
+          <div class=\"form-group\">
+            <textarea class=\"form-control\" name=\"hs_development\" placeholder=\"พัฒนาการตามวัย, พัฒนาการตามความสามารถพิเศษ หรือ พัฒนาการตามความตองการพิเศษ\" rows=\"10\"></textarea>
+          </div>
+        </div>
+      </div>
     </div>
     <div class=\"tab-pane fade\" id=\"messages\">
-      
+      <h4>Class and Reason</h4>
+      <div class=\"row\">
+        <div class=\"col-sm-12\"> 
+          <div class=\"form-group\">
+            <textarea class=\"form-control\" name=\"class_reason\" placeholder=\"ระดับชั้น เช่น ประถมศึกษา (ชั้น ป.1 – ป.3) เหตุผลในการจัดการศึกษาของครอบครัว\" rows=\"20\"></textarea>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class=\"tab-pane fade\" id=\"settings\">
-      
+    <div class=\"tab-pane fade\" id=\"forth\">
+      <h4>Education Purpose</h4>
+      <div class=\"row\">
+        <div class=\"col-sm-12\"> 
+          <div class=\"form-group\">
+            <textarea class=\"form-control\" name=\"edu_purpose\" placeholder=\"ระบุความต้องการ เช่น ต้องการพึ่งตนเอง ลดค่าใช้จ่าย เป็นต้น\" rows=\"20\"></textarea>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class=\"tab-pane fade\" id=\"doner\">
-      
+    <div class=\"tab-pane fade\" id=\"fifth\">
+      <h4>Education Type</h4>
+      <div class=\"row\">
+        <div class=\"col-sm-12\"> 
+          <div class=\"form-group\">
+            <textarea class=\"form-control\" name=\"edu_type\" placeholder=\"ระบุความต้องการ เช่น ต้องการพึ่งตนเอง ลดค่าใช้จ่าย เป็นต้น\" rows=\"20\">
+              1. จัดการศึกษาแบบครอบครัวเดียว เนื่องจากไมสามารถรวมกิจกรรมกับกลุม บานเรียน หรือครอบครัวอื่น และมีความสนใจเฉพาะดานแตกตางกัน
+2. จัดการศึกษาแบบมีขอตกลงรวมกับโรงเรียนหรือหนวยงานอื่น โดยมีการเขาไปใชทรัพยากรในโรงเรียนหรือเขาไปทํากิจกรรมรวมกัน เนื่องจากตองการใหบุตรไดมีความรูประสบการณที่สามารถเชื่อมโยงเขาสูระบบโรงเรียน
+                            3. จัดการศึกษาแบบกลุมครอบครัวที่มีแนวคิดคลายๆ กัน เปนการจําลองสังคมเล็กๆ เชื่อวาการ เชื่อมโยงกับกลุมเปนการชวยเสริมพัฒนาการของบุตรได
+              4. จัดการศึกษาแบบรวมศูนย จัดการแบบศูนยการเรียน เนื่องจากตองการใหบุตรมีสังคมพอแมทํางานนอกบานทั้งคูจึงมอบหมายใหผูที่เห็นวามีความเหมาะสมมาทําหนาที่จัดกระบวนการเรียนรู
+              5. อื่นๆ (ระบุ)
+            </textarea>
+          </div>
+        </div>
+      </div>
     </div>
     <div class=\"clearfix\"></div>
   </div>

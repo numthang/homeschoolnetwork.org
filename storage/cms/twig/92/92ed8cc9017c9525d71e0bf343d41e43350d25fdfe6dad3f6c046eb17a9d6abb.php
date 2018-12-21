@@ -43,24 +43,11 @@ class __TwigTemplate_797537a6ef7235cacbbb0c7478ff13c7491c6e9790e4bef22863246fdb5
         echo "        </div>
         <div class=\"col-md-8\">
           ";
-        $_type = isset($context["type"]) ? $context["type"] : null;        $_message = isset($context["message"]) ? $context["message"] : null;        // line 13
-        foreach (Flash::getMessages() as $type => $messages) {
-            foreach ($messages as $message) {
-                $context["type"] = $type;                $context["message"] = $message;                // line 14
-                echo "            <p data-control=\"flash-message\" data-interval=\"5\" class=\"";
-                echo twig_escape_filter($this->env, (((($context["type"] ?? null) == "error")) ? ("danger") : (($context["type"] ?? null))), "html", null, true);
-                echo "\">";
-                echo twig_escape_filter($this->env, ($context["message"] ?? null), "html", null, true);
-                echo "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button></p>
-          ";
-            }
-        }
-        $context["type"] = $_type;        $context["message"] = $_message;        // line 16
-        echo "          ";
+        // line 13
         $context['__cms_component_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->componentFunction("courseform"        , $context['__cms_component_params']        );
         unset($context['__cms_component_params']);
-        // line 17
+        // line 14
         echo "        </div>
     </div>
 </div>
@@ -79,7 +66,7 @@ class __TwigTemplate_797537a6ef7235cacbbb0c7478ff13c7491c6e9790e4bef22863246fdb5
 
     public function getDebugInfo()
     {
-        return array (  64 => 17,  59 => 16,  50 => 14,  47 => 13,  43 => 11,  39 => 10,  27 => 3,  23 => 1,);
+        return array (  51 => 14,  47 => 13,  43 => 11,  39 => 10,  27 => 3,  23 => 1,);
     }
 
     public function getSourceContext()
@@ -96,9 +83,6 @@ class __TwigTemplate_797537a6ef7235cacbbb0c7478ff13c7491c6e9790e4bef22863246fdb5
           {% partial 'user-sidebar' %}
         </div>
         <div class=\"col-md-8\">
-          {% flash %}
-            <p data-control=\"flash-message\" data-interval=\"5\" class=\"{{ type == 'error' ? 'danger' : type }}\">{{ message }}<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button></p>
-          {% endflash %}
           {% component 'courseform' %}
         </div>
     </div>

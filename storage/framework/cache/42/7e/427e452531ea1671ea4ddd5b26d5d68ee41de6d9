@@ -1,4 +1,4 @@
-1545151496a:1:{s:11:"default.htm";a:6:{s:8:"fileName";s:11:"default.htm";s:7:"content";s:3601:"description = "Default layout"
+1545386808a:1:{s:11:"default.htm";a:6:{s:8:"fileName";s:11:"default.htm";s:7:"content";s:3550:"description = "Default layout"
 ==
 <!DOCTYPE html>
 <html>
@@ -25,7 +25,7 @@
 		<![endif]-->
     </head>
     <body class="page-{{ this.page.id }} layout-{{ this.layout.id }}">
-
+        <div id="flash_message"></div>
         <!-- Header -->
         <header id="layout-header" class="header-navbar">
             <!-- Nav -->
@@ -90,7 +90,8 @@
         {% scripts %}
 
     </body>
-</html>";s:5:"mtime";i:1544076274;s:6:"markup";s:3567:"<!DOCTYPE html>
+</html>
+";s:5:"mtime";i:1545311461;s:6:"markup";s:3515:"<!DOCTYPE html>
 <html>
     <head>
     	<meta charset="UTF-8">
@@ -115,7 +116,7 @@
 		<![endif]-->
     </head>
     <body class="page-{{ this.page.id }} layout-{{ this.layout.id }}">
-
+        <div id="flash_message"></div>
         <!-- Header -->
         <header id="layout-header" class="header-navbar">
             <!-- Nav -->

@@ -40,34 +40,22 @@ class __TwigTemplate_fdc65ad5be7e835cbee3c81255f35744a7f5a0757c83af4b484a7caa329
         // line 11
         echo "        </div>
         <div class=\"col-md-8\">
+          
           ";
-        $_type = isset($context["type"]) ? $context["type"] : null;        $_message = isset($context["message"]) ? $context["message"] : null;        // line 13
-        foreach (Flash::getMessages() as $type => $messages) {
-            foreach ($messages as $message) {
-                $context["type"] = $type;                $context["message"] = $message;                // line 14
-                echo "            <p data-control=\"flash-message\" data-interval=\"5\" class=\"";
-                echo twig_escape_filter($this->env, (((($context["type"] ?? null) == "error")) ? ("danger") : (($context["type"] ?? null))), "html", null, true);
-                echo "\">";
-                echo twig_escape_filter($this->env, ($context["message"] ?? null), "html", null, true);
-                echo "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button></p>
-          ";
-            }
-        }
-        $context["type"] = $_type;        $context["message"] = $_message;        // line 16
-        echo "          ";
+        // line 14
         $context["record"] = twig_get_attribute($this->env, $this->source, ($context["builderDetails"] ?? null), "record", array());
-        // line 17
+        // line 15
         echo "          ";
         $context["displayColumn"] = twig_get_attribute($this->env, $this->source, ($context["builderDetails"] ?? null), "displayColumn", array());
-        // line 18
+        // line 16
         echo "          ";
         $context["notFoundMessage"] = twig_get_attribute($this->env, $this->source, ($context["builderDetails"] ?? null), "notFoundMessage", array());
-        // line 19
+        // line 17
         echo "          ";
         $context['__cms_component_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->componentFunction("courseform"        , $context['__cms_component_params']        );
         unset($context['__cms_component_params']);
-        // line 20
+        // line 18
         echo "        </div>
     </div>
 </div>
@@ -86,7 +74,7 @@ class __TwigTemplate_fdc65ad5be7e835cbee3c81255f35744a7f5a0757c83af4b484a7caa329
 
     public function getDebugInfo()
     {
-        return array (  71 => 20,  66 => 19,  63 => 18,  60 => 17,  57 => 16,  48 => 14,  45 => 13,  41 => 11,  37 => 10,  27 => 3,  23 => 1,);
+        return array (  59 => 18,  54 => 17,  51 => 16,  48 => 15,  46 => 14,  41 => 11,  37 => 10,  27 => 3,  23 => 1,);
     }
 
     public function getSourceContext()
@@ -103,9 +91,7 @@ class __TwigTemplate_fdc65ad5be7e835cbee3c81255f35744a7f5a0757c83af4b484a7caa329
           {% partial 'user-sidebar' %}
         </div>
         <div class=\"col-md-8\">
-          {% flash %}
-            <p data-control=\"flash-message\" data-interval=\"5\" class=\"{{ type == 'error' ? 'danger' : type }}\">{{ message }}<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button></p>
-          {% endflash %}
+          
           {% set record = builderDetails.record %}
           {% set displayColumn = builderDetails.displayColumn %}
           {% set notFoundMessage = builderDetails.notFoundMessage %}

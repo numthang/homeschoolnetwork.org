@@ -1,4 +1,4 @@
-1545151496a:1:{s:20:"login/add-course.htm";a:11:{s:8:"fileName";s:20:"login/add-course.htm";s:7:"content";s:799:"title = "Add Course"
+1545386808a:1:{s:20:"login/add-course.htm";a:11:{s:8:"fileName";s:20:"login/add-course.htm";s:7:"content";s:532:"title = "Add Course"
 url = "/login/add/course"
 layout = "default"
 is_hidden = 0
@@ -21,15 +21,12 @@ redirect = "login"
           {% partial 'user-sidebar' %}
         </div>
         <div class="col-md-8">
-          {% flash %}
-            <p data-control="flash-message" data-interval="5" class="{{ type == 'error' ? 'danger' : type }}">{{ message }}<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></p>
-          {% endflash %}
           {% component 'courseform' %}
         </div>
     </div>
 </div>
 <br>
-";s:5:"mtime";i:1545150891;s:6:"markup";s:653:"<section id="layout-title">
+";s:5:"mtime";i:1545294270;s:6:"markup";s:386:"<section id="layout-title">
     <div class="container">
         <h3>New course from {{ user.name }} {{ user.surname }} </h3>
     </div>
@@ -41,9 +38,6 @@ redirect = "login"
           {% partial 'user-sidebar' %}
         </div>
         <div class="col-md-8">
-          {% flash %}
-            <p data-control="flash-message" data-interval="5" class="{{ type == 'error' ? 'danger' : type }}">{{ message }}<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></p>
-          {% endflash %}
           {% component 'courseform' %}
         </div>
     </div>

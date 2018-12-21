@@ -11,7 +11,7 @@ redirect = "login"
 ==
 <section id="layout-title">
     <div class="container">
-        <h3>New course from {{ user.name }} {{ user.last_name }} </h3>
+        <h3>New course from {{ user.name }} {{ user.surname }} </h3>
     </div>
 </section>
 

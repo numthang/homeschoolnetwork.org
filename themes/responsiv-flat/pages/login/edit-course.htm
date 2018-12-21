@@ -31,9 +31,7 @@ redirect = "login"
           {% partial 'user-sidebar' %}
         </div>
         <div class="col-md-8">
-          {% flash %}
-            <p data-control="flash-message" data-interval="5" class="{{ type == 'error' ? 'danger' : type }}">{{ message }}<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></p>
-          {% endflash %}
+          
           {% set record = builderDetails.record %}
           {% set displayColumn = builderDetails.displayColumn %}
           {% set notFoundMessage = builderDetails.notFoundMessage %}

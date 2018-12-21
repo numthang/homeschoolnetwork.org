@@ -68,7 +68,7 @@ class __TwigTemplate_c10c62e848ee2800b74b2d5cdae0d915aaf9ca195908b6929aa1da82087
         echo " layout-";
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "layout", array()), "id", array()), "html", null, true);
         echo "\">
-
+        <div id=\"flash_message\"></div>
         <!-- Header -->
         <header id=\"layout-header\" class=\"header-navbar\">
             <!-- Nav -->
@@ -188,7 +188,7 @@ class __TwigTemplate_c10c62e848ee2800b74b2d5cdae0d915aaf9ca195908b6929aa1da82087
 \t\t<![endif]-->
     </head>
     <body class=\"page-{{ this.page.id }} layout-{{ this.layout.id }}\">
-
+        <div id=\"flash_message\"></div>
         <!-- Header -->
         <header id=\"layout-header\" class=\"header-navbar\">
             <!-- Nav -->
