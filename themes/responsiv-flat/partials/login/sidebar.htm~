@@ -1,0 +1,42 @@
+[viewBag]
+
+[courses]
+results = 0
+sortOrder = "name asc"
+==
+<!-- ใช้อันนี้สำหรับทำให้ tab ไม่เละเวลาดู mobile view
+<style>
+@media screen and (max-width: 480px) {
+    .nav {
+        padding-left:2px;
+        padding-right:2px;
+    }
+    .nav li {
+        display:block !important;
+        width:100%;
+        margin:0px;
+    }
+    .nav li.active {
+        border-bottom:1px solid #ddd!important;
+        margin: 0px;
+    }
+}</style>-->
+
+<!-- Categories -->
+<div class="panel panel-default">
+    <div class="panel-heading">
+       <b>{{ user.name }} {{ user.surname }}</b>
+    </div>
+    <ul class="list-group filter-list-group">
+        <li class="list-group-item"><a href="/login/profile" style="font-size: 18px;">{{ 'My profile'|_ }}</a></li>
+        <li class="list-group-item"><a href="/login/add/course" style="font-size: 18px;">{{ 'New course'|_ }}</a></li>
+        <li class="list-group-item"><a href="javascript:void(0);" data-request="onLogout" data-request-data="redirect: '/'" style="font-size: 18px;">{{ 'Sign out'|_ }}</a></li>
+    </ul>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    {{ 'Courses'|_ }}
+  </div>
+  {% component 'courses' %}
+</div>
+

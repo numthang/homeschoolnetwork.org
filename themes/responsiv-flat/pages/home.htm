@@ -4,12 +4,8 @@ layout = "default"
 is_hidden = 0
 
 [viewBag]
-localeUrl[th] = "/home"
 
 [sociallogin]
-
-[session]
-security = "all"
 
 [account]
 redirect = "login"
@@ -52,9 +48,9 @@ forceSecure = 0
                     {% component 'sociallogin' %}
                   </form>
                   {% else %}
-                    <a href="/login/profile">My profile</a><br>
-                    <a href="/login/add/course">New course</a><br>
-                    <a href="javascript:void(0);" data-request="onLogout" data-request-data="redirect: '/'">Sign out</a>
+                    <a href="/login/profile">{{ 'My profile'|_ }}</a><br>
+                    <a href="/login/add/course">{{ 'New course'|_ }}</a><br>
+                    <a href="javascript:void(0);" data-request="onLogout" data-request-data="redirect: '/'">{{ 'Sign out'|_ }}</a>
                   {% endif %}
                 </div>
                 <!--<div class="additional-links">

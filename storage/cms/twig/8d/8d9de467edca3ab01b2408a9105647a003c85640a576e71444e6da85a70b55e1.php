@@ -85,9 +85,17 @@ class __TwigTemplate_fbf5f6227715fc7e003763a72c0e6fae2705fddf23087ceecb2edbf1ee0
                   ";
         } else {
             // line 37
-            echo "                    <a href=\"/login/profile\">My profile</a><br>
-                    <a href=\"/login/add/course\">New course</a><br>
-                    <a href=\"javascript:void(0);\" data-request=\"onLogout\" data-request-data=\"redirect: '/'\">Sign out</a>
+            echo "                    <a href=\"/login/profile\">";
+            echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("My profile"));
+            echo "</a><br>
+                    <a href=\"/login/add/course\">";
+            // line 38
+            echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("New course"));
+            echo "</a><br>
+                    <a href=\"javascript:void(0);\" data-request=\"onLogout\" data-request-data=\"redirect: '/'\">";
+            // line 39
+            echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Sign out"));
+            echo "</a>
                   ";
         }
         // line 41
@@ -175,7 +183,7 @@ class __TwigTemplate_fbf5f6227715fc7e003763a72c0e6fae2705fddf23087ceecb2edbf1ee0
 
     public function getDebugInfo()
     {
-        return array (  140 => 82,  136 => 81,  94 => 41,  88 => 37,  84 => 35,  79 => 34,  68 => 32,  64 => 31,  47 => 17,  38 => 11,  34 => 9,  32 => 8,  23 => 1,);
+        return array (  148 => 82,  144 => 81,  102 => 41,  97 => 39,  93 => 38,  88 => 37,  84 => 35,  79 => 34,  68 => 32,  64 => 31,  47 => 17,  38 => 11,  34 => 9,  32 => 8,  23 => 1,);
     }
 
     public function getSourceContext()
@@ -216,9 +224,9 @@ class __TwigTemplate_fbf5f6227715fc7e003763a72c0e6fae2705fddf23087ceecb2edbf1ee0
                     {% component 'sociallogin' %}
                   </form>
                   {% else %}
-                    <a href=\"/login/profile\">My profile</a><br>
-                    <a href=\"/login/add/course\">New course</a><br>
-                    <a href=\"javascript:void(0);\" data-request=\"onLogout\" data-request-data=\"redirect: '/'\">Sign out</a>
+                    <a href=\"/login/profile\">{{ 'My profile'|_ }}</a><br>
+                    <a href=\"/login/add/course\">{{ 'New course'|_ }}</a><br>
+                    <a href=\"javascript:void(0);\" data-request=\"onLogout\" data-request-data=\"redirect: '/'\">{{ 'Sign out'|_ }}</a>
                   {% endif %}
                 </div>
                 <!--<div class=\"additional-links\">

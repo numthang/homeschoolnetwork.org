@@ -22,8 +22,10 @@ class __TwigTemplate_fdc65ad5be7e835cbee3c81255f35744a7f5a0757c83af4b484a7caa329
         // line 1
         echo "<section id=\"layout-title\">
     <div class=\"container\">
-        <h3>Edit course ";
+        <h3>";
         // line 3
+        echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Edit course"));
+        echo " - ";
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "name", array()), "html", null, true);
         echo " </h3>
     </div>
@@ -35,7 +37,7 @@ class __TwigTemplate_fdc65ad5be7e835cbee3c81255f35744a7f5a0757c83af4b484a7caa329
           ";
         // line 10
         $context['__cms_partial_params'] = [];
-        echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("user-sidebar"        , $context['__cms_partial_params']        , true        );
+        echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("login/sidebar"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
         // line 11
         echo "        </div>
@@ -74,21 +76,21 @@ class __TwigTemplate_fdc65ad5be7e835cbee3c81255f35744a7f5a0757c83af4b484a7caa329
 
     public function getDebugInfo()
     {
-        return array (  59 => 18,  54 => 17,  51 => 16,  48 => 15,  46 => 14,  41 => 11,  37 => 10,  27 => 3,  23 => 1,);
+        return array (  61 => 18,  56 => 17,  53 => 16,  50 => 15,  48 => 14,  43 => 11,  39 => 10,  27 => 3,  23 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Twig_Source("<section id=\"layout-title\">
     <div class=\"container\">
-        <h3>Edit course {{ record.name }} </h3>
+        <h3>{{ 'Edit course'|_ }} - {{ record.name }} </h3>
     </div>
 </section>
 
 <div class=\"container\">
     <div class=\"row\">
         <div class=\"col-md-4\">
-          {% partial 'user-sidebar' %}
+          {% partial 'login/sidebar' %}
         </div>
         <div class=\"col-md-8\">
           

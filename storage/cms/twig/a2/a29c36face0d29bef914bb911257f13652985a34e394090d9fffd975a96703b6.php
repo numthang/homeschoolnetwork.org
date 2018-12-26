@@ -26,7 +26,7 @@ class __TwigTemplate_c10c62e848ee2800b74b2d5cdae0d915aaf9ca195908b6929aa1da82087
     \t<meta charset=\"UTF-8\">
         <title>Homeschool Network (Thailand) - ";
         // line 5
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", array()), "title", array()), "html", null, true);
+        echo call_user_func_array($this->env->getFilter('_')->getCallable(), array(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", array()), "title", array())));
         echo "</title>
         <meta name=\"title\" content=\"";
         // line 6
@@ -167,7 +167,7 @@ class __TwigTemplate_c10c62e848ee2800b74b2d5cdae0d915aaf9ca195908b6929aa1da82087
 <html>
     <head>
     \t<meta charset=\"UTF-8\">
-        <title>Homeschool Network (Thailand) - {{ this.page.title }}</title>
+        <title>Homeschool Network (Thailand) - {{ this.page.title|_ }}</title>
         <meta name=\"title\" content=\"{{ this.page.meta_title }}\">
         <meta name=\"description\" content=\"{{ this.page.meta_description }}\">
         <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">

@@ -406,4 +406,8 @@
   'Martin\\Forms\\Traits\\FileUploader' => 'plugins/martin/forms/traits/FileUploader.php',
   'Martin\\Forms\\Components\\UploadForm' => 'plugins/martin/forms/components/UploadForm.php',
   'Martin\\Forms\\Components\\EmptyForm' => 'plugins/martin/forms/components/EmptyForm.php',
+  'RainLab\\Translate\\Models\\MessageImport' => 'plugins/rainlab/translate/models/MessageImport.php',
+  'RainLab\\Translate\\Models\\MessageExport' => 'plugins/rainlab/translate/models/MessageExport.php',
+  'Backend\\Widgets\\Table\\ServerEventDataSource' => 'modules/backend/widgets/table/ServerEventDataSource.php',
+  'RainLab\\Forum\\Components\\Posts' => 'plugins/rainlab/forum/components/Posts.php',
 );

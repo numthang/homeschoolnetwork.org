@@ -1,15 +1,11 @@
-1545798125a:1:{s:8:"home.htm";a:13:{s:8:"fileName";s:8:"home.htm";s:7:"content";s:4617:"title = "Home"
+1545841790a:1:{s:8:"home.htm";a:12:{s:8:"fileName";s:8:"home.htm";s:7:"content";s:4595:"title = "Home"
 url = "/"
 layout = "default"
 is_hidden = 0
 
 [viewBag]
-localeUrl[th] = "/home"
 
 [sociallogin]
-
-[session]
-security = "all"
 
 [account]
 redirect = "login"
@@ -52,9 +48,9 @@ forceSecure = 0
                     {% component 'sociallogin' %}
                   </form>
                   {% else %}
-                    <a href="/login/profile">My profile</a><br>
-                    <a href="/login/add/course">New course</a><br>
-                    <a href="javascript:void(0);" data-request="onLogout" data-request-data="redirect: '/'">Sign out</a>
+                    <a href="/login/profile">{{ 'My profile'|_ }}</a><br>
+                    <a href="/login/add/course">{{ 'New course'|_ }}</a><br>
+                    <a href="javascript:void(0);" data-request="onLogout" data-request-data="redirect: '/'">{{ 'Sign out'|_ }}</a>
                   {% endif %}
                 </div>
                 <!--<div class="additional-links">
@@ -120,7 +116,7 @@ forceSecure = 0
 
 </div>
 
-<br />";s:5:"mtime";i:1544525109;s:6:"markup";s:4413:"<section class="home-title">
+<br />";s:5:"mtime";i:1545836325;s:6:"markup";s:4443:"<section class="home-title">
     <div class="container">
         <div class="row">
             <div class="col-sm-4">
@@ -156,9 +152,9 @@ forceSecure = 0
                     {% component 'sociallogin' %}
                   </form>
                   {% else %}
-                    <a href="/login/profile">My profile</a><br>
-                    <a href="/login/add/course">New course</a><br>
-                    <a href="javascript:void(0);" data-request="onLogout" data-request-data="redirect: '/'">Sign out</a>
+                    <a href="/login/profile">{{ 'My profile'|_ }}</a><br>
+                    <a href="/login/add/course">{{ 'New course'|_ }}</a><br>
+                    <a href="javascript:void(0);" data-request="onLogout" data-request-data="redirect: '/'">{{ 'Sign out'|_ }}</a>
                   {% endif %}
                 </div>
                 <!--<div class="additional-links">
@@ -224,4 +220,4 @@ forceSecure = 0
 
 </div>
 
-<br />";s:4:"code";N;s:5:"title";s:4:"Home";s:3:"url";s:1:"/";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";s:7:"viewBag";a:1:{s:9:"localeUrl";a:1:{s:2:"th";s:5:"/home";}}s:11:"sociallogin";a:0:{}s:7:"session";a:1:{s:8:"security";s:3:"all";}s:7:"account";a:3:{s:8:"redirect";s:5:"login";s:9:"paramCode";s:4:"code";s:11:"forceSecure";s:1:"0";}}}
+<br />";s:4:"code";N;s:5:"title";s:4:"Home";s:3:"url";s:1:"/";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";s:7:"viewBag";a:0:{}s:11:"sociallogin";a:0:{}s:7:"account";a:3:{s:8:"redirect";s:5:"login";s:9:"paramCode";s:4:"code";s:11:"forceSecure";s:1:"0";}}}

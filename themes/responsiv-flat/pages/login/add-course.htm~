@@ -1,7 +1,9 @@
-title = "Add Course"
+title = "New course"
 url = "/login/add/course"
 layout = "default"
 is_hidden = 0
+
+[viewBag]
 
 [courseform]
 
@@ -11,7 +13,7 @@ redirect = "login"
 ==
 <section id="layout-title">
     <div class="container">
-        <h3>New course from {{ user.name }} {{ user.surname }} </h3>
+        <h3>{{ 'New course'|_ }}</h3>
     </div>
 </section>
 
@@ -21,9 +23,6 @@ redirect = "login"
           {% partial 'user-sidebar' %}
         </div>
         <div class="col-md-8">
-          {% flash %}
-            <p data-control="flash-message" data-interval="5" class="{{ type == 'error' ? 'danger' : type }}">{{ message }}<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></p>
-          {% endflash %}
           {% component 'courseform' %}
         </div>
     </div>

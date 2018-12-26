@@ -1,10 +1,16 @@
-1545798125a:1:{s:11:"default.htm";a:6:{s:8:"fileName";s:11:"default.htm";s:7:"content";s:3550:"description = "Default layout"
+1545841790a:1:{s:11:"default.htm";a:8:{s:8:"fileName";s:11:"default.htm";s:7:"content";s:3609:"description = "Default layout"
+
+[localePicker]
+forceUrl = 0
+
+[session]
+security = "all"
 ==
 <!DOCTYPE html>
 <html>
     <head>
     	<meta charset="UTF-8">
-        <title>Homeschool Network (Thailand) - {{ this.page.title }}</title>
+        <title>Homeschool Network (Thailand) - {{ this.page.title|_ }}</title>
         <meta name="title" content="{{ this.page.meta_title }}">
         <meta name="description" content="{{ this.page.meta_description }}">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -91,11 +97,11 @@
 
     </body>
 </html>
-";s:5:"mtime";i:1545311461;s:6:"markup";s:3515:"<!DOCTYPE html>
+";s:5:"mtime";i:1545837206;s:6:"markup";s:3517:"<!DOCTYPE html>
 <html>
     <head>
     	<meta charset="UTF-8">
-        <title>Homeschool Network (Thailand) - {{ this.page.title }}</title>
+        <title>Homeschool Network (Thailand) - {{ this.page.title|_ }}</title>
         <meta name="title" content="{{ this.page.meta_title }}">
         <meta name="description" content="{{ this.page.meta_description }}">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -181,4 +187,4 @@
         {% scripts %}
 
     </body>
-</html>";s:4:"code";N;s:11:"description";s:14:"Default layout";}}
+</html>";s:4:"code";N;s:11:"description";s:14:"Default layout";s:12:"localePicker";a:1:{s:8:"forceUrl";s:1:"0";}s:7:"session";a:1:{s:8:"security";s:3:"all";}}}

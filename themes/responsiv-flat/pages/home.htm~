@@ -4,7 +4,6 @@ layout = "default"
 is_hidden = 0
 
 [viewBag]
-localeUrl[th] = "/home"
 
 [sociallogin]
 
@@ -12,6 +11,7 @@ localeUrl[th] = "/home"
 security = "all"
 
 [account]
+redirect = "login"
 paramCode = "code"
 forceSecure = 0
 ==
@@ -52,7 +52,7 @@ forceSecure = 0
                   </form>
                   {% else %}
                     <a href="/login/profile">My profile</a><br>
-                    <a href="/login/add/course">New Course</a><br>
+                    <a href="/login/add/course">New course</a><br>
                     <a href="javascript:void(0);" data-request="onLogout" data-request-data="redirect: '/'">Sign out</a>
                   {% endif %}
                 </div>

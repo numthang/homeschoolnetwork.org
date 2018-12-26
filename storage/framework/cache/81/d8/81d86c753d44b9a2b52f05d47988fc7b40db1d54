@@ -1,10 +1,9 @@
-1545798125a:1:{s:21:"login/edit-course.htm";a:13:{s:8:"fileName";s:21:"login/edit-course.htm";s:7:"content";s:934:"title = "Edit Course"
+1545841967a:1:{s:21:"login/edit-course.htm";a:13:{s:8:"fileName";s:21:"login/edit-course.htm";s:7:"content";s:916:"title = "Edit course"
 url = "/login/edit/course/:id"
 layout = "default"
 is_hidden = 0
 
 [viewBag]
-localeUrl[th] = "/edit-course"
 
 [courseform]
 
@@ -21,14 +20,14 @@ redirect = "login"
 ==
 <section id="layout-title">
     <div class="container">
-        <h3>Edit course {{ record.name }} </h3>
+        <h3>{{ 'Edit course'|_ }} - {{ record.name }} </h3>
     </div>
 </section>
 
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-          {% partial 'user-sidebar' %}
+          {% partial 'login/sidebar' %}
         </div>
         <div class="col-md-8">
           
@@ -40,16 +39,16 @@ redirect = "login"
     </div>
 </div>
 <br>
-";s:5:"mtime";i:1545294253;s:6:"markup";s:561:"<section id="layout-title">
+";s:5:"mtime";i:1545829979;s:6:"markup";s:574:"<section id="layout-title">
     <div class="container">
-        <h3>Edit course {{ record.name }} </h3>
+        <h3>{{ 'Edit course'|_ }} - {{ record.name }} </h3>
     </div>
 </section>
 
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-          {% partial 'user-sidebar' %}
+          {% partial 'login/sidebar' %}
         </div>
         <div class="col-md-8">
           
@@ -60,4 +59,4 @@ redirect = "login"
         </div>
     </div>
 </div>
-<br>";s:4:"code";N;s:5:"title";s:11:"Edit Course";s:3:"url";s:22:"/login/edit/course/:id";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";s:7:"viewBag";a:1:{s:9:"localeUrl";a:1:{s:2:"th";s:12:"/edit-course";}}s:10:"courseform";a:0:{}s:14:"builderDetails";a:5:{s:10:"modelClass";s:33:"Numthang\Homeschool\Models\Course";s:15:"identifierValue";s:9:"{{ :id }}";s:14:"modelKeyColumn";s:2:"id";s:13:"displayColumn";s:4:"name";s:15:"notFoundMessage";s:16:"Record not found";}s:7:"session";a:2:{s:8:"security";s:4:"user";s:8:"redirect";s:5:"login";}}}
+<br>";s:4:"code";N;s:5:"title";s:11:"Edit course";s:3:"url";s:22:"/login/edit/course/:id";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";s:7:"viewBag";a:0:{}s:10:"courseform";a:0:{}s:14:"builderDetails";a:5:{s:10:"modelClass";s:33:"Numthang\Homeschool\Models\Course";s:15:"identifierValue";s:9:"{{ :id }}";s:14:"modelKeyColumn";s:2:"id";s:13:"displayColumn";s:4:"name";s:15:"notFoundMessage";s:16:"Record not found";}s:7:"session";a:2:{s:8:"security";s:4:"user";s:8:"redirect";s:5:"login";}}}

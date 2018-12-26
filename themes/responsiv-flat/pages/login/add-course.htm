@@ -1,7 +1,9 @@
-title = "Add Course"
+title = "New course"
 url = "/login/add/course"
 layout = "default"
 is_hidden = 0
+
+[viewBag]
 
 [courseform]
 
@@ -11,14 +13,14 @@ redirect = "login"
 ==
 <section id="layout-title">
     <div class="container">
-        <h3>New course from {{ user.name }} {{ user.surname }} </h3>
+        <h3>{{ 'New course'|_ }}</h3>
     </div>
 </section>
 
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-          {% partial 'user-sidebar' %}
+          {% partial 'login/sidebar' %}
         </div>
         <div class="col-md-8">
           {% component 'courseform' %}

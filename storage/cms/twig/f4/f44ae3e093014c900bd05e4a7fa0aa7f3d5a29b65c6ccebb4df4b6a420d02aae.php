@@ -20,16 +20,45 @@ class __TwigTemplate_e23104fdd9170ef1943e27bc128de1ef891b1d8c566eefa4b7105a03c2f
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 2
-        $context["links"] = array("home" => array(0 => "home", 1 => "Home"), "pages" => array("name" => "Pages", "sublinks" => array("about" => array(0 => "samples/about", 1 => "About Us"), "contact" => array(0 => "samples/contact", 1 => "Contact Us"), "pricing-table" => array(0 => "samples/pricing-table", 1 => "Pricing Table"), "services" => array(0 => "samples/services", 1 => "Services"), "signin" => array(0 => "samples/signin", 1 => "Sign In"), "register" => array(0 => "samples/register", 1 => "Register"), "error" => array(0 => "error", 1 => "Error Page"), "404" => array(0 => "404", 1 => "404 Page"))), "portfolio" => array("name" => "Portfolio", "sublinks" => array("portfolio" => array(0 => "portfolio/portfolio", 1 => "Portfolio"), "project" => array(0 => "portfolio/project", 1 => "Project"))), "blog" => array("name" => "Blog", "sublinks" => array("blog" => array(0 => "blog/blog", 1 => "Blog"), "post" => array(0 => "blog/post", 1 => "Blog Post"))), "shop" => array("name" => "Shop", "sublinks" => array("shop" => array(0 => "shop/shop", 1 => "Shop"), "product" => array(0 => "shop/product", 1 => "Product"), "cart" => array(0 => "shop/cart", 1 => "Cart"))), "ui-elements" => array(0 => "ui-elements", 1 => "UI Elements"));
-        // line 44
+        $context["links"] = array("home" => array(0 => "home", 1 => "Home"), "blog" => array("name" => "Blog", "sublinks" => array("blog" => array(0 => "blog/blog", 1 => "Blog"), "post" => array(0 => "blog/post", 1 => "Blog Post"))));
+        // line 14
+        echo "
+        <!--'pages': {
+            name: 'Pages',
+            sublinks: {
+                'about':         ['samples/about', 'About Us'],
+                'contact':       ['samples/contact', 'Contact Us'],
+                'pricing-table': ['samples/pricing-table', 'Pricing Table'],
+                'services':      ['samples/services', 'Services'],
+                'signin':        ['samples/signin', 'Sign In'],
+                'register':      ['samples/register', 'Register'],
+                'error':         ['error', 'Error Page'],
+                '404':           ['404', '404 Page'],
+            },
+        },
+        'portfolio': {
+            name: 'Portfolio',
+            sublinks: {
+                'portfolio': ['portfolio/portfolio', 'Portfolio'],
+                'project': ['portfolio/project', 'Project'],
+            },
+        },
+        'shop': {
+            name: 'Shop',
+            sublinks: {
+                'shop': ['shop/shop', 'Shop'],
+                'product': ['shop/product', 'Product'],
+                'cart': ['shop/cart', 'Cart'],
+            },
+            'ui-elements': ['ui-elements', 'UI Elements'],
+        },-->
+";
+        // line 65
         echo "
 ";
-        // line 67
-        echo "
-";
-        // line 68
+        // line 66
         $context["nav"] = $this;
-        // line 69
+        // line 67
         echo "
 <nav id=\"layout-nav\" class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\">
     <div class=\"container\">
@@ -39,47 +68,81 @@ class __TwigTemplate_e23104fdd9170ef1943e27bc128de1ef891b1d8c566eefa4b7105a03c2f
                 <span class=\"fa fa-bars\"></span>
             </button>
             <a class=\"navbar-brand\" href=\"";
-        // line 77
+        // line 75
         echo $this->extensions['Cms\Twig\Extension']->pageFilter("home");
         echo "\">Homeschool Network</a>
         </div>
         <div class=\"collapse navbar-collapse navbar-main-collapse\">
             <ul class=\"nav navbar-nav navbar-right\">
-                ";
-        // line 81
+              ";
+        // line 79
         echo $context["nav"]->macro_render_menu(($context["links"] ?? null));
         echo "
-                <li>
-                  ";
-        // line 83
+              <li class=\" dropdown\">
+                <a href=\"#\" data-toggle=\"dropdown\" class=\"dropdown-toggle\">";
+        // line 81
+        echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Languages"));
+        echo "<span class=\"caret\"></span></a>
+                <span class=\"dropdown-arrow\"></span>
+                <ul class=\"dropdown-menu\">
+                  <li class=\" \">
+                    <a href=\"#\" data-request=\"onSwitchLocale\" data-request-data=\"locale: 'en'\">English</a>
+                  </li>
+                  <li class=\" \">
+                    <a href=\"#\" data-request=\"onSwitchLocale\" data-request-data=\"locale: 'th'\">Thai</a>
+                  </li>
+                </ul>
+              </li>
+              ";
+        // line 92
         if ( !($context["user"] ?? null)) {
-            // line 84
-            echo "                    <button
-                        onclick=\"window.location='";
-            // line 85
-            echo $this->extensions['Cms\Twig\Extension']->pageFilter("login");
-            echo "'\"
-                        class=\"btn btn-sm navbar-btn btn-primary navbar-right hidden-sm hidden-xs\">
-                        Log in
-                    </button>
-                  ";
+            // line 93
+            echo "              <li>
+                <button onclick=\"window.location='/login'\" class=\"btn btn-sm navbar-btn btn-primary navbar-right hidden-sm hidden-xs\">";
+            // line 94
+            echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Log in"));
+            echo "</button>
+              </li>
+              ";
         } else {
-            // line 90
-            echo "                    <button data-request=\"onLogout\" data-request-data=\"redirect: '/'\" class=\"btn btn-sm navbar-btn btn-primary navbar-right hidden-sm hidden-xs\">
-                      Sign out
-                    </button> 
-                  ";
+            // line 97
+            echo "              <li class=\" dropdown\">
+                <a href=\"#\" data-toggle=\"dropdown\" class=\"dropdown-toggle\">";
+            // line 98
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "name", array()), "html", null, true);
+            echo "<span class=\"caret\"></span></a>
+                <span class=\"dropdown-arrow\"></span>
+                <ul class=\"dropdown-menu\">
+                  <li><a href=\"/login/profile\">";
+            // line 101
+            echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("My profile"));
+            echo "</a></li>
+                  <li><a href=\"/login/add/course\">";
+            // line 102
+            echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("New course"));
+            echo "</a></li>
+                  <li><a href=\"javascript:void(0);\" data-request=\"onLogout\" data-request-data=\"redirect: '/'\">";
+            // line 103
+            echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Sign out"));
+            echo "</a></li>
+                </ul>
+                    <!--<button data-request=\"onLogout\" data-request-data=\"redirect: '/'\" class=\"btn btn-sm navbar-btn btn-primary navbar-right hidden-sm hidden-xs\">
+                    ";
+            // line 106
+            echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Sign out"));
+            echo "
+                  </button> -->
+              </li>
+              ";
         }
-        // line 94
-        echo "                    
-                </li>
-            </ul>
+        // line 110
+        echo "            </ul>
         </div>
     </div>
 </nav>";
     }
 
-    // line 45
+    // line 44
     public function macro_render_menu($__links__ = null, ...$__varargs__)
     {
         $context = $this->env->mergeGlobals(array(
@@ -91,17 +154,17 @@ class __TwigTemplate_e23104fdd9170ef1943e27bc128de1ef891b1d8c566eefa4b7105a03c2f
 
         ob_start();
         try {
-            // line 46
+            // line 45
             echo "    ";
             $context["subnav"] = $this;
-            // line 47
+            // line 46
             echo "
     ";
-            // line 48
+            // line 47
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(($context["links"] ?? null));
             foreach ($context['_seq'] as $context["code"] => $context["link"]) {
-                // line 49
+                // line 48
                 echo "        <li class=\"";
                 echo ((($context["code"] == ($context["currentPage"] ?? null))) ? ("active") : (""));
                 echo " ";
@@ -109,44 +172,43 @@ class __TwigTemplate_e23104fdd9170ef1943e27bc128de1ef891b1d8c566eefa4b7105a03c2f
                 echo "\">
             <a
                 href=\"";
-                // line 51
+                // line 50
                 echo ((twig_get_attribute($this->env, $this->source, $context["link"], "sublinks", array())) ? ("#") : ($this->extensions['Cms\Twig\Extension']->pageFilter(((twig_get_attribute($this->env, $this->source, $context["link"], "page", array())) ? (twig_get_attribute($this->env, $this->source, $context["link"], "page", array())) : ((($__internal_7cd7461123377b8c9c1b6a01f46c7bbd94bd12e59266005df5e93029ddbc0ec5 = $context["link"]) && is_array($__internal_7cd7461123377b8c9c1b6a01f46c7bbd94bd12e59266005df5e93029ddbc0ec5) || $__internal_7cd7461123377b8c9c1b6a01f46c7bbd94bd12e59266005df5e93029ddbc0ec5 instanceof ArrayAccess ? ($__internal_7cd7461123377b8c9c1b6a01f46c7bbd94bd12e59266005df5e93029ddbc0ec5[0] ?? null) : null))))));
                 echo "\"
                 ";
-                // line 52
+                // line 51
                 if (twig_get_attribute($this->env, $this->source, $context["link"], "sublinks", array())) {
                     echo "data-toggle=\"dropdown\"";
                 }
-                // line 53
+                // line 52
                 echo "                class=\"";
                 echo ((twig_get_attribute($this->env, $this->source, $context["link"], "sublinks", array())) ? ("dropdown-toggle") : (""));
-                echo "\"
-            >
+                echo "\">
                 ";
-                // line 55
-                echo twig_escape_filter($this->env, ((twig_get_attribute($this->env, $this->source, $context["link"], "name", array())) ? (twig_get_attribute($this->env, $this->source, $context["link"], "name", array())) : ((($__internal_3e28b7f596c58d7729642bcf2acc6efc894803703bf5fa7e74cd8d2aa1f8c68a = $context["link"]) && is_array($__internal_3e28b7f596c58d7729642bcf2acc6efc894803703bf5fa7e74cd8d2aa1f8c68a) || $__internal_3e28b7f596c58d7729642bcf2acc6efc894803703bf5fa7e74cd8d2aa1f8c68a instanceof ArrayAccess ? ($__internal_3e28b7f596c58d7729642bcf2acc6efc894803703bf5fa7e74cd8d2aa1f8c68a[1] ?? null) : null))), "html", null, true);
+                // line 53
+                echo twig_escape_filter($this->env, ((twig_get_attribute($this->env, $this->source, $context["link"], "name", array())) ? (twig_get_attribute($this->env, $this->source, $context["link"], "name", array())) : (call_user_func_array($this->env->getFilter('_')->getCallable(), array((($__internal_3e28b7f596c58d7729642bcf2acc6efc894803703bf5fa7e74cd8d2aa1f8c68a = $context["link"]) && is_array($__internal_3e28b7f596c58d7729642bcf2acc6efc894803703bf5fa7e74cd8d2aa1f8c68a) || $__internal_3e28b7f596c58d7729642bcf2acc6efc894803703bf5fa7e74cd8d2aa1f8c68a instanceof ArrayAccess ? ($__internal_3e28b7f596c58d7729642bcf2acc6efc894803703bf5fa7e74cd8d2aa1f8c68a[1] ?? null) : null))))), "html", null, true);
                 echo "
                 ";
-                // line 56
+                // line 54
                 if (twig_get_attribute($this->env, $this->source, $context["link"], "sublinks", array())) {
                     echo "<span class=\"caret\"></span>";
                 }
-                // line 57
+                // line 55
                 echo "            </a>
             ";
-                // line 58
+                // line 56
                 if (twig_get_attribute($this->env, $this->source, $context["link"], "sublinks", array())) {
-                    // line 59
+                    // line 57
                     echo "                <span class=\"dropdown-arrow\"></span>
                 <ul class=\"dropdown-menu\">
                     ";
-                    // line 61
+                    // line 59
                     echo $context["subnav"]->macro_render_menu(twig_get_attribute($this->env, $this->source, $context["link"], "sublinks", array()));
                     echo "
                 </ul>
             ";
                 }
-                // line 64
+                // line 62
                 echo "        </li>
     ";
             }
@@ -172,7 +234,7 @@ class __TwigTemplate_e23104fdd9170ef1943e27bc128de1ef891b1d8c566eefa4b7105a03c2f
 
     public function getDebugInfo()
     {
-        return array (  150 => 64,  144 => 61,  140 => 59,  138 => 58,  135 => 57,  131 => 56,  127 => 55,  121 => 53,  117 => 52,  113 => 51,  105 => 49,  101 => 48,  98 => 47,  95 => 46,  83 => 45,  74 => 94,  68 => 90,  60 => 85,  57 => 84,  55 => 83,  50 => 81,  43 => 77,  33 => 69,  31 => 68,  28 => 67,  25 => 44,  23 => 2,);
+        return array (  212 => 62,  206 => 59,  202 => 57,  200 => 56,  197 => 55,  193 => 54,  189 => 53,  184 => 52,  180 => 51,  176 => 50,  168 => 48,  164 => 47,  161 => 46,  158 => 45,  146 => 44,  139 => 110,  132 => 106,  126 => 103,  122 => 102,  118 => 101,  112 => 98,  109 => 97,  103 => 94,  100 => 93,  98 => 92,  84 => 81,  79 => 79,  72 => 75,  62 => 67,  60 => 66,  57 => 65,  25 => 14,  23 => 2,);
     }
 
     public function getSourceContext()
@@ -181,7 +243,17 @@ class __TwigTemplate_e23104fdd9170ef1943e27bc128de1ef891b1d8c566eefa4b7105a03c2f
 {% set
     links = {
         'home': ['home', 'Home'],
-        'pages': {
+        'blog': {
+            name: 'Blog',
+            sublinks: {
+                'blog': ['blog/blog', 'Blog'],
+                'post': ['blog/post', 'Blog Post'],
+            },
+        },
+    }
+%}
+
+        <!--'pages': {
             name: 'Pages',
             sublinks: {
                 'about':         ['samples/about', 'About Us'],
@@ -201,13 +273,6 @@ class __TwigTemplate_e23104fdd9170ef1943e27bc128de1ef891b1d8c566eefa4b7105a03c2f
                 'project': ['portfolio/project', 'Project'],
             },
         },
-        'blog': {
-            name: 'Blog',
-            sublinks: {
-                'blog': ['blog/blog', 'Blog'],
-                'post': ['blog/post', 'Blog Post'],
-            },
-        },
         'shop': {
             name: 'Shop',
             sublinks: {
@@ -215,12 +280,8 @@ class __TwigTemplate_e23104fdd9170ef1943e27bc128de1ef891b1d8c566eefa4b7105a03c2f
                 'product': ['shop/product', 'Product'],
                 'cart': ['shop/cart', 'Cart'],
             },
-        },
-        'ui-elements': ['ui-elements', 'UI Elements'],
-
-    }
-%}
-
+            'ui-elements': ['ui-elements', 'UI Elements'],
+        },-->
 {% macro render_menu(links) %}
     {% import _self as subnav %}
 
@@ -229,9 +290,8 @@ class __TwigTemplate_e23104fdd9170ef1943e27bc128de1ef891b1d8c566eefa4b7105a03c2f
             <a
                 href=\"{{ link.sublinks ? '#' : (link.page ?: link[0])|page }}\"
                 {% if link.sublinks %}data-toggle=\"dropdown\"{% endif %}
-                class=\"{{ link.sublinks ? 'dropdown-toggle' }}\"
-            >
-                {{ link.name ?: link[1] }}
+                class=\"{{ link.sublinks ? 'dropdown-toggle' }}\">
+                {{ link.name ?: link[1]|_ }}
                 {% if link.sublinks %}<span class=\"caret\"></span>{% endif %}
             </a>
             {% if link.sublinks %}
@@ -257,21 +317,37 @@ class __TwigTemplate_e23104fdd9170ef1943e27bc128de1ef891b1d8c566eefa4b7105a03c2f
         </div>
         <div class=\"collapse navbar-collapse navbar-main-collapse\">
             <ul class=\"nav navbar-nav navbar-right\">
-                {{ nav.render_menu(links) }}
-                <li>
-                  {% if not user %}
-                    <button
-                        onclick=\"window.location='{{ 'login'|page }}'\"
-                        class=\"btn btn-sm navbar-btn btn-primary navbar-right hidden-sm hidden-xs\">
-                        Log in
-                    </button>
-                  {% else %}
-                    <button data-request=\"onLogout\" data-request-data=\"redirect: '/'\" class=\"btn btn-sm navbar-btn btn-primary navbar-right hidden-sm hidden-xs\">
-                      Sign out
-                    </button> 
-                  {% endif %}
-                    
-                </li>
+              {{ nav.render_menu(links) }}
+              <li class=\" dropdown\">
+                <a href=\"#\" data-toggle=\"dropdown\" class=\"dropdown-toggle\">{{ 'Languages'|_ }}<span class=\"caret\"></span></a>
+                <span class=\"dropdown-arrow\"></span>
+                <ul class=\"dropdown-menu\">
+                  <li class=\" \">
+                    <a href=\"#\" data-request=\"onSwitchLocale\" data-request-data=\"locale: 'en'\">English</a>
+                  </li>
+                  <li class=\" \">
+                    <a href=\"#\" data-request=\"onSwitchLocale\" data-request-data=\"locale: 'th'\">Thai</a>
+                  </li>
+                </ul>
+              </li>
+              {% if not user %}
+              <li>
+                <button onclick=\"window.location='/login'\" class=\"btn btn-sm navbar-btn btn-primary navbar-right hidden-sm hidden-xs\">{{ 'Log in'|_ }}</button>
+              </li>
+              {% else %}
+              <li class=\" dropdown\">
+                <a href=\"#\" data-toggle=\"dropdown\" class=\"dropdown-toggle\">{{ user.name }}<span class=\"caret\"></span></a>
+                <span class=\"dropdown-arrow\"></span>
+                <ul class=\"dropdown-menu\">
+                  <li><a href=\"/login/profile\">{{ 'My profile'|_ }}</a></li>
+                  <li><a href=\"/login/add/course\">{{ 'New course'|_ }}</a></li>
+                  <li><a href=\"javascript:void(0);\" data-request=\"onLogout\" data-request-data=\"redirect: '/'\">{{ 'Sign out'|_ }}</a></li>
+                </ul>
+                    <!--<button data-request=\"onLogout\" data-request-data=\"redirect: '/'\" class=\"btn btn-sm navbar-btn btn-primary navbar-right hidden-sm hidden-xs\">
+                    {{ 'Sign out'|_ }}
+                  </button> -->
+              </li>
+              {% endif %}
             </ul>
         </div>
     </div>

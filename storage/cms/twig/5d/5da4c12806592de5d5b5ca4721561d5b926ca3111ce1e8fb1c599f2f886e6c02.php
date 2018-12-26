@@ -22,8 +22,10 @@ class __TwigTemplate_cc22e03802af2c55514af0ea840e6469b3472f2be97481d6414035ba63a
         // line 1
         echo "<section id=\"layout-title\">
     <div class=\"container\">
-        <h3>Hello, ";
+        <h3>";
         // line 3
+        echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Hello"));
+        echo ", ";
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "name", array()), "html", null, true);
         echo " ";
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "surname", array()), "html", null, true);
@@ -36,7 +38,7 @@ class __TwigTemplate_cc22e03802af2c55514af0ea840e6469b3472f2be97481d6414035ba63a
           ";
         // line 9
         $context['__cms_partial_params'] = [];
-        echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("user-sidebar"        , $context['__cms_partial_params']        , true        );
+        echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("login/sidebar"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
         // line 10
         echo "        </div>
@@ -57,7 +59,7 @@ class __TwigTemplate_cc22e03802af2c55514af0ea840e6469b3472f2be97481d6414035ba63a
         $context["type"] = $_type;        $context["message"] = $_message;        // line 15
         echo "          ";
         $context['__cms_partial_params'] = [];
-        echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("user-profile-form"        , $context['__cms_partial_params']        , true        );
+        echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("login/profile"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
         // line 16
         echo "        </div>
@@ -78,26 +80,26 @@ class __TwigTemplate_cc22e03802af2c55514af0ea840e6469b3472f2be97481d6414035ba63a
 
     public function getDebugInfo()
     {
-        return array (  63 => 16,  58 => 15,  49 => 13,  46 => 12,  42 => 10,  38 => 9,  27 => 3,  23 => 1,);
+        return array (  65 => 16,  60 => 15,  51 => 13,  48 => 12,  44 => 10,  40 => 9,  27 => 3,  23 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Twig_Source("<section id=\"layout-title\">
     <div class=\"container\">
-        <h3>Hello, {{ user.name }} {{ user.surname }}</h3>
+        <h3>{{ 'Hello'|_ }}, {{ user.name }} {{ user.surname }}</h3>
     </div>
 </section>
 <div class=\"container\">
     <div class=\"row\">
         <div class=\"col-md-4\">
-          {% partial 'user-sidebar' %}
+          {% partial 'login/sidebar' %}
         </div>
         <div class=\"col-md-8\">
           {% flash %}
             <p data-control=\"flash-message\" data-interval=\"5\" class=\"{{ type == 'error' ? 'danger' : type }}\">{{ message }}<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button></p>
           {% endflash %}
-          {% partial 'user-profile-form' %}
+          {% partial 'login/profile' %}
         </div>
     </div>
 </div>
