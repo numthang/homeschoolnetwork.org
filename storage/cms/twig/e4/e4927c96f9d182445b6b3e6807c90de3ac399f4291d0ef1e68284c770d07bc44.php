@@ -42,7 +42,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
             echo " has-error ";
         }
         echo "\">
-        <label>Course Name</label>
+        <label>ชื่อแผนการศึกษา</label>
         <input type=\"text\" class=\"form-control\" name=\"name\" placeholder=\"Enter course name : ";
         // line 16
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["errors"] ?? null), "first", array(0 => "name"), "method"), "html", null, true);
@@ -66,7 +66,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
             echo " has-error ";
         }
         echo "\">
-        <label>Homeschool Name</label>
+        <label>ชื่อบ้านเรียน</label>
         <input type=\"text\" class=\"form-control\" name=\"hs_name\" placeholder=\"Enter homeschool name : \" value=\"";
         // line 23
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "hs_name", array()), "html", null, true);
@@ -86,57 +86,58 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
     <ul class=\"nav nav-tabs\" id=\"myTab\">
       <div class=\"liner\"></div>
       <li class=\"active\">
-        <a href=\"#first\" data-toggle=\"tab\" title=\"First\">
+        <a href=\"#first\" data-toggle=\"tab\" title=\"ขอมูลพื้นฐานของครอบครัว\">
         <span class=\"round-tabs one\">
           1 
         </span> </a>
       </li>
-      <li><a href=\"#second\" data-toggle=\"tab\" title=\"Second\">
+      <li><a href=\"#second\" data-toggle=\"tab\" title=\"ขอมูลพื้นฐานของผูเรียน\">
         <span class=\"round-tabs two\">
           2
         </span> </a>
       </li>
-      <li><a href=\"#third\" data-toggle=\"tab\" title=\"Third\">
+      <li><a href=\"#third\" data-toggle=\"tab\" title=\"ระดับที่จัดการศึกษา / เหตุผลในการจัดการศึกษาของครอบครัว
+\">
         <span class=\"round-tabs three\">
           3
         </span> </a>
       </li>
-      <li><a href=\"#forth\" data-toggle=\"tab\" title=\"Forth\">
+      <li><a href=\"#forth\" data-toggle=\"tab\" title=\"จุดมุงหมายของการจัดการศึกษา\">
         <span class=\"round-tabs four\">
           4
         </span> </a>
       </li>
-      <li><a href=\"#fifth\" data-toggle=\"tab\" title=\"Fifth\">
+      <li><a href=\"#fifth\" data-toggle=\"tab\" title=\"รูปแบบการจัดการศึกษา\">
         <span class=\"round-tabs five\">
           5
         </span> </a>
       </li>
-      <li><a href=\"#sixth\" data-toggle=\"tab\" title=\"Sixth\">
+      <li><a href=\"#sixth\" data-toggle=\"tab\" title=\"โครงสร้างเวลาเรียน\">
         <span class=\"round-tabs six\">
           6
         </span> </a>
       </li>
-      <li><a href=\"#seventh\" data-toggle=\"tab\" title=\"Seventh\">
+      <li><a href=\"#seventh\" data-toggle=\"tab\" title=\"การจัดกลุ่มสาระการเรียนรู้ /กลุ่มประสบการณ์\">
         <span class=\"round-tabs seven\">
           7
         </span> </a>
       </li>
-      <li><a href=\"#eighth\" data-toggle=\"tab\" title=\"Eighth\">
+      <li><a href=\"#eighth\" data-toggle=\"tab\" title=\"การจัดกิจกรรมพัฒนาผู้เรียน\">
         <span class=\"round-tabs eight\">
           8
         </span> </a>
       </li>
-      <li><a href=\"#ninth\" data-toggle=\"tab\" title=\"Ninth\">
+      <li><a href=\"#ninth\" data-toggle=\"tab\" title=\"การจัดกระบวนการเรียนรู้\">
         <span class=\"round-tabs nine\">
           9
         </span> </a>
       </li>
-      <li><a href=\"#tenth\" data-toggle=\"tab\" title=\"Tenth\">
+      <li><a href=\"#tenth\" data-toggle=\"tab\" title=\"การวัดและประเมินผลการเรียนรู้\">
         <span class=\"round-tabs ten\">
           10
         </span> </a>
       </li>
-      <li><a href=\"#eleventh\" data-toggle=\"tab\" title=\"Eleventh\">
+      <li><a href=\"#eleventh\" data-toggle=\"tab\" title=\"อื่นๆ\">
         <span class=\"round-tabs eleven\">
           11
         </span> </a>
@@ -145,96 +146,96 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
   </div>
   <div class=\"tab-content\">
     <div class=\"tab-pane fade in active\" id=\"first\">
-      <h4>Family Basic Information</h4>
+      <h4>1. ขอมูลพื้นฐานของครอบครัว</h4>
       <div class=\"row\">
         <div class=\"col-sm-6\"> 
           <div class=\"form-group\">
-            <label>Father's Name</label>
+            <label>บิดา</label>
             <input type=\"text\" class=\"form-control\" name=\"father_name\" placeholder=\"Enter father's name\">
           </div>
         </div>
         <div class=\"col-sm-6\"> 
           <div class=\"form-group\">
-            <label>Father's Degree</label>
+            <label>วุฒิการศึกษา</label>
             <input type=\"text\" class=\"form-control\" name=\"father_degree\" placeholder=\"Enter father's degree\">
           </div>
         </div>
         <div class=\"col-sm-12\"> 
           <div class=\"form-group\">
-            <label>Father's Experience</label>
+            <label>ประสบการณ์</label>
             <textarea class=\"form-control\" name=\"father_exp\" placeholder=\"Enter father's experience\" rows=\"5\"></textarea>
           </div>
         </div>
         <div class=\"col-sm-2\"> 
           <div class=\"form-group\">
-            <label>Father's Age</label>
+            <label>อายุ</label>
             <input type=\"text\" class=\"form-control\" name=\"father_age\" placeholder=\"Age\">
           </div>
         </div>
         <div class=\"col-sm-4\"> 
           <div class=\"form-group\">
-            <label>Father's Job</label>
+            <label>อาชีพ</label>
             <input type=\"text\" class=\"form-control\" name=\"father_job\" placeholder=\"Enter father's job\">
           </div>
         </div>
         <div class=\"col-sm-12\"> 
           <div class=\"form-group\">
-            <label>Father's address</label>
+            <label>ท่ี่อยู่</label>
             <input type=\"text\" class=\"form-control\" name=\"father_addr\" placeholder=\"Enter father's address\">
           </div>
         </div>
 
         <div class=\"col-sm-6\"> 
           <div class=\"form-group\">
-            <label>Mother's Name</label>
+            <label>มารดา</label>
             <input type=\"text\" class=\"form-control\" name=\"mother\" placeholder=\"Enter mother's name\">
           </div>
         </div>
         <div class=\"col-sm-6\"> 
           <div class=\"form-group\">
-            <label>Mother's Degree</label>
+            <label>วุฒิการศึกษา</label>
             <input type=\"text\" class=\"form-control\" name=\"mother_degree\" placeholder=\"Enter mother's degree\">
           </div>
         </div>
         <div class=\"col-sm-12\"> 
           <div class=\"form-group\">
-            <label>Mother's Experience</label>
+            <label>ประสบการณ์</label>
             <textarea class=\"form-control\" name=\"mother_exp\" placeholder=\"Enter mother's experience\" rows=\"5\"></textarea>
           </div>
         </div>
         <div class=\"col-sm-2\"> 
           <div class=\"form-group\">
-            <label>Mother's Age</label>
+            <label>อายุ</label>
             <input type=\"text\" class=\"form-control\" name=\"mother_age\" placeholder=\"Age\">
           </div>
         </div>
         <div class=\"col-sm-4\"> 
           <div class=\"form-group\">
-            <label>Mother's Job</label>
+            <label>อาชีพ</label>
             <input type=\"text\" class=\"form-control\" name=\"mother_job\" placeholder=\"Enter mother's job\">
           </div>
         </div>
         <div class=\"col-sm-12\"> 
           <div class=\"form-group\">
-            <label>Mother's address</label>
+            <label>ที่อยู</label>
             <input type=\"text\" class=\"form-control\" name=\"mother_addr\" placeholder=\"Enter mother's address\">
           </div>
         </div>
       </div>
     </div>
     <div class=\"tab-pane fade\" id=\"second\">
-      <h4>Homeschooler Profile</h4>
-      2.1 Homeschooler Information
+      <h4>2. ขอมูลพื้นฐานของผูเรียน</h4>
+      2.1 ระบุขอมูลของผูเรียน
       <div class=\"row\">
         <div class=\"col-sm-6\"> 
           <div class=\"form-group\">
-            <label>Student's Name</label>
+            <label>ชื่อ-สกุล</label>
             <input type=\"text\" class=\"form-control\" name=\"student_name\" placeholder=\"Enter student's name\">
           </div>
         </div>
         <div class=\"col-sm-6\"> 
           <div class=\"form-group\">
-            <label>Birthday</label>
+            <label>วัน เดือน ปเกิด</label>
             <div class=\"input-group date\" data-provide=\"datepicker\">
               <input type=\"text\" class=\"form-control\" name=\"birth_date\">
                 <div class=\"input-group-addon\">
@@ -245,12 +246,13 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
         </div>
         <div class=\"col-sm-12\"> 
           <div class=\"form-group\">
-            <label>School's Experience</label>
+            <label>ประวัติการศึกษา (กรณีเรียนในระบบโรงเรียนมากอน)</label>
             <textarea class=\"form-control\" name=\"school_exp\" placeholder=\"Enter school's experience\" rows=\"5\"></textarea>
           </div>
         </div>
       </div>
-      2.2 Homeschooler Development
+      2.2 พัฒนาการของผูเรียน (ระบุการพัฒนาการของผูเรียน/ความสามารถพิเศษ/ความ
+ตองการพิเศษ)
       <div class=\"row\">
         <div class=\"col-sm-12\"> 
           <div class=\"form-group\">
@@ -260,7 +262,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
       </div>
     </div>
     <div class=\"tab-pane fade\" id=\"third\">
-      <h4>Class and Reason</h4>
+      <h4>3. ระดับที่จัดการศึกษา / เหตุผลในการจัดการศึกษาของครอบครัว</h4>
       <div class=\"row\">
         <div class=\"col-sm-12\"> 
           <div class=\"form-group\">
@@ -270,7 +272,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
       </div>
     </div>
     <div class=\"tab-pane fade\" id=\"forth\">
-      <h4>Education Purpose</h4>
+      <h4>4. จุดมุงหมายของการจัดการศึกษา</h4>
       <div class=\"row\">
         <div class=\"col-sm-12\"> 
           <div class=\"form-group\">
@@ -280,7 +282,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
       </div>
     </div>
     <div class=\"tab-pane fade\" id=\"fifth\">
-      <h4>Education Type</h4>
+      <h4>5. รูปแบบการจัดการศึกษา </h4>
       <div class=\"row\">
         <div class=\"col-sm-12\"> 
           <div class=\"form-group\">
@@ -294,7 +296,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
       </div>
     </div>
     <div class=\"tab-pane fade\" id=\"sixth\">
-      <h4>Schedule Structure</h4>
+      <h4>6. โครงสร้างเวลาเรียน  (Schedule)</h4>
       <div class=\"row\">
         <div class=\"col-sm-12\"> 
           <div class=\"form-group\">
@@ -304,7 +306,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
       </div>
     </div>
     <div class=\"tab-pane fade\" id=\"seventh\">
-      <h4>Seventh</h4>
+      <h4>7. การจัดกลุ่มสาระการเรียนรู้ /กลุ่มประสบการณ์</h4>
       <div class=\"row\">
         <div class=\"col-sm-12\"> 
           <div class=\"form-group\">
@@ -314,7 +316,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
       </div>
     </div>
     <div class=\"tab-pane fade\" id=\"eighth\">
-      <h4>Eighth</h4>
+      <h4>8. การจัดกิจกรรมพัฒนาผู้เรียน</h4>
       <div class=\"row\">
         <div class=\"col-sm-12\"> 
           <div class=\"form-group\">
@@ -324,7 +326,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
       </div>
     </div>
     <div class=\"tab-pane fade\" id=\"ninth\">
-      <h4>ninth</h4>
+      <h4>9. การจัดกระบวนการเรียนรู้</h4>
       <div class=\"row\">
         <div class=\"col-sm-12\"> 
           <div class=\"form-group\">
@@ -334,7 +336,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
       </div>
     </div>
     <div class=\"tab-pane fade\" id=\"tenth\">
-      <h4>tenth</h4>
+      <h4>10. การวัดและประเมินผลการเรียนรู้</h4>
       <div class=\"row\">
         <div class=\"col-sm-12\"> 
           <div class=\"form-group\">
@@ -344,7 +346,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
       </div>
     </div>
     <div class=\"tab-pane fade\" id=\"eleventh\">
-      <h4>eleventh</h4>
+      <h4>11. อื่นๆ (ครอบครัวสามารถเพิ่มเติมรายละเอียดที่เห็นว่าเป็นประโยชน์ต่อผู้เรียนได้)</h4>
       <div class=\"row\">
         <div class=\"col-sm-12\"> 
           <div class=\"form-group\">
@@ -397,14 +399,14 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
   <div class=\"row\">
     <div class=\"col-sm-6\">  
       <div class=\"form-group {% if errors.first('name') %} has-error {% endif %}\">
-        <label>Course Name</label>
+        <label>ชื่อแผนการศึกษา</label>
         <input type=\"text\" class=\"form-control\" name=\"name\" placeholder=\"Enter course name : {{ errors.first('name') }}\" value=\"{{ record.name }}\">
         {% if errors.first('name') %}<div class=\"alert alert-warning\" style=\"margin-top:4px;\">{{ errors.first('name') }}</div>{% endif %}
       </div>
     </div>
     <div class=\"col-sm-6\">  
       <div class=\"form-group {% if errors.first('hs_name') %} has-error {% endif %}\">
-        <label>Homeschool Name</label>
+        <label>ชื่อบ้านเรียน</label>
         <input type=\"text\" class=\"form-control\" name=\"hs_name\" placeholder=\"Enter homeschool name : \" value=\"{{ record.hs_name }}\">
         {% if errors.first('hs_name') %}<div class=\"alert alert-warning\" style=\"margin-top:4px;\">{{ errors.first('hs_name') }}</div>{% endif %}
       </div>
@@ -414,57 +416,58 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
     <ul class=\"nav nav-tabs\" id=\"myTab\">
       <div class=\"liner\"></div>
       <li class=\"active\">
-        <a href=\"#first\" data-toggle=\"tab\" title=\"First\">
+        <a href=\"#first\" data-toggle=\"tab\" title=\"ขอมูลพื้นฐานของครอบครัว\">
         <span class=\"round-tabs one\">
           1 
         </span> </a>
       </li>
-      <li><a href=\"#second\" data-toggle=\"tab\" title=\"Second\">
+      <li><a href=\"#second\" data-toggle=\"tab\" title=\"ขอมูลพื้นฐานของผูเรียน\">
         <span class=\"round-tabs two\">
           2
         </span> </a>
       </li>
-      <li><a href=\"#third\" data-toggle=\"tab\" title=\"Third\">
+      <li><a href=\"#third\" data-toggle=\"tab\" title=\"ระดับที่จัดการศึกษา / เหตุผลในการจัดการศึกษาของครอบครัว
+\">
         <span class=\"round-tabs three\">
           3
         </span> </a>
       </li>
-      <li><a href=\"#forth\" data-toggle=\"tab\" title=\"Forth\">
+      <li><a href=\"#forth\" data-toggle=\"tab\" title=\"จุดมุงหมายของการจัดการศึกษา\">
         <span class=\"round-tabs four\">
           4
         </span> </a>
       </li>
-      <li><a href=\"#fifth\" data-toggle=\"tab\" title=\"Fifth\">
+      <li><a href=\"#fifth\" data-toggle=\"tab\" title=\"รูปแบบการจัดการศึกษา\">
         <span class=\"round-tabs five\">
           5
         </span> </a>
       </li>
-      <li><a href=\"#sixth\" data-toggle=\"tab\" title=\"Sixth\">
+      <li><a href=\"#sixth\" data-toggle=\"tab\" title=\"โครงสร้างเวลาเรียน\">
         <span class=\"round-tabs six\">
           6
         </span> </a>
       </li>
-      <li><a href=\"#seventh\" data-toggle=\"tab\" title=\"Seventh\">
+      <li><a href=\"#seventh\" data-toggle=\"tab\" title=\"การจัดกลุ่มสาระการเรียนรู้ /กลุ่มประสบการณ์\">
         <span class=\"round-tabs seven\">
           7
         </span> </a>
       </li>
-      <li><a href=\"#eighth\" data-toggle=\"tab\" title=\"Eighth\">
+      <li><a href=\"#eighth\" data-toggle=\"tab\" title=\"การจัดกิจกรรมพัฒนาผู้เรียน\">
         <span class=\"round-tabs eight\">
           8
         </span> </a>
       </li>
-      <li><a href=\"#ninth\" data-toggle=\"tab\" title=\"Ninth\">
+      <li><a href=\"#ninth\" data-toggle=\"tab\" title=\"การจัดกระบวนการเรียนรู้\">
         <span class=\"round-tabs nine\">
           9
         </span> </a>
       </li>
-      <li><a href=\"#tenth\" data-toggle=\"tab\" title=\"Tenth\">
+      <li><a href=\"#tenth\" data-toggle=\"tab\" title=\"การวัดและประเมินผลการเรียนรู้\">
         <span class=\"round-tabs ten\">
           10
         </span> </a>
       </li>
-      <li><a href=\"#eleventh\" data-toggle=\"tab\" title=\"Eleventh\">
+      <li><a href=\"#eleventh\" data-toggle=\"tab\" title=\"อื่นๆ\">
         <span class=\"round-tabs eleven\">
           11
         </span> </a>
@@ -473,96 +476,96 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
   </div>
   <div class=\"tab-content\">
     <div class=\"tab-pane fade in active\" id=\"first\">
-      <h4>Family Basic Information</h4>
+      <h4>1. ขอมูลพื้นฐานของครอบครัว</h4>
       <div class=\"row\">
         <div class=\"col-sm-6\"> 
           <div class=\"form-group\">
-            <label>Father's Name</label>
+            <label>บิดา</label>
             <input type=\"text\" class=\"form-control\" name=\"father_name\" placeholder=\"Enter father's name\">
           </div>
         </div>
         <div class=\"col-sm-6\"> 
           <div class=\"form-group\">
-            <label>Father's Degree</label>
+            <label>วุฒิการศึกษา</label>
             <input type=\"text\" class=\"form-control\" name=\"father_degree\" placeholder=\"Enter father's degree\">
           </div>
         </div>
         <div class=\"col-sm-12\"> 
           <div class=\"form-group\">
-            <label>Father's Experience</label>
+            <label>ประสบการณ์</label>
             <textarea class=\"form-control\" name=\"father_exp\" placeholder=\"Enter father's experience\" rows=\"5\"></textarea>
           </div>
         </div>
         <div class=\"col-sm-2\"> 
           <div class=\"form-group\">
-            <label>Father's Age</label>
+            <label>อายุ</label>
             <input type=\"text\" class=\"form-control\" name=\"father_age\" placeholder=\"Age\">
           </div>
         </div>
         <div class=\"col-sm-4\"> 
           <div class=\"form-group\">
-            <label>Father's Job</label>
+            <label>อาชีพ</label>
             <input type=\"text\" class=\"form-control\" name=\"father_job\" placeholder=\"Enter father's job\">
           </div>
         </div>
         <div class=\"col-sm-12\"> 
           <div class=\"form-group\">
-            <label>Father's address</label>
+            <label>ท่ี่อยู่</label>
             <input type=\"text\" class=\"form-control\" name=\"father_addr\" placeholder=\"Enter father's address\">
           </div>
         </div>
 
         <div class=\"col-sm-6\"> 
           <div class=\"form-group\">
-            <label>Mother's Name</label>
+            <label>มารดา</label>
             <input type=\"text\" class=\"form-control\" name=\"mother\" placeholder=\"Enter mother's name\">
           </div>
         </div>
         <div class=\"col-sm-6\"> 
           <div class=\"form-group\">
-            <label>Mother's Degree</label>
+            <label>วุฒิการศึกษา</label>
             <input type=\"text\" class=\"form-control\" name=\"mother_degree\" placeholder=\"Enter mother's degree\">
           </div>
         </div>
         <div class=\"col-sm-12\"> 
           <div class=\"form-group\">
-            <label>Mother's Experience</label>
+            <label>ประสบการณ์</label>
             <textarea class=\"form-control\" name=\"mother_exp\" placeholder=\"Enter mother's experience\" rows=\"5\"></textarea>
           </div>
         </div>
         <div class=\"col-sm-2\"> 
           <div class=\"form-group\">
-            <label>Mother's Age</label>
+            <label>อายุ</label>
             <input type=\"text\" class=\"form-control\" name=\"mother_age\" placeholder=\"Age\">
           </div>
         </div>
         <div class=\"col-sm-4\"> 
           <div class=\"form-group\">
-            <label>Mother's Job</label>
+            <label>อาชีพ</label>
             <input type=\"text\" class=\"form-control\" name=\"mother_job\" placeholder=\"Enter mother's job\">
           </div>
         </div>
         <div class=\"col-sm-12\"> 
           <div class=\"form-group\">
-            <label>Mother's address</label>
+            <label>ที่อยู</label>
             <input type=\"text\" class=\"form-control\" name=\"mother_addr\" placeholder=\"Enter mother's address\">
           </div>
         </div>
       </div>
     </div>
     <div class=\"tab-pane fade\" id=\"second\">
-      <h4>Homeschooler Profile</h4>
-      2.1 Homeschooler Information
+      <h4>2. ขอมูลพื้นฐานของผูเรียน</h4>
+      2.1 ระบุขอมูลของผูเรียน
       <div class=\"row\">
         <div class=\"col-sm-6\"> 
           <div class=\"form-group\">
-            <label>Student's Name</label>
+            <label>ชื่อ-สกุล</label>
             <input type=\"text\" class=\"form-control\" name=\"student_name\" placeholder=\"Enter student's name\">
           </div>
         </div>
         <div class=\"col-sm-6\"> 
           <div class=\"form-group\">
-            <label>Birthday</label>
+            <label>วัน เดือน ปเกิด</label>
             <div class=\"input-group date\" data-provide=\"datepicker\">
               <input type=\"text\" class=\"form-control\" name=\"birth_date\">
                 <div class=\"input-group-addon\">
@@ -573,12 +576,13 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
         </div>
         <div class=\"col-sm-12\"> 
           <div class=\"form-group\">
-            <label>School's Experience</label>
+            <label>ประวัติการศึกษา (กรณีเรียนในระบบโรงเรียนมากอน)</label>
             <textarea class=\"form-control\" name=\"school_exp\" placeholder=\"Enter school's experience\" rows=\"5\"></textarea>
           </div>
         </div>
       </div>
-      2.2 Homeschooler Development
+      2.2 พัฒนาการของผูเรียน (ระบุการพัฒนาการของผูเรียน/ความสามารถพิเศษ/ความ
+ตองการพิเศษ)
       <div class=\"row\">
         <div class=\"col-sm-12\"> 
           <div class=\"form-group\">
@@ -588,7 +592,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
       </div>
     </div>
     <div class=\"tab-pane fade\" id=\"third\">
-      <h4>Class and Reason</h4>
+      <h4>3. ระดับที่จัดการศึกษา / เหตุผลในการจัดการศึกษาของครอบครัว</h4>
       <div class=\"row\">
         <div class=\"col-sm-12\"> 
           <div class=\"form-group\">
@@ -598,7 +602,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
       </div>
     </div>
     <div class=\"tab-pane fade\" id=\"forth\">
-      <h4>Education Purpose</h4>
+      <h4>4. จุดมุงหมายของการจัดการศึกษา</h4>
       <div class=\"row\">
         <div class=\"col-sm-12\"> 
           <div class=\"form-group\">
@@ -608,7 +612,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
       </div>
     </div>
     <div class=\"tab-pane fade\" id=\"fifth\">
-      <h4>Education Type</h4>
+      <h4>5. รูปแบบการจัดการศึกษา </h4>
       <div class=\"row\">
         <div class=\"col-sm-12\"> 
           <div class=\"form-group\">
@@ -622,7 +626,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
       </div>
     </div>
     <div class=\"tab-pane fade\" id=\"sixth\">
-      <h4>Schedule Structure</h4>
+      <h4>6. โครงสร้างเวลาเรียน  (Schedule)</h4>
       <div class=\"row\">
         <div class=\"col-sm-12\"> 
           <div class=\"form-group\">
@@ -632,7 +636,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
       </div>
     </div>
     <div class=\"tab-pane fade\" id=\"seventh\">
-      <h4>Seventh</h4>
+      <h4>7. การจัดกลุ่มสาระการเรียนรู้ /กลุ่มประสบการณ์</h4>
       <div class=\"row\">
         <div class=\"col-sm-12\"> 
           <div class=\"form-group\">
@@ -642,7 +646,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
       </div>
     </div>
     <div class=\"tab-pane fade\" id=\"eighth\">
-      <h4>Eighth</h4>
+      <h4>8. การจัดกิจกรรมพัฒนาผู้เรียน</h4>
       <div class=\"row\">
         <div class=\"col-sm-12\"> 
           <div class=\"form-group\">
@@ -652,7 +656,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
       </div>
     </div>
     <div class=\"tab-pane fade\" id=\"ninth\">
-      <h4>ninth</h4>
+      <h4>9. การจัดกระบวนการเรียนรู้</h4>
       <div class=\"row\">
         <div class=\"col-sm-12\"> 
           <div class=\"form-group\">
@@ -662,7 +666,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
       </div>
     </div>
     <div class=\"tab-pane fade\" id=\"tenth\">
-      <h4>tenth</h4>
+      <h4>10. การวัดและประเมินผลการเรียนรู้</h4>
       <div class=\"row\">
         <div class=\"col-sm-12\"> 
           <div class=\"form-group\">
@@ -672,7 +676,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
       </div>
     </div>
     <div class=\"tab-pane fade\" id=\"eleventh\">
-      <h4>eleventh</h4>
+      <h4>11. อื่นๆ (ครอบครัวสามารถเพิ่มเติมรายละเอียดที่เห็นว่าเป็นประโยชน์ต่อผู้เรียนได้)</h4>
       <div class=\"row\">
         <div class=\"col-sm-12\"> 
           <div class=\"form-group\">

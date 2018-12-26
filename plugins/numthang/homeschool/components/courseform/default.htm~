@@ -12,14 +12,14 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
   <div class="row">
     <div class="col-sm-6">  
       <div class="form-group {% if errors.first('name') %} has-error {% endif %}">
-        <label>Course Name</label>
+        <label>ชื่อแผนการศึกษา</label>
         <input type="text" class="form-control" name="name" placeholder="Enter course name : {{ errors.first('name') }}" value="{{ record.name }}">
         {% if errors.first('name') %}<div class="alert alert-warning" style="margin-top:4px;">{{ errors.first('name') }}</div>{% endif %}
       </div>
     </div>
     <div class="col-sm-6">  
       <div class="form-group {% if errors.first('hs_name') %} has-error {% endif %}">
-        <label>Homeschool Name</label>
+        <label>ชื่อบ้านเรียน</label>
         <input type="text" class="form-control" name="hs_name" placeholder="Enter homeschool name : " value="{{ record.hs_name }}">
         {% if errors.first('hs_name') %}<div class="alert alert-warning" style="margin-top:4px;">{{ errors.first('hs_name') }}</div>{% endif %}
       </div>
@@ -51,133 +51,133 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
       </li>
       <li><a href="#fifth" data-toggle="tab" title="Fifth">
         <span class="round-tabs five">
-          Fifth
+          5
         </span> </a>
       </li>
       <li><a href="#sixth" data-toggle="tab" title="Sixth">
         <span class="round-tabs six">
-          Sixth
+          6
         </span> </a>
       </li>
       <li><a href="#seventh" data-toggle="tab" title="Seventh">
         <span class="round-tabs seven">
-          Seventh
+          7
         </span> </a>
       </li>
       <li><a href="#eighth" data-toggle="tab" title="Eighth">
         <span class="round-tabs eight">
-          Eighth
+          8
         </span> </a>
       </li>
       <li><a href="#ninth" data-toggle="tab" title="Ninth">
         <span class="round-tabs nine">
-          Ninth
+          9
         </span> </a>
       </li>
       <li><a href="#tenth" data-toggle="tab" title="Tenth">
         <span class="round-tabs ten">
-          Tenth
+          10
         </span> </a>
       </li>
       <li><a href="#eleventh" data-toggle="tab" title="Eleventh">
         <span class="round-tabs eleven">
-          Eleventh
+          11
         </span> </a>
       </li>
     </ul>
   </div>
   <div class="tab-content">
     <div class="tab-pane fade in active" id="first">
-      <h4>Family Basic Information</h4>
+      <h4>1. ขอมูลพื้นฐานของครอบครัว</h4>
       <div class="row">
         <div class="col-sm-6"> 
           <div class="form-group">
-            <label>Father's Name</label>
+            <label>บิดา</label>
             <input type="text" class="form-control" name="father_name" placeholder="Enter father's name">
           </div>
         </div>
         <div class="col-sm-6"> 
           <div class="form-group">
-            <label>Father's Degree</label>
+            <label>วุฒิการศึกษา</label>
             <input type="text" class="form-control" name="father_degree" placeholder="Enter father's degree">
           </div>
         </div>
         <div class="col-sm-12"> 
           <div class="form-group">
-            <label>Father's Experience</label>
+            <label>ประสบการณ์</label>
             <textarea class="form-control" name="father_exp" placeholder="Enter father's experience" rows="5"></textarea>
           </div>
         </div>
         <div class="col-sm-2"> 
           <div class="form-group">
-            <label>Father's Age</label>
+            <label>อายุ</label>
             <input type="text" class="form-control" name="father_age" placeholder="Age">
           </div>
         </div>
         <div class="col-sm-4"> 
           <div class="form-group">
-            <label>Father's Job</label>
+            <label>อาชีพ</label>
             <input type="text" class="form-control" name="father_job" placeholder="Enter father's job">
           </div>
         </div>
         <div class="col-sm-12"> 
           <div class="form-group">
-            <label>Father's address</label>
+            <label>ท่ี่อยู่</label>
             <input type="text" class="form-control" name="father_addr" placeholder="Enter father's address">
           </div>
         </div>
 
         <div class="col-sm-6"> 
           <div class="form-group">
-            <label>Mother's Name</label>
+            <label>มารดา</label>
             <input type="text" class="form-control" name="mother" placeholder="Enter mother's name">
           </div>
         </div>
         <div class="col-sm-6"> 
           <div class="form-group">
-            <label>Mother's Degree</label>
+            <label>วุฒิการศึกษา</label>
             <input type="text" class="form-control" name="mother_degree" placeholder="Enter mother's degree">
           </div>
         </div>
         <div class="col-sm-12"> 
           <div class="form-group">
-            <label>Mother's Experience</label>
+            <label>ประสบการณ์</label>
             <textarea class="form-control" name="mother_exp" placeholder="Enter mother's experience" rows="5"></textarea>
           </div>
         </div>
         <div class="col-sm-2"> 
           <div class="form-group">
-            <label>Mother's Age</label>
+            <label>อายุ</label>
             <input type="text" class="form-control" name="mother_age" placeholder="Age">
           </div>
         </div>
         <div class="col-sm-4"> 
           <div class="form-group">
-            <label>Mother's Job</label>
+            <label>อาชีพ</label>
             <input type="text" class="form-control" name="mother_job" placeholder="Enter mother's job">
           </div>
         </div>
         <div class="col-sm-12"> 
           <div class="form-group">
-            <label>Mother's address</label>
+            <label>ที่อยู</label>
             <input type="text" class="form-control" name="mother_addr" placeholder="Enter mother's address">
           </div>
         </div>
       </div>
     </div>
     <div class="tab-pane fade" id="second">
-      <h4>Homeschooler Profile</h4>
-      2.1 Homeschooler Information
+      <h4>2. ขอมูลพื้นฐานของผูเรียน</h4>
+      2.1 ระบุขอมูลของผูเรียน
       <div class="row">
         <div class="col-sm-6"> 
           <div class="form-group">
-            <label>Student's Name</label>
+            <label>ชื่อ-สกุล</label>
             <input type="text" class="form-control" name="student_name" placeholder="Enter student's name">
           </div>
         </div>
         <div class="col-sm-6"> 
           <div class="form-group">
-            <label>Birthday</label>
+            <label>วัน เดือน ปเกิด</label>
             <div class="input-group date" data-provide="datepicker">
               <input type="text" class="form-control" name="birth_date">
                 <div class="input-group-addon">
@@ -188,12 +188,13 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
         </div>
         <div class="col-sm-12"> 
           <div class="form-group">
-            <label>School's Experience</label>
+            <label>ประวัติการศึกษา (กรณีเรียนในระบบโรงเรียนมากอน)</label>
             <textarea class="form-control" name="school_exp" placeholder="Enter school's experience" rows="5"></textarea>
           </div>
         </div>
       </div>
-      2.2 Homeschooler Development
+      2.2 พัฒนาการของผูเรียน (ระบุการพัฒนาการของผูเรียน/ความสามารถพิเศษ/ความ
+ตองการพิเศษ)
       <div class="row">
         <div class="col-sm-12"> 
           <div class="form-group">
@@ -203,7 +204,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
       </div>
     </div>
     <div class="tab-pane fade" id="third">
-      <h4>Class and Reason</h4>
+      <h4>3. ระดับที่จัดการศึกษา / เหตุผลในการจัดการศึกษาของครอบครัว</h4>
       <div class="row">
         <div class="col-sm-12"> 
           <div class="form-group">
@@ -213,7 +214,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
       </div>
     </div>
     <div class="tab-pane fade" id="forth">
-      <h4>Education Purpose</h4>
+      <h4>4. จุดมุงหมายของการจัดการศึกษา</h4>
       <div class="row">
         <div class="col-sm-12"> 
           <div class="form-group">
@@ -223,7 +224,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
       </div>
     </div>
     <div class="tab-pane fade" id="fifth">
-      <h4>Education Type</h4>
+      <h4>5. รูปแบบการจัดการศึกษา </h4>
       <div class="row">
         <div class="col-sm-12"> 
           <div class="form-group">
@@ -237,7 +238,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
       </div>
     </div>
     <div class="tab-pane fade" id="sixth">
-      <h4>Schedule Structure</h4>
+      <h4>6. โครงสร้างเวลาเรียน  (Schedule)</h4>
       <div class="row">
         <div class="col-sm-12"> 
           <div class="form-group">
@@ -247,7 +248,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
       </div>
     </div>
     <div class="tab-pane fade" id="seventh">
-      <h4>Seventh</h4>
+      <h4>7. การจัดกลุ่มสาระการเรียนรู้ /กลุ่มประสบการณ์</h4>
       <div class="row">
         <div class="col-sm-12"> 
           <div class="form-group">
@@ -257,7 +258,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
       </div>
     </div>
     <div class="tab-pane fade" id="eighth">
-      <h4>Eighth</h4>
+      <h4>8. การจัดกิจกรรมพัฒนาผู้เรียน</h4>
       <div class="row">
         <div class="col-sm-12"> 
           <div class="form-group">
@@ -267,7 +268,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
       </div>
     </div>
     <div class="tab-pane fade" id="ninth">
-      <h4>ninth</h4>
+      <h4>9. การจัดกระบวนการเรียนรู้</h4>
       <div class="row">
         <div class="col-sm-12"> 
           <div class="form-group">
@@ -277,7 +278,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
       </div>
     </div>
     <div class="tab-pane fade" id="tenth">
-      <h4>tenth</h4>
+      <h4>10. การวัดและประเมินผลการเรียนรู้</h4>
       <div class="row">
         <div class="col-sm-12"> 
           <div class="form-group">
@@ -287,7 +288,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
       </div>
     </div>
     <div class="tab-pane fade" id="eleventh">
-      <h4>eleventh</h4>
+      <h4>11. อื่นๆ (ครอบครัวสามารถเพิ่มเติมรายละเอียดที่เห็นว่าเป็นประโยชน์ต่อผู้เรียนได้)</h4>
       <div class="row">
         <div class="col-sm-12"> 
           <div class="form-group">
