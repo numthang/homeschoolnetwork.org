@@ -1,11 +1,9 @@
 <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 <link id="bsdp-css" href="https://uxsolutions.github.io/bootstrap-datepicker/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet">
 <script src="https://uxsolutions.github.io/bootstrap-datepicker/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
-
 <script type="text/javascript">
 $.fn.datepicker.defaults.format = "dd/mm/yyyy";
 </script>
-
 
 <form data-request="onSave">
   <input type="hidden" name="user_id" value="{{ user.id }}">
@@ -34,74 +32,74 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
             <div class="col-sm-6"> 
               <div class="form-group">
                 <label>บิดา</label>
-                <input type="text" class="form-control" name="father_name" placeholder="Enter father's name" value="{{ record.father_name }}">
+                <input type="text" class="form-control" name="father_name" placeholder="Enter father's name" value="{{ this.page.father_name }}">
               </div>
             </div>
             <div class="col-sm-6"> 
               <div class="form-group">
                 <label>วุฒิการศึกษา</label>
-                <input type="text" class="form-control" name="father_degree" placeholder="Enter father's degree" value="{{ record.father_degree }}">
+                <input type="text" class="form-control" name="father_degree" placeholder="Enter father's degree" value="{{ this.page.father_degree }}">
               </div>
             </div>
             <div class="col-sm-12"> 
               <div class="form-group">
                 <label>ประสบการณ์</label>
-                <textarea class="form-control" name="father_exp" placeholder="Enter father's experience" rows="5">{{ record.father_exp }}</textarea>
+                <textarea class="form-control" name="father_exp" placeholder="Enter father's experience" rows="5">{{ this.page.father_exp }}</textarea>
               </div>
             </div>
             <div class="col-sm-2"> 
               <div class="form-group">
                 <label>อายุ</label>
-                <input type="text" class="form-control" name="father_age" placeholder="Age" value="{{ record.father_age }}">
+                <input type="text" class="form-control" name="father_age" placeholder="Age" value="{{ this.page.father_age }}">
               </div>
             </div>
-            <div class="col-sm-4"> 
+            <div class="col-sm-10"> 
               <div class="form-group">
                 <label>อาชีพ</label>
-                <input type="text" class="form-control" name="father_job" placeholder="Enter father's job"  value="{{ record.father_job }}">
+                <input type="text" class="form-control" name="father_job" placeholder="Enter father's job"  value="{{ this.page.father_job }}">
               </div>
             </div>
             <div class="col-sm-12"> 
               <div class="form-group">
                 <label>ท่ี่อยู่</label>
-                <input type="text" class="form-control" name="father_addr" placeholder="Enter father's address" value="{{ record.father_addr }}">
+                <input type="text" class="form-control" name="father_addr" placeholder="Enter father's address" value="{{ this.page.father_addr }}">
               </div>
             </div>
 
             <div class="col-sm-6"> 
               <div class="form-group">
                 <label>มารดา</label>
-                <input type="text" class="form-control" name="mother_name" placeholder="Enter mother's name" value="{{ record.mother_name }}">
+                <input type="text" class="form-control" name="mother_name" placeholder="Enter mother's name" value="{{ this.page.mother_name }}">
               </div>
             </div>
             <div class="col-sm-6"> 
               <div class="form-group">
                 <label>วุฒิการศึกษา</label>
-                <input type="text" class="form-control" name="mother_degree" placeholder="Enter mother's degree" value="{{ record.mother_degree }}">
+                <input type="text" class="form-control" name="mother_degree" placeholder="Enter mother's degree" value="{{ this.page.mother_degree }}">
               </div>
             </div>
             <div class="col-sm-12"> 
               <div class="form-group">
                 <label>ประสบการณ์</label>
-                <textarea class="form-control" name="mother_exp" placeholder="Enter mother's experience" rows="5">{{ record.mother_exp }}</textarea>
+                <textarea class="form-control" name="mother_exp" placeholder="Enter mother's experience" rows="5">{{ this.page.mother_exp }}</textarea>
               </div>
             </div>
             <div class="col-sm-2"> 
               <div class="form-group">
                 <label>อายุ</label>
-                <input type="text" class="form-control" name="mother_age" placeholder="Age" value="{{ record.mother_age }}">
+                <input type="text" class="form-control" name="mother_age" placeholder="Age" value="{{ this.page.mother_age }}">
               </div>
             </div>
-            <div class="col-sm-4"> 
+            <div class="col-sm-10"> 
               <div class="form-group">
                 <label>อาชีพ</label>
-                <input type="text" class="form-control" name="mother_job" placeholder="Enter mother's job" value="{{ record.mother_job }}">
+                <input type="text" class="form-control" name="mother_job" placeholder="Enter mother's job" value="{{ this.page.mother_job }}">
               </div>
             </div>
             <div class="col-sm-12"> 
               <div class="form-group">
                 <label>ที่อยู</label>
-                <input type="text" class="form-control" name="mother_addr" placeholder="Enter mother's address" value="{{ record.mother_addr }}">
+                <input type="text" class="form-control" name="mother_addr" placeholder="Enter mother's address" value="{{ this.page.mother_addr }}">
               </div>
             </div>
           </div>
@@ -120,7 +118,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
               <div class="form-group">
                 <label>วัน เดือน ปเกิด</label>
                 <div class="input-group date" data-provide="datepicker">
-                  <input type="text" class="form-control" name="birth_date" value="{{ record.birth_date }}">
+                  <input type="text" class="form-control" name="birth_date" value="{{ this.page.birth_date }}">
                     <div class="input-group-addon">
                       <span class="glyphicon glyphicon-th"></span>
                     </div>
@@ -139,7 +137,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
           <div class="row">
             <div class="col-sm-12"> 
               <div class="form-group">
-                <textarea class="form-control" name="hs_development" placeholder="พัฒนาการตามวัย, พัฒนาการตามความสามารถพิเศษ หรือ พัฒนาการตามความตองการพิเศษ" rows="10">{{ record.hs_development }}</textarea>
+                <textarea class="form-control" name="development" placeholder="พัฒนาการตามวัย, พัฒนาการตามความสามารถพิเศษ หรือ พัฒนาการตามความตองการพิเศษ" rows="10">{{ record.development }}</textarea>
               </div>
             </div>
           </div>
@@ -159,7 +157,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
           <div class="row">
           <div class="col-sm-12"> 
             <div class="form-group">
-              <textarea class="form-control" name="edu_purpose" placeholder="ระบุความต้องการ เช่น ต้องการพึ่งตนเอง ลดค่าใช้จ่าย เป็นต้น" rows="20">{{ record.edu_purpose }}</textarea>
+              <textarea class="form-control" name="purpose" placeholder="ระบุความต้องการ เช่น ต้องการพึ่งตนเอง ลดค่าใช้จ่าย เป็นต้น" rows="20">{{ record.purpose }}</textarea>
             </div>
           </div>
         </div>
@@ -169,7 +167,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
           <div class="row">
             <div class="col-sm-12"> 
               <div class="form-group">
-                <textarea class="form-control" name="edu_type" placeholder="" rows="20">{% if record.edu_type is defined %} {{ record.edu_type }} {% else %} 1. จัดการศึกษาแบบครอบครัวเดียว เนื่องจากไมสามารถรวมกิจกรรมกับกลุม บานเรียน หรือครอบครัวอื่น และมีความสนใจเฉพาะดานแตกตางกัน
+                <textarea class="form-control" name="format" placeholder="" rows="20">{% if record.edu_type is defined %} {{ record.format }} {% else %} 1. จัดการศึกษาแบบครอบครัวเดียว เนื่องจากไมสามารถรวมกิจกรรมกับกลุม บานเรียน หรือครอบครัวอื่น และมีความสนใจเฉพาะดานแตกตางกัน
     2. จัดการศึกษาแบบมีขอตกลงรวมกับโรงเรียนหรือหนวยงานอื่น โดยมีการเขาไปใชทรัพยากรในโรงเรียนหรือเขาไปทํากิจกรรมรวมกัน เนื่องจากตองการใหบุตรไดมีความรูประสบการณที่สามารถเชื่อมโยงเขาสูระบบโรงเรียน
     3. จัดการศึกษาแบบกลุมครอบครัวที่มีแนวคิดคลายๆ กัน เปนการจําลองสังคมเล็กๆ เชื่อวาการ เชื่อมโยงกับกลุมเปนการชวยเสริมพัฒนาการของบุตรได
     4. จัดการศึกษาแบบรวมศูนย จัดการแบบศูนยการเรียน เนื่องจากตองการใหบุตรมีสังคมพอแมทํางานนอกบานทั้งคูจึงมอบหมายใหผูที่เห็นวามีความเหมาะสมมาทําหนาที่จัดกระบวนการเรียนรู
@@ -213,7 +211,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
           <div class="row">
             <div class="col-sm-12"> 
               <div class="form-group">
-                <textarea class="form-control" name="learning_procedure" placeholder="" rows="20">{{ record.learning_procedure }}</textarea>
+                <textarea class="form-control" name="learning" placeholder="" rows="20">{{ record.learning }}</textarea>
               </div>
             </div>
           </div>

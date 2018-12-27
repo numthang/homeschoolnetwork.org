@@ -30,22 +30,27 @@ class CourseForm extends ComponentBase
 
       if($validator->fails()){
         #print_r($validator->errors());
-        return ['#flash_message' => $this->renderPartial('flash.htm', ['message' => $validator->errors()->first('hs_name'), 'type' => 'error'])];
-        #return Redirect::back()->withErrors($validator);
+        #return ['#flash_message' => $this->renderPartial('flash.htm', ['message' => $validator->errors()->first('hs_name'), 'type' => 'error'])];
+        return Redirect::back()->withErrors($validator);
         
       }
 
-      if($this->param('id'))//ถ้ามีการ update จะส่ง query id เข้ามา
+      if($this->param('id'))//ถ้ามีการ update จะส่ง query id ของแผนการศึกษาเข้ามา
         $course = Course::find($this->param('id'));
       else
         $course = new Course();
 
       #$course->user_id = Input::get('user_id');
       #$course->name = Input::get('name');
+
+      $course->father_profile = json_encode(Array('father_name'=>Input::get('father_name'), 'father_degree'=>Input::get('father_degree'), 'father_exp'=>Input::get('father_exp'), 'father_age'=>Input::get('father_age'), 'father_job'=>Input::get('father_job'), 'father_addr'=>Input::get('father_addr')));
+      $course->mother_profile = json_encode(Array('mother_name'=>Input::get('mother_name'), 'mother_degree'=>Input::get('mother_degree'), 'mother_exp'=>Input::get('mother_exp'), 'mother_age'=>Input::get('mother_age'), 'mother_job'=>Input::get('mother_job'), 'mother_addr'=>Input::get('mother_addr')));
       #print_r(post());
-      $course->fill(post());
+      $date = explode('/', Input::get('birth_date'));
+      $_POST['birth_date'] = $date[2].'-'.$date[1].'-'.$date[0];
+      $course->fill(post());//กำหนด fillable field ใน Models/Course
       $course->save();
-      \Flash::success('Course '.$course->name.' saved!');
+      Flash::success('Course '.$course->name.' saved!');
       return ['#flash_message' => $this->renderPartial('flash.htm', ['message' => 'Course '.$course->name.' saved!', 'type' => 'success'])];
       #return Redirect::to('/login/edit/course/'.$course->id);
     }

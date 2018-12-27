@@ -1,9 +1,10 @@
 .accordion dl {
+  margin-bottom: 10px;
 }
 
 .accordion dt > a {
   text-align: left;
-  font-weight: 700;
+  font-weight: normal;
   padding: 10px;
   display: block;
   text-decoration: none;

@@ -4,8 +4,3 @@ plugin:
     author: Numthang
     icon: oc-icon-adjust
     homepage: ''
-navigation:
-    main-menu-item:
-        label: Course
-        url: numthang/homeschool/courses
-        icon: icon-life-ring
