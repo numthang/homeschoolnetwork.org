@@ -1,8 +1,10 @@
 <?php namespace Backend\Widgets;
 
 use Db;
+use App;
 use Html;
 use Lang;
+use Input;
 use Backend;
 use DbDongle;
 use Carbon\Carbon;
@@ -14,6 +16,7 @@ use Backend\Classes\ListColumn;
 use Backend\Classes\WidgetBase;
 use October\Rain\Database\Model;
 use ApplicationException;
+use DateTime;
 
 /**
  * List Widget
@@ -871,7 +874,7 @@ class Lists extends WidgetBase
             $config['searchable'] = false;
         }
 
-        $columnType = $config['type'] ?? null;
+        $columnType = isset($config['type']) ? $config['type'] : null;
 
         $column = new ListColumn($name, $label);
         $column->displayAs($columnType, $config);
@@ -1218,7 +1221,7 @@ class Lists extends WidgetBase
 
         $dateTime = $this->validateDateTimeValue($value, $column);
 
-        $format = $column->format ?? 'g:i A';
+        $format = $column->format !== null ? $column->format : 'g:i A';
 
         $value = $dateTime->format($format);
 
@@ -1476,18 +1479,19 @@ class Lists extends WidgetBase
             $this->sortColumn = $sortOptions['column'];
             $this->sortDirection = $sortOptions['direction'];
         }
-
-        /*
-         * Supplied default
-         */
         else {
+            /*
+             * Supplied default
+             */
             if (is_string($this->defaultSort)) {
                 $this->sortColumn = $this->defaultSort;
                 $this->sortDirection = 'desc';
             }
             elseif (is_array($this->defaultSort) && isset($this->defaultSort['column'])) {
                 $this->sortColumn = $this->defaultSort['column'];
-                $this->sortDirection = $this->defaultSort['direction'] ?? 'desc';
+                $this->sortDirection = (isset($this->defaultSort['direction'])) ?
+                    $this->defaultSort['direction'] :
+                    'desc';
             }
         }
 
@@ -1512,8 +1516,9 @@ class Lists extends WidgetBase
         if ($column === null) {
             return (count($this->getSortableColumns()) > 0);
         }
-
-        return array_key_exists($column, $this->getSortableColumns());
+        else {
+            return array_key_exists($column, $this->getSortableColumns());
+        }
     }
 
     /**

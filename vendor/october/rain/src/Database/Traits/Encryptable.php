@@ -92,6 +92,8 @@ trait Encryptable {
      */
     public function getOriginalEncryptableValue($attribute)
     {
-        return $this->originalEncryptableValues[$attribute] ?? null;
+        return isset($this->originalEncryptableValues[$attribute])
+            ? $this->originalEncryptableValues[$attribute]
+            : null;
     }
 }

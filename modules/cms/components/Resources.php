@@ -1,6 +1,7 @@
 <?php namespace Cms\Components;
 
 use File;
+use Config;
 use Cms\Classes\ComponentBase;
 use System\Classes\CombineAssets;
 

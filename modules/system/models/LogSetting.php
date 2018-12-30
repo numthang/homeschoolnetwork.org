@@ -1,6 +1,7 @@
 <?php namespace System\Models;
 
 use Model;
+use ApplicationException;
 
 /**
  * System log settings

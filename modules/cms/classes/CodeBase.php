@@ -94,7 +94,7 @@ class CodeBase extends Extendable implements ArrayAccess
      */
     public function offsetGet($offset)
     {
-        return $this->controller->vars[$offset] ?? null;
+        return isset($this->controller->vars[$offset]) ? $this->controller->vars[$offset] : null;
     }
 
     /**

@@ -95,7 +95,8 @@ class TreeCollection extends Collection
          * Build a nested collection
          */
         $rootItems = $this->toNested();
-        return $buildCollection($rootItems);
+        $result = $buildCollection($rootItems);
+        return $result;
     }
 
 }

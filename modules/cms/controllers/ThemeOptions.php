@@ -1,5 +1,6 @@
 <?php namespace Cms\Controllers;
 
+use Flash;
 use Backend;
 use BackendMenu;
 use ApplicationException;
@@ -131,7 +132,8 @@ class ThemeOptions extends Controller
     protected function getThemeData($dirName)
     {
         $theme = $this->findThemeObject($dirName);
-        return ThemeData::forTheme($theme);
+        $model = ThemeData::forTheme($theme);
+        return $model;
     }
 
     protected function findThemeObject($name = null)

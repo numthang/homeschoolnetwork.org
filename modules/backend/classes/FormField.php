@@ -94,12 +94,12 @@ class FormField
     /**
      * @var string Specifies contextual visibility of this form field.
      */
-    public $context;
+    public $context = null;
 
     /**
      * @var bool Specifies if this field is mandatory.
      */
-    public $required;
+    public $required = null;
 
     /**
      * @var bool Specify if the field is read-only or not.
@@ -234,8 +234,9 @@ class FormField
 
             return [];
         }
-
-        $this->options = $value;
+        else {
+            $this->options = $value;
+        }
 
         return $this;
     }
@@ -248,7 +249,6 @@ class FormField
      * - radio - creates a set of radio buttons.
      * - checkbox - creates a single checkbox.
      * - checkboxlist - creates a checkbox list.
-     * - switch - creates a switch field.
      * @param string $type Specifies a render mode as described above
      * @param array $config A list of render mode specific config.
      */
@@ -256,7 +256,6 @@ class FormField
     {
         $this->type = strtolower($type) ?: $this->type;
         $this->config = $this->evalConfig($config);
-
         return $this;
     }
 
@@ -267,7 +266,7 @@ class FormField
      */
     protected function evalConfig($config)
     {
-        if ($config === null) {
+        if (is_null($config)) {
             $config = [];
         }
 
@@ -424,7 +423,6 @@ class FormField
     {
         $result = array_get($this->attributes, $position, []);
         $result = $this->filterAttributes($result, $position);
-
         return $htmlBuild ? Html::attributes($result) : $result;
     }
 
@@ -448,10 +446,6 @@ class FormField
 
         if ($position == 'field' && $this->readOnly) {
             $attributes = $attributes + ['readonly' => 'readonly'];
-
-            if ($this->type == 'checkbox' || $this->type == 'switch') {
-                $attributes = $attributes + ['onclick' => 'return false;'];
-            }
         }
 
         return $attributes;
@@ -514,7 +508,9 @@ class FormField
             'data-trigger-closest-parent' => 'form'
         ];
 
-        return $attributes + $newAttributes;
+        $attributes = $attributes + $newAttributes;
+
+        return $attributes;
     }
 
     /**
@@ -553,7 +549,8 @@ class FormField
             $newAttributes['data-input-preset-prefix-input'] = $prefixInput;
         }
 
-        return $attributes + $newAttributes;
+        $attributes = $attributes + $newAttributes;
+        return $attributes;
     }
 
     /**
@@ -570,8 +567,9 @@ class FormField
         if ($arrayName) {
             return $arrayName.'['.implode('][', HtmlHelper::nameToArray($this->fieldName)).']';
         }
-
-        return $this->fieldName;
+        else {
+            return $this->fieldName;
+        }
     }
 
     /**

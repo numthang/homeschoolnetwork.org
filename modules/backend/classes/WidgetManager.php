@@ -103,7 +103,7 @@ class WidgetManager
             $widgetInfo = ['code' => $widgetInfo];
         }
 
-        $widgetCode = $widgetInfo['code'] ?? null;
+        $widgetCode = isset($widgetInfo['code']) ? $widgetInfo['code'] : null;
 
         if (!$widgetCode) {
             $widgetCode = Str::getClassId($className);

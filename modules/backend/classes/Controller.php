@@ -1,5 +1,6 @@
 <?php namespace Backend\Classes;
 
+use App;
 use Lang;
 use View;
 use Flash;
@@ -360,7 +361,7 @@ class Controller extends Extendable
         }
 
         // Load the view
-        if (!$this->suppressView && $result === null) {
+        if (!$this->suppressView && is_null($result)) {
             return $this->makeView($actionName);
         }
 
@@ -519,7 +520,7 @@ class Controller extends Extendable
 
             if (($widget = $this->widget->{$widgetName}) && $widget->methodExists($handlerName)) {
                 $result = $this->runAjaxHandlerForWidget($widget, $handlerName);
-                return $result ?: true;
+                return ($result) ?: true;
             }
         }
         else {
@@ -530,7 +531,7 @@ class Controller extends Extendable
 
             if ($this->methodExists($pageHandler)) {
                 $result = call_user_func_array([$this, $pageHandler], $this->params);
-                return $result ?: true;
+                return ($result) ?: true;
             }
 
             /*
@@ -538,7 +539,7 @@ class Controller extends Extendable
              */
             if ($this->methodExists($handler)) {
                 $result = call_user_func_array([$this, $handler], $this->params);
-                return $result ?: true;
+                return ($result) ?: true;
             }
 
             /*
@@ -550,7 +551,7 @@ class Controller extends Extendable
             foreach ((array) $this->widget as $widget) {
                 if ($widget->methodExists($handler)) {
                     $result = $this->runAjaxHandlerForWidget($widget, $handler);
-                    return $result ?: true;
+                    return ($result) ?: true;
                 }
             }
         }

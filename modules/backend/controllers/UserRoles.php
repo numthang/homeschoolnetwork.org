@@ -3,6 +3,7 @@
 use View;
 use Response;
 use BackendMenu;
+use BackendAuth;
 use Backend\Classes\Controller;
 use System\Classes\SettingsManager;
 

@@ -1,5 +1,7 @@
 <?php namespace Backend\FormWidgets;
 
+use Lang;
+use ApplicationException;
 use System\Classes\MediaLibrary;
 use Backend\Classes\FormField;
 use Backend\Classes\FormWidgetBase;
@@ -35,12 +37,12 @@ class MediaFinder extends FormWidgetBase
     /**
      * @var int Preview image width
      */
-    public $imageWidth;
+    public $imageWidth = null;
 
     /**
      * @var int Preview image height
      */
-    public $imageHeight;
+    public $imageHeight = null;
 
     //
     // Object properties

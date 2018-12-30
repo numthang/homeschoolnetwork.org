@@ -241,6 +241,9 @@ class Application extends ApplicationBase
         catch (Throwable $ex) {
             return false;
         }
+        catch (Exception $ex) {
+            return false;
+        }
 
         return true;
     }

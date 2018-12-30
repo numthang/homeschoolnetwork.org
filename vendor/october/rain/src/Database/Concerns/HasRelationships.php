@@ -1,5 +1,6 @@
 <?php namespace October\Rain\Database\Concerns;
 
+use October\Rain\Support\Arr;
 use October\Rain\Support\Str;
 use October\Rain\Database\Relations\BelongsTo;
 use October\Rain\Database\Relations\BelongsToMany;
@@ -124,7 +125,7 @@ trait HasRelationships
      */
     public function hasRelation($name)
     {
-        return $this->getRelationDefinition($name) !== null;
+        return $this->getRelationDefinition($name) !== null ? true : false;
     }
 
     /**
@@ -334,7 +335,7 @@ trait HasRelationships
             throw new InvalidArgumentException(sprintf('Relation "%s" on model "%s" should contain the following key(s): %s',
                 $relationName,
                 get_called_class(),
-                implode(', ', $missingRequired)
+                join(', ', $missingRequired)
             ));
         }
 

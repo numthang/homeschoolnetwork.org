@@ -1,9 +1,12 @@
 <?php namespace System\Models;
 
 use App;
+use Url;
 use Str;
+use Lang;
 use Model;
 use Cache;
+use Config;
 use Less_Parser;
 use Exception;
 use File as FileHelper;
@@ -151,6 +154,8 @@ class MailBrandSetting extends Model
 
         $parser->parse(FileHelper::get($basePath . '/custom.less'));
 
-        return $parser->getCss();
+        $css = $parser->getCss();
+
+        return $css;
     }
 }

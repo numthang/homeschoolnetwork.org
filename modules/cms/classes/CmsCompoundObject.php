@@ -73,7 +73,7 @@ class CmsCompoundObject extends CmsObject
     /**
      * @var array|null Cache for component properties.
      */
-    protected static $objectComponentPropertyMap;
+    protected static $objectComponentPropertyMap = null;
 
     /**
      * @var mixed Cache store for the getViewBag method.
@@ -279,7 +279,7 @@ class CmsCompoundObject extends CmsObject
         else {
             $cached = Cache::get($key, false);
             $unserialized = $cached ? @unserialize(@base64_decode($cached)) : false;
-            $objectComponentMap = $unserialized ?: [];
+            $objectComponentMap = $unserialized ? $unserialized : [];
             if ($objectComponentMap) {
                 self::$objectComponentPropertyMap = $objectComponentMap;
             }

@@ -1,0 +1,84 @@
+1546178670a:1:{s:13:"blog/blog.htm";a:10:{s:8:"fileName";s:13:"blog/blog.htm";s:7:"content";s:1449:"title = "Blog"
+url = "/blog"
+layout = "default"
+is_hidden = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 10
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "blog/category"
+postPage = "blog/post"
+==
+<section id="layout-title">
+    <div class="container">
+        <h3>Blog</h3>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+           {% component 'blogPosts' %}
+
+            <!-- Pagination -->
+            <div class="pull-right">
+                <ul class="pagination">
+                    <li class="previous"><a href="#fakelink" class="fui-arrow-left"></a></li>
+                    <li class="active"><a href="#fakelink">1</a></li>
+                    <li><a href="#fakelink">2</a></li>
+                    <li><a href="#fakelink">3</a></li>
+                    <li><a href="#fakelink">4</a></li>
+                    <li><a href="#fakelink">5</a></li>
+                    <li><a href="#fakelink">6</a></li>
+                    <li><a href="#fakelink">7</a></li>
+                    <li><a href="#fakelink">8</a></li>
+                    <li class="next"><a href="#fakelink" class="fui-arrow-right"></a></li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="col-sm-3">
+
+            {% partial 'blog/sidebar' %}
+
+        </div>
+    </div>
+</div>";s:5:"mtime";i:1545971335;s:6:"markup";s:1206:"<section id="layout-title">
+    <div class="container">
+        <h3>Blog</h3>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+           {% component 'blogPosts' %}
+
+            <!-- Pagination -->
+            <div class="pull-right">
+                <ul class="pagination">
+                    <li class="previous"><a href="#fakelink" class="fui-arrow-left"></a></li>
+                    <li class="active"><a href="#fakelink">1</a></li>
+                    <li><a href="#fakelink">2</a></li>
+                    <li><a href="#fakelink">3</a></li>
+                    <li><a href="#fakelink">4</a></li>
+                    <li><a href="#fakelink">5</a></li>
+                    <li><a href="#fakelink">6</a></li>
+                    <li><a href="#fakelink">7</a></li>
+                    <li><a href="#fakelink">8</a></li>
+                    <li class="next"><a href="#fakelink" class="fui-arrow-right"></a></li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="col-sm-3">
+
+            {% partial 'blog/sidebar' %}
+
+        </div>
+    </div>
+</div>";s:4:"code";N;s:5:"title";s:4:"Blog";s:3:"url";s:5:"/blog";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";s:9:"blogPosts";a:6:{s:10:"pageNumber";s:11:"{{ :page }}";s:12:"postsPerPage";s:2:"10";s:14:"noPostsMessage";s:14:"No posts found";s:9:"sortOrder";s:17:"published_at desc";s:12:"categoryPage";s:13:"blog/category";s:8:"postPage";s:9:"blog/post";}}}

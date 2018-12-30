@@ -221,7 +221,9 @@ class Throttle extends Model
             $this->save();
         }
 
-        unset($lastAttempt, $clearAttemptsAt, $now);
+        unset($lastAttempt);
+        unset($clearAttemptsAt);
+        unset($now);
     }
 
     /**
@@ -243,7 +245,9 @@ class Throttle extends Model
             $this->unsuspend();
         }
 
-        unset($suspended, $unsuspendAt, $now);
+        unset($suspended);
+        unset($unsuspendAt);
+        unset($now);
     }
 
     /**

@@ -55,7 +55,8 @@ abstract class ModuleServiceProvider extends ServiceProviderBase
 
     public function getModule($args)
     {
-        return (isset($args[0]) and is_string($args[0])) ? $args[0] : null;
+        $module = (isset($args[0]) and is_string($args[0])) ? $args[0] : null;
+        return $module;
     }
 
     /**

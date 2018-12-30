@@ -8,7 +8,8 @@ class MemoryCacheManager extends CacheManager
 {
     public function repository(Store $store)
     {
-        return new MemoryRepository($store);
+        $repository = new MemoryRepository($store);
+        return $repository;
     }
 
     public static function isEnabled()

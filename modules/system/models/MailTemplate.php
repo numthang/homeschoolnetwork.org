@@ -1,5 +1,6 @@
 <?php namespace System\Models;
 
+use App;
 use View;
 use Model;
 use System\Classes\MailManager;

@@ -95,8 +95,9 @@ class FlashBag extends MessageBag
         if ($message === null) {
             return $this->get(FlashBag::ERROR);
         }
-
-        return $this->add(FlashBag::ERROR, $message);
+        else {
+            return $this->add(FlashBag::ERROR, $message);
+        }
     }
 
     /**
@@ -109,8 +110,9 @@ class FlashBag extends MessageBag
         if ($message === null) {
             return $this->get(FlashBag::SUCCESS);
         }
-
-        return $this->add(FlashBag::SUCCESS, $message);
+        else {
+            return $this->add(FlashBag::SUCCESS, $message);
+        }
     }
 
     /**
@@ -123,8 +125,9 @@ class FlashBag extends MessageBag
         if ($message === null) {
             return $this->get(FlashBag::WARNING);
         }
-
-        return $this->add(FlashBag::WARNING, $message);
+        else {
+            return $this->add(FlashBag::WARNING, $message);
+        }
     }
 
     /**
@@ -137,8 +140,9 @@ class FlashBag extends MessageBag
         if ($message === null) {
             return $this->get(FlashBag::INFO);
         }
-
-        return $this->add(FlashBag::INFO, $message);
+        else {
+            return $this->add(FlashBag::INFO, $message);
+        }
     }
 
     /**

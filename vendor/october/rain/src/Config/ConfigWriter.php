@@ -137,6 +137,8 @@ class ConfigWriter
         }
 
         return '['.implode(', ', $result).']';
+
+        return $result;
     }
 
     protected function buildStringExpression($targetKey, $arrayItems = array(), $quoteChar = "'")

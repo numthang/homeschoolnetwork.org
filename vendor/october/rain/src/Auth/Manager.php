@@ -76,7 +76,8 @@ class Manager
     public function createUserModel()
     {
         $class = '\\'.ltrim($this->userModel, '\\');
-        return new $class();
+        $user = new $class();
+        return $user;
     }
 
     /**
@@ -250,7 +251,8 @@ class Manager
     public function createThrottleModel()
     {
         $class = '\\'.ltrim($this->throttleModel, '\\');
-        return new $class();
+        $throttle = new $class();
+        return $throttle;
     }
 
     /**
@@ -326,7 +328,7 @@ class Manager
          * Default to the login name field or fallback to a hard-coded 'login' value
          */
         $loginName = $this->createUserModel()->getLoginName();
-        $loginCredentialKey = isset($credentials[$loginName]) ? $loginName : 'login';
+        $loginCredentialKey = (isset($credentials[$loginName])) ? $loginName : 'login';
 
         if (empty($credentials[$loginCredentialKey])) {
             throw new AuthException(sprintf('The "%s" attribute is required.', $loginCredentialKey));

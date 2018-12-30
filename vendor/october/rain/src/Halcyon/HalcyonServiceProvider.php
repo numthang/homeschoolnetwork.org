@@ -1,5 +1,6 @@
 <?php namespace October\Rain\Halcyon;
 
+use October\Rain\Halcyon\Model;
 use October\Rain\Halcyon\Datasource\Resolver;
 use October\Rain\Support\ServiceProvider;
 use Illuminate\Cache\CacheManager;

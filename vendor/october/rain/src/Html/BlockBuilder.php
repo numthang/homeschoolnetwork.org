@@ -126,7 +126,8 @@ class BlockBuilder
             return  $default;
         }
 
-        return $this->blocks[$name];
+        $result = $this->blocks[$name];
+        return $result;
     }
 
     /**

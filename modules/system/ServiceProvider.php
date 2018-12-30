@@ -1,11 +1,13 @@
 <?php namespace System;
 
 use App;
+use Lang;
 use View;
 use Event;
 use Config;
 use Backend;
 use Request;
+use Validator;
 use BackendMenu;
 use BackendAuth;
 use Twig_Environment;
@@ -20,6 +22,7 @@ use System\Twig\Loader as TwigLoader;
 use System\Twig\Extension as TwigExtension;
 use System\Models\EventLog;
 use System\Models\MailSetting;
+use System\Models\MailTemplate;
 use System\Classes\CombineAssets;
 use Backend\Classes\WidgetManager;
 use October\Rain\Support\ModuleServiceProvider;
@@ -325,10 +328,9 @@ class ServiceProvider extends ModuleServiceProvider
         /*
          * Override standard Mailer content with template
          */
-        Event::listen('mailer.beforeAddContent', function ($mailer, $message, $view, $data, $raw, $plain) {
+        Event::listen('mailer.beforeAddContent', function ($mailer, $message, $view, $data, $raw) {
             $method = $raw === null ? 'addContentToMailer' : 'addRawContentToMailer';
-            $plainOnly = $view === null; // When "plain-text only" email is sent, $view is null, this sets the flag appropriately
-            return !MailManager::instance()->$method($message, $raw ?: $view ?: $plain, $data, $plainOnly);
+            return !MailManager::instance()->$method($message, $raw ?: $view, $data);
         });
     }
 

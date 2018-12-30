@@ -1,6 +1,7 @@
 <?php namespace Cms;
 
 use App;
+use Lang;
 use Event;
 use Backend;
 use BackendMenu;

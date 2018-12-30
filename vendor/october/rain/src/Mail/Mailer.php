@@ -195,7 +195,7 @@ class Mailer extends MailerBase
         }
         else {
             $mailable = $view;
-            $queue = $queue ?? $data;
+            $queue = $queue !== null ? $queue : $data;
         }
 
         return parent::queue($mailable, $queue);
@@ -232,7 +232,7 @@ class Mailer extends MailerBase
         }
         else {
             $mailable = $view;
-            $queue = $queue ?? $data;
+            $queue = $queue !== null ? $queue : $data;
         }
 
         return parent::later($delay, $mailable, $queue);

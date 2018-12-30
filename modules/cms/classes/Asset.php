@@ -3,6 +3,7 @@
 use File;
 use Lang;
 use Config;
+use Cms\Classes\Theme;
 use Cms\Helpers\File as FileHelper;
 use October\Rain\Extension\Extendable;
 use ApplicationException;
@@ -34,7 +35,7 @@ class Asset extends Extendable
     /**
      * @var string Specifies the file name, the CMS object was loaded from.
      */
-    protected $originalFileName;
+    protected $originalFileName = null;
 
     /**
      * @var string Last modified time.

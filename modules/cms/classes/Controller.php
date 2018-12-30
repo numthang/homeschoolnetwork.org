@@ -2,7 +2,9 @@
 
 use Cms;
 use Url;
+use Str;
 use App;
+use File;
 use View;
 use Lang;
 use Flash;
@@ -20,10 +22,13 @@ use Cms\Twig\Extension as CmsTwigExtension;
 use Cms\Models\MaintenanceSetting;
 use System\Models\RequestLog;
 use System\Helpers\View as ViewHelper;
+use System\Classes\ErrorHandler;
 use System\Classes\CombineAssets;
 use System\Twig\Extension as SystemTwigExtension;
 use October\Rain\Exception\AjaxException;
+use October\Rain\Exception\SystemException;
 use October\Rain\Exception\ValidationException;
+use October\Rain\Exception\ApplicationException;
 use October\Rain\Parse\Bracket as TextParser;
 use Illuminate\Http\RedirectResponse;
 
@@ -97,12 +102,12 @@ class Controller
     /**
      * @var self Cache of self
      */
-    protected static $instance;
+    protected static $instance = null;
 
     /**
      * @var \Cms\Classes\ComponentBase Object of the active component, used internally.
      */
-    protected $componentContext;
+    protected $componentContext = null;
 
     /**
      * @var array Component partial stack, used internally.
@@ -116,7 +121,7 @@ class Controller
      */
     public function __construct($theme = null)
     {
-        $this->theme = $theme ?: Theme::getActiveTheme();
+        $this->theme = $theme ? $theme : Theme::getActiveTheme();
         if (!$this->theme) {
             throw new CmsException(Lang::get('cms::lang.theme.active.not_found'));
         }
@@ -330,7 +335,7 @@ class Controller
         if (
             $useAjax &&
             ($handler = post('_handler')) &&
-            $this->verifyCsrfToken() &&
+            ($this->verifyCsrfToken()) &&
             ($handlerResponse = $this->runAjaxHandler($handler)) &&
             $handlerResponse !== true
         ) {
@@ -482,7 +487,7 @@ class Controller
         $useCache = !Config::get('cms.twigNoCache');
         $isDebugMode = Config::get('app.debug', false);
         $strictVariables = Config::get('cms.enableTwigStrictVariables', false);
-        $strictVariables = $strictVariables ?? $isDebugMode;
+        $strictVariables = is_null($strictVariables) ? $isDebugMode : $strictVariables;
         $forceBytecode = Config::get('cms.forceBytecodeInvalidation', false);
 
         $options = [
@@ -726,7 +731,7 @@ class Controller
             if ($componentObj && $componentObj->methodExists($handlerName)) {
                 $this->componentContext = $componentObj;
                 $result = $componentObj->runAjaxHandler($handlerName);
-                return $result ?: true;
+                return ($result) ?: true;
             }
         }
         /*
@@ -735,12 +740,12 @@ class Controller
         else {
             if (method_exists($this->pageObj, $handler)) {
                 $result = $this->pageObj->$handler();
-                return $result ?: true;
+                return ($result) ?: true;
             }
 
             if (!$this->layout->isFallBack() && method_exists($this->layoutObj, $handler)) {
                 $result = $this->layoutObj->$handler();
-                return $result ?: true;
+                return ($result) ?: true;
             }
 
             /*
@@ -749,7 +754,7 @@ class Controller
             if (($componentObj = $this->findComponentByHandler($handler)) !== null) {
                 $this->componentContext = $componentObj;
                 $result = $componentObj->runAjaxHandler($handler);
-                return $result ?: true;
+                return ($result) ?: true;
             }
         }
 
@@ -829,19 +834,23 @@ class Controller
                     if ($throwException) {
                         throw new CmsException(Lang::get('cms::lang.partial.not_found_name', ['name'=>$partialName]));
                     }
-
-                    return false;
+                    else {
+                        return false;
+                    }
                 }
             }
             /*
              * Component alias is supplied
              */
-            elseif (($componentObj = $this->findComponentByName($componentAlias)) === null) {
-                if ($throwException) {
-                    throw new CmsException(Lang::get('cms::lang.component.not_found', ['name'=>$componentAlias]));
+            else {
+                if (($componentObj = $this->findComponentByName($componentAlias)) === null) {
+                    if ($throwException) {
+                        throw new CmsException(Lang::get('cms::lang.component.not_found', ['name'=>$componentAlias]));
+                    }
+                    else {
+                        return false;
+                    }
                 }
-
-                return false;
             }
 
             $partial = null;
@@ -865,8 +874,9 @@ class Controller
                 if ($throwException) {
                     throw new CmsException(Lang::get('cms::lang.partial.not_found_name', ['name'=>$name]));
                 }
-
-                return false;
+                else {
+                    return false;
+                }
             }
 
             /*
@@ -874,15 +884,18 @@ class Controller
              */
             $this->vars['__SELF__'] = $componentObj;
         }
-        /*
-         * Process theme partial
-         */
-        elseif (($partial = Partial::loadCached($this->theme, $name)) === null) {
-            if ($throwException) {
-                throw new CmsException(Lang::get('cms::lang.partial.not_found_name', ['name'=>$name]));
+        else {
+            /*
+             * Process theme partial
+             */
+            if (($partial = Partial::loadCached($this->theme, $name)) === null) {
+                if ($throwException) {
+                    throw new CmsException(Lang::get('cms::lang.partial.not_found_name', ['name'=>$name]));
+                }
+                else {
+                    return false;
+                }
             }
-
-            return false;
         }
 
         /*
@@ -1134,17 +1147,6 @@ class Controller
         return $this->layoutObj;
     }
 
-    /**
-     * Returns the CMS layout object being processed by the controller.
-     * The object is not available on the early stages of the controller
-     * initialization.
-     * @return \Cms\Classes\Layout Returns the Layout object or null.
-     */
-    public function getLayout()
-    {
-        return $this->layout;
-    }
-
     //
     // Page helpers
     //
@@ -1372,10 +1374,15 @@ class Controller
 
                 if (substr($paramName, 0, 1) == ':') {
                     $routeParamName = substr($paramName, 1);
-                    $newPropertyValue = $routerParameters[$routeParamName] ?? null;
+                    $newPropertyValue = array_key_exists($routeParamName, $routerParameters)
+                        ? $routerParameters[$routeParamName]
+                        : null;
+
                 }
                 else {
-                    $newPropertyValue = $parameters[$paramName] ?? null;
+                    $newPropertyValue = array_key_exists($paramName, $parameters)
+                        ? $parameters[$paramName]
+                        : null;
                 }
 
                 $component->setProperty($propertyName, $newPropertyValue);

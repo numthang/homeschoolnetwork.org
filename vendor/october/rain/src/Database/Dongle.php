@@ -1,5 +1,7 @@
 <?php namespace October\Rain\Database;
 
+use Exception;
+
 /**
  * Database driver dongle
  *

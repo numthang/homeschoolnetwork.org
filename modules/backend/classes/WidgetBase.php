@@ -1,5 +1,7 @@
 <?php namespace Backend\Classes;
 
+use Str;
+use File;
 use October\Rain\Html\Helper as HtmlHelper;
 use October\Rain\Extension\Extendable;
 use stdClass;
@@ -63,7 +65,7 @@ abstract class WidgetBase extends Extendable
          * If no alias is set by the configuration.
          */
         if (!isset($this->alias)) {
-            $this->alias = $this->config->alias ?? $this->defaultAlias;
+            $this->alias = (isset($this->config->alias)) ? $this->config->alias : $this->defaultAlias;
         }
 
         /*

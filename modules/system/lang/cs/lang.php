@@ -185,6 +185,7 @@ return [
         'deleting' => 'Mazání šablony...',
         'deleting_layout' => 'Mazání layoutu...',
         'return' => 'Zpět na seznam šablon',
+        'saving' => 'Ukládání šablony...',
         'sending' => 'Odesílání testovací zprávy...',
     ],
     'mail_brand' => [

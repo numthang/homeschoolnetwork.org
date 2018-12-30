@@ -4,6 +4,7 @@ use Str;
 use Hash;
 use October\Rain\Database\Model;
 use InvalidArgumentException;
+use RuntimeException;
 use Exception;
 
 /**
@@ -399,8 +400,10 @@ class User extends Model
         if (!$this->mergedPermissions) {
             $permissions = [];
 
-            if (($role = $this->getRole()) && is_array($role->permissions)) {
-                $permissions = array_merge($permissions, $role->permissions);
+            if ($role = $this->getRole()) {
+                if (is_array($role->permissions)) {
+                    $permissions = array_merge($permissions, $role->permissions);
+                }
             }
 
             if (is_array($this->permissions)) {
@@ -537,7 +540,11 @@ class User extends Model
             }
         }
 
-        return !($all === false);
+        if ($all === false) {
+            return false;
+        }
+
+        return true;
     }
 
     /**

@@ -54,7 +54,7 @@ class FilterScope
     /**
      * @var string Specifies contextual visibility of this form scope.
      */
-    public $context;
+    public $context = null;
 
     /**
      * @var bool Specify if the scope is disabled or not.

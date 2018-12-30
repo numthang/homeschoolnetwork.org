@@ -1,5 +1,7 @@
 <?php namespace Backend\FormWidgets;
 
+use Lang;
+use ApplicationException;
 use Backend\Classes\FormWidgetBase;
 
 /**
@@ -211,7 +213,7 @@ class RecordFinder extends FormWidgetBase
     {
         list($model, $attribute) = $this->resolveModelAttribute($this->valueFrom);
 
-        if ($model !== null) {
+        if (!is_null($model)) {
             return $model->{$attribute};
         }
 

@@ -5,6 +5,7 @@ use File;
 use Lang;
 use Event;
 use SystemException;
+use Backend\Classes\Controller;
 use stdClass;
 use Config;
 
@@ -182,7 +183,8 @@ trait ConfigMaker
     {
         $classFolder = strtolower(class_basename($class));
         $classFile = realpath(dirname(File::fromClass($class)));
-        return $classFile ? $classFile . '/' . $classFolder . $suffix : null;
+        $guessedPath = $classFile ? $classFile . '/' . $classFolder . $suffix : null;
+        return $guessedPath;
     }
 
     /**

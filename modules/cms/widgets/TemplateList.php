@@ -4,6 +4,7 @@ use Str;
 use File;
 use Input;
 use Request;
+use Response;
 use Cms\Classes\Theme;
 use Backend\Classes\WidgetBase;
 
@@ -62,7 +63,7 @@ class TemplateList extends WidgetBase
     /**
      * @var string Extra CSS class name to apply to the control.
      */
-    public $controlClass;
+    public $controlClass = null;
 
     /**
      * @var string A list of file name patterns to suppress / hide.
@@ -371,8 +372,10 @@ class TemplateList extends WidgetBase
     {
         $operator = $exact ? 'is' : 'contains';
 
-        if (strlen($item->title) && Str::$operator(Str::lower($item->title), $word)) {
-            return true;
+        if (strlen($item->title)) {
+            if (Str::$operator(Str::lower($item->title), $word)) {
+                return true;
+            }
         }
 
         if (Str::$operator(Str::lower($item->fileName), $word)) {

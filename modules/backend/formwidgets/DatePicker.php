@@ -26,25 +26,25 @@ class DatePicker extends FormWidgetBase
     /**
      * @var string Provide an explicit date display format.
      */
-    public $format;
+    public $format = null;
 
     /**
      * @var string the minimum/earliest date that can be selected.
      * eg: 2000-01-01
      */
-    public $minDate;
+    public $minDate = null;
 
     /**
      * @var string the maximum/latest date that can be selected.
      * eg: 2020-12-31
      */
-    public $maxDate;
+    public $maxDate = null;
 
     /**
      * @var string number of years either side or array of upper/lower range
      * eg: 10 or [1900,1999]
      */
-    public $yearRange;
+    public $yearRange = null;
 
     /**
      * @var int first day of the week
@@ -90,13 +90,13 @@ class DatePicker extends FormWidgetBase
         $this->mode = strtolower($this->mode);
 
         if ($this->minDate !== null) {
-            $this->minDate = is_int($this->minDate)
+            $this->minDate = is_integer($this->minDate)
                 ? Carbon::createFromTimestamp($this->minDate)
                 : Carbon::parse($this->minDate);
         }
 
         if ($this->maxDate !== null) {
-            $this->maxDate = is_int($this->maxDate)
+            $this->maxDate = is_integer($this->maxDate)
                 ? Carbon::createFromTimestamp($this->maxDate)
                 : Carbon::parse($this->maxDate);
         }

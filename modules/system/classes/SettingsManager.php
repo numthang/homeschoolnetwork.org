@@ -3,6 +3,7 @@
 use Event;
 use Backend;
 use BackendAuth;
+use System\Classes\PluginManager;
 use SystemException;
 
 /**

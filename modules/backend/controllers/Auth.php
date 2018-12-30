@@ -54,8 +54,9 @@ class Auth extends Controller
             if (post('postback')) {
                 return $this->signin_onSubmit();
             }
-
-            $this->bodyClass .= ' preload';
+            else {
+                $this->bodyClass .= ' preload';
+            }
         }
         catch (Exception $ex) {
             Flash::error($ex->getMessage());
@@ -74,7 +75,7 @@ class Auth extends Controller
             throw new ValidationException($validation);
         }
 
-        if (($remember = config('cms.backendForceRemember', true)) === null) {
+        if (is_null($remember = config('cms.backendForceRemember', true))) {
             $remember = (bool) post('remember');
         }
 

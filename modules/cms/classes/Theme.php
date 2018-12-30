@@ -34,7 +34,7 @@ class Theme
     /**
      * @var mixed Keeps the cached configuration file values.
      */
-    protected $configCache;
+    protected $configCache = null;
 
     /**
      * @var mixed Active theme cache in memory
@@ -323,13 +323,21 @@ class Theme
          *
          * Example usage:
          *
-         *     Event::listen('cms.theme.extendConfig', function ($themeCode, &$config) {
+         *     Event::listen('cms.theme.extendConfig', function ($themeCode, $config) {
          *          $config['name'] = 'October Theme';
          *          $config['description'] = 'Another great theme from October CMS';
+         *          return $config;
          *     });
          *
          */
-        Event::fire('cms.theme.extendConfig', [$this->getDirName(), &$config]);
+        if ($results = Event::fire('cms.theme.extendConfig', [$this->getDirName(), $config])) {
+            foreach ($results as $result) {
+                if (!is_array($result)) {
+                    continue;
+                }
+                $config = array_merge($config, $result);
+            }
+        }
 
         return $this->configCache = $config;
     }
@@ -353,7 +361,7 @@ class Theme
          *
          * Example usage:
          *
-         *     Event::listen('cms.theme.extendFormConfig', function ($themeCode, &$config) {
+         *     Event::listen('cms.theme.extendFormConfig', function ($themeCode, $config) {
          *          array_set($config, 'tabs.fields.header_color', [
          *              'label'           => 'Header Colour',
          *              'type'            => 'colorpicker',
@@ -361,10 +369,18 @@ class Theme
          *              'assetVar'        => 'header-bg',
          *              'tab'             => 'Global'
          *          ]);
+         *          return $config;
          *     });
          *
          */
-        Event::fire('cms.theme.extendFormConfig', [$this->getDirName(), &$config]);
+        if ($results = Event::fire('cms.theme.extendFormConfig', [$this->getDirName(), $config])) {
+            foreach ($results as $result) {
+                if (!is_array($result)) {
+                    continue;
+                }
+                $config = array_merge($config, $result);
+            }
+        }
 
         return $config;
     }
@@ -502,7 +518,8 @@ class Theme
     public function __get($name)
     {
         if ($this->hasCustomData()) {
-            return $this->getCustomData()->{$name};
+            $theme = $this->getCustomData();
+            return $theme->{$name};
         }
 
         return null;

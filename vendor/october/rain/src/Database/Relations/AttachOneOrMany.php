@@ -126,9 +126,10 @@ trait AttachOneOrMany
         if ($sessionKey === null) {
             return parent::save($model);
         }
-
-        $this->add($model, $sessionKey);
-        return $model->save() ? $model : false;
+        else {
+            $this->add($model, $sessionKey);
+            return $model->save() ? $model : false;
+        }
     }
 
     /**

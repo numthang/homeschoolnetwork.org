@@ -48,8 +48,9 @@ trait EventEmitter
             if ($halt) {
                 return $response;
             }
-
-            $result = array_merge($result, $response);
+            else {
+                $result = array_merge($result, $response);
+            }
         }
 
         /*
@@ -59,8 +60,9 @@ trait EventEmitter
             if ($halt) {
                 return $response;
             }
-
-            $result = array_merge($result, $response);
+            else {
+                $result = array_merge($result, $response);
+            }
         }
 
         return $result;

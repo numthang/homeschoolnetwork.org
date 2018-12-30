@@ -6,6 +6,8 @@ use System\Models\MailPartial;
 use System\Models\MailTemplate;
 use System\Models\MailBrandSetting;
 use System\Helpers\View as ViewHelper;
+use System\Classes\PluginManager;
+use System\Classes\MarkupManager;
 use System\Twig\MailPartialTokenParser;
 use TijsVerkoyen\CssToInlineStyles\CssToInlineStyles;
 
@@ -56,7 +58,6 @@ class MailManager
 
     /**
      * Same as `addContentToMailer` except with raw content.
-     *
      * @return bool
      */
     public function addRawContentToMailer($message, $content, $data)
@@ -71,16 +72,11 @@ class MailManager
     }
 
     /**
-     * This function hijacks the `addContent` method of the `October\Rain\Mail\Mailer`
+     * This function hijacks the `addContent` method of the `October\Rain\Mail\Mailer` 
      * class, using the `mailer.beforeAddContent` event.
-     *
-     * @param \Illuminate\Mail\Message $message
-     * @param string $code
-     * @param array $data
-     * @param bool $plainOnly Add only plain text content to the message
      * @return bool
      */
-    public function addContentToMailer($message, $code, $data, $plainOnly = false)
+    public function addContentToMailer($message, $code, $data)
     {
         if (isset($this->templateCache[$code])) {
             $template = $this->templateCache[$code];
@@ -93,21 +89,16 @@ class MailManager
             return false;
         }
 
-        $this->addContentToMailerInternal($message, $template, $data, $plainOnly);
+        $this->addContentToMailerInternal($message, $template, $data);
 
         return true;
     }
 
     /**
      * Internal method used to share logic between `addRawContentToMailer` and `addContentToMailer`
-     *
-     * @param \Illuminate\Mail\Message $message
-     * @param string $template
-     * @param array $data
-     * @param bool $plainOnly Add only plain text content to the message
      * @return void
      */
-    protected function addContentToMailerInternal($message, $template, $data, $plainOnly = false)
+    protected function addContentToMailerInternal($message, $template, $data)
     {
         /*
          * Start twig transaction
@@ -135,14 +126,12 @@ class MailManager
             'subject' => $swiftMessage->getSubject()
         ];
 
-        if (!$plainOnly) {
-            /*
-             * HTML contents
-             */
-            $html = $this->renderTemplate($template, $data);
+        /*
+         * HTML contents
+         */
+        $html = $this->renderTemplate($template, $data);
 
-            $message->setBody($html, 'text/html');
-        }
+        $message->setBody($html, 'text/html');
 
         /*
          * Text contents
@@ -189,12 +178,7 @@ class MailManager
 
         $css = MailBrandSetting::renderCss();
 
-        $disableAutoInlineCss = false;
-
         if ($template->layout) {
-
-            $disableAutoInlineCss = array_get($template->layout->options, 'disable_auto_inline_css', $disableAutoInlineCss);
-
             $html = $this->renderTwig($template->layout->content_html, [
                 'content' => $html,
                 'css' => $template->layout->content_css,
@@ -204,17 +188,16 @@ class MailManager
             $css .= PHP_EOL . $template->layout->content_css;
         }
 
-        if (!$disableAutoInlineCss) {
-            $html = (new CssToInlineStyles)->convert($html, $css);
-        }
+        $html = (new CssToInlineStyles)->convert($html, $css);
 
         return $html;
     }
 
     /**
      * Render the Markdown template into text.
-     * @param $content
-     * @param array $data
+     *
+     * @param  string  $view
+     * @param  array  $data
      * @return string
      */
     public function renderText($content, $data = [])

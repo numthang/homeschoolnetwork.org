@@ -125,8 +125,9 @@ trait Validation
             if ($throwOnValidation) {
                 throw new ModelException($this);
             }
-
-            return false;
+            else {
+                return false;
+            }
         }
 
         if ($this->methodExists('beforeValidate')) {

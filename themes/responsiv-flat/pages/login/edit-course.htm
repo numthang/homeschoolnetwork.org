@@ -19,7 +19,7 @@ security = "user"
 redirect = "login"
 ==
 <?php
-  public function onEnd() {
+public function onEnd() {
     #dump($this->record);
     $j = json_decode($this->record->attributes['father_profile']);
     $this->page['father_name'] = $j->father_name;
@@ -49,10 +49,10 @@ redirect = "login"
 
 <div class="container">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
           {% partial 'login/sidebar' %}
         </div>
-        <div class="col-md-8">
+        <div class="col-md-9">
           {% set record = builderDetails.record %}
           {% set displayColumn = builderDetails.displayColumn %}
           {% set notFoundMessage = builderDetails.notFoundMessage %}

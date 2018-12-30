@@ -1,5 +1,6 @@
 <?php namespace October\Rain\Database\Attach;
 
+use File as FileHelper;
 use Symfony\Component\HttpFoundation\File\File as FileObj;
 use Exception;
 
@@ -49,7 +50,7 @@ class Resizer
      * @var int Original width of the image being resized.
      */
     protected $width;
-
+    
     /**
      * @var int Original height of the image being resized.
      */
@@ -68,9 +69,8 @@ class Resizer
     /**
      * Instantiates the Resizer and receives the path to an image we're working with
      * @param mixed $file The file array provided by Laravel's Input::file('field_name') or a path to a file
-     * @throws Exception
      */
-    public function __construct($file)
+    function __construct($file)
     {
         if (!extension_loaded('gd')) {
             echo 'GD PHP library required.'.PHP_EOL;
@@ -103,22 +103,10 @@ class Resizer
      * Returns a new Resizer object, allowing for chainable calls
      * @param  mixed $file The file array provided by Laravel's Input::file('field_name') or a path to a file
      * @return Resizer
-     * @throws Exception
      */
     public static function open($file)
     {
         return new Resizer($file);
-    }
-
-    /**
-     * Manipulate an image resource in order to keep transparency for PNG and GIF files.
-     * @param $img
-     */
-    protected static function retainImageTransparency($img)
-    {
-        imagecolortransparent($img, imagecolorallocatealpha($img, 0, 0, 0, 127));
-        imagealphablending($img, false);
-        imagesavealpha($img, true);
     }
 
     /**
@@ -134,12 +122,11 @@ class Resizer
 
     /**
      * Sets resizer options. Available options are:
-     *  - mode: Either exact, portrait, landscape, auto, fit or crop.
+     *  - mode: Either exact, portrait, landscape, auto or crop.
      *  - offset: The offset of the crop = [ left, top ]
      *  - sharpen: Sharpen image, from 0 - 100 (default: 0)
      *  - interlace: Interlace image,  Boolean: false (disabled: default), true (enabled)
      *  - quality: Image quality, from 0 - 100 (default: 95)
-     * @param array $options Set of resizing option
      * @return self
      */
     public function setOptions($options)
@@ -157,8 +144,6 @@ class Resizer
 
     /**
      * Sets an individual resizer option.
-     * @param string $option Option name to set
-     * @param mixed $value Option value to set
      * @return self
      */
     protected function setOption($option, $value)
@@ -170,8 +155,7 @@ class Resizer
 
     /**
      * Gets an individual resizer option.
-     * @param string $option Option name to get
-     * @return mixed Depends on the option
+     * @return self
      */
     protected function getOption($option)
     {
@@ -180,7 +164,6 @@ class Resizer
 
     /**
      * Receives the image's exif orientation
-     * @param \Symfony\Component\HttpFoundation\File\File $file
      * @return int|null
      */
     protected function getOrientation($file)
@@ -273,16 +256,17 @@ class Resizer
         }
 
         $bgcolor = imagecolorallocate($this->image, 0, 0, 0);
-        return imagerotate($this->image, $angle, $bgcolor);
+        $rotatedOriginal = imagerotate($this->image,$angle,$bgcolor);
+
+        return $rotatedOriginal;
     }
 
     /**
      * Resizes and/or crops an image
      * @param int $newWidth The width of the image
      * @param int $newHeight The height of the image
-     * @param array $options A set of resizing options
+     * @param array $options A set of resizing options, supported values:
      * @return self
-     * @throws Exception
      */
     public function resize($newWidth, $newHeight, $options = [])
     {
@@ -310,7 +294,11 @@ class Resizer
 
         // Resample - create image canvas of x, y size
         $imageResized = imagecreatetruecolor($optimalWidth, $optimalHeight);
-        self::retainImageTransparency($imageResized);
+
+        // Retain transparency for PNG and GIF files
+        imagecolortransparent($imageResized, imagecolorallocatealpha($imageResized, 0, 0, 0, 127));
+        imagealphablending($imageResized, false);
+        imagesavealpha($imageResized, true);
 
         // get the rotated the original image according to exif orientation
         $rotatedOriginal = $this->getRotatedOriginal();
@@ -354,7 +342,7 @@ class Resizer
         $image = $this->image;
 
         // Normalize sharpening value
-        $kernelCenter = exp((80 - (float)$sharpness) / 18) + 9;
+        $kernelCenter = exp((80 - floatval($sharpness)) / 18) + 9;
 
         $matrix = array(
             [-1, -1, -1],
@@ -394,9 +382,13 @@ class Resizer
 
         // Create a new canvas
         $imageResized = imagecreatetruecolor($newWidth, $newHeight);
-        self::retainImageTransparency($imageResized);
 
-        // Crop the image to the requested size
+        // Retain transparency for PNG and GIF files
+        imagecolortransparent($imageResized, imagecolorallocatealpha($imageResized, 0, 0, 0, 127));
+        imagealphablending($imageResized, false);
+        imagesavealpha($imageResized, true);
+
+        // Crop the  image to the requested size
         imagecopyresampled($imageResized, $image, 0, 0, $cropStartX, $cropStartY, $newWidth, $newHeight, $srcWidth, $srcHeight);
 
         $this->image = $imageResized;
@@ -407,20 +399,20 @@ class Resizer
     /**
      * Save the image based on its file type.
      * @param string $savePath Where to save the image
-     * @throws Exception Thrown for invalid extension
+     * @return boolean
      */
     public function save($savePath)
     {
         $image = $this->image;
 
         $imageQuality = $this->getOption('quality');
-
+        
         if ($this->getOption('interlace')) {
             imageinterlace($image, true);
         }
 
         // Determine the image type from the destination file
-        $extension = pathinfo($savePath, PATHINFO_EXTENSION) ?: $this->extension;
+        $extension = FileHelper::extension($savePath) ?: $this->extension;
 
         // Create and save an image based on it's extension
         switch (strtolower($extension)) {
@@ -451,14 +443,14 @@ class Resizer
                     imagepng($image, $savePath, $invertScaleQuality);
                 }
                 break;
-
+                
             case 'webp':
                 // Check WEBP support is enabled
                 if (imagetypes() & IMG_WEBP) {
                     imagewebp($image, $savePath, $imageQuality);
                 }
                 break;
-
+                
             default:
                 throw new Exception(sprintf('Invalid image type: %s. Accepted types: jpg, gif, png, webp.', $extension));
                 break;
@@ -470,9 +462,8 @@ class Resizer
 
     /**
      * Open a file, detect its mime-type and create an image resource from it.
-     * @param \Symfony\Component\HttpFoundation\File\File $file File instance
+     * @param array $file Attributes of file from the $_FILES array
      * @return mixed
-     * @throws Exception Thrown for invalid MIME type
      */
     protected function openImage($file)
     {
@@ -480,19 +471,10 @@ class Resizer
         $filePath = $file->getPathname();
 
         switch ($mime) {
-            case 'image/jpeg':
-                $img = @imagecreatefromjpeg($filePath);
-                break;
-            case 'image/gif':
-                $img = @imagecreatefromgif($filePath);
-                self::retainImageTransparency($img);
-                break;
-            case 'image/png':
-                $img = @imagecreatefrompng($filePath);
-                self::retainImageTransparency($img);
-                break;
-            case 'image/webp':
-                $img = @imagecreatefromwebp($filePath); break;
+            case 'image/jpeg': $img = @imagecreatefromjpeg($filePath); break;
+            case 'image/gif':  $img = @imagecreatefromgif($filePath);  break;
+            case 'image/png':  $img = @imagecreatefrompng($filePath);  break;
+            case 'image/webp': $img = @imagecreatefromwebp($filePath); break;
 
             default:
                 throw new Exception(sprintf('Invalid mime type: %s. Accepted types: image/jpeg, image/gif, image/png, image/webp.', $mime));
@@ -506,8 +488,8 @@ class Resizer
      * Return the image dimensions based on the option that was chosen.
      * @param int $newWidth The width of the image
      * @param int $newHeight The height of the image
+     * @param string $option Either exact, portrait, landscape, auto or crop.
      * @return array
-     * @throws Exception Thrown for invalid dimension string
      */
     protected function getDimensions($newWidth, $newHeight)
     {
@@ -529,11 +511,8 @@ class Resizer
             case 'crop':
                 return $this->getOptimalCrop($newWidth, $newHeight);
 
-            case 'fit':
-                return $this->getSizeByFit($newWidth, $newHeight);
-
             default:
-                throw new Exception('Invalid dimension type. Accepted types: exact, portrait, landscape, auto, crop, fit.');
+                throw new Exception('Invalid dimension type. Accepted types: exact, portrait, landscape, auto, crop.');
         }
     }
 
@@ -545,7 +524,9 @@ class Resizer
     protected function getSizeByFixedHeight($newHeight)
     {
         $ratio = $this->width / $this->height;
-        return $newHeight * $ratio;
+        $newWidth = $newHeight * $ratio;
+
+        return $newWidth;
     }
 
     /**
@@ -556,7 +537,9 @@ class Resizer
     protected function getSizeByFixedWidth($newWidth)
     {
         $ratio = $this->height / $this->width;
-        return $newWidth * $ratio;
+        $newHeight = $newWidth * $ratio;
+
+        return $newHeight;
     }
 
     /**
@@ -631,28 +614,6 @@ class Resizer
 
         $optimalHeight = round($this->height / $optimalRatio);
         $optimalWidth  = round($this->width  / $optimalRatio);
-
-        return [$optimalWidth, $optimalHeight];
-    }
-
-    /**
-     * Fit the image inside a bounding box using maximum width and height constraints.
-     * @param int $maxWidth The maximum width of the image
-     * @param int $maxHeight The maximum height of the image
-     * @return array
-     */
-    protected function getSizeByFit($maxWidth, $maxHeight) {
-
-        // Calculate the scaling ratios in order to get the target width and height
-        $ratioW = $maxWidth / $this->width;
-        $ratioH = $maxHeight / $this->height;
-
-        // Select the ratio which makes the image fit inside the constraints
-        $effectiveRatio = min($ratioW, $ratioH);
-
-        // Calculate the final width and height according to this ratio
-        $optimalWidth = round($this->width * $effectiveRatio);
-        $optimalHeight = round($this->height * $effectiveRatio);
 
         return [$optimalWidth, $optimalHeight];
     }

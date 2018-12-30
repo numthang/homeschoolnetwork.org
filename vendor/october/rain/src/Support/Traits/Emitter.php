@@ -79,7 +79,9 @@ trait Emitter
         }
 
         if ($event === null) {
-            unset($this->emitterSingleEventCollection, $this->emitterEventCollection, $this->emitterEventSorted);
+            unset($this->emitterSingleEventCollection);
+            unset($this->emitterEventCollection);
+            unset($this->emitterEventSorted);
             return $this;
         }
 

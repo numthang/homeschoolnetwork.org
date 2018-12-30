@@ -1,6 +1,7 @@
 <?php namespace Backend\Controllers;
 
 use BackendMenu;
+use BackendAuth;
 use Backend\Classes\Controller;
 use System\Classes\SettingsManager;
 

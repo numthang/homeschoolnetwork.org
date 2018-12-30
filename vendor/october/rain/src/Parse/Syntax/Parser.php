@@ -198,7 +198,7 @@ class Parser
             $field = $prefix.'.'.$field;
         }
 
-        $type = $params['type'] ?? 'text';
+        $type = isset($params['type']) ? $params['type'] : 'text';
 
         switch ($type) {
             default:
@@ -249,7 +249,7 @@ class Parser
             return '';
         }
 
-        $type = $params['type'] ?? 'text';
+        $type = isset($params['type']) ? $params['type'] : 'text';
 
         switch ($type) {
             case 'markdown':

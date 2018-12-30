@@ -6,6 +6,7 @@ use Cache;
 use Log;
 use Exception;
 use System\Classes\ModelBehavior;
+use ApplicationException;
 
 /**
  * Settings model extension

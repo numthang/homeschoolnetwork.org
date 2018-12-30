@@ -216,7 +216,8 @@ trait SimpleTree
         /*
          * Build a nested collection
          */
-        return $buildCollection($rootItems, $pairMap);
+        $result = $buildCollection($rootItems, $pairMap);
+        return $result;
     }
 
     //

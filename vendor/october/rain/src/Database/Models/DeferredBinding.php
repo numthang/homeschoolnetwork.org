@@ -36,11 +36,12 @@ class DeferredBinding extends Model
                 $existingRecord->deleteCancel();
                 return false;
             }
-
             /*
              * Skip repeating bindings
              */
-            return false;
+            else {
+                return false;
+            }
         }
     }
 

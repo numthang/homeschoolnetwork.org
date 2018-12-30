@@ -1,5 +1,6 @@
 <?php namespace System\Helpers;
 
+use Lang;
 use Carbon\Carbon;
 use DateTime as PhpDateTime;
 use InvalidArgumentException;
@@ -129,7 +130,8 @@ class DateTime
             $replacements['\\'.$from] = '['.$from.']';
         }
 
-        return strtr($format, $replacements);
+        $momentFormat = strtr($format, $replacements);
+        return $momentFormat;
     }
 
 }

@@ -4,6 +4,7 @@ use File;
 use Assetic\Asset\AssetInterface;
 use Assetic\Filter\FilterInterface;
 use RuntimeException;
+use Exception;
 
 /**
  * Importer JS Filter
@@ -108,9 +109,10 @@ class JavascriptImporter implements FilterInterface
                 if ($required) {
                     throw new RuntimeException($errorMsg);
                 }
-
-                $result .= '/* ' . $errorMsg . ' */' . PHP_EOL;
-                continue;
+                else {
+                    $result .= '/* ' . $errorMsg . ' */' . PHP_EOL;
+                    continue;
+                }
             }
 
             /*

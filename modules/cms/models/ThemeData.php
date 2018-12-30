@@ -93,11 +93,11 @@ class ThemeData extends Model
         }
 
         try {
-            $themeData = self::firstOrCreate(['theme' => $dirName]);
+            $themeData = ThemeData::firstOrCreate(['theme' => $dirName]);
         }
         catch (Exception $ex) {
             // Database failed
-            $themeData = new self(['theme' => $dirName]);
+            $themeData = new ThemeData(['theme' => $dirName]);
         }
 
         return self::$instances[$dirName] = $themeData;

@@ -1,5 +1,6 @@
 <?php namespace System\Classes;
 
+use Str;
 use File;
 use Yaml;
 use Db;
@@ -78,7 +79,7 @@ class VersionManager
      */
     public function updatePlugin($plugin, $stopOnVersion = null)
     {
-        $code = is_string($plugin) ? $plugin : $this->pluginManager->getIdentifier($plugin);
+        $code = (is_string($plugin)) ? $plugin : $this->pluginManager->getIdentifier($plugin);
 
         if (!$this->hasVersionFile($code)) {
             return false;
@@ -110,7 +111,7 @@ class VersionManager
      */
     public function listNewVersions($plugin)
     {
-        $code = is_string($plugin) ? $plugin : $this->pluginManager->getIdentifier($plugin);
+        $code = (is_string($plugin)) ? $plugin : $this->pluginManager->getIdentifier($plugin);
 
         if (!$this->hasVersionFile($code)) {
             return [];
@@ -164,7 +165,7 @@ class VersionManager
      */
     public function removePlugin($plugin, $stopOnVersion = null)
     {
-        $code = is_string($plugin) ? $plugin : $this->pluginManager->getIdentifier($plugin);
+        $code = (is_string($plugin)) ? $plugin : $this->pluginManager->getIdentifier($plugin);
 
         if (!$this->hasVersionFile($code)) {
             return false;
@@ -228,7 +229,7 @@ class VersionManager
             $history->delete();
         }
 
-        return ($countHistory + $countVersions) > 0;
+        return (($countHistory + $countVersions) > 0) ? true : false;
     }
 
     //
@@ -245,7 +246,8 @@ class VersionManager
             return self::NO_VERSION_VALUE;
         }
 
-        return trim(key(array_slice($versionInfo, -1, 1)));
+        $latest = trim(key(array_slice($versionInfo, -1, 1)));
+        return $latest;
     }
 
     /**
@@ -325,7 +327,9 @@ class VersionManager
             ;
         }
 
-        return $this->databaseVersions[$code] ?? self::NO_VERSION_VALUE;
+        return (isset($this->databaseVersions[$code]))
+            ? $this->databaseVersions[$code]
+            : self::NO_VERSION_VALUE;
     }
 
     /**

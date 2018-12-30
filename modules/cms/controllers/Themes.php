@@ -1,12 +1,15 @@
 <?php namespace Cms\Controllers;
 
 use File;
+use Yaml;
 use Flash;
+use Config;
 use Backend;
 use Redirect;
 use BackendMenu;
 use ValidationException;
 use ApplicationException;
+use Cms\Models\ThemeData;
 use Cms\Models\ThemeExport;
 use Cms\Models\ThemeImport;
 use Cms\Classes\Theme as CmsTheme;
@@ -114,7 +117,8 @@ class Themes extends Controller
         $widgetConfig->arrayName = 'Theme';
         $widgetConfig->context = 'update';
 
-        return $this->makeWidget(Form::class, $widgetConfig);
+        $widget = $this->makeWidget(Form::class, $widgetConfig);
+        return $widget;
     }
 
     //
@@ -171,7 +175,8 @@ class Themes extends Controller
         $widgetConfig->arrayName = 'Theme';
         $widgetConfig->context = 'create';
 
-        return $this->makeWidget('Backend\Widgets\Form', $widgetConfig);
+        $widget = $this->makeWidget('Backend\Widgets\Form', $widgetConfig);
+        return $widget;
     }
 
     //
@@ -253,7 +258,8 @@ class Themes extends Controller
         $widgetConfig->model->theme = $theme;
         $widgetConfig->arrayName = 'ThemeExport';
 
-        return $this->makeWidget('Backend\Widgets\Form', $widgetConfig);
+        $widget = $this->makeWidget('Backend\Widgets\Form', $widgetConfig);
+        return $widget;
     }
 
     //
@@ -289,7 +295,8 @@ class Themes extends Controller
         $widgetConfig->model->theme = $theme;
         $widgetConfig->arrayName = 'ThemeImport';
 
-        return $this->makeWidget('Backend\Widgets\Form', $widgetConfig);
+        $widget = $this->makeWidget('Backend\Widgets\Form', $widgetConfig);
+        return $widget;
     }
 
     //

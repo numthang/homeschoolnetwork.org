@@ -101,7 +101,9 @@ trait Hashable
      */
     public function getOriginalHashValue($attribute)
     {
-        return $this->originalHashableValues[$attribute] ?? null;
+        return isset($this->originalHashableValues[$attribute])
+            ? $this->originalHashableValues[$attribute]
+            : null;
     }
 
     /**

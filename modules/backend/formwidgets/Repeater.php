@@ -2,6 +2,7 @@
 
 use Lang;
 use ApplicationException;
+use Backend\Classes\FormField;
 use Backend\Classes\FormWidgetBase;
 
 /**
@@ -39,12 +40,12 @@ class Repeater extends FormWidgetBase
     /**
      * @var int Minimum items required. Pre-displays those items when not using groups
      */
-    public $minItems;
+    public $minItems = null;
 
     /**
      * @var int Maximum items permitted
      */
-    public $maxItems;
+    public $maxItems = null;
 
     //
     // Object properties

@@ -34,6 +34,15 @@ class PluginRemove extends Command
     protected $description = 'Removes an existing plugin.';
 
     /**
+     * Create a new command instance.
+     * @return void
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    /**
      * Execute the console command.
      * @return void
      */

@@ -302,7 +302,9 @@ class PluginManager
      */
     public function exists($id)
     {
-        return !(!$this->findByIdentifier($id) || $this->isDisabled($id));
+        return (!$this->findByIdentifier($id) || $this->isDisabled($id))
+            ? false
+            : true;
     }
 
     /**
@@ -758,7 +760,7 @@ class PluginManager
         /*
          * Delete from file system
          */
-        if ($pluginPath = self::instance()->getPluginPath($id)) {
+        if ($pluginPath = PluginManager::instance()->getPluginPath($id)) {
             File::deleteDirectory($pluginPath);
         }
     }

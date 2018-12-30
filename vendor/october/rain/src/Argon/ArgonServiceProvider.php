@@ -1,5 +1,6 @@
 <?php namespace October\Rain\Argon;
 
+use October\Rain\Argon\Argon;
 use October\Rain\Support\ServiceProvider;
 
 class ArgonServiceProvider extends ServiceProvider

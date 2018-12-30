@@ -2,7 +2,6 @@
 
 use Url;
 use Html;
-use File;
 use System\Models\Parameter;
 use System\Models\PluginVersion;
 use System\Classes\CombineAssets;
@@ -113,7 +112,7 @@ trait AssetMaker
     public function addJs($name, $attributes = [])
     {
         if (is_array($name)) {
-            $name = $this->combineAssets($name, $this->getLocalPath($this->assetPath));
+            $name = $this->combineAssets($name);
         }
 
         $jsPath = $this->getAssetPath($name);
@@ -143,7 +142,7 @@ trait AssetMaker
     public function addCss($name, $attributes = [])
     {
         if (is_array($name)) {
-            $name = $this->combineAssets($name, $this->getLocalPath($this->assetPath));
+            $name = $this->combineAssets($name);
         }
 
         $cssPath = $this->getAssetPath($name);
@@ -324,14 +323,5 @@ trait AssetMaker
             }
 
         }
-    }
-
-    protected function getLocalPath(string $relativePath)
-    {
-        $relativePath = File::symbolizePath($relativePath);
-        if (!starts_with($relativePath, [base_path()])) {
-            $relativePath = base_path($relativePath);
-        }
-        return $relativePath;
     }
 }

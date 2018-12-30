@@ -232,7 +232,7 @@ class ExceptionBase extends Exception
                 : $event['function'];
 
             $file = isset($event['file']) ? '~'.File::localToPublic($event['file']) : null;
-            $line = $event['line'] ?? null;
+            $line = isset($event['line']) ? $event['line'] : null;
 
             $args = null;
             if (isset($event['args']) && count($event['args'])) {
@@ -325,7 +325,7 @@ class ExceptionBase extends Exception
                     elseif (is_object($obj)) {
                         $value = 'object('.get_class($obj).')';
                     }
-                    elseif (is_int($obj)) {
+                    elseif (is_integer($obj)) {
                         $value = $obj;
                     }
                     elseif ($obj === null) {
@@ -351,7 +351,7 @@ class ExceptionBase extends Exception
             elseif ($argument === null) {
                 $arg = "null";
             }
-            elseif (is_int($argument)) {
+            elseif (is_integer($argument)) {
                 $arg = $argument;
             }
             else {

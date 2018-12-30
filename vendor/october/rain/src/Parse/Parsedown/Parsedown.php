@@ -4,7 +4,7 @@ use ParsedownExtra;
 
 class Parsedown extends ParsedownExtra
 {
-    public function setUnmarkedBlockTypes($unmarkedBlockTypes)
+    function setUnmarkedBlockTypes($unmarkedBlockTypes)
     {
         $this->unmarkedBlockTypes = $unmarkedBlockTypes;
 

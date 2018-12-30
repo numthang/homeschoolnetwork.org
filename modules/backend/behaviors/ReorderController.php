@@ -55,7 +55,7 @@ class ReorderController extends ControllerBehavior
      * - simple: October\Rain\Database\Traits\Sortable
      * - nested: October\Rain\Database\Traits\NestedTree
      */
-    protected $sortMode;
+    protected $sortMode = null;
 
     /**
      * @var Backend\Classes\WidgetBase Reference to the widget used for the toolbar.

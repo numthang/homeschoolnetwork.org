@@ -41,11 +41,6 @@ trait Validation
     protected $validationErrors;
 
     /**
-     * @var array Default custom attribute names.
-     */
-    protected $validationDefaultAttrNames = [];
-
-    /**
      * Boot the validation trait for this model.
      *
      * @return void
@@ -82,28 +77,6 @@ trait Validation
     }
 
     /**
-     * Programatically sets multiple validation attribute names.
-     * @param array $attributeNames
-     * @return void
-     */
-    public function setValidationAttributeNames($attributeNames)
-    {
-        $this->validationDefaultAttrNames = $attributeNames;
-    }
-
-    /**
-     * Programatically sets the validation attribute names, will take lower priority
-     * to model defined attribute names found in `$attributeNames`.
-     * @param string $attr
-     * @param string $name
-     * @return void
-     */
-    public function setValidationAttributeName($attr, $name)
-    {
-        $this->validationDefaultAttrNames[$attr] = $name;
-    }
-
-    /**
      * Returns the model data used for validation.
      * @return array
      */
@@ -122,8 +95,9 @@ trait Validation
         if ($relationType === 'attachOne' || $relationType === 'attachMany') {
             return $this->$relationName()->getValidationValue();
         }
-
-        return $this->getRelationValue($relationName);
+        else {
+            return $this->getRelationValue($relationName);
+        }
     }
 
     /**
@@ -185,8 +159,9 @@ trait Validation
             if ($throwOnValidation) {
                 throw new ModelException($this);
             }
-
-            return false;
+            else {
+                return false;
+            }
         }
 
         if ($this->methodExists('beforeValidate')) {
@@ -271,8 +246,6 @@ trait Validation
             if (is_null($attributeNames)) {
                 $attributeNames = [];
             }
-
-            $attributeNames = array_merge($this->validationDefaultAttrNames, $attributeNames);
 
             if (property_exists($this, 'attributeNames')) {
                 $attributeNames = array_merge($this->attributeNames, $attributeNames);

@@ -56,7 +56,7 @@ class Form extends WidgetBase
      * @var string The context of this form, fields that do not belong
      * to this context will not be shown.
      */
-    public $context;
+    public $context = null;
 
     /**
      * @var string If the field element names should be contained in an array.
@@ -239,8 +239,6 @@ class Form extends WidgetBase
      */
     public function renderField($field, $options = [])
     {
-        $this->prepareVars();
-        
         if (is_string($field)) {
             if (!isset($this->allFields[$field])) {
                 throw new ApplicationException(Lang::get(
@@ -257,6 +255,7 @@ class Form extends WidgetBase
         }
         $targetPartial = $options['useContainer'] ? 'field-container' : 'field';
 
+        $this->prepareVars();
         return $this->makePartial($targetPartial, ['field' => $field]);
     }
 
@@ -687,7 +686,7 @@ class Form extends WidgetBase
              * Check that the form field matches the active context
              */
             if ($fieldObj->context !== null) {
-                $context = is_array($fieldObj->context) ? $fieldObj->context : [$fieldObj->context];
+                $context = (is_array($fieldObj->context)) ? $fieldObj->context : [$fieldObj->context];
                 if (!in_array($this->getContext(), $context)) {
                     continue;
                 }
@@ -780,15 +779,13 @@ class Form extends WidgetBase
      */
     protected function makeFormField($name, $config = [])
     {
-        $label = $config['label'] ?? null;
+        $label = (isset($config['label'])) ? $config['label'] : null;
         list($fieldName, $fieldContext) = $this->getFieldName($name);
 
         $field = new FormField($fieldName, $label);
-
         if ($fieldContext) {
             $field->context = $fieldContext;
         }
-
         $field->arrayName = $this->arrayName;
         $field->idPrefix = $this->getId();
 
@@ -796,22 +793,25 @@ class Form extends WidgetBase
          * Simple field type
          */
         if (is_string($config)) {
+
             if ($this->isFormWidget($config) !== false) {
                 $field->displayAs('widget', ['widget' => $config]);
             }
             else {
                 $field->displayAs($config);
             }
+
         }
         /*
          * Defined field type
          */
         else {
-            $fieldType = $config['type'] ?? null;
-            if (!is_string($fieldType) && $fieldType !== null) {
+
+            $fieldType = isset($config['type']) ? $config['type'] : null;
+            if (!is_string($fieldType) && !is_null($fieldType)) {
                 throw new ApplicationException(Lang::get(
                     'backend::lang.field.invalid_type',
-                    ['type' => gettype($fieldType)]
+                    ['type'=>gettype($fieldType)]
                 ));
             }
 
@@ -824,6 +824,7 @@ class Form extends WidgetBase
             }
 
             $field->displayAs($fieldType, $config);
+
         }
 
         /*
@@ -832,36 +833,11 @@ class Form extends WidgetBase
         $field->value = $this->getFieldValue($field);
 
         /*
-         * Apply the field name to the validation engine
-         */
-        $attrName = implode('.', HtmlHelper::nameToArray($field->fieldName));
-
-        if ($this->model && method_exists($this->model, 'setValidationAttributeName')) {
-            $this->model->setValidationAttributeName($attrName, $field->label);
-        }
-
-        /*
          * Check model if field is required
          */
         if ($field->required === null && $this->model && method_exists($this->model, 'isAttributeRequired')) {
-            // Check nested fields
-            if ($this->isNested) {
-                // Get the current attribute level
-                $nameArray = HtmlHelper::nameToArray($this->arrayName);
-                unset($nameArray[0]);
-
-                // Convert any numeric indexes to wildcards
-                foreach ($nameArray as $i => $value) {
-                    if (preg_match('/^[0-9]*$/', $value)) {
-                        $nameArray[$i] = '*';
-                    }
-                }
-
-                // Recombine names for full attribute name in rules array
-                $attrName = implode('.', $nameArray) . ".{$attrName}";
-            }
-
-            $field->required = $this->model->isAttributeRequired($attrName);
+            $fieldName = implode('.', HtmlHelper::nameToArray($field->fieldName));
+            $field->required = $this->model->isAttributeRequired($fieldName);
         }
 
         /*
@@ -874,7 +850,7 @@ class Form extends WidgetBase
              * Defer the execution of option data collection
              */
             $field->options(function () use ($field, $config) {
-                $fieldOptions = $config['options'] ?? null;
+                $fieldOptions = isset($config['options']) ? $config['options'] : null;
                 $fieldOptions = $this->getOptionsFromModel($field, $fieldOptions);
                 return $fieldOptions;
             });
@@ -1107,7 +1083,8 @@ class Form extends WidgetBase
         }
 
         if ($field->type === 'widget') {
-            return $this->makeFormFieldWidget($field)->showLabels;
+            $widget = $this->makeFormFieldWidget($field);
+            return $widget->showLabels;
         }
 
         return true;
@@ -1343,9 +1320,9 @@ class Form extends WidgetBase
             $key = array_shift($parts);
             if (isset($array[$key])) {
                 return $array[$key];
+            } else {
+                return $default;
             }
-
-            return $default;
         }
 
         foreach ($parts as $segment) {

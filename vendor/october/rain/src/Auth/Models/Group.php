@@ -1,5 +1,6 @@
 <?php namespace October\Rain\Auth\Models;
 
+use InvalidArgumentException;
 use October\Rain\Database\Model;
 
 /**

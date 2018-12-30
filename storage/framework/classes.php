@@ -420,4 +420,9 @@
   'anandpatel\\wysiwygeditors\\Plugin' => 'plugins/anandpatel/wysiwygeditors/Plugin.php',
   'AnandPatel\\WysiwygEditors\\Models\\Settings' => 'plugins/anandpatel/wysiwygeditors/models/Settings.php',
   'AnandPatel\\WysiwygEditors\\FormWidgets\\Editor' => 'plugins/anandpatel/wysiwygeditors/formwidgets/Editor.php',
+  'Cms\\Components\\UnknownComponent' => 'modules/cms/components/UnknownComponent.php',
+  'rainlab\\editable\\Plugin' => 'plugins/rainlab/editable/Plugin.php',
+  'RainLab\\Editable\\Components\\Editable' => 'plugins/rainlab/editable/components/Editable.php',
+  'cheerfullab\\blogeditable\\Plugin' => 'plugins/cheerfullab/blogeditable/Plugin.php',
+  'CheerfulLab\\BlogEditable\\Components\\Editable' => 'plugins/cheerfullab/blogeditable/components/Editable.php',
 );

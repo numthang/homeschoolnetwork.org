@@ -131,7 +131,9 @@ class BrandSetting extends Model
             self::get('custom_css')
         );
 
-        return $parser->getCss();
+        $css = $parser->getCss();
+
+        return $css;
     }
 
     //

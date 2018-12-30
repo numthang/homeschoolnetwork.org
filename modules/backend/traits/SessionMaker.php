@@ -2,6 +2,7 @@
 
 use Str;
 use Session;
+use SystemException;
 
 /**
  * Session Maker Trait
@@ -54,7 +55,7 @@ trait SessionMaker
             return $currentStore;
         }
 
-        return $currentStore[$key] ?? $default;
+        return isset($currentStore[$key]) ? $currentStore[$key] : $default;
     }
 
     /**

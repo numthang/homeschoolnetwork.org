@@ -5,10 +5,10 @@ use Str;
 use Lang;
 use Flash;
 use Event;
+use Input;
 use Redirect;
 use Backend;
 use Backend\Classes\ControllerBehavior;
-use October\Rain\Html\Helper as HtmlHelper;
 use October\Rain\Router\Helper as RouterHelper;
 use ApplicationException;
 use Exception;
@@ -436,7 +436,8 @@ class FormController extends ControllerBehavior
     protected function createModel()
     {
         $class = $this->config->modelClass;
-        return new $class;
+        $model = new $class;
+        return $model;
     }
 
     /**
@@ -471,7 +472,7 @@ class FormController extends ControllerBehavior
             $redirect = Redirect::to($redirectUrl);
         } else {
             // Process relative redirects
-            $redirect = $redirectUrl ? Backend::redirect($redirectUrl) : null;
+            $redirect = ($redirectUrl) ? Backend::redirect($redirectUrl) : null;
         }
 
         return $redirect;

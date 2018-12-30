@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="<?= App::getLocale() ?>">
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <title><?= Lang::get('cms::lang.page.custom_error.label') ?></title>

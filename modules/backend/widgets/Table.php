@@ -34,12 +34,12 @@ class Table extends WidgetBase
     /**
      * @var Backend\Widgets\Table\DatasourceBase
      */
-    protected $dataSource;
+    protected $dataSource = null;
 
     /**
      * @var string Field name used for request data.
      */
-    protected $fieldName;
+    protected $fieldName = null;
 
     /**
      * @var string
