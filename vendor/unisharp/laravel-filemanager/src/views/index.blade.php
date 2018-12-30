@@ -24,7 +24,6 @@
   {{-- Use the line below instead of the above if you need to cache the css. --}}
   {{-- <link rel="stylesheet" href="{{ asset('/vendor/laravel-filemanager/css/lfm.css') }}"> --}}
   
-  
   <!--<link rel="stylesheet" href="{{ asset('vendor/laravel-filemanager/css/mfb.css') }}">-->
   <style>{!! \File::get(base_path('vendor/laravel-filemanager/css/mfb.css')) !!}</style>
   
