@@ -1,6 +1,7 @@
 /storage/cms/cache
 /storage/framework/cache
 /storage/framework/sessions
+/storage/cms/twig/
 composer.phar
 .DS_Store
 .idea
