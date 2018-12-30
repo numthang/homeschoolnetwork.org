@@ -1,4 +1,4 @@
-1546183100a:1:{s:21:"login/edit-course.htm";a:13:{s:8:"fileName";s:21:"login/edit-course.htm";s:7:"content";s:1876:"title = "Edit course"
+1546184875a:1:{s:21:"login/edit-course.htm";a:13:{s:8:"fileName";s:21:"login/edit-course.htm";s:7:"content";s:1876:"title = "Edit course"
 url = "/login/edit/course/:id"
 layout = "default"
 is_hidden = 0
