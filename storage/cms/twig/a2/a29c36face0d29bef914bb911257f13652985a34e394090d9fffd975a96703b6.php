@@ -142,6 +142,12 @@ class __TwigTemplate_c10c62e848ee2800b74b2d5cdae0d915aaf9ca195908b6929aa1da82087
         echo $this->env->getExtension('Cms\Twig\Extension')->displayBlock('scripts');
         // line 89
         echo "
+        <script src=\"";
+        // line 90
+        echo $this->extensions['Cms\Twig\Extension']->themeFilter(array(0 => "assets/javascript/pages/ui-elements.js"));
+        // line 92
+        echo "\"></script>
+
     </body>
 </html>";
     }
@@ -158,7 +164,7 @@ class __TwigTemplate_c10c62e848ee2800b74b2d5cdae0d915aaf9ca195908b6929aa1da82087
 
     public function getDebugInfo()
     {
-        return array (  144 => 89,  140 => 88,  125 => 87,  120 => 85,  116 => 83,  114 => 49,  109 => 46,  105 => 45,  99 => 41,  95 => 40,  89 => 36,  87 => 35,  81 => 31,  77 => 30,  67 => 25,  62 => 22,  60 => 19,  54 => 15,  51 => 13,  48 => 12,  44 => 11,  37 => 7,  33 => 6,  29 => 5,  23 => 1,);
+        return array (  149 => 92,  147 => 90,  144 => 89,  140 => 88,  125 => 87,  120 => 85,  116 => 83,  114 => 49,  109 => 46,  105 => 45,  99 => 41,  95 => 40,  89 => 36,  87 => 35,  81 => 31,  77 => 30,  67 => 25,  62 => 22,  60 => 19,  54 => 15,  51 => 13,  48 => 12,  44 => 11,  37 => 7,  33 => 6,  29 => 5,  23 => 1,);
     }
 
     public function getSourceContext()
@@ -251,6 +257,10 @@ class __TwigTemplate_c10c62e848ee2800b74b2d5cdae0d915aaf9ca195908b6929aa1da82087
         </script>
         {% framework extras %}
         {% scripts %}
+
+        <script src=\"{{ [
+            'assets/javascript/pages/ui-elements.js',
+        ]|theme }}\"></script>
 
     </body>
 </html>", "/home/vsites/homeschool.in.th/themes/responsiv-flat/layouts/default.htm", "");

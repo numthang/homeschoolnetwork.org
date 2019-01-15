@@ -26,7 +26,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
   <div class="board-inner">
     <div class="accordion">
       <dl>
-        <dt><a class="accordionTitle" href="#">1. ขอมูลพื้นฐานของครอบครัว</a></dt>
+        <dt><a class="accordionTitle" href="#">1. ข้อมูลพื้นฐานของครอบครัว</a></dt>
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
             <div class="col-sm-6"> 
@@ -98,15 +98,15 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
             </div>
             <div class="col-sm-12"> 
               <div class="form-group">
-                <label>ที่อยู</label>
+                <label>ที่อยู่</label>
                 <input type="text" class="form-control" name="mother_addr" placeholder="Enter mother's address" value="{{ this.page.mother_addr }}">
               </div>
             </div>
           </div>
         </dd>
-        <dt><a href="#" class="accordionTitle">2. ขอมูลพื้นฐานของผูเรียน</a></dt>
+        <dt><a href="#" class="accordionTitle">2. ข้อมูลพื้นฐานของผู้เรียน</a></dt>
         <dd class="accordionItem accordionItemCollapsed">
-          2.1 ระบุขอมูลของผูเรียน
+          2.1 ระบุข้อมูลของผู้เรียน
           <div class="row">
             <div class="col-sm-6"> 
               <div class="form-group">
@@ -116,7 +116,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
             </div>
             <div class="col-sm-6"> 
               <div class="form-group">
-                <label>วัน เดือน ปเกิด</label>
+                <label>วัน เดือน ปี เกิด</label>
                 <div class="input-group date" data-provide="datepicker">
                   <input type="text" class="form-control" name="birth_date" value="{{ this.page.birth_date }}">
                     <div class="input-group-addon">
@@ -127,13 +127,13 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
             </div>
             <div class="col-sm-12"> 
               <div class="form-group">
-                <label>ประวัติการศึกษา (กรณีเรียนในระบบโรงเรียนมากอน)</label>
+                <label>ประวัติการศึกษา (กรณีเรียนในระบบโรงเรียนมาก่อน)</label>
                 <textarea class="form-control" name="school_exp" placeholder="Enter school's experience" rows="5">{{ record.school_exp }}</textarea>
               </div>
             </div>
           </div>
-          2.2 พัฒนาการของผูเรียน (ระบุการพัฒนาการของผูเรียน/ความสามารถพิเศษ/ความ
-    ตองการพิเศษ)
+          2.2 พัฒนาการของผู้เรียน (ระบุการพัฒนาการของผู้เรียน/ความสามารถพิเศษ/ความ
+    ต้องการพิเศษ)
           <div class="row">
             <div class="col-sm-12"> 
               <div class="form-group">
@@ -146,18 +146,18 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
             <div class="col-sm-12"> 
-              <div class="form-group">
-                <textarea class="form-control" name="class_reason" placeholder="ระดับชั้น เช่น ประถมศึกษา (ชั้น ป.1 – ป.3) เหตุผลในการจัดการศึกษาของครอบครัว" rows="20">{{ record.class_reason }}</textarea>
+              <div class="form-group" style="padding:2px;">
+                <textarea class="form-control my-editor" name="class_reason" placeholder="ระดับชั้น เช่น ประถมศึกษา (ชั้น ป.1 – ป.3) เหตุผลในการจัดการศึกษาของครอบครัว" rows="20">{{ record.class_reason }}</textarea>
               </div>
             </div>
           </div>
         </dd>
-        <dt><a href="#" class="accordionTitle">4. จุดมุงหมายของการจัดการศึกษา</a></dt>
+        <dt><a href="#" class="accordionTitle">4. จุดมุ่งหมายของการจัดการศึกษา</a></dt>
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
-          <div class="col-sm-12"> 
-            <div class="form-group">
-              <textarea class="form-control" name="purpose" placeholder="ระบุความต้องการ เช่น ต้องการพึ่งตนเอง ลดค่าใช้จ่าย เป็นต้น" rows="20">{{ record.purpose }}</textarea>
+          <div class="col-sm-12">  
+            <div class="form-group" style="padding:2px;">
+              <textarea class="form-control my-editor" name="purpose" placeholder="ระบุความต้องการ เช่น ต้องการพึ่งตนเอง ลดค่าใช้จ่าย เป็นต้น" rows="20">{{ record.purpose }}</textarea>
             </div>
           </div>
         </div>
@@ -166,8 +166,8 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
             <div class="col-sm-12"> 
-              <div class="form-group">
-                <textarea class="form-control" name="format" placeholder="" rows="20">{% if record.edu_type is defined %} {{ record.format }} {% else %} 1. จัดการศึกษาแบบครอบครัวเดียว เนื่องจากไมสามารถรวมกิจกรรมกับกลุม บานเรียน หรือครอบครัวอื่น และมีความสนใจเฉพาะดานแตกตางกัน
+              <div class="form-group" style="padding:2px;">
+                <textarea class="form-control my-editor" name="format" placeholder="" rows="20">{% if record.edu_type is defined %} {{ record.format }} {% else %} 1. จัดการศึกษาแบบครอบครัวเดียว เนื่องจากไมสามารถรวมกิจกรรมกับกลุม บานเรียน หรือครอบครัวอื่น และมีความสนใจเฉพาะดานแตกตางกัน
     2. จัดการศึกษาแบบมีขอตกลงรวมกับโรงเรียนหรือหนวยงานอื่น โดยมีการเขาไปใชทรัพยากรในโรงเรียนหรือเขาไปทํากิจกรรมรวมกัน เนื่องจากตองการใหบุตรไดมีความรูประสบการณที่สามารถเชื่อมโยงเขาสูระบบโรงเรียน
     3. จัดการศึกษาแบบกลุมครอบครัวที่มีแนวคิดคลายๆ กัน เปนการจําลองสังคมเล็กๆ เชื่อวาการ เชื่อมโยงกับกลุมเปนการชวยเสริมพัฒนาการของบุตรได
     4. จัดการศึกษาแบบรวมศูนย จัดการแบบศูนยการเรียน เนื่องจากตองการใหบุตรมีสังคมพอแมทํางานนอกบานทั้งคูจึงมอบหมายใหผูที่เห็นวามีความเหมาะสมมาทําหนาที่จัดกระบวนการเรียนรู
@@ -176,12 +176,14 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
             </div>
           </div>
         </dd>
-        <dt><a href="#" class="accordionTitle">6. โครงสร้างเวลาเรียน  (Schedule)</a></dt>
+        <dt><a href="#" class="accordionTitle">6. โครงสร้างเวลาเรียน</a></dt>
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
             <div class="col-sm-12"> 
-              <div class="form-group">
-                <textarea class="form-control" name="schedule" placeholder="กลุ่มประสบการณ์ /กลุ่มสาระการเรียนรู้ (ตามตารางในข้อ 7)" rows="20">{% if record.schedule is defined %} {{ record.schedule }} {% else %} {% endif %}</textarea>
+              <div class="form-group" style="padding:2px;">
+              	<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+								<textarea class="form-control my-editor" name="schedule" placeholder="" rows="20">{% if record.schedule is defined %} {{ record.schedule }} {% else %} {{ this.page['default_6'] }} {% endif %}</textarea>
+                <!--<textarea class="form-control" name="schedule" placeholder="กลุ่มประสบการณ์ /กลุ่มสาระการเรียนรู้ (ตามตารางในข้อ 7)" rows="20">{% if record.schedule is defined %} {{ record.schedule }} {% else %} {% endif %}</textarea>-->
               </div>
             </div>
           </div>
@@ -190,8 +192,8 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
             <div class="col-sm-12"> 
-              <div class="form-group">
-                <textarea class="form-control" name="curriculum" placeholder="" rows="20">{{ record.curriculum }}</textarea>
+              <div class="form-group" style="padding:2px;">
+                <textarea class="form-control my-editor" name="curriculum" placeholder="" rows="20">{{ record.curriculum }}</textarea>
               </div>
             </div>
           </div>
@@ -200,8 +202,8 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
             <div class="col-sm-12"> 
-              <div class="form-group">
-                <textarea class="form-control" name="activity" placeholder="" rows="20">{{ record.activity }}</textarea>
+              <div class="form-group" style="padding:2px;">
+                <textarea class="form-control my-editor" name="activity" placeholder="" rows="20">{{ record.activity }}</textarea>
               </div>
             </div>
           </div>
@@ -210,8 +212,8 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
             <div class="col-sm-12"> 
-              <div class="form-group">
-                <textarea class="form-control" name="learning" placeholder="" rows="20">{{ record.learning }}</textarea>
+              <div class="form-group" style="padding:2px;">
+                <textarea class="form-control my-editor" name="learning" placeholder="" rows="20">{{ record.learning }}</textarea>
               </div>
             </div>
           </div>
@@ -220,8 +222,8 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
             <div class="col-sm-12"> 
-              <div class="form-group">
-                <textarea class="form-control" name="evaluate" placeholder="" rows="20">{{ record.evaluate }}</textarea>
+              <div class="form-group" style="padding:2px;">
+                <textarea class="form-control my-editor" name="evaluate" placeholder="" rows="20">{{ record.evaluate }}</textarea>
               </div>
             </div>
           </div>
@@ -230,8 +232,8 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
             <div class="col-sm-12"> 
-              <div class="form-group">
-                <textarea class="form-control" name="other" placeholder="" rows="20">{{ record.other }}</textarea>
+              <div class="form-group" style="padding:2px;">
+                <textarea class="form-control my-editor" name="other" placeholder="" rows="20">{{ record.other }}</textarea>
               </div>
             </div>
           </div>
@@ -239,109 +241,45 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
       </dl>
     </div>
     <script src="{{ ['assets/js/accordion.js']|theme }}"></script>
+		<script>
+			var editor_config = {
+				path_absolute : "/",
+				selector: "textarea.my-editor",
+				plugins: [
+					"advlist autolink lists link image charmap print preview hr anchor pagebreak",
+					"searchreplace wordcount visualblocks visualchars code fullscreen",
+					"insertdatetime media nonbreaking save table contextmenu directionality",
+					"emoticons template paste textcolor colorpicker textpattern"
+				],
+				toolbar: "fontsizeselect forecolor backcolor | bold italic underline | alignleft aligncenter alignright | bullist numlist | outdent indent | superscript",
+				templates: [
+					{title: 'Some title 1', description: 'Some desc 1', content: 'My content'},
+					{title: 'Some title 2', description: 'Some desc 2', url: 'development.html'}
+				],
+				relative_urls: false,
+				file_browser_callback : function(field_name, url, type, win) {
+					var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+					var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
 
-    <!--<ul class="nav nav-tabs" id="myTab">
-      <div class="liner"></div>
-      <li class="active">
-        <a href="#first" data-toggle="tab" title="ขอมูลพื้นฐานของครอบครัว">
-        <span class="round-tabs one">
-          1 
-        </span> </a>
-      </li>
-      <li><a href="#second" data-toggle="tab" title="ขอมูลพื้นฐานของผูเรียน">
-        <span class="round-tabs two">
-          2
-        </span> </a>
-      </li>
-      <li><a href="#third" data-toggle="tab" title="ระดับที่จัดการศึกษา / เหตุผลในการจัดการศึกษาของครอบครัว
-">
-        <span class="round-tabs three">
-          3
-        </span> </a>
-      </li>
-      <li><a href="#forth" data-toggle="tab" title="จุดมุงหมายของการจัดการศึกษา">
-        <span class="round-tabs four">
-          4
-        </span> </a>
-      </li>
-      <li><a href="#fifth" data-toggle="tab" title="รูปแบบการจัดการศึกษา">
-        <span class="round-tabs five">
-          5
-        </span> </a>
-      </li>
-      <li><a href="#sixth" data-toggle="tab" title="โครงสร้างเวลาเรียน">
-        <span class="round-tabs six">
-          6
-        </span> </a>
-      </li>
-      <li><a href="#seventh" data-toggle="tab" title="การจัดกลุ่มสาระการเรียนรู้ /กลุ่มประสบการณ์">
-        <span class="round-tabs seven">
-          7
-        </span> </a>
-      </li>
-      <li><a href="#eighth" data-toggle="tab" title="การจัดกิจกรรมพัฒนาผู้เรียน">
-        <span class="round-tabs eight">
-          8
-        </span> </a>
-      </li>
-      <li><a href="#ninth" data-toggle="tab" title="การจัดกระบวนการเรียนรู้">
-        <span class="round-tabs nine">
-          9
-        </span> </a>
-      </li>
-      <li><a href="#tenth" data-toggle="tab" title="การวัดและประเมินผลการเรียนรู้">
-        <span class="round-tabs ten">
-          10
-        </span> </a>
-      </li>
-      <li><a href="#eleventh" data-toggle="tab" title="อื่นๆ">
-        <span class="round-tabs eleven">
-          11
-        </span> </a>
-      </li>
-    </ul>
-  </div>
-  <div class="tab-content">
-    <div class="tab-pane fade in active" id="first">
-      
-    </div>
-    <div class="tab-pane fade" id="second">
-      
-    </div>
-    <div class="tab-pane fade" id="third">
-      
-    </div>
-    <div class="tab-pane fade" id="forth">
-     
-    </div>
-    <div class="tab-pane fade" id="fifth">
-      <h4>5. รูปแบบการจัดการศึกษา </h4>
-      
-    </div>
-    <div class="tab-pane fade" id="sixth">
-      <h4>6. โครงสร้างเวลาเรียน  (Schedule)</h4>
-      
-    </div>
-    <div class="tab-pane fade" id="seventh">
-      <h4>7. การจัดกลุ่มสาระการเรียนรู้ /กลุ่มประสบการณ์</h4>
-      
-    </div>
-    <div class="tab-pane fade" id="eighth">
-      <h4></h4>
-      
-    </div>
-    <div class="tab-pane fade" id="ninth">
-      <h4>9. การจัดกระบวนการเรียนรู้</h4>
-      
-    </div>
-    <div class="tab-pane fade" id="tenth">
-      <h4>10. การวัดและประเมินผลการเรียนรู้</h4>
-      
-    </div>
-    <div class="tab-pane fade" id="eleventh">
-      <h4>11. อื่นๆ (ครอบครัวสามารถเพิ่มเติมรายละเอียดที่เห็นว่าเป็นประโยชน์ต่อผู้เรียนได้)</h4>
-      
-    </div>-->
+					var cmsURL = editor_config.path_absolute + 'laravel-filemanager?field_name=' + field_name;
+					if (type == 'image') {
+						cmsURL = cmsURL + "&type=Images";
+					} else {
+						cmsURL = cmsURL + "&type=Files";
+					}
+
+					tinyMCE.activeEditor.windowManager.open({
+						file : cmsURL,
+						title : 'Filemanager',
+						width : x * 0.8,
+						height : y * 0.8,
+						resizable : "yes",
+						close_previous : "no"
+					});
+				}
+			};
+			tinymce.init(editor_config);
+		</script>
     <div class="clearfix"></div>
   </div>
   <div class="row">

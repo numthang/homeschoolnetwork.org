@@ -1,4 +1,4 @@
-1546184875a:1:{s:8:"home.htm";a:12:{s:8:"fileName";s:8:"home.htm";s:7:"content";s:4595:"title = "Home"
+1547543899a:1:{s:8:"home.htm";a:12:{s:8:"fileName";s:8:"home.htm";s:7:"content";s:4597:"title = "Home"
 url = "/"
 layout = "default"
 is_hidden = 0
@@ -17,7 +17,7 @@ forceSecure = 0
         <div class="row">
             <div class="col-sm-4">
                 <h3>เครือข่ายบ้านเรียน</h3>
-                Homeschool Network หรือ "เครือข่ายบ้านเรียน" เข้าใจการทำโฮมสคูลในประเทศไทยจบที่นี่ทีเดียว 
+                Homeschool Network หรือ "เครือข่ายบ้านเรียน" เข้าใจการทำโฮมสคูลในประเทศไทยจบที่นี่ที่เดียว
                 <div class="signup-form">
                   {% if not user %}
                   <form data-request="onSignin">
@@ -116,12 +116,12 @@ forceSecure = 0
 
 </div>
 
-<br />";s:5:"mtime";i:1545836325;s:6:"markup";s:4443:"<section class="home-title">
+<br />";s:5:"mtime";i:1547537239;s:6:"markup";s:4445:"<section class="home-title">
     <div class="container">
         <div class="row">
             <div class="col-sm-4">
                 <h3>เครือข่ายบ้านเรียน</h3>
-                Homeschool Network หรือ "เครือข่ายบ้านเรียน" เข้าใจการทำโฮมสคูลในประเทศไทยจบที่นี่ทีเดียว 
+                Homeschool Network หรือ "เครือข่ายบ้านเรียน" เข้าใจการทำโฮมสคูลในประเทศไทยจบที่นี่ที่เดียว
                 <div class="signup-form">
                   {% if not user %}
                   <form data-request="onSignin">

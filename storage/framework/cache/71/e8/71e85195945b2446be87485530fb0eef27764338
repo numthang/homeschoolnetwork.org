@@ -1,4 +1,4 @@
-1546184875a:1:{s:17:"login/profile.htm";a:14:{s:8:"fileName";s:17:"login/profile.htm";s:7:"content";s:929:"title = "Login Profile"
+1547543899a:1:{s:17:"login/profile.htm";a:14:{s:8:"fileName";s:17:"login/profile.htm";s:7:"content";s:858:"title = "Login Profile"
 url = "/login/profile"
 layout = "default"
 is_hidden = 0
@@ -27,10 +27,7 @@ formCode = "default-form"
 </section>
 <div class="container">
     <div class="row">
-        <div class="col-md-4">
-          {% partial 'login/sidebar' %}
-        </div>
-        <div class="col-md-8">
+        <div class="col-md-12">
           {% flash %}
             <p data-control="flash-message" data-interval="5" class="{{ type == 'error' ? 'danger' : type }}">{{ message }}<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></p>
           {% endflash %}
@@ -38,18 +35,14 @@ formCode = "default-form"
         </div>
     </div>
 </div>
-<br>
-";s:5:"mtime";i:1545830051;s:6:"markup";s:654:"<section id="layout-title">
+<br>";s:5:"mtime";i:1546242154;s:6:"markup";s:584:"<section id="layout-title">
     <div class="container">
         <h3>{{ 'Hello'|_ }}, {{ user.name }} {{ user.surname }}</h3>
     </div>
 </section>
 <div class="container">
     <div class="row">
-        <div class="col-md-4">
-          {% partial 'login/sidebar' %}
-        </div>
-        <div class="col-md-8">
+        <div class="col-md-12">
           {% flash %}
             <p data-control="flash-message" data-interval="5" class="{{ type == 'error' ? 'danger' : type }}">{{ message }}<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></p>
           {% endflash %}

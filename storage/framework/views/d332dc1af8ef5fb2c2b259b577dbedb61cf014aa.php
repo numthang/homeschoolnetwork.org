@@ -23,8 +23,7 @@
   
   
   
-  
-  
+
   <!--<link rel="stylesheet" href="<?php echo e(asset('vendor/laravel-filemanager/css/mfb.css')); ?>">-->
   <style><?php echo \File::get(base_path('vendor/laravel-filemanager/css/mfb.css')); ?></style>
   

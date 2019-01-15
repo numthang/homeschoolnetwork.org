@@ -33,30 +33,27 @@ class __TwigTemplate_fdc65ad5be7e835cbee3c81255f35744a7f5a0757c83af4b484a7caa329
 
 <div class=\"container\">
     <div class=\"row\">
-        <div class=\"col-md-3\">
+        <div class=\"col-md-12\">
           ";
         // line 10
-        $context['__cms_partial_params'] = [];
-        echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("login/sidebar"        , $context['__cms_partial_params']        , true        );
-        unset($context['__cms_partial_params']);
+        $context['__cms_component_params'] = [];
+        echo $this->env->getExtension('Cms\Twig\Extension')->componentFunction("courses"        , $context['__cms_component_params']        );
+        unset($context['__cms_component_params']);
         // line 11
-        echo "        </div>
-        <div class=\"col-md-9\">
-          ";
-        // line 13
+        echo "          ";
         $context["record"] = twig_get_attribute($this->env, $this->source, ($context["builderDetails"] ?? null), "record", array());
-        // line 14
+        // line 12
         echo "          ";
         $context["displayColumn"] = twig_get_attribute($this->env, $this->source, ($context["builderDetails"] ?? null), "displayColumn", array());
-        // line 15
+        // line 13
         echo "          ";
         $context["notFoundMessage"] = twig_get_attribute($this->env, $this->source, ($context["builderDetails"] ?? null), "notFoundMessage", array());
-        // line 16
+        // line 14
         echo "          ";
         $context['__cms_component_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->componentFunction("courseform"        , $context['__cms_component_params']        );
         unset($context['__cms_component_params']);
-        // line 17
+        // line 15
         echo "        </div>
     </div>
 </div>
@@ -75,7 +72,7 @@ class __TwigTemplate_fdc65ad5be7e835cbee3c81255f35744a7f5a0757c83af4b484a7caa329
 
     public function getDebugInfo()
     {
-        return array (  60 => 17,  55 => 16,  52 => 15,  49 => 14,  47 => 13,  43 => 11,  39 => 10,  27 => 3,  23 => 1,);
+        return array (  57 => 15,  52 => 14,  49 => 13,  46 => 12,  43 => 11,  39 => 10,  27 => 3,  23 => 1,);
     }
 
     public function getSourceContext()
@@ -88,10 +85,8 @@ class __TwigTemplate_fdc65ad5be7e835cbee3c81255f35744a7f5a0757c83af4b484a7caa329
 
 <div class=\"container\">
     <div class=\"row\">
-        <div class=\"col-md-3\">
-          {% partial 'login/sidebar' %}
-        </div>
-        <div class=\"col-md-9\">
+        <div class=\"col-md-12\">
+          {% component 'courses' %}
           {% set record = builderDetails.record %}
           {% set displayColumn = builderDetails.displayColumn %}
           {% set notFoundMessage = builderDetails.notFoundMessage %}

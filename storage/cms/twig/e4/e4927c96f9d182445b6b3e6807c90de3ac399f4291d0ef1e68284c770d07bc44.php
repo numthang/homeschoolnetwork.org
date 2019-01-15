@@ -83,7 +83,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
   <div class=\"board-inner\">
     <div class=\"accordion\">
       <dl>
-        <dt><a class=\"accordionTitle\" href=\"#\">1. ขอมูลพื้นฐานของครอบครัว</a></dt>
+        <dt><a class=\"accordionTitle\" href=\"#\">1. ข้อมูลพื้นฐานของครอบครัว</a></dt>
         <dd class=\"accordionItem accordionItemCollapsed\">
           <div class=\"row\">
             <div class=\"col-sm-6\"> 
@@ -188,7 +188,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
             </div>
             <div class=\"col-sm-12\"> 
               <div class=\"form-group\">
-                <label>ที่อยู</label>
+                <label>ที่อยู่</label>
                 <input type=\"text\" class=\"form-control\" name=\"mother_addr\" placeholder=\"Enter mother's address\" value=\"";
         // line 102
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", array()), "mother_addr", array()), "html", null, true);
@@ -197,9 +197,9 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
             </div>
           </div>
         </dd>
-        <dt><a href=\"#\" class=\"accordionTitle\">2. ขอมูลพื้นฐานของผูเรียน</a></dt>
+        <dt><a href=\"#\" class=\"accordionTitle\">2. ข้อมูลพื้นฐานของผู้เรียน</a></dt>
         <dd class=\"accordionItem accordionItemCollapsed\">
-          2.1 ระบุขอมูลของผูเรียน
+          2.1 ระบุข้อมูลของผู้เรียน
           <div class=\"row\">
             <div class=\"col-sm-6\"> 
               <div class=\"form-group\">
@@ -212,7 +212,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
             </div>
             <div class=\"col-sm-6\"> 
               <div class=\"form-group\">
-                <label>วัน เดือน ปเกิด</label>
+                <label>วัน เดือน ปี เกิด</label>
                 <div class=\"input-group date\" data-provide=\"datepicker\">
                   <input type=\"text\" class=\"form-control\" name=\"birth_date\" value=\"";
         // line 121
@@ -226,7 +226,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
             </div>
             <div class=\"col-sm-12\"> 
               <div class=\"form-group\">
-                <label>ประวัติการศึกษา (กรณีเรียนในระบบโรงเรียนมากอน)</label>
+                <label>ประวัติการศึกษา (กรณีเรียนในระบบโรงเรียนมาก่อน)</label>
                 <textarea class=\"form-control\" name=\"school_exp\" placeholder=\"Enter school's experience\" rows=\"5\">";
         // line 131
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "school_exp", array()), "html", null, true);
@@ -234,8 +234,8 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
               </div>
             </div>
           </div>
-          2.2 พัฒนาการของผูเรียน (ระบุการพัฒนาการของผูเรียน/ความสามารถพิเศษ/ความ
-    ตองการพิเศษ)
+          2.2 พัฒนาการของผู้เรียน (ระบุการพัฒนาการของผู้เรียน/ความสามารถพิเศษ/ความ
+    ต้องการพิเศษ)
           <div class=\"row\">
             <div class=\"col-sm-12\"> 
               <div class=\"form-group\">
@@ -251,8 +251,8 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
         <dd class=\"accordionItem accordionItemCollapsed\">
           <div class=\"row\">
             <div class=\"col-sm-12\"> 
-              <div class=\"form-group\">
-                <textarea class=\"form-control\" name=\"class_reason\" placeholder=\"ระดับชั้น เช่น ประถมศึกษา (ชั้น ป.1 – ป.3) เหตุผลในการจัดการศึกษาของครอบครัว\" rows=\"20\">";
+              <div class=\"form-group\" style=\"padding:2px;\">
+                <textarea class=\"form-control my-editor\" name=\"class_reason\" placeholder=\"ระดับชั้น เช่น ประถมศึกษา (ชั้น ป.1 – ป.3) เหตุผลในการจัดการศึกษาของครอบครัว\" rows=\"20\">";
         // line 150
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "class_reason", array()), "html", null, true);
         echo "</textarea>
@@ -260,12 +260,12 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
             </div>
           </div>
         </dd>
-        <dt><a href=\"#\" class=\"accordionTitle\">4. จุดมุงหมายของการจัดการศึกษา</a></dt>
+        <dt><a href=\"#\" class=\"accordionTitle\">4. จุดมุ่งหมายของการจัดการศึกษา</a></dt>
         <dd class=\"accordionItem accordionItemCollapsed\">
           <div class=\"row\">
-          <div class=\"col-sm-12\"> 
-            <div class=\"form-group\">
-              <textarea class=\"form-control\" name=\"purpose\" placeholder=\"ระบุความต้องการ เช่น ต้องการพึ่งตนเอง ลดค่าใช้จ่าย เป็นต้น\" rows=\"20\">";
+          <div class=\"col-sm-12\">  
+            <div class=\"form-group\" style=\"padding:2px;\">
+              <textarea class=\"form-control my-editor\" name=\"purpose\" placeholder=\"ระบุความต้องการ เช่น ต้องการพึ่งตนเอง ลดค่าใช้จ่าย เป็นต้น\" rows=\"20\">";
         // line 160
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "purpose", array()), "html", null, true);
         echo "</textarea>
@@ -277,8 +277,8 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
         <dd class=\"accordionItem accordionItemCollapsed\">
           <div class=\"row\">
             <div class=\"col-sm-12\"> 
-              <div class=\"form-group\">
-                <textarea class=\"form-control\" name=\"format\" placeholder=\"\" rows=\"20\">";
+              <div class=\"form-group\" style=\"padding:2px;\">
+                <textarea class=\"form-control my-editor\" name=\"format\" placeholder=\"\" rows=\"20\">";
         // line 170
         if (twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "edu_type", array(), "any", true, true)) {
             echo " ";
@@ -297,13 +297,26 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
             </div>
           </div>
         </dd>
-        <dt><a href=\"#\" class=\"accordionTitle\">6. โครงสร้างเวลาเรียน  (Schedule)</a></dt>
+        <dt><a href=\"#\" class=\"accordionTitle\">6. โครงสร้างเวลาเรียน</a></dt>
         <dd class=\"accordionItem accordionItemCollapsed\">
           <div class=\"row\">
             <div class=\"col-sm-12\"> 
-              <div class=\"form-group\">
-                <textarea class=\"form-control\" name=\"schedule\" placeholder=\"กลุ่มประสบการณ์ /กลุ่มสาระการเรียนรู้ (ตามตารางในข้อ 7)\" rows=\"20\">";
-        // line 184
+              <div class=\"form-group\" style=\"padding:2px;\">
+              \t<script src=\"//cdn.tinymce.com/4/tinymce.min.js\"></script>
+\t\t\t\t\t\t\t\t<textarea class=\"form-control my-editor\" name=\"schedule\" placeholder=\"\" rows=\"20\">";
+        // line 185
+        if (twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "schedule", array(), "any", true, true)) {
+            echo " ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "schedule", array()), "html", null, true);
+            echo " ";
+        } else {
+            echo " ";
+            echo twig_escape_filter($this->env, (($__internal_7cd7461123377b8c9c1b6a01f46c7bbd94bd12e59266005df5e93029ddbc0ec5 = twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", array())) && is_array($__internal_7cd7461123377b8c9c1b6a01f46c7bbd94bd12e59266005df5e93029ddbc0ec5) || $__internal_7cd7461123377b8c9c1b6a01f46c7bbd94bd12e59266005df5e93029ddbc0ec5 instanceof ArrayAccess ? ($__internal_7cd7461123377b8c9c1b6a01f46c7bbd94bd12e59266005df5e93029ddbc0ec5["default_6"] ?? null) : null), "html", null, true);
+            echo " ";
+        }
+        echo "</textarea>
+                <!--<textarea class=\"form-control\" name=\"schedule\" placeholder=\"กลุ่มประสบการณ์ /กลุ่มสาระการเรียนรู้ (ตามตารางในข้อ 7)\" rows=\"20\">";
+        // line 186
         if (twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "schedule", array(), "any", true, true)) {
             echo " ";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "schedule", array()), "html", null, true);
@@ -311,7 +324,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
         } else {
             echo " ";
         }
-        echo "</textarea>
+        echo "</textarea>-->
               </div>
             </div>
           </div>
@@ -320,9 +333,9 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
         <dd class=\"accordionItem accordionItemCollapsed\">
           <div class=\"row\">
             <div class=\"col-sm-12\"> 
-              <div class=\"form-group\">
-                <textarea class=\"form-control\" name=\"curriculum\" placeholder=\"\" rows=\"20\">";
-        // line 194
+              <div class=\"form-group\" style=\"padding:2px;\">
+                <textarea class=\"form-control my-editor\" name=\"curriculum\" placeholder=\"\" rows=\"20\">";
+        // line 196
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "curriculum", array()), "html", null, true);
         echo "</textarea>
               </div>
@@ -333,9 +346,9 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
         <dd class=\"accordionItem accordionItemCollapsed\">
           <div class=\"row\">
             <div class=\"col-sm-12\"> 
-              <div class=\"form-group\">
-                <textarea class=\"form-control\" name=\"activity\" placeholder=\"\" rows=\"20\">";
-        // line 204
+              <div class=\"form-group\" style=\"padding:2px;\">
+                <textarea class=\"form-control my-editor\" name=\"activity\" placeholder=\"\" rows=\"20\">";
+        // line 206
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "activity", array()), "html", null, true);
         echo "</textarea>
               </div>
@@ -346,9 +359,9 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
         <dd class=\"accordionItem accordionItemCollapsed\">
           <div class=\"row\">
             <div class=\"col-sm-12\"> 
-              <div class=\"form-group\">
-                <textarea class=\"form-control\" name=\"learning\" placeholder=\"\" rows=\"20\">";
-        // line 214
+              <div class=\"form-group\" style=\"padding:2px;\">
+                <textarea class=\"form-control my-editor\" name=\"learning\" placeholder=\"\" rows=\"20\">";
+        // line 216
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "learning", array()), "html", null, true);
         echo "</textarea>
               </div>
@@ -359,9 +372,9 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
         <dd class=\"accordionItem accordionItemCollapsed\">
           <div class=\"row\">
             <div class=\"col-sm-12\"> 
-              <div class=\"form-group\">
-                <textarea class=\"form-control\" name=\"evaluate\" placeholder=\"\" rows=\"20\">";
-        // line 224
+              <div class=\"form-group\" style=\"padding:2px;\">
+                <textarea class=\"form-control my-editor\" name=\"evaluate\" placeholder=\"\" rows=\"20\">";
+        // line 226
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "evaluate", array()), "html", null, true);
         echo "</textarea>
               </div>
@@ -372,9 +385,9 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
         <dd class=\"accordionItem accordionItemCollapsed\">
           <div class=\"row\">
             <div class=\"col-sm-12\"> 
-              <div class=\"form-group\">
-                <textarea class=\"form-control\" name=\"other\" placeholder=\"\" rows=\"20\">";
-        // line 234
+              <div class=\"form-group\" style=\"padding:2px;\">
+                <textarea class=\"form-control my-editor\" name=\"other\" placeholder=\"\" rows=\"20\">";
+        // line 236
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "other", array()), "html", null, true);
         echo "</textarea>
               </div>
@@ -384,112 +397,48 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
       </dl>
     </div>
     <script src=\"";
-        // line 241
+        // line 243
         echo $this->extensions['Cms\Twig\Extension']->themeFilter(array(0 => "assets/js/accordion.js"));
         echo "\"></script>
+\t\t<script>
+\t\t\tvar editor_config = {
+\t\t\t\tpath_absolute : \"/\",
+\t\t\t\tselector: \"textarea.my-editor\",
+\t\t\t\tplugins: [
+\t\t\t\t\t\"advlist autolink lists link image charmap print preview hr anchor pagebreak\",
+\t\t\t\t\t\"searchreplace wordcount visualblocks visualchars code fullscreen\",
+\t\t\t\t\t\"insertdatetime media nonbreaking save table contextmenu directionality\",
+\t\t\t\t\t\"emoticons template paste textcolor colorpicker textpattern\"
+\t\t\t\t],
+\t\t\t\ttoolbar: \"fontsizeselect forecolor backcolor | bold italic underline | alignleft aligncenter alignright | bullist numlist | outdent indent | superscript\",
+\t\t\t\ttemplates: [
+\t\t\t\t\t{title: 'Some title 1', description: 'Some desc 1', content: 'My content'},
+\t\t\t\t\t{title: 'Some title 2', description: 'Some desc 2', url: 'development.html'}
+\t\t\t\t],
+\t\t\t\trelative_urls: false,
+\t\t\t\tfile_browser_callback : function(field_name, url, type, win) {
+\t\t\t\t\tvar x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+\t\t\t\t\tvar y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
 
-    <!--<ul class=\"nav nav-tabs\" id=\"myTab\">
-      <div class=\"liner\"></div>
-      <li class=\"active\">
-        <a href=\"#first\" data-toggle=\"tab\" title=\"ขอมูลพื้นฐานของครอบครัว\">
-        <span class=\"round-tabs one\">
-          1 
-        </span> </a>
-      </li>
-      <li><a href=\"#second\" data-toggle=\"tab\" title=\"ขอมูลพื้นฐานของผูเรียน\">
-        <span class=\"round-tabs two\">
-          2
-        </span> </a>
-      </li>
-      <li><a href=\"#third\" data-toggle=\"tab\" title=\"ระดับที่จัดการศึกษา / เหตุผลในการจัดการศึกษาของครอบครัว
-\">
-        <span class=\"round-tabs three\">
-          3
-        </span> </a>
-      </li>
-      <li><a href=\"#forth\" data-toggle=\"tab\" title=\"จุดมุงหมายของการจัดการศึกษา\">
-        <span class=\"round-tabs four\">
-          4
-        </span> </a>
-      </li>
-      <li><a href=\"#fifth\" data-toggle=\"tab\" title=\"รูปแบบการจัดการศึกษา\">
-        <span class=\"round-tabs five\">
-          5
-        </span> </a>
-      </li>
-      <li><a href=\"#sixth\" data-toggle=\"tab\" title=\"โครงสร้างเวลาเรียน\">
-        <span class=\"round-tabs six\">
-          6
-        </span> </a>
-      </li>
-      <li><a href=\"#seventh\" data-toggle=\"tab\" title=\"การจัดกลุ่มสาระการเรียนรู้ /กลุ่มประสบการณ์\">
-        <span class=\"round-tabs seven\">
-          7
-        </span> </a>
-      </li>
-      <li><a href=\"#eighth\" data-toggle=\"tab\" title=\"การจัดกิจกรรมพัฒนาผู้เรียน\">
-        <span class=\"round-tabs eight\">
-          8
-        </span> </a>
-      </li>
-      <li><a href=\"#ninth\" data-toggle=\"tab\" title=\"การจัดกระบวนการเรียนรู้\">
-        <span class=\"round-tabs nine\">
-          9
-        </span> </a>
-      </li>
-      <li><a href=\"#tenth\" data-toggle=\"tab\" title=\"การวัดและประเมินผลการเรียนรู้\">
-        <span class=\"round-tabs ten\">
-          10
-        </span> </a>
-      </li>
-      <li><a href=\"#eleventh\" data-toggle=\"tab\" title=\"อื่นๆ\">
-        <span class=\"round-tabs eleven\">
-          11
-        </span> </a>
-      </li>
-    </ul>
-  </div>
-  <div class=\"tab-content\">
-    <div class=\"tab-pane fade in active\" id=\"first\">
-      
-    </div>
-    <div class=\"tab-pane fade\" id=\"second\">
-      
-    </div>
-    <div class=\"tab-pane fade\" id=\"third\">
-      
-    </div>
-    <div class=\"tab-pane fade\" id=\"forth\">
-     
-    </div>
-    <div class=\"tab-pane fade\" id=\"fifth\">
-      <h4>5. รูปแบบการจัดการศึกษา </h4>
-      
-    </div>
-    <div class=\"tab-pane fade\" id=\"sixth\">
-      <h4>6. โครงสร้างเวลาเรียน  (Schedule)</h4>
-      
-    </div>
-    <div class=\"tab-pane fade\" id=\"seventh\">
-      <h4>7. การจัดกลุ่มสาระการเรียนรู้ /กลุ่มประสบการณ์</h4>
-      
-    </div>
-    <div class=\"tab-pane fade\" id=\"eighth\">
-      <h4></h4>
-      
-    </div>
-    <div class=\"tab-pane fade\" id=\"ninth\">
-      <h4>9. การจัดกระบวนการเรียนรู้</h4>
-      
-    </div>
-    <div class=\"tab-pane fade\" id=\"tenth\">
-      <h4>10. การวัดและประเมินผลการเรียนรู้</h4>
-      
-    </div>
-    <div class=\"tab-pane fade\" id=\"eleventh\">
-      <h4>11. อื่นๆ (ครอบครัวสามารถเพิ่มเติมรายละเอียดที่เห็นว่าเป็นประโยชน์ต่อผู้เรียนได้)</h4>
-      
-    </div>-->
+\t\t\t\t\tvar cmsURL = editor_config.path_absolute + 'laravel-filemanager?field_name=' + field_name;
+\t\t\t\t\tif (type == 'image') {
+\t\t\t\t\t\tcmsURL = cmsURL + \"&type=Images\";
+\t\t\t\t\t} else {
+\t\t\t\t\t\tcmsURL = cmsURL + \"&type=Files\";
+\t\t\t\t\t}
+
+\t\t\t\t\ttinyMCE.activeEditor.windowManager.open({
+\t\t\t\t\t\tfile : cmsURL,
+\t\t\t\t\t\ttitle : 'Filemanager',
+\t\t\t\t\t\twidth : x * 0.8,
+\t\t\t\t\t\theight : y * 0.8,
+\t\t\t\t\t\tresizable : \"yes\",
+\t\t\t\t\t\tclose_previous : \"no\"
+\t\t\t\t\t});
+\t\t\t\t}
+\t\t\t};
+\t\t\ttinymce.init(editor_config);
+\t\t</script>
     <div class=\"clearfix\"></div>
   </div>
   <div class=\"row\">
@@ -515,7 +464,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
 
     public function getDebugInfo()
     {
-        return array (  388 => 241,  378 => 234,  365 => 224,  352 => 214,  339 => 204,  326 => 194,  307 => 184,  295 => 174,  283 => 170,  270 => 160,  257 => 150,  244 => 140,  232 => 131,  219 => 121,  209 => 114,  194 => 102,  185 => 96,  176 => 90,  167 => 84,  158 => 78,  149 => 72,  139 => 65,  130 => 59,  121 => 53,  112 => 47,  103 => 41,  94 => 35,  80 => 23,  74 => 22,  70 => 21,  63 => 19,  58 => 16,  52 => 15,  46 => 14,  39 => 12,  33 => 9,  23 => 1,);
+        return array (  401 => 243,  391 => 236,  378 => 226,  365 => 216,  352 => 206,  339 => 196,  320 => 186,  308 => 185,  295 => 174,  283 => 170,  270 => 160,  257 => 150,  244 => 140,  232 => 131,  219 => 121,  209 => 114,  194 => 102,  185 => 96,  176 => 90,  167 => 84,  158 => 78,  149 => 72,  139 => 65,  130 => 59,  121 => 53,  112 => 47,  103 => 41,  94 => 35,  80 => 23,  74 => 22,  70 => 21,  63 => 19,  58 => 16,  52 => 15,  46 => 14,  39 => 12,  33 => 9,  23 => 1,);
     }
 
     public function getSourceContext()
@@ -548,7 +497,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
   <div class=\"board-inner\">
     <div class=\"accordion\">
       <dl>
-        <dt><a class=\"accordionTitle\" href=\"#\">1. ขอมูลพื้นฐานของครอบครัว</a></dt>
+        <dt><a class=\"accordionTitle\" href=\"#\">1. ข้อมูลพื้นฐานของครอบครัว</a></dt>
         <dd class=\"accordionItem accordionItemCollapsed\">
           <div class=\"row\">
             <div class=\"col-sm-6\"> 
@@ -620,15 +569,15 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
             </div>
             <div class=\"col-sm-12\"> 
               <div class=\"form-group\">
-                <label>ที่อยู</label>
+                <label>ที่อยู่</label>
                 <input type=\"text\" class=\"form-control\" name=\"mother_addr\" placeholder=\"Enter mother's address\" value=\"{{ this.page.mother_addr }}\">
               </div>
             </div>
           </div>
         </dd>
-        <dt><a href=\"#\" class=\"accordionTitle\">2. ขอมูลพื้นฐานของผูเรียน</a></dt>
+        <dt><a href=\"#\" class=\"accordionTitle\">2. ข้อมูลพื้นฐานของผู้เรียน</a></dt>
         <dd class=\"accordionItem accordionItemCollapsed\">
-          2.1 ระบุขอมูลของผูเรียน
+          2.1 ระบุข้อมูลของผู้เรียน
           <div class=\"row\">
             <div class=\"col-sm-6\"> 
               <div class=\"form-group\">
@@ -638,7 +587,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
             </div>
             <div class=\"col-sm-6\"> 
               <div class=\"form-group\">
-                <label>วัน เดือน ปเกิด</label>
+                <label>วัน เดือน ปี เกิด</label>
                 <div class=\"input-group date\" data-provide=\"datepicker\">
                   <input type=\"text\" class=\"form-control\" name=\"birth_date\" value=\"{{ this.page.birth_date }}\">
                     <div class=\"input-group-addon\">
@@ -649,13 +598,13 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
             </div>
             <div class=\"col-sm-12\"> 
               <div class=\"form-group\">
-                <label>ประวัติการศึกษา (กรณีเรียนในระบบโรงเรียนมากอน)</label>
+                <label>ประวัติการศึกษา (กรณีเรียนในระบบโรงเรียนมาก่อน)</label>
                 <textarea class=\"form-control\" name=\"school_exp\" placeholder=\"Enter school's experience\" rows=\"5\">{{ record.school_exp }}</textarea>
               </div>
             </div>
           </div>
-          2.2 พัฒนาการของผูเรียน (ระบุการพัฒนาการของผูเรียน/ความสามารถพิเศษ/ความ
-    ตองการพิเศษ)
+          2.2 พัฒนาการของผู้เรียน (ระบุการพัฒนาการของผู้เรียน/ความสามารถพิเศษ/ความ
+    ต้องการพิเศษ)
           <div class=\"row\">
             <div class=\"col-sm-12\"> 
               <div class=\"form-group\">
@@ -668,18 +617,18 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
         <dd class=\"accordionItem accordionItemCollapsed\">
           <div class=\"row\">
             <div class=\"col-sm-12\"> 
-              <div class=\"form-group\">
-                <textarea class=\"form-control\" name=\"class_reason\" placeholder=\"ระดับชั้น เช่น ประถมศึกษา (ชั้น ป.1 – ป.3) เหตุผลในการจัดการศึกษาของครอบครัว\" rows=\"20\">{{ record.class_reason }}</textarea>
+              <div class=\"form-group\" style=\"padding:2px;\">
+                <textarea class=\"form-control my-editor\" name=\"class_reason\" placeholder=\"ระดับชั้น เช่น ประถมศึกษา (ชั้น ป.1 – ป.3) เหตุผลในการจัดการศึกษาของครอบครัว\" rows=\"20\">{{ record.class_reason }}</textarea>
               </div>
             </div>
           </div>
         </dd>
-        <dt><a href=\"#\" class=\"accordionTitle\">4. จุดมุงหมายของการจัดการศึกษา</a></dt>
+        <dt><a href=\"#\" class=\"accordionTitle\">4. จุดมุ่งหมายของการจัดการศึกษา</a></dt>
         <dd class=\"accordionItem accordionItemCollapsed\">
           <div class=\"row\">
-          <div class=\"col-sm-12\"> 
-            <div class=\"form-group\">
-              <textarea class=\"form-control\" name=\"purpose\" placeholder=\"ระบุความต้องการ เช่น ต้องการพึ่งตนเอง ลดค่าใช้จ่าย เป็นต้น\" rows=\"20\">{{ record.purpose }}</textarea>
+          <div class=\"col-sm-12\">  
+            <div class=\"form-group\" style=\"padding:2px;\">
+              <textarea class=\"form-control my-editor\" name=\"purpose\" placeholder=\"ระบุความต้องการ เช่น ต้องการพึ่งตนเอง ลดค่าใช้จ่าย เป็นต้น\" rows=\"20\">{{ record.purpose }}</textarea>
             </div>
           </div>
         </div>
@@ -688,8 +637,8 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
         <dd class=\"accordionItem accordionItemCollapsed\">
           <div class=\"row\">
             <div class=\"col-sm-12\"> 
-              <div class=\"form-group\">
-                <textarea class=\"form-control\" name=\"format\" placeholder=\"\" rows=\"20\">{% if record.edu_type is defined %} {{ record.format }} {% else %} 1. จัดการศึกษาแบบครอบครัวเดียว เนื่องจากไมสามารถรวมกิจกรรมกับกลุม บานเรียน หรือครอบครัวอื่น และมีความสนใจเฉพาะดานแตกตางกัน
+              <div class=\"form-group\" style=\"padding:2px;\">
+                <textarea class=\"form-control my-editor\" name=\"format\" placeholder=\"\" rows=\"20\">{% if record.edu_type is defined %} {{ record.format }} {% else %} 1. จัดการศึกษาแบบครอบครัวเดียว เนื่องจากไมสามารถรวมกิจกรรมกับกลุม บานเรียน หรือครอบครัวอื่น และมีความสนใจเฉพาะดานแตกตางกัน
     2. จัดการศึกษาแบบมีขอตกลงรวมกับโรงเรียนหรือหนวยงานอื่น โดยมีการเขาไปใชทรัพยากรในโรงเรียนหรือเขาไปทํากิจกรรมรวมกัน เนื่องจากตองการใหบุตรไดมีความรูประสบการณที่สามารถเชื่อมโยงเขาสูระบบโรงเรียน
     3. จัดการศึกษาแบบกลุมครอบครัวที่มีแนวคิดคลายๆ กัน เปนการจําลองสังคมเล็กๆ เชื่อวาการ เชื่อมโยงกับกลุมเปนการชวยเสริมพัฒนาการของบุตรได
     4. จัดการศึกษาแบบรวมศูนย จัดการแบบศูนยการเรียน เนื่องจากตองการใหบุตรมีสังคมพอแมทํางานนอกบานทั้งคูจึงมอบหมายใหผูที่เห็นวามีความเหมาะสมมาทําหนาที่จัดกระบวนการเรียนรู
@@ -698,12 +647,14 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
             </div>
           </div>
         </dd>
-        <dt><a href=\"#\" class=\"accordionTitle\">6. โครงสร้างเวลาเรียน  (Schedule)</a></dt>
+        <dt><a href=\"#\" class=\"accordionTitle\">6. โครงสร้างเวลาเรียน</a></dt>
         <dd class=\"accordionItem accordionItemCollapsed\">
           <div class=\"row\">
             <div class=\"col-sm-12\"> 
-              <div class=\"form-group\">
-                <textarea class=\"form-control\" name=\"schedule\" placeholder=\"กลุ่มประสบการณ์ /กลุ่มสาระการเรียนรู้ (ตามตารางในข้อ 7)\" rows=\"20\">{% if record.schedule is defined %} {{ record.schedule }} {% else %} {% endif %}</textarea>
+              <div class=\"form-group\" style=\"padding:2px;\">
+              \t<script src=\"//cdn.tinymce.com/4/tinymce.min.js\"></script>
+\t\t\t\t\t\t\t\t<textarea class=\"form-control my-editor\" name=\"schedule\" placeholder=\"\" rows=\"20\">{% if record.schedule is defined %} {{ record.schedule }} {% else %} {{ this.page['default_6'] }} {% endif %}</textarea>
+                <!--<textarea class=\"form-control\" name=\"schedule\" placeholder=\"กลุ่มประสบการณ์ /กลุ่มสาระการเรียนรู้ (ตามตารางในข้อ 7)\" rows=\"20\">{% if record.schedule is defined %} {{ record.schedule }} {% else %} {% endif %}</textarea>-->
               </div>
             </div>
           </div>
@@ -712,8 +663,8 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
         <dd class=\"accordionItem accordionItemCollapsed\">
           <div class=\"row\">
             <div class=\"col-sm-12\"> 
-              <div class=\"form-group\">
-                <textarea class=\"form-control\" name=\"curriculum\" placeholder=\"\" rows=\"20\">{{ record.curriculum }}</textarea>
+              <div class=\"form-group\" style=\"padding:2px;\">
+                <textarea class=\"form-control my-editor\" name=\"curriculum\" placeholder=\"\" rows=\"20\">{{ record.curriculum }}</textarea>
               </div>
             </div>
           </div>
@@ -722,8 +673,8 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
         <dd class=\"accordionItem accordionItemCollapsed\">
           <div class=\"row\">
             <div class=\"col-sm-12\"> 
-              <div class=\"form-group\">
-                <textarea class=\"form-control\" name=\"activity\" placeholder=\"\" rows=\"20\">{{ record.activity }}</textarea>
+              <div class=\"form-group\" style=\"padding:2px;\">
+                <textarea class=\"form-control my-editor\" name=\"activity\" placeholder=\"\" rows=\"20\">{{ record.activity }}</textarea>
               </div>
             </div>
           </div>
@@ -732,8 +683,8 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
         <dd class=\"accordionItem accordionItemCollapsed\">
           <div class=\"row\">
             <div class=\"col-sm-12\"> 
-              <div class=\"form-group\">
-                <textarea class=\"form-control\" name=\"learning\" placeholder=\"\" rows=\"20\">{{ record.learning }}</textarea>
+              <div class=\"form-group\" style=\"padding:2px;\">
+                <textarea class=\"form-control my-editor\" name=\"learning\" placeholder=\"\" rows=\"20\">{{ record.learning }}</textarea>
               </div>
             </div>
           </div>
@@ -742,8 +693,8 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
         <dd class=\"accordionItem accordionItemCollapsed\">
           <div class=\"row\">
             <div class=\"col-sm-12\"> 
-              <div class=\"form-group\">
-                <textarea class=\"form-control\" name=\"evaluate\" placeholder=\"\" rows=\"20\">{{ record.evaluate }}</textarea>
+              <div class=\"form-group\" style=\"padding:2px;\">
+                <textarea class=\"form-control my-editor\" name=\"evaluate\" placeholder=\"\" rows=\"20\">{{ record.evaluate }}</textarea>
               </div>
             </div>
           </div>
@@ -752,8 +703,8 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
         <dd class=\"accordionItem accordionItemCollapsed\">
           <div class=\"row\">
             <div class=\"col-sm-12\"> 
-              <div class=\"form-group\">
-                <textarea class=\"form-control\" name=\"other\" placeholder=\"\" rows=\"20\">{{ record.other }}</textarea>
+              <div class=\"form-group\" style=\"padding:2px;\">
+                <textarea class=\"form-control my-editor\" name=\"other\" placeholder=\"\" rows=\"20\">{{ record.other }}</textarea>
               </div>
             </div>
           </div>
@@ -761,109 +712,45 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
       </dl>
     </div>
     <script src=\"{{ ['assets/js/accordion.js']|theme }}\"></script>
+\t\t<script>
+\t\t\tvar editor_config = {
+\t\t\t\tpath_absolute : \"/\",
+\t\t\t\tselector: \"textarea.my-editor\",
+\t\t\t\tplugins: [
+\t\t\t\t\t\"advlist autolink lists link image charmap print preview hr anchor pagebreak\",
+\t\t\t\t\t\"searchreplace wordcount visualblocks visualchars code fullscreen\",
+\t\t\t\t\t\"insertdatetime media nonbreaking save table contextmenu directionality\",
+\t\t\t\t\t\"emoticons template paste textcolor colorpicker textpattern\"
+\t\t\t\t],
+\t\t\t\ttoolbar: \"fontsizeselect forecolor backcolor | bold italic underline | alignleft aligncenter alignright | bullist numlist | outdent indent | superscript\",
+\t\t\t\ttemplates: [
+\t\t\t\t\t{title: 'Some title 1', description: 'Some desc 1', content: 'My content'},
+\t\t\t\t\t{title: 'Some title 2', description: 'Some desc 2', url: 'development.html'}
+\t\t\t\t],
+\t\t\t\trelative_urls: false,
+\t\t\t\tfile_browser_callback : function(field_name, url, type, win) {
+\t\t\t\t\tvar x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+\t\t\t\t\tvar y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
 
-    <!--<ul class=\"nav nav-tabs\" id=\"myTab\">
-      <div class=\"liner\"></div>
-      <li class=\"active\">
-        <a href=\"#first\" data-toggle=\"tab\" title=\"ขอมูลพื้นฐานของครอบครัว\">
-        <span class=\"round-tabs one\">
-          1 
-        </span> </a>
-      </li>
-      <li><a href=\"#second\" data-toggle=\"tab\" title=\"ขอมูลพื้นฐานของผูเรียน\">
-        <span class=\"round-tabs two\">
-          2
-        </span> </a>
-      </li>
-      <li><a href=\"#third\" data-toggle=\"tab\" title=\"ระดับที่จัดการศึกษา / เหตุผลในการจัดการศึกษาของครอบครัว
-\">
-        <span class=\"round-tabs three\">
-          3
-        </span> </a>
-      </li>
-      <li><a href=\"#forth\" data-toggle=\"tab\" title=\"จุดมุงหมายของการจัดการศึกษา\">
-        <span class=\"round-tabs four\">
-          4
-        </span> </a>
-      </li>
-      <li><a href=\"#fifth\" data-toggle=\"tab\" title=\"รูปแบบการจัดการศึกษา\">
-        <span class=\"round-tabs five\">
-          5
-        </span> </a>
-      </li>
-      <li><a href=\"#sixth\" data-toggle=\"tab\" title=\"โครงสร้างเวลาเรียน\">
-        <span class=\"round-tabs six\">
-          6
-        </span> </a>
-      </li>
-      <li><a href=\"#seventh\" data-toggle=\"tab\" title=\"การจัดกลุ่มสาระการเรียนรู้ /กลุ่มประสบการณ์\">
-        <span class=\"round-tabs seven\">
-          7
-        </span> </a>
-      </li>
-      <li><a href=\"#eighth\" data-toggle=\"tab\" title=\"การจัดกิจกรรมพัฒนาผู้เรียน\">
-        <span class=\"round-tabs eight\">
-          8
-        </span> </a>
-      </li>
-      <li><a href=\"#ninth\" data-toggle=\"tab\" title=\"การจัดกระบวนการเรียนรู้\">
-        <span class=\"round-tabs nine\">
-          9
-        </span> </a>
-      </li>
-      <li><a href=\"#tenth\" data-toggle=\"tab\" title=\"การวัดและประเมินผลการเรียนรู้\">
-        <span class=\"round-tabs ten\">
-          10
-        </span> </a>
-      </li>
-      <li><a href=\"#eleventh\" data-toggle=\"tab\" title=\"อื่นๆ\">
-        <span class=\"round-tabs eleven\">
-          11
-        </span> </a>
-      </li>
-    </ul>
-  </div>
-  <div class=\"tab-content\">
-    <div class=\"tab-pane fade in active\" id=\"first\">
-      
-    </div>
-    <div class=\"tab-pane fade\" id=\"second\">
-      
-    </div>
-    <div class=\"tab-pane fade\" id=\"third\">
-      
-    </div>
-    <div class=\"tab-pane fade\" id=\"forth\">
-     
-    </div>
-    <div class=\"tab-pane fade\" id=\"fifth\">
-      <h4>5. รูปแบบการจัดการศึกษา </h4>
-      
-    </div>
-    <div class=\"tab-pane fade\" id=\"sixth\">
-      <h4>6. โครงสร้างเวลาเรียน  (Schedule)</h4>
-      
-    </div>
-    <div class=\"tab-pane fade\" id=\"seventh\">
-      <h4>7. การจัดกลุ่มสาระการเรียนรู้ /กลุ่มประสบการณ์</h4>
-      
-    </div>
-    <div class=\"tab-pane fade\" id=\"eighth\">
-      <h4></h4>
-      
-    </div>
-    <div class=\"tab-pane fade\" id=\"ninth\">
-      <h4>9. การจัดกระบวนการเรียนรู้</h4>
-      
-    </div>
-    <div class=\"tab-pane fade\" id=\"tenth\">
-      <h4>10. การวัดและประเมินผลการเรียนรู้</h4>
-      
-    </div>
-    <div class=\"tab-pane fade\" id=\"eleventh\">
-      <h4>11. อื่นๆ (ครอบครัวสามารถเพิ่มเติมรายละเอียดที่เห็นว่าเป็นประโยชน์ต่อผู้เรียนได้)</h4>
-      
-    </div>-->
+\t\t\t\t\tvar cmsURL = editor_config.path_absolute + 'laravel-filemanager?field_name=' + field_name;
+\t\t\t\t\tif (type == 'image') {
+\t\t\t\t\t\tcmsURL = cmsURL + \"&type=Images\";
+\t\t\t\t\t} else {
+\t\t\t\t\t\tcmsURL = cmsURL + \"&type=Files\";
+\t\t\t\t\t}
+
+\t\t\t\t\ttinyMCE.activeEditor.windowManager.open({
+\t\t\t\t\t\tfile : cmsURL,
+\t\t\t\t\t\ttitle : 'Filemanager',
+\t\t\t\t\t\twidth : x * 0.8,
+\t\t\t\t\t\theight : y * 0.8,
+\t\t\t\t\t\tresizable : \"yes\",
+\t\t\t\t\t\tclose_previous : \"no\"
+\t\t\t\t\t});
+\t\t\t\t}
+\t\t\t};
+\t\t\ttinymce.init(editor_config);
+\t\t</script>
     <div class=\"clearfix\"></div>
   </div>
   <div class=\"row\">

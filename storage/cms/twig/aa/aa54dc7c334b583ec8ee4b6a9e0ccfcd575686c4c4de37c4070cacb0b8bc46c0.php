@@ -46,7 +46,7 @@ class __TwigTemplate_78d4fb30836f7fb69dffcb3aeba2676a180cfa0676e2a700dec0b97f9ed
         <a href=\"#\"><div class=\"fui-twitter\"></div><div class=\"fui-twitter\"></div></a>
     </div>
     <div class=\"additional-links\">
-        Be sure to take a look to our <a href=\"#\">Terms of Use</a> and <a href=\"#\">Privacy Policy</a>
+        Free logo by <a href=\"https://www.designevo.com\">Designevo</a>
     </div>
 </div>";
     }
@@ -89,7 +89,7 @@ class __TwigTemplate_78d4fb30836f7fb69dffcb3aeba2676a180cfa0676e2a700dec0b97f9ed
         <a href=\"#\"><div class=\"fui-twitter\"></div><div class=\"fui-twitter\"></div></a>
     </div>
     <div class=\"additional-links\">
-        Be sure to take a look to our <a href=\"#\">Terms of Use</a> and <a href=\"#\">Privacy Policy</a>
+        Free logo by <a href=\"https://www.designevo.com\">Designevo</a>
     </div>
 </div>", "/home/vsites/homeschool.in.th/themes/responsiv-flat/partials/footer.htm", "");
     }

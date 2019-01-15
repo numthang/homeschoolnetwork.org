@@ -25,7 +25,7 @@ class __TwigTemplate_fbf5f6227715fc7e003763a72c0e6fae2705fddf23087ceecb2edbf1ee0
         <div class=\"row\">
             <div class=\"col-sm-4\">
                 <h3>เครือข่ายบ้านเรียน</h3>
-                Homeschool Network หรือ \"เครือข่ายบ้านเรียน\" เข้าใจการทำโฮมสคูลในประเทศไทยจบที่นี่ทีเดียว 
+                Homeschool Network หรือ \"เครือข่ายบ้านเรียน\" เข้าใจการทำโฮมสคูลในประเทศไทยจบที่นี่ที่เดียว
                 <div class=\"signup-form\">
                   ";
         // line 8
@@ -193,7 +193,7 @@ class __TwigTemplate_fbf5f6227715fc7e003763a72c0e6fae2705fddf23087ceecb2edbf1ee0
         <div class=\"row\">
             <div class=\"col-sm-4\">
                 <h3>เครือข่ายบ้านเรียน</h3>
-                Homeschool Network หรือ \"เครือข่ายบ้านเรียน\" เข้าใจการทำโฮมสคูลในประเทศไทยจบที่นี่ทีเดียว 
+                Homeschool Network หรือ \"เครือข่ายบ้านเรียน\" เข้าใจการทำโฮมสคูลในประเทศไทยจบที่นี่ที่เดียว
                 <div class=\"signup-form\">
                   {% if not user %}
                   <form data-request=\"onSignin\">
