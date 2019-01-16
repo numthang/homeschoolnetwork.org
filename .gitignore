@@ -1,7 +1,5 @@
-/storage/framework/cache
-/storage/framework/sessions
-/storage/cms/twig/
-/storage/cms/cache
+/bootstrap/compiled.php
+#/vendor
 composer.phar
 .DS_Store
 .idea

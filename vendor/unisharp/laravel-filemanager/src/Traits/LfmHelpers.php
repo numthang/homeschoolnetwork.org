@@ -446,10 +446,10 @@ trait LfmHelpers
         $item_name = $this->getName($item);
         $is_file = is_file($item);
 
-        if (!$is_file) {
+        if (! $is_file) {
             $file_type = trans('laravel-filemanager::lfm.type-folder');
             $icon = 'fa-folder-o';
-            $thumb_url = asset(config('lfm.assets_directory').'/images/icons/png/folder.png');
+            $thumb_url = asset('vendor/laravel-filemanager/img/folder.png');
         } elseif ($this->fileIsImage($item)) {
             $file_type = $this->getFileType($item);
             $icon = 'fa-image';
