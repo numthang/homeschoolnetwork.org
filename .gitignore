@@ -1,4 +1,5 @@
 /bootstrap/compiled.php
+/config
 #/vendor
 composer.phar
 .DS_Store
