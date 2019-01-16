@@ -1,5 +1,5 @@
 <?php 
-class Cms5c3f42a5c6afd427950087_08467a9f4a3924a02eb9687139de528aClass extends Cms\Classes\PageCode
+class Cms5c3f52b64889c510848022_98446573cec422e45ec837eb301db202Class extends Cms\Classes\PageCode
 {
 public function onStart() {
 	$this->page['default_6'] = '
