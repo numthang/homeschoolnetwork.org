@@ -34,6 +34,9 @@ function onStart() {
 
 <div class="container">
   <div class="row">
+  	{% flash %}
+      <p data-control="flash-message" data-interval="5" class="{{ type == 'error' ? 'danger' : type }}">{{ message }}<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></p>
+    {% endflash %}
     <div class="col-md-6">
       {% partial account ~ '::signin' %}
       {% for name, link in social_login_links %}

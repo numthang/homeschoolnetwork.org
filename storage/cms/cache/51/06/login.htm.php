@@ -1,5 +1,5 @@
 <?php 
-class Cms5c3f309e7b73e619057342_75225405a246a9f533fa3fc36740b2deClass extends Cms\Classes\PageCode
+class Cms5c3f41844cc43513043933_7005da724902755cf3969fd712055fcaClass extends Cms\Classes\PageCode
 {
 public function onStart() {
     if(Auth::check()) {

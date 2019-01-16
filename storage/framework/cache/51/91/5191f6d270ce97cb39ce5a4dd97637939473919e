@@ -1,4 +1,4 @@
-1547649705a:1:{s:15:"login/login.htm";a:13:{s:8:"fileName";s:15:"login/login.htm";s:7:"content";s:889:"title = "Login"
+1547650012a:1:{s:15:"login/login.htm";a:13:{s:8:"fileName";s:15:"login/login.htm";s:7:"content";s:1137:"title = "Login"
 url = "/login"
 layout = "default"
 is_hidden = 0
@@ -34,6 +34,9 @@ function onStart() {
 
 <div class="container">
   <div class="row">
+  	{% flash %}
+      <p data-control="flash-message" data-interval="5" class="{{ type == 'error' ? 'danger' : type }}">{{ message }}<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></p>
+    {% endflash %}
     <div class="col-md-6">
       {% partial account ~ '::signin' %}
       {% for name, link in social_login_links %}
@@ -48,7 +51,7 @@ function onStart() {
   </div>
 </div>
 <br>
-";s:5:"mtime";i:1545823029;s:6:"markup";s:523:"<section id="layout-title">
+";s:5:"mtime";i:1547649409;s:6:"markup";s:771:"<section id="layout-title">
     <div class="container">
         <h3>{{ 'Log in'|_ }}</h3>
     </div>
@@ -56,6 +59,9 @@ function onStart() {
 
 <div class="container">
   <div class="row">
+  	{% flash %}
+      <p data-control="flash-message" data-interval="5" class="{{ type == 'error' ? 'danger' : type }}">{{ message }}<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></p>
+    {% endflash %}
     <div class="col-md-6">
       {% partial account ~ '::signin' %}
       {% for name, link in social_login_links %}
