@@ -13,22 +13,14 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="#75C7C3">
 
   <title><?php echo e(trans('laravel-filemanager::lfm.title-page')); ?></title>
-  <link rel="shortcut icon" type="image/png" href="<?=Config::get('lfm.assets_directory').'/images/icons/png/folder.png' ?>">
-  
+  <link rel="shortcut icon" type="image/png" href="<?php echo e(asset('vendor/laravel-filemanager/img/folder.png')); ?>">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <!--<link rel="stylesheet" href="<?php echo e(asset('vendor/laravel-filemanager/css/cropper.min.css')); ?>">-->
+  <style><?php echo \File::get(base_path('vendor/unisharp/laravel-filemanager/public/css/lfm.css')); ?></style>
   <style><?php echo \File::get(base_path('vendor/laravel-filemanager/css/cropper.min.css')); ?></style>
-  <style><?php echo \File::get(base_path('vendor/laravel-filemanager/css/lfm.css')); ?></style>
-  
-  
-  
+<style><?php echo \File::get(base_path('vendor/laravel-filemanager/css/mfb.css')); ?></style>
+<style><?php echo \File::get(base_path('vendor/laravel-filemanager/css/dropzone.min.css')); ?></style>
 
-  <!--<link rel="stylesheet" href="<?php echo e(asset('vendor/laravel-filemanager/css/mfb.css')); ?>">-->
-  <style><?php echo \File::get(base_path('vendor/laravel-filemanager/css/mfb.css')); ?></style>
-  
-  <!--<link rel="stylesheet" href="<?php echo e(asset('vendor/laravel-filemanager/css/dropzone.min.css')); ?>">-->
-	<style><?php echo \File::get(base_path('vendor/laravel-filemanager/css/dropzone.min.css')); ?></style>
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.css">
 </head>
 <body>
@@ -151,25 +143,22 @@
   </div>
 
   <div id="lfm-loader">
-    <img src="<?=Config::get('lfm.assets_directory').'/images/icons/svg/loader.svg' ?>">
+    <img src="<?php echo e(asset('vendor/laravel-filemanager/img/loader.svg')); ?>">
   </div>
 
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-  <!--<script src="<?=Config::get('lfm.assets_directory').'/vendor/laravel-filemanager/js/cropper.min.js' ?>"></script>-->
-  <script><?php echo \File::get(base_path('vendor/laravel-filemanager/js/cropper.min.js')); ?></script>
-  <!--<script src="<?=Config::get('lfm.assets_directory').'/vendor/laravel-filemanager/js/jquery.form.min.js' ?>"></script>-->
-  <script><?php echo \File::get(base_path('vendor/laravel-filemanager/js/jquery.form.min.js')); ?></script>
-  <!--<script src="<?=Config::get('lfm.assets_directory').'/vendor/laravel-filemanager/js/dropzone.min.js' ?>"></script>-->
-  <script><?php echo \File::get(base_path('vendor/laravel-filemanager/js/dropzone.min.js')); ?></script>
+<script><?php echo \File::get(base_path('vendor/laravel-filemanager/js/cropper.min.js')); ?></script>
+<script><?php echo \File::get(base_path('vendor/laravel-filemanager/js/jquery.form.min.js')); ?></script>
+<script><?php echo \File::get(base_path('vendor/laravel-filemanager/js/dropzone.min.js')); ?></script>
   <script>
     var route_prefix = "<?php echo e(url('/')); ?>";
     var lfm_route = "<?php echo e(url(config('lfm.url_prefix', config('lfm.prefix')))); ?>";
     var lang = <?php echo json_encode(trans('laravel-filemanager::lfm')); ?>;
   </script>
-  <script><?php echo \File::get(base_path('vendor/laravel-filemanager/js/script.js')); ?></script>
+  <script><?php echo \File::get(base_path('vendor/unisharp/laravel-filemanager/public/js/script.js')); ?></script>
   
   
   <script>
