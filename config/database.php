@@ -58,7 +58,7 @@ return [
             'port'      => 3306,
             'database'  => 'homeschool_db',
             'username'  => 'numthang',
-            'password'  => '',
+            'password'  => 'Mega29Riat',
             'charset'   => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
             'prefix'    => '',
