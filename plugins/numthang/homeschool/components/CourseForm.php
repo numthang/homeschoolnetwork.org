@@ -53,8 +53,10 @@ class CourseForm extends ComponentBase
       $course->fill(post());//กำหนด fillable field ใน Models/Course
       $course->save();
       Flash::success('Course '.$course->name.' saved!');
-      return ['#flash_message' => $this->renderPartial('flash.htm', ['message' => 'Course '.$course->name.' saved!', 'type' => 'success'])];
-      #return Redirect::to('/login/edit/course/'.$course->id);
+      if($this->param('id'))//ถ้ามีการ update จะส่ง query id ให้แสดง flash message
+     		return ['#flash_message' => $this->renderPartial('flash.htm', ['message' => 'Course '.$course->name.' saved!', 'type' => 'success'])];
+     	else//ถ้าเป็นการสร้างใหม่ให้ redirect ไป edit
+     		return Redirect::to('/login/edit/course/'.$course->id);
     }
     public function onDelete() {
       $course = new Course();

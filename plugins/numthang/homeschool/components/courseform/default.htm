@@ -120,7 +120,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
                 <div class="input-group date" data-provide="datepicker">
                   <input type="text" class="form-control" name="birth_date" value="{{ this.page.birth_date }}">
                     <div class="input-group-addon">
-                      <span class="glyphicon glyphicon-th"></span>
+                      <span class="fui-calendar"></span>
                     </div>
                 </div>
               </div>
@@ -147,7 +147,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
           <div class="row">
             <div class="col-sm-12"> 
               <div class="form-group" style="padding:2px;">
-                <textarea class="form-control my-editor" name="class_reason" placeholder="ระดับชั้น เช่น ประถมศึกษา (ชั้น ป.1 – ป.3) เหตุผลในการจัดการศึกษาของครอบครัว" rows="20">{{ record.class_reason }}</textarea>
+                <textarea class="form-control my-editor" name="class_reason" placeholder="ระดับชั้น เช่น ประถมศึกษา (ชั้น ป.1 – ป.3) เหตุผลในการจัดการศึกษาของครอบครัว" rows="20">{% if record.class_reason is defined %} {{ record.class_reason }} {% else %} {{ this.page['default_3'] }} {% endif %}</textarea>
               </div>
             </div>
           </div>
@@ -157,7 +157,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
           <div class="row">
           <div class="col-sm-12">  
             <div class="form-group" style="padding:2px;">
-              <textarea class="form-control my-editor" name="purpose" placeholder="ระบุความต้องการ เช่น ต้องการพึ่งตนเอง ลดค่าใช้จ่าย เป็นต้น" rows="20">{{ record.purpose }}</textarea>
+              <textarea class="form-control my-editor" name="purpose" placeholder="ระบุความต้องการ เช่น ต้องการพึ่งตนเอง ลดค่าใช้จ่าย เป็นต้น" rows="20">{% if record.purpose is defined %} {{ record.purpose }} {% else %} {{ this.page['default_4'] }} {% endif %}</textarea>
             </div>
           </div>
         </div>
@@ -167,11 +167,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
           <div class="row">
             <div class="col-sm-12"> 
               <div class="form-group" style="padding:2px;">
-                <textarea class="form-control my-editor" name="format" placeholder="" rows="20">{% if record.edu_type is defined %} {{ record.format }} {% else %} 1. จัดการศึกษาแบบครอบครัวเดียว เนื่องจากไมสามารถรวมกิจกรรมกับกลุม บานเรียน หรือครอบครัวอื่น และมีความสนใจเฉพาะดานแตกตางกัน
-    2. จัดการศึกษาแบบมีขอตกลงรวมกับโรงเรียนหรือหนวยงานอื่น โดยมีการเขาไปใชทรัพยากรในโรงเรียนหรือเขาไปทํากิจกรรมรวมกัน เนื่องจากตองการใหบุตรไดมีความรูประสบการณที่สามารถเชื่อมโยงเขาสูระบบโรงเรียน
-    3. จัดการศึกษาแบบกลุมครอบครัวที่มีแนวคิดคลายๆ กัน เปนการจําลองสังคมเล็กๆ เชื่อวาการ เชื่อมโยงกับกลุมเปนการชวยเสริมพัฒนาการของบุตรได
-    4. จัดการศึกษาแบบรวมศูนย จัดการแบบศูนยการเรียน เนื่องจากตองการใหบุตรมีสังคมพอแมทํางานนอกบานทั้งคูจึงมอบหมายใหผูที่เห็นวามีความเหมาะสมมาทําหนาที่จัดกระบวนการเรียนรู
-    5. อื่นๆ (ระบุ) {% endif %}</textarea>
+                <textarea class="form-control my-editor" name="format" placeholder="" rows="20">{% if record.edu_type is defined %} {{ record.format }} {% else %} {{ this.page['default_5'] }} {% endif %}</textarea>
               </div>
             </div>
           </div>
@@ -193,7 +189,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
           <div class="row">
             <div class="col-sm-12"> 
               <div class="form-group" style="padding:2px;">
-                <textarea class="form-control my-editor" name="curriculum" placeholder="" rows="20">{{ record.curriculum }}</textarea>
+                <textarea class="form-control my-editor" name="curriculum" placeholder="" rows="20">{% if record.curriculum is defined %} {{ record.curriculum }} {% else %} {{ this.page['default_7'] }} {% endif %}</textarea>
               </div>
             </div>
           </div>
@@ -203,7 +199,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
           <div class="row">
             <div class="col-sm-12"> 
               <div class="form-group" style="padding:2px;">
-                <textarea class="form-control my-editor" name="activity" placeholder="" rows="20">{{ record.activity }}</textarea>
+                <textarea class="form-control my-editor" name="activity" placeholder="" rows="20">{% if record.activity is defined %} {{ record.activity }} {% else %} {{ this.page['default_8'] }} {% endif %}</textarea>
               </div>
             </div>
           </div>
@@ -213,7 +209,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
           <div class="row">
             <div class="col-sm-12"> 
               <div class="form-group" style="padding:2px;">
-                <textarea class="form-control my-editor" name="learning" placeholder="" rows="20">{{ record.learning }}</textarea>
+                <textarea class="form-control my-editor" name="learning" placeholder="" rows="20">{% if record.learning is defined %} {{ record.learning }} {% else %} {{ this.page['default_9'] }} {% endif %}</textarea>
               </div>
             </div>
           </div>
@@ -223,7 +219,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
           <div class="row">
             <div class="col-sm-12"> 
               <div class="form-group" style="padding:2px;">
-                <textarea class="form-control my-editor" name="evaluate" placeholder="" rows="20">{{ record.evaluate }}</textarea>
+                <textarea class="form-control my-editor" name="evaluate" placeholder="" rows="20">{% if record.evaluate is defined %} {{ record.evaluate }} {% else %} {{ this.page['default_10'] }} {% endif %}</textarea>
               </div>
             </div>
           </div>

@@ -108,10 +108,10 @@ return [
     */
 
     'sendmail' => '/usr/sbin/sendmail -bs',
-    'to' => [
-      'address' => 'tee@numthang.org',
+    /*'to' => [
+      'address' => 'numthang@numthang.org',
       'name' => 'Catch all email'
     ],
-    'pretend' => true,
+    'pretend' => true,*/
 
 ];

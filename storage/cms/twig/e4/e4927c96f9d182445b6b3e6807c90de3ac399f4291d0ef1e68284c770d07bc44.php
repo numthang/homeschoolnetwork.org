@@ -219,7 +219,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", array()), "birth_date", array()), "html", null, true);
         echo "\">
                     <div class=\"input-group-addon\">
-                      <span class=\"glyphicon glyphicon-th\"></span>
+                      <span class=\"fui-calendar\"></span>
                     </div>
                 </div>
               </div>
@@ -254,7 +254,15 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
               <div class=\"form-group\" style=\"padding:2px;\">
                 <textarea class=\"form-control my-editor\" name=\"class_reason\" placeholder=\"ระดับชั้น เช่น ประถมศึกษา (ชั้น ป.1 – ป.3) เหตุผลในการจัดการศึกษาของครอบครัว\" rows=\"20\">";
         // line 150
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "class_reason", array()), "html", null, true);
+        if (twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "class_reason", array(), "any", true, true)) {
+            echo " ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "class_reason", array()), "html", null, true);
+            echo " ";
+        } else {
+            echo " ";
+            echo twig_escape_filter($this->env, (($__internal_7cd7461123377b8c9c1b6a01f46c7bbd94bd12e59266005df5e93029ddbc0ec5 = twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", array())) && is_array($__internal_7cd7461123377b8c9c1b6a01f46c7bbd94bd12e59266005df5e93029ddbc0ec5) || $__internal_7cd7461123377b8c9c1b6a01f46c7bbd94bd12e59266005df5e93029ddbc0ec5 instanceof ArrayAccess ? ($__internal_7cd7461123377b8c9c1b6a01f46c7bbd94bd12e59266005df5e93029ddbc0ec5["default_3"] ?? null) : null), "html", null, true);
+            echo " ";
+        }
         echo "</textarea>
               </div>
             </div>
@@ -267,7 +275,15 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
             <div class=\"form-group\" style=\"padding:2px;\">
               <textarea class=\"form-control my-editor\" name=\"purpose\" placeholder=\"ระบุความต้องการ เช่น ต้องการพึ่งตนเอง ลดค่าใช้จ่าย เป็นต้น\" rows=\"20\">";
         // line 160
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "purpose", array()), "html", null, true);
+        if (twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "purpose", array(), "any", true, true)) {
+            echo " ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "purpose", array()), "html", null, true);
+            echo " ";
+        } else {
+            echo " ";
+            echo twig_escape_filter($this->env, (($__internal_3e28b7f596c58d7729642bcf2acc6efc894803703bf5fa7e74cd8d2aa1f8c68a = twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", array())) && is_array($__internal_3e28b7f596c58d7729642bcf2acc6efc894803703bf5fa7e74cd8d2aa1f8c68a) || $__internal_3e28b7f596c58d7729642bcf2acc6efc894803703bf5fa7e74cd8d2aa1f8c68a instanceof ArrayAccess ? ($__internal_3e28b7f596c58d7729642bcf2acc6efc894803703bf5fa7e74cd8d2aa1f8c68a["default_4"] ?? null) : null), "html", null, true);
+            echo " ";
+        }
         echo "</textarea>
             </div>
           </div>
@@ -285,13 +301,10 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "format", array()), "html", null, true);
             echo " ";
         } else {
-            echo " 1. จัดการศึกษาแบบครอบครัวเดียว เนื่องจากไมสามารถรวมกิจกรรมกับกลุม บานเรียน หรือครอบครัวอื่น และมีความสนใจเฉพาะดานแตกตางกัน
-    2. จัดการศึกษาแบบมีขอตกลงรวมกับโรงเรียนหรือหนวยงานอื่น โดยมีการเขาไปใชทรัพยากรในโรงเรียนหรือเขาไปทํากิจกรรมรวมกัน เนื่องจากตองการใหบุตรไดมีความรูประสบการณที่สามารถเชื่อมโยงเขาสูระบบโรงเรียน
-    3. จัดการศึกษาแบบกลุมครอบครัวที่มีแนวคิดคลายๆ กัน เปนการจําลองสังคมเล็กๆ เชื่อวาการ เชื่อมโยงกับกลุมเปนการชวยเสริมพัฒนาการของบุตรได
-    4. จัดการศึกษาแบบรวมศูนย จัดการแบบศูนยการเรียน เนื่องจากตองการใหบุตรมีสังคมพอแมทํางานนอกบานทั้งคูจึงมอบหมายใหผูที่เห็นวามีความเหมาะสมมาทําหนาที่จัดกระบวนการเรียนรู
-    5. อื่นๆ (ระบุ) ";
+            echo " ";
+            echo twig_escape_filter($this->env, (($__internal_b0b3d6199cdf4d15a08b3fb98fe017ecb01164300193d18d78027218d843fc57 = twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", array())) && is_array($__internal_b0b3d6199cdf4d15a08b3fb98fe017ecb01164300193d18d78027218d843fc57) || $__internal_b0b3d6199cdf4d15a08b3fb98fe017ecb01164300193d18d78027218d843fc57 instanceof ArrayAccess ? ($__internal_b0b3d6199cdf4d15a08b3fb98fe017ecb01164300193d18d78027218d843fc57["default_5"] ?? null) : null), "html", null, true);
+            echo " ";
         }
-        // line 174
         echo "</textarea>
               </div>
             </div>
@@ -304,19 +317,19 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
               <div class=\"form-group\" style=\"padding:2px;\">
               \t<script src=\"//cdn.tinymce.com/4/tinymce.min.js\"></script>
 \t\t\t\t\t\t\t\t<textarea class=\"form-control my-editor\" name=\"schedule\" placeholder=\"\" rows=\"20\">";
-        // line 185
+        // line 181
         if (twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "schedule", array(), "any", true, true)) {
             echo " ";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "schedule", array()), "html", null, true);
             echo " ";
         } else {
             echo " ";
-            echo twig_escape_filter($this->env, (($__internal_7cd7461123377b8c9c1b6a01f46c7bbd94bd12e59266005df5e93029ddbc0ec5 = twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", array())) && is_array($__internal_7cd7461123377b8c9c1b6a01f46c7bbd94bd12e59266005df5e93029ddbc0ec5) || $__internal_7cd7461123377b8c9c1b6a01f46c7bbd94bd12e59266005df5e93029ddbc0ec5 instanceof ArrayAccess ? ($__internal_7cd7461123377b8c9c1b6a01f46c7bbd94bd12e59266005df5e93029ddbc0ec5["default_6"] ?? null) : null), "html", null, true);
+            echo twig_escape_filter($this->env, (($__internal_81ccf322d0988ca0aa9ae9943d772c435c5ff01fb50b956278e245e40ae66ab9 = twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", array())) && is_array($__internal_81ccf322d0988ca0aa9ae9943d772c435c5ff01fb50b956278e245e40ae66ab9) || $__internal_81ccf322d0988ca0aa9ae9943d772c435c5ff01fb50b956278e245e40ae66ab9 instanceof ArrayAccess ? ($__internal_81ccf322d0988ca0aa9ae9943d772c435c5ff01fb50b956278e245e40ae66ab9["default_6"] ?? null) : null), "html", null, true);
             echo " ";
         }
         echo "</textarea>
                 <!--<textarea class=\"form-control\" name=\"schedule\" placeholder=\"กลุ่มประสบการณ์ /กลุ่มสาระการเรียนรู้ (ตามตารางในข้อ 7)\" rows=\"20\">";
-        // line 186
+        // line 182
         if (twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "schedule", array(), "any", true, true)) {
             echo " ";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "schedule", array()), "html", null, true);
@@ -335,8 +348,16 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
             <div class=\"col-sm-12\"> 
               <div class=\"form-group\" style=\"padding:2px;\">
                 <textarea class=\"form-control my-editor\" name=\"curriculum\" placeholder=\"\" rows=\"20\">";
-        // line 196
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "curriculum", array()), "html", null, true);
+        // line 192
+        if (twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "curriculum", array(), "any", true, true)) {
+            echo " ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "curriculum", array()), "html", null, true);
+            echo " ";
+        } else {
+            echo " ";
+            echo twig_escape_filter($this->env, (($__internal_add9db1f328aaed12ef1a33890510da978cc9cf3e50f6769d368473a9c90c217 = twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", array())) && is_array($__internal_add9db1f328aaed12ef1a33890510da978cc9cf3e50f6769d368473a9c90c217) || $__internal_add9db1f328aaed12ef1a33890510da978cc9cf3e50f6769d368473a9c90c217 instanceof ArrayAccess ? ($__internal_add9db1f328aaed12ef1a33890510da978cc9cf3e50f6769d368473a9c90c217["default_7"] ?? null) : null), "html", null, true);
+            echo " ";
+        }
         echo "</textarea>
               </div>
             </div>
@@ -348,8 +369,16 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
             <div class=\"col-sm-12\"> 
               <div class=\"form-group\" style=\"padding:2px;\">
                 <textarea class=\"form-control my-editor\" name=\"activity\" placeholder=\"\" rows=\"20\">";
-        // line 206
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "activity", array()), "html", null, true);
+        // line 202
+        if (twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "activity", array(), "any", true, true)) {
+            echo " ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "activity", array()), "html", null, true);
+            echo " ";
+        } else {
+            echo " ";
+            echo twig_escape_filter($this->env, (($__internal_128c19eb75d89ae9acc1294da2e091b433005202cb9b9351ea0c5dd5f69ee105 = twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", array())) && is_array($__internal_128c19eb75d89ae9acc1294da2e091b433005202cb9b9351ea0c5dd5f69ee105) || $__internal_128c19eb75d89ae9acc1294da2e091b433005202cb9b9351ea0c5dd5f69ee105 instanceof ArrayAccess ? ($__internal_128c19eb75d89ae9acc1294da2e091b433005202cb9b9351ea0c5dd5f69ee105["default_8"] ?? null) : null), "html", null, true);
+            echo " ";
+        }
         echo "</textarea>
               </div>
             </div>
@@ -361,8 +390,16 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
             <div class=\"col-sm-12\"> 
               <div class=\"form-group\" style=\"padding:2px;\">
                 <textarea class=\"form-control my-editor\" name=\"learning\" placeholder=\"\" rows=\"20\">";
-        // line 216
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "learning", array()), "html", null, true);
+        // line 212
+        if (twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "learning", array(), "any", true, true)) {
+            echo " ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "learning", array()), "html", null, true);
+            echo " ";
+        } else {
+            echo " ";
+            echo twig_escape_filter($this->env, (($__internal_921de08f973aabd87ecb31654784e2efda7404f12bd27e8e56991608c76e7779 = twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", array())) && is_array($__internal_921de08f973aabd87ecb31654784e2efda7404f12bd27e8e56991608c76e7779) || $__internal_921de08f973aabd87ecb31654784e2efda7404f12bd27e8e56991608c76e7779 instanceof ArrayAccess ? ($__internal_921de08f973aabd87ecb31654784e2efda7404f12bd27e8e56991608c76e7779["default_9"] ?? null) : null), "html", null, true);
+            echo " ";
+        }
         echo "</textarea>
               </div>
             </div>
@@ -374,8 +411,16 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
             <div class=\"col-sm-12\"> 
               <div class=\"form-group\" style=\"padding:2px;\">
                 <textarea class=\"form-control my-editor\" name=\"evaluate\" placeholder=\"\" rows=\"20\">";
-        // line 226
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "evaluate", array()), "html", null, true);
+        // line 222
+        if (twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "evaluate", array(), "any", true, true)) {
+            echo " ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "evaluate", array()), "html", null, true);
+            echo " ";
+        } else {
+            echo " ";
+            echo twig_escape_filter($this->env, (($__internal_3e040fa9f9bcf48a8b054d0953f4fffdaf331dc44bc1d96f1bb45abb085e61d1 = twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", array())) && is_array($__internal_3e040fa9f9bcf48a8b054d0953f4fffdaf331dc44bc1d96f1bb45abb085e61d1) || $__internal_3e040fa9f9bcf48a8b054d0953f4fffdaf331dc44bc1d96f1bb45abb085e61d1 instanceof ArrayAccess ? ($__internal_3e040fa9f9bcf48a8b054d0953f4fffdaf331dc44bc1d96f1bb45abb085e61d1["default_10"] ?? null) : null), "html", null, true);
+            echo " ";
+        }
         echo "</textarea>
               </div>
             </div>
@@ -387,7 +432,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
             <div class=\"col-sm-12\"> 
               <div class=\"form-group\" style=\"padding:2px;\">
                 <textarea class=\"form-control my-editor\" name=\"other\" placeholder=\"\" rows=\"20\">";
-        // line 236
+        // line 232
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "other", array()), "html", null, true);
         echo "</textarea>
               </div>
@@ -397,7 +442,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
       </dl>
     </div>
     <script src=\"";
-        // line 243
+        // line 239
         echo $this->extensions['Cms\Twig\Extension']->themeFilter(array(0 => "assets/js/accordion.js"));
         echo "\"></script>
 \t\t<script>
@@ -464,7 +509,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
 
     public function getDebugInfo()
     {
-        return array (  401 => 243,  391 => 236,  378 => 226,  365 => 216,  352 => 206,  339 => 196,  320 => 186,  308 => 185,  295 => 174,  283 => 170,  270 => 160,  257 => 150,  244 => 140,  232 => 131,  219 => 121,  209 => 114,  194 => 102,  185 => 96,  176 => 90,  167 => 84,  158 => 78,  149 => 72,  139 => 65,  130 => 59,  121 => 53,  112 => 47,  103 => 41,  94 => 35,  80 => 23,  74 => 22,  70 => 21,  63 => 19,  58 => 16,  52 => 15,  46 => 14,  39 => 12,  33 => 9,  23 => 1,);
+        return array (  446 => 239,  436 => 232,  415 => 222,  394 => 212,  373 => 202,  352 => 192,  333 => 182,  321 => 181,  299 => 170,  278 => 160,  257 => 150,  244 => 140,  232 => 131,  219 => 121,  209 => 114,  194 => 102,  185 => 96,  176 => 90,  167 => 84,  158 => 78,  149 => 72,  139 => 65,  130 => 59,  121 => 53,  112 => 47,  103 => 41,  94 => 35,  80 => 23,  74 => 22,  70 => 21,  63 => 19,  58 => 16,  52 => 15,  46 => 14,  39 => 12,  33 => 9,  23 => 1,);
     }
 
     public function getSourceContext()
@@ -591,7 +636,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
                 <div class=\"input-group date\" data-provide=\"datepicker\">
                   <input type=\"text\" class=\"form-control\" name=\"birth_date\" value=\"{{ this.page.birth_date }}\">
                     <div class=\"input-group-addon\">
-                      <span class=\"glyphicon glyphicon-th\"></span>
+                      <span class=\"fui-calendar\"></span>
                     </div>
                 </div>
               </div>
@@ -618,7 +663,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
           <div class=\"row\">
             <div class=\"col-sm-12\"> 
               <div class=\"form-group\" style=\"padding:2px;\">
-                <textarea class=\"form-control my-editor\" name=\"class_reason\" placeholder=\"ระดับชั้น เช่น ประถมศึกษา (ชั้น ป.1 – ป.3) เหตุผลในการจัดการศึกษาของครอบครัว\" rows=\"20\">{{ record.class_reason }}</textarea>
+                <textarea class=\"form-control my-editor\" name=\"class_reason\" placeholder=\"ระดับชั้น เช่น ประถมศึกษา (ชั้น ป.1 – ป.3) เหตุผลในการจัดการศึกษาของครอบครัว\" rows=\"20\">{% if record.class_reason is defined %} {{ record.class_reason }} {% else %} {{ this.page['default_3'] }} {% endif %}</textarea>
               </div>
             </div>
           </div>
@@ -628,7 +673,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
           <div class=\"row\">
           <div class=\"col-sm-12\">  
             <div class=\"form-group\" style=\"padding:2px;\">
-              <textarea class=\"form-control my-editor\" name=\"purpose\" placeholder=\"ระบุความต้องการ เช่น ต้องการพึ่งตนเอง ลดค่าใช้จ่าย เป็นต้น\" rows=\"20\">{{ record.purpose }}</textarea>
+              <textarea class=\"form-control my-editor\" name=\"purpose\" placeholder=\"ระบุความต้องการ เช่น ต้องการพึ่งตนเอง ลดค่าใช้จ่าย เป็นต้น\" rows=\"20\">{% if record.purpose is defined %} {{ record.purpose }} {% else %} {{ this.page['default_4'] }} {% endif %}</textarea>
             </div>
           </div>
         </div>
@@ -638,11 +683,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
           <div class=\"row\">
             <div class=\"col-sm-12\"> 
               <div class=\"form-group\" style=\"padding:2px;\">
-                <textarea class=\"form-control my-editor\" name=\"format\" placeholder=\"\" rows=\"20\">{% if record.edu_type is defined %} {{ record.format }} {% else %} 1. จัดการศึกษาแบบครอบครัวเดียว เนื่องจากไมสามารถรวมกิจกรรมกับกลุม บานเรียน หรือครอบครัวอื่น และมีความสนใจเฉพาะดานแตกตางกัน
-    2. จัดการศึกษาแบบมีขอตกลงรวมกับโรงเรียนหรือหนวยงานอื่น โดยมีการเขาไปใชทรัพยากรในโรงเรียนหรือเขาไปทํากิจกรรมรวมกัน เนื่องจากตองการใหบุตรไดมีความรูประสบการณที่สามารถเชื่อมโยงเขาสูระบบโรงเรียน
-    3. จัดการศึกษาแบบกลุมครอบครัวที่มีแนวคิดคลายๆ กัน เปนการจําลองสังคมเล็กๆ เชื่อวาการ เชื่อมโยงกับกลุมเปนการชวยเสริมพัฒนาการของบุตรได
-    4. จัดการศึกษาแบบรวมศูนย จัดการแบบศูนยการเรียน เนื่องจากตองการใหบุตรมีสังคมพอแมทํางานนอกบานทั้งคูจึงมอบหมายใหผูที่เห็นวามีความเหมาะสมมาทําหนาที่จัดกระบวนการเรียนรู
-    5. อื่นๆ (ระบุ) {% endif %}</textarea>
+                <textarea class=\"form-control my-editor\" name=\"format\" placeholder=\"\" rows=\"20\">{% if record.edu_type is defined %} {{ record.format }} {% else %} {{ this.page['default_5'] }} {% endif %}</textarea>
               </div>
             </div>
           </div>
@@ -664,7 +705,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
           <div class=\"row\">
             <div class=\"col-sm-12\"> 
               <div class=\"form-group\" style=\"padding:2px;\">
-                <textarea class=\"form-control my-editor\" name=\"curriculum\" placeholder=\"\" rows=\"20\">{{ record.curriculum }}</textarea>
+                <textarea class=\"form-control my-editor\" name=\"curriculum\" placeholder=\"\" rows=\"20\">{% if record.curriculum is defined %} {{ record.curriculum }} {% else %} {{ this.page['default_7'] }} {% endif %}</textarea>
               </div>
             </div>
           </div>
@@ -674,7 +715,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
           <div class=\"row\">
             <div class=\"col-sm-12\"> 
               <div class=\"form-group\" style=\"padding:2px;\">
-                <textarea class=\"form-control my-editor\" name=\"activity\" placeholder=\"\" rows=\"20\">{{ record.activity }}</textarea>
+                <textarea class=\"form-control my-editor\" name=\"activity\" placeholder=\"\" rows=\"20\">{% if record.activity is defined %} {{ record.activity }} {% else %} {{ this.page['default_8'] }} {% endif %}</textarea>
               </div>
             </div>
           </div>
@@ -684,7 +725,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
           <div class=\"row\">
             <div class=\"col-sm-12\"> 
               <div class=\"form-group\" style=\"padding:2px;\">
-                <textarea class=\"form-control my-editor\" name=\"learning\" placeholder=\"\" rows=\"20\">{{ record.learning }}</textarea>
+                <textarea class=\"form-control my-editor\" name=\"learning\" placeholder=\"\" rows=\"20\">{% if record.learning is defined %} {{ record.learning }} {% else %} {{ this.page['default_9'] }} {% endif %}</textarea>
               </div>
             </div>
           </div>
@@ -694,7 +735,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
           <div class=\"row\">
             <div class=\"col-sm-12\"> 
               <div class=\"form-group\" style=\"padding:2px;\">
-                <textarea class=\"form-control my-editor\" name=\"evaluate\" placeholder=\"\" rows=\"20\">{{ record.evaluate }}</textarea>
+                <textarea class=\"form-control my-editor\" name=\"evaluate\" placeholder=\"\" rows=\"20\">{% if record.evaluate is defined %} {{ record.evaluate }} {% else %} {{ this.page['default_10'] }} {% endif %}</textarea>
               </div>
             </div>
           </div>
