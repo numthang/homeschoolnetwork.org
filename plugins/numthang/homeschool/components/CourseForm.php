@@ -35,14 +35,12 @@ class CourseForm extends ComponentBase
         
       }
 
-      if($this->param('id'))//ถ้ามีการ update จะส่ง query id ของแผนการศึกษาเข้ามา
+      if($this->param('id') && Input::get('save_as') == 0)//ถ้ามีการ update และไม่ได้กดปุ่ม save as จะส่ง query id ของแผนการศึกษาเข้ามา ให้ค้นหากรองด้วย id ก่อน
         $course = Course::find($this->param('id'));
       else
         $course = new Course();
 
       #$course->user_id = Input::get('user_id');
-      #$course->name = Input::get('name');
-
       $course->father_profile = json_encode(Array('father_name'=>Input::get('father_name'), 'father_degree'=>Input::get('father_degree'), 'father_exp'=>Input::get('father_exp'), 'father_age'=>Input::get('father_age'), 'father_job'=>Input::get('father_job'), 'father_addr'=>Input::get('father_addr')));
       $course->mother_profile = json_encode(Array('mother_name'=>Input::get('mother_name'), 'mother_degree'=>Input::get('mother_degree'), 'mother_exp'=>Input::get('mother_exp'), 'mother_age'=>Input::get('mother_age'), 'mother_job'=>Input::get('mother_job'), 'mother_addr'=>Input::get('mother_addr')));
       #print_r(post());
@@ -53,7 +51,7 @@ class CourseForm extends ComponentBase
       $course->fill(post());//กำหนด fillable field ใน Models/Course
       $course->save();
       Flash::success('Course '.$course->name.' saved!');
-      if($this->param('id'))//ถ้ามีการ update จะส่ง query id ให้แสดง flash message
+      if($this->param('id') && Input::get('save_as') == 0)//ถ้ามีการ update จะส่ง query id ให้แสดง flash message
      		return ['#flash_message' => $this->renderPartial('flash.htm', ['message' => 'Course '.$course->name.' saved!', 'type' => 'success'])];
      	else//ถ้าเป็นการสร้างใหม่ให้ redirect ไป edit
      		return Redirect::to('/login/edit/course/'.$course->id);

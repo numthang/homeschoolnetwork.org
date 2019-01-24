@@ -1,8 +1,0 @@
-# ===================================
-#  Import/Export Behavior Config
-# ===================================
-
-export:
-    title: renatio.formbuilder::lang.formlog.export_to_csv
-    modelClass: Renatio\FormBuilder\Models\FormLogExport
-    list: $/renatio/formbuilder/models/formlog/export_columns.yaml

@@ -280,8 +280,12 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
   </div>
   <div class="row">
     <div class="col-sm-6">
-      <button type="submit" class="btn btn-lg btn-info">Save</button>
-      <button type="button" data-request="onDelete" data-request-confirm="Are you sure?" class="btn btn-lg btn-danger">Remove</button>
+    	<input type="hidden" name="save_as" value="0">
+      <button type="submit" class="btn btn-lg btn-default">{{ 'Save'|_ }}</button>
+      {% if record.id is defined %}
+      <button type="submit" class="btn btn-lg btn-info" onClick="if(confirm('{{ 'Save as'|_ }} '+this.form.name.value)) this.form.save_as.value = 1; else return false;">{{ 'Save as'|_ }} ...</button>
+      <button type="button" data-request="onDelete" data-request-confirm="Are you sure?" class="btn btn-lg btn-danger">{{ 'Remove'|_ }}</button>
+      {% endif %}
     </div>
   </div>
   <br>

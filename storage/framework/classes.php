@@ -444,4 +444,8 @@
   'RainLab\\UserPlus\\NotifyRules\\UserLocationAttributeCondition' => 'plugins/rainlab/userplus/notifyrules/UserLocationAttributeCondition.php',
   'RainLab\\Notify\\NotifyRules\\ExecutionContextCondition' => 'plugins/rainlab/notify/notifyrules/ExecutionContextCondition.php',
   'RainLab\\Notify\\Models\\Notification' => 'plugins/rainlab/notify/models/Notification.php',
+  'RainLab\\Translate\\Behaviors\\TranslatablePage' => 'plugins/rainlab/translate/behaviors/TranslatablePage.php',
+  'panakour\\translate\\Plugin' => 'plugins/panakour/translate/Plugin.php',
+  'Backend\\FormWidgets\\TagList' => 'modules/backend/formwidgets/TagList.php',
+  'Bedard\\BlogTags\\Models\\Tag' => 'plugins/bedard/blogtags/models/Tag.php',
 );

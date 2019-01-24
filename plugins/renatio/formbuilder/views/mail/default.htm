@@ -1,9 +1,0 @@
-subject = "Default Form"
-layout = "default"
-==
-{% for field in form.fields %}
-    {% if field.isForView %}
-        **{{ field.label }}:** {{ field.postValue }}
-
-    {% endif %}
-{% endfor %}

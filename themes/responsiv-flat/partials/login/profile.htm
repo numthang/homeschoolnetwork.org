@@ -8,7 +8,7 @@
         <div class="row">
           <div class="col-sm-6">
             <div class="form-group">
-              <label for="status">Status</label>
+              <label for="status">{{ 'Status'|_ }}</label>
               <select class=" form-control" name="status" >
                 <option value="1" {{ user.status == 1 ? 'selected' : '' }}>Homeschool</option>
                 <option value="0" {{ user.status == 0 ? 'selected' : '' }}>Interested</option>          

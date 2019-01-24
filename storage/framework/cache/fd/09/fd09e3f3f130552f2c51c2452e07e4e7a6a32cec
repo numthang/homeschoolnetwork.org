@@ -1,4 +1,0 @@
-1547727220a:1:{s:9:"flash.htm";a:6:{s:8:"fileName";s:9:"flash.htm";s:7:"content";s:193:"[viewBag]
-==
-<p data-control="flash-message" data-interval="20" class="{{ type }}">{{ message }}<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></p>
-";s:5:"mtime";i:1545296570;s:6:"markup";s:179:"<p data-control="flash-message" data-interval="20" class="{{ type }}">{{ message }}<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></p>";s:4:"code";N;s:7:"viewBag";a:0:{}}}

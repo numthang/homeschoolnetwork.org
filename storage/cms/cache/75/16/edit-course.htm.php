@@ -1,5 +1,5 @@
 <?php 
-class Cms5c3f53a7b4b2d636976861_7ea982eefec706c81584b795cd9996c6Class extends Cms\Classes\PageCode
+class Cms5c489cd9bf577199800268_e23e9306867584b6a28185f98985baa4Class extends Cms\Classes\PageCode
 {
 public function onEnd() {
   #dump($this->record);

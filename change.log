@@ -1,3 +1,8 @@
+1. เพิ่ม template ใน course
+2. สร้าง group root ถ้าคนในกรุ๊ป root นี้จะมี template course ให้ edit ได้ คนอื่นให้อ่านและให้เซฟเป็น course ใหม่อย่างเดียว
+3. สร้างปุ่ม สร้างเป็น course ใหม่
+4. โหมด add course แสดง template ด้วย โหมด edit ไม่ต้องแสดง
+
 
 ALTER TABLE `users` ADD `website` VARCHAR(191) NOT NULL AFTER `mobile`, ADD `facebook` VARCHAR(191) NOT NULL AFTER `website`, ADD `line` VARCHAR(191) NOT NULL AFTER `facebook`, ADD `status` VARCHAR(191) NOT NULL AFTER `line`;
 
@@ -43,7 +48,7 @@ Technical
 3. ยกเลิก multi domain ใช้ระบบ author แทน
 4. แผนที่ คนทำบ้านเรียน
 
-==================================================================================================================
+===================================================================================================
 October Hint
 
 การสร้าง components
@@ -64,3 +69,27 @@ Extending user plugin fronend form
 1. copy html form มาสร้าง partial ใหม่
 2. เพิ่ม function model UserModel::extend ใน boot
 
+===================================================================================================
+Laravel File manager
+
+Follow Laravel Filemanager installation guide here https://unisharp.github.io/laravel-filemanager/installation. (recommend version 1.9.2 or below because after this version still have a problem with auth middlewares and I don't know how to fix it)
+
+Open /config/lfm.php and add your own assets path for your icon example
+
+'assets_directory' => '/themes/[your_theme_name]/assets',
+remove 'auth' config in middlewares option.
+
+middlewares' => ['web'],
+Open vendor/unisharp/laravel-filemanager/src/views/index.blade.php. We have to replace all css and before and javascript before declarations.
+
+<style>{!! \File::get(base_path('vendor/laravel-filemanager/css/cropper.min.css')) !!}</style>
+<style>{!! \File::get(base_path('vendor/laravel-filemanager/css/mfb.css')) !!}</style>
+<style>{!! \File::get(base_path('vendor/laravel-filemanager/css/dropzone.min.css')) !!}</style>
+
+<script>{!! \File::get(base_path('vendor/laravel-filemanager/js/cropper.min.js')) !!}</script>
+<script>{!! \File::get(base_path('vendor/laravel-filemanager/js/jquery.form.min.js')) !!}</script>
+<script>{!! \File::get(base_path('vendor/laravel-filemanager/js/dropzone.min.js')) !!}</script>
+Open /vendor/unisharp/laravel-filemanager/src/Traits/LfmHelpers.php find $thumb_url and replace the folder.png path instead.
+
+$thumb_url = asset(config('lfm.assets_directory').'/images/icons/png/folder.png');
+===================================================================================================
