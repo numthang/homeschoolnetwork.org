@@ -128,6 +128,7 @@ return [
         // 'Illuminate\Html\HtmlServiceProvider', // Example
 
         'System\ServiceProvider',
+        \Torann\GeoIP\GeoIPServiceProvider::class,
     ]),
 
     /*
@@ -142,7 +143,7 @@ return [
     */
 
     'aliases' => array_merge(include(base_path('modules/system/aliases.php')), [
-
+				'GeoIP' => \Torann\GeoIP\Facades\GeoIP::class,
         // 'Str' => 'Illuminate\Support\Str', // Example
 
     ]),

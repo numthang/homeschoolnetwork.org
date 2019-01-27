@@ -40,6 +40,7 @@
       25 => 'October\\Rain\\Mail\\MailServiceProvider',
       26 => 'October\\Rain\\Argon\\ArgonServiceProvider',
       27 => 'System\\ServiceProvider',
+      28 => 'Torann\\GeoIP\\GeoIPServiceProvider',
     ),
     'aliases' => 
     array (
@@ -94,6 +95,7 @@
       'SystemException' => 'October\\Rain\\Exception\\SystemException',
       'ApplicationException' => 'October\\Rain\\Exception\\ApplicationException',
       'ValidationException' => 'October\\Rain\\Exception\\ValidationException',
+      'GeoIP' => 'Torann\\GeoIP\\Facades\\GeoIP',
     ),
   ),
   '*::cms' => 
@@ -208,6 +210,79 @@
     array (
     ),
     'compiled' => '/home/vsites/homeschool.in.th/storage/framework/views',
+  ),
+  '*::geoip' => 
+  array (
+    'log_failures' => true,
+    'include_currency' => true,
+    'service' => 'ipapi',
+    'services' => 
+    array (
+      'maxmind_database' => 
+      array (
+        'class' => 'Torann\\GeoIP\\Services\\MaxMindDatabase',
+        'database_path' => '/home/vsites/homeschool.in.th/storage/app/geoip.mmdb',
+        'update_url' => 'https://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.gz',
+        'locales' => 
+        array (
+          0 => 'en',
+        ),
+      ),
+      'maxmind_api' => 
+      array (
+        'class' => 'Torann\\GeoIP\\Services\\MaxMindWebService',
+        'user_id' => NULL,
+        'license_key' => NULL,
+        'locales' => 
+        array (
+          0 => 'en',
+        ),
+      ),
+      'ipapi' => 
+      array (
+        'class' => 'Torann\\GeoIP\\Services\\IPApi',
+        'secure' => true,
+        'key' => NULL,
+        'continent_path' => '/home/vsites/homeschool.in.th/storage/app/continents.json',
+        'lang' => 'en',
+      ),
+      'ipgeolocation' => 
+      array (
+        'class' => 'Torann\\GeoIP\\Services\\IPGeoLocation',
+        'secure' => true,
+        'key' => NULL,
+        'continent_path' => '/home/vsites/homeschool.in.th/storage/app/continents.json',
+        'lang' => 'en',
+      ),
+      'ipdata' => 
+      array (
+        'class' => 'Torann\\GeoIP\\Services\\IPData',
+        'key' => NULL,
+        'secure' => true,
+      ),
+    ),
+    'cache' => 'all',
+    'cache_tags' => 
+    array (
+      0 => 'torann-geoip-location',
+    ),
+    'cache_expires' => 30,
+    'default_location' => 
+    array (
+      'ip' => '127.0.0.0',
+      'iso_code' => 'US',
+      'country' => 'United States',
+      'city' => 'New Haven',
+      'state' => 'CT',
+      'state_name' => 'Connecticut',
+      'postal_code' => '06510',
+      'lat' => 41.310000000000002,
+      'lon' => -72.920000000000002,
+      'timezone' => 'America/New_York',
+      'continent' => 'NA',
+      'default' => true,
+      'currency' => 'USD',
+    ),
   ),
   '*::lfm' => 
   array (

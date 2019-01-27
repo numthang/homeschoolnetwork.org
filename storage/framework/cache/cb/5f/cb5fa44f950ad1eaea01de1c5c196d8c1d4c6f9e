@@ -1,7 +1,16 @@
-1548329271a:1:{s:9:"tests.htm";a:9:{s:8:"fileName";s:9:"tests.htm";s:7:"content";s:1708:"title = "Tests"
+1548586745a:1:{s:9:"tests.htm";a:9:{s:8:"fileName";s:9:"tests.htm";s:7:"content";s:1779:"title = "Tests"
 url = "/tests"
 layout = "default"
 is_hidden = 0
+==
+<?php
+use Torann\GeoIP\Facades\GeoIP;
+	function onStart() {
+		echo 'test';
+		#geoip($ip = null);
+	}
+
+?>
 ==
 <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 <textarea name="content" class="form-control my-editor">{!! old('content', $content) !!}</textarea>
@@ -40,7 +49,8 @@ is_hidden = 0
   };
 
   tinymce.init(editor_config);
-</script>";s:5:"mtime";i:1546175679;s:6:"markup";s:1641:"<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+</script>
+";s:5:"mtime";i:1548584831;s:6:"markup";s:1604:"<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 <textarea name="content" class="form-control my-editor">{!! old('content', $content) !!}</textarea>
 <script>
   var editor_config = {
@@ -77,4 +87,8 @@ is_hidden = 0
   };
 
   tinymce.init(editor_config);
-</script>";s:4:"code";N;s:5:"title";s:5:"Tests";s:3:"url";s:6:"/tests";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";}}
+</script>";s:4:"code";s:93:"use Torann\GeoIP\Facades\GeoIP;
+	function onStart() {
+		echo 'test';
+		#geoip($ip = null);
+	}";s:5:"title";s:5:"Tests";s:3:"url";s:6:"/tests";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";}}

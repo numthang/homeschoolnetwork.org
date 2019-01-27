@@ -34,6 +34,7 @@
     30 => 'October\\Rain\\Mail\\MailServiceProvider',
     31 => 'October\\Rain\\Argon\\ArgonServiceProvider',
     32 => 'System\\ServiceProvider',
+    33 => 'Torann\\GeoIP\\GeoIPServiceProvider',
   ),
   'eager' => 
   array (
@@ -56,6 +57,7 @@
     16 => 'October\\Rain\\Flash\\FlashServiceProvider',
     17 => 'October\\Rain\\Argon\\ArgonServiceProvider',
     18 => 'System\\ServiceProvider',
+    19 => 'Torann\\GeoIP\\GeoIPServiceProvider',
   ),
   'deferred' => 
   array (

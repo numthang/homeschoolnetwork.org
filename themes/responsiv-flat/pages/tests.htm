@@ -3,6 +3,15 @@ url = "/tests"
 layout = "default"
 is_hidden = 0
 ==
+<?php
+use Torann\GeoIP\Facades\GeoIP;
+	function onStart() {
+		echo 'test';
+		#geoip($ip = null);
+	}
+
+?>
+==
 <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 <textarea name="content" class="form-control my-editor">{!! old('content', $content) !!}</textarea>
 <script>

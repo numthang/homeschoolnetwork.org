@@ -6,6 +6,7 @@ use Validator;
 use Redirect;
 use Numthang\Homeschool\Models\Course;
 use Flash;
+use Torann\GeoIP\Facades\GeoIP;
 
 class CourseForm extends ComponentBase
 {
@@ -15,7 +16,11 @@ class CourseForm extends ComponentBase
             'description' => 'Add homeschool course form'
         ];
     }
-
+		public function onRun() {
+			$ip = $_SERVER['REMOTE_ADDR'];
+      #echo $geoLocation = Geo::getLocation($ip);
+     	print_r(geoip($ip));
+		}
     public function onSave(){
       $validator = Validator::make(
             [
