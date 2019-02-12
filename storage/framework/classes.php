@@ -448,4 +448,5 @@
   'panakour\\translate\\Plugin' => 'plugins/panakour/translate/Plugin.php',
   'Backend\\FormWidgets\\TagList' => 'modules/backend/formwidgets/TagList.php',
   'Bedard\\BlogTags\\Models\\Tag' => 'plugins/bedard/blogtags/models/Tag.php',
+  'KurtJensen\\Passage\\Classes\\KeyRing' => 'plugins/kurtjensen/passage/classes/KeyRing.php',
 );

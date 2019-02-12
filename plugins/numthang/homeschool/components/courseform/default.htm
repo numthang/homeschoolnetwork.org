@@ -281,10 +281,14 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
   <div class="row">
     <div class="col-sm-6">
     	<input type="hidden" name="save_as" value="0">
-      <button type="submit" class="btn btn-lg btn-default">{{ 'Save'|_ }}</button>
+			{% if record.template == 0 or can('edit_course_template') %}
+      	<button type="submit" class="btn btn-lg btn-default">{{ 'Save'|_ }}</button>
+      {% endif %}
       {% if record.id is defined %}
-      <button type="submit" class="btn btn-lg btn-info" onClick="if(confirm('{{ 'Save as'|_ }} '+this.form.name.value)) this.form.save_as.value = 1; else return false;">{{ 'Save as'|_ }} ...</button>
-      <button type="button" data-request="onDelete" data-request-confirm="Are you sure?" class="btn btn-lg btn-danger">{{ 'Remove'|_ }}</button>
+		    <button type="submit" class="btn btn-lg btn-info" onClick="if(confirm('{{ 'Save as'|_ }} '+this.form.name.value)) this.form.save_as.value = 1; else return false;">{{ 'Save as'|_ }} ...</button>
+				{% if record.template == 0 or can('edit_course_template') %}
+				  <button type="button" data-request="onDelete" data-request-confirm="Are you sure?" class="btn btn-lg btn-danger">{{ 'Remove'|_ }}</button>
+		    {% endif %}
       {% endif %}
     </div>
   </div>

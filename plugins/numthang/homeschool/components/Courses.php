@@ -3,9 +3,11 @@
 use Auth;
 use Cms\Classes\ComponentBase;
 use Numthang\Homeschool\Models\Course;
+use DB;
 
 class Courses extends ComponentBase
 {
+    public $courses;//กำหนด ส่งค่าไปแสดง ใน default.htm
     public function componentDetails(){
         return [
             'name' => 'Course list',
@@ -40,12 +42,13 @@ class Courses extends ComponentBase
     }
 
     public function onRun(){
-        $this->courses = $this->loadCourses();//กำหนดตัวแปร courses ไว้ล่างสุด
+        $this->courses = $this->loadCourses();
     }
 
     protected function loadCourses(){
         $user = Auth::getUser();
-        $query = Course::all()->where('user_id', '=', $user->id);
+        $query = Course::where('user_id', '=', $user->id)->orWhere('template', '=', 1)->get();
+				#$query = DB::table('numthang_homeschool_courses')->where('user_id', '=', $user->id)->orWhere('template', '=', 1)->get();
 
         /*if($this->property('sortOrder') == 'name asc'){
             $query = $query->sortBy('name');
@@ -61,7 +64,4 @@ class Courses extends ComponentBase
 
         return $query;
     }
-
-    public $courses;//กำหนด ส่งค่าไปแสดง ใน default.htm
-
 }

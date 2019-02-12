@@ -489,26 +489,37 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
   <div class=\"row\">
     <div class=\"col-sm-6\">
     \t<input type=\"hidden\" name=\"save_as\" value=\"0\">
-      <button type=\"submit\" class=\"btn btn-lg btn-default\">";
+\t\t\t";
         // line 284
-        echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Save"));
-        echo "</button>
+        if (((twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "template", array()) == 0) || call_user_func_array($this->env->getFunction('can')->getCallable(), array("edit_course_template")))) {
+            // line 285
+            echo "      \t<button type=\"submit\" class=\"btn btn-lg btn-default\">";
+            echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Save"));
+            echo "</button>
       ";
-        // line 285
+        }
+        // line 287
+        echo "      ";
         if (twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "id", array(), "any", true, true)) {
-            // line 286
-            echo "      <button type=\"submit\" class=\"btn btn-lg btn-info\" onClick=\"if(confirm('";
+            // line 288
+            echo "\t\t    <button type=\"submit\" class=\"btn btn-lg btn-info\" onClick=\"if(confirm('";
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Save as"));
             echo " '+this.form.name.value)) this.form.save_as.value = 1; else return false;\">";
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Save as"));
             echo " ...</button>
-      <button type=\"button\" data-request=\"onDelete\" data-request-confirm=\"Are you sure?\" class=\"btn btn-lg btn-danger\">";
-            // line 287
-            echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Remove"));
-            echo "</button>
-      ";
+\t\t\t\t";
+            // line 289
+            if (((twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "template", array()) == 0) || call_user_func_array($this->env->getFunction('can')->getCallable(), array("edit_course_template")))) {
+                // line 290
+                echo "\t\t\t\t  <button type=\"button\" data-request=\"onDelete\" data-request-confirm=\"Are you sure?\" class=\"btn btn-lg btn-danger\">";
+                echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Remove"));
+                echo "</button>
+\t\t    ";
+            }
+            // line 292
+            echo "      ";
         }
-        // line 289
+        // line 293
         echo "    </div>
   </div>
   <br>
@@ -528,7 +539,7 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
 
     public function getDebugInfo()
     {
-        return array (  512 => 289,  507 => 287,  500 => 286,  498 => 285,  494 => 284,  446 => 239,  436 => 232,  415 => 222,  394 => 212,  373 => 202,  352 => 192,  333 => 182,  321 => 181,  299 => 170,  278 => 160,  257 => 150,  244 => 140,  232 => 131,  219 => 121,  209 => 114,  194 => 102,  185 => 96,  176 => 90,  167 => 84,  158 => 78,  149 => 72,  139 => 65,  130 => 59,  121 => 53,  112 => 47,  103 => 41,  94 => 35,  80 => 23,  74 => 22,  70 => 21,  63 => 19,  58 => 16,  52 => 15,  46 => 14,  39 => 12,  33 => 9,  23 => 1,);
+        return array (  523 => 293,  520 => 292,  514 => 290,  512 => 289,  505 => 288,  502 => 287,  496 => 285,  494 => 284,  446 => 239,  436 => 232,  415 => 222,  394 => 212,  373 => 202,  352 => 192,  333 => 182,  321 => 181,  299 => 170,  278 => 160,  257 => 150,  244 => 140,  232 => 131,  219 => 121,  209 => 114,  194 => 102,  185 => 96,  176 => 90,  167 => 84,  158 => 78,  149 => 72,  139 => 65,  130 => 59,  121 => 53,  112 => 47,  103 => 41,  94 => 35,  80 => 23,  74 => 22,  70 => 21,  63 => 19,  58 => 16,  52 => 15,  46 => 14,  39 => 12,  33 => 9,  23 => 1,);
     }
 
     public function getSourceContext()
@@ -816,10 +827,14 @@ class __TwigTemplate_b13f20b9ec29aa500249e8340854aeaca8862fdb7708ba63c6afb24dfab
   <div class=\"row\">
     <div class=\"col-sm-6\">
     \t<input type=\"hidden\" name=\"save_as\" value=\"0\">
-      <button type=\"submit\" class=\"btn btn-lg btn-default\">{{ 'Save'|_ }}</button>
+\t\t\t{% if record.template == 0 or can('edit_course_template') %}
+      \t<button type=\"submit\" class=\"btn btn-lg btn-default\">{{ 'Save'|_ }}</button>
+      {% endif %}
       {% if record.id is defined %}
-      <button type=\"submit\" class=\"btn btn-lg btn-info\" onClick=\"if(confirm('{{ 'Save as'|_ }} '+this.form.name.value)) this.form.save_as.value = 1; else return false;\">{{ 'Save as'|_ }} ...</button>
-      <button type=\"button\" data-request=\"onDelete\" data-request-confirm=\"Are you sure?\" class=\"btn btn-lg btn-danger\">{{ 'Remove'|_ }}</button>
+\t\t    <button type=\"submit\" class=\"btn btn-lg btn-info\" onClick=\"if(confirm('{{ 'Save as'|_ }} '+this.form.name.value)) this.form.save_as.value = 1; else return false;\">{{ 'Save as'|_ }} ...</button>
+\t\t\t\t{% if record.template == 0 or can('edit_course_template') %}
+\t\t\t\t  <button type=\"button\" data-request=\"onDelete\" data-request-confirm=\"Are you sure?\" class=\"btn btn-lg btn-danger\">{{ 'Remove'|_ }}</button>
+\t\t    {% endif %}
       {% endif %}
     </div>
   </div>

@@ -1,15 +1,13 @@
-title = "Tests"
-url = "/tests"
+title = "Testing"
+url = "/testing"
 layout = "default"
 is_hidden = 0
 ==
 <?php
-use Torann\GeoIP\Facades\GeoIP;
-	function onStart() {
-		echo 'test';
+function onStart() {
+		echo 'onStart test';
 		#geoip($ip = null);
 	}
-
 ?>
 ==
 <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>

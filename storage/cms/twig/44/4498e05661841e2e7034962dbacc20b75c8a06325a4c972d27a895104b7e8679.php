@@ -44,9 +44,17 @@ class __TwigTemplate_50d75b90b0c13bf67cbd458e6327d67afc3bf48acd4fec898625a3fe6b4
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["course"], "id", array()), "html", null, true);
             echo "\" ";
             echo (((twig_get_attribute($this->env, $this->source, ($context["builderDetails"] ?? null), "identifierValue", array()) == twig_get_attribute($this->env, $this->source, $context["course"], "id", array()))) ? ("selected") : (""));
-            echo ">(";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["course"], "id", array()), "html", null, true);
-            echo ".) ";
+            echo ">";
+            if (twig_get_attribute($this->env, $this->source, $context["course"], "template", array())) {
+                echo " [";
+                echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Template"));
+                echo "] ";
+            } else {
+                echo " [";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "name", array()), "html", null, true);
+                echo "] ";
+            }
+            echo " ";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["course"], "name", array()), "html", null, true);
             echo "</option>
 \t\t\t";
@@ -97,7 +105,7 @@ class __TwigTemplate_50d75b90b0c13bf67cbd458e6327d67afc3bf48acd4fec898625a3fe6b4
 
     public function getDebugInfo()
     {
-        return array (  79 => 18,  68 => 16,  64 => 15,  58 => 11,  43 => 9,  39 => 8,  35 => 7,  30 => 5,  25 => 2,  23 => 1,);
+        return array (  87 => 18,  76 => 16,  72 => 15,  66 => 11,  43 => 9,  39 => 8,  35 => 7,  30 => 5,  25 => 2,  23 => 1,);
     }
 
     public function getSourceContext()
@@ -110,7 +118,7 @@ class __TwigTemplate_50d75b90b0c13bf67cbd458e6327d67afc3bf48acd4fec898625a3fe6b4
 \t\t<select class=\"form-control select select-primary\" data-toggle=\"select\" onChange=\"if(this.value) location.href='/login/edit/course/'+this.value; else location.href='/login/add/course';\" style=\"width:100%\">
 \t\t\t<option value=\"\">{{ 'New Course'|_ }}</option>
 \t\t\t{% for course in courses %}
-\t\t\t<option value=\"{{ course.id }}\" {{ builderDetails.identifierValue == course.id ? 'selected' : '' }}>({{ course.id }}.) {{ course.name }}</option>
+\t\t\t<option value=\"{{ course.id }}\" {{ builderDetails.identifierValue == course.id ? 'selected' : '' }}>{% if course.template %} [{{ 'Template'|_ }}] {% else %} [{{ user.name }}] {% endif %} {{ course.name }}</option>
 \t\t\t{% endfor %}
 \t\t</select>
 \t</div>

@@ -6,7 +6,7 @@
 		<select class="form-control select select-primary" data-toggle="select" onChange="if(this.value) location.href='/login/edit/course/'+this.value; else location.href='/login/add/course';" style="width:100%">
 			<option value="">{{ 'New Course'|_ }}</option>
 			{% for course in courses %}
-			<option value="{{ course.id }}" {{ builderDetails.identifierValue == course.id ? 'selected' : '' }}>({{ course.id }}.) {{ course.name }}</option>
+			<option value="{{ course.id }}" {{ builderDetails.identifierValue == course.id ? 'selected' : '' }}>{% if course.template %} [{{ 'Template'|_ }}] {% else %} [{{ user.name }}] {% endif %} {{ course.name }}</option>
 			{% endfor %}
 		</select>
 	</div>
