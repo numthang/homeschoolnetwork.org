@@ -39,7 +39,7 @@ public function onEnd() {
   $this->page['mother_age'] = $j->mother_age;
   $this->page['mother_job'] = $j->mother_job;
   $this->page['mother_addr'] = $j->mother_addr;
-  
+
   $date = explode('-', $this->record->attributes['birth_date']);
   $this->page['birth_date'] = $date[2].'/'.$date[1].'/'.$date[0];
 }
@@ -54,7 +54,7 @@ public function onEnd() {
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-          {% partial 'login/course.htm' %}
+          {% partial 'login/courses.htm' %}
           {% set record = builderDetails.record %}
           {% set displayColumn = builderDetails.displayColumn %}
           {% set notFoundMessage = builderDetails.notFoundMessage %}

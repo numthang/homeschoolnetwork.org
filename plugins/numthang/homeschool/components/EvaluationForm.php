@@ -7,7 +7,7 @@ class EvaluationForm extends ComponentBase
     public function componentDetails()
     {
         return [
-            'name'        => 'EvaluationForm Component',
+            'name'        => 'Evaluation Form',
             'description' => 'No description provided yet...'
         ];
     }

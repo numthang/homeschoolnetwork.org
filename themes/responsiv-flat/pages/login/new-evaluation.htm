@@ -3,11 +3,9 @@ url = "/login/new/evaluation"
 layout = "default"
 is_hidden = 0
 
-[courseform]
+[evaluationform]
 
-[courses]
-results = 0
-sortOrder = "name asc"
+[evaluations]
 ==
 <section id="layout-title">
     <div class="container">
@@ -18,8 +16,8 @@ sortOrder = "name asc"
 <div class="container">
 	<div class="row">
 		  <div class="col-md-12">
-		    {% component 'courses' %}
-		    {% component 'courseform' %}
+        {% partial 'login/evaluations.htm' %}
+		    {% component 'evaluationform' %}
 		  </div>
 	</div>
 </div>

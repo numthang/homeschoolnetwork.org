@@ -1,3 +1,296 @@
-<p>This is the default markup for component EvaluationForm</p>
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<link id="bsdp-css" href="https://uxsolutions.github.io/bootstrap-datepicker/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet">
+<script src="https://uxsolutions.github.io/bootstrap-datepicker/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript">
+$.fn.datepicker.defaults.format = "dd/mm/yyyy";
+</script>
 
-<small>You can delete this file if you want</small>
+<form data-request="onSave">
+  <input type="hidden" name="user_id" value="{{ user.id }}">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group {% if errors.first('name') %} has-error {% endif %}">
+        <label>ชื่อแผนการศึกษา</label>
+        <input type="text" class="form-control" name="name" placeholder="Enter course name : {{ errors.first('name') }}" value="{{ record.name }}">
+        {% if errors.first('name') %}<div class="alert alert-warning" style="margin-top:4px;">{{ errors.first('name') }}</div>{% endif %}
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group {% if errors.first('hs_name') %} has-error {% endif %}">
+        <label>ชื่อบ้านเรียน</label>
+        <input type="text" class="form-control" name="hs_name" placeholder="Enter homeschool name : " value="{{ record.hs_name }}">
+        {% if errors.first('hs_name') %}<div class="alert alert-warning" style="margin-top:4px;">{{ errors.first('hs_name') }}</div>{% endif %}
+      </div>
+    </div>
+  </div>
+  <div class="board-inner">
+    <div class="accordion">
+      <dl>
+        <dt><a class="accordionTitle" href="#">1. ข้อมูลพื้นฐานของครอบครัว</a></dt>
+        <dd class="accordionItem accordionItemCollapsed">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>บิดา</label>
+                <input type="text" class="form-control" name="father_name" placeholder="Enter father's name" value="{{ this.page.father_name }}">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>วุฒิการศึกษา</label>
+                <input type="text" class="form-control" name="father_degree" placeholder="Enter father's degree" value="{{ this.page.father_degree }}">
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label>ประสบการณ์</label>
+                <textarea class="form-control" name="father_exp" placeholder="Enter father's experience" rows="5">{{ this.page.father_exp }}</textarea>
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <div class="form-group">
+                <label>อายุ</label>
+                <input type="text" class="form-control" name="father_age" placeholder="Age" value="{{ this.page.father_age }}">
+              </div>
+            </div>
+            <div class="col-sm-10">
+              <div class="form-group">
+                <label>อาชีพ</label>
+                <input type="text" class="form-control" name="father_job" placeholder="Enter father's job"  value="{{ this.page.father_job }}">
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label>ท่ี่อยู่</label>
+                <input type="text" class="form-control" name="father_addr" placeholder="Enter father's address" value="{{ this.page.father_addr }}">
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>มารดา</label>
+                <input type="text" class="form-control" name="mother_name" placeholder="Enter mother's name" value="{{ this.page.mother_name }}">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>วุฒิการศึกษา</label>
+                <input type="text" class="form-control" name="mother_degree" placeholder="Enter mother's degree" value="{{ this.page.mother_degree }}">
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label>ประสบการณ์</label>
+                <textarea class="form-control" name="mother_exp" placeholder="Enter mother's experience" rows="5">{{ this.page.mother_exp }}</textarea>
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <div class="form-group">
+                <label>อายุ</label>
+                <input type="text" class="form-control" name="mother_age" placeholder="Age" value="{{ this.page.mother_age }}">
+              </div>
+            </div>
+            <div class="col-sm-10">
+              <div class="form-group">
+                <label>อาชีพ</label>
+                <input type="text" class="form-control" name="mother_job" placeholder="Enter mother's job" value="{{ this.page.mother_job }}">
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label>ที่อยู่</label>
+                <input type="text" class="form-control" name="mother_addr" placeholder="Enter mother's address" value="{{ this.page.mother_addr }}">
+              </div>
+            </div>
+          </div>
+        </dd>
+        <dt><a href="#" class="accordionTitle">2. ข้อมูลพื้นฐานของผู้เรียน</a></dt>
+        <dd class="accordionItem accordionItemCollapsed">
+          2.1 ระบุข้อมูลของผู้เรียน
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>ชื่อ-สกุล</label>
+                <input type="text" class="form-control" name="student_name" placeholder="Enter student's name" value="{{ record.student_name }}">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>วัน เดือน ปี เกิด</label>
+                <div class="input-group date" data-provide="datepicker">
+                  <input type="text" class="form-control" name="birth_date" value="{{ this.page.birth_date }}">
+                    <div class="input-group-addon">
+                      <span class="fui-calendar"></span>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label>ประวัติการศึกษา (กรณีเรียนในระบบโรงเรียนมาก่อน)</label>
+                <textarea class="form-control" name="school_exp" placeholder="Enter school's experience" rows="5">{{ record.school_exp }}</textarea>
+              </div>
+            </div>
+          </div>
+          2.2 พัฒนาการของผู้เรียน (ระบุการพัฒนาการของผู้เรียน/ความสามารถพิเศษ/ความ
+    ต้องการพิเศษ)
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <textarea class="form-control" name="development" placeholder="พัฒนาการตามวัย, พัฒนาการตามความสามารถพิเศษ หรือ พัฒนาการตามความตองการพิเศษ" rows="10">{{ record.development }}</textarea>
+              </div>
+            </div>
+          </div>
+        </dd>
+        <dt><a href="#" class="accordionTitle">3. ระดับที่จัดการศึกษา / เหตุผลในการจัดการศึกษาของครอบครัว</a></dt>
+        <dd class="accordionItem accordionItemCollapsed">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group" style="padding:2px;">
+                <textarea class="form-control my-editor" name="class_reason" placeholder="ระดับชั้น เช่น ประถมศึกษา (ชั้น ป.1 – ป.3) เหตุผลในการจัดการศึกษาของครอบครัว" rows="20">{% if record.class_reason is defined %} {{ record.class_reason }} {% else %} {{ this.page['default_3'] }} {% endif %}</textarea>
+              </div>
+            </div>
+          </div>
+        </dd>
+        <dt><a href="#" class="accordionTitle">4. จุดมุ่งหมายของการจัดการศึกษา</a></dt>
+        <dd class="accordionItem accordionItemCollapsed">
+          <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group" style="padding:2px;">
+              <textarea class="form-control my-editor" name="purpose" placeholder="ระบุความต้องการ เช่น ต้องการพึ่งตนเอง ลดค่าใช้จ่าย เป็นต้น" rows="20">{% if record.purpose is defined %} {{ record.purpose }} {% else %} {{ this.page['default_4'] }} {% endif %}</textarea>
+            </div>
+          </div>
+        </div>
+        </dd>
+        <dt><a href="#" class="accordionTitle">5. รูปแบบการจัดการศึกษา</a></dt>
+        <dd class="accordionItem accordionItemCollapsed">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group" style="padding:2px;">
+                <textarea class="form-control my-editor" name="format" placeholder="" rows="20">{% if record.edu_type is defined %} {{ record.format }} {% else %} {{ this.page['default_5'] }} {% endif %}</textarea>
+              </div>
+            </div>
+          </div>
+        </dd>
+        <dt><a href="#" class="accordionTitle">6. โครงสร้างเวลาเรียน</a></dt>
+        <dd class="accordionItem accordionItemCollapsed">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group" style="padding:2px;">
+              	<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+								<textarea class="form-control my-editor" name="schedule" placeholder="" rows="20">{% if record.schedule is defined %} {{ record.schedule }} {% else %} {{ this.page['default_6'] }} {% endif %}</textarea>
+                <!--<textarea class="form-control" name="schedule" placeholder="กลุ่มประสบการณ์ /กลุ่มสาระการเรียนรู้ (ตามตารางในข้อ 7)" rows="20">{% if record.schedule is defined %} {{ record.schedule }} {% else %} {% endif %}</textarea>-->
+              </div>
+            </div>
+          </div>
+        </dd>
+        <dt><a href="#" class="accordionTitle">7. การจัดกลุ่มสาระการเรียนรู้ /กลุ่มประสบการณ์</a></dt>
+        <dd class="accordionItem accordionItemCollapsed">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group" style="padding:2px;">
+                <textarea class="form-control my-editor" name="curriculum" placeholder="" rows="20">{% if record.curriculum is defined %} {{ record.curriculum }} {% else %} {{ this.page['default_7'] }} {% endif %}</textarea>
+              </div>
+            </div>
+          </div>
+        </dd>
+        <dt><a href="#" class="accordionTitle">8. การจัดกิจกรรมพัฒนาผู้เรียน</a></dt>
+        <dd class="accordionItem accordionItemCollapsed">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group" style="padding:2px;">
+                <textarea class="form-control my-editor" name="activity" placeholder="" rows="20">{% if record.activity is defined %} {{ record.activity }} {% else %} {{ this.page['default_8'] }} {% endif %}</textarea>
+              </div>
+            </div>
+          </div>
+        </dd>
+        <dt><a href="#" class="accordionTitle">9. การจัดกระบวนการเรียนรู้</a></dt>
+        <dd class="accordionItem accordionItemCollapsed">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group" style="padding:2px;">
+                <textarea class="form-control my-editor" name="learning" placeholder="" rows="20">{% if record.learning is defined %} {{ record.learning }} {% else %} {{ this.page['default_9'] }} {% endif %}</textarea>
+              </div>
+            </div>
+          </div>
+        </dd>
+        <dt><a href="#" class="accordionTitle">10. การวัดและประเมินผลการเรียนรู้</a></dt>
+        <dd class="accordionItem accordionItemCollapsed">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group" style="padding:2px;">
+                <textarea class="form-control my-editor" name="evaluate" placeholder="" rows="20">{% if record.evaluate is defined %} {{ record.evaluate }} {% else %} {{ this.page['default_10'] }} {% endif %}</textarea>
+              </div>
+            </div>
+          </div>
+        </dd>
+        <dt><a href="#" class="accordionTitle">11. อื่นๆ (ครอบครัวสามารถเพิ่มเติมรายละเอียดที่เห็นว่าเป็นประโยชน์ต่อผู้เรียนได้)</a></dt>
+        <dd class="accordionItem accordionItemCollapsed">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group" style="padding:2px;">
+                <textarea class="form-control my-editor" name="other" placeholder="" rows="20">{{ record.other }}</textarea>
+              </div>
+            </div>
+          </div>
+        </dd>
+      </dl>
+    </div>
+    <script src="{{ ['assets/js/accordion.js']|theme }}"></script>
+		<script>
+			var editor_config = {
+				path_absolute : "/",
+				selector: "textarea.my-editor",
+				plugins: [
+					"advlist autolink lists link image charmap print preview hr anchor pagebreak",
+					"searchreplace wordcount visualblocks visualchars code fullscreen",
+					"insertdatetime media nonbreaking save table contextmenu directionality",
+					"emoticons template paste textcolor colorpicker textpattern"
+				],
+				toolbar: "fontsizeselect forecolor backcolor | bold italic underline | alignleft aligncenter alignright | bullist numlist | outdent indent | superscript",
+				templates: [
+					{title: 'Some title 1', description: 'Some desc 1', content: 'My content'},
+					{title: 'Some title 2', description: 'Some desc 2', url: 'development.html'}
+				],
+				relative_urls: false,
+				file_browser_callback : function(field_name, url, type, win) {
+					var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+					var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
+
+					var cmsURL = editor_config.path_absolute + 'laravel-filemanager?field_name=' + field_name;
+					if (type == 'image') {
+						cmsURL = cmsURL + "&type=Images";
+					} else {
+						cmsURL = cmsURL + "&type=Files";
+					}
+
+					tinyMCE.activeEditor.windowManager.open({
+						file : cmsURL,
+						title : 'Filemanager',
+						width : x * 0.8,
+						height : y * 0.8,
+						resizable : "yes",
+						close_previous : "no"
+					});
+				}
+			};
+			tinymce.init(editor_config);
+		</script>
+    <div class="clearfix"></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+    	<input type="hidden" name="save_as" value="0">
+			{% if record.template == 0 or can('edit_course_template') %}
+      	<button type="submit" class="btn btn-lg btn-default">{{ 'Save'|_ }}</button>
+      {% endif %}
+      {% if record.id is defined %}
+		    <button type="submit" class="btn btn-lg btn-info" onClick="if(confirm('{{ 'Save as'|_ }} '+this.form.name.value)) this.form.save_as.value = 1; else return false;">{{ 'Save as'|_ }} ...</button>
+				{% if record.template == 0 or can('edit_course_template') %}
+				  <button type="button" data-request="onDelete" data-request-confirm="Are you sure?" class="btn btn-lg btn-danger">{{ 'Remove'|_ }}</button>
+		    {% endif %}
+      {% endif %}
+    </div>
+  </div>
+  <br>
+</form>

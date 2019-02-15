@@ -7,7 +7,7 @@ class Evaluations extends ComponentBase
     public function componentDetails()
     {
         return [
-            'name'        => 'Evaluations Component',
+            'name'        => 'Evaluations lists',
             'description' => 'No description provided yet...'
         ];
     }

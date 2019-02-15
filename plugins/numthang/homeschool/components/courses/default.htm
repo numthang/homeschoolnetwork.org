@@ -1,12 +1,7 @@
 {%  set courses = courses.courses %}
 
-  <ul class="list-group filter-list-group">
-    {% for course in courses %}
-    <li class="list-group-item" ><a href="/login/edit/course/{{ course.id }}" style="font-size: 18px; ">{{ course.name }}</a></li>
-    {% endfor %}
-  </ul>
-
-
-
-                   
-
+<ul class="list-group filter-list-group">
+  {% for course in courses %}
+  <li class="list-group-item" ><a href="/login/edit/course/{{ course.id }}" style="font-size: 18px; ">{{ course.name }}</a></li>
+  {% endfor %}
+</ul>

@@ -449,4 +449,6 @@
   'Backend\\FormWidgets\\TagList' => 'modules/backend/formwidgets/TagList.php',
   'Bedard\\BlogTags\\Models\\Tag' => 'plugins/bedard/blogtags/models/Tag.php',
   'KurtJensen\\Passage\\Classes\\KeyRing' => 'plugins/kurtjensen/passage/classes/KeyRing.php',
+  'Numthang\\Homeschool\\Components\\Evaluations' => 'plugins/numthang/homeschool/components/Evaluations.php',
+  'Numthang\\Homeschool\\Components\\EvaluationForm' => 'plugins/numthang/homeschool/components/EvaluationForm.php',
 );

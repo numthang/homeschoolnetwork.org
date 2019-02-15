@@ -1,3 +1,5 @@
+/storage/framework/
+/storage/cms/
 /bootstrap/compiled.php
 /config/database.php
 #/vendor
@@ -19,4 +21,3 @@ composer.lock
 
 # for netbeans
 nbproject
-
