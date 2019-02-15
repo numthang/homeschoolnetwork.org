@@ -1,0 +1,40 @@
+1549969389a:1:{s:18:"login/evaluate.htm";a:11:{s:8:"fileName";s:18:"login/evaluate.htm";s:7:"content";s:470:"title = "New evaluate"
+url = "/login/new/evaluate"
+layout = "default"
+is_hidden = 0
+
+[courseform]
+
+[courses]
+results = 0
+sortOrder = "name asc"
+==
+<section id="layout-title">
+    <div class="container">
+        <h3>{{ 'New evaluate'|_ }}</h3>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+          {% component 'courses' %}
+          {% component 'courseform' %}
+        </div>
+    </div>
+</div>
+<br>";s:5:"mtime";i:1549963240;s:6:"markup";s:323:"<section id="layout-title">
+    <div class="container">
+        <h3>{{ 'New evaluate'|_ }}</h3>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+          {% component 'courses' %}
+          {% component 'courseform' %}
+        </div>
+    </div>
+</div>
+<br>";s:4:"code";N;s:5:"title";s:12:"New evaluate";s:3:"url";s:19:"/login/new/evaluate";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";s:10:"courseform";a:0:{}s:7:"courses";a:2:{s:7:"results";s:1:"0";s:9:"sortOrder";s:8:"name asc";}}}

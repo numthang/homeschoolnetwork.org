@@ -1,4 +1,4 @@
-1549950399a:1:{s:21:"login/edit-course.htm";a:14:{s:8:"fileName";s:21:"login/edit-course.htm";s:7:"content";s:1799:"title = "Edit course"
+1550207001a:1:{s:21:"login/edit-course.htm";a:14:{s:8:"fileName";s:21:"login/edit-course.htm";s:7:"content";s:1806:"title = "Edit course"
 url = "/login/edit/course/:id"
 layout = "default"
 is_hidden = 0
@@ -54,7 +54,7 @@ public function onEnd() {
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-          {% component 'courses' %}
+          {% partial 'login/course.htm' %}
           {% set record = builderDetails.record %}
           {% set displayColumn = builderDetails.displayColumn %}
           {% set notFoundMessage = builderDetails.notFoundMessage %}
@@ -63,7 +63,7 @@ public function onEnd() {
     </div>
 </div>
 <br>
-";s:5:"mtime";i:1547541688;s:6:"markup";s:512:"<section id="layout-title">
+";s:5:"mtime";i:1549968885;s:6:"markup";s:519:"<section id="layout-title">
 		<div class="container">
         <h3>{{ 'Edit course'|_ }} - {{ record.name }} </h3>
     </div>
@@ -72,7 +72,7 @@ public function onEnd() {
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-          {% component 'courses' %}
+          {% partial 'login/course.htm' %}
           {% set record = builderDetails.record %}
           {% set displayColumn = builderDetails.displayColumn %}
           {% set notFoundMessage = builderDetails.notFoundMessage %}

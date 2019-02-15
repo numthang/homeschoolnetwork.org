@@ -1,0 +1,41 @@
+1549965723a:1:{s:8:"blog.htm";a:11:{s:8:"fileName";s:8:"blog.htm";s:7:"content";s:576:"title = "Blog"
+url = "/blog"
+layout = "default"
+is_hidden = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 10
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = 404
+postPage = 404
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "blog/category"
+==
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+    <div class="col-sm-8">
+        {% component 'blogPosts' %}
+    </div>
+    <div class="col-sm-4">
+        {% component 'blogCategories' %}
+    </div>
+</div>
+    </div>
+</div>";s:5:"mtime";i:1543916768;s:6:"markup";s:266:"<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+    <div class="col-sm-8">
+        {% component 'blogPosts' %}
+    </div>
+    <div class="col-sm-4">
+        {% component 'blogCategories' %}
+    </div>
+</div>
+    </div>
+</div>";s:4:"code";N;s:5:"title";s:4:"Blog";s:3:"url";s:5:"/blog";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";s:9:"blogPosts";a:6:{s:10:"pageNumber";s:11:"{{ :page }}";s:12:"postsPerPage";s:2:"10";s:14:"noPostsMessage";s:14:"No posts found";s:9:"sortOrder";s:17:"published_at desc";s:12:"categoryPage";s:3:"404";s:8:"postPage";s:3:"404";}s:14:"blogCategories";a:3:{s:4:"slug";s:11:"{{ :slug }}";s:12:"displayEmpty";s:1:"0";s:12:"categoryPage";s:13:"blog/category";}}}

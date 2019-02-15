@@ -1,5 +1,5 @@
 <?php 
-class Cms5c61a0861ef3d148510060_327723ce498476e5086b12e79919e165Class extends Cms\Classes\PageCode
+class Cms5c62a61d4bd84494318346_26dc35e2a86a757888291c0d00fe1572Class extends Cms\Classes\PageCode
 {
 public function onStart() {
 	/*//ตอนนี้ไม่ต้องใช้ด้านล่างเป็นค่า default แล้ว เพราะว่าได้บันทึกเป็น template เรียบร้อยแล้วใช้อีกทีกรณีที่ template ถูกลบหายหมดให้กลับมาค่าตั้งต้นใหม่

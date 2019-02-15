@@ -54,7 +54,7 @@ public function onEnd() {
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-          {% component 'courses' %}
+          {% partial 'login/course.htm' %}
           {% set record = builderDetails.record %}
           {% set displayColumn = builderDetails.displayColumn %}
           {% set notFoundMessage = builderDetails.notFoundMessage %}

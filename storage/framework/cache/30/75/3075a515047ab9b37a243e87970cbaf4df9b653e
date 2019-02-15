@@ -1,4 +1,4 @@
-1549950402a:1:{s:7:"nav.htm";a:6:{s:8:"fileName";s:7:"nav.htm";s:7:"content";s:4820:"[viewBag]
+1550207093a:1:{s:7:"nav.htm";a:6:{s:8:"fileName";s:7:"nav.htm";s:7:"content";s:4906:"[viewBag]
 ==
 {# Note: Only one levels of sublinks are supported by Bootstrap 3 #}
 {% set
@@ -101,7 +101,8 @@
                 <span class="dropdown-arrow"></span>
                 <ul class="dropdown-menu">
                   <li><a href="/login/profile">{{ 'My profile'|_ }}</a></li>
-                  <li><a href="/login/add/course">{{ 'New course'|_ }}</a></li>
+                  <li><a href="/login/new/course">{{ 'New course'|_ }}</a></li>
+                  <li><a href="/login/new/evaluation">{{ 'New evaluate'|_ }}</a></li>
                   <li><a href="javascript:void(0);" data-request="onLogout" data-request-data="redirect: '/'">{{ 'Sign out'|_ }}</a></li>
                 </ul>
                     <!--<button data-request="onLogout" data-request-data="redirect: '/'" class="btn btn-sm navbar-btn btn-primary navbar-right hidden-sm hidden-xs">
@@ -113,7 +114,7 @@
         </div>
     </div>
 </nav>
-";s:5:"mtime";i:1545829712;s:6:"markup";s:4806:"{# Note: Only one levels of sublinks are supported by Bootstrap 3 #}
+";s:5:"mtime";i:1550206486;s:6:"markup";s:4892:"{# Note: Only one levels of sublinks are supported by Bootstrap 3 #}
 {% set
     links = {
         'home': ['home', 'Home'],
@@ -214,7 +215,8 @@
                 <span class="dropdown-arrow"></span>
                 <ul class="dropdown-menu">
                   <li><a href="/login/profile">{{ 'My profile'|_ }}</a></li>
-                  <li><a href="/login/add/course">{{ 'New course'|_ }}</a></li>
+                  <li><a href="/login/new/course">{{ 'New course'|_ }}</a></li>
+                  <li><a href="/login/new/evaluation">{{ 'New evaluate'|_ }}</a></li>
                   <li><a href="javascript:void(0);" data-request="onLogout" data-request-data="redirect: '/'">{{ 'Sign out'|_ }}</a></li>
                 </ul>
                     <!--<button data-request="onLogout" data-request-data="redirect: '/'" class="btn btn-sm navbar-btn btn-primary navbar-right hidden-sm hidden-xs">

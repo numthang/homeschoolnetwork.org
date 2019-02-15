@@ -117,25 +117,29 @@ class __TwigTemplate_e23104fdd9170ef1943e27bc128de1ef891b1d8c566eefa4b7105a03c2f
             // line 101
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("My profile"));
             echo "</a></li>
-                  <li><a href=\"/login/add/course\">";
+                  <li><a href=\"/login/new/course\">";
             // line 102
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("New course"));
             echo "</a></li>
-                  <li><a href=\"javascript:void(0);\" data-request=\"onLogout\" data-request-data=\"redirect: '/'\">";
+                  <li><a href=\"/login/new/evaluation\">";
             // line 103
+            echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("New evaluate"));
+            echo "</a></li>
+                  <li><a href=\"javascript:void(0);\" data-request=\"onLogout\" data-request-data=\"redirect: '/'\">";
+            // line 104
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Sign out"));
             echo "</a></li>
                 </ul>
                     <!--<button data-request=\"onLogout\" data-request-data=\"redirect: '/'\" class=\"btn btn-sm navbar-btn btn-primary navbar-right hidden-sm hidden-xs\">
                     ";
-            // line 106
+            // line 107
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Sign out"));
             echo "
                   </button> -->
               </li>
               ";
         }
-        // line 110
+        // line 111
         echo "            </ul>
         </div>
     </div>
@@ -234,7 +238,7 @@ class __TwigTemplate_e23104fdd9170ef1943e27bc128de1ef891b1d8c566eefa4b7105a03c2f
 
     public function getDebugInfo()
     {
-        return array (  212 => 62,  206 => 59,  202 => 57,  200 => 56,  197 => 55,  193 => 54,  189 => 53,  184 => 52,  180 => 51,  176 => 50,  168 => 48,  164 => 47,  161 => 46,  158 => 45,  146 => 44,  139 => 110,  132 => 106,  126 => 103,  122 => 102,  118 => 101,  112 => 98,  109 => 97,  103 => 94,  100 => 93,  98 => 92,  84 => 81,  79 => 79,  72 => 75,  62 => 67,  60 => 66,  57 => 65,  25 => 14,  23 => 2,);
+        return array (  216 => 62,  210 => 59,  206 => 57,  204 => 56,  201 => 55,  197 => 54,  193 => 53,  188 => 52,  184 => 51,  180 => 50,  172 => 48,  168 => 47,  165 => 46,  162 => 45,  150 => 44,  143 => 111,  136 => 107,  130 => 104,  126 => 103,  122 => 102,  118 => 101,  112 => 98,  109 => 97,  103 => 94,  100 => 93,  98 => 92,  84 => 81,  79 => 79,  72 => 75,  62 => 67,  60 => 66,  57 => 65,  25 => 14,  23 => 2,);
     }
 
     public function getSourceContext()
@@ -340,7 +344,8 @@ class __TwigTemplate_e23104fdd9170ef1943e27bc128de1ef891b1d8c566eefa4b7105a03c2f
                 <span class=\"dropdown-arrow\"></span>
                 <ul class=\"dropdown-menu\">
                   <li><a href=\"/login/profile\">{{ 'My profile'|_ }}</a></li>
-                  <li><a href=\"/login/add/course\">{{ 'New course'|_ }}</a></li>
+                  <li><a href=\"/login/new/course\">{{ 'New course'|_ }}</a></li>
+                  <li><a href=\"/login/new/evaluation\">{{ 'New evaluate'|_ }}</a></li>
                   <li><a href=\"javascript:void(0);\" data-request=\"onLogout\" data-request-data=\"redirect: '/'\">{{ 'Sign out'|_ }}</a></li>
                 </ul>
                     <!--<button data-request=\"onLogout\" data-request-data=\"redirect: '/'\" class=\"btn btn-sm navbar-btn btn-primary navbar-right hidden-sm hidden-xs\">

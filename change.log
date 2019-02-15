@@ -1,10 +1,29 @@
+รายงานประเมินผล
+dddd
+แผนนึงต่อแบบประเมินหลายตัว,  เขียนรีเลชันในโมเดล, สร้างฟิลด์, สร้างฟอร์ม, dropdown เลือกแผนการศึกษาแท็บย่อยด้วยแบบประเมิน
+
+1. ข้อมูลพื้นฐานของผู้เรียนและครอบครัว
+2. ผลการจัดจัดการเรียนรู้
+3. สรุปผลการเรียนรู้ของผู้เรียนตามเกณฑ์การจบชั้นเรียน
+3.1 ผลการประเมินรายกลุ่มประสบการณ์ที่จัดการเรียนการสอน
+3.2 ผลการประเมินด้านการอ่าน คิด วิเคราะห์และเขียน
+3.3 ผลการประเมินด้านคุณลักษณะที่พึงประสงค์
+3.4  ผลการประเมินกิจกรรมพัฒนาผู้เรียน
+4. จุดเด่น / ความสำเร็จที่สำคัญของการจัดการศึกษา
+5. ปัญหา อุปสรรคหรือสิ่งที่ควรพัฒนา
+6. แนวทางการจัดการเรียนรู้ในปีต่อไป
+7. ข้อคิดเห็น / ข้อเสนอแนะอื่น ๆ
+ภาคผนวก ร่องรอยการเรียนรู้
+
+#แบนพาราควอต แล้ว พอผักราคาแพง ใครที่บอกให้ปลูกกินเอง ช่วยปลูกให้ดูหน่อยสิ
+
 Introduction
-- บ้านเรียนคือ เอาไว้โดสะนาสั้นๆ หน้าแรกบนสุด แบ่งเป็น 
+- บ้านเรียนคือ เอาไว้โดสะนาสั้นๆ หน้าแรกบนสุด แบ่งเป็น
 - FAQ
 - ประเภทของบ้านเรียน
 
 ชั้นตอนการทำบ้านเรียน
-1. 
+1.
 - การเขียนแผนส่งเขต (ขอฟอร์มแบบ minimalist)
 - การยื่นแบบประเมิน (SAR) + ร่องรอยการเรียนรู้ (ขอฟอร์มแบบ minimalist)
 - ขั้นตอนการจดทะเบียนบ้านเรียนกับเขต ดู รูปและคำแนะนำที่ https://issuu.com/manncomely/docs/___________________________________
@@ -50,20 +69,21 @@ The create:formwidget command generates a back-end form widget, view and basic a
 $php artisan create:formwidget Acme.Blog CategorySelector
 
 การสร้าง components
-1. สร้าง directory components/xxx 
+1. php artisan create:component Numthang.Homeschool Evaluation หรือ
+1. สร้าง directory components/xxx
 2. register component ใน [plugin_name]/Plugin.php ด้วย namespace ของ component บรรทัดบนสุด
 
-Extending user plugin backend form : เพิ่ม field table กรณีที่ไม่มี table ใน builder 
+Extending user plugin backend form : เพิ่ม field table กรณีที่ไม่มี table ใน builder
 1. สร้าง plugin ใน builder ใหม่ เช่น Profile ใน ส่วนของ plugin ของเรา
 2. ใน folder plugins/numthang/profile/updates สร้าง add_new_fields.php
 3. copy ในไฟล์ update เช่น /rainlab/user/updates/create_users_table.php
-4. เปลี่ยน namespace ให้เป็นของเรา 
+4. เปลี่ยน namespace ให้เป็นของเรา
 5. สร้าง class ใหม่ เช่น AddNewFields ลบ drop function ออกด้วย
 6. เพิ่ม     - add_new_fields.php ใน version.yaml
 7. รัน php artisan plugin:refresh numthang.profile
 8. เพิ่ม function boot ใน Plugin.php
 
-Extending user plugin fronend form 
+Extending user plugin fronend form
 1. copy html form มาสร้าง partial ใหม่
 2. เพิ่ม function model UserModel::extend ใน boot
 

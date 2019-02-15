@@ -36,9 +36,9 @@ class __TwigTemplate_fdc65ad5be7e835cbee3c81255f35744a7f5a0757c83af4b484a7caa329
         <div class=\"col-md-12\">
           ";
         // line 10
-        $context['__cms_component_params'] = [];
-        echo $this->env->getExtension('Cms\Twig\Extension')->componentFunction("courses"        , $context['__cms_component_params']        );
-        unset($context['__cms_component_params']);
+        $context['__cms_partial_params'] = [];
+        echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("login/course.htm"        , $context['__cms_partial_params']        , true        );
+        unset($context['__cms_partial_params']);
         // line 11
         echo "          ";
         $context["record"] = twig_get_attribute($this->env, $this->source, ($context["builderDetails"] ?? null), "record", array());
@@ -86,7 +86,7 @@ class __TwigTemplate_fdc65ad5be7e835cbee3c81255f35744a7f5a0757c83af4b484a7caa329
 <div class=\"container\">
     <div class=\"row\">
         <div class=\"col-md-12\">
-          {% component 'courses' %}
+          {% partial 'login/course.htm' %}
           {% set record = builderDetails.record %}
           {% set displayColumn = builderDetails.displayColumn %}
           {% set notFoundMessage = builderDetails.notFoundMessage %}
