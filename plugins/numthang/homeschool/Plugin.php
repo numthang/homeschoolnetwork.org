@@ -9,7 +9,9 @@ class Plugin extends PluginBase
     {
       return [
             'Numthang\Homeschool\Components\Courses' => 'courses',
-            'Numthang\Homeschool\Components\CourseForm' => 'courseform'
+            'Numthang\Homeschool\Components\CourseForm' => 'courseform',
+            'Numthang\Homeschool\Components\Evaluations' => 'evaluations',
+            'Numthang\Homeschool\Components\EvaluationForm' => 'evaluationform'
         ];
     }
 
@@ -19,7 +21,7 @@ class Plugin extends PluginBase
     public function boot() {
       /*CourseModel::extend(function($model) {//ทำให้ save ข้อมูลด้วย fill() functionเพิ่มได้
         $model->addFillable([
-          'user_id', 
+          'user_id',
           'hs_name',
           'name',
         ]);
