@@ -1,4 +1,4 @@
-#/storage/framework
+/storage/framework
 /storage/cms
 /bootstrap/compiled.php
 /config/database.php
