@@ -1,5 +1,5 @@
 <?php return array (
-  '*::app' => 
+  '*::app' =>
   array (
     'debug' => true,
     'name' => 'October CMS',
@@ -10,7 +10,7 @@
     'key' => '45yAscMt62rDu2OC13jNpDylMxWLM1Cy',
     'cipher' => 'AES-256-CBC',
     'log' => 'single',
-    'providers' => 
+    'providers' =>
     array (
       0 => 'Illuminate\\Broadcasting\\BroadcastServiceProvider',
       1 => 'Illuminate\\Bus\\BusServiceProvider',
@@ -42,7 +42,7 @@
       27 => 'System\\ServiceProvider',
       28 => 'Torann\\GeoIP\\GeoIPServiceProvider',
     ),
-    'aliases' => 
+    'aliases' =>
     array (
       'App' => 'Illuminate\\Support\\Facades\\App',
       'Artisan' => 'Illuminate\\Support\\Facades\\Artisan',
@@ -98,7 +98,7 @@
       'GeoIP' => 'Torann\\GeoIP\\Facades\\GeoIP',
     ),
   ),
-  '*::cms' => 
+  '*::cms' =>
   array (
     'activeTheme' => 'demo',
     'edgeUpdates' => false,
@@ -107,14 +107,14 @@
     'backendForceRemember' => true,
     'backendTimezone' => 'UTC',
     'backendSkin' => 'Backend\\Skins\\Standard',
-    'loadModules' => 
+    'loadModules' =>
     array (
       0 => 'System',
       1 => 'Backend',
       2 => 'Cms',
     ),
     'disableCoreUpdates' => true,
-    'disablePlugins' => 
+    'disablePlugins' =>
     array (
     ),
     'enableRoutesCache' => false,
@@ -125,15 +125,15 @@
     'enableAssetDeepHashing' => NULL,
     'pluginsPath' => '/plugins',
     'themesPath' => '/themes',
-    'storage' => 
+    'storage' =>
     array (
-      'uploads' => 
+      'uploads' =>
       array (
         'disk' => 'local',
         'folder' => 'uploads',
         'path' => '/storage/app/uploads',
       ),
-      'media' => 
+      'media' =>
       array (
         'disk' => 'local',
         'folder' => 'media',
@@ -142,7 +142,7 @@
     ),
     'convertLineEndings' => false,
     'linkPolicy' => 'detect',
-    'defaultMask' => 
+    'defaultMask' =>
     array (
       'file' => NULL,
       'folder' => NULL,
@@ -153,40 +153,40 @@
     'enableTwigStrictVariables' => false,
     'restrictBaseDir' => true,
   ),
-  '*::image' => 
+  '*::image' =>
   array (
     'driver' => 'gd',
   ),
-  '*::cache' => 
+  '*::cache' =>
   array (
     'default' => 'file',
-    'stores' => 
+    'stores' =>
     array (
-      'apc' => 
+      'apc' =>
       array (
         'driver' => 'apc',
       ),
-      'array' => 
+      'array' =>
       array (
         'driver' => 'array',
       ),
-      'database' => 
+      'database' =>
       array (
         'driver' => 'database',
         'table' => 'cache',
         'connection' => NULL,
       ),
-      'file' => 
+      'file' =>
       array (
         'driver' => 'file',
-        'path' => '/home/vsites/homeschool.in.th/storage/framework/cache',
+        'path' => '/home/vsites/homeschoolnetwork.org/storage/framework/cache',
       ),
-      'memcached' => 
+      'memcached' =>
       array (
         'driver' => 'memcached',
-        'servers' => 
+        'servers' =>
         array (
-          0 => 
+          0 =>
           array (
             'host' => '127.0.0.1',
             'port' => 11211,
@@ -194,7 +194,7 @@
           ),
         ),
       ),
-      'redis' => 
+      'redis' =>
       array (
         'driver' => 'redis',
         'connection' => 'default',
@@ -204,57 +204,57 @@
     'codeParserDataCacheKey' => 'cms-php-file-data',
     'disableRequestCache' => false,
   ),
-  '*::view' => 
+  '*::view' =>
   array (
-    'paths' => 
+    'paths' =>
     array (
     ),
-    'compiled' => '/home/vsites/homeschool.in.th/storage/framework/views',
+    'compiled' => '/home/vsites/homeschoolnetwork.org/storage/framework/views',
   ),
   '*::geoip' => 
   array (
     'log_failures' => true,
     'include_currency' => true,
     'service' => 'ipapi',
-    'services' => 
+    'services' =>
     array (
-      'maxmind_database' => 
+      'maxmind_database' =>
       array (
         'class' => 'Torann\\GeoIP\\Services\\MaxMindDatabase',
-        'database_path' => '/home/vsites/homeschool.in.th/storage/app/geoip.mmdb',
+        'database_path' => '/home/vsites/homeschoolnetwork.org/storage/app/geoip.mmdb',
         'update_url' => 'https://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.gz',
-        'locales' => 
+        'locales' =>
         array (
           0 => 'en',
         ),
       ),
-      'maxmind_api' => 
+      'maxmind_api' =>
       array (
         'class' => 'Torann\\GeoIP\\Services\\MaxMindWebService',
         'user_id' => NULL,
         'license_key' => NULL,
-        'locales' => 
+        'locales' =>
         array (
           0 => 'en',
         ),
       ),
-      'ipapi' => 
+      'ipapi' =>
       array (
         'class' => 'Torann\\GeoIP\\Services\\IPApi',
         'secure' => true,
         'key' => NULL,
-        'continent_path' => '/home/vsites/homeschool.in.th/storage/app/continents.json',
+        'continent_path' => '/home/vsites/homeschoolnetwork.org/storage/app/continents.json',
         'lang' => 'en',
       ),
-      'ipgeolocation' => 
+      'ipgeolocation' =>
       array (
         'class' => 'Torann\\GeoIP\\Services\\IPGeoLocation',
         'secure' => true,
         'key' => NULL,
-        'continent_path' => '/home/vsites/homeschool.in.th/storage/app/continents.json',
+        'continent_path' => '/home/vsites/homeschoolnetwork.org/storage/app/continents.json',
         'lang' => 'en',
       ),
-      'ipdata' => 
+      'ipdata' =>
       array (
         'class' => 'Torann\\GeoIP\\Services\\IPData',
         'key' => NULL,
@@ -262,12 +262,12 @@
       ),
     ),
     'cache' => 'all',
-    'cache_tags' => 
+    'cache_tags' =>
     array (
       0 => 'torann-geoip-location',
     ),
     'cache_expires' => 30,
-    'default_location' => 
+    'default_location' =>
     array (
       'ip' => '127.0.0.0',
       'iso_code' => 'US',
@@ -284,11 +284,11 @@
       'currency' => 'USD',
     ),
   ),
-  '*::lfm' => 
+  '*::lfm' =>
   array (
     'assets_directory' => '/themes/responsiv-flat/assets',
     'use_package_routes' => true,
-    'middlewares' => 
+    'middlewares' =>
     array (
       0 => 'web',
     ),
@@ -310,7 +310,7 @@
     'max_image_size' => 50000,
     'max_file_size' => 50000,
     'should_validate_mime' => false,
-    'valid_image_mimetypes' => 
+    'valid_image_mimetypes' =>
     array (
       0 => 'image/jpeg',
       1 => 'image/pjpeg',
@@ -319,7 +319,7 @@
       4 => 'image/svg+xml',
     ),
     'should_create_thumbnails' => true,
-    'raster_mimetypes' => 
+    'raster_mimetypes' =>
     array (
       0 => 'image/jpeg',
       1 => 'image/pjpeg',
@@ -328,7 +328,7 @@
     'create_folder_mode' => 493,
     'create_file_mode' => 420,
     'should_change_file_mode' => true,
-    'valid_file_mimetypes' => 
+    'valid_file_mimetypes' =>
     array (
       0 => 'image/jpeg',
       1 => 'image/pjpeg',
@@ -340,7 +340,7 @@
     ),
     'thumb_img_width' => 180,
     'thumb_img_height' => 180,
-    'file_type_array' => 
+    'file_type_array' =>
     array (
       'pdf' => 'Adobe Acrobat',
       'doc' => 'Microsoft Word',
@@ -355,7 +355,7 @@
       'ppt' => 'Microsoft PowerPoint',
       'pptx' => 'Microsoft PowerPoint',
     ),
-    'file_icon_array' => 
+    'file_icon_array' =>
     array (
       'pdf' => 'fa-file-pdf-o',
       'doc' => 'fa-file-word-o',
@@ -370,24 +370,24 @@
       'ppt' => 'fa-file-powerpoint-o',
       'pptx' => 'fa-file-powerpoint-o',
     ),
-    'php_ini_overrides' => 
+    'php_ini_overrides' =>
     array (
       'memory_limit' => '256M',
     ),
   ),
-  '*::database' => 
+  '*::database' =>
   array (
     'fetch' => 8,
     'default' => 'mysql',
-    'connections' => 
+    'connections' =>
     array (
-      'sqlite' => 
+      'sqlite' =>
       array (
         'driver' => 'sqlite',
         'database' => 'storage/database.sqlite',
         'prefix' => '',
       ),
-      'mysql' => 
+      'mysql' =>
       array (
         'driver' => 'mysql',
         'host' => 'localhost',
@@ -399,7 +399,7 @@
         'collation' => 'utf8mb4_unicode_ci',
         'prefix' => '',
       ),
-      'pgsql' => 
+      'pgsql' =>
       array (
         'driver' => 'pgsql',
         'host' => 'localhost',
@@ -411,7 +411,7 @@
         'prefix' => '',
         'schema' => 'public',
       ),
-      'sqlsrv' => 
+      'sqlsrv' =>
       array (
         'driver' => 'sqlsrv',
         'host' => 'localhost',
@@ -423,10 +423,10 @@
       ),
     ),
     'migrations' => 'migrations',
-    'redis' => 
+    'redis' =>
     array (
       'cluster' => false,
-      'default' => 
+      'default' =>
       array (
         'host' => '127.0.0.1',
         'password' => NULL,
@@ -435,9 +435,9 @@
       ),
     ),
   ),
-  '*::tinker' => 
+  '*::tinker' =>
   array (
-    'dont_alias' => 
+    'dont_alias' =>
     array (
     ),
   ),

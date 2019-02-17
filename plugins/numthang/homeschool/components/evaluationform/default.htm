@@ -172,64 +172,23 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
             </div>
           </div>
         </dd>
-        <dt><a href="#" class="accordionTitle">6. โครงสร้างเวลาเรียน</a></dt>
+        <dt><a href="#" class="accordionTitle">6. แนวทางการจัดการเรียนรู้ในปีต่อไป</a></dt>
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group" style="padding:2px;">
               	<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
-								<textarea class="form-control my-editor" name="schedule" placeholder="" rows="20">{% if record.schedule is defined %} {{ record.schedule }} {% else %} {{ this.page['default_6'] }} {% endif %}</textarea>
-                <!--<textarea class="form-control" name="schedule" placeholder="กลุ่มประสบการณ์ /กลุ่มสาระการเรียนรู้ (ตามตารางในข้อ 7)" rows="20">{% if record.schedule is defined %} {{ record.schedule }} {% else %} {% endif %}</textarea>-->
+								<textarea class="form-control my-editor" name="next" placeholder="" rows="20">{% if record.next is defined %} {{ record.next }} {% else %} {{ this.page['default_6'] }} {% endif %}</textarea>
               </div>
             </div>
           </div>
         </dd>
-        <dt><a href="#" class="accordionTitle">7. การจัดกลุ่มสาระการเรียนรู้ /กลุ่มประสบการณ์</a></dt>
+        <dt><a href="#" class="accordionTitle">7. ข้อคิดเห็น/ข้อเสนอแนะอื่นๆ</a></dt>
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group" style="padding:2px;">
-                <textarea class="form-control my-editor" name="curriculum" placeholder="" rows="20">{% if record.curriculum is defined %} {{ record.curriculum }} {% else %} {{ this.page['default_7'] }} {% endif %}</textarea>
-              </div>
-            </div>
-          </div>
-        </dd>
-        <dt><a href="#" class="accordionTitle">8. การจัดกิจกรรมพัฒนาผู้เรียน</a></dt>
-        <dd class="accordionItem accordionItemCollapsed">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-group" style="padding:2px;">
-                <textarea class="form-control my-editor" name="activity" placeholder="" rows="20">{% if record.activity is defined %} {{ record.activity }} {% else %} {{ this.page['default_8'] }} {% endif %}</textarea>
-              </div>
-            </div>
-          </div>
-        </dd>
-        <dt><a href="#" class="accordionTitle">9. การจัดกระบวนการเรียนรู้</a></dt>
-        <dd class="accordionItem accordionItemCollapsed">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-group" style="padding:2px;">
-                <textarea class="form-control my-editor" name="learning" placeholder="" rows="20">{% if record.learning is defined %} {{ record.learning }} {% else %} {{ this.page['default_9'] }} {% endif %}</textarea>
-              </div>
-            </div>
-          </div>
-        </dd>
-        <dt><a href="#" class="accordionTitle">10. การวัดและประเมินผลการเรียนรู้</a></dt>
-        <dd class="accordionItem accordionItemCollapsed">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-group" style="padding:2px;">
-                <textarea class="form-control my-editor" name="evaluate" placeholder="" rows="20">{% if record.evaluate is defined %} {{ record.evaluate }} {% else %} {{ this.page['default_10'] }} {% endif %}</textarea>
-              </div>
-            </div>
-          </div>
-        </dd>
-        <dt><a href="#" class="accordionTitle">11. อื่นๆ (ครอบครัวสามารถเพิ่มเติมรายละเอียดที่เห็นว่าเป็นประโยชน์ต่อผู้เรียนได้)</a></dt>
-        <dd class="accordionItem accordionItemCollapsed">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-group" style="padding:2px;">
-                <textarea class="form-control my-editor" name="other" placeholder="" rows="20">{{ record.other }}</textarea>
+                <textarea class="form-control my-editor" name="suggestion" placeholder="" rows="20">{% if record.suggestion is defined %} {{ record.suggestion }} {% else %} {{ this.page['default_7'] }} {% endif %}</textarea>
               </div>
             </div>
           </div>
