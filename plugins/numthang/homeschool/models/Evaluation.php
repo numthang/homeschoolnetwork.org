@@ -8,7 +8,7 @@ use Model;
 class Evaluation extends Model
 {
     use \October\Rain\Database\Traits\Validation;
-    
+
     use \October\Rain\Database\Traits\SoftDelete;
 
     protected $dates = ['deleted_at'];
@@ -23,5 +23,8 @@ class Evaluation extends Model
      * @var array Validation rules
      */
     public $rules = [
+    ];
+    public $belongsTo = [
+        'course' => 'Numthang\Homeschool\Models\Course'
     ];
 }

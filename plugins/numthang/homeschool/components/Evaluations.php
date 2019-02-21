@@ -1,6 +1,9 @@
 <?php namespace Numthang\Homeschool\Components;
 
+use Auth;
 use Cms\Classes\ComponentBase;
+use Numthang\Homeschool\Models\Course;
+use Numthang\Homeschool\Models\Evaluation;
 
 class Evaluations extends ComponentBase
 {
@@ -46,7 +49,11 @@ class Evaluations extends ComponentBase
 
   protected function loadEvaluations(){
       $user = Auth::getUser();
-      $query = Course::where('user_id', '=', $user->id)->orWhere('template', '=', 1)->get();
+      $query = Course::find(5)->evaluations;
+      #$query = Course::with(['evaluations'])->where('user_id', '=', $user->id)->get();
+      #Course::join('numthang_homeschool_evaluations', 'numthang_homeschool_courses.id', '=', 'numthang_homeschool_evaluations.course_id')->get();
+
+      #$query = Course::where('user_id', '=', $user->id)->Evaluation::where('course_id', '=', '1')->get();
 			#$query = DB::table('numthang_homeschool_evaluations')->where('user_id', '=', $user->id)->orWhere('template', '=', 1)->get();
 
       /*if($this->property('sortOrder') == 'name asc'){
@@ -60,7 +67,7 @@ class Evaluations extends ComponentBase
       if($this->property('results') > 0){
           $query = $query->take($this->property('results'));
       }*/
-
+      dump($query);
       return $query;
   }
 }
