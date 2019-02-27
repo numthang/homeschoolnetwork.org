@@ -27,7 +27,7 @@ class Course extends Model
     #protected $guarded = [];//ใช้อันนี้ ถ้าต้องการให้ fillable ทุก field ให้เลือกใช้อย่างใดอย่างหนึ่งกับ $fillable กรณีที่ไม่มี field ใน table แล้วส่งค่ามาก็จะ error กรณีนี้เราทำ json field เลย error ที่ father_name field not found
 		public $hasMany =[
         'evaluations' =>
-            'Numthang\Homeschool\Models\Evaluation'
+            ['Numthang\Homeschool\Models\Evaluation', 'delete' => true]
     ];
 
 }

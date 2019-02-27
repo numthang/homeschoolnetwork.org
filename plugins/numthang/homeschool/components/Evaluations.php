@@ -4,6 +4,7 @@ use Auth;
 use Cms\Classes\ComponentBase;
 use Numthang\Homeschool\Models\Course;
 use Numthang\Homeschool\Models\Evaluation;
+use DB;
 
 class Evaluations extends ComponentBase
 {
@@ -49,12 +50,24 @@ class Evaluations extends ComponentBase
 
   protected function loadEvaluations(){
       $user = Auth::getUser();
-      $query = Course::find(5)->evaluations;
+
+      $query = Course::all();
+      $query = Course::with('evaluations')->get();
+
+      #dump($query[1]->evaluations[0]->id);
+      foreach ($query as $key => $value) {
+        // code...
+        foreach ($value as $key2 => $value2) {
+          // code...
+          dump($value2[$key2]->id);
+
+        }
+      }
+      #$query = Course::find(5)->evaluations;//ดึง course_id = 5 ในตาราง evaluations
       #$query = Course::with(['evaluations'])->where('user_id', '=', $user->id)->get();
-      #Course::join('numthang_homeschool_evaluations', 'numthang_homeschool_courses.id', '=', 'numthang_homeschool_evaluations.course_id')->get();
+      #$query = Db::table('numthang_homeschool_courses')->join('numthang_homeschool_evaluations', 'numthang_homeschool_courses.id', '=', 'numthang_homeschool_evaluations.course_id')->get();
 
       #$query = Course::where('user_id', '=', $user->id)->Evaluation::where('course_id', '=', '1')->get();
-			#$query = DB::table('numthang_homeschool_evaluations')->where('user_id', '=', $user->id)->orWhere('template', '=', 1)->get();
 
       /*if($this->property('sortOrder') == 'name asc'){
           $query = $query->sortBy('name');
@@ -67,7 +80,7 @@ class Evaluations extends ComponentBase
       if($this->property('results') > 0){
           $query = $query->take($this->property('results'));
       }*/
-      dump($query);
+      #dump($query);
       return $query;
   }
 }
