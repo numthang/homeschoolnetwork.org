@@ -1,0 +1,58 @@
+title = "Edit evaluation"
+url = "/login/edit/evaluation/:id"
+layout = "default"
+is_hidden = 0
+
+[viewBag]
+
+[evaluationform]
+
+[session]
+security = "user"
+redirect = "login/login"
+
+[evaluations]
+results = 0
+sortOrder = "name asc"
+==
+<?php
+public function onEnd() {
+  #dump($this->evaluations->evaluation[0]);
+  #dump($this->evaluations->course[0]);
+
+  $course = $this->evaluations->course[0];
+  $j = json_decode($course->attributes['father_profile']);
+  $this->page['father_name'] = $j->father_name;
+  $this->page['father_degree'] = $j->father_degree;
+  $this->page['father_exp'] = $j->father_exp;
+  $this->page['father_age'] = $j->father_age;
+  $this->page['father_job'] = $j->father_job;
+  $this->page['father_addr'] = $j->father_addr;
+	$j = json_decode($course->attributes['mother_profile']);
+  $this->page['mother_name'] = $j->mother_name;
+  $this->page['mother_degree'] = $j->mother_degree;
+  $this->page['mother_exp'] = $j->mother_exp;
+  $this->page['mother_age'] = $j->mother_age;
+  $this->page['mother_job'] = $j->mother_job;
+  $this->page['mother_addr'] = $j->mother_addr;
+
+  $date = explode('-', $course->attributes['birth_date']);
+  $this->page['birth_date'] = $date[2].'/'.$date[1].'/'.$date[0];
+
+}
+?>
+==
+<section id="layout-title">
+    <div class="container">
+        <h3>{{ 'New evaluation'|_ }}</h3>
+    </div>
+</section>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      {% component 'evaluationform' %}
+	  </div>
+	</div>
+</div>
+<br>

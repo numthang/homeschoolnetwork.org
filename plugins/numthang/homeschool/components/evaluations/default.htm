@@ -1,3 +1,11 @@
-<p>This is the default markup for component Evaluations</p>
+{%  set evaluations = evaluations.evaluations %}
 
-<small>You can delete this file if you want</small>
+<ul class="list-group filter-list-group">
+  {% for course in evaluations %}
+  <li class="list-group-item" ><a href="/login/edit/course/{{ course.id }}" style="font-size: 18px; ">{{ course.name }} {{ key }}</a><br>
+    {% for evaluation in course.evaluations %}
+      &bull; {{ 'Evaluation'|_ }} : {{ evaluation.id }} <br>
+    {% endfor %}
+  </li>
+  {% endfor %}
+</ul>

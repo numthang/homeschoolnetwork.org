@@ -26,5 +26,7 @@ class Evaluation extends Model
     ];
     public $belongsTo = [
         'course' => 'Numthang\Homeschool\Models\Course'
+
     ];
+
 }

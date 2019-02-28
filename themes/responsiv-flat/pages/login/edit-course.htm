@@ -16,7 +16,7 @@ notFoundMessage = "Record not found"
 
 [session]
 security = "user"
-redirect = "login"
+redirect = "login/login"
 
 [courses]
 results = 0
@@ -52,14 +52,14 @@ public function onEnd() {
 </section>
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-          {% partial 'login/courses.htm' %}
-          {% set record = builderDetails.record %}
-          {% set displayColumn = builderDetails.displayColumn %}
-          {% set notFoundMessage = builderDetails.notFoundMessage %}
-          {% component 'courseform' %}
-        </div>
-    </div>
+  {% partial 'login/courses.htm' %}
+  <div class="row">
+      <div class="col-md-12">
+        {% set record = builderDetails.record %}
+        {% set displayColumn = builderDetails.displayColumn %}
+        {% set notFoundMessage = builderDetails.notFoundMessage %}
+        {% component 'courseform' %}
+      </div>
+  </div>
 </div>
 <br>
