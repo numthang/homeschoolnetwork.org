@@ -147,7 +147,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
             <div class="col-sm-6">
               <div class="form-group">
                 <label>ชื่อ-สกุล</label>
-                <input type="text" class="form-control" name="student_name" placeholder="Enter student's name" value="{{ record.student_name }}" readonly>
+                <input type="text" class="form-control" name="student_name" placeholder="Enter student's name" value="{{ course.student_name }}" readonly>
               </div>
             </div>
             <div class="col-sm-6">
@@ -164,7 +164,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
             <div class="col-sm-12">
               <div class="form-group">
                 <label>ประวัติการศึกษา (กรณีเรียนในระบบโรงเรียนมาก่อน)</label>
-                <textarea class="form-control" name="school_exp" placeholder="Enter school's experience" rows="5" readonly>{{ record.school_exp }}</textarea>
+                <textarea class="form-control" name="school_exp" placeholder="Enter school's experience" rows="5" readonly>{{ course.school_exp }}</textarea>
               </div>
             </div>
           </div>
@@ -173,7 +173,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group">
-                <textarea class="form-control" name="development" placeholder="" rows="10" readonly>{{ record.development }}</textarea>
+                <textarea class="form-control" name="development" placeholder="" rows="10" readonly>{{ course.development }}</textarea>
               </div>
             </div>
           </div>
@@ -183,7 +183,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group" style="padding:2px;">
-                <textarea class="form-control my-editor" name="learning" placeholder="" rows="20">{% if record.class_reason is defined %} {{ record.class_reason }} {% else %} {{ this.page['default_3'] }} {% endif %}</textarea>
+                <textarea class="form-control my-editor" name="learning" placeholder="" rows="20">{% if evaluation.learning is defined %} {{ evaluation.learning }} {% else %} {{ this.page['default_3'] }} {% endif %}</textarea>
               </div>
             </div>
           </div>
@@ -193,7 +193,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
           <div class="row">
           <div class="col-sm-12">
             <div class="form-group" style="padding:2px;">
-              <textarea class="form-control my-editor" name="summary" placeholder="ระบุความต้องการ เช่น ต้องการพึ่งตนเอง ลดค่าใช้จ่าย เป็นต้น" rows="20">{% if record.purpose is defined %} {{ record.purpose }} {% else %} {{ this.page['default_4'] }} {% endif %}</textarea>
+              <textarea class="form-control my-editor" name="summary" placeholder="ระบุความต้องการ เช่น ต้องการพึ่งตนเอง ลดค่าใช้จ่าย เป็นต้น" rows="20">{% if evaluation.summary is defined %} {{ evaluation.summary }} {% else %} {{ this.page['default_4'] }} {% endif %}</textarea>
             </div>
           </div>
         </div>
@@ -203,7 +203,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group" style="padding:2px;">
-                <textarea class="form-control my-editor" name="successful" placeholder="" rows="20">{% if record.edu_type is defined %} {{ record.format }} {% else %} {{ this.page['default_5'] }} {% endif %}</textarea>
+                <textarea class="form-control my-editor" name="successful" placeholder="" rows="20">{% if evaluation.successful is defined %} {{ evaluation.successful }} {% else %} {{ this.page['default_5'] }} {% endif %}</textarea>
               </div>
             </div>
           </div>
@@ -213,7 +213,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group" style="padding:2px;">
-								<textarea class="form-control my-editor" name="problem" placeholder="" rows="20">{% if record.next is defined %} {{ record.next }} {% else %} {{ this.page['default_6'] }} {% endif %}</textarea>
+								<textarea class="form-control my-editor" name="problem" placeholder="" rows="20">{% if evaluation.problem is defined %} {{ evaluation.problem }} {% else %} {{ this.page['default_6'] }} {% endif %}</textarea>
               </div>
             </div>
           </div>
@@ -223,7 +223,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group" style="padding:2px;">
-                <textarea class="form-control my-editor" name="next" placeholder="" rows="20">{% if record.suggestion is defined %} {{ record.suggestion }} {% else %} {{ this.page['default_7'] }} {% endif %}</textarea>
+                <textarea class="form-control my-editor" name="next" placeholder="" rows="20">{% if evaluation.next is defined %} {{ evaluation.next }} {% else %} {{ this.page['default_7'] }} {% endif %}</textarea>
               </div>
             </div>
           </div>
@@ -233,7 +233,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group" style="padding:2px;">
-                <textarea class="form-control my-editor" name="suggestion" placeholder="" rows="20">{% if record.suggestion is defined %} {{ record.suggestion }} {% else %} {{ this.page['default_7'] }} {% endif %}</textarea>
+                <textarea class="form-control my-editor" name="suggestion" placeholder="" rows="20">{% if evaluation.suggestion is defined %} {{ evaluation.suggestion }} {% else %} {{ this.page['default_7'] }} {% endif %}</textarea>
               </div>
             </div>
           </div>
@@ -243,7 +243,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group" style="padding:2px;">
-                <textarea class="form-control my-editor" name="footprint" placeholder="" rows="40">{% if record.suggestion is defined %} {{ record.suggestion }} {% else %} {{ this.page['default_7'] }} {% endif %}</textarea>
+                <textarea class="form-control my-editor" name="footprint" placeholder="" rows="40">{% if evaluation.footprint is defined %} {{ evaluation.footprint }} {% else %} {{ this.page['default_7'] }} {% endif %}</textarea>
               </div>
             </div>
           </div>
