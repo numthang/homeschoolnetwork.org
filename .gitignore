@@ -2,7 +2,7 @@
 /storage/cms
 /bootstrap/compiled.php
 /config/database.php
-/vendor
+#/vendor
 composer.phar
 .DS_Store
 .idea

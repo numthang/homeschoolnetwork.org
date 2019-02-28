@@ -82,7 +82,6 @@ trait LfmHelpers
             $this->appendThumbFolderPath($is_thumb),
             $file_name,
         ]);
-
         $full_path = $this->removeDuplicateSlash($full_path);
         $full_path = $this->translateToLfmPath($full_path);
 
@@ -449,7 +448,7 @@ trait LfmHelpers
         if (! $is_file) {
             $file_type = trans('laravel-filemanager::lfm.type-folder');
             $icon = 'fa-folder-o';
-            $thumb_url = asset('vendor/laravel-filemanager/img/folder.png');
+            $thumb_url = asset(config('lfm.assets_directory').'/images/icons/png/folder.png');
         } elseif ($this->fileIsImage($item)) {
             $file_type = $this->getFileType($item);
             $icon = 'fa-image';

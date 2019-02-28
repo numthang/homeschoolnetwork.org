@@ -6,8 +6,8 @@ template เขียนแบบประเมินใหม่
  , สร้างฟอร์ม, onSave
 
 1. ข้อมูลพื้นฐานของผู้เรียนและครอบครัว
-2. ผลการจัดจัดการเรียนรู้ (learning_result)
-3. สรุปผลการเรียนรู้ของผู้เรียนตามเกณฑ์การจบชั้นเรียน (summary_result)
+2. ผลการจัดจัดการเรียนรู้ (learning)
+3. สรุปผลการเรียนรู้ของผู้เรียนตามเกณฑ์การจบชั้นเรียน (summary)
 3.1 ผลการประเมินรายกลุ่มประสบการณ์ที่จัดการเรียนการสอน
 3.2 ผลการประเมินด้านการอ่าน คิด วิเคราะห์และเขียน
 3.3 ผลการประเมินด้านคุณลักษณะที่พึงประสงค์
@@ -16,11 +16,7 @@ template เขียนแบบประเมินใหม่
 5. ปัญหา อุปสรรคหรือสิ่งที่ควรพัฒนา (problem)
 6. แนวทางการจัดการเรียนรู้ในปีต่อไป (next)
 7. ข้อคิดเห็น / ข้อเสนอแนะอื่น ๆ (suggestion)
-
-
-ภาคผนวก ร่องรอยการเรียนรู้
-
-#แบนพาราควอต แล้ว พอผักราคาแพง ใครที่บอกให้ปลูกกินเอง ช่วยปลูกให้ดูหน่อยสิ
+8. ภาคผนวก ร่องรอยการเรียนรู้
 
 Introduction
 - บ้านเรียนคือ เอาไว้โดสะนาสั้นๆ หน้าแรกบนสุด แบ่งเป็น
@@ -100,11 +96,14 @@ Follow Laravel Filemanager installation guide here https://unisharp.github.io/la
 Open /config/lfm.php and add your own assets path for your icon example
 
 'assets_directory' => '/themes/[your_theme_name]/assets',
+
 remove 'auth' config in middlewares option.
 
 middlewares' => ['web'],
+
 Open vendor/unisharp/laravel-filemanager/src/views/index.blade.php. We have to replace all css and before and javascript before declarations.
 
+<style>{!! \File::get(base_path('vendor/laravel-filemanager/css/lfm.css')) !!}</style>
 <style>{!! \File::get(base_path('vendor/laravel-filemanager/css/cropper.min.css')) !!}</style>
 <style>{!! \File::get(base_path('vendor/laravel-filemanager/css/mfb.css')) !!}</style>
 <style>{!! \File::get(base_path('vendor/laravel-filemanager/css/dropzone.min.css')) !!}</style>
@@ -112,6 +111,7 @@ Open vendor/unisharp/laravel-filemanager/src/views/index.blade.php. We have to r
 <script>{!! \File::get(base_path('vendor/laravel-filemanager/js/cropper.min.js')) !!}</script>
 <script>{!! \File::get(base_path('vendor/laravel-filemanager/js/jquery.form.min.js')) !!}</script>
 <script>{!! \File::get(base_path('vendor/laravel-filemanager/js/dropzone.min.js')) !!}</script>
+
 Open /vendor/unisharp/laravel-filemanager/src/Traits/LfmHelpers.php find $thumb_url and replace the folder.png path instead.
 
 $thumb_url = asset(config('lfm.assets_directory').'/images/icons/png/folder.png');

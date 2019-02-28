@@ -13,10 +13,10 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="#75C7C3">
 
   <title>{{ trans('laravel-filemanager::lfm.title-page') }}</title>
-  <link rel="shortcut icon" type="image/png" href="{{ asset('vendor/laravel-filemanager/img/folder.png') }}">
+  <link rel="shortcut icon" type="image/png" href="{{ asset('/themes/responsiv-flat/assets/images/icons/png/folder.png') }}">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <style>{!! \File::get(base_path('vendor/unisharp/laravel-filemanager/public/css/lfm.css')) !!}</style>
+  <style>{!! \File::get(base_path('vendor/laravel-filemanager/css/lfm.css')) !!}</style>
   <style>{!! \File::get(base_path('vendor/laravel-filemanager/css/cropper.min.css')) !!}</style>
 <style>{!! \File::get(base_path('vendor/laravel-filemanager/css/mfb.css')) !!}</style>
 <style>{!! \File::get(base_path('vendor/laravel-filemanager/css/dropzone.min.css')) !!}</style>
@@ -141,7 +141,7 @@
   </div>
 
   <div id="lfm-loader">
-    <img src="{{asset('vendor/laravel-filemanager/img/loader.svg')}}">
+    <img src="{{asset('/themes/responsiv-flat/assets/images/icons/svg/loader.svg')}}">
   </div>
 
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -156,7 +156,7 @@
     var lfm_route = "{{ url(config('lfm.url_prefix', config('lfm.prefix'))) }}";
     var lang = {!! json_encode(trans('laravel-filemanager::lfm')) !!};
   </script>
-  <script>{!! \File::get(base_path('vendor/unisharp/laravel-filemanager/public/js/script.js')) !!}</script>
+  <script>{!! \File::get(base_path('vendor/laravel-filemanager/js/script.js')) !!}</script>
   {{-- Use the line below instead of the above if you need to cache the script. --}}
   {{-- <script src="{{ asset('vendor/laravel-filemanager/js/script.js') }}"></script> --}}
   <script>

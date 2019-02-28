@@ -39,6 +39,7 @@
 <script type="text/javascript">
 $.fn.datepicker.defaults.format = "dd/mm/yyyy";
 </script>
+<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 
 <form data-request="onSave">
   <input type="hidden" name="user_id" value="{{ user.id }}">
@@ -64,77 +65,77 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
         <dt><a class="accordionTitle" href="#">1. ข้อมูลพื้นฐานของครอบครัว</a></dt>
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-4">
               <div class="form-group">
                 <label>บิดา</label>
-                <input type="text" class="form-control" name="father_name" placeholder="Enter father's name" value="{{ this.page.father_name }}">
+                <input type="text" class="form-control" name="father_name" placeholder="Enter father's name" value="{{ this.page.father_name }}" readonly>
               </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-8">
               <div class="form-group">
                 <label>วุฒิการศึกษา</label>
-                <input type="text" class="form-control" name="father_degree" placeholder="Enter father's degree" value="{{ this.page.father_degree }}">
+                <input type="text" class="form-control" name="father_degree" placeholder="Enter father's degree" value="{{ this.page.father_degree }}" readonly>
               </div>
             </div>
             <div class="col-sm-12">
               <div class="form-group">
                 <label>ประสบการณ์</label>
-                <textarea class="form-control" name="father_exp" placeholder="Enter father's experience" rows="5">{{ this.page.father_exp }}</textarea>
+                <textarea class="form-control" name="father_exp" placeholder="Enter father's experience" rows="5" readonly>{{ this.page.father_exp }}</textarea>
               </div>
             </div>
             <div class="col-sm-2">
               <div class="form-group">
                 <label>อายุ</label>
-                <input type="text" class="form-control" name="father_age" placeholder="Age" value="{{ this.page.father_age }}">
+                <input type="text" class="form-control" name="father_age" placeholder="Age" value="{{ this.page.father_age }}" readonly>
               </div>
             </div>
             <div class="col-sm-10">
               <div class="form-group">
                 <label>อาชีพ</label>
-                <input type="text" class="form-control" name="father_job" placeholder="Enter father's job"  value="{{ this.page.father_job }}">
+                <input type="text" class="form-control" name="father_job" placeholder="Enter father's job"  value="{{ this.page.father_job }}" readonly>
               </div>
             </div>
             <div class="col-sm-12">
               <div class="form-group">
                 <label>ท่ี่อยู่</label>
-                <input type="text" class="form-control" name="father_addr" placeholder="Enter father's address" value="{{ this.page.father_addr }}">
+                <input type="text" class="form-control" name="father_addr" placeholder="Enter father's address" value="{{ this.page.father_addr }}" readonly>
               </div>
             </div>
 
-            <div class="col-sm-6">
+            <div class="col-sm-4">
               <div class="form-group">
                 <label>มารดา</label>
-                <input type="text" class="form-control" name="mother_name" placeholder="Enter mother's name" value="{{ this.page.mother_name }}">
+                <input type="text" class="form-control" name="mother_name" placeholder="Enter mother's name" value="{{ this.page.mother_name }}" readonly>
               </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-8">
               <div class="form-group">
                 <label>วุฒิการศึกษา</label>
-                <input type="text" class="form-control" name="mother_degree" placeholder="Enter mother's degree" value="{{ this.page.mother_degree }}">
+                <input type="text" class="form-control" name="mother_degree" placeholder="Enter mother's degree" value="{{ this.page.mother_degree }}" readonly>
               </div>
             </div>
             <div class="col-sm-12">
               <div class="form-group">
                 <label>ประสบการณ์</label>
-                <textarea class="form-control" name="mother_exp" placeholder="Enter mother's experience" rows="5">{{ this.page.mother_exp }}</textarea>
+                <textarea class="form-control" name="mother_exp" placeholder="Enter mother's experience" rows="5" readonly>{{ this.page.mother_exp }}</textarea>
               </div>
             </div>
             <div class="col-sm-2">
               <div class="form-group">
                 <label>อายุ</label>
-                <input type="text" class="form-control" name="mother_age" placeholder="Age" value="{{ this.page.mother_age }}">
+                <input type="text" class="form-control" name="mother_age" placeholder="Age" value="{{ this.page.mother_age }}" readonly>
               </div>
             </div>
             <div class="col-sm-10">
               <div class="form-group">
                 <label>อาชีพ</label>
-                <input type="text" class="form-control" name="mother_job" placeholder="Enter mother's job" value="{{ this.page.mother_job }}">
+                <input type="text" class="form-control" name="mother_job" placeholder="Enter mother's job" value="{{ this.page.mother_job }}" readonly>
               </div>
             </div>
             <div class="col-sm-12">
               <div class="form-group">
                 <label>ที่อยู่</label>
-                <input type="text" class="form-control" name="mother_addr" placeholder="Enter mother's address" value="{{ this.page.mother_addr }}">
+                <input type="text" class="form-control" name="mother_addr" placeholder="Enter mother's address" value="{{ this.page.mother_addr }}" readonly>
               </div>
             </div>
           </div>
@@ -146,14 +147,14 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
             <div class="col-sm-6">
               <div class="form-group">
                 <label>ชื่อ-สกุล</label>
-                <input type="text" class="form-control" name="student_name" placeholder="Enter student's name" value="{{ record.student_name }}">
+                <input type="text" class="form-control" name="student_name" placeholder="Enter student's name" value="{{ record.student_name }}" readonly>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label>วัน เดือน ปี เกิด</label>
                 <div class="input-group date" data-provide="datepicker">
-                  <input type="text" class="form-control" name="birth_date" value="{{ this.page.birth_date }}">
+                  <input type="text" class="form-control" name="birth_date" value="{{ this.page.birth_date }}" readonly>
                     <div class="input-group-addon">
                       <span class="fui-calendar"></span>
                     </div>
@@ -163,7 +164,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
             <div class="col-sm-12">
               <div class="form-group">
                 <label>ประวัติการศึกษา (กรณีเรียนในระบบโรงเรียนมาก่อน)</label>
-                <textarea class="form-control" name="school_exp" placeholder="Enter school's experience" rows="5">{{ record.school_exp }}</textarea>
+                <textarea class="form-control" name="school_exp" placeholder="Enter school's experience" rows="5" readonly>{{ record.school_exp }}</textarea>
               </div>
             </div>
           </div>
@@ -172,58 +173,77 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group">
-                <textarea class="form-control" name="development" placeholder="พัฒนาการตามวัย, พัฒนาการตามความสามารถพิเศษ หรือ พัฒนาการตามความตองการพิเศษ" rows="10">{{ record.development }}</textarea>
+                <textarea class="form-control" name="development" placeholder="" rows="10" readonly>{{ record.development }}</textarea>
               </div>
             </div>
           </div>
         </dd>
-        <dt><a href="#" class="accordionTitle">3. ระดับที่จัดการศึกษา / เหตุผลในการจัดการศึกษาของครอบครัว</a></dt>
+        <dt><a href="#" class="accordionTitle">3. ผลการจัดการเรียนรู้</a></dt>
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group" style="padding:2px;">
-                <textarea class="form-control my-editor" name="class_reason" placeholder="ระดับชั้น เช่น ประถมศึกษา (ชั้น ป.1 – ป.3) เหตุผลในการจัดการศึกษาของครอบครัว" rows="20">{% if record.class_reason is defined %} {{ record.class_reason }} {% else %} {{ this.page['default_3'] }} {% endif %}</textarea>
+                <textarea class="form-control my-editor" name="learning" placeholder="" rows="20">{% if record.class_reason is defined %} {{ record.class_reason }} {% else %} {{ this.page['default_3'] }} {% endif %}</textarea>
               </div>
             </div>
           </div>
         </dd>
-        <dt><a href="#" class="accordionTitle">4. จุดมุ่งหมายของการจัดการศึกษา</a></dt>
+        <dt><a href="#" class="accordionTitle">4. สรุปผลการเรียนรู้ของผู้เรียนตามเกณฑ์การจบชั้นเรียน</a></dt>
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
           <div class="col-sm-12">
             <div class="form-group" style="padding:2px;">
-              <textarea class="form-control my-editor" name="purpose" placeholder="ระบุความต้องการ เช่น ต้องการพึ่งตนเอง ลดค่าใช้จ่าย เป็นต้น" rows="20">{% if record.purpose is defined %} {{ record.purpose }} {% else %} {{ this.page['default_4'] }} {% endif %}</textarea>
+              <textarea class="form-control my-editor" name="summary" placeholder="ระบุความต้องการ เช่น ต้องการพึ่งตนเอง ลดค่าใช้จ่าย เป็นต้น" rows="20">{% if record.purpose is defined %} {{ record.purpose }} {% else %} {{ this.page['default_4'] }} {% endif %}</textarea>
             </div>
           </div>
         </div>
         </dd>
-        <dt><a href="#" class="accordionTitle">5. รูปแบบการจัดการศึกษา</a></dt>
+        <dt><a href="#" class="accordionTitle">5. จุดเด่น / ความสำเร็จที่สำคัญของการจัดการศึกษา</a></dt>
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group" style="padding:2px;">
-                <textarea class="form-control my-editor" name="format" placeholder="" rows="20">{% if record.edu_type is defined %} {{ record.format }} {% else %} {{ this.page['default_5'] }} {% endif %}</textarea>
+                <textarea class="form-control my-editor" name="successful" placeholder="" rows="20">{% if record.edu_type is defined %} {{ record.format }} {% else %} {{ this.page['default_5'] }} {% endif %}</textarea>
               </div>
             </div>
           </div>
         </dd>
-        <dt><a href="#" class="accordionTitle">6. แนวทางการจัดการเรียนรู้ในปีต่อไป</a></dt>
+        <dt><a href="#" class="accordionTitle">6. ปัญหา, อุปสรรคหรือสิ่งที่ควรพัฒนา</a></dt>
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group" style="padding:2px;">
-              	<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
-								<textarea class="form-control my-editor" name="next" placeholder="" rows="20">{% if record.next is defined %} {{ record.next }} {% else %} {{ this.page['default_6'] }} {% endif %}</textarea>
+								<textarea class="form-control my-editor" name="problem" placeholder="" rows="20">{% if record.next is defined %} {{ record.next }} {% else %} {{ this.page['default_6'] }} {% endif %}</textarea>
               </div>
             </div>
           </div>
         </dd>
-        <dt><a href="#" class="accordionTitle">7. ข้อคิดเห็น/ข้อเสนอแนะอื่นๆ</a></dt>
+        <dt><a href="#" class="accordionTitle">7. แนวทางการจัดการเรียนรู้ในปีต่อไป</a></dt>
+        <dd class="accordionItem accordionItemCollapsed">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group" style="padding:2px;">
+                <textarea class="form-control my-editor" name="next" placeholder="" rows="20">{% if record.suggestion is defined %} {{ record.suggestion }} {% else %} {{ this.page['default_7'] }} {% endif %}</textarea>
+              </div>
+            </div>
+          </div>
+        </dd>
+        <dt><a href="#" class="accordionTitle">8. ข้อคิดเห็น / ข้อเสนอแนะอื่น ๆ</a></dt>
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group" style="padding:2px;">
                 <textarea class="form-control my-editor" name="suggestion" placeholder="" rows="20">{% if record.suggestion is defined %} {{ record.suggestion }} {% else %} {{ this.page['default_7'] }} {% endif %}</textarea>
+              </div>
+            </div>
+          </div>
+        </dd>
+        <dt><a href="#" class="accordionTitle">9. ภาคผนวก ร่องรอยการเรียนรู้</a></dt>
+        <dd class="accordionItem accordionItemCollapsed">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group" style="padding:2px;">
+                <textarea class="form-control my-editor" name="footprint" placeholder="" rows="40">{% if record.suggestion is defined %} {{ record.suggestion }} {% else %} {{ this.page['default_7'] }} {% endif %}</textarea>
               </div>
             </div>
           </div>

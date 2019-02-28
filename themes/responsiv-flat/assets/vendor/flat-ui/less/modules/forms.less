@@ -94,7 +94,7 @@ label {
   fieldset[disabled] & {
     background-color: @input-bg-disabled;
     border-color: mix(@gray, white, 40%);
-    color: mix(@gray, white, 40%);
+    color: mix(@brand-primary, white, 90%);
     cursor: default;
     .opacity(.7);
   }
@@ -114,17 +114,17 @@ label {
 
 // Form control sizing
 .input-sm,
-.form-group-sm .form-control {  
+.form-group-sm .form-control {
   .input-size(@input-height-sm; 6px; 10px; @input-font-size-sm; @input-line-height-sm);
 }
 
 .input-lg,
-.form-group-lg .form-control {  
+.form-group-lg .form-control {
   .input-size(@input-height-lg; 10px; 15px; @input-font-size-lg; @input-line-height-lg);
 }
 
 .input-hg,
-.form-group-hg .form-control {  
+.form-group-hg .form-control {
   .input-size(@input-height-hg; 10px; 16px; @input-font-size-hg; @input-line-height-hg);
 }
 
@@ -146,7 +146,7 @@ label {
   pointer-events: none;
 }
 
-.input-hg + .form-control-feedback, 
+.input-hg + .form-control-feedback,
 .control-feedback-hg {
   font-size: @input-icon-font-size-hg;
   line-height: 48px;
