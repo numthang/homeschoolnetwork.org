@@ -37,14 +37,15 @@ class Evaluations extends ComponentBase
             'title' => 'Sort Evaluations',
             'description' => 'Sort those evaluations',
             'type' => 'dropdown',
-            'default' => 'name asc'
+            'default' => 'template'
         ]
     ];
   }
   public function getSortOrderOptions(){
       return [
           'name asc' => 'Name (ascending)',
-          'name desc' => 'Name (descending)'
+          'name desc' => 'Name (descending)',
+          'template' => 'Template (descending)'
       ];
   }
 
@@ -59,7 +60,16 @@ class Evaluations extends ComponentBase
   protected function loadEvaluations(){
       $user = Auth::getUser();
       #$query = Course::all();
-      $query = Course::with('evaluations')->where('user_id', '=', $user->id)->get();
+      $query = Course::with('evaluations')
+        ->where('user_id', '=', $user->id);
+      if($this->property('sortOrder') == 'name asc')
+          $query = $query->orderBy('name');
+      else if($this->property('sortOrder') == 'name desc')
+        $query = $query->orderByDesc('name');
+      else
+        $query = $query->orderByDesc($this->property('sortOrder'));
+
+      $query = $query->get();
       #dump($query);
       #dump($query[0]->evaluations);
       #dump($query[0]->attributes['id']);

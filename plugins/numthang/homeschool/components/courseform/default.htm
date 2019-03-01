@@ -3,12 +3,21 @@
 <div class="row">
 	<div class="col-md-6">
 		<label>{{ 'Courses'|_ }} </label>
-		<select class="form-control select select-primary" data-toggle="select" onChange="if(this.value) location.href='/login/edit/course/'+this.value; else location.href='/login/new/course';" style="width:100%">
-			<option value="">{{ 'New Course'|_ }}</option>
-			{% for course in courses %}
-			<option value="{{ course.id }}" {{ builderDetails.identifierValue == course.id ? 'selected' : '' }}>{% if course.template %} [{{ 'Template'|_ }}] {% else %} [{{ user.name }}] {% endif %} {{ course.name }}</option>
-			{% endfor %}
-		</select>
+		<div class="btn-group" style="width:100%;">
+			<button data-toggle="dropdown" class="btn btn-primary dropdown-toggle" type="button" style="width:100%; text-align:left;">&nbsp; <span class="fui-new"></span> {{ 'Select Course'|_ }} <span class="caret"></span></button>
+			<ul role="menu" class="dropdown-menu" style="width:100%;">
+				<li><a href="/login/new/course"><span class="fui-new"></span> {{ 'New Course'|_ }}</a></li>
+				{% for c in courses %}
+				<li><a href="/login/edit/course/{{ c.id }}"> <span class="fui-new"></span>&nbsp;
+					{% if c.template %}
+						[ {{ 'Template'|_ }} ]
+					{% else %}
+						[ {{ c.created_at|date("m/d/Y") }} ]
+					{% endif %} {{ c.name }}</a></li>
+				<li class="divider"></li>
+				{% endfor %}
+			</ul>
+		</div>
 	</div>
 </div>
 
@@ -296,14 +305,14 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
     <div class="col-sm-6">
     	<input type="hidden" name="save_as" value="0">
 			{% if record.template == 0 or can('edit_course_template') %}
-      	<button type="submit" class="btn btn-lg btn-default">{{ 'Save'|_ }}</button>
-      {% endif %}
-      {% if record.id is defined %}
+    		<button type="submit" class="btn btn-lg btn-default">{{ 'Save'|_ }}</button>
+    	{% endif %}
+    	{% if record.id is defined %}
 		    <button type="submit" class="btn btn-lg btn-info" onClick="if(confirm('{{ 'Save as'|_ }} '+this.form.name.value)) this.form.save_as.value = 1; else return false;">{{ 'Save as'|_ }} ...</button>
 				{% if record.template == 0 or can('edit_course_template') %}
 				  <button type="button" data-request="onDelete" data-request-confirm="Are you sure?" class="btn btn-lg btn-danger">{{ 'Remove'|_ }}</button>
 		    {% endif %}
-      {% endif %}
+	    {% endif %}
     </div>
   </div>
   <br>

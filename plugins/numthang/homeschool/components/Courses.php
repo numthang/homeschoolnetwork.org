@@ -29,7 +29,7 @@ class Courses extends ComponentBase
                 'title' => 'Sort Courses',
                 'description' => 'Sort those courses',
                 'type' => 'dropdown',
-                'default' => 'name asc'
+                'default' => 'template'
             ]
         ];
     }
@@ -37,7 +37,8 @@ class Courses extends ComponentBase
     public function getSortOrderOptions(){
         return [
             'name asc' => 'Name (ascending)',
-            'name desc' => 'Name (descending)'
+            'name desc' => 'Name (descending)',
+            'template' => 'Template (descending)'
         ];
     }
 
@@ -47,7 +48,17 @@ class Courses extends ComponentBase
 
     protected function loadCourses(){
         $user = Auth::getUser();
-        $query = Course::where('user_id', '=', $user->id)->orWhere('template', '=', 1)->get();
+        $query = Course::where('user_id', '=', $user->id)
+          ->orWhere('template', '=', 1);
+
+        if($this->property('sortOrder') == 'name asc')
+            $query = $query->orderBy('name');
+        else if($this->property('sortOrder') == 'name desc')
+          $query = $query->orderByDesc('name');
+        else
+          $query = $query->orderByDesc($this->property('sortOrder'));
+
+        $query = $query->get();
 				#$query = DB::table('numthang_homeschool_courses')->where('user_id', '=', $user->id)->orWhere('template', '=', 1)->get();
 
         /*if($this->property('sortOrder') == 'name asc'){

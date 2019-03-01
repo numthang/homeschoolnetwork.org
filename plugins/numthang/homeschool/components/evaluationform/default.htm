@@ -2,46 +2,51 @@
 {%  set evaluation = evaluations.evaluation[0] %}
 {%  set evaluations = evaluations.evaluations %}
 
-<div class="row">
-	<div class="col-md-6">
-		<label>{{ 'Evaluation'|_ }}</label><br>
-		<div class="btn-group" style="width:100%;">
-      <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle" type="button" style="width:100%; text-align:left;">&nbsp; <span class="fui-new"></span> {{ 'Select Evaluation'|_ }} <span class="caret"></span></button>
-      <ul role="menu" class="dropdown-menu" style="width:100%;">
-				<li><a href="/login/new/evaluation"><span class="fui-new"></span> {{ 'New Evaluation'|_ }}</a></li>
-				{% for c in evaluations %}
-				<li><b>&nbsp; [ {{ c.created_at|date("m/d/Y") }} ] {{ c.name }}</b>
-					{% for e in c.evaluations %}
-						<a href="/login/edit/evaluation/{{ e.id }}"> <span class="fui-new"></span> {{ 'Evaluation'|_ }} : {{ e.name }}</a>
-					{% endfor %}
-				</li>
-				<li class="divider"></li>
-				{% endfor %}
-      </ul>
-    </div>
-	</div>
-	<div class="col-md-6">
-		<label>{{ 'Courses'|_ }} </label>
-		<select class="form-control select select-primary" data-toggle="select" style="width:100%">
-			<option value="">{{ 'Select Course'|_ }}</option>
-			{% for e in evaluations %}
-				{% if e.template != 1 %}
-				<option value="{{ e.id }}" {{ course.id == e.id ? 'selected' : '' }}>{{ e.name }}</option>
-				{% endif %}
-			{% endfor %}
-		</select>
-	</div>
-</div>
-
-<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-<link id="bsdp-css" href="https://uxsolutions.github.io/bootstrap-datepicker/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet">
-<script src="https://uxsolutions.github.io/bootstrap-datepicker/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
-<script type="text/javascript">
-$.fn.datepicker.defaults.format = "dd/mm/yyyy";
-</script>
-<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
-
 <form data-request="onSave">
+	<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<link id="bsdp-css" href="https://uxsolutions.github.io/bootstrap-datepicker/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet">
+	<script src="https://uxsolutions.github.io/bootstrap-datepicker/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+	<script type="text/javascript">
+	$.fn.datepicker.defaults.format = "dd/mm/yyyy";
+	</script>
+	<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+	<div class="row">
+		<div class="col-md-6">
+			<label>{{ 'Evaluation'|_ }}</label><br>
+			<div class="btn-group" style="width:100%;">
+	      <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle" type="button" style="width:100%; text-align:left;">&nbsp; <span class="fui-new"></span> {{ 'Select Evaluation'|_ }} <span class="caret"></span></button>
+	      <ul role="menu" class="dropdown-menu" style="width:100%;">
+					<li><a href="/login/new/evaluation"><span class="fui-new"></span> {{ 'New Evaluation'|_ }}</a></li>
+					{% for c in evaluations %}
+					<li><b>&nbsp;
+						{% if c.template %}
+							[ {{ 'Template'|_ }} ]
+						{% else %}
+							[ {{ c.created_at|date("m/d/Y") }} ]
+						{% endif %}
+					 	{{ c.name }}</b>
+						{% for e in c.evaluations %}
+							<a href="/login/edit/evaluation/{{ e.id }}"> <span class="fui-new"></span> {{ 'Evaluation'|_ }} : {{ e.name }}</a>
+						{% endfor %}
+					</li>
+					<li class="divider"></li>
+					{% endfor %}
+	      </ul>
+	    </div>
+		</div>
+		<div class="col-md-6">
+			<label>{{ 'Courses'|_ }} </label>
+			<select class="form-control select select-primary" data-toggle="select" name="course_id" style="width:100%">
+				<option value="">{{ 'Select Course'|_ }}</option>
+				{% for e in evaluations %}
+					{% if e.template == 0 or can('edit_course_template') %}
+					<option value="{{ e.id }}" {{ course.id == e.id ? 'selected' : '' }}>{{ e.name }}</option>
+					{% endif %}
+				{% endfor %}
+			</select>
+		</div>
+	</div>
+
   <input type="hidden" name="user_id" value="{{ user.id }}">
   <div class="row">
     <div class="col-sm-6">
@@ -295,12 +300,12 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
   <div class="row">
     <div class="col-sm-6">
     	<input type="hidden" name="save_as" value="0">
-			{% if record.template == 0 or can('edit_course_template') %}
+			{% if course.template == 0 or can('edit_course_template') %}
       	<button type="submit" class="btn btn-lg btn-default">{{ 'Save'|_ }}</button>
       {% endif %}
-      {% if record.id is defined %}
+      {% if evaluation.id is defined %}
 		    <button type="submit" class="btn btn-lg btn-info" onClick="if(confirm('{{ 'Save as'|_ }} '+this.form.name.value)) this.form.save_as.value = 1; else return false;">{{ 'Save as'|_ }} ...</button>
-				{% if record.template == 0 or can('edit_course_template') %}
+				{% if course.template == 0 or can('edit_course_template') %}
 				  <button type="button" data-request="onDelete" data-request-confirm="Are you sure?" class="btn btn-lg btn-danger">{{ 'Remove'|_ }}</button>
 		    {% endif %}
       {% endif %}
