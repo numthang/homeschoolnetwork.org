@@ -61,6 +61,6 @@ class CourseForm extends ComponentBase
     public function onDelete() {
       $course = new Course();
       $course->where('id', '=', $this->param('id'))->delete();
-      return Redirect::to('/login/add/course')->with('message', $course->name.' Removed');
+      return Redirect::to('/login/new/course')->with('message', $course->name.' Removed');
     }
 }

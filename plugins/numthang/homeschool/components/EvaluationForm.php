@@ -51,6 +51,6 @@ class EvaluationForm extends ComponentBase
     public function onDelete() {
       $evaluation = new Evaluation();
       $evaluation->where('id', '=', $this->param('id'))->delete();
-      return Redirect::to('/login/add/evaluation')->with('message', $evaluation->name.' Removed');
+      return Redirect::to('/login/new/evaluation')->with('message', $evaluation->name.' Removed');
     }
 }
