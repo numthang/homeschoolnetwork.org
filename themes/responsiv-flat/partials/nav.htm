@@ -7,42 +7,12 @@
         'blog': {
             name: 'Blog',
             sublinks: {
-                'blog': ['blog/blog', 'Blog'],
-                'post': ['blog/post', 'Blog Post'],
+                'Blog': ['blog/blog', 'Blog'],
+                'Tags': ['blog/tags', 'Tags'],
             },
         },
     }
 %}
-
-        <!--'pages': {
-            name: 'Pages',
-            sublinks: {
-                'about':         ['samples/about', 'About Us'],
-                'contact':       ['samples/contact', 'Contact Us'],
-                'pricing-table': ['samples/pricing-table', 'Pricing Table'],
-                'services':      ['samples/services', 'Services'],
-                'signin':        ['samples/signin', 'Sign In'],
-                'register':      ['samples/register', 'Register'],
-                'error':         ['error', 'Error Page'],
-                '404':           ['404', '404 Page'],
-            },
-        },
-        'portfolio': {
-            name: 'Portfolio',
-            sublinks: {
-                'portfolio': ['portfolio/portfolio', 'Portfolio'],
-                'project': ['portfolio/project', 'Project'],
-            },
-        },
-        'shop': {
-            name: 'Shop',
-            sublinks: {
-                'shop': ['shop/shop', 'Shop'],
-                'product': ['shop/product', 'Product'],
-                'cart': ['shop/cart', 'Cart'],
-            },
-            'ui-elements': ['ui-elements', 'UI Elements'],
-        },-->
 {% macro render_menu(links) %}
     {% import _self as subnav %}
 
@@ -102,7 +72,7 @@
                 <ul class="dropdown-menu">
                   <li><a href="/login/profile">{{ 'My profile'|_ }}</a></li>
                   <li><a href="/login/new/course">{{ 'New course'|_ }}</a></li>
-                  <li><a href="/login/new/evaluation">{{ 'New evaluate'|_ }}</a></li>
+                  <li><a href="/login/new/evaluation">{{ 'New evaluation'|_ }}</a></li>
                   <li><a href="javascript:void(0);" data-request="onLogout" data-request-data="redirect: '/'">{{ 'Sign out'|_ }}</a></li>
                 </ul>
                     <!--<button data-request="onLogout" data-request-data="redirect: '/'" class="btn btn-sm navbar-btn btn-primary navbar-right hidden-sm hidden-xs">

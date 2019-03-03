@@ -42,9 +42,10 @@ public function onEnd() {
 }
 ?>
 ==
+{%  set evaluation = evaluations.evaluation[0] %}
 <section id="layout-title">
     <div class="container">
-        <h3>{{ 'New evaluation'|_ }}</h3>
+        <h3>{{ 'New evaluation'|_ }} : {{ evaluation.name }} </h3>
     </div>
 </section>
 

@@ -65,9 +65,11 @@ class Tag extends Model
      */
     protected function setInitialSlug()
     {
-        $this->slug = str_slug($this->name);
+        $this->slug = $this->make_slug($this->name);
     }
-
+    protected function make_slug($string) {
+        return preg_replace('/\s+/u', '-', trim($string));
+    }
     /**
      * Convert tag names to lower case
      */

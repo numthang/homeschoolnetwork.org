@@ -1,0 +1,32 @@
+title = "Tagged"
+url = "/blog/tagged/:id"
+layout = "default"
+is_hidden = 0
+
+[viewBag]
+localeUrl[en] = "/tagged"
+
+[blogTagSearch]
+tag = "{{ :id }}"
+pagination = 1
+page = "{{ :page }}"
+resultsPerPage = 100
+postPage = "blog/post"
+categoryPage = "blog/category"
+==
+<section id="layout-title">
+    <div class="container">
+        <h3>{{ 'Tagged'|_ }}</h3>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+          {% component 'blogTagSearch' %}
+        </div>
+        <div class="col-sm-3">
+          {% partial 'blog/sidebar' %}
+        </div>
+    </div>
+</div>

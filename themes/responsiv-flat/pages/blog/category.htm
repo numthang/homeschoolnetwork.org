@@ -1,0 +1,61 @@
+title = "Category"
+url = "/blog/category/:slug"
+layout = "default"
+is_hidden = 0
+
+[viewBag]
+
+[blogPosts newsList]
+pageNumber = "{{ :page }}"
+categoryFilter = "{{ :slug }}"
+postsPerPage = 100
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "blog/category"
+postPage = "blog/post"
+==
+{% set posts = newsList.posts %}
+
+<section id="layout-title">
+    <div class="container">
+        <h3>{{ posts[0].categories[0].name }}</h3>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+          {% for post in posts %}
+          <!-- Blog Post -->
+          <div class="blog">
+            <div class="blog-desc">
+              <h5><a href="{{ post.url }}">{{ post.title }}</a></h5>
+              <hr>
+              <p class="text-muted">by {{ post.user_id }} on {{ post.published_at|date('M d, Y') }}</p>
+              <p class="excerpt">{{ html_limit(post.summary, 150)|raw }}</p>
+            </div>
+          </div>
+          {% endfor %}
+          {% if posts.lastPage > 1 %}
+          <ul class="pagination">
+              {% if posts.currentPage > 1 %}
+                  <li><a href="{{ this.page.baseFileName|page({ (blogPosts.pageParam): (posts.currentPage-1) }) }}">&larr; Prev</a></li>
+              {% endif %}
+
+              {% for page in 1..posts.lastPage %}
+                  <li class="{{ posts.currentPage == page ? 'active' : null }}">
+                      <a href="{{ this.page.baseFileName|page({ (blogPosts.pageParam): page }) }}">{{ page }}</a>
+                  </li>
+              {% endfor %}
+
+              {% if posts.lastPage > posts.currentPage %}
+                  <li><a href="{{ this.page.baseFileName|page({ (blogPosts.pageParam): (posts.currentPage+1) }) }}">Next &rarr;</a></li>
+              {% endif %}
+          </ul>
+          {% endif %}
+        </div>
+        <div class="col-sm-3">
+          {% partial 'blog/sidebar' %}
+        </div>
+    </div>
+</div>

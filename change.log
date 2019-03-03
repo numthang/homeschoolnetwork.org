@@ -1,22 +1,4 @@
-dropdown เลือกแผนการศึกษาแท็บย่อยด้วยแบบประเมิน
-template เขียนแบบประเมินใหม่
-
-
-
- , สร้างฟอร์ม, onSave
-
-1. ข้อมูลพื้นฐานของผู้เรียนและครอบครัว
-2. ผลการจัดจัดการเรียนรู้ (learning)
-3. สรุปผลการเรียนรู้ของผู้เรียนตามเกณฑ์การจบชั้นเรียน (summary)
-3.1 ผลการประเมินรายกลุ่มประสบการณ์ที่จัดการเรียนการสอน
-3.2 ผลการประเมินด้านการอ่าน คิด วิเคราะห์และเขียน
-3.3 ผลการประเมินด้านคุณลักษณะที่พึงประสงค์
-3.4  ผลการประเมินกิจกรรมพัฒนาผู้เรียน
-4. จุดเด่น / ความสำเร็จที่สำคัญของการจัดการศึกษา (successful)
-5. ปัญหา อุปสรรคหรือสิ่งที่ควรพัฒนา (problem)
-6. แนวทางการจัดการเรียนรู้ในปีต่อไป (next)
-7. ข้อคิดเห็น / ข้อเสนอแนะอื่น ๆ (suggestion)
-8. ภาคผนวก ร่องรอยการเรียนรู้
+import translation 
 
 Introduction
 - บ้านเรียนคือ เอาไว้โดสะนาสั้นๆ หน้าแรกบนสุด แบ่งเป็น
@@ -115,4 +97,8 @@ Open vendor/unisharp/laravel-filemanager/src/views/index.blade.php. We have to r
 Open /vendor/unisharp/laravel-filemanager/src/Traits/LfmHelpers.php find $thumb_url and replace the folder.png path instead.
 
 $thumb_url = asset(config('lfm.assets_directory').'/images/icons/png/folder.png');
+
+/vendor/unisharp/laravel-filemanager/src/Handlers/ConfigHandler.php
 ===================================================================================================
+bedard blog tags
+/plugins/bedard/blogtags/models/Tag.php

@@ -1,0 +1,76 @@
+tabs:
+  fields:
+    enable_title:
+      label: suresoftware.powerseo::lang.settings.tab_settings.site
+      comment: suresoftware.powerseo::lang.settings.tab_settings.site_comment
+      type: switch
+      span: left
+      tab: suresoftware.powerseo::lang.settings.tab_settings.label
+
+    enable_canonical_url:
+      label: suresoftware.powerseo::lang.settings.tab_settings.canonical
+      type: switch
+      comment: suresoftware.powerseo::lang.settings.tab_settings.canonical_comment
+      tab: suresoftware.powerseo::lang.settings.tab_settings.label
+      span: right
+
+    title:
+      label: suresoftware.powerseo::lang.settings.tab_settings.sitename
+      commentAbove: suresoftware.powerseo::lang.settings.tab_settings.sitename_comment_above
+      span: left
+      comment: suresoftware.powerseo::lang.settings.tab_settings.sitename_comment
+      tab: suresoftware.powerseo::lang.settings.tab_settings.label
+      placeholder: suresoftware.powerseo::lang.settings.tab_settings.sitename_placeholder
+
+    title_position:
+      label: suresoftware.powerseo::lang.settings.tab_settings.title_position
+      type: radio
+      span: right
+      tab: suresoftware.powerseo::lang.settings.tab_settings.label
+      comment: suresoftware.powerseo::lang.settings.tab_settings.title_position_comment
+      options:
+        prefix: suresoftware.powerseo::lang.settings.tab_settings.title_position_prefix
+        suffix: suresoftware.powerseo::lang.settings.tab_settings.title_position_suffix
+
+    content:
+      type: hint
+      path: $/suresoftware/powerseo/models/settings/_other_tags_hint.htm
+      tab: suresoftware.powerseo::lang.settings.tab_settings.label
+
+    other_tags:
+      label: suresoftware.powerseo::lang.settings.tab_settings.other_tags
+      type: codeeditor
+      tab: suresoftware.powerseo::lang.settings.tab_settings.label
+      commentAbove: suresoftware.powerseo::lang.settings.tab_settings.other_tags_comment_above
+      comment: suresoftware.powerseo::lang.settings.tab_settings.other_tags_comment
+
+    og_tags_description:
+      type: hint
+      path: $/suresoftware/powerseo/models/settings/_og_tags_description.htm
+      tab: suresoftware.powerseo::lang.settings.tab_og.label
+
+    enable_og_tags:
+      label: suresoftware.powerseo::lang.settings.tab_og.og
+      type: switch
+      comment: suresoftware.powerseo::lang.settings.tab_og.og_comment
+      tab: suresoftware.powerseo::lang.settings.tab_og.label
+
+    og_sitename:
+      label: suresoftware.powerseo::lang.settings.tab_og.sitename
+      type: text
+      comment: suresoftware.powerseo::lang.settings.tab_og.sitename_comment
+      tab: suresoftware.powerseo::lang.settings.tab_og.label
+
+    og_fb_appid:
+      label: suresoftware.powerseo::lang.settings.tab_og.fb
+      comment: suresoftware.powerseo::lang.settings.tab_og.fb_comment
+      type: text
+      span: left
+      tab: suresoftware.powerseo::lang.settings.tab_og.label
+
+
+
+
+
+
+
