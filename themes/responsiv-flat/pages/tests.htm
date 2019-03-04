@@ -2,16 +2,30 @@ title = "Testing"
 url = "/testing"
 layout = "default"
 is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
 
 [evaluations]
 results = 0
 sortOrder = "name asc"
 ==
 <?php
-function onStart() {
-		echo 'onStart test';
-		#geoip($ip = null);
-	}
+function onStart()
+{
+    $user_ids = FireUnion\BlogFront\Models\Author::lists('user_id');
+
+    $this['authors'] = RainLab\User\Models\User::whereIn('id',$user_ids)->get();
+}
 ?>
 ==
-{% component 'evaluations' %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>HS</title>
+</head>
+<body>
+{% for author in authors %} 
+{{author.name }} <br>
+{% endfor %}
+</body>
+</html>

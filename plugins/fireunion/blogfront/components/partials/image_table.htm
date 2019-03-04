@@ -1,0 +1,22 @@
+    <table class="table">
+        <thead>
+            <tr>
+                <th>{{ __SELF__.trans('form_comp.filename') }}</th>
+                <th>{{ __SELF__.trans('form_comp.title') }}</th>
+                <th>{{ __SELF__.trans('form_comp.description') }}</th>
+            </tr>
+        </thead>    
+        <tbody>
+{% for image in __SELF__.post.featured_images %}
+            <tr>
+                <td title="{{ image.path }}">{{ image.filename }}</td>
+                <td>
+                    <input type="text" name="ititle[{{ image.id }}]" id="Form-field-image-title" value="{{ image.title }}" class="form-control" maxlength="50">
+                </td>
+                <td>
+                    <input type="text" name="idescription[{{ image.id }}]" id="Form-field-image-description" value="{{ image.description }}" class="form-control">
+                </td>
+            </tr>
+{% endfor %}
+        </tbody>
+    </table>

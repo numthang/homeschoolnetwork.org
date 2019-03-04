@@ -21,14 +21,13 @@ postPage = "blog/post"
     <div class="row">
         <div class="col-sm-9">
           {% set posts = blogPosts.posts %}
-
           {% for post in posts %}
             <!-- Blog Post -->
             <div class="blog">
               <div class="blog-desc">
                 <h5><a href="{{ post.url }}">{{ post.title }}</a></h5>
                 <hr>
-                <p class="text-muted">by {{ post.user_id }} on {{ post.published_at|date('M d, Y') }}</p>
+                <p class="text-muted">by {{ post.author.name }} on {{ post.published_at|date('M d, Y') }}</p>
                 <a href="{{ post.url }}"><img class="img-responsive" src="{{ post.featured_images[0].path }}" alt=""></a>
                 <p class="excerpt">{{ post.summary|raw }}</p>
                 <p class="info">
@@ -37,13 +36,11 @@ postPage = "blog/post"
                   {% for category in post.categories %}
                       <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
                   {% endfor %}
-                  on {{ post.published_at|date('M d, Y') }}
                 </p>
                 <a class="btn btn-lg btn-default" href="{{ post.url }}">{{ 'Read More'|_}} ...</a>
               </div>
             </div>
           {% endfor %}
-
           <!--<ul class="post-list">
             {% for post in posts %}
                 <li>

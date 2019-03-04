@@ -1,0 +1,35 @@
+subject = "New post - {{ post.title }}"
+==
+Dear {{ user.name }},
+
+{{ post.user.first_name }} {{ post.user.last_name }} has just posted a new topic "{{ post.title }}".
+
+You can view this post in your web browser at:
+{{ postUrl }}
+==
+
+<p>Dear {{ user.name }},</p>
+
+<p>{{ post.user.first_name }} {{ post.user.last_name }} has just posted a new topic <em>"{{ post.title }}"</em>
+{% set categories = post.categories %}
+
+{% if categories|length > 1 %}
+under these categories:<br />
+        {% for category in categories %}
+&nbsp;&nbsp;&nbsp;-{{ category.name }}<br />
+        {% endfor %}
+{% else %}
+	in {{ categories.first().name }}.
+{% endif %}
+</p>
+
+<p>
+    You can view this post in your web browser at:<br />
+    <a href="{{ postUrl }}">{{ postUrl }}</a>
+</p>
+<p>
+    This is the content of the new post ( Some formating may not show correctly in your mail client) :<br />
+</p>
+<div>
+{{ post.content|raw }}
+</div>

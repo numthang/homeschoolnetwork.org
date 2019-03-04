@@ -17,12 +17,13 @@ class Plugin extends PluginBase
     public function boot() {
       UserModel::extend(function($model) {//กำหนด fillable field เพิ่ม
         $model->addFillable([
-          'website', 
-          'facebook', 
+          'website',
+          'facebook',
           'line',
           'status',
           'country_id',
-          'state_id'
+          'state_id',
+          'note'
         ]);
       });
       UsersController::extendFormFields(function($form, $model, $context) {//เพิ่ม user form ใน backend
@@ -31,17 +32,17 @@ class Plugin extends PluginBase
             'label' => 'Website',
             'type' => 'text',
             'tab' => 'rainlab.userplus::lang.tab.profile'
-          ], 
+          ],
           'facebook' => [
             'label' => 'Facebook',
             'type' => 'text',
             'tab' => 'rainlab.userplus::lang.tab.profile'
-          ], 
+          ],
           'line' => [
             'label' => 'Line',
             'type' => 'text',
             'tab' => 'rainlab.userplus::lang.tab.profile'
-          ], 
+          ],
           'status' => [
             'label' => 'Status',
             'type' => 'text',

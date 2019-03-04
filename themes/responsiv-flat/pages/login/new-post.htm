@@ -1,0 +1,39 @@
+title = "New post"
+url = "/login/new/post"
+layout = "default"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[Ajax]
+use_authors = 1
+restrict_owner = 1
+allowpublish = 1
+show_excerpt = 0
+postPage = "blog/post"
+
+[PostForm]
+use_authors = 1
+restrict_owner = 1
+allowpublish = 1
+show_excerpt = 0
+allow_images = 1
+slug = "{{ :slug }}"
+listPage = "blog/list"
+postPage = "blog/post"
+==
+<section id="layout-title">
+    <div class="container">
+        <h3>{{ 'New post'|_ }}</h3>
+    </div>
+</section>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+     {% component 'Ajax' %}
+     {% component 'PostForm' %}
+    </div>
+	</div>
+</div>
+<br>

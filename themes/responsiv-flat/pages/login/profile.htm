@@ -133,12 +133,18 @@ sortOrder = "name asc"
                         }) }}
                       </div>
 
-                    </div>
+                    </div>admin
                     <div class="col-sm-6">
                       <div class="{{ wrapper_class }} form-group">
                         <label>State</label>
                         {{ form_select_state('state_id', user.country_id,  user.state_id, { id: 'state-select', class: class ~ ' form-control', emptyOption: placeholder }) }}
 
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="{{ wrapper_class }} form-group">
+                        <label>{{ 'Description'|_ }}</label>
+                        <textarea name="note" class="form-control" rows="10">{{ user.note }}</textarea>
                       </div>
                     </div>
                   </div>

@@ -1,4 +1,9 @@
-import translation 
+- สร้าง form post ใหม่ใน partial ตัวเอง
+- เพิ่ม slug field ใน form
+- ทำเป็น accordion
+- เปลี่ยน tinymc เพิ่ม laravel file Filemanager
+- ก่อนเอาขึ้นอีกครั้ง ให้เอา Membership กับ ext มา port อีกรอบ
+- fresh install อีกครั้ง
 
 Introduction
 - บ้านเรียนคือ เอาไว้โดสะนาสั้นๆ หน้าแรกบนสุด แบ่งเป็น

@@ -27,7 +27,8 @@ forceSecure = 0
     use October\Rain\Auth\Models\User as User;
     $this->page->meta_title = $this->post->title;
     $this->post->seo_description = $this->page->meta_description = substr(strip_tags($this->post->content), 0, 260);
-    $this->post->author = User::find($this->post->user_id)->name;
+    #$this->post->author = User::find($this->post->user_id)->name;
+    #dump($this->post->user);
   }
 ?>
 ==
@@ -47,7 +48,7 @@ forceSecure = 0
         <div class="blog-desc">
           <h5>{{ post.title|raw }}</h5>
           <hr />
-          <p class="text-muted">by {{ post.author }} on {{ post.published_at|date('M d, Y') }}</p>
+          <p class="text-muted">by {{ post.author.name }} on {{ post.published_at|date('M d, Y') }}</p>
           {% if post.featured_images.count %}
           <div class="featured-images text-center">
             {% for image in post.featured_images %}
