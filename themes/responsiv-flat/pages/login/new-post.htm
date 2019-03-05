@@ -5,21 +5,16 @@ is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
 
-[Ajax]
-use_authors = 1
-restrict_owner = 1
-allowpublish = 1
-show_excerpt = 0
-postPage = "blog/post"
-
 [PostForm]
 use_authors = 1
 restrict_owner = 1
+backUser = 1
 allowpublish = 1
 show_excerpt = 0
+non_std_fields = "slug"
 allow_images = 1
 slug = "{{ :slug }}"
-listPage = "blog/list"
+listPage = "blog/blog"
 postPage = "blog/post"
 ==
 <section id="layout-title">
@@ -31,8 +26,7 @@ postPage = "blog/post"
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-     {% component 'Ajax' %}
-     {% component 'PostForm' %}
+     {% partial 'login/post-form' %}
     </div>
 	</div>
 </div>

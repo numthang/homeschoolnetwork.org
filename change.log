@@ -1,9 +1,5 @@
-- สร้าง form post ใหม่ใน partial ตัวเอง
-- เพิ่ม slug field ใน form
-- ทำเป็น accordion
-- เปลี่ยน tinymc เพิ่ม laravel file Filemanager
 - ก่อนเอาขึ้นอีกครั้ง ให้เอา Membership กับ ext มา port อีกรอบ
-- fresh install อีกครั้ง
+- git fresh install อีกครั้ง
 
 Introduction
 - บ้านเรียนคือ เอาไว้โดสะนาสั้นๆ หน้าแรกบนสุด แบ่งเป็น
@@ -105,5 +101,8 @@ $thumb_url = asset(config('lfm.assets_directory').'/images/icons/png/folder.png'
 
 /vendor/unisharp/laravel-filemanager/src/Handlers/ConfigHandler.php
 ===================================================================================================
-bedard blog tags
+Hard code changed
+
+//update slug as next id
 /plugins/bedard/blogtags/models/Tag.php
+/plugins/rainlab/blog/models/Post.php

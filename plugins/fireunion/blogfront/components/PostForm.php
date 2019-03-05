@@ -59,7 +59,6 @@ class PostForm extends ComponentBase {
 	 * @return array for a flash like error message if there is a problem with form validation
 	 */
 	public function onSave() {
-
 		if (!$this->save()) {
 			return null;
 		}

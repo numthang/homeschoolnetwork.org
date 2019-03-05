@@ -3,7 +3,7 @@
 use Config;
 use Model;
 use RainLab\Blog\Models\Post;
-
+use DB;
 /**
  * Tag Model
  */
@@ -65,10 +65,9 @@ class Tag extends Model
      */
     protected function setInitialSlug()
     {
-        $this->slug = $this->make_slug($this->name);
-    }
-    protected function make_slug($string) {
-        return preg_replace('/\s+/u', '-', trim($string));
+        #$this->slug = str_slug($this->name);
+        #$this->slug = $this->make_slug($this->name);
+        $this->slug = DB::table($this->table)->max('id') + 1;
     }
     /**
      * Convert tag names to lower case

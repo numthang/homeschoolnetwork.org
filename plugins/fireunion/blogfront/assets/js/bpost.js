@@ -19,4 +19,3 @@ $( "#publish_save" ).click(function() {
   	editor2.updateElement();
 	}
 });
-
