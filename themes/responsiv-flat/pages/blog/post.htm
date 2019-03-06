@@ -44,7 +44,7 @@ forceSecure = 0
     <div class="col-sm-9">
       <!-- Blog Post #1 -->
       <div class="blog">
-        <img src="{{ 'assets/images/team/aleksey.png'|theme }}" alt="">
+        <img src="{% if post.author.facebook %} https://graph.facebook.com/{{ post.author.facebook }}/picture {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" alt="{{ post.author.name }}" style="cursor:pointer;" onClick="window.location.href = '{% if post.author.facebook %} https://fb.com/{{ post.author.facebook }} {% endif %}';">
         <div class="blog-desc">
           <h5>{{ post.title|raw }}</h5>
           <hr />
@@ -70,7 +70,6 @@ forceSecure = 0
                       <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
                   {% endfor %}
               {% endif %}
-              on {{ post.published_at|date('M d, Y') }}
           </p>
           <h4>{{ 'Related posts'|_ }}</h4>
           <ul>

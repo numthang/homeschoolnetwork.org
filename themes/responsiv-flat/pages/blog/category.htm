@@ -18,7 +18,7 @@ postPage = "blog/post"
 
 <section id="layout-title">
     <div class="container">
-        <h3>{{ posts[0].categories[0].name }}</h3>
+        <h3>{{ this.param.slug }}</h3>
     </div>
 </section>
 
@@ -28,11 +28,13 @@ postPage = "blog/post"
           {% for post in posts %}
           <!-- Blog Post -->
           <div class="blog">
+            <img src="{% if post.author.facebook %} https://graph.facebook.com/{{ post.author.facebook }}/picture {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" alt="{{ post.author.name }}" style="cursor:pointer;" onClick="window.location.href = '{% if post.author.facebook %} https://fb.com/{{ post.author.facebook }} {% endif %}';">
             <div class="blog-desc">
               <h5><a href="{{ post.url }}">{{ post.title }}</a></h5>
               <hr>
-              <p class="text-muted">by {{ post.user_id }} on {{ post.published_at|date('M d, Y') }}</p>
-              <p class="excerpt">{{ html_limit(post.summary, 150)|raw }}</p>
+              <p class="text-muted">by {{ post.author.name }} on {{ post.published_at|date('M d, Y') }}</p>
+              <a href="{{ post.url }}"><img class="img-responsive" src="{{ post.featured_images[0].path }}" alt=""></a>
+              <p class="excerpt">{{ post.summary|raw }}</p>
             </div>
           </div>
           {% endfor %}
