@@ -1,4 +1,4 @@
-editor = CKEDITOR.replace( 'content' );
+/*editor = CKEDITOR.replace( 'content' );
 
 exerpt_exists = $( "#Form-field-blog-excerpt" ).length;
 
@@ -19,3 +19,4 @@ $( "#publish_save" ).click(function() {
   	editor2.updateElement();
 	}
 });
+*/

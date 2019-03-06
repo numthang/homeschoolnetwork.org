@@ -17,10 +17,10 @@
   </div>
   {% endif %}
   <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-12">
       <div class="form-group">
         <label for="Form-field-blog-title">{{ PostForm.blogtrans('post.title') }}</label>
-        <input type="text" name="title" id="Form-field-blog-title" value="{{ PostForm.post.title }}" placeholder="{{ PostForm.blogtrans('post.title_placeholder') }}" class="form-control" maxlength="255">
+        <input type="text" name="title" id="Form-field-blog-title" value="{{random(999)}} {{ PostForm.post.title }}" placeholder="{{ PostForm.blogtrans('post.title_placeholder') }}" class="form-control" maxlength="255">
       </div>
     </div>
     <!--<div class="col-sm-6">
@@ -31,13 +31,13 @@
     </div>-->
   </div>
   <div class="form-group">
-    <textarea class="form-control my-editor" name="evaluate" placeholder="" rows="20">{% if record.evaluate is defined %} {{ record.evaluate }} {% else %} {{ this.page['default_10'] }} {% endif %}</textarea>
-
+    <label for="Form-field-blog-content">{{ PostForm.blogtrans('post.content') }}</label>
+    <textarea name="content" id="content" class="form-control mytinymce">{{ PostForm.post.content }} {{ random(999)}} </textarea>
   </div>
   {% if PostForm.show_excerpt %}
   <div class="form-group">
     <label for="Form-field-blog-excerpt">{{ PostForm.blogtrans('post.excerpt') }}</label>
-    <textarea name="excerpt" id="Form-field-blog-excerpt" class="form-control my-editor" rows="5">{{ PostForm.post.excerpt }}</textarea>
+    <textarea name="excerpt" id="Form-field-blog-excerpt" class="form-control mytinymce" rows="5">{{ PostForm.post.excerpt }}</textarea>
   </div>
   {% endif %}
   <div class="form-group">
@@ -45,7 +45,7 @@
     {% for cat in PostForm.categories %}
       <label class="checkbox" for="Form-field-blog-cat-{{ cat.name }}">
         <input type="checkbox" id="Form-field-blog-cat-{{ cat.name }}"  data-toggle="checkbox" name="category[]" value="{{ cat.id }}"
-      {% if cat.id in PostForm.postCategoryIds %}checked="checked"{% endif %}>
+      {% if cat.id in PostForm.postCategoryIds %}checked="checked"{% endif %} checked>
           {{ cat.name }}
       </label>
     {% endfor %}
@@ -91,7 +91,12 @@
 <!-- End postform-default.htm --><script>
   var editor_config = {
     path_absolute : "/",
-    selector: "textarea.my-editor",
+    setup: function (mytinymce) {
+        mytinymce.on('change', function () {
+            tinymce.triggerSave();
+        });
+    },
+    selector: "textarea.mytinymce",
     plugins: [
       "advlist autolink lists link image charmap print preview hr anchor pagebreak",
       "searchreplace wordcount visualblocks visualchars code fullscreen",
