@@ -446,9 +446,11 @@ trait Loaders {
 
 		foreach ($this->post->featured_images()->get() as $image) {
 
-			$image->title = $titles[$image->id];
-			$image->description = $descriptions[$image->id];
-			$image->save();
+			if(isset($titles[$image->id])) {
+				$image->title = $titles[$image->id];
+				$image->description = $descriptions[$image->id];
+				$image->save();
+			}
 		}
 	}
 

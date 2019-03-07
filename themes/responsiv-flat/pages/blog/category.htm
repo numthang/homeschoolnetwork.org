@@ -30,7 +30,7 @@ postPage = "blog/post"
           <div class="blog">
             <img src="{% if post.author.facebook %} https://graph.facebook.com/{{ post.author.facebook }}/picture {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" alt="{{ post.author.name }}" style="cursor:pointer;" onClick="window.location.href = '{% if post.author.facebook %} https://fb.com/{{ post.author.facebook }} {% endif %}';">
             <div class="blog-desc">
-              <h5><a href="{{ post.url }}">{{ post.title }}</a></h5>
+              <h5><a href="{{ post.url }}">{{ post.title }}</a> {% if post.author.id == user.id or can('edit_course_template') %} <a href="/login/edit/post/{{ post.id }}">{{ 'Edit'|_ }}</a> {% endif %}</h5>
               <hr>
               <p class="text-muted">by {{ post.author.name }} on {{ post.published_at|date('M d, Y') }}</p>
               <a href="{{ post.url }}"><img class="img-responsive" src="{{ post.featured_images[0].path }}" alt=""></a>

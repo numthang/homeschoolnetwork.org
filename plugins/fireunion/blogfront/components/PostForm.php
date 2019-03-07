@@ -63,7 +63,8 @@ class PostForm extends ComponentBase {
 			return null;
 		}
 		// Redirect to the intended page after successful update
-		$redirectUrl = $this->pageUrl($this->property('listPage'));
+		#$redirectUrl = $this->pageUrl($this->property('listPage'));
+		$redirectUrl = $this->pageUrl($this->property('postPage'));
 		return Redirect::to($redirectUrl);
 	}
 }

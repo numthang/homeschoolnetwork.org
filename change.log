@@ -106,5 +106,7 @@ $thumb_url = asset(config('lfm.assets_directory').'/images/icons/png/folder.png'
 Hard code changed
 
 //update slug as next id
-/plugins/bedard/blogtags/models/Tag.php
 /plugins/rainlab/blog/models/Post.php
+/plugins/bedard/blogtags/models/Tag.php
+/plugins/fireunion/blogfront/components/PostForm.php
+/plugins/fireunion/blogfront/components/PostForm.php

@@ -5,9 +5,15 @@ is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
 
-[evaluations]
-results = 0
-sortOrder = "name asc"
+[PostForm]
+use_authors = 1
+restrict_owner = 1
+allowpublish = 1
+show_excerpt = 0
+allow_images = 1
+slug = "{{ :slug }}"
+listPage = "blog/list"
+postPage = "blog/post"
 ==
 <?php
 function onStart()
@@ -18,14 +24,4 @@ function onStart()
 }
 ?>
 ==
-<!DOCTYPE html>
-<html>
-<head>
-<title>HS</title>
-</head>
-<body>
-{% for author in authors %} 
-{{author.name }} <br>
-{% endfor %}
-</body>
-</html>
+{% component 'PostForm' %}

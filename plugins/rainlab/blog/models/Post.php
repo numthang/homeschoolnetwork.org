@@ -134,8 +134,9 @@ class Post extends Model
 
     public function beforeSave()
     {
-      if(empty($this->slug))
+      if(empty($this->slug))/*numthang added this because slug always empty because of the Thai alphabet*/
         $this->slug = DB::table('rainlab_blog_posts')->max('id') + 1;
+
       $this->content_html = self::formatHtml($this->content);
     }
 

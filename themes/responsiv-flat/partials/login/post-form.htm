@@ -2,17 +2,39 @@
 <!-- START postform-default.htm -->
 {% if PostForm.backUser %}
 {{ form_open({ 'id':'bpostform', 'data-request': 'onSave','data-request-validate':'','data-request-flash':'', files: true }) }}
-  <input type="hidden" id="Form-field-blog-id" name="id" value="{{ PostForm.post.id }}"></input>
+  <input type="hidden" id="Form-field-blog-id" name="id" value="{{ record.id }}"></input>
   {% if PostForm.allow_images %}
-  <div class="form-group">
-    <label>{{ 'Feature image'|_ }}</label>
-    <!-- File uploader -->
-    {% component 'imageUploader' %}
-  </div>
-  <div class="form-group">
-    {% if PostForm.post.featured_images.count %}
-    <h3>{{ PostForm.trans('form_comp.image_titles_desc') }}</h3>
-    {% partial PostForm~'::image_table' %}
+    <div class="form-group">
+      <label>{{ 'Feature image'|_ }}</label>
+      <!-- File uploader -->
+      {% component 'imageUploader' %}
+    </div>
+    <div class="form-group">
+      {% if record.featured_images.count %}
+      <table class="table">
+        <thead>
+          <tr>
+            <th>{{ PostForm.trans('form_comp.filename') }}</th>
+            <th>{{ PostForm.trans('form_comp.title') }}</th>
+            <th>{{ PostForm.trans('form_comp.description') }}</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for image in record.featured_images %}
+          <tr>
+            <td title="{{ image.path }}">
+              <img data-src="{{ image.filename }}" src="{{ image.path }}" alt="{{ image.description }}" height="50"/> {{ image.filename }}
+            </td>
+            <td>
+              <input type="text" name="ititle[{{ image.id }}]" id="Form-field-image-title" value="{{ image.title }}" class="form-control" maxlength="50">
+            </td>
+            <td>
+              <input type="text" name="idescription[{{ image.id }}]" id="Form-field-image-description" value="{{ image.description }}" class="form-control">
+            </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
     {% endif %}
   </div>
   {% endif %}
@@ -26,7 +48,7 @@
     <!--<div class="col-sm-6">
       <div class="form-group">
         <label for="Form-field-blog-slug">{{ PostForm.blogtrans('post.slug') }}</label>
-        <input type="text" name="slug" id="Form-field-blog-slug" value="{{ PostForm.post.slug }}" placeholder="{{ PostForm.blogtrans('post.slug_placeholder') }}" class="form-control" maxlength="255">
+        <input type="text" name="slug" id="Form-field-blog-slug" value="{{ record.slug }}" placeholder="{{ PostForm.blogtrans('post.slug_placeholder') }}" class="form-control" maxlength="255">
       </div>
     </div>-->
   </div>
@@ -37,16 +59,15 @@
   {% if PostForm.show_excerpt %}
   <div class="form-group">
     <label for="Form-field-blog-excerpt">{{ PostForm.blogtrans('post.excerpt') }}</label>
-    <textarea name="excerpt" id="Form-field-blog-excerpt" class="form-control mytinymce" rows="5">{{ PostForm.post.excerpt }}</textarea>
+    <textarea name="excerpt" id="Form-field-blog-excerpt" class="form-control mytinymce" rows="5">{{ record.excerpt }}</textarea>
   </div>
   {% endif %}
   <div class="form-group">
     <label for="Form-field-blog-category">{{ 'Category'|_ }}</label>
     {% for cat in PostForm.categories %}
       <label class="checkbox" for="Form-field-blog-cat-{{ cat.name }}">
-        <input type="checkbox" id="Form-field-blog-cat-{{ cat.name }}"  data-toggle="checkbox" name="category[]" value="{{ cat.id }}"
-      {% if cat.id in PostForm.postCategoryIds %}checked="checked"{% endif %}>
-          {{ cat.name }}
+      <input type="checkbox" id="Form-field-blog-cat-{{ cat.name }}"  data-toggle="checkbox" name="category[]" value="{{ cat.id }}" {% if cat.id in PostForm.postCategoryIds %}checked="checked"{% endif %}>
+        {{ cat.name }}
       </label>
     {% endfor %}
   </div>

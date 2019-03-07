@@ -1,5 +1,5 @@
 title = "Edit post"
-url = "/login/edit/post/:id"
+url = "/login/edit/post/:slug"
 layout = "default"
 is_hidden = 0
 robot_index = "index"
@@ -15,17 +15,21 @@ allow_images = 1
 slug = "{{ :slug }}"
 listPage = "blog/blog"
 postPage = "blog/post"
+
+[session]
+security = "user"
+redirect = "login/login"
 ==
 <section id="layout-title">
     <div class="container">
-        <h3>{{ 'New post'|_ }}</h3>
+      <h3>{{ 'Edit post'|_ }} : {{ PostForm.post.title }}</h3>
     </div>
 </section>
 
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-     {% partial 'login/post-form' %}
+      {% partial 'login/post-form' %}
     </div>
 	</div>
 </div>

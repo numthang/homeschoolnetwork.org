@@ -39,13 +39,13 @@
 @asbestos:                  #7f8c8d;
 
 // Grays
-@gray:                      @concrete;
-@gray-light:                @silver;
+@gray:                      @silver;
+@gray-light:                @asbestos;
 @inverse:                   white;
 
 // Brand colors
-@brand-primary:             @wet-asphalt;
-@brand-secondary:           @carrot;
+@brand-primary:             @belize-hole;
+@brand-secondary:           @alizarin;
 @brand-success:             @emerald;
 @brand-warning:             @sun-flower;
 @brand-danger:              @alizarin;
@@ -64,12 +64,12 @@
 //
 //## Settings for some of the most global styles.
 
-@body-bg:                   #fff;
-@text-color:                @brand-primary;
+@body-bg:                   @clouds;
+@text-color:                @wet-asphalt;
 
 //** Global textual link color.
-@link-color:                @carrot;
-@link-hover-color:          @brand-primary;
+@link-color:                @belize-hole;
+@link-hover-color:          @pomegranate;
 //** Link hover decoration.
 @link-hover-decoration:     none;
 
@@ -334,7 +334,7 @@
 //
 //##
 
-@pagination-bg:              mix(@brand-primary, white, 20%);
+@pagination-bg:              mix(@brand-primary, white, 60%);
 @pagination-hover-bg:        @brand-secondary;
 @pagination-color:           @inverse;
 @pagination-border-radius:   @border-radius-large;
@@ -458,7 +458,7 @@
 //** Hover color for dropdown links.
 @dropdown-link-hover-color:      darken(@dropdown-link-color, 5%);
 //** Hover background for dropdown links.
-@dropdown-link-hover-bg:         fade(desaturate(lighten(@brand-primary, 52%), 21%), 50%);
+@dropdown-link-hover-bg:         fade(desaturate(lighten(@brand-primary, 42%), 21%), 50%);
 
 //** Active dropdown menu item text color.
 @dropdown-link-active-color:     @inverse;
