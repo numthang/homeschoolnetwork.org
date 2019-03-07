@@ -17,7 +17,7 @@ forceSecure = 0
       <div class="row">
           <div class="col-sm-4">
               <h3>เครือข่ายบ้านเรียน</h3>
-              Homeschool Network หรือ "เครือข่ายบ้านเรียน" เข้าใจการทำโฮมสคูลในประเทศไทยจบที่นี่ที่เดียว
+              ครบเครื่องเรื่องการทำโฮมสคูลในประเทศไทย
               <div class="signup-form">
                 {% if not user %}
                 <form data-request="onSignin">
@@ -48,10 +48,23 @@ forceSecure = 0
                   {% component 'sociallogin' %}
                 </form>
                 {% else %}
-                  <a href="/login/profile">{{ 'My profile'|_ }}</a><br>
-                  <a href="/login/new/course">{{ 'New course'|_ }}</a><br>
-                  <a href="/login/new/evaluation">{{ 'New evaluation'|_ }}</a><br>
-                  <a href="javascript:void(0);" data-request="onLogout" data-request-data="redirect: '/'">{{ 'Sign out'|_ }}</a>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <a href="/login/profile"><img src="/themes/responsiv-flat/assets/images/icons/png/profile.png"> &nbsp;<font style="font-size:28px;;">{{ 'My profile'|_ }}</font></a>
+                    </div>
+                    <div class="col-sm-12">
+                      <a href="/login/new/course"><img src="/themes/responsiv-flat/assets/images/icons/svg/book.svg" width="35"> &nbsp;<font style="font-size:28px;;">{{ 'New course'|_ }}</font></a>
+                    </div>
+                    <div class="col-sm-12">
+                      <a href="/login/new/evaluation"><img src="/themes/responsiv-flat/assets/images/icons/svg/clipboard.svg" width="35"> &nbsp;<font style="font-size:28px;;">{{ 'New evaluation'|_ }}</font></a>
+                    </div>
+                    <div class="col-sm-12">
+                      <a href="/login/new/evaluation"><img src="/themes/responsiv-flat/assets/images/icons/svg/pencils.svg" width="35"> &nbsp;<font style="font-size:28px;;">{{ 'New post'|_ }}</font></a>
+                    </div>
+                    <div class="col-sm-12">
+                      <a href="javascript:void(0);" data-request="onLogout" data-request-data="redirect: '/'"><img src="/themes/responsiv-flat/assets/images/icons/png/signout.png"> &nbsp;<font style="font-size:28px;;">{{ 'Sign out'|_ }}</font></a>
+                    </div>
+                  </div>
                 {% endif %}
               </div>
               <!--<div class="additional-links">
@@ -71,7 +84,7 @@ forceSecure = 0
 <section class="google-ads">
 	<div class="container">ADS
 		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-		<!-- Homeschool Network Index Top 
+		<!-- Homeschool Network Index Top
 		<ins class="adsbygoogle"
 		 style="display:block"
 		 data-ad-client="ca-pub-9939363335105757"
@@ -91,8 +104,10 @@ forceSecure = 0
     <!-- Services -->
     <div class="row our-services">
         <div class="col-sm-12">
-            <h4 class="headline"><span>What we do</span></h4>
-            <p>He hasn't got a freckle my mad as a middy. Trent from punchy maccas no dramas shazza got us some ripper. As dry as a bradman flamin lets throw a cut lunch commando.</p>
+            <h4 class="headline"><span>{{ 'What we do'|_ }}</span></h4>
+            <p>HomeschoolNetwork.org หรือ "เครือข่ายบ้านเรียน" เว็บไซต์กลางสำหรับเครือข่ายสมาชิกบ้านเรียนหรือผู้จัดทำโฮมสคูลในเมืองไทย ติดต่อ แลกเปลี่ยนข้อมูล ฐานข้อมูลความรู้การในการทำโฮมสคูล ฐานข้อมูลสมาชิกบ้านเรียน ระบบเขียนแผนการศึกษาออนไลน์ ระบบช่วยเขียนแบบประเมินและร่องรอยการเรียนรู้ สำหรับสมาชิกสามารถร่วมเขียนเนื้อหาหรือบันทึกใดๆ เกี่ยวกับบ้านเรียน ที่ต้องการแชร์ให้สมาชิกบ้านเรียนอื่นๆ หรือบุคคลที่สนใจได้เข้ามาศึกษาหาความรู้
+
+</p>
 
             {% partial 'services' %}
         </div>

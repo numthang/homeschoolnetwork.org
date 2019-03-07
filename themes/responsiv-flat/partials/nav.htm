@@ -48,7 +48,28 @@
         </div>
         <div class="collapse navbar-collapse navbar-main-collapse">
             <ul class="nav navbar-nav navbar-right">
-              {{ nav.render_menu(links) }}
+              {# nav.render_menu(links) #}
+              <li class=" ">
+                <a href="/" class="">{{ 'Home'|_ }}</a>
+              </li>
+              <li class=" dropdown">
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                {{ 'Blog'|_ }}
+                <span class="caret"></span></a>
+                <span class="dropdown-arrow"></span>
+                <ul class="dropdown-menu">
+                  <li class=" ">
+                    <a href="/blog/page/default" class="">
+                      {{ 'Blog'|_ }}
+                    </a>
+                  </li>
+                  <li class=" ">
+                    <a href="/blog/tags" class="">
+                      {{ 'Tags'|_ }}
+                    </a>
+                  </li>
+                </ul>
+              </li>
               <li class=" dropdown">
                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">{{ 'Languages'|_ }}<span class="caret"></span></a>
                 <span class="dropdown-arrow"></span>
