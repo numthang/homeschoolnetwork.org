@@ -2,7 +2,7 @@
 <!-- START postform-default.htm -->
 {% if PostForm.backUser %}
 {{ form_open({ 'id':'bpostform', 'data-request': 'onSave','data-request-validate':'','data-request-flash':'', files: true }) }}
-  <input type="hidden" id="Form-field-blog-id" name="id" value="{{ record.id }}"></input>
+  <input type="hidden" id="Form-field-blog-id" name="id" value="{{ PostForm.post.id }}"></input>
   {% if PostForm.allow_images %}
     <div class="form-group">
       <label>{{ 'Feature image'|_ }}</label>
@@ -41,7 +41,7 @@
   <div class="row">
     <div class="col-sm-12">
       <div class="form-group">
-        <label for="Form-field-blog-title">{{ PostForm.blogtrans('post.title') }}</label>
+        <label for="Form-field-blog-title">{{ 'Title'|_ }}</label>
         <input type="text" name="title" id="Form-field-blog-title" value="{{ PostForm.post.title }}" placeholder="{{ PostForm.blogtrans('post.title_placeholder') }}" class="form-control" maxlength="255">
       </div>
     </div>
@@ -53,12 +53,12 @@
     </div>-->
   </div>
   <div class="form-group">
-    <label for="Form-field-blog-content">{{ PostForm.blogtrans('post.content') }}</label>
+    <label for="Form-field-blog-content">{{ 'Content'|_ }}</label>
     <textarea name="content" id="content" class="form-control mytinymce" rows="20">{{ PostForm.post.content }}</textarea>
   </div>
   {% if PostForm.show_excerpt %}
   <div class="form-group">
-    <label for="Form-field-blog-excerpt">{{ PostForm.blogtrans('post.excerpt') }}</label>
+    <label for="Form-field-blog-excerpt">{{ 'Excerpt'|_ }}</label>
     <textarea name="excerpt" id="Form-field-blog-excerpt" class="form-control mytinymce" rows="5">{{ record.excerpt }}</textarea>
   </div>
   {% endif %}

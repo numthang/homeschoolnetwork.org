@@ -15,9 +15,8 @@ forceSecure = 0
 <section class="home-title">
   <div class="container">
       <div class="row">
-          <div class="col-sm-4">
-              <h3>เครือข่ายบ้านเรียน</h3>
-              ครบเครื่องเรื่องการทำโฮมสคูลในประเทศไทย
+          <div class="col-sm-5 col-md-5">
+              <h4>เครือข่ายบ้านเรียน</h4><!--ครบเครื่องเรื่องการทำโฮมสคูลในประเทศไทย-->
               <div class="signup-form">
                 {% if not user %}
                 <form data-request="onSignin">
@@ -48,32 +47,34 @@ forceSecure = 0
                   {% component 'sociallogin' %}
                 </form>
                 {% else %}
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <a href="/login/profile"><img src="/themes/responsiv-flat/assets/images/icons/png/profile.png"> &nbsp;<font style="font-size:28px;;">{{ 'My profile'|_ }}</font></a>
+                  <p>
+                    <div class="row">
+                      <div class="col-md-4 col-sm-6 col-xs-6" align="center">
+                        <a href="/login/profile"><img src="/themes/responsiv-flat/assets/images/icons/png/profile.png" class="img-rounded img-responsive" style="max-width: 90px;max-height: 90px;"><font style="font-size:18px;">{{ 'My profile'|_ }}</font></a>
+                      </div>
+                      <div class="col-md-4 col-sm-6 col-xs-6" align="center">
+                        <a href="/login/new/course"><img src="/themes/responsiv-flat/assets/images/icons/png/Book.png" class="img-rounded img-responsive" style="max-width: 90px;max-height: 90px;"><font style="font-size:18px;">{{ 'New course'|_ }}</font></a>
+                      </div>
+                      <div class="col-md-4 col-sm-6 col-xs-6" align="center">
+                        <a href="/login/new/evaluation"><img src="/themes/responsiv-flat/assets/images/icons/png/Clipboard.png" class="img-rounded img-responsive" style="max-width: 90px;max-height: 90px;"><font style="font-size:18px;">{{ 'New evaluation'|_ }}</font></a>
+                      </div>
+                      <div class="col-md-4 col-sm-6 col-xs-6" align="center">
+                        <a href="/login/new/post"><img src="/themes/responsiv-flat/assets/images/icons/png/Pencils.png" class="img-rounded img-responsive" style="max-width: 90px;max-height: 90px;"><font style="font-size:18px;">{{ 'New post'|_ }}</font></a>
+                      </div>
+                      <div class="col-md-4 col-sm-6 col-xs-6" align="center">
+                        <a href="javascript:void(0);" data-request="onLogout" data-request-data="redirect: '/'"><img src="/themes/responsiv-flat/assets/images/icons/png/signout.png" class="img-rounded img-responsive" style="max-width: 90px;max-height: 90px;"><font style="font-size:18px;">{{ 'Sign out'|_ }}</font></a>
+                      </div>
                     </div>
-                    <div class="col-sm-12">
-                      <a href="/login/new/course"><img src="/themes/responsiv-flat/assets/images/icons/svg/book.svg" width="35"> &nbsp;<font style="font-size:28px;;">{{ 'New course'|_ }}</font></a>
-                    </div>
-                    <div class="col-sm-12">
-                      <a href="/login/new/evaluation"><img src="/themes/responsiv-flat/assets/images/icons/svg/clipboard.svg" width="35"> &nbsp;<font style="font-size:28px;;">{{ 'New evaluation'|_ }}</font></a>
-                    </div>
-                    <div class="col-sm-12">
-                      <a href="/login/new/evaluation"><img src="/themes/responsiv-flat/assets/images/icons/svg/pencils.svg" width="35"> &nbsp;<font style="font-size:28px;;">{{ 'New post'|_ }}</font></a>
-                    </div>
-                    <div class="col-sm-12">
-                      <a href="javascript:void(0);" data-request="onLogout" data-request-data="redirect: '/'"><img src="/themes/responsiv-flat/assets/images/icons/png/signout.png"> &nbsp;<font style="font-size:28px;;">{{ 'Sign out'|_ }}</font></a>
-                    </div>
-                  </div>
+                  </p>
                 {% endif %}
               </div>
               <!--<div class="additional-links">
                   By signing up you agree to <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>
               </div>-->
           </div>
-          <div class="col-sm-7 col-sm-offset-1 player-wrapper">
+          <div class="col-sm-7 col-md-7 player-wrapper">
               <div class="player">
-                  <iframe width="560" height="316" src="https://www.youtube.com/embed/_VluJjS3IfQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <iframe src="https://www.youtube.com/embed/_VluJjS3IfQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               </div>
           </div>
       </div>
@@ -86,7 +87,8 @@ forceSecure = 0
 		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 		<!-- Homeschool Network Index Top
 		<ins class="adsbygoogle"
-		 style="display:block"
+		 style="dis#recent tweet
+play:block"
 		 data-ad-client="ca-pub-9939363335105757"
 		 data-ad-slot="3572354287"
 		 data-ad-format="auto"
@@ -100,37 +102,147 @@ forceSecure = 0
 <br />
 
 <div class="container">
-
-    <!-- Services -->
-    <div class="row our-services">
-        <div class="col-sm-12">
-            <h4 class="headline"><span>{{ 'What we do'|_ }}</span></h4>
-            <p>HomeschoolNetwork.org หรือ "เครือข่ายบ้านเรียน" เว็บไซต์กลางสำหรับเครือข่ายสมาชิกบ้านเรียนหรือผู้จัดทำโฮมสคูลในเมืองไทย ติดต่อ แลกเปลี่ยนข้อมูล ฐานข้อมูลความรู้การในการทำโฮมสคูล ฐานข้อมูลสมาชิกบ้านเรียน ระบบเขียนแผนการศึกษาออนไลน์ ระบบช่วยเขียนแบบประเมินและร่องรอยการเรียนรู้ สำหรับสมาชิกสามารถร่วมเขียนเนื้อหาหรือบันทึกใดๆ เกี่ยวกับบ้านเรียน ที่ต้องการแชร์ให้สมาชิกบ้านเรียนอื่นๆ หรือบุคคลที่สนใจได้เข้ามาศึกษาหาความรู้
-
-</p>
-
-            {% partial 'services' %}
+  <!-- Services -->
+  <div class="row our-services">
+    <div class="col-sm-12">
+      <h4 class="headline"><span> HomeschoolNetwork.org {{ 'What we do'|_ }}</span></h4>
+      <p>"เครือข่ายบ้านเรียน" เว็บกลางสำหรับสมาชิกบ้านเรียนหรือโฮมสคูลในเมืองไทย สามารถติดต่อ แลกเปลี่ยน หาความรู้ในการทำโฮมสคูล โดยสมาชิกจะสามารถ ค้นฐานข้อมูลสมาชิกบ้านเรียน, เขียนแผนการศึกษาออนไลน์, เขียนแบบประเมินและร่องรอยการเรียนรู้และสามารถร่วมเขียนเนื้อหาหรือบันทึกใดๆ ที่ต้องการแชร์ให้กับสมาชิกบ้านเรียนท่านอื่นๆ หรือบุคคลที่สนใจได้เข้ามาศึกษา เพื่อทำความรู้จักและสร้างกลุ่มบ้านเรียนให้ใหญ่ขึ้นได้ต่อไป</p>
+      <div class="row">
+          <div class="col-sm-4">
+              <div class="services">
+                  <div class="service-item">
+                      <i class="fa fa-vcard"></i>
+                      <div class="service-desc">
+                          <h5><a href="/login/profile">{{ 'User profile'|_ }}</a></h5>
+                          <p>อย่าลืมกดเข้าไปอัพเดทข้อมูลเกี่ยวกับบ้านเรียนของคุณ เพื่อสร้างเครือข่ายให้ใหญ่ขึ้น ไม่ต้องทนเหงาอีกต่อไป</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-sm-4">
+              <div class="services">
+                  <div class="service-item">
+                      <i class="fa fa-book"></i>
+                      <div class="service-desc">
+                          <h5><a href="/login/new/course">{{ 'New course'|_ }}</a></h5>
+                          <p>หากคุณประสบปัญหาในการเขียนรายงาน, การออกแบบการเรียนการสอนและการจัดเรียงเอกสาร
+                            สิ่งนี้จะช่วยได้ โดยข้างในจะมีตัวอย่างการเขียนแผนแบบสำเร็จรูปพร้อมใช้งาน </p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-sm-4">
+              <div class="services">
+                  <div class="service-item">
+                      <i class="fa fa-clipboard"></i>
+                      <div class="service-desc">
+                          <h5><a href="/login/new/evaluation">{{ 'New evaluation'|_ }}</a></h5>
+                          <p>ทุกปี จะมีเทศกาลปั่นรายงาน ส่วนนี้จะเป็นส่วนของการทำรายงานประเมินผล ท่านสามารถอัพเดทร่องรอยการเรียนรู้ของนักเรียนได้เรื่อยๆ ตลอดปี โดยไม่ต้องดองงานมาทำก่อนจบเทอม </p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+            <div class="services">
+                <div class="service-item">
+                    <i class="fa fui-new"></i>
+                    <div class="service-desc">
+                        <h5><a href="/login/new/post">{{ 'New post'|_ }}</a></h5>
+                        <p>นอกเหนือจากงานเขียนที่ต้องส่งเขตแล้ว ท่านยังสามารถช่วยเหลือชุมชนด้วยการเขียนบทความหรืออะไรก็ได้สั้นๆ แสดงบนหน้าเว็บ เพื่อเป็นวิทยาทานแก่คนอื่นต่อไป</p>
+                    </div>
+                </div>
+            </div>
         </div>
+        <div class="col-sm-4">
+            <div class="services">
+                <div class="service-item">
+                    <i class="fa fa-cloud"></i>
+                    <div class="service-desc">
+                        <h5><a href="/cloud">{{ 'Homeschooler cloud'|_ }}</a></h5>
+                        <p>มีใครทำบ้านเรียนในพื้นที่บ้าง เชื่อว่าเป็นคำถามแรกๆ ในใจหลังจากที่คิดจะทำโฮมสคูล ไปค้นหาเพื่อนบ้านโฮมสคูลในพื้นที่ของคุณกันเลย</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="services">
+                <div class="service-item">
+                    <i class="fa fa-question-circle-o"></i>
+                    <div class="service-desc">
+                        <h5><a href="/FAQ">{{ 'FAQ'|_ }}</a></h5>
+                        <p>คำถามที่พบบ่อย ที่ได้รับการรวบรวมจากสมาชิกหลายท่านจากหลายแหล่ง เช่น เริ่มต้นโฮมสคูลทำอย่างไร บ้านต้องรวยหรือเปล่า เป็นต้น</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
     </div>
-
-    <div class="recent-tweets">
-        <h4 class="headline"><span>Recent tweets</span></h4>
-        <div class="tweet">
-            <i class="fa fa-twitter"></i>
-            <p>
-                Salami turkey jowl rump jerky ball tip drumstick ground round tenderloin kielbasa hamburger prosciutto.
-                <a href="#">1 day ago</a>
-            </p>
+  </div>
+  <div class="row our-team">
+    <div class="col-sm-12">
+      <h4 class="headline"><span>{{ 'Our team'|_ }}</span></h4>
+      <div class="row">
+        <div class="col-sm-3 col-xs-6">
+          <div class="team-member text-center">
+            <img class="img-responsive center-block" src="https://graph.facebook.com/528931910/picture?type=normal" alt="" style="cursor:pointer; border-radius: 200px;" onClick="window.location.href = 'https://fb.com/528931910';">
+            <div class="info">
+              Unnop Sricharoenchai
+              <p class="text-muted">Administrator & Programmer</p>
+            </div>
+          </div>
         </div>
-        <div class="tweet">
-            <i class="fa fa-twitter"></i>
-            <p>
-                Short loin pork belly beef, tenderloin swine ribeye tri-tip doner salami rump hamburger.
-                <a href="#">2 days ago</a>
-            </p>
+        <div class="col-sm-3 col-xs-6">
+          <div class="team-member text-center">
+            <img class="img-responsive center-block" src="https://graph.facebook.com/100000122460462/picture?type=normal" alt="" style="cursor:pointer; border-radius: 200px;" onClick="window.location.href = 'https://fb.com/100000122460462';">
+            <div class="info">
+              Patai Wonganutrohd
+              <p class="text-muted">Administrator & Writer</p>
+            </div>
+          </div>
         </div>
+        <div class="col-sm-3 col-xs-6">
+          <div class="team-member text-center">
+            <img class="img-responsive center-block" src="https://graph.facebook.com/100001891270373/picture?type=normal" alt="" style="cursor:pointer; border-radius: 200px;" onClick="window.location.href = 'https://fb.com/100001891270373';">
+            <div class="info">
+              Joompot Sriyapan
+              <p class="text-muted">Writer</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <h4 class="headline"><span>Find Us on Facebook</span></h4>
+      <div class="fb-page"
+      data-href="https://www.facebook.com/HomeschoolNetwork"
+      data-width="500"
+      data-hide-cover="false"
+      data-show-facepile="true"
+      data-adapt-container-width="true"></div>
+    </div>
+  </div>
+  <!--<div class="recent-tweets">
+      <h4 class="headline"><span>Recent tweets</span></h4>
+      <div class="tweet">
+          <i class="fa fa-twitter"></i>
+          <p>
+              Salami turkey jowl rump jerky ball tip drumstick ground round tenderloin kielbasa hamburger prosciutto.
+              <a href="#">1 day ago</a>
+          </p>
+      </div>
+      <div class="tweet">
+          <i cl#recent tweet
+ass="fa fa-twitter"></i>
+          <p>
+              Short loin pork belly beef, tenderloin swine ribeye tri-tip doner salami rump hamburger.
+              <a href="#">2 days ago</a>
+          </p>
+      </div>
+  </div>-->
 </div>
 
 <br />

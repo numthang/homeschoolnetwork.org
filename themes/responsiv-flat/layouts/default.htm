@@ -24,7 +24,7 @@ security = "all"
       <link href="{{ [
           'assets/less/theme.less'
       ]|theme }}" rel="stylesheet">
-
+      <meta property="fb:admins" content="528931910" />
       <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
       <!--[if lt IE 9]>
       <script src="{{ [
@@ -34,6 +34,9 @@ security = "all"
       <![endif]-->
     </head>
     <body class="page-{{ this.page.id }} layout-{{ this.layout.id }}">
+      <div id="fb-root"></div>
+      <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.2&appId=345191885891796&autoLogAppEvents=1"></script>
+      
         <div id="flash_message"></div>
         <!-- Header -->
         <header id="layout-header" class="header-navbar">
@@ -45,7 +48,6 @@ security = "all"
         <div id="layout-content">
             {% page %}
         </div>
-
         <!-- Mailing List
         <section id="layout-subscribe" class="subscribe-form">
             {% partial "subscribe" %}
@@ -102,4 +104,18 @@ security = "all"
             'assets/javascript/pages/ui-elements.js',
         ]|theme }}"></script>
     </body>
+    <script type="text/javascript">
+
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-32138803-1']);
+			_gaq.push(['_setDomainName', 'homeschoolnetwork.org']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+		</script>
+
 </html>
