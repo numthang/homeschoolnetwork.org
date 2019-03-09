@@ -2,13 +2,14 @@ title = "Home"
 url = "/"
 layout = "default"
 is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
 
 [viewBag]
 
 [sociallogin]
 
 [account]
-redirect = "login"
 paramCode = "code"
 forceSecure = 0
 ==
@@ -181,10 +182,10 @@ play:block"
     </div>
   </div>
   <div class="row our-team">
-    <div class="col-sm-12">
+    <div class="col-sm-8">
       <h4 class="headline"><span>{{ 'Our team'|_ }}</span></h4>
       <div class="row">
-        <div class="col-sm-3 col-xs-6">
+        <div class="col-sm-4 col-xs-6">
           <div class="team-member text-center">
             <img class="img-responsive center-block" src="https://graph.facebook.com/528931910/picture?type=normal" alt="" style="cursor:pointer; border-radius: 200px;" onClick="window.location.href = 'https://fb.com/528931910';">
             <div class="info">
@@ -193,7 +194,7 @@ play:block"
             </div>
           </div>
         </div>
-        <div class="col-sm-3 col-xs-6">
+        <div class="col-sm-4 col-xs-6">
           <div class="team-member text-center">
             <img class="img-responsive center-block" src="https://graph.facebook.com/100000122460462/picture?type=normal" alt="" style="cursor:pointer; border-radius: 200px;" onClick="window.location.href = 'https://fb.com/100000122460462';">
             <div class="info">
@@ -202,7 +203,7 @@ play:block"
             </div>
           </div>
         </div>
-        <div class="col-sm-3 col-xs-6">
+        <div class="col-sm-4 col-xs-6">
           <div class="team-member text-center">
             <img class="img-responsive center-block" src="https://graph.facebook.com/100001891270373/picture?type=normal" alt="" style="cursor:pointer; border-radius: 200px;" onClick="window.location.href = 'https://fb.com/100001891270373';">
             <div class="info">
@@ -213,15 +214,13 @@ play:block"
         </div>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-4">
       <h4 class="headline"><span>Find Us on Facebook</span></h4>
       <div class="fb-page"
       data-href="https://www.facebook.com/HomeschoolNetwork"
-      data-width="500"
       data-hide-cover="false"
       data-show-facepile="true"
+      data-width="500"
       data-adapt-container-width="true"></div>
     </div>
   </div>

@@ -4,24 +4,26 @@ layout = "default"
 is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
-
-[PostForm]
-use_authors = 1
-restrict_owner = 1
-allowpublish = 1
-show_excerpt = 0
-allow_images = 1
-slug = "{{ :slug }}"
-listPage = "blog/list"
-postPage = "blog/post"
 ==
 <?php
-function onStart()
+function onSubmitContactForm()
 {
-    $user_ids = FireUnion\BlogFront\Models\Author::lists('user_id');
-
-    $this['authors'] = RainLab\User\Models\User::whereIn('id',$user_ids)->get();
+  echo post('value');
 }
 ?>
 ==
-{% component 'PostForm' %}
+<script>
+  var tblLimit = 30;
+  var tblPages = 5;
+</script>
+<!-- Attributes API -->
+<button data-request="onSubmitContactForm" data-request-value="1">Go</button>
+
+
+{% put scripts %}
+<!-- JavaScript API -->
+<script>
+//$.request({'onSubmitContactForm'})
+$.request('onSubmitContactForm', {data: {value: 55}});
+</script>
+{% endput %}

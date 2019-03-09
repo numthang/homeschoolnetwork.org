@@ -3,6 +3,7 @@
 use Cms\Classes\ComponentBase;
 use Redirect;
 use System\Classes\PluginManager;
+use RainLab\Blog\Models\Post as BlogPost;
 
 class PostForm extends ComponentBase {
 	use \FireUnion\BlogFront\Traits\Loaders;
@@ -59,12 +60,24 @@ class PostForm extends ComponentBase {
 	 * @return array for a flash like error message if there is a problem with form validation
 	 */
 	public function onSave() {
-		if (!$this->save()) {
+
+		if (!$result=$this->save()) {
 			return null;
 		}
 		// Redirect to the intended page after successful update
-		$redirectUrl = $this->pageUrl($this->property('listPage'));
-		#$redirectUrl = $this->pageUrl($this->property('postPage'));
+		if(empty($this->param('slug')))
+			$redirectUrl = $this->pageUrl($this->property('listPage'));
+		else
+			$redirectUrl = $this->pageUrl($this->property('postPage'));
+
+		#var_dump($redirectUrl);
 		return Redirect::to($redirectUrl);
+	}
+	public function onDelete() {
+		$blogpost = new BlogPost();
+		$blogpost->where('slug', '=', $this->param('slug'))->delete();
+		$redirectUrl = $this->pageUrl($this->property('listPage'));
+		return Redirect::to($redirectUrl);
+
 	}
 }

@@ -1,0 +1,78 @@
+title = "Movies"
+url = "/movies/:page?"
+layout = "octaskin"
+is_hidden = 0
+
+[builderList]
+modelClass = "Watchlearn\Movies\Models\Movie"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "name"
+noRecordsMessage = "No records found"
+detailsPage = "movie-single"
+detailsKeyColumn = "slug"
+detailsUrlParameter = "id"
+recordsPerPage = 1
+pageNumber = "{{ :page }}"
+==
+<section id="lt-header" class="lt-section lt-section-fullwidth section">
+  <div class="lt-container container">
+    <div class="lt-content lt-header-content">
+      {% partial "pages-about/header" %}
+    </div>
+  </div>
+</section>
+
+<section id="lt-mainpage" class="lt-section section">
+  <div class="lt-container container">
+    <div class="lt-content lt-mainpage-content">
+      {% set records = builderList.records %}
+      {% set displayColumn = builderList.displayColumn %}
+      {% set noRecordsMessage = builderList.noRecordsMessage %}
+      {% set detailsPage = builderList.detailsPage %}
+      {% set detailsKeyColumn = builderList.detailsKeyColumn %}
+      {% set detailsUrlParameter = builderList.detailsUrlParameter %}
+
+      <ul class="record-list">
+          {% for record in records %}
+              <li>
+                  {# Use spaceless tag to remove spaces inside the A tag. #}
+                  {% spaceless %}
+                      {% if detailsPage %}
+                          <a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">
+                      {% endif %}
+
+                      {{ record.name }}
+
+                      {% if detailsPage %}
+                          </a>
+                      {% endif %}
+                  {% endspaceless %}
+                  
+                  {{ html_limit(record.description, 250)|raw }}
+              </li>
+          {% else %}
+              <li class="no-data">{{ noRecordsMessage }}</li>
+          {% endfor %}
+      </ul>
+
+  {% if records.lastPage > 1 %}
+      <ul class="pagination">
+          {% if records.currentPage > 1 %}
+              <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage-1) }) }}">&larr; Prev</a></li>
+          {% endif %}
+
+          {% for page in 1..records.lastPage %}
+              <li class="{{ records.currentPage == page ? 'active' : null }}">
+                  <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
+              </li>
+          {% endfor %}
+
+          {% if records.lastPage > records.currentPage %}
+              <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage+1) }) }}">Next &rarr;</a></li>
+          {% endif %}
+      </ul>
+  {% endif %}
+    </div>
+  </div>
+</section>

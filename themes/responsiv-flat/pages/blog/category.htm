@@ -2,13 +2,15 @@ title = "Category"
 url = "/blog/category/:slug"
 layout = "default"
 is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
 
 [viewBag]
 
 [blogPosts newsList]
 pageNumber = "{{ :page }}"
 categoryFilter = "{{ :slug }}"
-postsPerPage = 100
+postsPerPage = 50
 noPostsMessage = "No posts found"
 sortOrder = "published_at desc"
 categoryPage = "blog/category"

@@ -96,14 +96,22 @@
     class="btn btn-warning">{{ PostForm.trans('general.btn_save_draft') }}
   </button>
   {% if PostForm.allowpublish %}
-  <button
-    id="publish_save"
-    type="button"
-    data-request="onSave"
-    data-request-data="published:1"
-    data-load-indicator="{{ PostForm.trans('kurtjensen.mycalendar::lang.general.saving') }}"
-    class="btn btn-primary">{{ PostForm.trans('general.btn_save_publish') }}
-  </button>
+    <button
+      id="publish_save"
+      type="button"
+      data-request="onSave"
+      data-request-data="published:1"
+      data-load-indicator="{{ PostForm.trans('kurtjensen.mycalendar::lang.general.saving') }}"
+      class="btn btn-primary">{{ PostForm.trans('general.btn_save_publish') }}
+    </button>
+    <button
+      id="delete"
+      type="button"
+      data-request="onDelete"
+      data-request-confirm="Are you sure?"
+      class="btn btn-danger">{{ PostForm.trans('general.btn_delete') }}
+    </button>
+
   {% endif %}
 {{ form_close() }}
 {% else %}

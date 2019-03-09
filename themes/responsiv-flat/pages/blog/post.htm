@@ -46,7 +46,14 @@ forceSecure = 0
       <div class="blog">
         <img src="{% if post.author.facebook %} https://graph.facebook.com/{{ post.author.facebook }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" alt="{{ post.author.name }}" style="cursor:pointer;" onClick="window.location.href = '{% if post.author.facebook %} https://fb.com/{{ post.author.facebook }} {% endif %}';">
         <div class="blog-desc">
-          <h5>{{ post.title|raw }} {% if can('edit_course_template') %} <a href="/backend/rainlab/blog/posts/update/{{ post.slug }}"> {{ 'Edit'|_ }}</a> {% elseif post.author.id == user.id %} <a href="/login/edit/post/{{ post.slug }}"> {{ 'Edit'|_ }}</a>{% endif %} </h5>
+          <h5>{{ post.title|raw }}
+            {% if post.author.id == user.id %}
+              <a href="/login/edit/post/{{ post.slug }}"> {{ 'Edit'|_ }}</a>
+            {% endif %}
+            {% if can('edit_course_template') %}
+              | <a href="/backend/rainlab/blog/posts/update/{{ post.id }}"> {{ 'Advance edit'|_ }}</a>
+            {% endif %}
+          </h5>
           <hr />
           <p class="text-muted">by {{ post.author.name }} on {{ post.published_at|date('M d, Y') }}</p>
           {% if post.featured_images.count %}

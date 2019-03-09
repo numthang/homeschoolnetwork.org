@@ -1,0 +1,91 @@
+title = "Cloud homeschooling"
+url = "/cloud"
+layout = "default"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[blogTags]
+hideOrphans = 1
+results = 0
+orderBy = 0
+direction = "desc"
+==
+<?php
+function onTest()
+{
+  use October\Rain\Auth\Models\User;
+  use RainLab\Location\Models\State;
+
+  $code = post('value');
+  $code = str_replace('TH-', '', $code);
+  $state = new State();
+  $query = $state->where('code', '=', $code)->get();
+
+  $user = new User;
+  return $query = $user->where('state_id', '=', $query[0]->id);
+}
+?>
+==
+<link rel="stylesheet" href="{{ 'assets/css/jquery-jvectormap-2.0.3.css'|theme }}" type="text/css" media="screen"/>
+
+{% put scripts %}
+<script src="{{ 'assets/js/jquery-jvectormap-2.0.3.min.js'|theme }}"></script>
+<script src="{{ 'assets/js/jquery-jvectormap-th-mill.js'|theme }}"></script>
+<script>
+  var gdpData = {
+    "TH-57" : 16.63,
+    "TH-58" : 11.58,
+    "TH-60" : 158.97
+  };
+  $('#map').vectorMap({
+    map: 'th_mill',
+    series: {
+      regions: [{
+        values: gdpData,
+        scale: ['#C8EEFF', '#0071A4'],
+      }]
+    },
+    onRegionClick: function(event, code) {
+      $.request('onTest', { data: {value: code }});
+    },
+    onRegionTipShow: function(e, el, code) {
+      el.html(el.html()+' (Population - '+gdpData[code]+')');
+    },
+    backgroundColor: '#eee',
+
+  });
+</script>
+{% endput %}
+
+
+<section id="layout-title">
+    <div class="container">
+        <h3>{{ 'Cloud homeschooling'|_ }}</h3>
+    </div>
+</section>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <div id="map" style="width: 100%; height: 700px"></div>
+    </div>
+    <div class="col-sm-8">
+      <div class="row">
+        {% for i in 0..5 %}
+        <div class="col-xl-2 col-md-2 col-sm-3 col-xs-3">
+          <div class=" text-center">
+            <div class="info small">
+              Unnop
+            </div>
+            <img class=" center-block" src="https://graph.facebook.com/528931910/picture" alt="" style="cursor:pointer; border-radius: 200px;" onClick="window.location.href = 'https://fb.com/528931910';">
+            <div class="text-muted small">
+              Nongkwang
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
