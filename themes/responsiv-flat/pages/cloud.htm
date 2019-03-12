@@ -12,7 +12,7 @@ orderBy = 0
 direction = "desc"
 ==
 <?php
-function onTest()
+function onLoadHomschooler()
 {
   use October\Rain\Auth\Models\User;
   use RainLab\Location\Models\State;
@@ -22,8 +22,30 @@ function onTest()
   $state = new State();
   $query = $state->where('code', '=', $code)->get();
 
-  $user = new User;
-  return $query = $user->where('state_id', '=', $query[0]->id);
+  $user = new User();
+  $users = $user->where('state_id', '=', $query[0]->id)->get();
+  #echo $users[0]->name;
+  #dump($users);
+  $listed = '';
+  foreach ($users as $key=>$value) {
+    $listed .= '
+      <div class="col-xl-1 col-md-2 col-sm-3 col-xs-4">
+        <div class="text-center">
+          <img class="center-block" src="https://graph.facebook.com/'.$users[$key]->facebook.'/picture?type=small" title="'.$users[$key]->name.'" style="cursor:pointer; border-radius: 100px; height:85px; padding-bottom:5px;" onClick="window.location.href = \'https://fb.com/'.$users[$key]->facebook.'\';">
+          <div class="text-muted small" style="white-space: nowrap;">
+           '.$users[$key]->name.' &nbsp;
+          </div>
+        </div>
+      </div>';
+    #if(!$key%6)
+    #  $listed .= '<div class="clearfix"></div>';
+  }
+  return $listed;
+}
+function onStart() {
+  $this->page['population'] = html_entity_decode('"TH-57" : 16.63');
+  #return $population;
+
 }
 ?>
 ==
@@ -33,31 +55,36 @@ function onTest()
 <script src="{{ 'assets/js/jquery-jvectormap-2.0.3.min.js'|theme }}"></script>
 <script src="{{ 'assets/js/jquery-jvectormap-th-mill.js'|theme }}"></script>
 <script>
-  var gdpData = {
-    "TH-57" : 16.63,
-    "TH-58" : 11.58,
-    "TH-60" : 158.97
-  };
+  //var str = {{ this.page.population }};
+  //str.replace("&quote;", "\"");
+  var hsData = { {{ this.page.population }} };
   $('#map').vectorMap({
     map: 'th_mill',
     series: {
       regions: [{
-        values: gdpData,
+        values: hsData,
         scale: ['#C8EEFF', '#0071A4'],
       }]
     },
     onRegionClick: function(event, code) {
-      $.request('onTest', { data: {value: code }});
+      $.request('onLoadHomschooler', {
+        data: { value: code },
+        success: function(data) {
+          this.success(data).done(function() {
+            document.getElementById('result').innerHTML = data.result;
+          });
+        }
+      });
+
     },
     onRegionTipShow: function(e, el, code) {
-      el.html(el.html()+' (Population - '+gdpData[code]+')');
+      el.html(el.html()+' (Population - '+hsData[code]+')');
     },
     backgroundColor: '#eee',
 
   });
 </script>
 {% endput %}
-
 
 <section id="layout-title">
     <div class="container">
@@ -72,19 +99,8 @@ function onTest()
     </div>
     <div class="col-sm-8">
       <div class="row">
-        {% for i in 0..5 %}
-        <div class="col-xl-2 col-md-2 col-sm-3 col-xs-3">
-          <div class=" text-center">
-            <div class="info small">
-              Unnop
-            </div>
-            <img class=" center-block" src="https://graph.facebook.com/528931910/picture" alt="" style="cursor:pointer; border-radius: 200px;" onClick="window.location.href = 'https://fb.com/528931910';">
-            <div class="text-muted small">
-              Nongkwang
-            </div>
-          </div>
+        <div id="result">
         </div>
-        {% endfor %}
       </div>
     </div>
   </div>
