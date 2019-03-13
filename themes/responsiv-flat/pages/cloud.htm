@@ -12,26 +12,30 @@ orderBy = 0
 direction = "desc"
 ==
 <?php
+use October\Rain\Auth\Models\User;
+use RainLab\Location\Models\State;
+
 function onLoadHomschooler()
 {
-  use October\Rain\Auth\Models\User;
-  use RainLab\Location\Models\State;
-
   $code = post('value');
   $code = str_replace('TH-', '', $code);
   $state = new State();
   $query = $state->where('code', '=', $code)->get();
 
   $user = new User();
-  $users = $user->where('state_id', '=', $query[0]->id)->get();
-  #echo $users[0]->name;
+  $users = $user->where('state_id', '=', $query[0]->id)->orderBy('status', 'desc')->get();
   #dump($users);
-  $listed = '';
+  $listed = ''; $headed = 0;
+  $listed .= '<h3>Homeschooler</h3>';
   foreach ($users as $key=>$value) {
+    if($users[$key]->status == 0 and !$headed) {
+      $listed .= '<div class="clearfix"></div><h3>Interested in homeschooling</h3>';
+      $headed = 1;
+    }
     $listed .= '
       <div class="col-xl-1 col-md-2 col-sm-3 col-xs-4">
         <div class="text-center">
-          <img class="center-block" src="https://graph.facebook.com/'.$users[$key]->facebook.'/picture?type=small" title="'.$users[$key]->name.'" style="cursor:pointer; border-radius: 100px; height:85px; padding-bottom:5px;" onClick="window.location.href = \'https://fb.com/'.$users[$key]->facebook.'\';">
+          <a href="user/profile/'.$users[$key]->id.'" target="_blank"><img class="center-block" src="https://graph.facebook.com/'.$users[$key]->facebook.'/picture?type=small" title="'.$users[$key]->name.'" style="cursor:pointer; border-radius: 100px; height:85px; padding-bottom:5px;"></a>
           <div class="text-muted small" style="white-space: nowrap;">
            '.$users[$key]->name.' &nbsp;
           </div>
@@ -43,9 +47,20 @@ function onLoadHomschooler()
   return $listed;
 }
 function onStart() {
-  $this->page['population'] = html_entity_decode('"TH-57" : 16.63');
-  #return $population;
+  $user = new User();
+  $query = $user->all()->groupBy('state_id');
+  $state = new State();
+  $handle = fopen('storage/app/uploads/public/hsPopulation.js', 'w');
+  $tmp = '';
+  foreach ($query as $key=>$value) {
+    $code = $state->where('id', '=', $key)->get();
+    if(isset($code[0]->id))
+      $tmp .= '"TH-'.$code[0]->code.'" : '.count($query[$key]).', ';
+  }
+  #dump($query);
 
+  fwrite($handle, 'var hsPopulation = { '.$tmp.' }');
+  fclose($handle);
 }
 ?>
 ==
@@ -54,16 +69,15 @@ function onStart() {
 {% put scripts %}
 <script src="{{ 'assets/js/jquery-jvectormap-2.0.3.min.js'|theme }}"></script>
 <script src="{{ 'assets/js/jquery-jvectormap-th-mill.js'|theme }}"></script>
+<script src="{{ url('/storage/app/uploads/public/hsPopulation.js') }}"></script>
+
 <script>
-  //var str = {{ this.page.population }};
-  //str.replace("&quote;", "\"");
-  var hsData = { {{ this.page.population }} };
   $('#map').vectorMap({
     map: 'th_mill',
     series: {
       regions: [{
-        values: hsData,
-        scale: ['#C8EEFF', '#0071A4'],
+        values: hsPopulation,
+        scale: ['#e89c43', '#c0392b'],
       }]
     },
     onRegionClick: function(event, code) {
@@ -78,7 +92,7 @@ function onStart() {
 
     },
     onRegionTipShow: function(e, el, code) {
-      el.html(el.html()+' (Population - '+hsData[code]+')');
+      el.html(el.html()+' (Homeschooler : '+hsPopulation[code]+')');
     },
     backgroundColor: '#eee',
 

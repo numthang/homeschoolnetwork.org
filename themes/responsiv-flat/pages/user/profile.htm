@@ -1,0 +1,68 @@
+title = "User Profile"
+url = "/user/profile/:id"
+layout = "default"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[session]
+security = "user"
+redirect = "login/login"
+
+[account]
+paramCode = "code"
+forceSecure = 0
+
+[builderDetails]
+modelClass = "RainLab\User\Models\User"
+identifierValue = "{{ :id }}"
+modelKeyColumn = "id"
+displayColumn = "username"
+notFoundMessage = "Record not found"
+==
+<section id="layout-title">
+    <div class="container">
+      <div class="col-sm-1">
+        <img class="center-block" src="https://graph.facebook.com/{{ record.facebook }}/picture?type=small" title="{{ record.name }}" style="border-radius: 100px; height:85px; padding:10px;">
+      </div>
+      <div class="col-sm-11">
+        <h3>{{ record.name }} {{ record.surname }}</h3>
+      </div>
+    </div>
+</section>
+<div class="container">
+  <div class="row">
+    <div class="col-md-7">
+      <p><b>{{ 'About'|_ }}</b> : <br>{{ record.note }}</p>
+      See our blog, แผนการศึกษาเบื้องต้น
+    </div>
+
+    <div class="col-md-5">
+        <div class="contact-banner">
+            <h3 class="banner-title">{{ 'My location'|_ }}</h3>
+            <ul>
+                <li>{{ record.street_addr }}</li>
+                <li>{{ record.city }},{{ record.state.name }} {{ record.zip }}</li>
+                <li>{{ 'Mobile'|_ }}: {{ record.mobile }}</li>
+                <li>{{ 'Phone'|_ }}: {{ record.phone }}</li>
+                <li>{{ 'Email'|_ }}: <a href="mail-to:{{ record.username }}">{% component 'builderDetails' %}</a></li>
+            </ul>
+        </div>
+
+
+        <div class="google-maps">
+
+          <iframe
+            width="500"
+            height="450"
+            frameborder="0"
+            scrolling="no"
+            marginheight="0"
+            marginwidth="0"
+            src="https://maps.google.com/maps?q={{record.street_addr}}&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+        </div>
+
+    </div>
+  </div>
+</div>
+<br>
