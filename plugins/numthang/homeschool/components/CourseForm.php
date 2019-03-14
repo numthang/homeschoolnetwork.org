@@ -6,6 +6,7 @@ use Validator;
 use Redirect;
 use Numthang\Homeschool\Models\Course;
 use Flash;
+require_once './vendor/autoload.php';
 
 class CourseForm extends ComponentBase
 {
@@ -18,6 +19,12 @@ class CourseForm extends ComponentBase
 		public function onRun() {
 
 		}
+    public function onExportPDF() {
+      $mpdf = new \Mpdf\Mpdf();
+      $mpdf->WriteHTML('<h1>Hello world!</h1>');
+      $mpdf->Output();
+      echo 'Test';
+    }
     public function onSave(){
       $validator = Validator::make(
           [

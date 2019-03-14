@@ -26,7 +26,7 @@ function onLoadHomschooler()
   $users = $user->where('state_id', '=', $query[0]->id)->orderBy('status', 'desc')->get();
   #dump($users);
   $listed = ''; $headed = 0;
-  $listed .= '<h3>Homeschooler</h3>';
+  $listed .= '<h3>Homeschooler in '.$query[0]->name.'</h3>';
   foreach ($users as $key=>$value) {
     if($users[$key]->status == 0 and !$headed) {
       $listed .= '<div class="clearfix"></div><h3>Interested in homeschooling</h3>';
