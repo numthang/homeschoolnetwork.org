@@ -10,6 +10,7 @@ require_once './vendor/autoload.php';
 
 class CourseForm extends ComponentBase
 {
+    public $course;
     public function componentDetails(){
         return [
             'name' => 'Course Form',
@@ -17,7 +18,7 @@ class CourseForm extends ComponentBase
         ];
     }
 		public function onRun() {
-
+      $this->course = Course::find($this->param('id'));
 		}
     public function onExportPDF() {
       $mpdf = new \Mpdf\Mpdf();

@@ -2,8 +2,8 @@ title = "User Profile"
 url = "/user/profile/:id"
 layout = "default"
 is_hidden = 0
-robot_index = "index"
-robot_follow = "follow"
+robot_index = "noindex"
+robot_follow = "nofollow"
 
 [session]
 security = "user"
@@ -39,13 +39,15 @@ notFoundMessage = "Record not found"
 
     <div class="col-md-5">
         <div class="contact-banner">
-            <h3 class="banner-title">{{ 'My location'|_ }}</h3>
+            <h3 class="banner-title">{{ 'Contact'|_ }}</h3>
             <ul>
                 <li>{{ record.street_addr }}</li>
                 <li>{{ record.city }},{{ record.state.name }} {{ record.zip }}</li>
                 <li>{{ 'Mobile'|_ }}: {{ record.mobile }}</li>
                 <li>{{ 'Phone'|_ }}: {{ record.phone }}</li>
                 <li>{{ 'Email'|_ }}: <a href="mail-to:{{ record.username }}">{% component 'builderDetails' %}</a></li>
+                <li>{{ 'Facebook'|_ }}: <a href="https://www.facebook.com/{{ record.facebook }}">{{ record.facebook }}</a></li>
+                <li>{{ 'Twitter'|_ }}: <a href="https://www.twitter.com/{{ record.twitter }}">{{ record.twitter }}</a></li>
             </ul>
         </div>
 

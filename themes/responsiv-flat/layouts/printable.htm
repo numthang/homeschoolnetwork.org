@@ -1,0 +1,44 @@
+description = "Printable layout"
+==
+<!DOCTYPE html>
+<html>
+    <head>
+    	<meta charset="UTF-8">
+      {% component 'SeoCmsPage' %}
+      <!--<title>Homeschool Network (Thailand) - {{ this.page.title|_ }}</title>-->
+      <meta name="title" content="{{ this.page.meta_title }}">
+      <meta name="description" content="{{ this.page.meta_description }}">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="author" content="OctoberCMS">
+      <meta name="generator" content="OctoberCMS">
+      <link rel="icon" type="image/png" href="{{ 'assets/images/logo.png'|theme }}">
+      
+      <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+      <!--[if lt IE 9]>
+      <script src="{{ [
+      'assets/javascript/html5shiv.js',
+      'assets/javascript/respond.min.js',
+      ]|theme }}"></script>
+      <![endif]-->
+    </head>
+    <body class="page-{{ this.page.id }} layout-{{ this.layout.id }}">
+        <!-- Content -->
+        <div id="layout-content">
+            {% page %}
+        </div>
+    </body>
+    <script type="text/javascript">
+
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-32138803-1']);
+			_gaq.push(['_setDomainName', 'homeschoolnetwork.org']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+		</script>
+
+</html>

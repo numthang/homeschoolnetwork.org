@@ -1,0 +1,47 @@
+title = "User course preview"
+url = "/user/course/:id"
+layout = "printable"
+is_hidden = 0
+robot_index = "noindex"
+robot_follow = "nofollow"
+
+[viewBag]
+localeUrl[en] = "/user-course-preview"
+
+[courseform]
+==
+<style>
+*{
+    margin:0px;
+    padding:0px;
+    font-family: Arial, Tahoma, Kanit;
+    font-size: 14pt;
+}
+
+</style>
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  if(urlParams.get('print') == 1)
+    window.print();
+</script>
+
+{% set record = courseform.course %}
+
+{{ record.name|raw }}
+{{ record.hs_name|raw }}
+{{ record.father_profile|raw }}
+
+{{ record.mother_profile|raw }}
+{{ record.student_name|raw }}
+{{ record.birth_date|raw }}
+{{ record.school_exp|raw }}
+{{ record.development|raw }}
+{{ record.class_reason|raw }}
+{{ record.purpose|raw }}
+{{ record.format|raw }}
+{{ record.schedule|raw }}
+{{ record.curriculum|raw }}
+{{ record.activity|raw }}
+{{ record.learning|raw }}
+{{ record.evaluate|raw }}
+{{ record.other|raw }}

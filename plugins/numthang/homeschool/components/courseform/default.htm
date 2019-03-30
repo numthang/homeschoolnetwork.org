@@ -268,8 +268,8 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
     	{% endif %}
     	{% if record.id is defined %}
 		    <button type="submit" class="btn btn-lg btn-info" onClick="if(confirm('{{ 'Save as'|_ }} '+this.form.name.value)) this.form.save_as.value = 1; else return false;">{{ 'Save as'|_ }} ...</button>
-				<button type="button" class="btn btn-lg btn-info" onClick="window.open('', '_blank');">{{ 'Preview'|_ }} </button>
-				<button type="button" class="btn btn-lg btn-info" onClick="window.open('', '_blank');">{{ 'Export as PDF'|_ }} </button>
+				<button type="button" class="btn btn-lg btn-info" onClick="window.open('/user/course/{{ this.param.id }}', '_blank');">{{ 'Preview'|_ }} </button>
+				<button type="button" class="btn btn-lg btn-info" onClick="window.open('/user/course/{{ this.param.id }}?print=1', '_blank');">{{ 'Print to PDF'|_ }} </button>
 				{% if record.template == 0 or can('edit_course_template') %}
 				  <button type="button" data-request="onDelete" data-request-confirm="Are you sure?" class="btn btn-lg btn-danger">{{ 'Remove'|_ }}</button>
 		    {% endif %}
