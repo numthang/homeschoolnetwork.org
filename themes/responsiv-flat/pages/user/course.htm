@@ -10,12 +10,34 @@ localeUrl[en] = "/user-course-preview"
 
 [courseform]
 ==
+<?php
+public function onEnd() {
+  $j = json_decode($this->courseform->record->attributes['father_profile']);
+  $this->page['father_name'] = $j->father_name;
+  $this->page['father_degree'] = $j->father_degree;
+  $this->page['father_exp'] = $j->father_exp;
+  $this->page['father_age'] = $j->father_age;
+  $this->page['father_job'] = $j->father_job;
+  $this->page['father_addr'] = $j->father_addr;
+	$j = json_decode($this->courseform->record->attributes['mother_profile']);
+  $this->page['mother_name'] = $j->mother_name;
+  $this->page['mother_degree'] = $j->mother_degree;
+  $this->page['mother_exp'] = $j->mother_exp;
+  $this->page['mother_age'] = $j->mother_age;
+  $this->page['mother_job'] = $j->mother_job;
+  $this->page['mother_addr'] = $j->mother_addr;
+
+  $date = explode('-', $this->courseform->record->attributes['birth_date']);
+  $this->page['birth_date'] = $date[2].'/'.$date[1].'/'.$date[0];
+}
+?>
+==
 <script>
  const urlParams = new URLSearchParams(window.location.search);
  if(urlParams.get('print') == 1)
    window.print();
 </script>
-{% set record = courseform.course %}
+{% set record = courseform.record %}
 
 <div class="page">
   <p style="font-family:Kanit;">
@@ -23,16 +45,42 @@ localeUrl[en] = "/user-course-preview"
   </p>
 </div>
 <div class="page">
-  {{ record.name|raw }}
-  {{ record.hs_name|raw }}
-  {{ record.father_profile|raw }}
-  {{ record.mother_profile|raw }}
-  {{ record.student_name|raw }}
-  {{ record.birth_date|raw }}
-  {{ record.school_exp|raw }}
+  <p>
+    <b>1. ข้อมูลพื้นฐานของครอบครัว</b>
+    <p>
+      บิดา นาย {{ this.page.father_name }} อายุ {{ this.page.father_age }} ปี <br>
+      การศึกษา : {{ this.page.father_degree }} <br>
+      ประสบการณ์ : {{ this.page.father_exp }}<br>
+      อาชีพ : {{ this.page.father_job}}<br>
+      ที่อยู่ปัจจุบัน : {{ this.page.father_addr }}<br>
+      ติดต่อ : {{ this.page.father_contact}} Email tee@numthang.org เบอร์ติดต่อ 088-7938587
+      Facebook www.facebook.com/numthang.org
+    </p>
+    <p>
+      มารดา นาง {{ this.page.mother_name }} อายุ {{ this.page.mother_age }} ปี <br>
+      การศึกษา : {{ this.page.mother_degree }} <br>
+      ประสบการณ์ : {{ this.page.mother_exp }}<br>
+      อาชีพ : {{ this.page.mother_job}}<br>
+      ที่อยู่ปัจจุบัน : {{ this.page.mother_addr }}<br>
+      ติดต่อ : {{ this.page.mother_contact }} Email tee@numthang.org เบอร์ติดต่อ 088-7938587
+      Facebook www.facebook.com/numthang.org
+    </p>
+  </p>
+  <p>
+    <b>2. ข้อมูลพื้นฐานของผู้เรียน</b>
+    <p>
+      2.1 ระบุข้อมูลของผู้เรียน <br>
+      {{ student_prefix }} {{ record.student_name|raw }} เพศ {{ record.student_gender }}<br>
+      วัน-เดือน-ปีเกิด {{ record.birth_date|raw }} อายุ {{ age }} ปี <br>
+      ประวัติการศึกษา (กรณีเรียนในระบบโรงเรียนมาก่อน)<br>
+      {{ record.school_exp|raw }}
+      <br><br>
+      2.2 พัฒนาการของผู้เรียน<br>
+      {{ record.development|raw }}
+    </p>
+  </p>
 </div>
 <div class="page">
-  {{ record.development|raw }}
   {{ record.class_reason|raw }}
 </div>
 <div class="page">
