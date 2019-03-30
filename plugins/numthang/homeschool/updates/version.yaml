@@ -66,3 +66,9 @@
 1.0.23:
     - 'Updated table numthang_homeschool_evaluations'
     - builder_table_update_numthang_homeschool_evaluations_4.php
+1.0.24:
+    - 'Updated table numthang_homeschool_courses'
+    - builder_table_update_numthang_homeschool_courses_9.php
+1.0.25:
+    - 'Updated table numthang_homeschool_evaluations'
+    - builder_table_update_numthang_homeschool_evaluations_9.php

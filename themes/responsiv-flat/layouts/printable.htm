@@ -12,7 +12,7 @@ description = "Printable layout"
       <meta name="author" content="OctoberCMS">
       <meta name="generator" content="OctoberCMS">
       <link rel="icon" type="image/png" href="{{ 'assets/images/logo.png'|theme }}">
-      
+
       <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
       <!--[if lt IE 9]>
       <script src="{{ [
@@ -20,6 +20,52 @@ description = "Printable layout"
       'assets/javascript/respond.min.js',
       ]|theme }}"></script>
       <![endif]-->
+
+      <link href="https://fonts.googleapis.com/css?family=Sarabun" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+      <style>
+        body {
+          margin:0px;
+          padding:0px;
+          font-family: Sarabun;
+          font-size: 12pt;
+          line-height: 25px;
+        }
+
+        .page {
+          width: 21cm;
+          min-height: 29.7cm;
+          padding: 0.5cm;
+          margin: 1cm auto;
+          border: 1px #D3D3D3 solid;
+          border-radius: 5px;
+          background: white;
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /*.subpage {
+          padding: 1cm;
+          height: 256mm;
+        }*/
+
+        @page {
+          size: A4;
+          margin: 1cm;
+        }
+
+        @media print {
+          .page {
+            margin: 0;
+            border: initial;
+            border-radius: initial;
+            width: initial;
+            min-height: initial;
+            box-shadow: initial;
+            background: initial;
+            page-break-after: always;
+          }
+        }
+      </style>
     </head>
     <body class="page-{{ this.page.id }} layout-{{ this.layout.id }}">
         <!-- Content -->

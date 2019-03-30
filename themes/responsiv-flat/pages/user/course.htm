@@ -10,38 +10,38 @@ localeUrl[en] = "/user-course-preview"
 
 [courseform]
 ==
-<style>
-*{
-    margin:0px;
-    padding:0px;
-    font-family: Arial, Tahoma, Kanit;
-    font-size: 14pt;
-}
-
-</style>
 <script>
-  const urlParams = new URLSearchParams(window.location.search);
-  if(urlParams.get('print') == 1)
-    window.print();
+ const urlParams = new URLSearchParams(window.location.search);
+ if(urlParams.get('print') == 1)
+   window.print();
 </script>
-
 {% set record = courseform.course %}
 
-{{ record.name|raw }}
-{{ record.hs_name|raw }}
-{{ record.father_profile|raw }}
-
-{{ record.mother_profile|raw }}
-{{ record.student_name|raw }}
-{{ record.birth_date|raw }}
-{{ record.school_exp|raw }}
-{{ record.development|raw }}
-{{ record.class_reason|raw }}
-{{ record.purpose|raw }}
-{{ record.format|raw }}
-{{ record.schedule|raw }}
-{{ record.curriculum|raw }}
-{{ record.activity|raw }}
-{{ record.learning|raw }}
-{{ record.evaluate|raw }}
-{{ record.other|raw }}
+<div class="page">
+  <p style="font-family:Kanit;">
+  {{ record.cover|raw }}
+  </p>
+</div>
+<div class="page">
+  {{ record.name|raw }}
+  {{ record.hs_name|raw }}
+  {{ record.father_profile|raw }}
+  {{ record.mother_profile|raw }}
+  {{ record.student_name|raw }}
+  {{ record.birth_date|raw }}
+  {{ record.school_exp|raw }}
+</div>
+<div class="page">
+  {{ record.development|raw }}
+  {{ record.class_reason|raw }}
+</div>
+<div class="page">
+  {{ record.purpose|raw }}
+  {{ record.format|raw }}
+  {{ record.schedule|raw }}
+  {{ record.curriculum|raw }}
+  {{ record.activity|raw }}
+  {{ record.learning|raw }}
+  {{ record.evaluate|raw }}
+  {{ record.other|raw }}
+</div>

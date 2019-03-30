@@ -49,6 +49,16 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
   <div class="board-inner">
     <div class="accordion">
       <dl>
+				<dt><a href="#" class="accordionTitle">0. ปก</a></dt>
+        <dd class="accordionItem accordionItemCollapsed">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group" style="padding:2px;">
+                <textarea class="form-control my-editor" name="cover" placeholder="" rows="20">{% if record.cover is defined %} {{ record.cover }} {% else %} {{ this.page['default_0'] }} {% endif %}</textarea>
+              </div>
+            </div>
+          </div>
+        </dd>
         <dt><a class="accordionTitle" href="#">1. ข้อมูลพื้นฐานของครอบครัว</a></dt>
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
@@ -262,9 +272,32 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
   </div>
   <div class="row">
     <div class="col-sm-6">
+			<style>
+				.float{
+					position:fixed;
+					width:50px;
+					height:50px;
+					bottom:40px;
+					right:40px;
+					text-align:center;
+					box-shadow: 5px 5px 10px #999;
+				}
+				.float2{
+					position:fixed;
+					width:50px;
+					height:50px;
+					bottom:100px;
+					right:40px;
+					text-align:center;
+					box-shadow: 5px 5px 10px #999;
+				}
+			</style>
+
+			<button type="button" class="btn btn-lg btn-info fa fa-eye float2" onClick="window.open('/user/course/{{ this.param.id }}', '_blank');"></button>
     	<input type="hidden" name="save_as" value="0">
 			{% if record.template == 0 or can('edit_course_template') %}
-    		<button type="submit" class="btn btn-lg btn-default">{{ 'Save'|_ }}</button>
+    		<button type="submit" class="btn btn-lg btn-default" data-hotkey="ctrl+s, cmd+s">{{ 'Save'|_ }}</button>
+				<button type="submit" class="btn btn-lg btn-default fa fa-save float" data-hotkey="ctrl+s, cmd+s"></button>
     	{% endif %}
     	{% if record.id is defined %}
 		    <button type="submit" class="btn btn-lg btn-info" onClick="if(confirm('{{ 'Save as'|_ }} '+this.form.name.value)) this.form.save_as.value = 1; else return false;">{{ 'Save as'|_ }} ...</button>
@@ -288,11 +321,19 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
 			"insertdatetime media nonbreaking save table contextmenu directionality",
 			"emoticons template paste textcolor colorpicker textpattern"
 		],
-		toolbar: "fontsizeselect forecolor backcolor | bold italic underline | alignleft aligncenter alignright | bullist numlist | outdent indent | superscript",
+		toolbar: "fontsizeselect forecolor | emoticons | image table media | bold italic underline | alignleft aligncenter alignright | bullist numlist",
 		templates: [
 			{title: 'Some title 1', description: 'Some desc 1', content: 'My content'},
 			{title: 'Some title 2', description: 'Some desc 2', url: 'development.html'}
 		],
+		setup : function(ed)
+    {
+        ed.on('init', function()
+        {
+            this.getDoc().body.style.fontSize = '16px';
+            this.getDoc().body.style.fontFamily = 'Arial, Tahoma, Sarabun';
+        });
+    },
 		relative_urls: false,
 		file_browser_callback : function(field_name, url, type, win) {
 			var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;

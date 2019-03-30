@@ -1,6 +1,5 @@
 title = "Testing"
 url = "/testing"
-layout = "default"
 is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
@@ -27,3 +26,10 @@ function onSubmitContactForm()
 $.request('onSubmitContactForm', {data: {value: 55}});
 </script>
 {% endput %}
+
+<button
+    class="btn btn-default"
+    data-hotkey="ctrl+enter, cmd+enter"
+    onclick="alert('B is for Banana!')">
+    Press "B" on your keyboard
+</button>

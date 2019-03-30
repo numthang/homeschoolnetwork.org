@@ -296,11 +296,19 @@
 					"insertdatetime media nonbreaking save table contextmenu directionality",
 					"emoticons template paste textcolor colorpicker textpattern"
 				],
-				toolbar: "fontsizeselect forecolor backcolor | bold italic underline | alignleft aligncenter alignright | bullist numlist | outdent indent | superscript",
+				toolbar: "fontsizeselect forecolor | emoticons | image table media | bold italic underline | alignleft aligncenter alignright | bullist numlist",
 				templates: [
 					{title: 'Some title 1', description: 'Some desc 1', content: 'My content'},
 					{title: 'Some title 2', description: 'Some desc 2', url: 'development.html'}
 				],
+				setup : function(ed)
+		    {
+		        ed.on('init', function()
+		        {
+		            this.getDoc().body.style.fontSize = '16px';
+		            this.getDoc().body.style.fontFamily = 'Arial, Tahoma, Sarabun';
+		        });
+		    },
 				relative_urls: false,
 				file_browser_callback : function(field_name, url, type, win) {
 					var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
