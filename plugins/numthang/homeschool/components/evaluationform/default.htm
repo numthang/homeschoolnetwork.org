@@ -69,18 +69,19 @@
 				<option value="">{{ 'Select Degree'|_ }}</option>
 				<option value="1" {{ evaluation.degree == 1 ? 'selected' : '' }}>อนุบาล 1</option>
 				<option value="2" {{ evaluation.degree == 2 ? 'selected' : '' }}>อนุบาล 2</option>
-				<option value="3" {{ evaluation.degree == 3 ? 'selected' : '' }}>ประถมศึกษาปีที่ 1</option>
-				<option value="4" {{ evaluation.degree == 4 ? 'selected' : '' }}>ประถมศึกษาปีที่ 2</option>
-				<option value="5" {{ evaluation.degree == 5 ? 'selected' : '' }}>ประถมศึกษาปีที่ 3</option>
-				<option value="6" {{ evaluation.degree == 6 ? 'selected' : '' }}>ประถมศึกษาปีที่ 4</option>
-				<option value="7" {{ evaluation.degree == 7 ? 'selected' : '' }}>ประถมศึกษาปีที่ 5</option>
-				<option value="8" {{ evaluation.degree == 8 ? 'selected' : '' }}>ประถมศึกษาปีที่ 6</option>
-				<option value="9" {{ evaluation.degree == 9 ? 'selected' : '' }}>มัธยมศึกษาปีที่ 1</option>
-				<option value="10" {{ evaluation.degree == 10 ? 'selected' : '' }}>มัธยมศึกษาปีที่ 2</option>
-				<option value="11" {{ evaluation.degree == 11 ? 'selected' : '' }}>มัธยมศึกษาปีที่ 3</option>
-				<option value="12" {{ evaluation.degree == 12 ? 'selected' : '' }}>มัธยมศึกษาปีที่ 4</option>
-				<option value="13" {{ evaluation.degree == 13 ? 'selected' : '' }}>มัธยมศึกษาปีที่ 5</option>
-				<option value="14" {{ evaluation.degree == 14 ? 'selected' : '' }}>มัธยมศึกษาปีที่ 6</option>
+				<option value="3" {{ evaluation.degree == 3 ? 'selected' : '' }}>อนุบาล 3</option>
+				<option value="4" {{ evaluation.degree == 4 ? 'selected' : '' }}>ประถมศึกษาปีที่ 1</option>
+				<option value="5" {{ evaluation.degree == 5 ? 'selected' : '' }}>ประถมศึกษาปีที่ 2</option>
+				<option value="6" {{ evaluation.degree == 6 ? 'selected' : '' }}>ประถมศึกษาปีที่ 3</option>
+				<option value="7" {{ evaluation.degree == 7 ? 'selected' : '' }}>ประถมศึกษาปีที่ 4</option>
+				<option value="8" {{ evaluation.degree == 8 ? 'selected' : '' }}>ประถมศึกษาปีที่ 5</option>
+				<option value="9" {{ evaluation.degree == 9 ? 'selected' : '' }}>ประถมศึกษาปีที่ 6</option>
+				<option value="10" {{ evaluation.degree == 10 ? 'selected' : '' }}>มัธยมศึกษาปีที่ 1</option>
+				<option value="11" {{ evaluation.degree == 11 ? 'selected' : '' }}>มัธยมศึกษาปีที่ 2</option>
+				<option value="12" {{ evaluation.degree == 12 ? 'selected' : '' }}>มัธยมศึกษาปีที่ 3</option>
+				<option value="13" {{ evaluation.degree == 13 ? 'selected' : '' }}>มัธยมศึกษาปีที่ 4</option>
+				<option value="14" {{ evaluation.degree == 14 ? 'selected' : '' }}>มัธยมศึกษาปีที่ 5</option>
+				<option value="15" {{ evaluation.degree == 15 ? 'selected' : '' }}>มัธยมศึกษาปีที่ 6</option>
 			</select>
 		</div>
 		<div class="col-md-3">
@@ -97,6 +98,16 @@
   <div class="board-inner">
     <div class="accordion">
       <dl>
+				<dt><a href="#" class="accordionTitle">0. ปก</a></dt>
+        <dd class="accordionItem accordionItemCollapsed">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group" style="padding:2px;">
+                <textarea class="form-control my-editor" name="cover" placeholder="" rows="43">{% if evaluation.cover is defined %} {{ evaluation.cover }} {% else %} {{ this.page['default_0'] }} {% endif %}</textarea>
+              </div>
+            </div>
+          </div>
+        </dd>
         <dt><a class="accordionTitle" href="#">1. ข้อมูลพื้นฐานของครอบครัว</a></dt>
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
@@ -130,12 +141,19 @@
                 <input type="text" class="form-control" name="father_job" placeholder="Enter father's job"  value="{{ this.page.father_job }}" readonly>
               </div>
             </div>
-            <div class="col-sm-12">
+            <div class="col-sm-6">
               <div class="form-group">
-                <label>ท่ี่อยู่</label>
+                <label>ที่อยู่</label>
                 <input type="text" class="form-control" name="father_addr" placeholder="Enter father's address" value="{{ this.page.father_addr }}" readonly>
               </div>
             </div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label>ติดต่อ</label>
+								<input type="text" class="form-control" name="father_contact" placeholder="Email address or phone number" value="{{ this.page.father_contact }}" readonly>
+							</div>
+						</div>
+
 
             <div class="col-sm-4">
               <div class="form-group">
@@ -167,10 +185,16 @@
                 <input type="text" class="form-control" name="mother_job" placeholder="Enter mother's job" value="{{ this.page.mother_job }}" readonly>
               </div>
             </div>
-            <div class="col-sm-12">
+            <div class="col-sm-6">
               <div class="form-group">
                 <label>ที่อยู่</label>
                 <input type="text" class="form-control" name="mother_addr" placeholder="Enter mother's address" value="{{ this.page.mother_addr }}" readonly>
+              </div>
+            </div>
+						<div class="col-sm-6">
+              <div class="form-group">
+                <label>ติดต่อ</label>
+                <input type="text" class="form-control" name="mother_contact" placeholder="Email address or phone number" value="{{ this.page.mother_contact }}" readonly>
               </div>
             </div>
           </div>
@@ -213,7 +237,7 @@
             </div>
           </div>
         </dd>
-        <dt><a href="#" class="accordionTitle">3. ผลการจัดการเรียนรู้</a></dt>
+        <dt><a href="#" class="accordionTitle">3. การวัดและประเมินผลการเรียนรู้</a></dt>
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
             <div class="col-sm-12">
@@ -278,7 +302,7 @@
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group" style="padding:2px;">
-                <textarea class="form-control my-editor" name="footprint" placeholder="" rows="40">{% if evaluation.footprint is defined %} {{ evaluation.footprint }} {% else %} {{ this.page['default_7'] }} {% endif %}</textarea>
+                <textarea class="form-control my-editor" name="footprint" placeholder="" rows="40"><div align="center">{% if evaluation.footprint is defined %} {{ evaluation.footprint }} {% else %} {{ this.page['default_7'] }} {% endif %}</div></textarea>
               </div>
             </div>
           </div>
@@ -296,7 +320,7 @@
 					"insertdatetime media nonbreaking save table contextmenu directionality",
 					"emoticons template paste textcolor colorpicker textpattern"
 				],
-				toolbar: "fontsizeselect forecolor | emoticons | image table media | bold italic underline | alignleft aligncenter alignright | bullist numlist",
+				toolbar: "fontsizeselect forecolor | emoticons | bold italic underline | alignleft aligncenter alignright | bullist numlist indent outdent table | image media | removeformat",
 				templates: [
 					{title: 'Some title 1', description: 'Some desc 1', content: 'My content'},
 					{title: 'Some title 2', description: 'Some desc 2', url: 'development.html'}
@@ -310,6 +334,9 @@
 		        });
 		    },
 				relative_urls: false,
+				force_br_newlines : true,
+				force_p_newlines : false,
+				forced_root_block : '',
 				file_browser_callback : function(field_name, url, type, win) {
 					var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
 					var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
@@ -337,12 +364,36 @@
   </div>
   <div class="row">
     <div class="col-sm-6">
+			<style>
+				.float{
+					position:fixed;
+					width:50px;
+					height:50px;
+					bottom:40px;
+					right:40px;
+					text-align:center;
+					box-shadow: 5px 5px 10px #999;
+				}
+				.float2{
+					position:fixed;
+					width:50px;
+					height:50px;
+					bottom:100px;
+					right:40px;
+					text-align:center;
+					box-shadow: 5px 5px 10px #999;
+				}
+			</style>
     	<input type="hidden" name="save_as" value="0">
+			<button type="button" title="{{ 'Preview'|_ }}" class="btn btn-lg btn-info fa fa-eye float2" onClick="window.open('/user/evaluation/{{ this.param.id }}', '_blank');"></button>
 			{% if course.template == 0 or can('edit_course_template') %}
       	<button type="submit" class="btn btn-lg btn-default">{{ 'Save'|_ }}</button>
+				<button type="submit" title="{{ 'Save'|_ }}" class="btn btn-lg btn-default fa fa-save float" data-hotkey="ctrl+s, cmd+s"></button>
       {% endif %}
       {% if evaluation.id is defined %}
 		    <button type="submit" class="btn btn-lg btn-info" onClick="if(confirm('{{ 'Save as'|_ }} '+this.form.name.value)) this.form.save_as.value = 1; else return false;">{{ 'Save as'|_ }} ...</button>
+				<button type="button" class="btn btn-lg btn-info" onClick="window.open('/user/evaluation/{{ this.param.id }}', '_blank');">{{ 'Preview'|_ }} </button>
+				<button type="button" class="btn btn-lg btn-info" onClick="window.open('/user/evaluation/{{ this.param.id }}?print=1', '_blank');">{{ 'Print to PDF'|_ }} </button>
 				{% if course.template == 0 or can('edit_course_template') %}
 				  <button type="button" data-request="onDelete" data-request-confirm="Are you sure?" class="btn btn-lg btn-danger">{{ 'Remove'|_ }}</button>
 		    {% endif %}

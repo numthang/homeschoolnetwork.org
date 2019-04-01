@@ -54,7 +54,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group" style="padding:2px;">
-                <textarea class="form-control my-editor" name="cover" placeholder="" rows="20">{% if record.cover is defined %} {{ record.cover }} {% else %} {{ this.page['default_0'] }} {% endif %}</textarea>
+                <textarea class="form-control my-editor" name="cover" placeholder="" rows="43">{% if record.cover is defined %} {{ record.cover }} {% else %} {{ this.page['default_0'] }} {% endif %}</textarea>
               </div>
             </div>
           </div>
@@ -92,12 +92,18 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
                 <input type="text" class="form-control" name="father_job" placeholder="Enter father's job"  value="{{ this.page.father_job }}">
               </div>
             </div>
-            <div class="col-sm-12">
+            <div class="col-sm-6">
               <div class="form-group">
                 <label>ที่อยู่</label>
                 <input type="text" class="form-control" name="father_addr" placeholder="Enter father's address" value="{{ this.page.father_addr }}">
               </div>
             </div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label>ติดต่อ</label>
+								<input type="text" class="form-control" name="father_contact" placeholder="Email address or phone number" value="{{ this.page.father_contact }}">
+							</div>
+						</div>
 
             <div class="col-sm-4">
               <div class="form-group">
@@ -129,10 +135,16 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
                 <input type="text" class="form-control" name="mother_job" placeholder="Enter mother's job" value="{{ this.page.mother_job }}">
               </div>
             </div>
-            <div class="col-sm-12">
+            <div class="col-sm-6">
               <div class="form-group">
                 <label>ที่อยู่</label>
                 <input type="text" class="form-control" name="mother_addr" placeholder="Enter mother's address" value="{{ this.page.mother_addr }}">
+              </div>
+            </div>
+						<div class="col-sm-6">
+              <div class="form-group">
+                <label>ติดต่อ</label>
+                <input type="text" class="form-control" name="mother_contact" placeholder="Email address or phone number" value="{{ this.page.mother_contact }}">
               </div>
             </div>
           </div>
@@ -147,17 +159,30 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
                 <input type="text" class="form-control" name="student_name" placeholder="Enter student's name" value="{{ record.student_name }}">
               </div>
             </div>
-            <div class="col-sm-6">
+						<div class="col-sm-3">
+							<div class="form-group">
+								<label>เพศ</label>
+								<select class="form-control select select-primary" data-toggle="select" name="gender">
+									<option value="">{{ 'Gender'|_ }}</option>
+									<option value="1" {{ record.gender == 1 ? 'selected' : '' }}>{{ 'Male'|_ }}</option>
+									<option value="2" {{ record.gender == 2 ? 'selected' : '' }}>{{ 'Female'|_ }}</option>
+									<option value="3" {{ record.gender == 3 ? 'selected' : '' }}>{{ 'Other'|_ }}</option>
+								</select>
+							</div>
+						</div>
+            <div class="col-sm-3">
               <div class="form-group">
                 <label>วัน เดือน ปี เกิด</label>
                 <div class="input-group date" data-provide="datepicker">
-                  <input type="text" class="form-control" name="birth_date" value="{{ this.page.birth_date }}">
+                  <input type="text" class="form-control" name="birth_date" value="{% if this.page.birt_date %} {{ this.page.birth_date }} {% else %} {{ "now"|date("d/m/Y") }} {% endif %}">
                     <div class="input-group-addon">
                       <span class="fui-calendar"></span>
                     </div>
                 </div>
               </div>
             </div>
+					</div>
+					<div class="row">
             <div class="col-sm-12">
               <div class="form-group">
                 <label>ประวัติการศึกษา (กรณีเรียนในระบบโรงเรียนมาก่อน)</label>
@@ -292,9 +317,9 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
 					box-shadow: 5px 5px 10px #999;
 				}
 			</style>
+    	<input type="hidden" name="save_as" value="0">
 
 			<button type="button" title="{{ 'Preview'|_ }}" class="btn btn-lg btn-info fa fa-eye float2" onClick="window.open('/user/course/{{ this.param.id }}', '_blank');"></button>
-    	<input type="hidden" name="save_as" value="0">
 			{% if record.template == 0 or can('edit_course_template') %}
     		<button type="submit" class="btn btn-lg btn-default" data-hotkey="ctrl+s, cmd+s">{{ 'Save'|_ }}</button>
 				<button type="submit" title="{{ 'Save'|_ }}" class="btn btn-lg btn-default fa fa-save float" data-hotkey="ctrl+s, cmd+s"></button>
@@ -321,7 +346,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
 			"insertdatetime media nonbreaking save table contextmenu directionality",
 			"emoticons template paste textcolor colorpicker textpattern"
 		],
-		toolbar: "fontsizeselect forecolor | emoticons | image table media | bold italic underline | alignleft aligncenter alignright | bullist numlist",
+		toolbar: "fontsizeselect forecolor | bold italic underline | alignleft aligncenter alignright | bullist numlist indent outdent table | image media | removeformat",
 		templates: [
 			{title: 'Some title 1', description: 'Some desc 1', content: 'My content'},
 			{title: 'Some title 2', description: 'Some desc 2', url: 'development.html'}
@@ -335,6 +360,9 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
         });
     },
 		relative_urls: false,
+		force_br_newlines : true,
+		force_p_newlines : false,
+		forced_root_block : '',
 		file_browser_callback : function(field_name, url, type, win) {
 			var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
 			var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;

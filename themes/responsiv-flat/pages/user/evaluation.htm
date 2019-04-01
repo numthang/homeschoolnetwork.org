@@ -1,0 +1,113 @@
+title = "Evaluation preview"
+url = "/user/evaluation/:id"
+layout = "printable"
+is_hidden = 0
+robot_index = "noindex"
+robot_follow = "nofollow"
+
+[evaluationform]
+
+[evaluations]
+results = 0
+sortOrder = "template"
+==
+<?php
+public function onEnd() {
+  #dump($this->evaluations->evaluation[0]);
+  #dump($this->evaluations->course[0]);
+
+  $course = $this->evaluations->course[0];
+  $j = json_decode($course->attributes['father_profile']);
+  $this->page['father_name'] = $j->father_name;
+  $this->page['father_degree'] = $j->father_degree;
+  $this->page['father_exp'] = $j->father_exp;
+  $this->page['father_age'] = $j->father_age;
+  $this->page['father_job'] = $j->father_job;
+  $this->page['father_addr'] = $j->father_addr;
+  $this->page['father_contact'] = $j->father_contact;
+
+	$j = json_decode($course->attributes['mother_profile']);
+  $this->page['mother_name'] = $j->mother_name;
+  $this->page['mother_degree'] = $j->mother_degree;
+  $this->page['mother_exp'] = $j->mother_exp;
+  $this->page['mother_age'] = $j->mother_age;
+  $this->page['mother_job'] = $j->mother_job;
+  $this->page['mother_addr'] = $j->mother_addr;
+  $this->page['mother_contact'] = $j->mother_contact;
+
+  $date = explode('-', $course->attributes['birth_date']);
+  $this->page['birth_date'] = $date[2].'/'.$date[1].'/'.$date[0];
+
+}
+?>
+==
+{%  set course = evaluations.course[0] %}
+{%  set evaluation = evaluations.evaluation[0] %}
+{%  set evaluations = evaluations.evaluations %}
+<script>
+ const urlParams = new URLSearchParams(window.location.search);
+ if(urlParams.get('print') == 1)
+   window.print();
+</script>
+<div class="page cover" style="font-family:Kanit;">
+  {{ evaluation.cover|raw }}
+</div>
+<div class="page">
+  <b>1. ข้อมูลพื้นฐานของครอบครัว</b>
+  <p>
+    บิดา นาย {{ this.page.father_name }} อายุ {{ this.page.father_age }} ปี <br>
+    การศึกษา : {{ this.page.father_degree }} <br>
+    ประสบการณ์ : {{ this.page.father_exp }}<br>
+    อาชีพ : {{ this.page.father_job}}<br>
+    ที่อยู่ปัจจุบัน : {{ this.page.father_addr }}<br>
+    ติดต่อ : {{ this.page.father_contact}}
+  </p>
+  <p>
+    มารดา นาง {{ this.page.mother_name }} อายุ {{ this.page.mother_age }} ปี <br>
+    การศึกษา : {{ this.page.mother_degree }} <br>
+    ประสบการณ์ : {{ this.page.mother_exp }}<br>
+    อาชีพ : {{ this.page.mother_job}}<br>
+    ที่อยู่ปัจจุบัน : {{ this.page.mother_addr }}<br>
+    ติดต่อ : {{ this.page.mother_contact }}
+  </p>
+</p>
+<p>
+  <b>2. ข้อมูลพื้นฐานของผู้เรียน</b>
+  <p>
+    2.1 ข้อมูลของผู้เรียน <br>
+    {{ course.student_name|raw }} อายุ {{ "now"|date('Y')-course.birth_date|date('Y') }} ปี  <!--เพศ {{ course.gender }}--><br>
+    วัน-เดือน-ปีเกิด {{ course.birth_date|date('d/m/Y') }}<br>
+    ประวัติการศึกษา : {{ course.school_exp|raw }}
+    <br><br>
+    2.2 พัฒนาการของผู้เรียน<br>
+    {{ course.development|raw }}
+  </p>
+</div>
+<div class="page other">
+  <b>3. การวัดและประเมินผลการเรียนรู้</b>
+  <p>{{ evaluation.learning|raw }}</p>
+</div>
+<div class="page other">
+  <b>4. สรุปผลการเรียนรู้ของผู้เรียนตามเกณฑ์การจบชั้นเรียน</b>
+  <p>{{ evaluation.summary|raw }}</p>
+</div>
+<div class="page other">
+  <b>5. จุดเด่น / ความสำเร็จที่สำคัญของการจัดการศึกษา</b>
+  <p>{{ evaluation.successful|raw }}</p>
+</div>
+<div class="page other">
+  <b>6. ปัญหา, อุปสรรคหรือสิ่งที่ควรพัฒนา</b>
+  <p>{{ evaluation.problem|raw }}</p>
+</div>
+<div class="page other">
+  <b>7. แนวทางการจัดการเรียนรู้ในปีต่อไป</b>
+  <p>{{ evaluation.next|raw }}</p>
+</div>
+<div class="page other">
+  <b>8. ข้อคิดเห็น / ข้อเสนอแนะอื่น ๆ</b>
+  <p>{{ evaluation.suggestion|raw }}</p>
+</div>
+<div class="page other" align="center">
+  <strong><span style="font-size: 24pt;">ภาคผนวก ร่องรอยการเรียนรู้</span></strong>
+  <p>{{ evaluation.footprint|raw }}</p>
+</div>

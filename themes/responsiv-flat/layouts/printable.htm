@@ -28,19 +28,36 @@ description = "Printable layout"
           margin:0px;
           padding:0px;
           font-family: Sarabun;
-          font-size: 12pt;
+          font-size: 11pt;
           line-height: 25px;
         }
-
+        .cover img {
+          width: 100%;
+          height: auto;
+          max-width: 100%;
+          border-radius: 12px;
+          box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.5);
+        }
+        .other img {
+          height: auto;
+          max-width: 70%;
+          border-radius: 12px;
+          box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.5);
+        }
+        iframe, embed, object {
+          width: 95%;
+          max-height: 100%;
+        }
         .page {
-          width: 21cm;
+          max-width: 21cm;
           min-height: 29.7cm;
-          padding: 0.5cm;
+          padding: 1cm;
           margin: 1cm auto;
           border: 1px #D3D3D3 solid;
           border-radius: 5px;
           background: white;
           box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+
         }
 
         /*.subpage {

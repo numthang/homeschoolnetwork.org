@@ -1,4 +1,4 @@
-title = "User course preview"
+title = "Course preview"
 url = "/user/course/:id"
 layout = "printable"
 is_hidden = 0
@@ -6,7 +6,6 @@ robot_index = "noindex"
 robot_follow = "nofollow"
 
 [viewBag]
-localeUrl[en] = "/user-course-preview"
 
 [courseform]
 ==
@@ -19,6 +18,8 @@ public function onEnd() {
   $this->page['father_age'] = $j->father_age;
   $this->page['father_job'] = $j->father_job;
   $this->page['father_addr'] = $j->father_addr;
+  $this->page['father_contact'] = $j->father_contact;
+
 	$j = json_decode($this->courseform->record->attributes['mother_profile']);
   $this->page['mother_name'] = $j->mother_name;
   $this->page['mother_degree'] = $j->mother_degree;
@@ -26,70 +27,80 @@ public function onEnd() {
   $this->page['mother_age'] = $j->mother_age;
   $this->page['mother_job'] = $j->mother_job;
   $this->page['mother_addr'] = $j->mother_addr;
+  $this->page['mother_contact'] = $j->mother_contact;
 
   $date = explode('-', $this->courseform->record->attributes['birth_date']);
   $this->page['birth_date'] = $date[2].'/'.$date[1].'/'.$date[0];
 }
 ?>
 ==
+{% set record = courseform.record %}
 <script>
  const urlParams = new URLSearchParams(window.location.search);
  if(urlParams.get('print') == 1)
    window.print();
 </script>
-{% set record = courseform.record %}
-
-<div class="page">
-  <p style="font-family:Kanit;">
+<div class="page cover" style="font-family:Kanit;">
   {{ record.cover|raw }}
-  </p>
 </div>
-<div class="page">
+<div class="page other">
+  <b>1. ข้อมูลพื้นฐานของครอบครัว</b>
   <p>
-    <b>1. ข้อมูลพื้นฐานของครอบครัว</b>
-    <p>
-      บิดา นาย {{ this.page.father_name }} อายุ {{ this.page.father_age }} ปี <br>
-      การศึกษา : {{ this.page.father_degree }} <br>
-      ประสบการณ์ : {{ this.page.father_exp }}<br>
-      อาชีพ : {{ this.page.father_job}}<br>
-      ที่อยู่ปัจจุบัน : {{ this.page.father_addr }}<br>
-      ติดต่อ : {{ this.page.father_contact}} Email tee@numthang.org เบอร์ติดต่อ 088-7938587
-      Facebook www.facebook.com/numthang.org
-    </p>
-    <p>
-      มารดา นาง {{ this.page.mother_name }} อายุ {{ this.page.mother_age }} ปี <br>
-      การศึกษา : {{ this.page.mother_degree }} <br>
-      ประสบการณ์ : {{ this.page.mother_exp }}<br>
-      อาชีพ : {{ this.page.mother_job}}<br>
-      ที่อยู่ปัจจุบัน : {{ this.page.mother_addr }}<br>
-      ติดต่อ : {{ this.page.mother_contact }} Email tee@numthang.org เบอร์ติดต่อ 088-7938587
-      Facebook www.facebook.com/numthang.org
-    </p>
+    บิดา นาย {{ this.page.father_name }} อายุ {{ this.page.father_age }} ปี <br>
+    การศึกษา : {{ this.page.father_degree }} <br>
+    ประสบการณ์ : {{ this.page.father_exp }}<br>
+    อาชีพ : {{ this.page.father_job}}<br>
+    ที่อยู่ปัจจุบัน : {{ this.page.father_addr }}<br>
+    ติดต่อ : {{ this.page.father_contact}}
   </p>
   <p>
-    <b>2. ข้อมูลพื้นฐานของผู้เรียน</b>
-    <p>
-      2.1 ระบุข้อมูลของผู้เรียน <br>
-      {{ student_prefix }} {{ record.student_name|raw }} เพศ {{ record.student_gender }}<br>
-      วัน-เดือน-ปีเกิด {{ record.birth_date|raw }} อายุ {{ age }} ปี <br>
-      ประวัติการศึกษา (กรณีเรียนในระบบโรงเรียนมาก่อน)<br>
-      {{ record.school_exp|raw }}
-      <br><br>
-      2.2 พัฒนาการของผู้เรียน<br>
-      {{ record.development|raw }}
-    </p>
+    มารดา นาง {{ this.page.mother_name }} อายุ {{ this.page.mother_age }} ปี <br>
+    การศึกษา : {{ this.page.mother_degree }} <br>
+    ประสบการณ์ : {{ this.page.mother_exp }}<br>
+    อาชีพ : {{ this.page.mother_job}}<br>
+    ที่อยู่ปัจจุบัน : {{ this.page.mother_addr }}<br>
+    ติดต่อ : {{ this.page.mother_contact }}
+  </p>
+</p>
+<p>
+  <b>2. ข้อมูลพื้นฐานของผู้เรียน</b>
+  <p>
+    2.1 ข้อมูลของผู้เรียน <br>
+    {{ student_prefix }} {{ record.student_name|raw }} อายุ {{ "now"|date('Y')-record.birth_date|date('Y') }} ปี  <!--เพศ {{ record.gender }}--><br>
+    วัน-เดือน-ปีเกิด {{ record.birth_date|date('d/m/Y') }}<br>
+    ประวัติการศึกษา : {{ record.school_exp|raw }}
+    <br><br>
+    2.2 พัฒนาการของผู้เรียน<br>
+    {{ record.development|raw }}
   </p>
 </div>
-<div class="page">
-  {{ record.class_reason|raw }}
+<div class="page other">
+  <b>3. ระดับที่จัดการศึกษา / เหตุผลในการจัดการศึกษาของครอบครัว</b>
+  <p>{{ record.class_reason|raw }}</p>
 </div>
-<div class="page">
-  {{ record.purpose|raw }}
-  {{ record.format|raw }}
-  {{ record.schedule|raw }}
-  {{ record.curriculum|raw }}
-  {{ record.activity|raw }}
-  {{ record.learning|raw }}
-  {{ record.evaluate|raw }}
-  {{ record.other|raw }}
+<div class="page other">
+  <b>4. จุดมุ่งหมายของการจัดการศึกษา</b>
+  <p>{{ record.purpose|raw }}</p>
+  <b>5. รูปแบบการจัดการศึกษา</b>
+  <p>{{ record.format|raw }}</p>
+</div>
+<div class="page other">
+  <b>6. โครงสร้างเวลาเรียน</b>
+  <p>{{ record.schedule|raw }}</p>
+</div>
+<div class="page other">
+  <b>7. การจัดกลุ่มสาระการเรียนรู้ / กลุ่มประสบการณ์</b>
+  <p>{{ record.curriculum|raw }}</p>
+</div>
+<div class="page other">
+  <b>8. การจัดกิจกรรมพัฒนาผู้เรียน</b>
+  <p>{{ record.activity|raw }}</p>
+  <b>9. การจัดกระบวนการเรียนรู้</b>
+  <p>{{ record.learning|raw }}</p>
+  <b>10. การวัดและประเมินผลการเรียนรู้</b>
+  <p>{{ record.evaluate|raw }}</p>
+</div>
+<div class="page other">
+  <b>11. อื่นๆ</b>
+  <p>{{ record.other|raw }}</p>
 </div>
