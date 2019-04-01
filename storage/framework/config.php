@@ -179,7 +179,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => '/home/vsites/homeschoolnetwork.org/storage/framework/cache',
+        'path' => '/home/tee/domains/homeschoolnetwork.org/public_html/storage/framework/cache',
       ),
       'memcached' => 
       array (
@@ -209,7 +209,7 @@
     'paths' => 
     array (
     ),
-    'compiled' => '/home/vsites/homeschoolnetwork.org/storage/framework/views',
+    'compiled' => '/home/tee/domains/homeschoolnetwork.org/public_html/storage/framework/views',
   ),
   '*::geoip' => 
   array (
@@ -221,7 +221,7 @@
       'maxmind_database' => 
       array (
         'class' => 'Torann\\GeoIP\\Services\\MaxMindDatabase',
-        'database_path' => '/home/vsites/homeschoolnetwork.org/storage/app/geoip.mmdb',
+        'database_path' => '/home/tee/domains/homeschoolnetwork.org/public_html/storage/app/geoip.mmdb',
         'update_url' => 'https://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.gz',
         'locales' => 
         array (
@@ -243,7 +243,7 @@
         'class' => 'Torann\\GeoIP\\Services\\IPApi',
         'secure' => true,
         'key' => NULL,
-        'continent_path' => '/home/vsites/homeschoolnetwork.org/storage/app/continents.json',
+        'continent_path' => '/home/tee/domains/homeschoolnetwork.org/public_html/storage/app/continents.json',
         'lang' => 'en',
       ),
       'ipgeolocation' => 
@@ -251,7 +251,7 @@
         'class' => 'Torann\\GeoIP\\Services\\IPGeoLocation',
         'secure' => true,
         'key' => NULL,
-        'continent_path' => '/home/vsites/homeschoolnetwork.org/storage/app/continents.json',
+        'continent_path' => '/home/tee/domains/homeschoolnetwork.org/public_html/storage/app/continents.json',
         'lang' => 'en',
       ),
       'ipdata' => 
@@ -390,8 +390,8 @@
         'host' => 'localhost',
         'port' => 3306,
         'database' => 'homeschool_db',
-        'username' => 'numthang',
-        'password' => 'Mega29Riat',
+        'username' => 'homeschool_db',
+        'password' => '7OJvmYjC',
         'charset' => 'utf8mb4',
         'collation' => 'utf8mb4_unicode_ci',
         'prefix' => '',
