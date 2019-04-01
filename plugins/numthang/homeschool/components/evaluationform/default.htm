@@ -1,6 +1,6 @@
-{%  set course = evaluations.course[0] %}
-{%  set evaluation = evaluations.evaluation[0] %}
 {%  set evaluations = evaluations.evaluations %}
+{%  set course = evaluationform.course %}
+{%  set evaluation = evaluationform.record %}
 
 <form data-request="onSave">
 	<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
@@ -26,7 +26,7 @@
 						{% endif %}
 					 	{{ c.name }}</b>
 						{% for e in c.evaluations %}
-							<a href="/login/edit/evaluation/{{ e.id }}"> <span class="fui-new"></span>{{ e.name }}</a>
+							<a href="/login/edit/evaluation/{{ e.id }}"> <span class="fui-new"></span> {{ e.name }}</a>
 						{% endfor %}
 					</li>
 					<li class="divider"></li>

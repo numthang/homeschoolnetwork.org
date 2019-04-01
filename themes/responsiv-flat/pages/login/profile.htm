@@ -22,7 +22,7 @@ sortOrder = "name asc"
 <section id="layout-title">
   <div class="container">
     <div class="col-sm-1">
-      <img class="center-block" src="https://graph.facebook.com/{{ user.facebook }}/picture?type=small" title="{{ user.name }}" style="border-radius: 100px; height:85px; padding:10px;">
+      <a href="/user/profile/{{ user.id }}"><img class="center-block" src="https://graph.facebook.com/{{ user.facebook }}/picture?type=small" title="{{ user.name }}" style="border-radius: 100px; height:85px; padding:10px;"></a>
     </div>
     <div class="col-sm-11">
       <h3>{{ user.name }} {{ user.surname }}</h3>

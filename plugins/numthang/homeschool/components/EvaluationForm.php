@@ -4,24 +4,37 @@ use Cms\Classes\ComponentBase;
 use Input;
 use Validator;
 use Redirect;
+use Numthang\Homeschool\Models\Course;
 use Numthang\Homeschool\Models\Evaluation;
 use Flash;
 
 class EvaluationForm extends ComponentBase
 {
-    public function componentDetails()
-    {
+
+    public $record;
+    public $course;
+    public function componentDetails() {
         return [
             'name'        => 'Evaluation Form',
             'description' => 'No description provided yet...'
         ];
     }
-
-    public function defineProperties()
-    {
+    public function defineProperties() {
         return [];
     }
-    public function onSave(){
+    public function onRun() {
+      if($this->param('id')) {
+        $id = $this->param('id');
+        if($id  > 100000) {
+          $tmp = Evaluation::where('created_at', date('Y-m-d H:i:s', $id))->get();
+          $this->record = $tmp[0];
+        }
+        else
+          $this->record = Evaluation::find($this->param('id'));
+        $this->course = Course::find($this->record->attributes['course_id']);
+      }
+		}
+    public function onSave() {
       $validator = Validator::make(
         [
           'name' => Input::get('name'),
@@ -31,7 +44,7 @@ class EvaluationForm extends ComponentBase
         ]
       );
 
-      if($validator->fails()){
+      if($validator->fails()) {
         return Redirect::back()->withErrors($validator);
       }
 

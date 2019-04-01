@@ -6,17 +6,10 @@ robot_index = "noindex"
 robot_follow = "nofollow"
 
 [evaluationform]
-
-[evaluations]
-results = 0
-sortOrder = "template"
 ==
 <?php
 public function onEnd() {
-  #dump($this->evaluations->evaluation[0]);
-  #dump($this->evaluations->course[0]);
-
-  $course = $this->evaluations->course[0];
+  $course = $this->evaluationform->course;
   $j = json_decode($course->attributes['father_profile']);
   $this->page['father_name'] = $j->father_name;
   $this->page['father_degree'] = $j->father_degree;
@@ -41,9 +34,8 @@ public function onEnd() {
 }
 ?>
 ==
-{%  set course = evaluations.course[0] %}
-{%  set evaluation = evaluations.evaluation[0] %}
-{%  set evaluations = evaluations.evaluations %}
+{%  set course = evaluationform.course %}
+{%  set evaluation = evaluationform.record %}
 <script>
  const urlParams = new URLSearchParams(window.location.search);
  if(urlParams.get('print') == 1)

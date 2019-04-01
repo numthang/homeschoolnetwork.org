@@ -17,10 +17,7 @@ sortOrder = "name asc"
 ==
 <?php
 public function onEnd() {
-  #dump($this->evaluations->evaluation[0]);
-  #dump($this->evaluations->course[0]);
-
-  $course = $this->evaluations->course[0];
+  $course = $this->evaluationform->course;
   $j = json_decode($course->attributes['father_profile']);
   $this->page['father_name'] = $j->father_name;
   $this->page['father_degree'] = $j->father_degree;
@@ -45,7 +42,7 @@ public function onEnd() {
 }
 ?>
 ==
-{%  set evaluation = evaluations.evaluation[0] %}
+{%  set evaluation = evaluationform.record %}
 <section id="layout-title">
     <div class="container">
         <h3>{{ 'New evaluation'|_ }} : {{ evaluation.name }} </h3>

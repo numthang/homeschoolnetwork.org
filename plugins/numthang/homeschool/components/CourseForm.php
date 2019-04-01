@@ -18,14 +18,16 @@ class CourseForm extends ComponentBase
         ];
     }
 		public function onRun() {
-      $this->record = Course::find($this->param('id'));
+      if($this->param('id')) {
+        $id = $this->param('id');
+        if($id  > 100000) {
+          $tmp = Course::where('created_at', date('Y-m-d H:i:s', $id))->get();
+          $this->record = $tmp[0];
+        }
+        else
+          $this->record = Course::find($id);
+      }
 		}
-    public function onExportPDF() {
-      $mpdf = new \Mpdf\Mpdf();
-      $mpdf->WriteHTML('<h1>Hello world!</h1>');
-      $mpdf->Output();
-      echo 'Test';
-    }
     public function onSave(){
       $validator = Validator::make(
           [
