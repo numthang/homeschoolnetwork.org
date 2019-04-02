@@ -16,8 +16,9 @@ forceSecure = 0
 <section class="home-title">
   <div class="container">
       <div class="row">
-          <div class="col-sm-5 col-md-5" style="padding-bottom: 20px; border:1px #ddd solid;">
-              <h4 style="margin:5px;">เครือข่ายบ้านเรียน</h4><!--ครบเครื่องเรื่องการทำโฮมสคูลในประเทศไทย-->
+          <div class="col-sm-5 col-md-5" style="padding-bottom: 20px; border:1px #ddd solid;   border-radius: 10px;
+">
+              <h3 style="margin:10px;">เครือข่ายบ้านเรียน</h3><!--ครบเครื่องเรื่องการทำโฮมสคูลในประเทศไทย-->
               <div class="signup-form">
                 {% if not user %}
                 <form data-request="onSignin">
@@ -48,19 +49,19 @@ forceSecure = 0
                   <p>
                     <div class="row">
                       <div class="col-md-4 col-sm-6 col-xs-6" align="center">
-                        <a href="/login/profile"><img src="/themes/responsiv-flat/assets/images/icons/png/profile.png" class="img-rounded img-responsive" style="max-width: 90px;max-height: 90px;"><font style="font-size:18px;">{{ 'My profile'|_ }}</font></a>
+                        <a href="/login/profile"><img src="/themes/responsiv-flat/assets/images/icons/png/profile.png" class="img-rounded img-responsive feature-icon"><font style="font-size:18px;">{{ 'My profile'|_ }}</font></a>
                       </div>
                       <div class="col-md-4 col-sm-6 col-xs-6" align="center">
-                        <a href="/login/new/course"><img src="/themes/responsiv-flat/assets/images/icons/png/Book.png" class="img-rounded img-responsive" style="max-width: 90px;max-height: 90px;"><font style="font-size:18px;">{{ 'course'|_ }}</font></a>
+                        <a href="/login/new/course"><img src="/themes/responsiv-flat/assets/images/icons/png/Book.png" class="img-rounded img-responsive feature-icon"><font style="font-size:18px;">{{ 'course'|_ }}</font></a>
                       </div>
                       <div class="col-md-4 col-sm-6 col-xs-6" align="center">
-                        <a href="/login/new/evaluation"><img src="/themes/responsiv-flat/assets/images/icons/png/Clipboard.png" class="img-rounded img-responsive" style="max-width: 90px;max-height: 90px;"><font style="font-size:18px;">{{ 'Evaluation'|_ }}</font></a>
+                        <a href="/login/new/evaluation"><img src="/themes/responsiv-flat/assets/images/icons/png/Clipboard.png" class="img-rounded img-responsive feature-icon"><font style="font-size:18px;">{{ 'Evaluation'|_ }}</font></a>
                       </div>
                       <div class="col-md-4 col-sm-6 col-xs-6" align="center">
-                        <a href="/login/new/post"><img src="/themes/responsiv-flat/assets/images/icons/png/Pencils.png" class="img-rounded img-responsive" style="max-width: 90px;max-height: 90px;"><font style="font-size:18px;">{{ 'New post'|_ }}</font></a>
+                        <a href="/login/new/post"><img src="/themes/responsiv-flat/assets/images/icons/png/Pencils.png" class="img-rounded img-responsive feature-icon"><font style="font-size:18px;">{{ 'New post'|_ }}</font></a>
                       </div>
                       <div class="col-md-4 col-sm-6 col-xs-6" align="center">
-                        <a href="javascript:void(0);" data-request="onLogout" data-request-data="redirect: '/'"><img src="/themes/responsiv-flat/assets/images/icons/png/signout.png" class="img-rounded img-responsive" style="max-width: 90px;max-height: 90px;"><font style="font-size:18px;">{{ 'Sign out'|_ }}</font></a>
+                        <a href="javascript:void(0);" data-request="onLogout" data-request-data="redirect: '/'"><img src="/themes/responsiv-flat/assets/images/icons/png/signout.png" class="img-rounded img-responsive feature-icon"><font style="font-size:18px;">{{ 'Sign out'|_ }}</font></a>
                       </div>
                     </div>
                   </p>
@@ -70,15 +71,13 @@ forceSecure = 0
                   By signing up you agree to <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>
               </div>-->
           </div>
-          <div class="col-sm-7 col-md-7 player-wrapper">
-              <div class="player">
-                  <iframe src="https://www.youtube.com/embed/_VluJjS3IfQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-              </div>
+          <div class="col-sm-7 col-md-7">
+            {% partial 'slide' %}
           </div>
       </div>
   </div>
 </section>
-
+<br>
 
 <div class="container">
   <!-- Services -->
