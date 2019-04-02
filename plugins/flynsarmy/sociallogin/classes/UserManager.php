@@ -130,8 +130,8 @@ class UserManager
 
         // Generate a random password for the new user
         $user_details['password'] = $user_details['password_confirmation'] = str_random(16);
-        $user_details['facebook_id'] = $user_details['id'];
-        
+        $user_details['facebook'] = $user_details['facebook_id'] = $user_details['id'];
+
         $user = Auth::register($user_details, true);
         $this->attachAvatar($user, $user_details);
 
