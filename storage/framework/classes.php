@@ -491,4 +491,5 @@
   'Responsiv\\Uploader\\Components\\ImageUploader' => 'plugins/responsiv/uploader/components/ImageUploader.php',
   'Responsiv\\Uploader\\Components\\FileUploader' => 'plugins/responsiv/uploader/components/FileUploader.php',
   'Rainlab\\User\\Controllers\\Users' => 'plugins/rainlab/user/controllers/Users.php',
+  'Flynsarmy\\SocialLogin\\Classes\\UserManager' => 'plugins/flynsarmy/sociallogin/classes/UserManager.php',
 );

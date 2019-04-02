@@ -24,6 +24,10 @@ class Courses extends ComponentBase
                 'validationPattern' => '^[0-9]+$',
                 'validationMessage' => 'Only numbers allowed'
             ],
+            'byUserID' => [
+                'title' => 'Courses by user id',
+                'default' => 0
+            ],
 
             'sortOrder' => [
                 'title' => 'Sort Courses',
@@ -47,32 +51,24 @@ class Courses extends ComponentBase
     }
 
     protected function loadCourses(){
+      if(!$this->property('byUserID')) {//if no user id specific
         $user = Auth::getUser();
-        $query = Course::where('user_id', '=', $user->id)
-          ->orWhere('template', '=', 1);
+        $userid = $user->id;
+      }
+      else
+        $userid = $this->property('byUserID');
 
-        if($this->property('sortOrder') == 'name asc')
-            $query = $query->orderBy('name');
-        else if($this->property('sortOrder') == 'name desc')
-          $query = $query->orderByDesc('name');
-        else
-          $query = $query->orderByDesc($this->property('sortOrder'));
+      $query = Course::where('user_id', '=', $userid)
+        ->orWhere('template', '=', 1);
 
-        $query = $query->get();
-				#$query = DB::table('numthang_homeschool_courses')->where('user_id', '=', $user->id)->orWhere('template', '=', 1)->get();
+      if($this->property('sortOrder') == 'name asc')
+          $query = $query->orderBy('name');
+      else if($this->property('sortOrder') == 'name desc')
+        $query = $query->orderByDesc('name');
+      else
+        $query = $query->orderByDesc($this->property('sortOrder'));
 
-        /*if($this->property('sortOrder') == 'name asc'){
-            $query = $query->sortBy('name');
-        }
-
-        if($this->property('sortOrder') == 'name desc'){
-            $query = $query->sortByDesc('name');
-        }
-
-        if($this->property('results') > 0){
-            $query = $query->take($this->property('results'));
-        }*/
-
-        return $query;
+      $query = $query->get();
+      return $query;
     }
 }
