@@ -32,10 +32,15 @@ function onLoadHomschooler()
       $listed .= '<div class="clearfix"></div><h3>Interested in homeschooling</h3>';
       $headed = 1;
     }
+    if($users[$key]->facebook_id)
+      $avatar = 'https://graph.facebook.com/'.$users[$key]->facebook_id.'/picture?type=normal';
+    else
+      $avatar = '/themes/responsive-ui/assets/images/team/anonymous.jpg';
+
     $listed .= '
       <div class="col-xl-1 col-md-2 col-sm-3 col-xs-4">
         <div class="text-center">
-          <a href="user/profile/'.$users[$key]->id.'" target="_blank"><img class="center-block" src="https://graph.facebook.com/'.$users[$key]->facebook.'/picture?type=small" title="'.$users[$key]->name.'" style="cursor:pointer; border-radius: 100px; height:85px; padding-bottom:5px;"></a>
+          <a href="/user/profile/'.$users[$key]->id.'"><img class="center-block" src="'.$avatar.'" title="'.$users[$key]->name.'" style="cursor:pointer; border-radius: 100px; padding-bottom:5px;" height="80" width="80"></a>
           <div class="text-muted small" style="white-space: nowrap;">
            '.$users[$key]->name.' &nbsp;
           </div>
