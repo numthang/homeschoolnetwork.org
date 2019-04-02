@@ -26,14 +26,19 @@ forceSecure = 0
   public function onEnd() {
     use October\Rain\Auth\Models\User as User;
     $this->page->meta_title = $this->post->title;
-    $this->post->seo_description = $this->page->meta_description = substr(strip_tags($this->post->content), 0, 260);
-    #$this->post->author = User::find($this->post->user_id)->name;
-    #dump($this->post->user);
+    empty($this->post->excerpt) ? $description = substr(strip_tags($this->post->content), 0, 260) : $description = $this->post->excerpt;
+    $this->post->seo_description = $this->page->meta_description = $description;
+    //og:image
+
   }
 ?>
 ==
-{% set post = blogPost.post %}
 {% component 'SeoBlogPost' data=post %}
+{% put meta %}
+<meta property="og:image" content="{{ post.featured_images[0].path }}" />
+{% endput %}
+
+{% set post = blogPost.post %}
 <section id="layout-title">
   <div class="container">
       <h3>{{ 'Blog post'|_ }}</h3>
