@@ -686,7 +686,7 @@ class __TwigTemplate_e884cdd7ac96718766c8ece52218bf044df252ac4b2266573e424307221
             this.getDoc().body.style.fontFamily = 'Arial, Tahoma, Sarabun';
         });
     },
-\t\trelative_urls: false,
+\t\trelative_urls: true,
 \t\tforce_br_newlines : true,
 \t\tforce_p_newlines : false,
 \t\tforced_root_block : '',
@@ -1094,7 +1094,7 @@ class __TwigTemplate_e884cdd7ac96718766c8ece52218bf044df252ac4b2266573e424307221
             this.getDoc().body.style.fontFamily = 'Arial, Tahoma, Sarabun';
         });
     },
-\t\trelative_urls: false,
+\t\trelative_urls: true,
 \t\tforce_br_newlines : true,
 \t\tforce_p_newlines : false,
 \t\tforced_root_block : '',
