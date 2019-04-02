@@ -13,9 +13,10 @@ security = "all"
     <head>
     	<meta charset="UTF-8">
       {% component 'SeoCmsPage' %}
+      <meta property="og:image" content="{% if this.page.og_image  %}{{ this.page.og_image }} {% else %}{{ 'assets/images/logo-company.png'|theme }}{% endif %}" />
       <!--<title>Homeschool Network (Thailand) - {{ this.page.title|_ }}</title>-->
       <meta name="title" content="{{ this.page.meta_title }}">
-      <meta name="description" content="{{ this.page.meta_description }}">
+      <!--<meta name="description" content="{{ this.page.meta_description }}">-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="author" content="OctoberCMS">
       <meta name="generator" content="OctoberCMS">

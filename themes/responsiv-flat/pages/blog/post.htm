@@ -29,15 +29,13 @@ forceSecure = 0
     empty($this->post->excerpt) ? $description = substr(strip_tags($this->post->content), 0, 260) : $description = $this->post->excerpt;
     $this->post->seo_description = $this->page->meta_description = $description;
     //og:image
-
+    #dump($this->post->featured_images[0]);
+    if(count($this->post->featured_images))
+      $this->page->og_image = $this->post->featured_images[0]->path;
   }
 ?>
 ==
 {% component 'SeoBlogPost' data=post %}
-{% put meta %}
-<meta property="og:image" content="{{ post.featured_images[0].path }}" />
-{% endput %}
-
 {% set post = blogPost.post %}
 <section id="layout-title">
   <div class="container">
