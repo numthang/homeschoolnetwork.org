@@ -33,7 +33,7 @@ sortOrder = "template"
 <section id="layout-title">
     <div class="container">
       <div class="col-sm-1">
-        <img class="center-block" src="https://graph.facebook.com/{{ record.facebook }}/picture?type=small" title="{{ record.name }}" style="border-radius: 100px; height:85px; padding:10px;">
+        <a href="/user/profile/{{record.id}}"><img src="{% if record.facebook_id %} https://graph.facebook.com/{{ record.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" alt="{{ record.name }}"  title="{{ record.name }}" style="border-radius: 100px; height:85px; padding:10px; cursor:pointer;"></a>
       </div>
       <div class="col-sm-11">
         <h3>{{ record.name }} {{ record.surname }}</h3>
