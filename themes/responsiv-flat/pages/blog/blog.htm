@@ -21,6 +21,7 @@ postPage = "blog/post"
     <div class="row">
         <div class="col-sm-9">
           {% partial "ads/top" %}
+          {% set i = 0 %}
           {% set posts = blogPosts.posts %}
           {% for post in posts %}
             <!-- Blog Post -->
@@ -42,7 +43,10 @@ postPage = "blog/post"
                 <a class="btn btn-lg btn-default" href="{{ post.url }}">{{ 'Read More'|_}} ...</a>
               </div>
             </div>
-            {% partial 'ads/new-in-feed' %}
+            {% set i = i + 1 %}
+            {% if i == 2 or i ==4 %}
+              {% partial 'ads/new-in-feed' %}
+            {% endif %}
           {% endfor %}
           <!--<ul class="post-list">
             {% for post in posts %}
