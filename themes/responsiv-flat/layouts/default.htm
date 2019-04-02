@@ -23,8 +23,9 @@ security = "all"
       <link rel="icon" type="image/png" href="{{ 'assets/images/logo.png'|theme }}">
       {% styles %}
       <link href="{{ [
-          'assets/less/theme.less'
-      ]|theme }}" rel="stylesheet">
+        'assets/less/theme.less',
+        'assets/css/custom.css', 
+        ]|theme }}" rel="stylesheet">
       <meta property="fb:admins" content="528931910" />
       <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
       <!--[if lt IE 9]>
@@ -51,10 +52,6 @@ security = "all"
         <div id="layout-content">
           {% page %}
         </div>
-        <!-- Mailing List
-        <section id="layout-subscribe" class="subscribe-form">
-            {% partial "subscribe" %}
-        </section>-->
 
         <!-- Footer -->
         <footer id="layout-footer">
@@ -97,15 +94,9 @@ security = "all"
 
             'assets/javascript/app.js'
         ]|theme }}"></script>
-        <script>
-        	videojs.options.flash.swf = "{{ 'assets/vendor/flat-ui/js/video-js.swf'|theme }}";
-        </script>
         {% framework extras %}
         {% scripts %}
 
-        <script src="{{ [
-            'assets/javascript/pages/ui-elements.js',
-        ]|theme }}"></script>
     </body>
     <script type="text/javascript">
 
