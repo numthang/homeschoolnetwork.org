@@ -42,6 +42,7 @@ postPage = "blog/post"
                 <a class="btn btn-lg btn-default" href="{{ post.url }}">{{ 'Read More'|_}} ...</a>
               </div>
             </div>
+            {% partial 'ads/new-in-feed' %}
           {% endfor %}
           <!--<ul class="post-list">
             {% for post in posts %}
