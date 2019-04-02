@@ -79,6 +79,7 @@ forceSecure = 0
               {% endif %}
           </p>
           <h4>{{ 'Related posts'|_ }}</h4>
+          {% partial 'ads/matched-content' %}
           <ul>
               {% for Post in blogRelated.posts %}
                   <a href="{{Post.url}}"><li>{{ Post.title }}</li></a>
