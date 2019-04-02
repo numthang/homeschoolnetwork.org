@@ -14,9 +14,10 @@ security = "all"
     	<meta charset="UTF-8">
       {% component 'SeoCmsPage' %}
       <meta property="og:image" content="{% if this.page.og_image  %}{{ this.page.og_image }} {% else %}{{ 'assets/images/logo-company.png'|theme }}{% endif %}" />
+      <meta property="og:description" content="{{ this.page.og_description }}" />
       <!--<title>Homeschool Network (Thailand) - {{ this.page.title|_ }}</title>-->
       <meta name="title" content="{{ this.page.meta_title }}">
-      <!--<meta name="description" content="{{ this.page.meta_description }}">-->
+      <meta name="description" content="{{ this.page.meta_description }}">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="author" content="OctoberCMS">
       <meta name="generator" content="OctoberCMS">
@@ -24,7 +25,7 @@ security = "all"
       {% styles %}
       <link href="{{ [
         'assets/less/theme.less',
-        'assets/css/custom.css', 
+        'assets/css/custom.css',
         ]|theme }}" rel="stylesheet">
       <meta property="fb:admins" content="528931910" />
       <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
