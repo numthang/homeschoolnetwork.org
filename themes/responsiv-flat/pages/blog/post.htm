@@ -42,7 +42,6 @@ forceSecure = 0
 <div class="container">
   <div class="row">
     <div class="col-sm-9">
-      {% partial "ads/top" %}
       <!-- Blog Post #1 -->
       <div class="blog">
         <img src="{% if post.author.facebook_id %} https://graph.facebook.com/{{ post.author.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" alt="{{ post.author.name }}" style="cursor:pointer;" onClick="window.location.href = '/user/profile/{{post.author_id}}';">
@@ -70,6 +69,8 @@ forceSecure = 0
             {% endfor %}
           </div>
           {% endif %}
+          {{ post.excerpt|raw }}
+          {% partial "ads/in-article" %}
           {{ post.content_html|raw }}
           <p class="info">
               Posted

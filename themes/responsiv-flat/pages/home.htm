@@ -16,7 +16,7 @@ forceSecure = 0
 <section class="home-title">
   <div class="container">
       <div class="row">
-          <div class="col-sm-5 col-md-5">
+          <div class="col-sm-5 col-md-5" style="padding-bottom: 20px; border:1px #ddd solid;">
               <h4 style="margin:5px;">เครือข่ายบ้านเรียน</h4><!--ครบเครื่องเรื่องการทำโฮมสคูลในประเทศไทย-->
               <div class="signup-form">
                 {% if not user %}
@@ -39,10 +39,10 @@ forceSecure = 0
                           placeholder="Enter your password" />
                   </div>
 
-                  <button type="submit" class="btn btn-block btn-default">Sign in</button>
-                    <a href="/flynsarmy/sociallogin/Facebook"><img src="{{ 'assets/images/fb-login.png'|theme }}" width="226" style="padding-top:5px;"></a>
-                    <a href="/flynsarmy/sociallogin/Google"><img src="{{ 'assets/images/g-login.png'|theme }}" width="226" style="padding-top:5px;"></a>
-                    <a href="/flynsarmy/sociallogin/Twitter"><img src="{{ 'assets/images/t-login.png'|theme }}" width="226" style="padding-top:5px;"></a>
+                    <button type="submit" style="width:225px; height:35px; padding-top: 5px; margin-top:5px;" class="btn  btn-default">Sign in</button>
+                    <a href="/flynsarmy/sociallogin/Facebook"><img src="{{ 'assets/images/fb-login.png'|theme }}" width="225" style="padding-top:5px;"></a>
+                    <a href="/flynsarmy/sociallogin/Google"><img src="{{ 'assets/images/g-login.png'|theme }}" width="225" style="padding-top:5px;"></a>
+                    <a href="/flynsarmy/sociallogin/Twitter"><img src="{{ 'assets/images/t-login.png'|theme }}" width="225" style="padding-top:5px;"></a>
                 </form>
                 {% else %}
                   <p>
@@ -159,7 +159,7 @@ forceSecure = 0
       </div>
     </div>
   </div>
-  {% partial "ads/top" %}
+  {% partial "ads/bottom" %}
   <div class="row our-team">
     <div class="col-sm-8">
       <h4 class="headline"><span>{{ 'Our team'|_ }}</span></h4>
