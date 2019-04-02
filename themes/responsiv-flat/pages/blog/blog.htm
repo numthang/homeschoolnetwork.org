@@ -20,7 +20,6 @@ postPage = "blog/post"
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
-          {% partial "ads/top" %}
           {% set i = 0 %}
           {% set posts = blogPosts.posts %}
           {% for post in posts %}
@@ -44,7 +43,7 @@ postPage = "blog/post"
               </div>
             </div>
             {% set i = i + 1 %}
-            {% if i == 2 or i ==4 %}
+            {% if i == 2 or i ==4 or i ==6 %}
               {% partial 'ads/new-in-feed' %}
             {% endif %}
           {% endfor %}
