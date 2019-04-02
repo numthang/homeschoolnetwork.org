@@ -17,7 +17,7 @@ forceSecure = 0
   <div class="container">
       <div class="row">
           <div class="col-sm-5 col-md-5">
-              <h4>เครือข่ายบ้านเรียน</h4><!--ครบเครื่องเรื่องการทำโฮมสคูลในประเทศไทย-->
+              <h4 style="margin:5px;">เครือข่ายบ้านเรียน</h4><!--ครบเครื่องเรื่องการทำโฮมสคูลในประเทศไทย-->
               <div class="signup-form">
                 {% if not user %}
                 <form data-request="onSignin">
@@ -29,9 +29,7 @@ forceSecure = 0
                           class="form-control"
                           id="userSigninLogin"
                           placeholder="Enter your {{ loginAttributeLabel|lower }}" />
-                  </div>
 
-                  <div class="form-group">
                       <label for="userSigninPassword">Password</label>
                       <input
                           name="password"
@@ -42,10 +40,9 @@ forceSecure = 0
                   </div>
 
                   <button type="submit" class="btn btn-block btn-default">Sign in</button>
-                  {% for name, link in social_login_links %}
-                    <a href="{{ link }}">{{ name }}</a>
-                  {% endfor %}
-                  {% component 'sociallogin' %}
+                    <a href="/flynsarmy/sociallogin/Facebook"><img src="{{ 'assets/images/fb-login.png'|theme }}" width="226" style="padding-top:5px;"></a>
+                    <a href="/flynsarmy/sociallogin/Google"><img src="{{ 'assets/images/g-login.png'|theme }}" width="226" style="padding-top:5px;"></a>
+                    <a href="/flynsarmy/sociallogin/Twitter"><img src="{{ 'assets/images/t-login.png'|theme }}" width="226" style="padding-top:5px;"></a>
                 </form>
                 {% else %}
                   <p>
@@ -84,23 +81,18 @@ forceSecure = 0
 </section>
 
 <section class="google-ads">
-	<div class="container">ADS
-		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-		<!-- Homeschool Network Index Top
-		<ins class="adsbygoogle"
-		 style="dis#recent tweet
-play:block"
-		 data-ad-client="ca-pub-9939363335105757"
-		 data-ad-slot="3572354287"
-		 data-ad-format="auto"
-		 data-full-width-responsive="true"></ins>
-		<script>
-		(adsbygoogle = window.adsbygoogle || []).push({});
-		</script>-->
-	</div>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- Homeschool Network Top -->
+  <ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9939363335105757"
+     data-ad-slot="7548445391"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
 </section>
-
-<br />
 
 <div class="container">
   <!-- Services -->
@@ -223,6 +215,19 @@ play:block"
       data-adapt-container-width="true"></div>
     </div>
   </div>
+  <section class="google-ads">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Homeschool Network Bottom -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-9939363335105757"
+         data-ad-slot="8326216739"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </section>
   <!--<div class="recent-tweets">
       <h4 class="headline"><span>Recent tweets</span></h4>
       <div class="tweet">
