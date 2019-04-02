@@ -26,8 +26,8 @@ forceSecure = 0
   public function onEnd() {
     use October\Rain\Auth\Models\User as User;
     $this->page->meta_title = $this->post->title;
-    empty($this->post->excerpt) ? $description = substr(strip_tags($this->post->content), 0, 260) : $description = $this->post->excerpt;
-    $this->post->seo_description = $this->page->meta_description = $description;
+    $this->post->excerpt == null ? $description = substr(strip_tags($this->post->content), 0, 500) : $description = strip_tags($this->post->excerpt);
+    $this->page->og_description = $this->page->meta_description = $description;
     //og:image
     #dump($this->post->featured_images[0]);
     if(count($this->post->featured_images))
