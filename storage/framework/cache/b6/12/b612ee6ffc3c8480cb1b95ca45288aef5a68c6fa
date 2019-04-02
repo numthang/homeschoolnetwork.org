@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-1554238103a:1:{i:0;O:8:"stdClass":3:{s:2:"id";i:2;s:4:"item";s:30:"ebussola_userfacebook_settings";s:5:"value";s:76:"{"app_id":"345191885891796","app_secret":"6108c48466a76b1e8abf7bc3cb22b50d"}";}}
-=======
-1554254948a:1:{i:0;O:8:"stdClass":3:{s:2:"id";i:2;s:4:"item";s:30:"ebussola_userfacebook_settings";s:5:"value";s:76:"{"app_id":"345191885891796","app_secret":"6108c48466a76b1e8abf7bc3cb22b50d"}";}}
->>>>>>> e6041445d374d85b022db2b936e4e8a01fea8bde
+1554273132a:1:{i:0;O:8:"stdClass":3:{s:2:"id";i:2;s:4:"item";s:30:"ebussola_userfacebook_settings";s:5:"value";s:76:"{"app_id":"345191885891796","app_secret":"6108c48466a76b1e8abf7bc3cb22b50d"}";}}

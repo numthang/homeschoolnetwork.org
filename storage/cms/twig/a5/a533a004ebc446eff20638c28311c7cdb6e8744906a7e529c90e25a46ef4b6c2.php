@@ -67,9 +67,10 @@ class __TwigTemplate_8d32f66788a4979e1a29b377c2ba1fe7dad37d7187c746895ac54b62635
         echo "\"></script>
       <![endif]-->
       <link href=\"https://fonts.googleapis.com/css?family=Sarabun\" rel=\"stylesheet\">
+      <link href=\"https://fonts.googleapis.com/css?family=Kanit\" rel=\"stylesheet\">
     </head>
     <body class=\"page-";
-        // line 27
+        // line 28
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", array()), "id", array()), "html", null, true);
         echo " layout-";
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "layout", array()), "id", array()), "html", null, true);
@@ -100,54 +101,54 @@ class __TwigTemplate_8d32f66788a4979e1a29b377c2ba1fe7dad37d7187c746895ac54b62635
         <header id=\"layout-header\" class=\"header-navbar\">
             <!-- Nav -->
             ";
-        // line 53
+        // line 54
         $context['__cms_partial_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("nav"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
-        // line 54
+        // line 55
         echo "        </header>
 
         <!-- Content -->
         <div id=\"layout-content\">
             ";
-        // line 58
-        echo $this->env->getExtension('Cms\Twig\Extension')->pageFunction();
         // line 59
+        echo $this->env->getExtension('Cms\Twig\Extension')->pageFunction();
+        // line 60
         echo "        </div>
         <!-- Mailing List
         <section id=\"layout-subscribe\" class=\"subscribe-form\">
             ";
-        // line 62
+        // line 63
         $context['__cms_partial_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("subscribe"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
-        // line 63
+        // line 64
         echo "        </section>-->
 
         <!-- Footer -->
         <footer id=\"layout-footer\">
             ";
-        // line 67
+        // line 68
         $context['__cms_partial_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("footer"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
-        // line 68
+        // line 69
         echo "        </footer>
 
         <!-- Scripts -->
         <script src=\"";
-        // line 71
+        // line 72
         echo $this->extensions['Cms\Twig\Extension']->themeFilter(array(0 => "assets/javascript/jquery.min.js", 1 => "assets/vendor/bootstrap/js/transition.js", 2 => "assets/vendor/bootstrap/js/alert.js", 3 => "assets/vendor/bootstrap/js/button.js", 4 => "assets/vendor/bootstrap/js/carousel.js", 5 => "assets/vendor/bootstrap/js/collapse.js", 6 => "assets/vendor/bootstrap/js/dropdown.js", 7 => "assets/vendor/bootstrap/js/modal.js", 8 => "assets/vendor/bootstrap/js/tooltip.js", 9 => "assets/vendor/bootstrap/js/popover.js", 10 => "assets/vendor/bootstrap/js/scrollspy.js", 11 => "assets/vendor/bootstrap/js/tab.js", 12 => "assets/vendor/bootstrap/js/affix.js", 13 => "assets/vendor/jquery-ui/js/jquery.ui.core.js", 14 => "assets/vendor/jquery-ui/js/jquery.ui.widget.js", 15 => "assets/vendor/jquery-ui/js/jquery.ui.mouse.js", 16 => "assets/vendor/jquery-ui/js/jquery.ui.position.js", 17 => "assets/vendor/jquery-ui/js/jquery.ui.button.js", 18 => "assets/vendor/jquery-ui/js/jquery.ui.slider.js", 19 => "assets/vendor/jquery-ui/js/jquery.ui.effects.js", 20 => "assets/vendor/jquery-ui/js/jquery.ui.touchpunch.js", 21 => "assets/vendor/flat-ui/js/video.js", 22 => "assets/vendor/flat-ui/js/bootstrap-switch.js", 23 => "assets/vendor/flat-ui/js/bootstrap-tagsinput.js", 24 => "assets/vendor/flat-ui/js/holder.js", 25 => "assets/vendor/flat-ui/js/typeahead.jquery.js", 26 => "assets/vendor/flat-ui/js/select2.js", 27 => "assets/vendor/flat-ui/js/flatui-radiocheck.js", 28 => "assets/javascript/app.js"));
-        // line 105
+        // line 106
         echo "\"></script>
         <script>
         \tvideojs.options.flash.swf = \"";
-        // line 107
+        // line 108
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/vendor/flat-ui/js/video-js.swf");
         echo "\";
         </script>
         ";
-        // line 109
+        // line 110
         $_minify = System\Classes\CombineAssets::instance()->useMinify;
         if ($_minify) {
             echo '<script src="'. Request::getBasePath()
@@ -162,16 +163,16 @@ class __TwigTemplate_8d32f66788a4979e1a29b377c2ba1fe7dad37d7187c746895ac54b62635
         echo '<link rel="stylesheet" property="stylesheet" href="'. Request::getBasePath()
                     .'/modules/system/assets/css/framework.extras'.($_minify ? '-min' : '').'.css">'.PHP_EOL;
         unset($_minify);
-        // line 110
+        // line 111
         echo "        ";
         echo $this->env->getExtension('Cms\Twig\Extension')->assetsFunction('js');
         echo $this->env->getExtension('Cms\Twig\Extension')->displayBlock('scripts');
-        // line 111
+        // line 112
         echo "
         <script src=\"";
-        // line 112
+        // line 113
         echo $this->extensions['Cms\Twig\Extension']->themeFilter(array(0 => "assets/javascript/pages/ui-elements.js"));
-        // line 114
+        // line 115
         echo "\"></script>
     </body>
     <script type=\"text/javascript\">
@@ -203,7 +204,7 @@ class __TwigTemplate_8d32f66788a4979e1a29b377c2ba1fe7dad37d7187c746895ac54b62635
 
     public function getDebugInfo()
     {
-        return array (  175 => 114,  173 => 112,  170 => 111,  166 => 110,  151 => 109,  146 => 107,  142 => 105,  140 => 71,  135 => 68,  131 => 67,  125 => 63,  121 => 62,  116 => 59,  114 => 58,  108 => 54,  104 => 53,  73 => 27,  67 => 23,  65 => 20,  59 => 16,  56 => 14,  53 => 13,  49 => 12,  42 => 8,  38 => 7,  33 => 6,  29 => 5,  23 => 1,);
+        return array (  176 => 115,  174 => 113,  171 => 112,  167 => 111,  152 => 110,  147 => 108,  143 => 106,  141 => 72,  136 => 69,  132 => 68,  126 => 64,  122 => 63,  117 => 60,  115 => 59,  109 => 55,  105 => 54,  74 => 28,  67 => 23,  65 => 20,  59 => 16,  56 => 14,  53 => 13,  49 => 12,  42 => 8,  38 => 7,  33 => 6,  29 => 5,  23 => 1,);
     }
 
     public function getSourceContext()
@@ -233,6 +234,7 @@ class __TwigTemplate_8d32f66788a4979e1a29b377c2ba1fe7dad37d7187c746895ac54b62635
       ]|theme }}\"></script>
       <![endif]-->
       <link href=\"https://fonts.googleapis.com/css?family=Sarabun\" rel=\"stylesheet\">
+      <link href=\"https://fonts.googleapis.com/css?family=Kanit\" rel=\"stylesheet\">
     </head>
     <body class=\"page-{{ this.page.id }} layout-{{ this.layout.id }}\">
       
