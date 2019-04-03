@@ -2,6 +2,8 @@ title = "Tagged"
 url = "/blog/tagged/:id"
 layout = "default"
 is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
 
 [viewBag]
 localeUrl[en] = "/tagged"
@@ -16,14 +18,31 @@ categoryPage = "blog/category"
 ==
 <section id="layout-title">
     <div class="container">
-        <h3>{{ 'Tagged'|_ }}</h3>
+        <h3>{{ 'Tagged'|_ }} "{{ blogTagSearch.tag.name }}"</h3>
     </div>
 </section>
 
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
-          {% component 'blogTagSearch' %}
+          {% if blogTagSearch.posts %}
+              <ul>
+                  {% for Post in blogTagSearch.tag.posts %}
+                       <li>
+                           <a href="{{Post.url}}">{{ Post.title }}</a>
+                           {% if Post.categories %}
+                           - published in
+                              {% for category in Post.categories %}
+                                  <a href="{{category.url|e}}">{{category.name}}</a>{% if not loop.last %}, {% endif %}
+                              {% endfor %}
+                           {% endif %}
+                       </li>
+                  {% endfor %}
+              </ul>
+          {% else %}
+              No posts found.
+          {% endif %}
+
         </div>
         <div class="col-sm-3">
           {% partial 'blog/sidebar' %}
