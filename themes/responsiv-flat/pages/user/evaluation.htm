@@ -1,5 +1,5 @@
 title = "Evaluation preview"
-url = "/user/evaluation/:id"
+url = "/user/evaluation/:slug"
 layout = "printable"
 is_hidden = 0
 robot_index = "noindex"
@@ -10,27 +10,28 @@ robot_follow = "nofollow"
 <?php
 public function onEnd() {
   $course = $this->evaluationform->course;
-  $j = json_decode($course->attributes['father_profile']);
-  $this->page['father_name'] = $j->father_name;
-  $this->page['father_degree'] = $j->father_degree;
-  $this->page['father_exp'] = $j->father_exp;
-  $this->page['father_age'] = $j->father_age;
-  $this->page['father_job'] = $j->father_job;
-  $this->page['father_addr'] = $j->father_addr;
-  $this->page['father_contact'] = $j->father_contact;
+  if($course) {
+    $j = json_decode($course->attributes['father_profile']);
+    $this->page['father_name'] = $j->father_name;
+    $this->page['father_degree'] = $j->father_degree;
+    $this->page['father_exp'] = $j->father_exp;
+    $this->page['father_age'] = $j->father_age;
+    $this->page['father_job'] = $j->father_job;
+    $this->page['father_addr'] = $j->father_addr;
+    $this->page['father_contact'] = $j->father_contact;
 
-	$j = json_decode($course->attributes['mother_profile']);
-  $this->page['mother_name'] = $j->mother_name;
-  $this->page['mother_degree'] = $j->mother_degree;
-  $this->page['mother_exp'] = $j->mother_exp;
-  $this->page['mother_age'] = $j->mother_age;
-  $this->page['mother_job'] = $j->mother_job;
-  $this->page['mother_addr'] = $j->mother_addr;
-  $this->page['mother_contact'] = $j->mother_contact;
+  	$j = json_decode($course->attributes['mother_profile']);
+    $this->page['mother_name'] = $j->mother_name;
+    $this->page['mother_degree'] = $j->mother_degree;
+    $this->page['mother_exp'] = $j->mother_exp;
+    $this->page['mother_age'] = $j->mother_age;
+    $this->page['mother_job'] = $j->mother_job;
+    $this->page['mother_addr'] = $j->mother_addr;
+    $this->page['mother_contact'] = $j->mother_contact;
 
-  $date = explode('-', $course->attributes['birth_date']);
-  $this->page['birth_date'] = $date[2].'/'.$date[1].'/'.$date[0];
-
+    $date = explode('-', $course->attributes['birth_date']);
+    $this->page['birth_date'] = $date[2].'/'.$date[1].'/'.$date[0];
+  }
 }
 ?>
 ==

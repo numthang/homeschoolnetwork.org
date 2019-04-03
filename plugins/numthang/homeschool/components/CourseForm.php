@@ -18,13 +18,14 @@ class CourseForm extends ComponentBase
         ];
     }
 		public function onRun() {
-      if($this->param('id')) {
-        $id = $this->param('id');
-        if($id  > 100000) {
+      if($this->param('id') || $this->param('slug')) {
+        if($id = $this->param('slug')) {
+          if($id < 100000)
+            return;
           $tmp = Course::where('created_at', date('Y-m-d H:i:s', $id))->get();
           $this->record = $tmp[0];
         }
-        else
+        else if($id = $this->param('id'))
           $this->record = Course::find($id);
       }
 		}
