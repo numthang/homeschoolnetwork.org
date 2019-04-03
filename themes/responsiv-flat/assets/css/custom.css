@@ -21,7 +21,7 @@
 }
 @media screen and (max-width: 320px) {
   .navbar-toggle {
-    padding-right: 30px;
+    /*padding-right: 20px;*/
   }
 }
 .social-login {
