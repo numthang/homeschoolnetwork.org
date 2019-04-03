@@ -1,8 +1,14 @@
 .user-icon {
-  max-width: 80px;
-  max-height: 80px;
-  /*box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.2);*/
+  /*max-width: 50px;
+  max-height: 50px;
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.2);*/
   margin-top: 5px;
+  text-align: center;
+}
+.user-menu {
+  font-size: 15px;
+  margin-left: 5px;
+  text-align: center;
 }
 .avatar {
   border-radius: 100px;

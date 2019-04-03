@@ -42,7 +42,8 @@ class Courses extends ComponentBase
         return [
             'name asc' => 'Name (ascending)',
             'name desc' => 'Name (descending)',
-            'template' => 'Template (descending)'
+            'template' => 'Template (descending)',
+            'updated_at' => 'Modified'
         ];
     }
 
@@ -67,6 +68,10 @@ class Courses extends ComponentBase
         $query = $query->orderByDesc('name');
       else
         $query = $query->orderByDesc($this->property('sortOrder'));
+
+      if($this->property('results') > 0){
+          $query = $query->take($this->property('results'));
+      }
 
       $query = $query->get();
       return $query;

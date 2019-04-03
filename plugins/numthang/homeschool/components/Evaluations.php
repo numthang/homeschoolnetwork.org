@@ -46,7 +46,8 @@ class Evaluations extends ComponentBase
       return [
           'name asc' => 'Name (ascending)',
           'name desc' => 'Name (descending)',
-          'template' => 'Template (descending)'
+          'template' => 'Template (descending)',
+          'updated_at' => 'Modified'
       ];
   }
 
@@ -73,6 +74,9 @@ class Evaluations extends ComponentBase
     else
       $query = $query->orderByDesc($this->property('sortOrder'));
 
+    if($this->property('results') > 0){
+        $query = $query->take($this->property('results'));
+    }
     $query = $query->get();
     #dump($query);
     #dump($query[0]->evaluations);
