@@ -27,162 +27,162 @@ sortOrder = "name asc"
   </div>
 </section>
 <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-          {% flash %}
-            <p data-control="flash-message" data-interval="5" class="{{ type == 'error' ? 'danger' : type }}">{{ message }}<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></p>
-          {% endflash %}
-          {{ form_ajax('onUpdate') }}
-            <div class="accordion">
-              <dl>
-                <dt><a class="accordionTitle accordionTitleActive" href="#"><i class="fui-user"></i> Account</a></dt>
-                <dd class="accordionItem ">
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <label for="status">{{ 'Status'|_ }}</label>
-                        <select class=" form-control" name="status" >
-                          <option value="1" {{ user.status == 1 ? 'selected' : '' }}>Homeschool</option>
-                          <option value="0" {{ user.status == 0 ? 'selected' : '' }}>Interested</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                          <label for="accountEmail">Email</label>
-                          <input name="email" type="email" class="form-control" id="accountEmail" value="{{ user.email }}">
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
-
-                        <label>First Name</label>
-                        <input name="name" type="text" class="form-control" value="{{ user.name }}">
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <label>Last Name</label>
-                        <input name="surname" type="text" class="form-control" value="{{ user.surname }}">
-                      </div>
-                    </div>
-
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                          <label for="accountPassword">New Password</label>
-
-                          <input name="password" type="password" class="form-control" id="accountPassword" autocomplete="false">
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                          <label for="accountPasswordConfirm">Confirm New Password</label>
-
-                          <input name="password_confirmation" type="password" class="form-control" id="accountPasswordConfirm" autocomplete="false">
-                      </div>
+  <div class="row">
+      <div class="col-md-12">
+        {% flash %}
+          <p data-control="flash-message" data-interval="5" class="{{ type == 'error' ? 'danger' : type }}">{{ message }}<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></p>
+        {% endflash %}
+        {{ form_ajax('onUpdate') }}
+          <div class="accordion">
+            <dl>
+              <dt><a class="accordionTitle accordionTitleActive" href="#"><i class="fui-user"></i> Account</a></dt>
+              <dd class="accordionItem ">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="status">{{ 'Status'|_ }}</label>
+                      <select class=" form-control" name="status" >
+                        <option value="1" {{ user.status == 1 ? 'selected' : '' }}>Homeschool</option>
+                        <option value="0" {{ user.status == 0 ? 'selected' : '' }}>Interested</option>
+                      </select>
                     </div>
                   </div>
-                </dd>
-                <dt><a href="#" class="accordionTitle"><i class="fui-location"></i> Profile</a></dt>
-                <dd class="accordionItem accordionItemCollapsed">
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <label>Phone</label>
-                        <input name="phone" type="text" class="form-control" value="{{ user.phone }}">
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <label>Mobile</label>
-                        <input name="mobile" type="text" class="form-control" value="{{ user.mobile }}">
-
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <label>Company</label>
-                        <input name="company" type="text" class="form-control" value="{{ user.company }}">
-                      </div>
-                    </div>
-                    <div class="col-sm-12">
-                      <div class="form-group">
-                        <label>Street Address</label>
-                        <input name="street_addr" type="text" class="form-control" value="{{ user.street_addr }}">
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
-
-                        <label>City</label>
-                        <input name="city" type="text" class="form-control" value="{{ user.city }}">
-                      </div>
-                    </div>
-
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <label>Zip</label>
-                        <input name="zip" type="text" class="form-control" value="{{ user.zip }}">
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="{{ wrapper_class }} form-group">
-                        <label>Country</label>
-                        {{ form_select_country('country_id', user.country_id,
-                        {
-                            class: class ~ ' form-control',
-                            emptyOption: '-- SELECT COUNTRY --',
-                            'data-request': 'onChangeCountry',
-                            'data-request-data': {placeholder: '-- SELECT STATE --', name: 'country_id'},
-                        }) }}
-                      </div>
-
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="{{ wrapper_class }} form-group">
-                        <label>State</label>
-                        {{ form_select_state('state_id', user.country_id,  user.state_id, { id: 'state-select', class: class ~ ' form-control', emptyOption: placeholder }) }}
-
-                      </div>
-                    </div>
-                    <div class="col-sm-12">
-                      <div class="{{ wrapper_class }} form-group">
-                        <label>{{ 'Description'|_ }}</label>
-                        <textarea name="note" class="form-control" rows="10">{{ user.note }}</textarea>
-                      </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="accountEmail">Email</label>
+                        <input name="email" type="email" class="form-control" id="accountEmail" value="{{ user.email }}">
                     </div>
                   </div>
-                </dd>
-                <dt><a href="#" class="accordionTitle"><i class="fui-chat"></i> Contact</a></dt>
-                <dd class="accordionItem accordionItemCollapsed">
-                  <div class="form-group">
-                    <label>Facebook</label>
-                    <input name="facebook" type="text" class="form-control" value="{{ user.facebook }}">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+
+                      <label>First Name</label>
+                      <input name="name" type="text" class="form-control" value="{{ user.name }}">
+                    </div>
                   </div>
-                  <div class="form-group">
-                    <label>Line</label>
-                    <input name="line" type="text" class="form-control" value="{{ user.line }}">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Last Name</label>
+                      <input name="surname" type="text" class="form-control" value="{{ user.surname }}">
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="accountPassword">New Password</label>
+
+                        <input name="password" type="password" class="form-control" id="accountPassword" autocomplete="false">
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="accountPasswordConfirm">Confirm New Password</label>
+
+                        <input name="password_confirmation" type="password" class="form-control" id="accountPasswordConfirm" autocomplete="false">
+                    </div>
+                  </div>
+                </div>
+              </dd>
+              <dt><a href="#" class="accordionTitle"><i class="fui-location"></i> Profile</a></dt>
+              <dd class="accordionItem accordionItemCollapsed">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Phone</label>
+                      <input name="phone" type="text" class="form-control" value="{{ user.phone }}">
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Mobile</label>
+                      <input name="mobile" type="text" class="form-control" value="{{ user.mobile }}">
+
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Company</label>
+                      <input name="company" type="text" class="form-control" value="{{ user.company }}">
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <label>Street Address</label>
+                      <input name="street_addr" type="text" class="form-control" value="{{ user.street_addr }}">
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+
+                      <label>City</label>
+                      <input name="city" type="text" class="form-control" value="{{ user.city }}">
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Zip</label>
+                      <input name="zip" type="text" class="form-control" value="{{ user.zip }}">
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="{{ wrapper_class }} form-group">
+                      <label>Country</label>
+                      {{ form_select_country('country_id', user.country_id,
+                      {
+                          class: class ~ ' form-control',
+                          emptyOption: '-- SELECT COUNTRY --',
+                          'data-request': 'onChangeCountry',
+                          'data-request-data': {placeholder: '-- SELECT STATE --', name: 'country_id'},
+                      }) }}
+                    </div>
 
                   </div>
-                  <div class="form-group">
-                    <label>Website</label>
-                    <input name="website" type="text" class="form-control" value="{{ user.website }}">
+                  <div class="col-sm-6">
+                    <div class="{{ wrapper_class }} form-group">
+                      <label>State</label>
+                      {{ form_select_state('state_id', user.country_id,  user.state_id, { id: 'state-select', class: class ~ ' form-control', emptyOption: placeholder }) }}
+
+                    </div>
                   </div>
-                </dd>
-              </dl>
+                  <div class="col-sm-12">
+                    <div class="{{ wrapper_class }} form-group">
+                      <label>{{ 'Description'|_ }}</label>
+                      <textarea name="note" class="form-control" rows="10">{{ user.note }}</textarea>
+                    </div>
+                  </div>
+                </div>
+              </dd>
+              <dt><a href="#" class="accordionTitle"><i class="fui-chat"></i> Contact</a></dt>
+              <dd class="accordionItem accordionItemCollapsed">
+                <div class="form-group">
+                  <label>Facebook</label>
+                  <input name="facebook" type="text" class="form-control" value="{{ user.facebook }}">
+                </div>
+                <div class="form-group">
+                  <label>Line</label>
+                  <input name="line" type="text" class="form-control" value="{{ user.line }}">
+
+                </div>
+                <div class="form-group">
+                  <label>Website</label>
+                  <input name="website" type="text" class="form-control" value="{{ user.website }}">
+                </div>
+              </dd>
+            </dl>
+          </div>
+          <script src="{{ ['assets/js/accordion.js']|theme }}"></script>
+          <div class="clearfix"></div>
+          <div class="row">
+            <div class="col-sm-6">
+              <button type="submit" class="btn btn-lg btn-info">Save</button>
             </div>
-            <script src="{{ ['assets/js/accordion.js']|theme }}"></script>
-            <div class="clearfix"></div>
-            <div class="row">
-              <div class="col-sm-6">
-                <button type="submit" class="btn btn-lg btn-info">Save</button>
-              </div>
-            </div>
-            <br>
+          </div>
+          <br>
 
-          {{ form_close() }}
-        </div>
-        {% partial 'ads/bottom' %}
-    </div>
+        {{ form_close() }}
+      </div>
+  </div>
+  {% partial 'ads/bottom' %}
 </div>
 <br>
