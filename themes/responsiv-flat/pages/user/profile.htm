@@ -23,12 +23,12 @@ notFoundMessage = "Record not found"
 [courses]
 results = 0
 byUserID = "{{ :id }}"
-sortOrder = "template"
+sortOrder = "updated_at"
 
 [evaluations]
 results = 0
 byUserID = "{{ :id }}"
-sortOrder = "template"
+sortOrder = "updated_at"
 ==
 <section id="layout-title">
     <div class="container">
@@ -41,7 +41,8 @@ sortOrder = "template"
   <div class="row">
     <div class="col-md-7">
       <b>{{ 'About'|_ }}</b> <p>{{ record.note|raw }}</p>
-      <b>{{ 'Course'|_ }}</b> <p>
+      <b>{{ 'Course'|_ }}</b>
+      <p>
         {%  set courses = courses.courses %}
         {% for c in courses %}
           <a href="/user/course/{{ c.created_at|date('U') }}"> <span class="fui-new"></span> {{ c.name }}</a> [ {{ c.modified_at|date("m/d/Y") }} ]<br>

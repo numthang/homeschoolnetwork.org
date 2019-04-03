@@ -12,6 +12,16 @@ robot_follow = "follow"
 [account]
 paramCode = "code"
 forceSecure = 0
+
+[courses]
+results = 3
+byUserID = "{{ :id }}"
+sortOrder = "updated_at"
+
+[evaluations]
+results = 3
+byUserID = "{{ :id }}"
+sortOrder = "updated_at"
 ==
 <section class="home-title">
   <div class="container">
@@ -46,21 +56,41 @@ forceSecure = 0
           <br>{{ 'No account ?'|_ }} <a href="/login">{{ 'Register'|_ }}</a>
           {% else %}
 		        <div class="row">
-		          <div class="col-md-4 col-sm-6 col-xs-6" align="center">
-		            <a href="/login/profile"><img src="/themes/responsiv-flat/assets/images/icons/png/profile.png" class="img-rounded img-responsive user-icon"><font style="font-size:18px;">{{ 'My profile'|_ }}</font></a>
+		          <div class="col-sm-3 col-xs-3" align="center">
+		            <a href="/login/profile"><img src="/themes/responsiv-flat/assets/images/icons/png/profile.png" class="img-rounded user-icon img-responsive" title="{{ 'My profile'|_ }}"></a>
 		          </div>
-		          <div class="col-md-4 col-sm-6 col-xs-6" align="center">
-		            <a href="/login/new/course"><img src="/themes/responsiv-flat/assets/images/icons/png/Book.png" class="img-rounded img-responsive user-icon"><font style="font-size:18px;">{{ 'course'|_ }}</font></a>
+		          <div class="col-sm-3 col-xs-3" align="center">
+		            <a href="/login/new/course"><img src="/themes/responsiv-flat/assets/images/icons/png/Book.png" class="img-rounded user-icon img-responsive" title="{{ 'New course'|_ }}"></a>
 		          </div>
-		          <div class="col-md-4 col-sm-6 col-xs-6" align="center">
-		            <a href="/login/new/evaluation"><img src="/themes/responsiv-flat/assets/images/icons/png/Clipboard.png" class="img-rounded img-responsive user-icon"><font style="font-size:18px;">{{ 'Evaluation'|_ }}</font></a>
+		          <div class="col-sm-3 col-xs-3" align="center">
+		            <a href="/login/new/evaluation"><img src="/themes/responsiv-flat/assets/images/icons/png/Clipboard.png" class="img-rounded user-icon img-responsive" title="{{ 'New evaluation'|_ }}"></a>
 		          </div>
-		          <div class="col-md-4 col-sm-6 col-xs-6" align="center">
-		            <a href="/login/new/post"><img src="/themes/responsiv-flat/assets/images/icons/png/Pencils.png" class="img-rounded img-responsive user-icon"><font style="font-size:18px;">{{ 'New post'|_ }}</font></a>
+		          <div class="col-sm-3 col-xs-3" align="center">
+		            <a href="/login/new/post"><img src="/themes/responsiv-flat/assets/images/icons/png/Pencils.png" class="img-rounded user-icon img-responsive" title="{{ 'New post'|_ }}"></a>
 		          </div>
-		          <div class="col-md-4 col-sm-6 col-xs-6" align="center">
-		            <a href="javascript:void(0);" data-request="onLogout" data-request-data="redirect: '/'"><img src="/themes/responsiv-flat/assets/images/icons/png/signout.png" class="img-rounded img-responsive user-icon"><font style="font-size:18px;">{{ 'Sign out'|_ }}</font></a>
-		          </div>
+            </div><hr>
+            <div class="row">
+              <div class="col-sm-12">
+                <b>{{ 'Course'|_ }}</b>
+                <p>
+                  {%  set courses = courses.courses %}
+                  {% for c in courses %}
+                    <a href="/login/edit/course/{{ c.id }}"> <span class="fui-new"></span> {{ c.name }}</a> [ {{ c.modified_at|date("m/d/Y") }} ]<br>
+                  {% endfor %}
+                </p>
+                <b>{{ 'Evaluation'|_ }}</b>
+                <p>
+                  {%  set evaluations = evaluations.evaluations %}
+                  {% for c in evaluations %}
+                    {% for e in c.evaluations %}
+                      <a href="/login/edit/evaluation/{{ e.id }}"> <span class="fui-new"></span> {{ e.name }}</a> [ {{ e.modified_at|date("m/d/Y") }} ]<br>
+                    {% endfor %}
+                  {% endfor %}
+                </p>
+              </div>
+		          <!--<div class="col-sm-2" align="center">
+		            <a href="javascript:void(0);" data-request="onLogout" data-request-data="redirect: '/'"><img src="/themes/responsiv-flat/assets/images/icons/png/signout.png" class="img-rounded user-icon"><font class="user-menu">{{ 'Sign out'|_ }}</font></a>
+		          </div>-->
 		        </div>
           {% endif %}
         </div>
@@ -79,7 +109,7 @@ forceSecure = 0
   <!-- Services -->
   <div class="row our-services">
     <div class="col-sm-12">
-      <h4 class="headline"><span>{{ 'What we do'|_ }}</span></h4> 
+      <h4 class="headline"><span>{{ 'What we do'|_ }}</span></h4>
       <p>"เครือข่ายบ้านเรียน" เว็บกลางสำหรับสมาชิกบ้านเรียนหรือโฮมสคูลในเมืองไทย สามารถติดต่อ แลกเปลี่ยน หาความรู้ในการทำโฮมสคูล โดยสมาชิกจะสามารถ ค้นฐานข้อมูลสมาชิกบ้านเรียน, เขียนแผนการศึกษาออนไลน์, เขียนแบบประเมินและร่องรอยการเรียนรู้และสามารถร่วมเขียนเนื้อหาหรือบันทึกใดๆ ที่ต้องการแชร์ให้กับสมาชิกบ้านเรียนท่านอื่นๆ หรือบุคคลที่สนใจได้เข้ามาศึกษา เพื่อทำความรู้จักและสร้างกลุ่มบ้านเรียนให้ใหญ่ขึ้นได้ต่อไป</p>
       <div class="row">
         <div class="col-sm-4">
@@ -100,7 +130,7 @@ forceSecure = 0
               <div class="service-desc">
                 <h5><a href="/login/new/course">{{ 'New course'|_ }}</a></h5>
                 <p>หากคุณประสบปัญหาในการเขียนรายงาน, การออกแบบการเรียนการสอนและการจัดเรียงเอกสาร
-                  สิ่งนี้จะช่วยได้ โดยข้างในจะมีตัวอย่างการเขียนแผนแบบสำเร็จรูปพร้อมใช้งาน 
+                  สิ่งนี้จะช่วยได้ โดยข้างในจะมีตัวอย่างการเขียนแผนแบบสำเร็จรูปพร้อมใช้งาน
                 </p>
               </div>
             </div>
@@ -204,7 +234,7 @@ forceSecure = 0
       </div>
     </div>
     <div class="col-sm-4">
-			
+
       <h4 class="headline"><span>Find Us on Facebook</span></h4>
       <div class="fb-page"
         data-href="https://www.facebook.com/HomeschoolNetwork"
