@@ -4,6 +4,7 @@ use Auth;
 use Cms\Classes\ComponentBase;
 use Numthang\Homeschool\Models\Course;
 use DB;
+use Session;
 
 class Courses extends ComponentBase
 {
@@ -48,10 +49,11 @@ class Courses extends ComponentBase
     }
 
     public function onRun(){
+      if(Session::get('user_auth'))
         $this->courses = $this->loadCourses();
     }
 
-    protected function loadCourses(){
+    protected function loadCourses(){;
       if(!$this->property('byUserID')) {//if no user id specific
         $user = Auth::getUser();
         $userid = $user->id;

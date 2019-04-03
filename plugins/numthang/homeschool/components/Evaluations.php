@@ -6,6 +6,7 @@ use Numthang\Homeschool\Models\Course;
 use Numthang\Homeschool\Models\Evaluation;
 use DB;
 use Request;
+use Session;
 
 
 class Evaluations extends ComponentBase
@@ -52,7 +53,8 @@ class Evaluations extends ComponentBase
   }
 
   public function onRun(){
-    $this->evaluations = $this->loadEvaluations();
+    if(Session::get('user_auth'))
+      $this->evaluations = $this->loadEvaluations();
   }
 
   protected function loadEvaluations(){

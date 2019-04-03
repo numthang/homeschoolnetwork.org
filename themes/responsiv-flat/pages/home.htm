@@ -15,12 +15,12 @@ forceSecure = 0
 
 [courses]
 results = 3
-byUserID = "{{ :id }}"
+byUserID = "0"
 sortOrder = "updated_at"
 
 [evaluations]
 results = 3
-byUserID = "{{ :id }}"
+byUserID = "0"
 sortOrder = "updated_at"
 ==
 <section class="home-title">
@@ -61,6 +61,9 @@ sortOrder = "updated_at"
               </div>
             </div>
 		        <div class="row">
+              <!--<div class="col-sm-2 col-xs-2" align="center">
+                <a href="/user/profile/{{ user.id }}"><img src="{% if user.facebook_id %} https://graph.facebook.com/{{ user.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" alt="{{ user.name }}"  title="{{ user.name }}" class="img-rounded img-responsive user-icon avatar-responsive"></a>
+              </div>-->
 		          <div class="col-sm-3 col-xs-3" align="center">
 		            <a href="/login/profile"><img src="/themes/responsiv-flat/assets/images/icons/png/profile.png" class="img-rounded user-icon img-responsive" title="{{ 'My profile'|_ }}"></a>
 		          </div>
@@ -73,6 +76,9 @@ sortOrder = "updated_at"
 		          <div class="col-sm-3 col-xs-3" align="center">
 		            <a href="/login/new/post"><img src="/themes/responsiv-flat/assets/images/icons/png/Pencils.png" class="img-rounded user-icon img-responsive" title="{{ 'New post'|_ }}"></a>
 		          </div>
+              <!--<div class="col-sm-2 col-xs-2" align="center">
+		            <a href="/login/new/post"><img src="/themes/responsiv-flat/assets/images/icons/png/signout.png" class="img-rounded user-icon img-responsive" title="{{ 'Sign out'|_ }}"></a>
+		          </div>-->
             </div><hr>
             <div class="row">
               <div class="col-sm-12">
