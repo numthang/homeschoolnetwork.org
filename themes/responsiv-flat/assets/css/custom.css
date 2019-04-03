@@ -28,3 +28,6 @@
  width: 225px;
  margin-top:5px;
 }
+.scrolled {
+  opacity: 0.6;
+}

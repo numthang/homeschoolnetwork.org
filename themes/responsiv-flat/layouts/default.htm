@@ -42,62 +42,78 @@ security = "all"
       <div id="fb-root"></div>
       <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.2&appId=345191885891796&autoLogAppEvents=1"></script>
 
-        <div id="flash_message"></div>
-        <!-- Header -->
-        <header id="layout-header" class="header-navbar">
-            <!-- Nav -->
-            {% partial "nav" %}
-        </header>
+      <div id="flash_message"></div>
+      <!-- Header -->
+      <header id="layout-header" class="header-navbar">
+          <!-- Nav -->
+          {% partial "nav" %}
+      </header>
 
-        <!-- Content -->
-        <div id="layout-content">
-          {% page %}
-        </div>
+      <!-- Content -->
+      <div id="layout-content">
+        {% page %}
+      </div>
 
-        <!-- Footer -->
-        <footer id="layout-footer">
-            {% partial "footer" %}
-        </footer>
+      <!-- Footer -->
+      <footer id="layout-footer">
+          {% partial "footer" %}
+      </footer>
 
-        <!-- Scripts -->
-        <script src="{{ [
-            'assets/javascript/jquery.min.js',
+      <!-- Scripts -->
+      <script src="{{ [
+          'assets/javascript/jquery.min.js',
 
-            'assets/vendor/bootstrap/js/transition.js',
-            'assets/vendor/bootstrap/js/alert.js',
-            'assets/vendor/bootstrap/js/button.js',
-            'assets/vendor/bootstrap/js/carousel.js',
-            'assets/vendor/bootstrap/js/collapse.js',
-            'assets/vendor/bootstrap/js/dropdown.js',
-            'assets/vendor/bootstrap/js/modal.js',
-            'assets/vendor/bootstrap/js/tooltip.js',
-            'assets/vendor/bootstrap/js/popover.js',
-            'assets/vendor/bootstrap/js/scrollspy.js',
-            'assets/vendor/bootstrap/js/tab.js',
-            'assets/vendor/bootstrap/js/affix.js',
+          'assets/vendor/bootstrap/js/transition.js',
+          'assets/vendor/bootstrap/js/alert.js',
+          'assets/vendor/bootstrap/js/button.js',
+          'assets/vendor/bootstrap/js/carousel.js',
+          'assets/vendor/bootstrap/js/collapse.js',
+          'assets/vendor/bootstrap/js/dropdown.js',
+          'assets/vendor/bootstrap/js/modal.js',
+          'assets/vendor/bootstrap/js/tooltip.js',
+          'assets/vendor/bootstrap/js/popover.js',
+          'assets/vendor/bootstrap/js/scrollspy.js',
+          'assets/vendor/bootstrap/js/tab.js',
+          'assets/vendor/bootstrap/js/affix.js',
 
-            'assets/vendor/jquery-ui/js/jquery.ui.core.js',
-            'assets/vendor/jquery-ui/js/jquery.ui.widget.js',
-            'assets/vendor/jquery-ui/js/jquery.ui.mouse.js',
-            'assets/vendor/jquery-ui/js/jquery.ui.position.js',
-            'assets/vendor/jquery-ui/js/jquery.ui.button.js',
-            'assets/vendor/jquery-ui/js/jquery.ui.slider.js',
-            'assets/vendor/jquery-ui/js/jquery.ui.effects.js',
-            'assets/vendor/jquery-ui/js/jquery.ui.touchpunch.js',
+          'assets/vendor/jquery-ui/js/jquery.ui.core.js',
+          'assets/vendor/jquery-ui/js/jquery.ui.widget.js',
+          'assets/vendor/jquery-ui/js/jquery.ui.mouse.js',
+          'assets/vendor/jquery-ui/js/jquery.ui.position.js',
+          'assets/vendor/jquery-ui/js/jquery.ui.button.js',
+          'assets/vendor/jquery-ui/js/jquery.ui.slider.js',
+          'assets/vendor/jquery-ui/js/jquery.ui.effects.js',
+          'assets/vendor/jquery-ui/js/jquery.ui.touchpunch.js',
 
-            'assets/vendor/flat-ui/js/video.js',
-            'assets/vendor/flat-ui/js/bootstrap-switch.js',
-            'assets/vendor/flat-ui/js/bootstrap-tagsinput.js',
-            'assets/vendor/flat-ui/js/holder.js',
-            'assets/vendor/flat-ui/js/typeahead.jquery.js',
-            'assets/vendor/flat-ui/js/select2.js',
-            'assets/vendor/flat-ui/js/flatui-radiocheck.js',
+          'assets/vendor/flat-ui/js/video.js',
+          'assets/vendor/flat-ui/js/bootstrap-switch.js',
+          'assets/vendor/flat-ui/js/bootstrap-tagsinput.js',
+          'assets/vendor/flat-ui/js/holder.js',
+          'assets/vendor/flat-ui/js/typeahead.jquery.js',
+          'assets/vendor/flat-ui/js/select2.js',
+          'assets/vendor/flat-ui/js/flatui-radiocheck.js',
 
-            'assets/javascript/app.js'
-        ]|theme }}"></script>
-        {% framework extras %}
-        {% scripts %}
+          'assets/javascript/app.js'
+      ]|theme }}"></script>
+      {% framework extras %}
+      {% scripts %}
+      <script>
+        function checkScroll(){
+          var startY = $('.navbar').height() * 2; //The point where the navbar changes in px
 
+          if($(window).scrollTop() > startY){
+                $('.navbar').addClass("scrolled");
+            }else{
+                $('.navbar').removeClass("scrolled");
+            }
+          }
+
+          if($('.navbar').length > 0){
+            $(window).on("scroll load resize", function(){
+                checkScroll();
+            });
+          }
+      </script>
     </body>
     <script type="text/javascript">
 
