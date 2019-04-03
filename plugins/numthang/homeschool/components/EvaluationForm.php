@@ -23,14 +23,14 @@ class EvaluationForm extends ComponentBase
         return [];
     }
     public function onRun() {
-      if($this->param('id')) {
-        $id = $this->param('id');
-        if($id  > 100000) {
-          #echo date('Y-m-d H:i:s', $id);
+      if($this->param('id') || $this->param('slug')) {
+        if($id = $this->param('slug')) {
+          if($id < 100000)
+            return;
           $tmp = Evaluation::where('created_at', date('Y-m-d H:i:s', $id))->get();
           $this->record = $tmp[0];
         }
-        else
+        else if($id = $this->param('id'))
           $this->record = Evaluation::find($this->param('id'));
         $this->course = Course::find($this->record->attributes['course_id']);
       }
