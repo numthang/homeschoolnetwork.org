@@ -138,7 +138,7 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
   <!-- Services -->
   <div class=\"row our-services\">
     <div class=\"col-sm-12\">
-      <h4 class=\"headline\"><span> HomeschoolNetwork.org ";
+      <h4 class=\"headline\"><span>";
         // line 72
         echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("What we do"));
         echo "</span></h4>
@@ -396,7 +396,7 @@ ass=\"fa fa-twitter\"></i>
   <!-- Services -->
   <div class=\"row our-services\">
     <div class=\"col-sm-12\">
-      <h4 class=\"headline\"><span> HomeschoolNetwork.org {{ 'What we do'|_ }}</span></h4>
+      <h4 class=\"headline\"><span>{{ 'What we do'|_ }}</span></h4>
       <p>\"เครือข่ายบ้านเรียน\" เว็บกลางสำหรับสมาชิกบ้านเรียนหรือโฮมสคูลในเมืองไทย สามารถติดต่อ แลกเปลี่ยน หาความรู้ในการทำโฮมสคูล โดยสมาชิกจะสามารถ ค้นฐานข้อมูลสมาชิกบ้านเรียน, เขียนแผนการศึกษาออนไลน์, เขียนแบบประเมินและร่องรอยการเรียนรู้และสามารถร่วมเขียนเนื้อหาหรือบันทึกใดๆ ที่ต้องการแชร์ให้กับสมาชิกบ้านเรียนท่านอื่นๆ หรือบุคคลที่สนใจได้เข้ามาศึกษา เพื่อทำความรู้จักและสร้างกลุ่มบ้านเรียนให้ใหญ่ขึ้นได้ต่อไป</p>
       <div class=\"row\">
           <div class=\"col-sm-4\">
