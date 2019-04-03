@@ -18,7 +18,7 @@ forceSecure = 0
     <div class="row">
       <div class="col-sm-5 col-md-5 home-login">
         <!--ครบเครื่องเรื่องการทำโฮมสคูลในประเทศไทย-->
-        <div class="signup-form">
+        <div class="signup - form">
           {% if not user %}
           <form data-request="onSignin">
             <div class="form-group">
@@ -29,6 +29,7 @@ forceSecure = 0
                 class="form-control"
                 id="userSigninLogin"
                 placeholder="Enter your {{ loginAttributeLabel|lower }}" />
+
               <label for="userSigninPassword">Password</label>
               <input
                 name="password"
@@ -42,27 +43,25 @@ forceSecure = 0
             <a href="/flynsarmy/sociallogin/Google"><img src="{{ 'assets/images/g-login.png'|theme }}" class="social-login"></a>
             <a href="/flynsarmy/sociallogin/Twitter"><img src="{{ 'assets/images/t-login.png'|theme }}" class="social-login"></a>
           </form>
-          {{ 'No account ?'|_ }} <a href="/login">{{ 'Register'|_ }}</a>
+          <br>{{ 'No account ?'|_ }} <a href="/login">{{ 'Register'|_ }}</a>
           {% else %}
-          <p>
-          <div class="row">
-            <div class="col-md-4 col-sm-6 col-xs-6" align="center">
-              <a href="/login/profile"><img src="/themes/responsiv-flat/assets/images/icons/png/profile.png" class="img-rounded img-responsive user-icon"><font style="font-size:18px;">{{ 'My profile'|_ }}</font></a>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-6" align="center">
-              <a href="/login/new/course"><img src="/themes/responsiv-flat/assets/images/icons/png/Book.png" class="img-rounded img-responsive user-icon"><font style="font-size:18px;">{{ 'course'|_ }}</font></a>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-6" align="center">
-              <a href="/login/new/evaluation"><img src="/themes/responsiv-flat/assets/images/icons/png/Clipboard.png" class="img-rounded img-responsive user-icon"><font style="font-size:18px;">{{ 'Evaluation'|_ }}</font></a>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-6" align="center">
-              <a href="/login/new/post"><img src="/themes/responsiv-flat/assets/images/icons/png/Pencils.png" class="img-rounded img-responsive user-icon"><font style="font-size:18px;">{{ 'New post'|_ }}</font></a>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-6" align="center">
-              <a href="javascript:void(0);" data-request="onLogout" data-request-data="redirect: '/'"><img src="/themes/responsiv-flat/assets/images/icons/png/signout.png" class="img-rounded img-responsive user-icon"><font style="font-size:18px;">{{ 'Sign out'|_ }}</font></a>
-            </div>
-          </div>
-          </p>
+		        <div class="row">
+		          <div class="col-md-4 col-sm-6 col-xs-6" align="center">
+		            <a href="/login/profile"><img src="/themes/responsiv-flat/assets/images/icons/png/profile.png" class="img-rounded img-responsive user-icon"><font style="font-size:18px;">{{ 'My profile'|_ }}</font></a>
+		          </div>
+		          <div class="col-md-4 col-sm-6 col-xs-6" align="center">
+		            <a href="/login/new/course"><img src="/themes/responsiv-flat/assets/images/icons/png/Book.png" class="img-rounded img-responsive user-icon"><font style="font-size:18px;">{{ 'course'|_ }}</font></a>
+		          </div>
+		          <div class="col-md-4 col-sm-6 col-xs-6" align="center">
+		            <a href="/login/new/evaluation"><img src="/themes/responsiv-flat/assets/images/icons/png/Clipboard.png" class="img-rounded img-responsive user-icon"><font style="font-size:18px;">{{ 'Evaluation'|_ }}</font></a>
+		          </div>
+		          <div class="col-md-4 col-sm-6 col-xs-6" align="center">
+		            <a href="/login/new/post"><img src="/themes/responsiv-flat/assets/images/icons/png/Pencils.png" class="img-rounded img-responsive user-icon"><font style="font-size:18px;">{{ 'New post'|_ }}</font></a>
+		          </div>
+		          <div class="col-md-4 col-sm-6 col-xs-6" align="center">
+		            <a href="javascript:void(0);" data-request="onLogout" data-request-data="redirect: '/'"><img src="/themes/responsiv-flat/assets/images/icons/png/signout.png" class="img-rounded img-responsive user-icon"><font style="font-size:18px;">{{ 'Sign out'|_ }}</font></a>
+		          </div>
+		        </div>
           {% endif %}
         </div>
         <!--<div class="additional-links">
