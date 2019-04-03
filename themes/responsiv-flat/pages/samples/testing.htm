@@ -3,6 +3,7 @@ url = "/testing"
 is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
+layout = "default"
 ==
 <?php
 function onSubmitContactForm()
@@ -11,6 +12,20 @@ function onSubmitContactForm()
 }
 ?>
 ==
+
+{% put scripts %}
+    <script src="{{ [
+        'assets/javascript/pages/ui-elements.js',
+    ]|theme }}"></script>
+{% endput %}
+<select class="form-control select select-primary" data-toggle="select">
+	            <option value="0">Choose hero</option>
+	            <option value="1">Spider Man</option>
+	            <option value="2">Wolverine</option>
+	            <option value="3">Captain America</option>
+	            <option value="4" selected>X-Men</option>
+	            <option value="5">Crocodile</option>
+	        </select>
 <!-- Demo CSS -->
 <link rel="stylesheet" href="{{ 'assets/css/flexslider.css'|theme }}" type="text/css" media="screen" />
 <div id="container" class="cf">
