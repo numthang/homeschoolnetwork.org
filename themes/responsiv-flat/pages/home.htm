@@ -26,7 +26,7 @@ sortOrder = "updated_at"
 <section class="home-title">
   <div class="container">
     <div class="row">
-      <div class="col-sm-5 col-md-5 home-login">
+      <div class="col-sm-12 col-md-5 home-login">
         <!--ครบเครื่องเรื่องการทำโฮมสคูลในประเทศไทย-->
         <div class="signup - form">
           {% if not user %}
@@ -55,6 +55,11 @@ sortOrder = "updated_at"
           </form>
           <br>{{ 'No account ?'|_ }} <a href="/login">{{ 'Register'|_ }}</a>
           {% else %}
+            <div class="row">
+              <div class="col-sm-12">
+                <h3><a href="/user/profile/{{ user.id }}">{{ user.name }} {{ user.surname }}</a></h3>
+              </div>
+            </div>
 		        <div class="row">
 		          <div class="col-sm-3 col-xs-3" align="center">
 		            <a href="/login/profile"><img src="/themes/responsiv-flat/assets/images/icons/png/profile.png" class="img-rounded user-icon img-responsive" title="{{ 'My profile'|_ }}"></a>
@@ -98,13 +103,12 @@ sortOrder = "updated_at"
           By signing up you agree to <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>
           </div>-->
       </div>
-      <div class="col-sm-7 col-md-7">
+      <div class="col-sm-12 col-md-7">
         {% partial 'slide' %}
       </div>
     </div>
   </div>
 </section>
-<br>
 <div class="container">
   <!-- Services -->
   <div class="row our-services">
@@ -112,55 +116,53 @@ sortOrder = "updated_at"
       <h4 class="headline"><span>{{ 'What we do'|_ }}</span></h4>
       <p>"เครือข่ายบ้านเรียน" เว็บกลางสำหรับสมาชิกบ้านเรียนหรือโฮมสคูลในเมืองไทย สามารถติดต่อ แลกเปลี่ยน หาความรู้ในการทำโฮมสคูล โดยสมาชิกจะสามารถ ค้นฐานข้อมูลสมาชิกบ้านเรียน, เขียนแผนการศึกษาออนไลน์, เขียนแบบประเมินและร่องรอยการเรียนรู้และสามารถร่วมเขียนเนื้อหาหรือบันทึกใดๆ ที่ต้องการแชร์ให้กับสมาชิกบ้านเรียนท่านอื่นๆ หรือบุคคลที่สนใจได้เข้ามาศึกษา เพื่อทำความรู้จักและสร้างกลุ่มบ้านเรียนให้ใหญ่ขึ้นได้ต่อไป</p>
       <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-6 col-md-4">
           <div class="services">
             <div class="service-item">
               <i class="fa fa-vcard"></i>
               <div class="service-desc">
                 <h5><a href="/login/profile">{{ 'User profile'|_ }}</a></h5>
-                <p>อย่าลืมกดเข้าไปอัพเดทข้อมูลเกี่ยวกับบ้านเรียนของคุณ เพื่อสร้างเครือข่ายให้ใหญ่ขึ้น ไม่ต้องทนเหงาอีกต่อไป</p>
+                <p>อย่าลืมกดเข้าไปอัพเดทข้อมูลเกี่ยวกับบ้านเรียนของคุณ เพื่อสร้างเครือข่ายให้ใหญ่ขึ้น และเป็นที่รู้จัก ไม่ต้องทนเหงาอีกต่อไป</p>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-6 col-md-4">
           <div class="services">
             <div class="service-item">
               <i class="fa fa-book"></i>
               <div class="service-desc">
                 <h5><a href="/login/new/course">{{ 'New course'|_ }}</a></h5>
-                <p>หากคุณประสบปัญหาในการเขียนรายงาน, การออกแบบการเรียนการสอนและการจัดเรียงเอกสาร
-                  สิ่งนี้จะช่วยได้ โดยข้างในจะมีตัวอย่างการเขียนแผนแบบสำเร็จรูปพร้อมใช้งาน
+                <p>หากคุณประสบปัญหาในการเขียนรายงาน, ออกแบบการเรียนการสอนและการจัดเรียงเอกสาร
+                  ด้านในจะมีตัวอย่างการเขียนแผนแบบสำเร็จรูปให้เลือกใช้งาน
                 </p>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-6 col-md-4">
           <div class="services">
             <div class="service-item">
               <i class="fa fa-clipboard"></i>
               <div class="service-desc">
                 <h5><a href="/login/new/evaluation">{{ 'New evaluation'|_ }}</a></h5>
-                <p>ทุกปี จะมีเทศกาลปั่นรายงาน ส่วนนี้จะเป็นส่วนของการทำรายงานประเมินผล ท่านสามารถอัพเดทร่องรอยการเรียนรู้ของนักเรียนได้เรื่อยๆ ตลอดปี โดยไม่ต้องดองงานมาทำก่อนจบเทอม </p>
+                <p>ทุกปี จะมีเทศกาลปั่นรายงาน ส่วนนี้จะเป็นส่วนของการทำรายงานประเมินผล ท่านสามารถอัพเดทร่องรอยการเรียนรู้ของนักเรียนได้เรื่อยๆ ตลอดปี </p>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-6 col-md-4">
           <div class="services">
             <div class="service-item">
               <i class="fa fui-new"></i>
               <div class="service-desc">
                 <h5><a href="/login/new/post">{{ 'New post'|_ }}</a></h5>
-                <p>นอกเหนือจากงานเขียนที่ต้องส่งเขตแล้ว ท่านยังสามารถช่วยเหลือชุมชนด้วยการเขียนบทความหรืออะไรก็ได้สั้นๆ แสดงบนหน้าเว็บ เพื่อเป็นวิทยาทานแก่คนอื่นต่อไป</p>
+                <p>นอกเหนือจากงานเขียนที่ต้องส่งเขตแล้ว ท่านยังสามารถช่วยเหลือชุมชน ด้วยการเขียนบทความหรืออื่นๆ แสดงบนหน้าเว็บแก่คนรุ่นหลังต่อไป</p>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-6 col-md-4">
           <div class="services">
             <div class="service-item">
               <i class="fa fa-cloud"></i>
@@ -171,7 +173,7 @@ sortOrder = "updated_at"
             </div>
           </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-6 col-md-4">
           <div class="services">
             <div class="service-item">
               <i class="fa fa-question-circle-o"></i>
@@ -190,7 +192,7 @@ sortOrder = "updated_at"
     <div class="col-sm-8">
       <h4 class="headline"><span>{{ 'Our team'|_ }}</span></h4>
       <div class="row">
-        <div class="col-sm-4 col-xs-4">
+        <div class="col-sm-4 col-xs-12">
           <div class="team-member text-center">
             <img class="img-responsive center-block" src="https://graph.facebook.com/528931910/picture?type=normal" alt="" style="cursor:pointer; border-radius: 200px;" onClick="window.location.href = '/user/profile/2';">
             <div class="info">
@@ -199,7 +201,7 @@ sortOrder = "updated_at"
             </div>
           </div>
         </div>
-        <div class="col-sm-4 col-xs-4">
+        <div class="col-sm-4 col-xs-12">
           <div class="team-member text-center">
             <img class="img-responsive center-block" src="https://graph.facebook.com/100000122460462/picture?type=normal" alt="" style="cursor:pointer; border-radius: 200px;" onClick="window.location.href = '/user/profile/12';">
             <div class="info">
@@ -208,7 +210,7 @@ sortOrder = "updated_at"
             </div>
           </div>
         </div>
-        <div class="col-sm-4 col-xs-4">
+        <div class="col-sm-4 col-xs-12">
           <div class="team-member text-center">
             <img class="img-responsive center-block" src="https://graph.facebook.com/100001891270373/picture?type=normal" alt="" style="cursor:pointer; border-radius: 200px;" onClick="window.location.href = '/user/profile/10';">
             <div class="info">
