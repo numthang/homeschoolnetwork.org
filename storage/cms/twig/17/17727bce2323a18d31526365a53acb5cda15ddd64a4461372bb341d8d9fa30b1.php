@@ -56,52 +56,58 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
                           placeholder=\"Enter your password\" />
                   </div>
 
-                    <button type=\"submit\" style=\"width:225px; height:35px; padding-top: 5px; margin-top:5px;\" class=\"btn  btn-default\">Sign in</button>
-                    <a href=\"/flynsarmy/sociallogin/Facebook\"><img src=\"";
+                  <button type=\"submit\" style=\"width:225px; height:35px; padding-top: 5px; margin-top:5px;\" class=\"btn  btn-default\">Sign in</button>
+                  <a href=\"/flynsarmy/sociallogin/Facebook\"><img src=\"";
             // line 29
             echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/fb-login.png");
-            echo "\" width=\"225\" style=\"padding-top:5px;\"></a>
-                    <a href=\"/flynsarmy/sociallogin/Google\"><img src=\"";
+            echo "\" class=\"social-login\"></a>
+                  <a href=\"/flynsarmy/sociallogin/Google\"><img src=\"";
             // line 30
             echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/g-login.png");
-            echo "\" width=\"225\" style=\"padding-top:5px;\"></a>
-                    <a href=\"/flynsarmy/sociallogin/Twitter\"><img src=\"";
+            echo "\" class=\"social-login\"></a>
+                  <a href=\"/flynsarmy/sociallogin/Twitter\"><img src=\"";
             // line 31
             echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/t-login.png");
-            echo "\" width=\"225\" style=\"padding-top:5px;\"></a>
+            echo "\" class=\"social-login\"></a>
                 </form>
                 ";
+            // line 33
+            echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("No account ?"));
+            echo " <a href=\"/login\">";
+            echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Register"));
+            echo "</a>
+                ";
         } else {
-            // line 34
+            // line 35
             echo "                  <p>
                     <div class=\"row\">
                       <div class=\"col-md-4 col-sm-6 col-xs-6\" align=\"center\">
                         <a href=\"/login/profile\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/profile.png\" class=\"img-rounded img-responsive feature-icon\"><font style=\"font-size:18px;\">";
-            // line 37
+            // line 38
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("My profile"));
             echo "</font></a>
                       </div>
                       <div class=\"col-md-4 col-sm-6 col-xs-6\" align=\"center\">
                         <a href=\"/login/new/course\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/Book.png\" class=\"img-rounded img-responsive feature-icon\"><font style=\"font-size:18px;\">";
-            // line 40
+            // line 41
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("course"));
             echo "</font></a>
                       </div>
                       <div class=\"col-md-4 col-sm-6 col-xs-6\" align=\"center\">
                         <a href=\"/login/new/evaluation\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/Clipboard.png\" class=\"img-rounded img-responsive feature-icon\"><font style=\"font-size:18px;\">";
-            // line 43
+            // line 44
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Evaluation"));
             echo "</font></a>
                       </div>
                       <div class=\"col-md-4 col-sm-6 col-xs-6\" align=\"center\">
                         <a href=\"/login/new/post\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/Pencils.png\" class=\"img-rounded img-responsive feature-icon\"><font style=\"font-size:18px;\">";
-            // line 46
+            // line 47
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("New post"));
             echo "</font></a>
                       </div>
                       <div class=\"col-md-4 col-sm-6 col-xs-6\" align=\"center\">
                         <a href=\"javascript:void(0);\" data-request=\"onLogout\" data-request-data=\"redirect: '/'\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/signout.png\" class=\"img-rounded img-responsive feature-icon\"><font style=\"font-size:18px;\">";
-            // line 49
+            // line 50
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Sign out"));
             echo "</font></a>
                       </div>
@@ -109,7 +115,7 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
                   </p>
                 ";
         }
-        // line 54
+        // line 55
         echo "              </div>
               <!--<div class=\"additional-links\">
                   By signing up you agree to <a href=\"#\">Terms of Use</a> and <a href=\"#\">Privacy Policy</a>
@@ -117,11 +123,11 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
           </div>
           <div class=\"col-sm-7 col-md-7\">
             ";
-        // line 60
+        // line 61
         $context['__cms_partial_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("slide"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
-        // line 61
+        // line 62
         echo "          </div>
       </div>
   </div>
@@ -133,7 +139,7 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
   <div class=\"row our-services\">
     <div class=\"col-sm-12\">
       <h4 class=\"headline\"><span> HomeschoolNetwork.org ";
-        // line 71
+        // line 72
         echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("What we do"));
         echo "</span></h4>
       <p>\"เครือข่ายบ้านเรียน\" เว็บกลางสำหรับสมาชิกบ้านเรียนหรือโฮมสคูลในเมืองไทย สามารถติดต่อ แลกเปลี่ยน หาความรู้ในการทำโฮมสคูล โดยสมาชิกจะสามารถ ค้นฐานข้อมูลสมาชิกบ้านเรียน, เขียนแผนการศึกษาออนไลน์, เขียนแบบประเมินและร่องรอยการเรียนรู้และสามารถร่วมเขียนเนื้อหาหรือบันทึกใดๆ ที่ต้องการแชร์ให้กับสมาชิกบ้านเรียนท่านอื่นๆ หรือบุคคลที่สนใจได้เข้ามาศึกษา เพื่อทำความรู้จักและสร้างกลุ่มบ้านเรียนให้ใหญ่ขึ้นได้ต่อไป</p>
@@ -144,7 +150,7 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
                       <i class=\"fa fa-vcard\"></i>
                       <div class=\"service-desc\">
                           <h5><a href=\"/login/profile\">";
-        // line 79
+        // line 80
         echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("User profile"));
         echo "</a></h5>
                           <p>อย่าลืมกดเข้าไปอัพเดทข้อมูลเกี่ยวกับบ้านเรียนของคุณ เพื่อสร้างเครือข่ายให้ใหญ่ขึ้น ไม่ต้องทนเหงาอีกต่อไป</p>
@@ -158,7 +164,7 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
                       <i class=\"fa fa-book\"></i>
                       <div class=\"service-desc\">
                           <h5><a href=\"/login/new/course\">";
-        // line 90
+        // line 91
         echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("New course"));
         echo "</a></h5>
                           <p>หากคุณประสบปัญหาในการเขียนรายงาน, การออกแบบการเรียนการสอนและการจัดเรียงเอกสาร
@@ -173,7 +179,7 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
                       <i class=\"fa fa-clipboard\"></i>
                       <div class=\"service-desc\">
                           <h5><a href=\"/login/new/evaluation\">";
-        // line 102
+        // line 103
         echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("New evaluation"));
         echo "</a></h5>
                           <p>ทุกปี จะมีเทศกาลปั่นรายงาน ส่วนนี้จะเป็นส่วนของการทำรายงานประเมินผล ท่านสามารถอัพเดทร่องรอยการเรียนรู้ของนักเรียนได้เรื่อยๆ ตลอดปี โดยไม่ต้องดองงานมาทำก่อนจบเทอม </p>
@@ -189,7 +195,7 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
                     <i class=\"fa fui-new\"></i>
                     <div class=\"service-desc\">
                         <h5><a href=\"/login/new/post\">";
-        // line 115
+        // line 116
         echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("New post"));
         echo "</a></h5>
                         <p>นอกเหนือจากงานเขียนที่ต้องส่งเขตแล้ว ท่านยังสามารถช่วยเหลือชุมชนด้วยการเขียนบทความหรืออะไรก็ได้สั้นๆ แสดงบนหน้าเว็บ เพื่อเป็นวิทยาทานแก่คนอื่นต่อไป</p>
@@ -203,7 +209,7 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
                     <i class=\"fa fa-cloud\"></i>
                     <div class=\"service-desc\">
                         <h5><a href=\"/cloud\">";
-        // line 126
+        // line 127
         echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Homeschooler cloud"));
         echo "</a></h5>
                         <p>มีใครทำบ้านเรียนในพื้นที่บ้าง เชื่อว่าเป็นคำถามแรกๆ ในใจหลังจากที่คิดจะทำโฮมสคูล ไปค้นหาเพื่อนบ้านโฮมสคูลในพื้นที่ของคุณกันเลย</p>
@@ -217,7 +223,7 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
                     <i class=\"fa fa-question-circle-o\"></i>
                     <div class=\"service-desc\">
                         <h5><a href=\"/blog/59\">";
-        // line 137
+        // line 138
         echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("FAQ"));
         echo "</a></h5>
                         <p>คำถามที่พบบ่อย ที่ได้รับการรวบรวมจากสมาชิกหลายท่านจากหลายแหล่ง เช่น เริ่มต้นโฮมสคูลทำอย่างไร บ้านต้องรวยหรือเปล่า เป็นต้น</p>
@@ -229,15 +235,15 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
     </div>
   </div>
   ";
-        // line 146
+        // line 147
         $context['__cms_partial_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("ads/bottom"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
-        // line 147
+        // line 148
         echo "  <div class=\"row our-team\">
     <div class=\"col-sm-8\">
       <h4 class=\"headline\"><span>";
-        // line 149
+        // line 150
         echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Our team"));
         echo "</span></h4>
       <div class=\"row\">
@@ -314,7 +320,7 @@ ass=\"fa fa-twitter\"></i>
 
     public function getDebugInfo()
     {
-        return array (  241 => 149,  237 => 147,  233 => 146,  221 => 137,  207 => 126,  193 => 115,  177 => 102,  162 => 90,  148 => 79,  137 => 71,  125 => 61,  121 => 60,  113 => 54,  105 => 49,  99 => 46,  93 => 43,  87 => 40,  81 => 37,  76 => 34,  70 => 31,  66 => 30,  62 => 29,  47 => 17,  38 => 11,  34 => 9,  32 => 8,  23 => 1,);
+        return array (  247 => 150,  243 => 148,  239 => 147,  227 => 138,  213 => 127,  199 => 116,  183 => 103,  168 => 91,  154 => 80,  143 => 72,  131 => 62,  127 => 61,  119 => 55,  111 => 50,  105 => 47,  99 => 44,  93 => 41,  87 => 38,  82 => 35,  75 => 33,  70 => 31,  66 => 30,  62 => 29,  47 => 17,  38 => 11,  34 => 9,  32 => 8,  23 => 1,);
     }
 
     public function getSourceContext()
@@ -346,11 +352,12 @@ ass=\"fa fa-twitter\"></i>
                           placeholder=\"Enter your password\" />
                   </div>
 
-                    <button type=\"submit\" style=\"width:225px; height:35px; padding-top: 5px; margin-top:5px;\" class=\"btn  btn-default\">Sign in</button>
-                    <a href=\"/flynsarmy/sociallogin/Facebook\"><img src=\"{{ 'assets/images/fb-login.png'|theme }}\" width=\"225\" style=\"padding-top:5px;\"></a>
-                    <a href=\"/flynsarmy/sociallogin/Google\"><img src=\"{{ 'assets/images/g-login.png'|theme }}\" width=\"225\" style=\"padding-top:5px;\"></a>
-                    <a href=\"/flynsarmy/sociallogin/Twitter\"><img src=\"{{ 'assets/images/t-login.png'|theme }}\" width=\"225\" style=\"padding-top:5px;\"></a>
+                  <button type=\"submit\" style=\"width:225px; height:35px; padding-top: 5px; margin-top:5px;\" class=\"btn  btn-default\">Sign in</button>
+                  <a href=\"/flynsarmy/sociallogin/Facebook\"><img src=\"{{ 'assets/images/fb-login.png'|theme }}\" class=\"social-login\"></a>
+                  <a href=\"/flynsarmy/sociallogin/Google\"><img src=\"{{ 'assets/images/g-login.png'|theme }}\" class=\"social-login\"></a>
+                  <a href=\"/flynsarmy/sociallogin/Twitter\"><img src=\"{{ 'assets/images/t-login.png'|theme }}\" class=\"social-login\"></a>
                 </form>
+                {{ 'No account ?'|_ }} <a href=\"/login\">{{ 'Register'|_ }}</a>
                 {% else %}
                   <p>
                     <div class=\"row\">
