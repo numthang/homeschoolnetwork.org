@@ -26,6 +26,7 @@ class EvaluationForm extends ComponentBase
       if($this->param('id')) {
         $id = $this->param('id');
         if($id  > 100000) {
+          #echo date('Y-m-d H:i:s', $id);
           $tmp = Evaluation::where('created_at', date('Y-m-d H:i:s', $id))->get();
           $this->record = $tmp[0];
         }

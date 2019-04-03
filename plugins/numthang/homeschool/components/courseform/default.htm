@@ -318,16 +318,15 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
 				}
 			</style>
     	<input type="hidden" name="save_as" value="0">
-
-			<button type="button" title="{{ 'Preview'|_ }}" class="btn btn-lg btn-info fa fa-eye float2" onClick="window.open('/user/course/{{ this.param.id }}', '_blank');"></button>
+			<button type="button" title="{{ 'Preview'|_ }}" class="btn btn-lg btn-info fa fa-eye float2" onClick="window.open('/user/course/{{ record.created_at| date('U') }}', '_blank');"></button>
 			{% if record.template == 0 or can('edit_course_template') %}
     		<button type="submit" class="btn btn-lg btn-default" data-hotkey="ctrl+s, cmd+s">{{ 'Save'|_ }}</button>
 				<button type="submit" title="{{ 'Save'|_ }}" class="btn btn-lg btn-default fa fa-save float" data-hotkey="ctrl+s, cmd+s"></button>
     	{% endif %}
     	{% if record.id is defined %}
 		    <button type="submit" class="btn btn-lg btn-info" onClick="if(confirm('{{ 'Save as'|_ }} '+this.form.name.value)) this.form.save_as.value = 1; else return false;">{{ 'Save as'|_ }} ...</button>
-				<button type="button" class="btn btn-lg btn-info" onClick="window.open('/user/course/{{ this.param.id }}', '_blank');">{{ 'Preview'|_ }} </button>
-				<button type="button" class="btn btn-lg btn-info" onClick="window.open('/user/course/{{ this.param.id }}?print=1', '_blank');">{{ 'Print to PDF'|_ }} </button>
+				<button type="button" class="btn btn-lg btn-info" onClick="window.open('/user/course/{{ record.created_at| date('U') }}', '_blank');">{{ 'Preview'|_ }} </button>
+				<button type="button" class="btn btn-lg btn-info" onClick="window.open('/user/course/{{ record.created_at| date('U') }}?print=1', '_blank');">{{ 'Print to PDF'|_ }} </button>
 				{% if record.template == 0 or can('edit_course_template') %}
 				  <button type="button" data-request="onDelete" data-request-confirm="Are you sure?" class="btn btn-lg btn-danger">{{ 'Remove'|_ }}</button>
 		    {% endif %}
@@ -335,7 +334,8 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
     </div>
   </div>
   <br>
-</form><script src="{{ ['assets/js/accordion.js']|theme }}"></script>
+</form>
+<script src="{{ ['assets/js/accordion.js']|theme }}"></script>
 <script>
 	var editor_config = {
 		path_absolute : "/",
