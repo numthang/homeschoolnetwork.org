@@ -23,17 +23,18 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
         echo "<section class=\"home-title\">
   <div class=\"container\">
       <div class=\"row\">
-          <div class=\"col-sm-5 col-md-5\">
-              <h4>เครือข่ายบ้านเรียน</h4><!--ครบเครื่องเรื่องการทำโฮมสคูลในประเทศไทย-->
+          <div class=\"col-sm-5 col-md-5\" style=\"padding-bottom: 20px; border:1px #ddd solid;   border-radius: 10px;
+\">
+              <h3 style=\"margin:10px;\">เครือข่ายบ้านเรียน</h3><!--ครบเครื่องเรื่องการทำโฮมสคูลในประเทศไทย-->
               <div class=\"signup-form\">
                 ";
-        // line 7
+        // line 8
         if ( !($context["user"] ?? null)) {
-            // line 8
+            // line 9
             echo "                <form data-request=\"onSignin\">
                   <div class=\"form-group\">
                       <label for=\"userSigninLogin\">";
-            // line 10
+            // line 11
             echo twig_escape_filter($this->env, ($context["loginAttributeLabel"] ?? null), "html", null, true);
             echo "</label>
                       <input
@@ -42,12 +43,10 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
                           class=\"form-control\"
                           id=\"userSigninLogin\"
                           placeholder=\"Enter your ";
-            // line 16
+            // line 17
             echo twig_escape_filter($this->env, twig_lower_filter($this->env, ($context["loginAttributeLabel"] ?? null)), "html", null, true);
             echo "\" />
-                  </div>
 
-                  <div class=\"form-group\">
                       <label for=\"userSigninPassword\">Password</label>
                       <input
                           name=\"password\"
@@ -57,62 +56,52 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
                           placeholder=\"Enter your password\" />
                   </div>
 
-                  <button type=\"submit\" class=\"btn btn-block btn-default\">Sign in</button>
-                  ";
+                    <button type=\"submit\" style=\"width:225px; height:35px; padding-top: 5px; margin-top:5px;\" class=\"btn  btn-default\">Sign in</button>
+                    <a href=\"/flynsarmy/sociallogin/Facebook\"><img src=\"";
+            // line 29
+            echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/fb-login.png");
+            echo "\" width=\"225\" style=\"padding-top:5px;\"></a>
+                    <a href=\"/flynsarmy/sociallogin/Google\"><img src=\"";
             // line 30
-            $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(($context["social_login_links"] ?? null));
-            foreach ($context['_seq'] as $context["name"] => $context["link"]) {
-                // line 31
-                echo "                    <a href=\"";
-                echo twig_escape_filter($this->env, $context["link"], "html", null, true);
-                echo "\">";
-                echo twig_escape_filter($this->env, $context["name"], "html", null, true);
-                echo "</a>
-                  ";
-            }
-            $_parent = $context['_parent'];
-            unset($context['_seq'], $context['_iterated'], $context['name'], $context['link'], $context['_parent'], $context['loop']);
-            $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 33
-            echo "                  ";
-            $context['__cms_component_params'] = [];
-            echo $this->env->getExtension('Cms\Twig\Extension')->componentFunction("sociallogin"            , $context['__cms_component_params']            );
-            unset($context['__cms_component_params']);
-            // line 34
-            echo "                </form>
+            echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/g-login.png");
+            echo "\" width=\"225\" style=\"padding-top:5px;\"></a>
+                    <a href=\"/flynsarmy/sociallogin/Twitter\"><img src=\"";
+            // line 31
+            echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/t-login.png");
+            echo "\" width=\"225\" style=\"padding-top:5px;\"></a>
+                </form>
                 ";
         } else {
-            // line 36
+            // line 34
             echo "                  <p>
                     <div class=\"row\">
                       <div class=\"col-md-4 col-sm-6 col-xs-6\" align=\"center\">
-                        <a href=\"/login/profile\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/profile.png\" class=\"img-rounded img-responsive\" style=\"max-width: 90px;max-height: 90px;\"><font style=\"font-size:18px;\">";
-            // line 39
+                        <a href=\"/login/profile\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/profile.png\" class=\"img-rounded img-responsive feature-icon\"><font style=\"font-size:18px;\">";
+            // line 37
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("My profile"));
             echo "</font></a>
                       </div>
                       <div class=\"col-md-4 col-sm-6 col-xs-6\" align=\"center\">
-                        <a href=\"/login/new/course\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/Book.png\" class=\"img-rounded img-responsive\" style=\"max-width: 90px;max-height: 90px;\"><font style=\"font-size:18px;\">";
-            // line 42
+                        <a href=\"/login/new/course\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/Book.png\" class=\"img-rounded img-responsive feature-icon\"><font style=\"font-size:18px;\">";
+            // line 40
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("course"));
             echo "</font></a>
                       </div>
                       <div class=\"col-md-4 col-sm-6 col-xs-6\" align=\"center\">
-                        <a href=\"/login/new/evaluation\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/Clipboard.png\" class=\"img-rounded img-responsive\" style=\"max-width: 90px;max-height: 90px;\"><font style=\"font-size:18px;\">";
-            // line 45
+                        <a href=\"/login/new/evaluation\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/Clipboard.png\" class=\"img-rounded img-responsive feature-icon\"><font style=\"font-size:18px;\">";
+            // line 43
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Evaluation"));
             echo "</font></a>
                       </div>
                       <div class=\"col-md-4 col-sm-6 col-xs-6\" align=\"center\">
-                        <a href=\"/login/new/post\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/Pencils.png\" class=\"img-rounded img-responsive\" style=\"max-width: 90px;max-height: 90px;\"><font style=\"font-size:18px;\">";
-            // line 48
+                        <a href=\"/login/new/post\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/Pencils.png\" class=\"img-rounded img-responsive feature-icon\"><font style=\"font-size:18px;\">";
+            // line 46
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("New post"));
             echo "</font></a>
                       </div>
                       <div class=\"col-md-4 col-sm-6 col-xs-6\" align=\"center\">
-                        <a href=\"javascript:void(0);\" data-request=\"onLogout\" data-request-data=\"redirect: '/'\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/signout.png\" class=\"img-rounded img-responsive\" style=\"max-width: 90px;max-height: 90px;\"><font style=\"font-size:18px;\">";
-            // line 51
+                        <a href=\"javascript:void(0);\" data-request=\"onLogout\" data-request-data=\"redirect: '/'\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/signout.png\" class=\"img-rounded img-responsive feature-icon\"><font style=\"font-size:18px;\">";
+            // line 49
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Sign out"));
             echo "</font></a>
                       </div>
@@ -120,47 +109,31 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
                   </p>
                 ";
         }
-        // line 56
+        // line 54
         echo "              </div>
               <!--<div class=\"additional-links\">
                   By signing up you agree to <a href=\"#\">Terms of Use</a> and <a href=\"#\">Privacy Policy</a>
               </div>-->
           </div>
-          <div class=\"col-sm-7 col-md-7 player-wrapper\">
-              <div class=\"player\">
-                  <iframe src=\"https://www.youtube.com/embed/_VluJjS3IfQ\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>
-              </div>
-          </div>
+          <div class=\"col-sm-7 col-md-7\">
+            ";
+        // line 60
+        $context['__cms_partial_params'] = [];
+        echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("slide"        , $context['__cms_partial_params']        , true        );
+        unset($context['__cms_partial_params']);
+        // line 61
+        echo "          </div>
       </div>
   </div>
-\t<br>
 </section>
-
-<section class=\"google-ads\">
-\t<div class=\"container\">ADS
-\t\t<script async src=\"//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js\"></script>
-\t\t<!-- Homeschool Network Index Top
-\t\t<ins class=\"adsbygoogle\"
-\t\t style=\"dis#recent tweet
-play:block\"
-\t\t data-ad-client=\"ca-pub-9939363335105757\"
-\t\t data-ad-slot=\"3572354287\"
-\t\t data-ad-format=\"auto\"
-\t\t data-full-width-responsive=\"true\"></ins>
-\t\t<script>
-\t\t(adsbygoogle = window.adsbygoogle || []).push({});
-\t\t</script>-->
-\t</div>
-</section>
-
-<br />
+<br>
 
 <div class=\"container\">
   <!-- Services -->
   <div class=\"row our-services\">
     <div class=\"col-sm-12\">
       <h4 class=\"headline\"><span> HomeschoolNetwork.org ";
-        // line 94
+        // line 71
         echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("What we do"));
         echo "</span></h4>
       <p>\"เครือข่ายบ้านเรียน\" เว็บกลางสำหรับสมาชิกบ้านเรียนหรือโฮมสคูลในเมืองไทย สามารถติดต่อ แลกเปลี่ยน หาความรู้ในการทำโฮมสคูล โดยสมาชิกจะสามารถ ค้นฐานข้อมูลสมาชิกบ้านเรียน, เขียนแผนการศึกษาออนไลน์, เขียนแบบประเมินและร่องรอยการเรียนรู้และสามารถร่วมเขียนเนื้อหาหรือบันทึกใดๆ ที่ต้องการแชร์ให้กับสมาชิกบ้านเรียนท่านอื่นๆ หรือบุคคลที่สนใจได้เข้ามาศึกษา เพื่อทำความรู้จักและสร้างกลุ่มบ้านเรียนให้ใหญ่ขึ้นได้ต่อไป</p>
@@ -171,7 +144,7 @@ play:block\"
                       <i class=\"fa fa-vcard\"></i>
                       <div class=\"service-desc\">
                           <h5><a href=\"/login/profile\">";
-        // line 102
+        // line 79
         echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("User profile"));
         echo "</a></h5>
                           <p>อย่าลืมกดเข้าไปอัพเดทข้อมูลเกี่ยวกับบ้านเรียนของคุณ เพื่อสร้างเครือข่ายให้ใหญ่ขึ้น ไม่ต้องทนเหงาอีกต่อไป</p>
@@ -185,7 +158,7 @@ play:block\"
                       <i class=\"fa fa-book\"></i>
                       <div class=\"service-desc\">
                           <h5><a href=\"/login/new/course\">";
-        // line 113
+        // line 90
         echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("New course"));
         echo "</a></h5>
                           <p>หากคุณประสบปัญหาในการเขียนรายงาน, การออกแบบการเรียนการสอนและการจัดเรียงเอกสาร
@@ -200,7 +173,7 @@ play:block\"
                       <i class=\"fa fa-clipboard\"></i>
                       <div class=\"service-desc\">
                           <h5><a href=\"/login/new/evaluation\">";
-        // line 125
+        // line 102
         echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("New evaluation"));
         echo "</a></h5>
                           <p>ทุกปี จะมีเทศกาลปั่นรายงาน ส่วนนี้จะเป็นส่วนของการทำรายงานประเมินผล ท่านสามารถอัพเดทร่องรอยการเรียนรู้ของนักเรียนได้เรื่อยๆ ตลอดปี โดยไม่ต้องดองงานมาทำก่อนจบเทอม </p>
@@ -216,7 +189,7 @@ play:block\"
                     <i class=\"fa fui-new\"></i>
                     <div class=\"service-desc\">
                         <h5><a href=\"/login/new/post\">";
-        // line 138
+        // line 115
         echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("New post"));
         echo "</a></h5>
                         <p>นอกเหนือจากงานเขียนที่ต้องส่งเขตแล้ว ท่านยังสามารถช่วยเหลือชุมชนด้วยการเขียนบทความหรืออะไรก็ได้สั้นๆ แสดงบนหน้าเว็บ เพื่อเป็นวิทยาทานแก่คนอื่นต่อไป</p>
@@ -230,7 +203,7 @@ play:block\"
                     <i class=\"fa fa-cloud\"></i>
                     <div class=\"service-desc\">
                         <h5><a href=\"/cloud\">";
-        // line 149
+        // line 126
         echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Homeschooler cloud"));
         echo "</a></h5>
                         <p>มีใครทำบ้านเรียนในพื้นที่บ้าง เชื่อว่าเป็นคำถามแรกๆ ในใจหลังจากที่คิดจะทำโฮมสคูล ไปค้นหาเพื่อนบ้านโฮมสคูลในพื้นที่ของคุณกันเลย</p>
@@ -243,8 +216,8 @@ play:block\"
                 <div class=\"service-item\">
                     <i class=\"fa fa-question-circle-o\"></i>
                     <div class=\"service-desc\">
-                        <h5><a href=\"/FAQ\">";
-        // line 160
+                        <h5><a href=\"/blog/59\">";
+        // line 137
         echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("FAQ"));
         echo "</a></h5>
                         <p>คำถามที่พบบ่อย ที่ได้รับการรวบรวมจากสมาชิกหลายท่านจากหลายแหล่ง เช่น เริ่มต้นโฮมสคูลทำอย่างไร บ้านต้องรวยหรือเปล่า เป็นต้น</p>
@@ -255,14 +228,20 @@ play:block\"
       </div>
     </div>
   </div>
-  <div class=\"row our-team\">
+  ";
+        // line 146
+        $context['__cms_partial_params'] = [];
+        echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("ads/bottom"        , $context['__cms_partial_params']        , true        );
+        unset($context['__cms_partial_params']);
+        // line 147
+        echo "  <div class=\"row our-team\">
     <div class=\"col-sm-8\">
       <h4 class=\"headline\"><span>";
-        // line 171
+        // line 149
         echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Our team"));
         echo "</span></h4>
       <div class=\"row\">
-        <div class=\"col-sm-4 col-xs-6\">
+        <div class=\"col-sm-4 col-xs-4\">
           <div class=\"team-member text-center\">
             <img class=\"img-responsive center-block\" src=\"https://graph.facebook.com/528931910/picture?type=normal\" alt=\"\" style=\"cursor:pointer; border-radius: 200px;\" onClick=\"window.location.href = '/user/profile/2';\">
             <div class=\"info\">
@@ -271,7 +250,7 @@ play:block\"
             </div>
           </div>
         </div>
-        <div class=\"col-sm-4 col-xs-6\">
+        <div class=\"col-sm-4 col-xs-4\">
           <div class=\"team-member text-center\">
             <img class=\"img-responsive center-block\" src=\"https://graph.facebook.com/100000122460462/picture?type=normal\" alt=\"\" style=\"cursor:pointer; border-radius: 200px;\" onClick=\"window.location.href = '/user/profile/12';\">
             <div class=\"info\">
@@ -280,7 +259,7 @@ play:block\"
             </div>
           </div>
         </div>
-        <div class=\"col-sm-4 col-xs-6\">
+        <div class=\"col-sm-4 col-xs-4\">
           <div class=\"team-member text-center\">
             <img class=\"img-responsive center-block\" src=\"https://graph.facebook.com/100001891270373/picture?type=normal\" alt=\"\" style=\"cursor:pointer; border-radius: 200px;\" onClick=\"window.location.href = '/user/profile/10';\">
             <div class=\"info\">
@@ -297,7 +276,6 @@ play:block\"
       data-href=\"https://www.facebook.com/HomeschoolNetwork\"
       data-hide-cover=\"false\"
       data-show-facepile=\"true\"
-      data-width=\"500\"
       data-adapt-container-width=\"true\"></div>
     </div>
   </div>
@@ -336,7 +314,7 @@ ass=\"fa fa-twitter\"></i>
 
     public function getDebugInfo()
     {
-        return array (  262 => 171,  248 => 160,  234 => 149,  220 => 138,  204 => 125,  189 => 113,  175 => 102,  164 => 94,  124 => 56,  116 => 51,  110 => 48,  104 => 45,  98 => 42,  92 => 39,  87 => 36,  83 => 34,  78 => 33,  67 => 31,  63 => 30,  46 => 16,  37 => 10,  33 => 8,  31 => 7,  23 => 1,);
+        return array (  241 => 149,  237 => 147,  233 => 146,  221 => 137,  207 => 126,  193 => 115,  177 => 102,  162 => 90,  148 => 79,  137 => 71,  125 => 61,  121 => 60,  113 => 54,  105 => 49,  99 => 46,  93 => 43,  87 => 40,  81 => 37,  76 => 34,  70 => 31,  66 => 30,  62 => 29,  47 => 17,  38 => 11,  34 => 9,  32 => 8,  23 => 1,);
     }
 
     public function getSourceContext()
@@ -344,8 +322,9 @@ ass=\"fa fa-twitter\"></i>
         return new Twig_Source("<section class=\"home-title\">
   <div class=\"container\">
       <div class=\"row\">
-          <div class=\"col-sm-5 col-md-5\">
-              <h4>เครือข่ายบ้านเรียน</h4><!--ครบเครื่องเรื่องการทำโฮมสคูลในประเทศไทย-->
+          <div class=\"col-sm-5 col-md-5\" style=\"padding-bottom: 20px; border:1px #ddd solid;   border-radius: 10px;
+\">
+              <h3 style=\"margin:10px;\">เครือข่ายบ้านเรียน</h3><!--ครบเครื่องเรื่องการทำโฮมสคูลในประเทศไทย-->
               <div class=\"signup-form\">
                 {% if not user %}
                 <form data-request=\"onSignin\">
@@ -357,9 +336,7 @@ ass=\"fa fa-twitter\"></i>
                           class=\"form-control\"
                           id=\"userSigninLogin\"
                           placeholder=\"Enter your {{ loginAttributeLabel|lower }}\" />
-                  </div>
 
-                  <div class=\"form-group\">
                       <label for=\"userSigninPassword\">Password</label>
                       <input
                           name=\"password\"
@@ -369,29 +346,28 @@ ass=\"fa fa-twitter\"></i>
                           placeholder=\"Enter your password\" />
                   </div>
 
-                  <button type=\"submit\" class=\"btn btn-block btn-default\">Sign in</button>
-                  {% for name, link in social_login_links %}
-                    <a href=\"{{ link }}\">{{ name }}</a>
-                  {% endfor %}
-                  {% component 'sociallogin' %}
+                    <button type=\"submit\" style=\"width:225px; height:35px; padding-top: 5px; margin-top:5px;\" class=\"btn  btn-default\">Sign in</button>
+                    <a href=\"/flynsarmy/sociallogin/Facebook\"><img src=\"{{ 'assets/images/fb-login.png'|theme }}\" width=\"225\" style=\"padding-top:5px;\"></a>
+                    <a href=\"/flynsarmy/sociallogin/Google\"><img src=\"{{ 'assets/images/g-login.png'|theme }}\" width=\"225\" style=\"padding-top:5px;\"></a>
+                    <a href=\"/flynsarmy/sociallogin/Twitter\"><img src=\"{{ 'assets/images/t-login.png'|theme }}\" width=\"225\" style=\"padding-top:5px;\"></a>
                 </form>
                 {% else %}
                   <p>
                     <div class=\"row\">
                       <div class=\"col-md-4 col-sm-6 col-xs-6\" align=\"center\">
-                        <a href=\"/login/profile\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/profile.png\" class=\"img-rounded img-responsive\" style=\"max-width: 90px;max-height: 90px;\"><font style=\"font-size:18px;\">{{ 'My profile'|_ }}</font></a>
+                        <a href=\"/login/profile\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/profile.png\" class=\"img-rounded img-responsive feature-icon\"><font style=\"font-size:18px;\">{{ 'My profile'|_ }}</font></a>
                       </div>
                       <div class=\"col-md-4 col-sm-6 col-xs-6\" align=\"center\">
-                        <a href=\"/login/new/course\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/Book.png\" class=\"img-rounded img-responsive\" style=\"max-width: 90px;max-height: 90px;\"><font style=\"font-size:18px;\">{{ 'course'|_ }}</font></a>
+                        <a href=\"/login/new/course\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/Book.png\" class=\"img-rounded img-responsive feature-icon\"><font style=\"font-size:18px;\">{{ 'course'|_ }}</font></a>
                       </div>
                       <div class=\"col-md-4 col-sm-6 col-xs-6\" align=\"center\">
-                        <a href=\"/login/new/evaluation\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/Clipboard.png\" class=\"img-rounded img-responsive\" style=\"max-width: 90px;max-height: 90px;\"><font style=\"font-size:18px;\">{{ 'Evaluation'|_ }}</font></a>
+                        <a href=\"/login/new/evaluation\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/Clipboard.png\" class=\"img-rounded img-responsive feature-icon\"><font style=\"font-size:18px;\">{{ 'Evaluation'|_ }}</font></a>
                       </div>
                       <div class=\"col-md-4 col-sm-6 col-xs-6\" align=\"center\">
-                        <a href=\"/login/new/post\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/Pencils.png\" class=\"img-rounded img-responsive\" style=\"max-width: 90px;max-height: 90px;\"><font style=\"font-size:18px;\">{{ 'New post'|_ }}</font></a>
+                        <a href=\"/login/new/post\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/Pencils.png\" class=\"img-rounded img-responsive feature-icon\"><font style=\"font-size:18px;\">{{ 'New post'|_ }}</font></a>
                       </div>
                       <div class=\"col-md-4 col-sm-6 col-xs-6\" align=\"center\">
-                        <a href=\"javascript:void(0);\" data-request=\"onLogout\" data-request-data=\"redirect: '/'\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/signout.png\" class=\"img-rounded img-responsive\" style=\"max-width: 90px;max-height: 90px;\"><font style=\"font-size:18px;\">{{ 'Sign out'|_ }}</font></a>
+                        <a href=\"javascript:void(0);\" data-request=\"onLogout\" data-request-data=\"redirect: '/'\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/signout.png\" class=\"img-rounded img-responsive feature-icon\"><font style=\"font-size:18px;\">{{ 'Sign out'|_ }}</font></a>
                       </div>
                     </div>
                   </p>
@@ -401,34 +377,13 @@ ass=\"fa fa-twitter\"></i>
                   By signing up you agree to <a href=\"#\">Terms of Use</a> and <a href=\"#\">Privacy Policy</a>
               </div>-->
           </div>
-          <div class=\"col-sm-7 col-md-7 player-wrapper\">
-              <div class=\"player\">
-                  <iframe src=\"https://www.youtube.com/embed/_VluJjS3IfQ\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>
-              </div>
+          <div class=\"col-sm-7 col-md-7\">
+            {% partial 'slide' %}
           </div>
       </div>
   </div>
-\t<br>
 </section>
-
-<section class=\"google-ads\">
-\t<div class=\"container\">ADS
-\t\t<script async src=\"//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js\"></script>
-\t\t<!-- Homeschool Network Index Top
-\t\t<ins class=\"adsbygoogle\"
-\t\t style=\"dis#recent tweet
-play:block\"
-\t\t data-ad-client=\"ca-pub-9939363335105757\"
-\t\t data-ad-slot=\"3572354287\"
-\t\t data-ad-format=\"auto\"
-\t\t data-full-width-responsive=\"true\"></ins>
-\t\t<script>
-\t\t(adsbygoogle = window.adsbygoogle || []).push({});
-\t\t</script>-->
-\t</div>
-</section>
-
-<br />
+<br>
 
 <div class=\"container\">
   <!-- Services -->
@@ -500,7 +455,7 @@ play:block\"
                 <div class=\"service-item\">
                     <i class=\"fa fa-question-circle-o\"></i>
                     <div class=\"service-desc\">
-                        <h5><a href=\"/FAQ\">{{ 'FAQ'|_ }}</a></h5>
+                        <h5><a href=\"/blog/59\">{{ 'FAQ'|_ }}</a></h5>
                         <p>คำถามที่พบบ่อย ที่ได้รับการรวบรวมจากสมาชิกหลายท่านจากหลายแหล่ง เช่น เริ่มต้นโฮมสคูลทำอย่างไร บ้านต้องรวยหรือเปล่า เป็นต้น</p>
                     </div>
                 </div>
@@ -509,11 +464,12 @@ play:block\"
       </div>
     </div>
   </div>
+  {% partial \"ads/bottom\" %}
   <div class=\"row our-team\">
     <div class=\"col-sm-8\">
       <h4 class=\"headline\"><span>{{ 'Our team'|_ }}</span></h4>
       <div class=\"row\">
-        <div class=\"col-sm-4 col-xs-6\">
+        <div class=\"col-sm-4 col-xs-4\">
           <div class=\"team-member text-center\">
             <img class=\"img-responsive center-block\" src=\"https://graph.facebook.com/528931910/picture?type=normal\" alt=\"\" style=\"cursor:pointer; border-radius: 200px;\" onClick=\"window.location.href = '/user/profile/2';\">
             <div class=\"info\">
@@ -522,7 +478,7 @@ play:block\"
             </div>
           </div>
         </div>
-        <div class=\"col-sm-4 col-xs-6\">
+        <div class=\"col-sm-4 col-xs-4\">
           <div class=\"team-member text-center\">
             <img class=\"img-responsive center-block\" src=\"https://graph.facebook.com/100000122460462/picture?type=normal\" alt=\"\" style=\"cursor:pointer; border-radius: 200px;\" onClick=\"window.location.href = '/user/profile/12';\">
             <div class=\"info\">
@@ -531,7 +487,7 @@ play:block\"
             </div>
           </div>
         </div>
-        <div class=\"col-sm-4 col-xs-6\">
+        <div class=\"col-sm-4 col-xs-4\">
           <div class=\"team-member text-center\">
             <img class=\"img-responsive center-block\" src=\"https://graph.facebook.com/100001891270373/picture?type=normal\" alt=\"\" style=\"cursor:pointer; border-radius: 200px;\" onClick=\"window.location.href = '/user/profile/10';\">
             <div class=\"info\">
@@ -548,7 +504,6 @@ play:block\"
       data-href=\"https://www.facebook.com/HomeschoolNetwork\"
       data-hide-cover=\"false\"
       data-show-facepile=\"true\"
-      data-width=\"500\"
       data-adapt-container-width=\"true\"></div>
     </div>
   </div>

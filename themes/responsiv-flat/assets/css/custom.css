@@ -5,3 +5,26 @@
   box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.2);
   margin-top: 25px;
 }
+.avatar {
+  border-radius: 100px;
+  height:85px;
+  cursor:pointer;
+  width: 85px;
+}
+.brand-title {
+  display: none;
+}
+@media screen and (min-width: 375px) {
+  .brand-title {
+    display: block;
+  }
+}
+@media screen and (max-width: 320px) {
+  .navbar-toggle {
+    padding-right: 30px;
+  }
+}
+.social-login {
+ width: 225px;
+ margin-top:5px;
+}

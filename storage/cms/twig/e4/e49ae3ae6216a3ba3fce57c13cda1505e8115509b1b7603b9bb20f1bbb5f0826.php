@@ -27,7 +27,7 @@ class __TwigTemplate_3ca9fb375ad16ff911eebd52004e9433adcc90097027b20954885cb9bbe
                 <a href=\"/\">Home</a>
             </li>
             <li>
-                <a href=\"/blog/about-us\">";
+                <a href=\"/blog/1\">";
         // line 8
         echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("About us"));
         echo "</a>
@@ -36,7 +36,7 @@ class __TwigTemplate_3ca9fb375ad16ff911eebd52004e9433adcc90097027b20954885cb9bbe
                 <a href=\"/blog/page/1\">Blog</a>
             </li>
             <li>
-                <a href=\"/blog/contact\">Contact</a>
+                <a href=\"/blog/18\">Contact</a>
             </li>
         </ul>
     </nav>
@@ -74,13 +74,13 @@ class __TwigTemplate_3ca9fb375ad16ff911eebd52004e9433adcc90097027b20954885cb9bbe
                 <a href=\"/\">Home</a>
             </li>
             <li>
-                <a href=\"/blog/about-us\">{{ 'About us'|_ }}</a>
+                <a href=\"/blog/1\">{{ 'About us'|_ }}</a>
             </li>
             <li>
                 <a href=\"/blog/page/1\">Blog</a>
             </li>
             <li>
-                <a href=\"/blog/contact\">Contact</a>
+                <a href=\"/blog/18\">Contact</a>
             </li>
         </ul>
     </nav>

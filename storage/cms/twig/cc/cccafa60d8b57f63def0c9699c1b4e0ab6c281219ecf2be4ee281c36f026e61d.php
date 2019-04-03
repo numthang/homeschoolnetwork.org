@@ -23,12 +23,24 @@ class __TwigTemplate_6345854244bd1787dac91112c9d59d0317957bde78d16126c89363d30a0
         echo "<section id=\"layout-title\">
     <div class=\"container\">
       <div class=\"col-sm-1\">
-        <img class=\"center-block\" src=\"https://graph.facebook.com/";
+        <a href=\"/user/profile/";
         // line 4
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "facebook", array()), "html", null, true);
-        echo "/picture?type=small\" title=\"";
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "id", array()), "html", null, true);
+        echo "\"><img src=\"";
+        if (twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "facebook_id", array())) {
+            echo " https://graph.facebook.com/";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "facebook_id", array()), "html", null, true);
+            echo "/picture?type=normal ";
+        } else {
+            echo " ";
+            echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/team/anonymous.jpg");
+            echo " ";
+        }
+        echo "\" alt=\"";
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "name", array()), "html", null, true);
-        echo "\" style=\"border-radius: 100px; height:85px; padding:10px;\">
+        echo "\"  title=\"";
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "name", array()), "html", null, true);
+        echo "\" style=\"border-radius: 100px; height:85px; padding:10px; cursor:pointer;\"></a>
       </div>
       <div class=\"col-sm-11\">
         <h3>";
@@ -211,7 +223,7 @@ class __TwigTemplate_6345854244bd1787dac91112c9d59d0317957bde78d16126c89363d30a0
 
     public function getDebugInfo()
     {
-        return array (  192 => 56,  171 => 42,  163 => 41,  153 => 40,  147 => 39,  141 => 38,  133 => 37,  129 => 36,  124 => 34,  117 => 29,  111 => 28,  98 => 26,  93 => 25,  88 => 24,  86 => 23,  81 => 21,  78 => 20,  65 => 18,  60 => 17,  58 => 16,  54 => 15,  48 => 14,  36 => 7,  28 => 4,  23 => 1,);
+        return array (  204 => 56,  183 => 42,  175 => 41,  165 => 40,  159 => 39,  153 => 38,  145 => 37,  141 => 36,  136 => 34,  129 => 29,  123 => 28,  110 => 26,  105 => 25,  100 => 24,  98 => 23,  93 => 21,  90 => 20,  77 => 18,  72 => 17,  70 => 16,  66 => 15,  60 => 14,  48 => 7,  28 => 4,  23 => 1,);
     }
 
     public function getSourceContext()
@@ -219,7 +231,7 @@ class __TwigTemplate_6345854244bd1787dac91112c9d59d0317957bde78d16126c89363d30a0
         return new Twig_Source("<section id=\"layout-title\">
     <div class=\"container\">
       <div class=\"col-sm-1\">
-        <img class=\"center-block\" src=\"https://graph.facebook.com/{{ record.facebook }}/picture?type=small\" title=\"{{ record.name }}\" style=\"border-radius: 100px; height:85px; padding:10px;\">
+        <a href=\"/user/profile/{{record.id}}\"><img src=\"{% if record.facebook_id %} https://graph.facebook.com/{{ record.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}\" alt=\"{{ record.name }}\"  title=\"{{ record.name }}\" style=\"border-radius: 100px; height:85px; padding:10px; cursor:pointer;\"></a>
       </div>
       <div class=\"col-sm-11\">
         <h3>{{ record.name }} {{ record.surname }}</h3>
