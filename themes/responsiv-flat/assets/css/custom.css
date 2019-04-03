@@ -5,6 +5,10 @@
   margin-top: 5px;
   text-align: center;
 }
+.avatar-responsive {
+  border-radius: 100px;
+  cursor:pointer;
+}
 .user-menu {
   font-size: 15px;
   margin-left: 5px;
@@ -16,6 +20,7 @@
   cursor:pointer;
   width: 85px;
 }
+
 .brand-title {
   display: none;
 }
