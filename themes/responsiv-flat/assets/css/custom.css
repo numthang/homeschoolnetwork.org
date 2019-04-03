@@ -1,9 +1,8 @@
-.feature-icon {
-
-  max-width: 90px;
-  max-height: 90px;
-  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.2);
-  margin-top: 25px;
+.user-icon {
+  max-width: 80px;
+  max-height: 80px;
+  /*box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.2);*/
+  margin-top: 5px;
 }
 .avatar {
   border-radius: 100px;
@@ -19,9 +18,9 @@
     display: block;
   }
 }
-@media screen and (max-width: 320px) {
-  .navbar-toggle {
-    /*padding-right: 20px;*/
+@media screen and (max-width: 500px) {
+  .nav {
+    /*padding-top: 50px;*/
   }
 }
 .social-login {
@@ -30,4 +29,14 @@
 }
 .scrolled {
   opacity: 0.6;
+}
+.search {
+	width:100%;
+	float:right;
+	height:30px;
+}
+.home-login {
+	padding-bottom: 20px;
+	border: 0px #ddd solid;
+	border-radius: 10px;
 }

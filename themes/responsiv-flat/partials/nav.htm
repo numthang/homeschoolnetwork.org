@@ -47,62 +47,62 @@
             <a class="navbar-brand" href="{{ 'home'|page }}"><div class="brand-title">Homeschool Network</div></a>
         </div>
         <div class="collapse navbar-collapse navbar-main-collapse">
-            <ul class="nav navbar-nav navbar-right">
-              {# nav.render_menu(links) #}
-              <!--<li class=" ">
-                <a href="/" class="">{{ 'Home'|_ }}</a>
-              </li>-->
-              <li class=" dropdown">
-                <a href="#" data-toggle="dropdown" class="dropdown-toggle">
-                {{ 'Blog'|_ }}
-                <span class="caret"></span></a>
-                <span class="dropdown-arrow"></span>
-                <ul class="dropdown-menu">
-                  <li class=" ">
-                    <a href="/blog/page/default" class="">
-                      {{ 'Blog'|_ }}
-                    </a>
-                  </li>
-                  <li class=" ">
-                    <a href="/blog/tags" class="">
-                      {{ 'Tags'|_ }}
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class=" dropdown">
-                <a href="#" data-toggle="dropdown" class="dropdown-toggle">{{ 'Languages'|_ }}<span class="caret"></span></a>
-                <span class="dropdown-arrow"></span>
-                <ul class="dropdown-menu">
-                  <li class=" ">
-                    <a href="#" data-request="onSwitchLocale" data-request-data="locale: 'en'">English</a>
-                  </li>
-                  <li class=" ">
-                    <a href="#" data-request="onSwitchLocale" data-request-data="locale: 'th'">Thai</a>
-                  </li>
-                </ul>
-              </li>
-              {% if not user %}
-              <li>
-                <button onclick="window.location='/login'" class="btn btn-sm navbar-btn btn-primary navbar-right hidden-sm hidden-xs">{{ 'Log in'|_ }}</button>
-              </li>
-              {% else %}
-              <li class=" dropdown">
-                <a href="#" data-toggle="dropdown" class="dropdown-toggle">{{ user.name }}<span class="caret"></span></a>
-                <span class="dropdown-arrow"></span>
-                <ul class="dropdown-menu">
-                  <li><a href="/login/profile"><img src="/themes/responsiv-flat/assets/images/icons/png/profile.png" width="30"> {{ 'My profile'|_ }}</a></li>
-                  <li><a href="/login/new/course"><img src="/themes/responsiv-flat/assets/images/icons/svg/book.svg" width="30"> {{ 'New course'|_ }}</a></li>
-                  <li><a href="/login/new/evaluation"><img src="/themes/responsiv-flat/assets/images/icons/svg/clipboard.svg" width="30"> {{ 'New evaluation'|_ }}</a></li>
-                  <li><a href="/login/new/post"><img src="/themes/responsiv-flat/assets/images/icons/svg/pencils.svg" width="30"> {{ 'New post'|_ }}</a></li>
-                  <li><a href="javascript:void(0);" data-request="onLogout" data-request-data="redirect: '/'"><img src="{{ '/assets/images/icons/png/signout.png'|theme }}" width="30"> {{ 'Sign out'|_ }}</a></li>
-                </ul>
-                    <!--<button data-request="onLogout" data-request-data="redirect: '/'" class="btn btn-sm navbar-btn btn-primary navbar-right hidden-sm hidden-xs">
-                    {{ 'Sign out'|_ }}
-                  </button> -->
-              </li>
-              {% endif %}
-            </ul>
+          <ul class="nav navbar-nav navbar-right">
+            {# nav.render_menu(links) #}
+            <!--<li class=" ">
+              <a href="/" class="">{{ 'Home'|_ }}</a>
+            </li>-->
+            <li class=" dropdown">
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+              {{ 'Blog'|_ }}
+              <span class="caret"></span></a>
+              <span class="dropdown-arrow"></span>
+              <ul class="dropdown-menu">
+                <li class=" ">
+                  <a href="/blog/page/default" class="">
+                    {{ 'Blog'|_ }}
+                  </a>
+                </li>
+                <li class=" ">
+                  <a href="/blog/tags" class="">
+                    {{ 'Tags'|_ }}
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class=" dropdown">
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle">{{ 'Languages'|_ }}<span class="caret"></span></a>
+              <span class="dropdown-arrow"></span>
+              <ul class="dropdown-menu">
+                <li class=" ">
+                  <a href="#" data-request="onSwitchLocale" data-request-data="locale: 'en'">English</a>
+                </li>
+                <li class=" ">
+                  <a href="#" data-request="onSwitchLocale" data-request-data="locale: 'th'">Thai</a>
+                </li>
+              </ul>
+            </li>
+            {% if not user %}
+            <li>
+              <button onclick="window.location='/login'" class="btn btn-sm navbar-btn btn-primary navbar-right hidden-sm hidden-xs">{{ 'Log in'|_ }}</button>
+            </li>
+            {% else %}
+            <li class=" dropdown">
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle">{{ user.name }}<span class="caret"></span></a>
+              <span class="dropdown-arrow"></span>
+              <ul class="dropdown-menu">
+                <li><a href="/login/profile"><img src="/themes/responsiv-flat/assets/images/icons/png/profile.png" width="30"> {{ 'My profile'|_ }}</a></li>
+                <li><a href="/login/new/course"><img src="/themes/responsiv-flat/assets/images/icons/svg/book.svg" width="30"> {{ 'New course'|_ }}</a></li>
+                <li><a href="/login/new/evaluation"><img src="/themes/responsiv-flat/assets/images/icons/svg/clipboard.svg" width="30"> {{ 'New evaluation'|_ }}</a></li>
+                <li><a href="/login/new/post"><img src="/themes/responsiv-flat/assets/images/icons/svg/pencils.svg" width="30"> {{ 'New post'|_ }}</a></li>
+                <li><a href="javascript:void(0);" data-request="onLogout" data-request-data="redirect: '/'"><img src="{{ '/assets/images/icons/png/signout.png'|theme }}" width="30"> {{ 'Sign out'|_ }}</a></li>
+              </ul>
+                  <!--<button data-request="onLogout" data-request-data="redirect: '/'" class="btn btn-sm navbar-btn btn-primary navbar-right hidden-sm hidden-xs">
+                  {{ 'Sign out'|_ }}
+                </button> -->
+            </li>
+            {% endif %}
+          </ul>
         </div>
     </div>
 </nav>
