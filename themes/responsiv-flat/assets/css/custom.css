@@ -46,3 +46,8 @@
 	border: 0px #ddd solid;
 	border-radius: 10px;
 }
+
+hr {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
