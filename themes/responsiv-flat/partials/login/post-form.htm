@@ -52,16 +52,16 @@
       </div>
     </div>-->
   </div>
-  <div class="form-group">
-    <label for="Form-field-blog-content">{{ 'Content'|_ }}</label>
-    <textarea name="content" id="content" class="form-control mytinymce" rows="20">{{ PostForm.post.content }}</textarea>
-  </div>
   {% if PostForm.show_excerpt %}
   <div class="form-group">
     <label for="Form-field-blog-excerpt">{{ 'Excerpt'|_ }}</label>
     <textarea name="excerpt" id="Form-field-blog-excerpt" class="form-control mytinymce" rows="5">{{ record.excerpt }}</textarea>
   </div>
   {% endif %}
+  <div class="form-group">
+    <label for="Form-field-blog-content">{{ 'Content'|_ }}</label>
+    <textarea name="content" id="content" class="form-control mytinymce" rows="20">{{ PostForm.post.content }}</textarea>
+  </div>
   <div class="form-group">
     <label for="Form-field-blog-category">{{ 'Category'|_ }}</label>
     {% for cat in PostForm.categories %}
@@ -73,45 +73,46 @@
   </div>
   {% if PostForm.user_groups %}
   <p>{{ PostForm.trans('general.notify_groups') }}</p>
-  <div class="row">
     {% for id,name in PostForm.user_groups %}
-    <div class="col-md-3">
       {{ form_checkbox('notify_groups[]', id,false,{ id:'notify_groups'~id }) }}
       <label for="notify_groups{{ id }}">{{ name }}</label>
-    </div>
     {% endfor %}
-  </div>
   {% endif %}
 <!--end tab-content -->
   <div class="alert alert-danger" data-validate-error>
     <p data-message></p>
   </div>
-  <button
-    id="draft_save"
-    type="button"
-    data-hotkey="ctrl+s, cmd+s"
-    data-request="onSave"
-    data-request-data="published:0"
-    data-load-indicator="{{ PostForm.trans('kurtjensen.mycalendar::lang.general.saving') }}"
-    class="btn btn-warning">{{ PostForm.trans('general.btn_save_draft') }}
-  </button>
-  {% if PostForm.allowpublish %}
+  <div class="col-sm-3">
     <button
-      id="publish_save"
+      id="draft_save"
       type="button"
+      data-hotkey="ctrl+s, cmd+s"
       data-request="onSave"
-      data-request-data="published:1"
+      data-request-data="published:0"
       data-load-indicator="{{ PostForm.trans('kurtjensen.mycalendar::lang.general.saving') }}"
-      class="btn btn-primary">{{ PostForm.trans('general.btn_save_publish') }}
+      class="btn btn-warning btn-block">{{ PostForm.trans('general.btn_save_draft') }}
     </button>
-    <button
-      id="delete"
-      type="button"
-      data-request="onDelete"
-      data-request-confirm="Are you sure?"
-      class="btn btn-danger">{{ PostForm.trans('general.btn_delete') }}
-    </button>
-
+  </div>
+  {% if PostForm.allowpublish %}
+    <div class="col-sm-3">
+      <button
+        id="publish_save"
+        type="button"
+        data-request="onSave"
+        data-request-data="published:1"
+        data-load-indicator="{{ PostForm.trans('kurtjensen.mycalendar::lang.general.saving') }}"
+        class="btn btn-primary btn-block">{{ PostForm.trans('general.btn_save_publish') }}
+      </button>
+    </div>
+    <div class="col-sm-3">
+      <button
+        id="delete"
+        type="button"
+        data-request="onDelete"
+        data-request-confirm="Are you sure?"
+        class="btn btn-danger btn-block">{{ PostForm.trans('general.btn_delete') }}
+      </button>
+    </div>
   {% endif %}
 {{ form_close() }}
 {% else %}
