@@ -49,11 +49,12 @@ class Courses extends ComponentBase
     }
 
     public function onRun(){
-      if(Session::get('user_auth'))
+      #if(Session::get('token'))
+      if(Auth::getUser())
         $this->courses = $this->loadCourses();
     }
 
-    protected function loadCourses(){;
+    protected function loadCourses(){
       if(!$this->property('byUserID')) {//if no user id specific
         $user = Auth::getUser();
         $userid = $user->id;

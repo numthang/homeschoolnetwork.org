@@ -53,7 +53,7 @@ class Evaluations extends ComponentBase
   }
 
   public function onRun(){
-    if(Session::get('user_auth'))
+    if(Auth::getUser())
       $this->evaluations = $this->loadEvaluations();
   }
 
