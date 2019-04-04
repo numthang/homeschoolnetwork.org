@@ -299,13 +299,13 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
     <div class="col-sm-12">
     	<input type="hidden" name="save_as" value="0">
 			<button type="button" title="{{ 'Preview'|_ }}" class="btn btn-lg btn-info fa fa-eye float2" onClick="window.open('/user/course/{{ record.created_at| date('U') }}', '_blank');"></button>
-			{% if record.template == 0 or can('edit_course_template') %}
+			{% if (record.template == 0 or can('edit_course_template')) and record.user_id == user.id  %}
     		<div class="col-sm-2">
 					<button type="submit" class="btn btn-lg btn-default btn-block" data-hotkey="ctrl+s, cmd+s">{{ 'Save'|_ }}</button>
 				</div>
 				<button type="submit" title="{{ 'Save'|_ }}" class="btn btn-lg btn-default fa fa-save float" data-hotkey="ctrl+s, cmd+s"></button>
     	{% endif %}
-    	{% if record.id is defined %}
+    	{% if record.id is defined%}
 				<div class="col-sm-3">
 			    <button type="submit" class="btn btn-lg btn-info btn-block" onClick="if(confirm('{{ 'Save as'|_ }} '+this.form.name.value)) this.form.save_as.value = 1; else return false;">{{ 'Save as'|_ }} ...</button>
 				</div>
@@ -315,7 +315,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
 				<div class="col-sm-3">
 					<button type="button" class="btn btn-lg btn-info btn-block" onClick="window.open('/user/course/{{ record.created_at| date('U') }}?print=1', '_blank');">{{ 'Print to PDF'|_ }} </button>
 				</div>
-				{% if record.template == 0 or can('edit_course_template') %}
+				{% if (record.template == 0 or can('edit_course_template')) and record.user_id == user.id  %}
 					<div class="col-sm-2">
 				  	<button type="button" data-request="onDelete" data-request-confirm="Are you sure?" class="btn btn-lg btn-danger btn-block">{{ 'Remove'|_ }}</button>
 					</div>
