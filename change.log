@@ -1,8 +1,5 @@
-Now on Master
-
-Totorial
-เพิ่ม menu categories ในบทความ
-SELECT * FROM `Content` WHERE content_id = '292'
+บทความการใช้งานเว็บไซต์
+Video Totorial 1 การเขียนแผนการศึกษา
 
 
 I'm using for our membership on my website to contact each other via Facbook profile
