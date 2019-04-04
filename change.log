@@ -1,7 +1,9 @@
 Now on Master
 
 Totorial
-New category How to use, News-
+เพิ่ม menu categories ในบทความ
+SELECT * FROM `Content` WHERE content_id = '292'
+
 
 I'm using for our membership on my website to contact each other via Facbook profile
 
