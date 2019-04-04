@@ -77,3 +77,6 @@ hr {
 .form-control {
   line-height: 2.8;
 }
+.pagination {
+  white-space: inherit;
+}
