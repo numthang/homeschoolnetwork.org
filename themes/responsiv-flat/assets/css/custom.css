@@ -74,3 +74,9 @@ hr {
   text-align:center;
   box-shadow: 5px 5px 10px #999;
 }
+.form-control {
+  line-height: 2.8;
+}
+.pagination {
+  white-space: inherit;
+}
