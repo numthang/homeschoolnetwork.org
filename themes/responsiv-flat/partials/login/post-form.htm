@@ -64,7 +64,7 @@
   </div>
   <div class="form-group">
     <label for="Form-field-blog-category">{{ 'Category'|_ }}</label>
-    {% for cat in PostForm.categories %}
+    {% for cat in blogCategories.categories %}
       <label class="checkbox" for="Form-field-blog-cat-{{ cat.name }}">
       <input type="checkbox" id="Form-field-blog-cat-{{ cat.name }}"  data-toggle="checkbox" name="category[]" value="{{ cat.id }}" {% if cat.id in PostForm.postCategoryIds %}checked="checked"{% endif %}>
         {{ cat.name }}
