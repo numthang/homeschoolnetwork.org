@@ -1,6 +1,11 @@
 [viewBag]
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "blog/category"
 ==
-{# Note: Only one levels of sublinks are supported by Bootstrap 3 #}
+<!--{# Note: Only one levels of sublinks are supported by Bootstrap 3 #}
 {% set
     links = {
         'home': ['home', 'Home'],
@@ -8,6 +13,7 @@
             name: 'Blog',
             sublinks: {
                 'Blog': ['blog/blog', 'Blog'],
+                'Cate' : ['/blog/category/uncategorized', 'Category'],
                 'Tags': ['blog/tags', 'Tags'],
             },
         },
@@ -28,15 +34,14 @@
             {% if link.sublinks %}
                 <span class="dropdown-arrow"></span>
                 <ul class="dropdown-menu">
-                    {{ subnav.render_menu(link.sublinks) }}
+                  {{ subnav.render_menu(link.sublinks) }}
                 </ul>
             {% endif %}
         </li>
     {% endfor %}
 {% endmacro %}
 
-{% import _self as nav %}
-
+{% import _self as nav %}-->
 <nav id="layout-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -63,6 +68,12 @@
                     {{ 'Blog'|_ }}
                   </a>
                 </li>
+                {% if blogCategories.categories|length > 0 %}
+                  {% partial blogCategories ~ "::items"
+                      categories = blogCategories.categories
+                      currentCategorySlug = blogCategories.currentCategorySlug
+                  %}
+                {% endif %}
                 <li class=" ">
                   <a href="/blog/tags" class="">
                     {{ 'Tags'|_ }}

@@ -41,111 +41,111 @@ class __TwigTemplate_4ed89c2ffcfa0f312d4b7af12dda9c7f1afc2a8de1e394a967cd5b87193
         echo "\"><div class=\"brand-title\">Homeschool Network</div></a>
         </div>
         <div class=\"collapse navbar-collapse navbar-main-collapse\">
-            <ul class=\"nav navbar-nav navbar-right\">
-              ";
+          <ul class=\"nav navbar-nav navbar-right\">
+            ";
         // line 50
-        echo "              <!--<li class=\" \">
-                <a href=\"/\" class=\"\">";
+        echo "            <!--<li class=\" \">
+              <a href=\"/\" class=\"\">";
         // line 51
         echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Home"));
         echo "</a>
-              </li>-->
-              <li class=\" dropdown\">
-                <a href=\"#\" data-toggle=\"dropdown\" class=\"dropdown-toggle\">
-                ";
+            </li>-->
+            <li class=\" dropdown\">
+              <a href=\"#\" data-toggle=\"dropdown\" class=\"dropdown-toggle\">
+              ";
         // line 55
         echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Blog"));
         echo "
-                <span class=\"caret\"></span></a>
-                <span class=\"dropdown-arrow\"></span>
-                <ul class=\"dropdown-menu\">
-                  <li class=\" \">
-                    <a href=\"/blog/page/default\" class=\"\">
-                      ";
+              <span class=\"caret\"></span></a>
+              <span class=\"dropdown-arrow\"></span>
+              <ul class=\"dropdown-menu\">
+                <li class=\" \">
+                  <a href=\"/blog/page/default\" class=\"\">
+                    ";
         // line 61
         echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Blog"));
         echo "
-                    </a>
-                  </li>
-                  <li class=\" \">
-                    <a href=\"/blog/tags\" class=\"\">
-                      ";
+                  </a>
+                </li>
+                <li class=\" \">
+                  <a href=\"/blog/tags\" class=\"\">
+                    ";
         // line 66
         echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Tags"));
         echo "
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class=\" dropdown\">
-                <a href=\"#\" data-toggle=\"dropdown\" class=\"dropdown-toggle\">";
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class=\" dropdown\">
+              <a href=\"#\" data-toggle=\"dropdown\" class=\"dropdown-toggle\">";
         // line 72
         echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Languages"));
         echo "<span class=\"caret\"></span></a>
-                <span class=\"dropdown-arrow\"></span>
-                <ul class=\"dropdown-menu\">
-                  <li class=\" \">
-                    <a href=\"#\" data-request=\"onSwitchLocale\" data-request-data=\"locale: 'en'\">English</a>
-                  </li>
-                  <li class=\" \">
-                    <a href=\"#\" data-request=\"onSwitchLocale\" data-request-data=\"locale: 'th'\">Thai</a>
-                  </li>
-                </ul>
-              </li>
-              ";
+              <span class=\"dropdown-arrow\"></span>
+              <ul class=\"dropdown-menu\">
+                <li class=\" \">
+                  <a href=\"#\" data-request=\"onSwitchLocale\" data-request-data=\"locale: 'en'\">English</a>
+                </li>
+                <li class=\" \">
+                  <a href=\"#\" data-request=\"onSwitchLocale\" data-request-data=\"locale: 'th'\">Thai</a>
+                </li>
+              </ul>
+            </li>
+            ";
         // line 83
         if ( !($context["user"] ?? null)) {
             // line 84
-            echo "              <li>
-                <button onclick=\"window.location='/login'\" class=\"btn btn-sm navbar-btn btn-primary navbar-right hidden-sm hidden-xs\">";
+            echo "            <li>
+              <button onclick=\"window.location='/login'\" class=\"btn btn-sm navbar-btn btn-primary navbar-right hidden-sm hidden-xs\">";
             // line 85
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Log in"));
             echo "</button>
-              </li>
-              ";
+            </li>
+            ";
         } else {
             // line 88
-            echo "              <li class=\" dropdown\">
-                <a href=\"#\" data-toggle=\"dropdown\" class=\"dropdown-toggle\">";
+            echo "            <li class=\" dropdown\">
+              <a href=\"#\" data-toggle=\"dropdown\" class=\"dropdown-toggle\">";
             // line 89
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "name", array()), "html", null, true);
             echo "<span class=\"caret\"></span></a>
-                <span class=\"dropdown-arrow\"></span>
-                <ul class=\"dropdown-menu\">
-                  <li><a href=\"/login/profile\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/profile.png\" width=\"30\"> ";
+              <span class=\"dropdown-arrow\"></span>
+              <ul class=\"dropdown-menu\">
+                <li><a href=\"/login/profile\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/profile.png\" width=\"30\"> ";
             // line 92
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("My profile"));
             echo "</a></li>
-                  <li><a href=\"/login/new/course\"><img src=\"/themes/responsiv-flat/assets/images/icons/svg/book.svg\" width=\"30\"> ";
+                <li><a href=\"/login/new/course\"><img src=\"/themes/responsiv-flat/assets/images/icons/svg/book.svg\" width=\"30\"> ";
             // line 93
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("New course"));
             echo "</a></li>
-                  <li><a href=\"/login/new/evaluation\"><img src=\"/themes/responsiv-flat/assets/images/icons/svg/clipboard.svg\" width=\"30\"> ";
+                <li><a href=\"/login/new/evaluation\"><img src=\"/themes/responsiv-flat/assets/images/icons/svg/clipboard.svg\" width=\"30\"> ";
             // line 94
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("New evaluation"));
             echo "</a></li>
-                  <li><a href=\"/login/new/post\"><img src=\"/themes/responsiv-flat/assets/images/icons/svg/pencils.svg\" width=\"30\"> ";
+                <li><a href=\"/login/new/post\"><img src=\"/themes/responsiv-flat/assets/images/icons/svg/pencils.svg\" width=\"30\"> ";
             // line 95
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("New post"));
             echo "</a></li>
-                  <li><a href=\"javascript:void(0);\" data-request=\"onLogout\" data-request-data=\"redirect: '/'\"><img src=\"";
+                <li><a href=\"javascript:void(0);\" data-request=\"onLogout\" data-request-data=\"redirect: '/'\"><img src=\"";
             // line 96
             echo $this->extensions['Cms\Twig\Extension']->themeFilter("/assets/images/icons/png/signout.png");
             echo "\" width=\"30\"> ";
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Sign out"));
             echo "</a></li>
-                </ul>
-                    <!--<button data-request=\"onLogout\" data-request-data=\"redirect: '/'\" class=\"btn btn-sm navbar-btn btn-primary navbar-right hidden-sm hidden-xs\">
-                    ";
+              </ul>
+                  <!--<button data-request=\"onLogout\" data-request-data=\"redirect: '/'\" class=\"btn btn-sm navbar-btn btn-primary navbar-right hidden-sm hidden-xs\">
+                  ";
             // line 99
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Sign out"));
             echo "
-                  </button> -->
-              </li>
-              ";
+                </button> -->
+            </li>
+            ";
         }
         // line 103
-        echo "            </ul>
+        echo "          </ul>
         </div>
     </div>
 </nav>";
@@ -295,62 +295,62 @@ class __TwigTemplate_4ed89c2ffcfa0f312d4b7af12dda9c7f1afc2a8de1e394a967cd5b87193
             <a class=\"navbar-brand\" href=\"{{ 'home'|page }}\"><div class=\"brand-title\">Homeschool Network</div></a>
         </div>
         <div class=\"collapse navbar-collapse navbar-main-collapse\">
-            <ul class=\"nav navbar-nav navbar-right\">
-              {# nav.render_menu(links) #}
-              <!--<li class=\" \">
-                <a href=\"/\" class=\"\">{{ 'Home'|_ }}</a>
-              </li>-->
-              <li class=\" dropdown\">
-                <a href=\"#\" data-toggle=\"dropdown\" class=\"dropdown-toggle\">
-                {{ 'Blog'|_ }}
-                <span class=\"caret\"></span></a>
-                <span class=\"dropdown-arrow\"></span>
-                <ul class=\"dropdown-menu\">
-                  <li class=\" \">
-                    <a href=\"/blog/page/default\" class=\"\">
-                      {{ 'Blog'|_ }}
-                    </a>
-                  </li>
-                  <li class=\" \">
-                    <a href=\"/blog/tags\" class=\"\">
-                      {{ 'Tags'|_ }}
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class=\" dropdown\">
-                <a href=\"#\" data-toggle=\"dropdown\" class=\"dropdown-toggle\">{{ 'Languages'|_ }}<span class=\"caret\"></span></a>
-                <span class=\"dropdown-arrow\"></span>
-                <ul class=\"dropdown-menu\">
-                  <li class=\" \">
-                    <a href=\"#\" data-request=\"onSwitchLocale\" data-request-data=\"locale: 'en'\">English</a>
-                  </li>
-                  <li class=\" \">
-                    <a href=\"#\" data-request=\"onSwitchLocale\" data-request-data=\"locale: 'th'\">Thai</a>
-                  </li>
-                </ul>
-              </li>
-              {% if not user %}
-              <li>
-                <button onclick=\"window.location='/login'\" class=\"btn btn-sm navbar-btn btn-primary navbar-right hidden-sm hidden-xs\">{{ 'Log in'|_ }}</button>
-              </li>
-              {% else %}
-              <li class=\" dropdown\">
-                <a href=\"#\" data-toggle=\"dropdown\" class=\"dropdown-toggle\">{{ user.name }}<span class=\"caret\"></span></a>
-                <span class=\"dropdown-arrow\"></span>
-                <ul class=\"dropdown-menu\">
-                  <li><a href=\"/login/profile\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/profile.png\" width=\"30\"> {{ 'My profile'|_ }}</a></li>
-                  <li><a href=\"/login/new/course\"><img src=\"/themes/responsiv-flat/assets/images/icons/svg/book.svg\" width=\"30\"> {{ 'New course'|_ }}</a></li>
-                  <li><a href=\"/login/new/evaluation\"><img src=\"/themes/responsiv-flat/assets/images/icons/svg/clipboard.svg\" width=\"30\"> {{ 'New evaluation'|_ }}</a></li>
-                  <li><a href=\"/login/new/post\"><img src=\"/themes/responsiv-flat/assets/images/icons/svg/pencils.svg\" width=\"30\"> {{ 'New post'|_ }}</a></li>
-                  <li><a href=\"javascript:void(0);\" data-request=\"onLogout\" data-request-data=\"redirect: '/'\"><img src=\"{{ '/assets/images/icons/png/signout.png'|theme }}\" width=\"30\"> {{ 'Sign out'|_ }}</a></li>
-                </ul>
-                    <!--<button data-request=\"onLogout\" data-request-data=\"redirect: '/'\" class=\"btn btn-sm navbar-btn btn-primary navbar-right hidden-sm hidden-xs\">
-                    {{ 'Sign out'|_ }}
-                  </button> -->
-              </li>
-              {% endif %}
-            </ul>
+          <ul class=\"nav navbar-nav navbar-right\">
+            {# nav.render_menu(links) #}
+            <!--<li class=\" \">
+              <a href=\"/\" class=\"\">{{ 'Home'|_ }}</a>
+            </li>-->
+            <li class=\" dropdown\">
+              <a href=\"#\" data-toggle=\"dropdown\" class=\"dropdown-toggle\">
+              {{ 'Blog'|_ }}
+              <span class=\"caret\"></span></a>
+              <span class=\"dropdown-arrow\"></span>
+              <ul class=\"dropdown-menu\">
+                <li class=\" \">
+                  <a href=\"/blog/page/default\" class=\"\">
+                    {{ 'Blog'|_ }}
+                  </a>
+                </li>
+                <li class=\" \">
+                  <a href=\"/blog/tags\" class=\"\">
+                    {{ 'Tags'|_ }}
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class=\" dropdown\">
+              <a href=\"#\" data-toggle=\"dropdown\" class=\"dropdown-toggle\">{{ 'Languages'|_ }}<span class=\"caret\"></span></a>
+              <span class=\"dropdown-arrow\"></span>
+              <ul class=\"dropdown-menu\">
+                <li class=\" \">
+                  <a href=\"#\" data-request=\"onSwitchLocale\" data-request-data=\"locale: 'en'\">English</a>
+                </li>
+                <li class=\" \">
+                  <a href=\"#\" data-request=\"onSwitchLocale\" data-request-data=\"locale: 'th'\">Thai</a>
+                </li>
+              </ul>
+            </li>
+            {% if not user %}
+            <li>
+              <button onclick=\"window.location='/login'\" class=\"btn btn-sm navbar-btn btn-primary navbar-right hidden-sm hidden-xs\">{{ 'Log in'|_ }}</button>
+            </li>
+            {% else %}
+            <li class=\" dropdown\">
+              <a href=\"#\" data-toggle=\"dropdown\" class=\"dropdown-toggle\">{{ user.name }}<span class=\"caret\"></span></a>
+              <span class=\"dropdown-arrow\"></span>
+              <ul class=\"dropdown-menu\">
+                <li><a href=\"/login/profile\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/profile.png\" width=\"30\"> {{ 'My profile'|_ }}</a></li>
+                <li><a href=\"/login/new/course\"><img src=\"/themes/responsiv-flat/assets/images/icons/svg/book.svg\" width=\"30\"> {{ 'New course'|_ }}</a></li>
+                <li><a href=\"/login/new/evaluation\"><img src=\"/themes/responsiv-flat/assets/images/icons/svg/clipboard.svg\" width=\"30\"> {{ 'New evaluation'|_ }}</a></li>
+                <li><a href=\"/login/new/post\"><img src=\"/themes/responsiv-flat/assets/images/icons/svg/pencils.svg\" width=\"30\"> {{ 'New post'|_ }}</a></li>
+                <li><a href=\"javascript:void(0);\" data-request=\"onLogout\" data-request-data=\"redirect: '/'\"><img src=\"{{ '/assets/images/icons/png/signout.png'|theme }}\" width=\"30\"> {{ 'Sign out'|_ }}</a></li>
+              </ul>
+                  <!--<button data-request=\"onLogout\" data-request-data=\"redirect: '/'\" class=\"btn btn-sm navbar-btn btn-primary navbar-right hidden-sm hidden-xs\">
+                  {{ 'Sign out'|_ }}
+                </button> -->
+            </li>
+            {% endif %}
+          </ul>
         </div>
     </div>
 </nav>", "/home/tee/domains/homeschoolnetwork.org/public_html/themes/responsiv-flat/partials/nav.htm", "");

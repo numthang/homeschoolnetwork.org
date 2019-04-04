@@ -87,79 +87,47 @@ class __TwigTemplate_8d32f66788a4979e1a29b377c2ba1fe7dad37d7187c746895ac54b62635
         echo " layout-";
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "layout", array()), "id", array()), "html", null, true);
         echo "\">
-      
       <div id=\"fb-root\"></div>
       <script async defer crossorigin=\"anonymous\" src=\"https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.2&appId=345191885891796&autoLogAppEvents=1\"></script>
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '345191885891796',
-      xfbml      : true,
-      version    : 'v3.2'
-    });
-    FB.AppEvents.logPageView();
-  };
 
-<<<<<<< HEAD
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = \"https://connect.facebook.net/en_US/sdk.js\";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
-        <div id=\"flash_message\"></div>
-        <!-- Header -->
-        <header id=\"layout-header\" class=\"header-navbar\">
-            <!-- Nav -->
-            ";
-        // line 58
-        $context['__cms_partial_params'] = [];
-        echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("nav"        , $context['__cms_partial_params']        , true        );
-        unset($context['__cms_partial_params']);
-        // line 59
-        echo "        </header>
-=======
       <div id=\"flash_message\"></div>
       <!-- Header -->
       <header id=\"layout-header\" class=\"header-navbar\">
           <!-- Nav -->
           ";
-        // line 65
+        // line 39
         $context['__cms_partial_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("nav"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
-        // line 66
+        // line 40
         echo "      </header>
->>>>>>> b6b4d906a9f2c3d9d5eacdf3bbb7068946311a8f
 
       <!-- Content -->
       <div id=\"layout-content\">
         ";
-        // line 71
+        // line 44
         echo $this->env->getExtension('Cms\Twig\Extension')->pageFunction();
-        // line 72
+        // line 45
         echo "      </div>
 
       <!-- Footer -->
       <footer id=\"layout-footer\">
           ";
-        // line 76
+        // line 49
         $context['__cms_partial_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("footer"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
-        // line 77
+        // line 50
         echo "      </footer>
 
       <!-- Scripts -->
       <script src=\"";
-        // line 80
-        echo $this->extensions['Cms\Twig\Extension']->themeFilter(array(0 => "assets/javascript/jquery.min.js", 1 => "assets/vendor/bootstrap/js/transition.js", 2 => "assets/vendor/bootstrap/js/alert.js", 3 => "assets/vendor/bootstrap/js/button.js", 4 => "assets/vendor/bootstrap/js/carousel.js", 5 => "assets/vendor/bootstrap/js/collapse.js", 6 => "assets/vendor/bootstrap/js/dropdown.js", 7 => "assets/vendor/bootstrap/js/modal.js", 8 => "assets/vendor/bootstrap/js/tooltip.js", 9 => "assets/vendor/bootstrap/js/popover.js", 10 => "assets/vendor/bootstrap/js/scrollspy.js", 11 => "assets/vendor/bootstrap/js/tab.js", 12 => "assets/vendor/bootstrap/js/affix.js", 13 => "assets/vendor/jquery-ui/js/jquery.ui.core.js", 14 => "assets/vendor/jquery-ui/js/jquery.ui.widget.js", 15 => "assets/vendor/jquery-ui/js/jquery.ui.mouse.js", 16 => "assets/vendor/jquery-ui/js/jquery.ui.position.js", 17 => "assets/vendor/jquery-ui/js/jquery.ui.button.js", 18 => "assets/vendor/jquery-ui/js/jquery.ui.slider.js", 19 => "assets/vendor/jquery-ui/js/jquery.ui.effects.js", 20 => "assets/vendor/jquery-ui/js/jquery.ui.touchpunch.js", 21 => "assets/vendor/flat-ui/js/video.js", 22 => "assets/vendor/flat-ui/js/bootstrap-switch.js", 23 => "assets/vendor/flat-ui/js/bootstrap-tagsinput.js", 24 => "assets/vendor/flat-ui/js/holder.js", 25 => "assets/vendor/flat-ui/js/typeahead.jquery.js", 26 => "assets/vendor/flat-ui/js/select2.js", 27 => "assets/vendor/flat-ui/js/flatui-radiocheck.js", 28 => "assets/javascript/app.js"));
-        // line 114
+        // line 53
+        echo $this->extensions['Cms\Twig\Extension']->themeFilter(array(0 => "assets/javascript/jquery.min.js", 1 => "assets/javascript/pages/ui-elements.js", 2 => "assets/vendor/bootstrap/js/transition.js", 3 => "assets/vendor/bootstrap/js/alert.js", 4 => "assets/vendor/bootstrap/js/button.js", 5 => "assets/vendor/bootstrap/js/carousel.js", 6 => "assets/vendor/bootstrap/js/collapse.js", 7 => "assets/vendor/bootstrap/js/dropdown.js", 8 => "assets/vendor/bootstrap/js/modal.js", 9 => "assets/vendor/bootstrap/js/tooltip.js", 10 => "assets/vendor/bootstrap/js/popover.js", 11 => "assets/vendor/bootstrap/js/scrollspy.js", 12 => "assets/vendor/bootstrap/js/tab.js", 13 => "assets/vendor/bootstrap/js/affix.js", 14 => "assets/vendor/jquery-ui/js/jquery.ui.core.js", 15 => "assets/vendor/jquery-ui/js/jquery.ui.widget.js", 16 => "assets/vendor/jquery-ui/js/jquery.ui.mouse.js", 17 => "assets/vendor/jquery-ui/js/jquery.ui.position.js", 18 => "assets/vendor/jquery-ui/js/jquery.ui.button.js", 19 => "assets/vendor/jquery-ui/js/jquery.ui.slider.js", 20 => "assets/vendor/jquery-ui/js/jquery.ui.effects.js", 21 => "assets/vendor/jquery-ui/js/jquery.ui.touchpunch.js", 22 => "assets/vendor/flat-ui/js/video.js", 23 => "assets/vendor/flat-ui/js/bootstrap-switch.js", 24 => "assets/vendor/flat-ui/js/bootstrap-tagsinput.js", 25 => "assets/vendor/flat-ui/js/holder.js", 26 => "assets/vendor/flat-ui/js/typeahead.jquery.js", 27 => "assets/vendor/flat-ui/js/select2.js", 28 => "assets/vendor/flat-ui/js/flatui-radiocheck.js", 29 => "assets/javascript/app.js"));
+        // line 88
         echo "\"></script>
       ";
-        // line 115
+        // line 89
         $_minify = System\Classes\CombineAssets::instance()->useMinify;
         if ($_minify) {
             echo '<script src="'. Request::getBasePath()
@@ -174,11 +142,11 @@ class __TwigTemplate_8d32f66788a4979e1a29b377c2ba1fe7dad37d7187c746895ac54b62635
         echo '<link rel="stylesheet" property="stylesheet" href="'. Request::getBasePath()
                     .'/modules/system/assets/css/framework.extras'.($_minify ? '-min' : '').'.css">'.PHP_EOL;
         unset($_minify);
-        // line 116
+        // line 90
         echo "      ";
         echo $this->env->getExtension('Cms\Twig\Extension')->assetsFunction('js');
         echo $this->env->getExtension('Cms\Twig\Extension')->displayBlock('scripts');
-        // line 117
+        // line 91
         echo "      <script>
         function checkScroll(){
           var startY = \$('.navbar').height() * 2; //The point where the navbar changes in px
@@ -226,7 +194,7 @@ class __TwigTemplate_8d32f66788a4979e1a29b377c2ba1fe7dad37d7187c746895ac54b62635
 
     public function getDebugInfo()
     {
-        return array (  182 => 117,  178 => 116,  163 => 115,  160 => 114,  158 => 80,  153 => 77,  149 => 76,  143 => 72,  141 => 71,  134 => 66,  130 => 65,  122 => 59,  118 => 58,  86 => 31,  79 => 26,  77 => 23,  71 => 19,  68 => 16,  65 => 15,  61 => 14,  54 => 10,  50 => 9,  46 => 8,  42 => 7,  33 => 6,  29 => 5,  23 => 1,);
+        return array (  150 => 91,  146 => 90,  131 => 89,  128 => 88,  126 => 53,  121 => 50,  117 => 49,  111 => 45,  109 => 44,  103 => 40,  99 => 39,  86 => 31,  79 => 26,  77 => 23,  71 => 19,  68 => 16,  65 => 15,  61 => 14,  54 => 10,  50 => 9,  46 => 8,  42 => 7,  33 => 6,  29 => 5,  23 => 1,);
     }
 
     public function getSourceContext()
@@ -262,42 +230,15 @@ class __TwigTemplate_8d32f66788a4979e1a29b377c2ba1fe7dad37d7187c746895ac54b62635
       <link href=\"https://fonts.googleapis.com/css?family=Kanit\" rel=\"stylesheet\">
     </head>
     <body class=\"page-{{ this.page.id }} layout-{{ this.layout.id }}\">
-      
       <div id=\"fb-root\"></div>
       <script async defer crossorigin=\"anonymous\" src=\"https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.2&appId=345191885891796&autoLogAppEvents=1\"></script>
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '345191885891796',
-      xfbml      : true,
-      version    : 'v3.2'
-    });
-    FB.AppEvents.logPageView();
-  };
 
-<<<<<<< HEAD
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = \"https://connect.facebook.net/en_US/sdk.js\";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
-        <div id=\"flash_message\"></div>
-        <!-- Header -->
-        <header id=\"layout-header\" class=\"header-navbar\">
-            <!-- Nav -->
-            {% partial \"nav\" %}
-        </header>
-=======
       <div id=\"flash_message\"></div>
       <!-- Header -->
       <header id=\"layout-header\" class=\"header-navbar\">
           <!-- Nav -->
           {% partial \"nav\" %}
       </header>
->>>>>>> b6b4d906a9f2c3d9d5eacdf3bbb7068946311a8f
 
       <!-- Content -->
       <div id=\"layout-content\">
@@ -312,6 +253,7 @@ class __TwigTemplate_8d32f66788a4979e1a29b377c2ba1fe7dad37d7187c746895ac54b62635
       <!-- Scripts -->
       <script src=\"{{ [
           'assets/javascript/jquery.min.js',
+\t        'assets/javascript/pages/ui-elements.js',
 
           'assets/vendor/bootstrap/js/transition.js',
           'assets/vendor/bootstrap/js/alert.js',
