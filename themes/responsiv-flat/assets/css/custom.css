@@ -1,9 +1,12 @@
 .user-icon {
   /*max-width: 50px;
-  max-height: 50px;
-  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.2);*/
+  max-height: 50px;*/
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.1);
   margin-top: 5px;
-  text-align: center;
+  transition: .5s ease;
+}
+.user-icon:hover {
+  opacity: 0.7;
 }
 .avatar-responsive {
   border-radius: 100px;

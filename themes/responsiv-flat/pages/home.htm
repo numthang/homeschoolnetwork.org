@@ -65,22 +65,22 @@ sortOrder = "updated_at"
                 <a href="/user/profile/{{ user.id }}"><img src="{% if user.facebook_id %} https://graph.facebook.com/{{ user.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" alt="{{ user.name }}"  title="{{ user.name }}" class="img-rounded img-responsive user-icon avatar-responsive"></a>
               </div>-->
 		          <div class="col-sm-3 col-xs-3" align="center">
-		            <a href="/login/profile"><img src="/themes/responsiv-flat/assets/images/icons/png/profile.png" class="img-rounded user-icon img-responsive" title="{{ 'My profile'|_ }}"></a>
+		            <a href="/login/profile"><img src="/themes/responsiv-flat/assets/images/icons/png/fa-address-book-o.png" class="img-rounded user-icon img-responsive" title="{{ 'My profile'|_ }}"></a>
 		          </div>
 		          <div class="col-sm-3 col-xs-3" align="center">
-		            <a href="/login/new/course"><img src="/themes/responsiv-flat/assets/images/icons/png/Book.png" class="img-rounded user-icon img-responsive" title="{{ 'New course'|_ }}"></a>
+		            <a href="/login/new/course"><img src="/themes/responsiv-flat/assets/images/icons/png/fa-file-text.png" class="img-rounded user-icon img-responsive" title="{{ 'New course'|_ }}"></a>
 		          </div>
 		          <div class="col-sm-3 col-xs-3" align="center">
-		            <a href="/login/new/evaluation"><img src="/themes/responsiv-flat/assets/images/icons/png/Clipboard.png" class="img-rounded user-icon img-responsive" title="{{ 'New evaluation'|_ }}"></a>
+		            <a href="/login/new/evaluation"><img src="/themes/responsiv-flat/assets/images/icons/png/fa-file-picture-o.png" class="img-rounded user-icon img-responsive" title="{{ 'New evaluation'|_ }}"></a>
 		          </div>
 		          <div class="col-sm-3 col-xs-3" align="center">
-		            <a href="/login/new/post"><img src="/themes/responsiv-flat/assets/images/icons/png/Pencils.png" class="img-rounded user-icon img-responsive" title="{{ 'New post'|_ }}"></a>
+		            <a href="/login/new/post"><img src="/themes/responsiv-flat/assets/images/icons/png/fa-pencil.png" class="img-rounded user-icon img-responsive" title="{{ 'New post'|_ }}"></a>
 		          </div>
               <!--<div class="col-sm-2 col-xs-2" align="center">
 		            <a href="/login/new/post"><img src="/themes/responsiv-flat/assets/images/icons/png/signout.png" class="img-rounded user-icon img-responsive" title="{{ 'Sign out'|_ }}"></a>
 		          </div>-->
-            </div><hr>
-            <div class="row">
+            </div>
+            <div class="row" style="margin-top:10px;">
               <div class="col-sm-12">
                 <b>{{ 'Course'|_ }}</b>
                 <p>
