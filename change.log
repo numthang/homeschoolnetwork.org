@@ -11,9 +11,6 @@ I'm using for our membership on my website to contact each other via Facbook pro
 2. Go to https://www.homeschoolnetwork.org/cloud and see how many people around on map
 3. Click on profile picture to see their profile. This feature allow only for membership.
 
-- ADS
-
-
 future
 1. recent tweet
 Introduction
@@ -25,19 +22,11 @@ Introduction
 1.
 - การเขียนแผนส่งเขต (ขอฟอร์มแบบ minimalist)
 - การยื่นแบบประเมิน (SAR) + ร่องรอยการเรียนรู้ (ขอฟอร์มแบบ minimalist)
-- ขั้นตอนการจดทะเบียนบ้านเรียนกับเขต ดู รูปและคำแนะนำที่ https://issuu.com/manncomely/docs/___________________________________
-- ไอเดียข้อมูลอื่นๆ ดู https://marvelapp.com/36ch6ej/screen/44315100
-- ไอเดียรูปภาพ ที่ต้องการ สามารถหาได้จาก shutterstock หรือเว็บอื่นๆ ถ้าเจอรูปที่ตรงแล้วคุ้มกว่าวาดเองให้พิจารณาซื้อ
-- ไอเดียรูปแบบเว็บดู http://wespace.in.th/
-
-Option (ไม่แน่ใจว่าจำเป็นหรือเปล่า)
-- แนวทางการศึกษาของแต่ละบ้าน
-
+- ขั้นตอนการจดทะเบียนบ้านเรียนกับเขต ดู รูปและคำแนะนำที่ https://issuu.com/manncomely/docs/
+===================================================================================================
 Technical
-1. สมัครสมาชิก ไม่ต้องมีให้ใส่แนะนำตัวเองอะไรอีกแล้วให้เข้าไปลงทะเบียนเฉพาะใน profile เลย
-2. user 1 คนสามารถเพิ่ม profile บ้านเรียนได้หลายอันตามจำนวนผู้เรียน
-3. ยกเลิก multi domain ใช้ระบบ author แทน
-4. แผนที่ คนทำบ้านเรียน
+
+1. กรณีเพิ่ม category ต้องแก้ /themes/responsiv-flat/pages/login/new-post.htm ด้วย
 
 ===================================================================================================
 October Hint
