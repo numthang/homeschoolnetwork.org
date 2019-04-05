@@ -33,6 +33,7 @@ public function onEnd() {
 
     $date = explode('-', $this->courseform->record->attributes['birth_date']);
     $this->page['birth_date'] = $date[2].'/'.$date[1].'/'.$date[0];
+    $this->page['title'] = $course->name;
   }
 }
 ?>

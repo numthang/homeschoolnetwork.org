@@ -70,8 +70,8 @@ class Helper
                 $ogTags .= '<meta property="og:site_name" content="' . $settings->og_sitename . '" />' . "\n";
             }
 
-            if ($post->seo_description) {
-                $ogTags .= '<meta property="og:description" content="' . $post->seo_description . '" />' . "\n";
+            if ($post->powerseo_description) {
+                $ogTags .= '<meta property="og:description" content="' . $post->powerseo_description . '" />' . "\n";
             }
 
             $ogTitle = empty($post->meta_title) ? $post->title : $post->meta_title;

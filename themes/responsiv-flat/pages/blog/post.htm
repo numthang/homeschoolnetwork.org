@@ -1,6 +1,8 @@
 title = "Post"
 url = "/blog/:slug"
 layout = "default"
+meta_title = "Post"
+meta_description = "Post description"
 is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
@@ -23,20 +25,19 @@ paramCode = "code"
 forceSecure = 0
 ==
 <?php
-  public function onEnd() {
-    use October\Rain\Auth\Models\User as User;
-    $this->page->meta_title = $this->post->title;
-    $this->post->excerpt == null ? $description = substr(strip_tags($this->post->content), 0, 500) : $description = strip_tags($this->post->excerpt);
-    $this->page->og_description = $this->page->meta_description = $description;
-    //og:image
-    #dump($this->post->featured_images[0]);
-    if(count($this->post->featured_images))
-      $this->page->og_image = $this->post->featured_images[0]->path;
-  }
+public function onEnd() {
+  #$this->page->meta_title = $this->post->title;
+  /*$this->post->excerpt == null ? $description = substr(strip_tags($this->post->content), 0, 500) : $description = strip_tags($this->post->excerpt);
+  $this->page->og_description = $this->page->meta_description = $description;*/
+
+  #dump($this->post->featured_images[0]);
+  if(count($this->post->featured_images))
+    $this->page->og_image = $this->post->featured_images[0]->path;
+}
 ?>
 ==
-{% component 'SeoBlogPost' data=post %}
 {% set post = blogPost.post %}
+{% component 'SeoBlogPost' data=post %}
 <section id="layout-title">
   <div class="container">
       <h3>{{ 'Blog post'|_ }}</h3>
