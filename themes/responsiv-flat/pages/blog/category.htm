@@ -10,7 +10,7 @@ robot_follow = "follow"
 [blogPosts newsList]
 pageNumber = "{{ :page }}"
 categoryFilter = "{{ :slug }}"
-postsPerPage = 50
+postsPerPage = 100
 noPostsMessage = "No posts found"
 sortOrder = "published_at desc"
 categoryPage = "blog/category"
@@ -48,7 +48,7 @@ postPage = "blog/post"
               <a class="btn btn-lg btn-default" href="{{ post.url }}">{{ 'Read More'|_}} ...</a>
             </div>
             {% set i = i + 1 %}
-            {% if i == 1 or i == 3 or i == 5 %}
+            {% if i == 2 or i == 7 or i == 15 %}
               {% partial 'ads/new-in-feed' %}
             {% endif %}
           </div>
