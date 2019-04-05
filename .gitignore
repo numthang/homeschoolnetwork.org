@@ -1,6 +1,7 @@
 /bootstrap/compiled.php
 /config/database.php
 /storage
+.htaccess
 #/vendor
 composer.phar
 .DS_Store
