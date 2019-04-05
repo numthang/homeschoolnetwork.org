@@ -37,22 +37,22 @@ class __TwigTemplate_8d32f66788a4979e1a29b377c2ba1fe7dad37d7187c746895ac54b62635
             echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/logo-company.png");
         }
         echo "\" />
-      <meta property=\"og:description\" content=\"";
-        // line 7
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", array()), "og_description", array()), "html", null, true);
-        echo "\" />
       <!--<title>Homeschool Network (Thailand) - ";
-        // line 8
+        // line 7
         echo call_user_func_array($this->env->getFilter('_')->getCallable(), array(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", array()), "title", array())));
-        echo "</title>-->
-      <meta name=\"title\" content=\"";
-        // line 9
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", array()), "meta_title", array()), "html", null, true);
-        echo "\">
+        echo "</title>
+      <meta property=\"og:description\" content=\"";
+        // line 8
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", array()), "og_description", array()), "html", null, true);
+        echo "\" />      
       <meta name=\"description\" content=\"";
-        // line 10
+        // line 9
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", array()), "meta_description", array()), "html", null, true);
         echo "\">
+      <meta name=\"title\" content=\"";
+        // line 10
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", array()), "meta_title", array()), "html", null, true);
+        echo "\">-->
       <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
       <meta name=\"author\" content=\"OctoberCMS\">
       <meta name=\"generator\" content=\"OctoberCMS\">
@@ -205,10 +205,10 @@ class __TwigTemplate_8d32f66788a4979e1a29b377c2ba1fe7dad37d7187c746895ac54b62635
     \t<meta charset=\"UTF-8\">
       {% component 'SeoCmsPage' %}
       <meta property=\"og:image\" content=\"{% if this.page.og_image  %}{{ this.page.og_image }}{% else %}{{ 'assets/images/logo-company.png'|theme }}{% endif %}\" />
-      <meta property=\"og:description\" content=\"{{ this.page.og_description }}\" />
-      <!--<title>Homeschool Network (Thailand) - {{ this.page.title|_ }}</title>-->
-      <meta name=\"title\" content=\"{{ this.page.meta_title }}\">
+      <!--<title>Homeschool Network (Thailand) - {{ this.page.title|_ }}</title>
+      <meta property=\"og:description\" content=\"{{ this.page.og_description }}\" />      
       <meta name=\"description\" content=\"{{ this.page.meta_description }}\">
+      <meta name=\"title\" content=\"{{ this.page.meta_title }}\">-->
       <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
       <meta name=\"author\" content=\"OctoberCMS\">
       <meta name=\"generator\" content=\"OctoberCMS\">

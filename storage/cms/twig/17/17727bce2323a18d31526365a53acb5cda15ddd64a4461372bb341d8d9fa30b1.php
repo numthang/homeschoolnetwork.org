@@ -24,16 +24,15 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
   <div class=\"container\">
     <div class=\"row\">
       <div class=\"col-sm-12 col-md-5 home-login\">
-        <!--ครบเครื่องเรื่องการทำโฮมสคูลในประเทศไทย-->
         <div class=\"signup - form\">
           ";
-        // line 7
+        // line 6
         if ( !($context["user"] ?? null)) {
-            // line 8
+            // line 7
             echo "          <form data-request=\"onSignin\">
             <div class=\"form-group\">
               <label for=\"userSigninLogin\">";
-            // line 10
+            // line 9
             echo twig_escape_filter($this->env, ($context["loginAttributeLabel"] ?? null), "html", null, true);
             echo "</label>
               <input
@@ -42,7 +41,7 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
                 class=\"form-control\"
                 id=\"userSigninLogin\"
                 placeholder=\"Enter your ";
-            // line 16
+            // line 15
             echo twig_escape_filter($this->env, twig_lower_filter($this->env, ($context["loginAttributeLabel"] ?? null)), "html", null, true);
             echo "\" />
 
@@ -56,31 +55,31 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
             </div>
             <button type=\"submit\" style=\"width:225px; height:35px; padding-top: 5px; margin-top:5px;\" class=\"btn  btn-default\">Sign in</button>
             <a href=\"/flynsarmy/sociallogin/Facebook\"><img src=\"";
-            // line 27
+            // line 26
             echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/fb-login.png");
             echo "\" class=\"social-login\"></a>
             <a href=\"/flynsarmy/sociallogin/Google\"><img src=\"";
-            // line 28
+            // line 27
             echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/g-login.png");
             echo "\" class=\"social-login\"></a>
             <a href=\"/flynsarmy/sociallogin/Twitter\"><img src=\"";
-            // line 29
+            // line 28
             echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/t-login.png");
             echo "\" class=\"social-login\"></a>
           </form>
           <br>";
-            // line 31
+            // line 30
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("No account ?"));
             echo " <a href=\"/login\">";
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Register"));
             echo "</a>
           ";
         } else {
-            // line 33
+            // line 32
             echo "            <div class=\"row\">
               <div class=\"col-sm-12\">
                 <h3><a href=\"/user/profile/";
-            // line 35
+            // line 34
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "id", array()), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "name", array()), "html", null, true);
@@ -92,7 +91,7 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
 \t\t        <div class=\"row\">
               <!--<div class=\"col-sm-2 col-xs-2\" align=\"center\">
                 <a href=\"/user/profile/";
-            // line 40
+            // line 39
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "id", array()), "html", null, true);
             echo "\"><img src=\"";
             if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "facebook_id", array())) {
@@ -112,31 +111,31 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
               </div>-->
 \t\t          <div class=\"col-sm-3 col-xs-3\" align=\"center\">
 \t\t            <a href=\"/login/profile\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/fa-address-book-o.png\" class=\"img-rounded user-icon img-responsive\" title=\"";
-            // line 43
+            // line 42
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("My profile"));
             echo "\"></a>
 \t\t          </div>
 \t\t          <div class=\"col-sm-3 col-xs-3\" align=\"center\">
 \t\t            <a href=\"/login/new/course\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/fa-file-text-o.png\" class=\"img-rounded user-icon img-responsive\" title=\"";
-            // line 46
+            // line 45
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("New course"));
             echo "\"></a>
 \t\t          </div>
 \t\t          <div class=\"col-sm-3 col-xs-3\" align=\"center\">
 \t\t            <a href=\"/login/new/evaluation\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/fa-file-picture-o.png\" class=\"img-rounded user-icon img-responsive\" title=\"";
-            // line 49
+            // line 48
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("New evaluation"));
             echo "\"></a>
 \t\t          </div>
 \t\t          <div class=\"col-sm-3 col-xs-3\" align=\"center\">
 \t\t            <a href=\"/login/new/post\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/fa-pencil-o.png\" class=\"img-rounded user-icon img-responsive\" title=\"";
-            // line 52
+            // line 51
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("New post"));
             echo "\"></a>
 \t\t          </div>
               <!--<div class=\"col-sm-2 col-xs-2\" align=\"center\">
 \t\t            <a href=\"/login/new/post\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/signout.png\" class=\"img-rounded user-icon img-responsive\" title=\"";
-            // line 55
+            // line 54
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Sign out"));
             echo "\"></a>
 \t\t          </div>-->
@@ -144,19 +143,19 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
             <div class=\"row\" style=\"margin-top:10px;\">
               <div class=\"col-sm-12\">
                 <b>";
-            // line 60
+            // line 59
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Course"));
             echo "</b>
                 <p>
                   ";
-            // line 62
+            // line 61
             $context["courses"] = twig_get_attribute($this->env, $this->source, ($context["courses"] ?? null), "courses", array());
-            // line 63
+            // line 62
             echo "                  ";
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(($context["courses"] ?? null));
             foreach ($context['_seq'] as $context["_key"] => $context["c"]) {
-                // line 64
+                // line 63
                 echo "                    <a href=\"/login/edit/course/";
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["c"], "id", array()), "html", null, true);
                 echo "\"> <span class=\"fui-new\"></span> ";
@@ -167,27 +166,27 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['c'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 66
+            // line 65
             echo "                </p>
                 <b>";
-            // line 67
+            // line 66
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Evaluation"));
             echo "</b>
                 <p>
                   ";
-            // line 69
+            // line 68
             $context["evaluations"] = twig_get_attribute($this->env, $this->source, ($context["evaluations"] ?? null), "evaluations", array());
-            // line 70
+            // line 69
             echo "                  ";
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(($context["evaluations"] ?? null));
             foreach ($context['_seq'] as $context["_key"] => $context["c"]) {
-                // line 71
+                // line 70
                 echo "                    ";
                 $context['_parent'] = $context;
                 $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["c"], "evaluations", array()));
                 foreach ($context['_seq'] as $context["_key"] => $context["e"]) {
-                    // line 72
+                    // line 71
                     echo "                      <a href=\"/login/edit/evaluation/";
                     echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["e"], "id", array()), "html", null, true);
                     echo "\"> <span class=\"fui-new\"></span> ";
@@ -198,25 +197,25 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
                 $_parent = $context['_parent'];
                 unset($context['_seq'], $context['_iterated'], $context['_key'], $context['e'], $context['_parent'], $context['loop']);
                 $context = array_intersect_key($context, $_parent) + $_parent;
-                // line 74
+                // line 73
                 echo "                  ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['c'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 75
+            // line 74
             echo "                </p>
               </div>
 \t\t          <!--<div class=\"col-sm-2\" align=\"center\">
 \t\t            <a href=\"javascript:void(0);\" data-request=\"onLogout\" data-request-data=\"redirect: '/'\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/signout.png\" class=\"img-rounded user-icon\"><font class=\"user-menu\">";
-            // line 78
+            // line 77
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Sign out"));
             echo "</font></a>
 \t\t          </div>-->
 \t\t        </div>
           ";
         }
-        // line 82
+        // line 81
         echo "        </div>
         <!--<div class=\"additional-links\">
           By signing up you agree to <a href=\"#\">Terms of Use</a> and <a href=\"#\">Privacy Policy</a>
@@ -224,11 +223,11 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
       </div>
       <div class=\"col-sm-12 col-md-7\">
         ";
-        // line 88
+        // line 87
         $context['__cms_partial_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("slide"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
-        // line 89
+        // line 88
         echo "      </div>
     </div>
   </div>
@@ -238,7 +237,7 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
   <div class=\"row our-services\" style=\"margin-top:10px;\">
     <div class=\"col-sm-12\">
       <h4 class=\"headline\"><span>";
-        // line 97
+        // line 96
         echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("What we do"));
         echo "</span></h4>
       <p>\"เครือข่ายบ้านเรียน\" เว็บกลางสำหรับสมาชิกบ้านเรียนหรือโฮมสคูลในเมืองไทย สามารถติดต่อ แลกเปลี่ยน หาความรู้ในการทำโฮมสคูล โดยสมาชิกจะสามารถ ค้นฐานข้อมูลสมาชิกบ้านเรียน, เขียนแผนการศึกษาออนไลน์, เขียนแบบประเมินและร่องรอยการเรียนรู้และสามารถร่วมเขียนเนื้อหาหรือบันทึกใดๆ ที่ต้องการแชร์ให้กับสมาชิกบ้านเรียนท่านอื่นๆ หรือบุคคลที่สนใจได้เข้ามาศึกษา เพื่อทำความรู้จักและสร้างกลุ่มบ้านเรียนให้ใหญ่ขึ้นได้ต่อไป</p>
@@ -249,7 +248,7 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
               <i class=\"fa fa-vcard\"></i>
               <div class=\"service-desc\">
                 <h5><a href=\"/login/profile\">";
-        // line 105
+        // line 104
         echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("User profile"));
         echo "</a></h5>
                 <p>อย่าลืมกดเข้าไปอัพเดทข้อมูลเกี่ยวกับบ้านเรียนของคุณ เพื่อสร้างเครือข่ายให้ใหญ่ขึ้น และเป็นที่รู้จัก ไม่ต้องทนเหงาอีกต่อไป</p>
@@ -263,7 +262,7 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
               <i class=\"fa fa-book\"></i>
               <div class=\"service-desc\">
                 <h5><a href=\"/login/new/course\">";
-        // line 116
+        // line 115
         echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("New course"));
         echo "</a></h5>
                 <p>หากคุณประสบปัญหาในการเขียนรายงาน, ออกแบบการเรียนการสอนและการจัดเรียงเอกสาร
@@ -279,7 +278,7 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
               <i class=\"fa fa-clipboard\"></i>
               <div class=\"service-desc\">
                 <h5><a href=\"/login/new/evaluation\">";
-        // line 129
+        // line 128
         echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("New evaluation"));
         echo "</a></h5>
                 <p>ทุกปี จะมีเทศกาลปั่นรายงาน ส่วนนี้จะเป็นส่วนของการทำรายงานประเมินผล ท่านสามารถอัพเดทร่องรอยการเรียนรู้ของนักเรียนได้เรื่อยๆ ตลอดปี </p>
@@ -293,7 +292,7 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
               <i class=\"fa fui-new\"></i>
               <div class=\"service-desc\">
                 <h5><a href=\"/login/new/post\">";
-        // line 140
+        // line 139
         echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("New post"));
         echo "</a></h5>
                 <p>นอกเหนือจากงานเขียนที่ต้องส่งเขตแล้ว ท่านยังสามารถช่วยเหลือชุมชน ด้วยการเขียนบทความหรืออื่นๆ แสดงบนหน้าเว็บแก่คนรุ่นหลังต่อไป</p>
@@ -307,7 +306,7 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
               <i class=\"fa fa-cloud\"></i>
               <div class=\"service-desc\">
                 <h5><a href=\"/cloud\">";
-        // line 151
+        // line 150
         echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Homeschooler cloud"));
         echo "</a></h5>
                 <p>มีใครทำบ้านเรียนในพื้นที่บ้าง เชื่อว่าเป็นคำถามแรกๆ ในใจหลังจากที่คิดจะทำโฮมสคูล ไปค้นหาเพื่อนบ้านโฮมสคูลในพื้นที่ของคุณกันเลย</p>
@@ -321,7 +320,7 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
               <i class=\"fa fa-question-circle-o\"></i>
               <div class=\"service-desc\">
                 <h5><a href=\"/blog/59\">";
-        // line 162
+        // line 161
         echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("FAQ"));
         echo "</a></h5>
                 <p>คำถามที่พบบ่อย ที่ได้รับการรวบรวมจากสมาชิกหลายท่านจากหลายแหล่ง เช่น เริ่มต้นโฮมสคูลทำอย่างไร บ้านต้องรวยหรือเปล่า เป็นต้น</p>
@@ -333,15 +332,15 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
     </div>
   </div>
   ";
-        // line 171
+        // line 170
         $context['__cms_partial_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("ads/bottom"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
-        // line 172
+        // line 171
         echo "  <div class=\"row our-team\">
     <div class=\"col-sm-8\">
       <h4 class=\"headline\"><span>";
-        // line 174
+        // line 173
         echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Our team"));
         echo "</span></h4>
       <div class=\"row\">
@@ -418,7 +417,7 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
 
     public function getDebugInfo()
     {
-        return array (  345 => 174,  341 => 172,  337 => 171,  325 => 162,  311 => 151,  297 => 140,  283 => 129,  267 => 116,  253 => 105,  242 => 97,  232 => 89,  228 => 88,  220 => 82,  213 => 78,  208 => 75,  202 => 74,  191 => 72,  186 => 71,  181 => 70,  179 => 69,  174 => 67,  171 => 66,  160 => 64,  155 => 63,  153 => 62,  148 => 60,  140 => 55,  134 => 52,  128 => 49,  122 => 46,  116 => 43,  96 => 40,  84 => 35,  80 => 33,  73 => 31,  68 => 29,  64 => 28,  60 => 27,  46 => 16,  37 => 10,  33 => 8,  31 => 7,  23 => 1,);
+        return array (  344 => 173,  340 => 171,  336 => 170,  324 => 161,  310 => 150,  296 => 139,  282 => 128,  266 => 115,  252 => 104,  241 => 96,  231 => 88,  227 => 87,  219 => 81,  212 => 77,  207 => 74,  201 => 73,  190 => 71,  185 => 70,  180 => 69,  178 => 68,  173 => 66,  170 => 65,  159 => 63,  154 => 62,  152 => 61,  147 => 59,  139 => 54,  133 => 51,  127 => 48,  121 => 45,  115 => 42,  95 => 39,  83 => 34,  79 => 32,  72 => 30,  67 => 28,  63 => 27,  59 => 26,  45 => 15,  36 => 9,  32 => 7,  30 => 6,  23 => 1,);
     }
 
     public function getSourceContext()
@@ -427,7 +426,6 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
   <div class=\"container\">
     <div class=\"row\">
       <div class=\"col-sm-12 col-md-5 home-login\">
-        <!--ครบเครื่องเรื่องการทำโฮมสคูลในประเทศไทย-->
         <div class=\"signup - form\">
           {% if not user %}
           <form data-request=\"onSignin\">
