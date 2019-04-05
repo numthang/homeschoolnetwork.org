@@ -7,7 +7,7 @@
         <!--<a  class="btn btn-primary"
             href="#PostDetail"
             data-request="onPreview"
-            data-toggle="modal" 
+            data-toggle="modal"
             data-target="#blogModal">{{ __SELF__.trans('general.btn_preview') }}
         </a>-->
         <a href="{{ __SELF__.listPage }}"
@@ -90,28 +90,28 @@
             <p data-message></p>
         </div>
 
-        <button 
+        <button
             id="draft_save"
-            type="button" 
-            data-hotkey="ctrl+s, cmd+s" 
+            type="button"
+            data-hotkey="ctrl+s, cmd+s"
             data-request="onSave"
             data-request-data="published:0"
-            data-load-indicator="{{ __SELF__.trans('kurtjensen.mycalendar::lang.general.saving') }}" 
+            data-load-indicator="{{ __SELF__.trans('kurtjensen.mycalendar::lang.general.saving') }}"
             class="btn btn-warning">{{ __SELF__.trans('general.btn_save_draft') }}
         </button>
 {% if __SELF__.allowpublish %}
         <button
             id="publish_save"
-            type="button" 
+            type="button"
             data-request="onSave"
             data-request-data="published:1"
-            data-load-indicator="{{ __SELF__.trans('kurtjensen.mycalendar::lang.general.saving') }}" 
+            data-load-indicator="{{ __SELF__.trans('kurtjensen.mycalendar::lang.general.saving') }}"
             class="btn btn-primary">{{ __SELF__.trans('general.btn_save_publish') }}
         </button>
 {% endif %}
 
     <span class="btn-text">
-        or 
+        or
         <a href="{{ __SELF__.listPage }}"
             class="btn btn-default" >
             {{ __SELF__.trans('general.btn_cancel') }}

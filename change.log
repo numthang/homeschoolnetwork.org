@@ -1,6 +1,6 @@
 force www.
 see user post
-check exceptหาย 
+check exceptหาย
 add twitter field
 บทความการใช้งานเว็บไซต์
 Video Totorial 1 การเขียนแผนการศึกษา
@@ -111,6 +111,5 @@ Hard code changed
 //update slug as next id
 /plugins/rainlab/blog/models/Post.php
 /plugins/bedard/blogtags/models/Tag.php
-/plugins/fireunion/blogfront/components/PostForm.php
 /plugins/fireunion/blogfront/components/PostForm.php
 /plugins/flynsarmy/sociallogin/classes/UserManager.php

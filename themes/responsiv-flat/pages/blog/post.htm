@@ -96,13 +96,13 @@ public function onEnd() {
       <!-- Pagination -->
       <ul class="pager pull-right">
         <li class="previous">
-          <a href="/blog/{{ post.previousPost.id }}">
+          <a href="/blog/{{ post.nextPost.slug }}">
           <span class="fui-arrow-left"></span>
           Previous
           </a>
         </li>
         <li class="next">
-          <a href="/blog/{{ post.nextPost.id }}">
+          <a href="/blog/{{ post.previousPost.slug }}">
           Next
           <span class="fui-arrow-right"></span>
           </a>
