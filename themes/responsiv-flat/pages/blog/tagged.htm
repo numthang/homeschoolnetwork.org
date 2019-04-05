@@ -25,6 +25,8 @@ categoryPage = "blog/category"
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
+          {% partial 'ads/top' %}
+
           {% if blogTagSearch.posts %}
               <ul>
                   {% for Post in blogTagSearch.tag.posts %}

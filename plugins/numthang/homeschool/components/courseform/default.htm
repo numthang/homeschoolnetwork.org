@@ -299,7 +299,8 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
     <div class="col-sm-12">
     	<input type="hidden" name="save_as" value="0">
 			<button type="button" title="{{ 'Preview'|_ }}" class="btn btn-lg btn-info fa fa-eye float2" onClick="window.open('/user/course/{{ record.created_at| date('U') }}', '_blank');"></button>
-			{% if (record.template == 0 or can('edit_course_template')) and record.user_id == user.id  %}
+			<!--เฉพาะ admin จะ save ได้ทุกครั้ง หรือ ถ้าเป็นการเขียนแผนใหม่ หรือ การแก้ไขแผนและเป็นแผนตัวเองเท่านั้น-->
+			{% if (can('edit_course_template') or (record.id is not defined and record.template == 0) or (record.id is defined and record.template == 0 and record.user_id == user.id))  %}
     		<div class="col-sm-2">
 					<button type="submit" class="btn btn-lg btn-default btn-block" data-hotkey="ctrl+s, cmd+s">{{ 'Save'|_ }}</button>
 				</div>
@@ -315,7 +316,7 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
 				<div class="col-sm-3">
 					<button type="button" class="btn btn-lg btn-info btn-block" onClick="window.open('/user/course/{{ record.created_at| date('U') }}?print=1', '_blank');">{{ 'Print to PDF'|_ }} </button>
 				</div>
-				{% if (record.template == 0 or can('edit_course_template')) and record.user_id == user.id  %}
+				{% if (can('edit_course_template') or (record.template == 0 and record.id is not defined) or (record.template == 0 and record.user_id == user.id and record.id is defined))  %}
 					<div class="col-sm-2">
 				  	<button type="button" data-request="onDelete" data-request-confirm="Are you sure?" class="btn btn-lg btn-danger btn-block">{{ 'Remove'|_ }}</button>
 					</div>
