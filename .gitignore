@@ -1,7 +1,7 @@
 /bootstrap/compiled.php
 /config/database.php
 /storage
-.gitupdate.sh
+.htaccess
 #/vendor
 composer.phar
 .DS_Store
