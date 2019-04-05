@@ -3,17 +3,14 @@
 use Schema;
 use October\Rain\Database\Updates\Migration;
 
-class AddNewFields extends Migration
+class AddNewFields4 extends Migration
 {
 
     public function up()
     {
         Schema::table('users', function($table)
         {
-          $table->string('website')->nullable();
-          $table->string('facebook')->nullable();
-          $table->string('line')->nullable();
-          $table->string('status')->nullable();
+          $table->string('twitter')->nullable();
         });
     }
 
@@ -21,7 +18,7 @@ class AddNewFields extends Migration
     {
         if (Schema::hasTable('users')) {
             Schema::table('users', function ($table) {
-                $table->dropColumn(['website', 'facebook', 'line', 'status']);
+                $table->dropColumn(['twitter']);
             });
         }
     }

@@ -90,3 +90,6 @@ hr {
 .pagination {
   white-space: inherit;
 }
+.blog-desc {
+    line-height: 2;
+}

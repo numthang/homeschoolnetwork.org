@@ -63,13 +63,14 @@ sortOrder = "updated_at"
         <div class="contact-banner">
             <h3 class="banner-title">{{ 'Contact'|_ }}</h3>
             <ul>
-                <li>{{ record.street_addr }}</li>
-                <li>{{ record.city }},{{ record.state.name }} {{ record.zip }}</li>
+                <li>{{ record.company }} </li>
+                <li>{{ record.street_addr }} {{ record.city }} {{ record.state.name }} {{ record.zip }}</li>
                 <li>{{ 'Mobile'|_ }}: {{ record.mobile }}</li>
                 <li>{{ 'Phone'|_ }}: {{ record.phone }}</li>
                 <li>{{ 'Email'|_ }}: <a href="mail-to:{{ record.username }}">{% component 'builderDetails' %}</a></li>
                 <li>{{ 'Facebook'|_ }}: <a href="https://www.facebook.com/{{ record.facebook }}">{{ record.facebook }}</a></li>
                 <li>{{ 'Twitter'|_ }}: <a href="https://www.twitter.com/{{ record.twitter }}">{{ record.twitter }}</a></li>
+                <li>{{ 'Line'|_ }}: <a href="#">{{ record.line }}</a></li>
             </ul>
         </div>
 
@@ -83,7 +84,7 @@ sortOrder = "updated_at"
             scrolling="no"
             marginheight="0"
             marginwidth="0"
-            src="https://maps.google.com/maps?q={{record.street_addr}}&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+            src="https://maps.google.com/maps?q={{record.street_addr}}+{{record.zip}}&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
         </div>
 
     </div>
