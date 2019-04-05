@@ -24,7 +24,8 @@ class Plugin extends PluginBase
           'country_id',
           'state_id',
           'note',
-          'facebook_id'
+          'facebook_id',
+          'twitter'
         ]);
       });
       UsersController::extendFormFields(function($form, $model, $context) {//เพิ่ม user form ใน backend
