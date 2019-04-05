@@ -5,13 +5,15 @@
     </IfModule>
 
     RewriteEngine On
-
+    #force redirect to www
+    RewriteCond %{HTTP_HOST} ^homeschoolnetwork\.org$
+    RewriteRule ^(.*) http://www.homeschoolnetwork.org/$1 [R=301]
     ##
     ## You may need to uncomment the following line for some hosting environments,
     ## if you have installed to a subdirectory, enter the name here also.
     ##
     # RewriteBase /
-    
+
     ##
     ## Uncomment following lines to force HTTPS.
     ##
