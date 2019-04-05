@@ -315,7 +315,8 @@
     <div class="col-sm-12">
   		<input type="hidden" name="save_as" value="0">
 			<button type="button" title="{{ 'Preview'|_ }}" class="btn btn-lg btn-info fa fa-eye float2" onClick="window.open('/user/evaluation/{{ evaluation.created_at| date('U') }}', '_blank');"></button>
-			{% if (course.template == 0 or can('edit_course_template'))  and course.user_id == user.id %}
+			<!--เฉพาะ admin จะ save ได้ทุกครั้ง หรือ ถ้าเป็นการเขียนแผนใหม่ หรือ การแก้ไขแผนและเป็นแผนตัวเองเท่านั้น-->
+			{% if (can('edit_course_template') or (evaluation.id is not defined and course.template == 0) or (evaluation.id is defined and course.template == 0 and course.user_id == user.id))  %}
 				<div class="col-sm-2">
       		<button type="submit" class="btn btn-lg btn-default btn-block">{{ 'Save'|_ }}</button>
 				</div>

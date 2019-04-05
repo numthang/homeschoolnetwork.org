@@ -17,8 +17,9 @@ direction = "desc"
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
+          {% partial 'ads/top' %}
           {% for tag in blogTags.tags %}
-            <a href="/blog/tagged/{{ tag.id }}" style="font-size:{{ tag.posts|length+16 }}px;">{{ tag.name }} ({{ tag.posts|length }})</a>, 
+            <a href="/blog/tagged/{{ tag.id }}" style="font-size:{{ tag.posts|length+16 }}px;">{{ tag.name }} ({{ tag.posts|length }})</a>,
           {% endfor %}
         </div>
     </div>
