@@ -95,18 +95,22 @@ public function onEnd() {
       </div>
       <!-- Pagination -->
       <ul class="pager pull-right">
-        <li class="previous">
-          <a href="/blog/{{ post.nextPost.slug }}">
-          <span class="fui-arrow-left"></span>
-          Previous
-          </a>
-        </li>
-        <li class="next">
-          <a href="/blog/{{ post.previousPost.slug }}">
-          Next
-          <span class="fui-arrow-right"></span>
-          </a>
-        </li>
+        {% if post.nextPost.slug  %}
+          <li class="previous">
+            <a href="/blog/{{ post.nextPost.slug }}">
+            <span class="fui-arrow-left"></span>
+            Previous
+            </a>
+          </li>
+        {% endif %}
+        {% if post.previousPost.slug %}
+          <li class="next">
+            <a href="/blog/{{ post.previousPost.slug }}">
+            Next
+            <span class="fui-arrow-right"></span>
+            </a>
+          </li>
+        {% endif %}
       </ul>
       <div class="clearfix"></div>
       <div id="disqus_thread"></div>
