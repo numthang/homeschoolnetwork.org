@@ -4,14 +4,14 @@ description = "Printable layout"
 <html>
     <head>
     	<meta charset="UTF-8">
-      {% component 'SeoCmsPage' %}
-      <!--<title>Homeschool Network (Thailand) - {{ this.page.title|_ }}</title>-->
+      <title>{{ this.page.title|_ }}</title>
       <meta name="title" content="{{ this.page.meta_title }}">
       <meta name="description" content="{{ this.page.meta_description }}">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="author" content="OctoberCMS">
       <meta name="generator" content="OctoberCMS">
       <link rel="icon" type="image/png" href="{{ 'assets/images/logo.png'|theme }}">
+      <meta name="robots" content="{{this.page.robot_index}},{{this.page.robot_follow}}">
 
       <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
       <!--[if lt IE 9]>

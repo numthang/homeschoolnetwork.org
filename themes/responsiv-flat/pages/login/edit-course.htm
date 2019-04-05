@@ -2,6 +2,8 @@ title = "Edit course"
 url = "/login/edit/course/:id"
 layout = "default"
 is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
 
 [viewBag]
 
@@ -20,6 +22,7 @@ redirect = "login/login"
 
 [courses]
 results = 0
+byUserID = 0
 sortOrder = "template"
 ==
 <?php
