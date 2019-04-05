@@ -19,15 +19,16 @@ class __TwigTemplate_4ed89c2ffcfa0f312d4b7af12dda9c7f1afc2a8de1e394a967cd5b87193
 
     protected function doDisplay(array $context, array $blocks = array())
     {
+        // line 1
+        echo "<!--";
         // line 2
-        $context["links"] = array("home" => array(0 => "home", 1 => "Home"), "blog" => array("name" => "Blog", "sublinks" => array("Blog" => array(0 => "blog/blog", 1 => "Blog"), "Tags" => array(0 => "blog/tags", 1 => "Tags"))));
-        // line 35
+        $context["links"] = array("home" => array(0 => "home", 1 => "Home"), "blog" => array("name" => "Blog", "sublinks" => array("Blog" => array(0 => "blog/blog", 1 => "Blog"), "Cate" => array(0 => "/blog/category/uncategorized", 1 => "Category"), "Tags" => array(0 => "blog/tags", 1 => "Tags"))));
+        // line 36
         echo "
 ";
-        // line 36
-        $context["nav"] = $this;
         // line 37
-        echo "
+        $context["nav"] = $this;
+        echo "-->
 <nav id=\"layout-nav\" class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\">
     <div class=\"container\">
         <div class=\"navbar-header\">
@@ -44,16 +45,10 @@ class __TwigTemplate_4ed89c2ffcfa0f312d4b7af12dda9c7f1afc2a8de1e394a967cd5b87193
           <ul class=\"nav navbar-nav navbar-right\">
             ";
         // line 50
-        echo "            <!--<li class=\" \">
-              <a href=\"/\" class=\"\">";
-        // line 51
-        echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Home"));
-        echo "</a>
-            </li>-->
-            <li class=\" dropdown\">
+        echo "            <li class=\" dropdown\">
               <a href=\"#\" data-toggle=\"dropdown\" class=\"dropdown-toggle\">
               ";
-        // line 55
+        // line 52
         echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Blog"));
         echo "
               <span class=\"caret\"></span></a>
@@ -62,15 +57,32 @@ class __TwigTemplate_4ed89c2ffcfa0f312d4b7af12dda9c7f1afc2a8de1e394a967cd5b87193
                 <li class=\" \">
                   <a href=\"/blog/page/default\" class=\"\">
                     ";
-        // line 61
-        echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Blog"));
+        // line 58
+        echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("All articles"));
         echo "
                   </a>
                 </li>
-                <li class=\" \">
+                ";
+        // line 61
+        if ((twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["blogCategories"] ?? null), "categories", array())) > 0)) {
+            // line 62
+            echo "                  ";
+            $context['__cms_partial_params'] = [];
+            $context['__cms_partial_params']['categories'] = twig_get_attribute($this->env, $this->source,             // line 63
+($context["blogCategories"] ?? null), "categories", array())            ;
+            $context['__cms_partial_params']['currentCategorySlug'] = twig_get_attribute($this->env, $this->source,             // line 64
+($context["blogCategories"] ?? null), "currentCategorySlug", array())            ;
+            echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction((            // line 62
+($context["blogCategories"] ?? null) . "::items")            , $context['__cms_partial_params']            , true            );
+            unset($context['__cms_partial_params']);
+            // line 66
+            echo "                ";
+        }
+        // line 67
+        echo "                <li class=\" \">
                   <a href=\"/blog/tags\" class=\"\">
                     ";
-        // line 66
+        // line 69
         echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Tags"));
         echo "
                   </a>
@@ -79,7 +91,7 @@ class __TwigTemplate_4ed89c2ffcfa0f312d4b7af12dda9c7f1afc2a8de1e394a967cd5b87193
             </li>
             <li class=\" dropdown\">
               <a href=\"#\" data-toggle=\"dropdown\" class=\"dropdown-toggle\">";
-        // line 72
+        // line 75
         echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Languages"));
         echo "<span class=\"caret\"></span></a>
               <span class=\"dropdown-arrow\"></span>
@@ -93,65 +105,88 @@ class __TwigTemplate_4ed89c2ffcfa0f312d4b7af12dda9c7f1afc2a8de1e394a967cd5b87193
               </ul>
             </li>
             ";
-        // line 83
+        // line 86
         if ( !($context["user"] ?? null)) {
-            // line 84
+            // line 87
             echo "            <li>
               <button onclick=\"window.location='/login'\" class=\"btn btn-sm navbar-btn btn-primary navbar-right hidden-sm hidden-xs\">";
-            // line 85
+            // line 88
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Log in"));
             echo "</button>
             </li>
             ";
         } else {
-            // line 88
+            // line 91
             echo "            <li class=\" dropdown\">
-              <a href=\"#\" data-toggle=\"dropdown\" class=\"dropdown-toggle\">";
-            // line 89
+              <a href=\"#\" data-toggle=\"dropdown\" class=\"dropdown-toggle\"><img src=\"";
+            // line 92
+            if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "facebook_id", array())) {
+                echo " https://graph.facebook.com/";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "facebook_id", array()), "html", null, true);
+                echo "/picture?type=small ";
+            } else {
+                echo " ";
+                echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/team/anonymous.jpg");
+                echo " ";
+            }
+            echo "\" alt=\"";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "name", array()), "html", null, true);
+            echo "\"  title=\"";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "name", array()), "html", null, true);
+            echo "\" class=\"avatar-sm\"> ";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "name", array()), "html", null, true);
             echo "<span class=\"caret\"></span></a>
               <span class=\"dropdown-arrow\"></span>
               <ul class=\"dropdown-menu\">
-                <li><a href=\"/login/profile\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/profile.png\" width=\"30\"> ";
-            // line 92
+                <li><a href=\"/login/profile\"><img src=\"";
+            // line 95
+            echo $this->extensions['Cms\Twig\Extension']->themeFilter("/assets/images/icons/png/fa-address-book.png");
+            echo "\" width=\"30\"> ";
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("My profile"));
             echo "</a></li>
-                <li><a href=\"/login/new/course\"><img src=\"/themes/responsiv-flat/assets/images/icons/svg/book.svg\" width=\"30\"> ";
-            // line 93
+                <li><a href=\"/login/new/course\"><img src=\"";
+            // line 96
+            echo $this->extensions['Cms\Twig\Extension']->themeFilter("/assets/images/icons/png/fa-file-text.png");
+            echo "\" width=\"30\"> ";
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("New course"));
             echo "</a></li>
-                <li><a href=\"/login/new/evaluation\"><img src=\"/themes/responsiv-flat/assets/images/icons/svg/clipboard.svg\" width=\"30\"> ";
-            // line 94
+                <li><a href=\"/login/new/evaluation\"><img src=\"";
+            // line 97
+            echo $this->extensions['Cms\Twig\Extension']->themeFilter("/assets/images/icons/png/fa-file-picture.png");
+            echo "\" width=\"30\"> ";
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("New evaluation"));
             echo "</a></li>
-                <li><a href=\"/login/new/post\"><img src=\"/themes/responsiv-flat/assets/images/icons/svg/pencils.svg\" width=\"30\"> ";
-            // line 95
+                <li><a href=\"/login/new/post\"><img src=\"";
+            // line 98
+            echo $this->extensions['Cms\Twig\Extension']->themeFilter("/assets/images/icons/png/fa-pencil.png");
+            echo "\" width=\"30\"> ";
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("New post"));
             echo "</a></li>
                 <li><a href=\"javascript:void(0);\" data-request=\"onLogout\" data-request-data=\"redirect: '/'\"><img src=\"";
-            // line 96
-            echo $this->extensions['Cms\Twig\Extension']->themeFilter("/assets/images/icons/png/signout.png");
+            // line 99
+            echo $this->extensions['Cms\Twig\Extension']->themeFilter("/assets/images/icons/png/fa-sign-out.png");
             echo "\" width=\"30\"> ";
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Sign out"));
             echo "</a></li>
               </ul>
                   <!--<button data-request=\"onLogout\" data-request-data=\"redirect: '/'\" class=\"btn btn-sm navbar-btn btn-primary navbar-right hidden-sm hidden-xs\">
                   ";
-            // line 99
+            // line 102
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Sign out"));
             echo "
                 </button> -->
             </li>
             ";
         }
-        // line 103
-        echo "          </ul>
+        // line 106
+        echo "
+          </ul>
         </div>
     </div>
 </nav>";
     }
 
-    // line 14
+    // line 15
     public function macro_render_menu($__links__ = null, ...$__varargs__)
     {
         $context = $this->env->mergeGlobals(array(
@@ -163,17 +198,17 @@ class __TwigTemplate_4ed89c2ffcfa0f312d4b7af12dda9c7f1afc2a8de1e394a967cd5b87193
 
         ob_start();
         try {
-            // line 15
+            // line 16
             echo "    ";
             $context["subnav"] = $this;
-            // line 16
+            // line 17
             echo "
     ";
-            // line 17
+            // line 18
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(($context["links"] ?? null));
             foreach ($context['_seq'] as $context["code"] => $context["link"]) {
-                // line 18
+                // line 19
                 echo "        <li class=\"";
                 echo ((($context["code"] == ($context["currentPage"] ?? null))) ? ("active") : (""));
                 echo " ";
@@ -181,43 +216,43 @@ class __TwigTemplate_4ed89c2ffcfa0f312d4b7af12dda9c7f1afc2a8de1e394a967cd5b87193
                 echo "\">
             <a
                 href=\"";
-                // line 20
+                // line 21
                 echo ((twig_get_attribute($this->env, $this->source, $context["link"], "sublinks", array())) ? ("#") : ($this->extensions['Cms\Twig\Extension']->pageFilter(((twig_get_attribute($this->env, $this->source, $context["link"], "page", array())) ? (twig_get_attribute($this->env, $this->source, $context["link"], "page", array())) : ((($__internal_7cd7461123377b8c9c1b6a01f46c7bbd94bd12e59266005df5e93029ddbc0ec5 = $context["link"]) && is_array($__internal_7cd7461123377b8c9c1b6a01f46c7bbd94bd12e59266005df5e93029ddbc0ec5) || $__internal_7cd7461123377b8c9c1b6a01f46c7bbd94bd12e59266005df5e93029ddbc0ec5 instanceof ArrayAccess ? ($__internal_7cd7461123377b8c9c1b6a01f46c7bbd94bd12e59266005df5e93029ddbc0ec5[0] ?? null) : null))))));
                 echo "\"
                 ";
-                // line 21
+                // line 22
                 if (twig_get_attribute($this->env, $this->source, $context["link"], "sublinks", array())) {
                     echo "data-toggle=\"dropdown\"";
                 }
-                // line 22
+                // line 23
                 echo "                class=\"";
                 echo ((twig_get_attribute($this->env, $this->source, $context["link"], "sublinks", array())) ? ("dropdown-toggle") : (""));
                 echo "\">
                 ";
-                // line 23
+                // line 24
                 echo twig_escape_filter($this->env, ((twig_get_attribute($this->env, $this->source, $context["link"], "name", array())) ? (twig_get_attribute($this->env, $this->source, $context["link"], "name", array())) : (call_user_func_array($this->env->getFilter('_')->getCallable(), array((($__internal_3e28b7f596c58d7729642bcf2acc6efc894803703bf5fa7e74cd8d2aa1f8c68a = $context["link"]) && is_array($__internal_3e28b7f596c58d7729642bcf2acc6efc894803703bf5fa7e74cd8d2aa1f8c68a) || $__internal_3e28b7f596c58d7729642bcf2acc6efc894803703bf5fa7e74cd8d2aa1f8c68a instanceof ArrayAccess ? ($__internal_3e28b7f596c58d7729642bcf2acc6efc894803703bf5fa7e74cd8d2aa1f8c68a[1] ?? null) : null))))), "html", null, true);
                 echo "
                 ";
-                // line 24
+                // line 25
                 if (twig_get_attribute($this->env, $this->source, $context["link"], "sublinks", array())) {
                     echo "<span class=\"caret\"></span>";
                 }
-                // line 25
+                // line 26
                 echo "            </a>
             ";
-                // line 26
+                // line 27
                 if (twig_get_attribute($this->env, $this->source, $context["link"], "sublinks", array())) {
-                    // line 27
+                    // line 28
                     echo "                <span class=\"dropdown-arrow\"></span>
                 <ul class=\"dropdown-menu\">
-                    ";
-                    // line 29
+                  ";
+                    // line 30
                     echo $context["subnav"]->macro_render_menu(twig_get_attribute($this->env, $this->source, $context["link"], "sublinks", array()));
                     echo "
                 </ul>
             ";
                 }
-                // line 32
+                // line 33
                 echo "        </li>
     ";
             }
@@ -243,12 +278,12 @@ class __TwigTemplate_4ed89c2ffcfa0f312d4b7af12dda9c7f1afc2a8de1e394a967cd5b87193
 
     public function getDebugInfo()
     {
-        return array (  221 => 32,  215 => 29,  211 => 27,  209 => 26,  206 => 25,  202 => 24,  198 => 23,  193 => 22,  189 => 21,  185 => 20,  177 => 18,  173 => 17,  170 => 16,  167 => 15,  155 => 14,  148 => 103,  141 => 99,  133 => 96,  129 => 95,  125 => 94,  121 => 93,  117 => 92,  111 => 89,  108 => 88,  102 => 85,  99 => 84,  97 => 83,  83 => 72,  74 => 66,  66 => 61,  57 => 55,  50 => 51,  47 => 50,  40 => 45,  30 => 37,  28 => 36,  25 => 35,  23 => 2,);
+        return array (  256 => 33,  250 => 30,  246 => 28,  244 => 27,  241 => 26,  237 => 25,  233 => 24,  228 => 23,  224 => 22,  220 => 21,  212 => 19,  208 => 18,  205 => 17,  202 => 16,  190 => 15,  182 => 106,  175 => 102,  167 => 99,  161 => 98,  155 => 97,  149 => 96,  143 => 95,  123 => 92,  120 => 91,  114 => 88,  111 => 87,  109 => 86,  95 => 75,  86 => 69,  82 => 67,  79 => 66,  76 => 62,  74 => 64,  72 => 63,  69 => 62,  67 => 61,  61 => 58,  52 => 52,  48 => 50,  41 => 45,  30 => 37,  27 => 36,  25 => 2,  23 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Twig_Source("{# Note: Only one levels of sublinks are supported by Bootstrap 3 #}
+        return new Twig_Source("<!--{# Note: Only one levels of sublinks are supported by Bootstrap 3 #}
 {% set
     links = {
         'home': ['home', 'Home'],
@@ -256,6 +291,7 @@ class __TwigTemplate_4ed89c2ffcfa0f312d4b7af12dda9c7f1afc2a8de1e394a967cd5b87193
             name: 'Blog',
             sublinks: {
                 'Blog': ['blog/blog', 'Blog'],
+                'Cate' : ['/blog/category/uncategorized', 'Category'],
                 'Tags': ['blog/tags', 'Tags'],
             },
         },
@@ -276,15 +312,14 @@ class __TwigTemplate_4ed89c2ffcfa0f312d4b7af12dda9c7f1afc2a8de1e394a967cd5b87193
             {% if link.sublinks %}
                 <span class=\"dropdown-arrow\"></span>
                 <ul class=\"dropdown-menu\">
-                    {{ subnav.render_menu(link.sublinks) }}
+                  {{ subnav.render_menu(link.sublinks) }}
                 </ul>
             {% endif %}
         </li>
     {% endfor %}
 {% endmacro %}
 
-{% import _self as nav %}
-
+{% import _self as nav %}-->
 <nav id=\"layout-nav\" class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\">
     <div class=\"container\">
         <div class=\"navbar-header\">
@@ -297,9 +332,6 @@ class __TwigTemplate_4ed89c2ffcfa0f312d4b7af12dda9c7f1afc2a8de1e394a967cd5b87193
         <div class=\"collapse navbar-collapse navbar-main-collapse\">
           <ul class=\"nav navbar-nav navbar-right\">
             {# nav.render_menu(links) #}
-            <!--<li class=\" \">
-              <a href=\"/\" class=\"\">{{ 'Home'|_ }}</a>
-            </li>-->
             <li class=\" dropdown\">
               <a href=\"#\" data-toggle=\"dropdown\" class=\"dropdown-toggle\">
               {{ 'Blog'|_ }}
@@ -308,9 +340,15 @@ class __TwigTemplate_4ed89c2ffcfa0f312d4b7af12dda9c7f1afc2a8de1e394a967cd5b87193
               <ul class=\"dropdown-menu\">
                 <li class=\" \">
                   <a href=\"/blog/page/default\" class=\"\">
-                    {{ 'Blog'|_ }}
+                    {{ 'All articles'|_ }}
                   </a>
                 </li>
+                {% if blogCategories.categories|length > 0 %}
+                  {% partial blogCategories ~ \"::items\"
+                      categories = blogCategories.categories
+                      currentCategorySlug = blogCategories.currentCategorySlug
+                  %}
+                {% endif %}
                 <li class=\" \">
                   <a href=\"/blog/tags\" class=\"\">
                     {{ 'Tags'|_ }}
@@ -336,20 +374,21 @@ class __TwigTemplate_4ed89c2ffcfa0f312d4b7af12dda9c7f1afc2a8de1e394a967cd5b87193
             </li>
             {% else %}
             <li class=\" dropdown\">
-              <a href=\"#\" data-toggle=\"dropdown\" class=\"dropdown-toggle\">{{ user.name }}<span class=\"caret\"></span></a>
+              <a href=\"#\" data-toggle=\"dropdown\" class=\"dropdown-toggle\"><img src=\"{% if user.facebook_id %} https://graph.facebook.com/{{ user.facebook_id }}/picture?type=small {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}\" alt=\"{{ user.name }}\"  title=\"{{ user.name }}\" class=\"avatar-sm\"> {{ user.name }}<span class=\"caret\"></span></a>
               <span class=\"dropdown-arrow\"></span>
               <ul class=\"dropdown-menu\">
-                <li><a href=\"/login/profile\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/profile.png\" width=\"30\"> {{ 'My profile'|_ }}</a></li>
-                <li><a href=\"/login/new/course\"><img src=\"/themes/responsiv-flat/assets/images/icons/svg/book.svg\" width=\"30\"> {{ 'New course'|_ }}</a></li>
-                <li><a href=\"/login/new/evaluation\"><img src=\"/themes/responsiv-flat/assets/images/icons/svg/clipboard.svg\" width=\"30\"> {{ 'New evaluation'|_ }}</a></li>
-                <li><a href=\"/login/new/post\"><img src=\"/themes/responsiv-flat/assets/images/icons/svg/pencils.svg\" width=\"30\"> {{ 'New post'|_ }}</a></li>
-                <li><a href=\"javascript:void(0);\" data-request=\"onLogout\" data-request-data=\"redirect: '/'\"><img src=\"{{ '/assets/images/icons/png/signout.png'|theme }}\" width=\"30\"> {{ 'Sign out'|_ }}</a></li>
+                <li><a href=\"/login/profile\"><img src=\"{{ '/assets/images/icons/png/fa-address-book.png'|theme }}\" width=\"30\"> {{ 'My profile'|_ }}</a></li>
+                <li><a href=\"/login/new/course\"><img src=\"{{ '/assets/images/icons/png/fa-file-text.png'|theme }}\" width=\"30\"> {{ 'New course'|_ }}</a></li>
+                <li><a href=\"/login/new/evaluation\"><img src=\"{{ '/assets/images/icons/png/fa-file-picture.png'|theme }}\" width=\"30\"> {{ 'New evaluation'|_ }}</a></li>
+                <li><a href=\"/login/new/post\"><img src=\"{{ '/assets/images/icons/png/fa-pencil.png'|theme }}\" width=\"30\"> {{ 'New post'|_ }}</a></li>
+                <li><a href=\"javascript:void(0);\" data-request=\"onLogout\" data-request-data=\"redirect: '/'\"><img src=\"{{ '/assets/images/icons/png/fa-sign-out.png'|theme }}\" width=\"30\"> {{ 'Sign out'|_ }}</a></li>
               </ul>
                   <!--<button data-request=\"onLogout\" data-request-data=\"redirect: '/'\" class=\"btn btn-sm navbar-btn btn-primary navbar-right hidden-sm hidden-xs\">
                   {{ 'Sign out'|_ }}
                 </button> -->
             </li>
             {% endif %}
+
           </ul>
         </div>
     </div>

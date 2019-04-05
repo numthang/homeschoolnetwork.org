@@ -111,25 +111,25 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
             echo "\" class=\"img-rounded img-responsive user-icon avatar-responsive\"></a>
               </div>-->
 \t\t          <div class=\"col-sm-3 col-xs-3\" align=\"center\">
-\t\t            <a href=\"/login/profile\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/profile.png\" class=\"img-rounded user-icon img-responsive\" title=\"";
+\t\t            <a href=\"/login/profile\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/fa-address-book-o.png\" class=\"img-rounded user-icon img-responsive\" title=\"";
             // line 43
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("My profile"));
             echo "\"></a>
 \t\t          </div>
 \t\t          <div class=\"col-sm-3 col-xs-3\" align=\"center\">
-\t\t            <a href=\"/login/new/course\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/Book.png\" class=\"img-rounded user-icon img-responsive\" title=\"";
+\t\t            <a href=\"/login/new/course\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/fa-file-text-o.png\" class=\"img-rounded user-icon img-responsive\" title=\"";
             // line 46
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("New course"));
             echo "\"></a>
 \t\t          </div>
 \t\t          <div class=\"col-sm-3 col-xs-3\" align=\"center\">
-\t\t            <a href=\"/login/new/evaluation\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/Clipboard.png\" class=\"img-rounded user-icon img-responsive\" title=\"";
+\t\t            <a href=\"/login/new/evaluation\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/fa-file-picture-o.png\" class=\"img-rounded user-icon img-responsive\" title=\"";
             // line 49
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("New evaluation"));
             echo "\"></a>
 \t\t          </div>
 \t\t          <div class=\"col-sm-3 col-xs-3\" align=\"center\">
-\t\t            <a href=\"/login/new/post\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/Pencils.png\" class=\"img-rounded user-icon img-responsive\" title=\"";
+\t\t            <a href=\"/login/new/post\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/fa-pencil-o.png\" class=\"img-rounded user-icon img-responsive\" title=\"";
             // line 52
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("New post"));
             echo "\"></a>
@@ -140,8 +140,8 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
             echo call_user_func_array($this->env->getFilter('_')->getCallable(), array("Sign out"));
             echo "\"></a>
 \t\t          </div>-->
-            </div><hr>
-            <div class=\"row\">
+            </div>
+            <div class=\"row\" style=\"margin-top:10px;\">
               <div class=\"col-sm-12\">
                 <b>";
             // line 60
@@ -235,7 +235,7 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
 </section>
 <div class=\"container\">
   <!-- Services -->
-  <div class=\"row our-services\">
+  <div class=\"row our-services\" style=\"margin-top:10px;\">
     <div class=\"col-sm-12\">
       <h4 class=\"headline\"><span>";
         // line 97
@@ -465,22 +465,22 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
                 <a href=\"/user/profile/{{ user.id }}\"><img src=\"{% if user.facebook_id %} https://graph.facebook.com/{{ user.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}\" alt=\"{{ user.name }}\"  title=\"{{ user.name }}\" class=\"img-rounded img-responsive user-icon avatar-responsive\"></a>
               </div>-->
 \t\t          <div class=\"col-sm-3 col-xs-3\" align=\"center\">
-\t\t            <a href=\"/login/profile\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/profile.png\" class=\"img-rounded user-icon img-responsive\" title=\"{{ 'My profile'|_ }}\"></a>
+\t\t            <a href=\"/login/profile\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/fa-address-book-o.png\" class=\"img-rounded user-icon img-responsive\" title=\"{{ 'My profile'|_ }}\"></a>
 \t\t          </div>
 \t\t          <div class=\"col-sm-3 col-xs-3\" align=\"center\">
-\t\t            <a href=\"/login/new/course\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/Book.png\" class=\"img-rounded user-icon img-responsive\" title=\"{{ 'New course'|_ }}\"></a>
+\t\t            <a href=\"/login/new/course\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/fa-file-text-o.png\" class=\"img-rounded user-icon img-responsive\" title=\"{{ 'New course'|_ }}\"></a>
 \t\t          </div>
 \t\t          <div class=\"col-sm-3 col-xs-3\" align=\"center\">
-\t\t            <a href=\"/login/new/evaluation\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/Clipboard.png\" class=\"img-rounded user-icon img-responsive\" title=\"{{ 'New evaluation'|_ }}\"></a>
+\t\t            <a href=\"/login/new/evaluation\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/fa-file-picture-o.png\" class=\"img-rounded user-icon img-responsive\" title=\"{{ 'New evaluation'|_ }}\"></a>
 \t\t          </div>
 \t\t          <div class=\"col-sm-3 col-xs-3\" align=\"center\">
-\t\t            <a href=\"/login/new/post\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/Pencils.png\" class=\"img-rounded user-icon img-responsive\" title=\"{{ 'New post'|_ }}\"></a>
+\t\t            <a href=\"/login/new/post\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/fa-pencil-o.png\" class=\"img-rounded user-icon img-responsive\" title=\"{{ 'New post'|_ }}\"></a>
 \t\t          </div>
               <!--<div class=\"col-sm-2 col-xs-2\" align=\"center\">
 \t\t            <a href=\"/login/new/post\"><img src=\"/themes/responsiv-flat/assets/images/icons/png/signout.png\" class=\"img-rounded user-icon img-responsive\" title=\"{{ 'Sign out'|_ }}\"></a>
 \t\t          </div>-->
-            </div><hr>
-            <div class=\"row\">
+            </div>
+            <div class=\"row\" style=\"margin-top:10px;\">
               <div class=\"col-sm-12\">
                 <b>{{ 'Course'|_ }}</b>
                 <p>
@@ -517,7 +517,7 @@ class __TwigTemplate_4c3b570906938e5d6792408100da15803c4188a3c396b802504be8516bc
 </section>
 <div class=\"container\">
   <!-- Services -->
-  <div class=\"row our-services\">
+  <div class=\"row our-services\" style=\"margin-top:10px;\">
     <div class=\"col-sm-12\">
       <h4 class=\"headline\"><span>{{ 'What we do'|_ }}</span></h4>
       <p>\"เครือข่ายบ้านเรียน\" เว็บกลางสำหรับสมาชิกบ้านเรียนหรือโฮมสคูลในเมืองไทย สามารถติดต่อ แลกเปลี่ยน หาความรู้ในการทำโฮมสคูล โดยสมาชิกจะสามารถ ค้นฐานข้อมูลสมาชิกบ้านเรียน, เขียนแผนการศึกษาออนไลน์, เขียนแบบประเมินและร่องรอยการเรียนรู้และสามารถร่วมเขียนเนื้อหาหรือบันทึกใดๆ ที่ต้องการแชร์ให้กับสมาชิกบ้านเรียนท่านอื่นๆ หรือบุคคลที่สนใจได้เข้ามาศึกษา เพื่อทำความรู้จักและสร้างกลุ่มบ้านเรียนให้ใหญ่ขึ้นได้ต่อไป</p>
