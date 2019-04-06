@@ -74,7 +74,8 @@ class Helper
                 $ogTags .= '<meta property="og:description" content="' . $post->powerseo_description . '" />' . "\n";
             }
             else
-              $ogTags .= '<meta property="og:description" content="' . $post->title . '" />' . "\n";
+              $ogTags .= '<meta property="og:description" content="'.trim(strip_tags($post->excerpt)).'" />' . "\n";
+
             $ogTitle = empty($post->meta_title) ? $post->title : $post->meta_title;
             $ogUrl = empty($post->canonical_url) ? Request::url() : $this->page->canonical_url;
 
