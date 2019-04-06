@@ -122,9 +122,13 @@
   var editor_config = {
     path_absolute : "/",
     setup: function (mytinymce) {
-        mytinymce.on('change', function () {
-            tinymce.triggerSave();
-        });
+      mytinymce.on('change', function () {
+          tinymce.triggerSave();
+      });
+      mytinymce.on('init', function() {
+          this.getDoc().body.style.fontSize = '18px';
+          this.getDoc().body.style.fontFamily = 'Arial, Tahoma, Sarabun';
+      });
     },
     selector: "textarea.mytinymce",
     plugins: [
@@ -138,13 +142,6 @@
       {title: 'Some title 1', description: 'Some desc 1', content: 'My content'},
       {title: 'Some title 2', description: 'Some desc 2', url: 'development.html'}
     ],
-    setup : function(ed) {
-        ed.on('init', function()
-        {
-            this.getDoc().body.style.fontSize = '16px';
-            this.getDoc().body.style.fontFamily = 'Arial, Tahoma, Sarabun';
-        });
-    },
 		relative_urls: true,
 		force_br_newlines : true,
 		force_p_newlines : false,
