@@ -116,6 +116,11 @@ blockquote p {
   display: inline;
 }
 
+.blog-desc iframe,
+.blog-desc object,
+.blog-desc embed {
+  border:0px;
+}
 @media screen and (max-width: 767px) {
   .blog-desc iframe,
   .blog-desc object,
