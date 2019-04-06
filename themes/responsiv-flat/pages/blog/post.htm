@@ -73,7 +73,7 @@ public function onEnd() {
             {% endfor %}
           </div>
           {% endif %}
-          {{ post.excerpt|raw }}
+          <i class="quote">{{ post.excerpt|raw }}</i>
           {% partial "ads/in-article" %}
           {{ post.content_html|raw }}
           <p class="info">
