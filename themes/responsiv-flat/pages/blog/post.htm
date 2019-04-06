@@ -60,9 +60,7 @@ public function onEnd() {
           </h5>
           <hr />
           <p class="text-muted">by {{ post.author.name }} on {{ post.published_at|date('M d, Y') }}</p>
-          <blockquote>
-            {{ post.excerpt|raw }}
-          </blockquote>
+          {{ post.excerpt|raw }}
           {% if post.featured_images.count %}
           <div class="featured-images text-center">
             {% for image in post.featured_images %}
