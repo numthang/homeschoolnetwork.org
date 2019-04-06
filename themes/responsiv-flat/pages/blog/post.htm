@@ -40,7 +40,7 @@ public function onEnd() {
   #if(isset($matches[2]) && $matches[2] != ''){
   #  $this->page->og_image = 'https://img.youtube.com/vi/'.$matches[2].'/hqdefault.jpg';
   #}
-  #else 
+  #else
   if(count($this->post->featured_images))
     $this->page->og_image = $this->post->featured_images[0]->path;
 
@@ -76,11 +76,10 @@ public function onEnd() {
           <div class="featured-images text-center">
             {% for image in post.featured_images %}
             <p>
-              <img
-                data-src="{{ image.filename }}"
-                src="{{ image.path }}"
-                alt="{{ image.description }}"
-                style="max-width: 100%" />
+              <img data-src="{{ image.filename }}" src="{{ image.path }}" alt="{{ image.description }}" style="max-width: 100%" />
+              {% put meta %}
+                <meta property="og:image" content="{{ image.path }}" />
+              {% endput %}
             </p>
             {% endfor %}
           </div>
