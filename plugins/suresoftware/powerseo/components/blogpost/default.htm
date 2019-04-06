@@ -12,7 +12,10 @@
 
   {% if post.powerseo_description %}
     <meta name="description" content="{{post.powerseo_description}}">
+  {% else %}
+    <meta name="description" content="{{post.excerpt}}">
   {% endif %}
+
 
   {% if post.powerseo_keywords %}
     <meta name="keywords" content="{{post.powerseo_keywords}}">
