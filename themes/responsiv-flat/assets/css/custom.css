@@ -39,11 +39,6 @@
     display: block;
   }
 }
-@media screen and (max-width: 500px) {
-  .nav {
-    /*padding-top: 50px;*/
-  }
-}
 .social-login {
  width: 225px;
  margin-top:5px;
@@ -119,4 +114,13 @@ blockquote:after {
 }
 blockquote p {
   display: inline;
+}
+
+@media screen and (max-width: 767px) {
+  .blog-desc iframe,
+  .blog-desc object,
+  .blog-desc embed {
+    width: 100%;
+    height: 100%;
+  }
 }

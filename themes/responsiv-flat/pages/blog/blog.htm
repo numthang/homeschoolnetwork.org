@@ -23,7 +23,7 @@ postPage = "blog/post"
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-9">
+    <div class="col-sm-12 col-md-9">
       {% set i = 0 %}
       {% set posts = blogPosts.posts %}
       {% for post in posts %}
@@ -91,7 +91,7 @@ postPage = "blog/post"
       {% endif %}
 
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-12 col-md-3">
       {% partial 'blog/sidebar' %}
     </div>
   </div>
