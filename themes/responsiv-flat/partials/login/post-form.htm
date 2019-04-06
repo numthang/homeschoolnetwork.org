@@ -138,7 +138,17 @@
       {title: 'Some title 1', description: 'Some desc 1', content: 'My content'},
       {title: 'Some title 2', description: 'Some desc 2', url: 'development.html'}
     ],
-    relative_urls: false,
+    setup : function(ed) {
+        ed.on('init', function()
+        {
+            this.getDoc().body.style.fontSize = '16px';
+            this.getDoc().body.style.fontFamily = 'Arial, Tahoma, Sarabun';
+        });
+    },
+		relative_urls: true,
+		force_br_newlines : true,
+		force_p_newlines : false,
+		forced_root_block : '',
     file_browser_callback : function(field_name, url, type, win) {
       var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
       var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
