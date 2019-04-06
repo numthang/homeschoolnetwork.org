@@ -120,6 +120,7 @@ blockquote p {
   .blog-desc iframe,
   .blog-desc object,
   .blog-desc embed {
+    border:0px;
     width: 100%;
     height: 100%;
   }
