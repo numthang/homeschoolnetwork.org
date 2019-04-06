@@ -40,7 +40,8 @@ public function onEnd() {
   #if(isset($matches[2]) && $matches[2] != ''){
   #  $this->page->og_image = 'https://img.youtube.com/vi/'.$matches[2].'/hqdefault.jpg';
   #}
-  else if(count($this->post->featured_images))
+  #else 
+  if(count($this->post->featured_images))
     $this->page->og_image = $this->post->featured_images[0]->path;
 
 }
