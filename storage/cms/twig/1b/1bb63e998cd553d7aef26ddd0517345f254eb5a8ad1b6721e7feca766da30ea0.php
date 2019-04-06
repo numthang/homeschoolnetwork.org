@@ -129,9 +129,7 @@ class __TwigTemplate_4ed89c2ffcfa0f312d4b7af12dda9c7f1afc2a8de1e394a967cd5b87193
                 echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/team/anonymous.jpg");
                 echo " ";
             }
-            echo "\" alt=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "name", array()), "html", null, true);
-            echo "\"  title=\"";
+            echo "\" title=\"";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "name", array()), "html", null, true);
             echo "\" class=\"avatar-sm\"> ";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "name", array()), "html", null, true);
@@ -278,7 +276,7 @@ class __TwigTemplate_4ed89c2ffcfa0f312d4b7af12dda9c7f1afc2a8de1e394a967cd5b87193
 
     public function getDebugInfo()
     {
-        return array (  256 => 33,  250 => 30,  246 => 28,  244 => 27,  241 => 26,  237 => 25,  233 => 24,  228 => 23,  224 => 22,  220 => 21,  212 => 19,  208 => 18,  205 => 17,  202 => 16,  190 => 15,  182 => 106,  175 => 102,  167 => 99,  161 => 98,  155 => 97,  149 => 96,  143 => 95,  123 => 92,  120 => 91,  114 => 88,  111 => 87,  109 => 86,  95 => 75,  86 => 69,  82 => 67,  79 => 66,  76 => 62,  74 => 64,  72 => 63,  69 => 62,  67 => 61,  61 => 58,  52 => 52,  48 => 50,  41 => 45,  30 => 37,  27 => 36,  25 => 2,  23 => 1,);
+        return array (  254 => 33,  248 => 30,  244 => 28,  242 => 27,  239 => 26,  235 => 25,  231 => 24,  226 => 23,  222 => 22,  218 => 21,  210 => 19,  206 => 18,  203 => 17,  200 => 16,  188 => 15,  180 => 106,  173 => 102,  165 => 99,  159 => 98,  153 => 97,  147 => 96,  141 => 95,  123 => 92,  120 => 91,  114 => 88,  111 => 87,  109 => 86,  95 => 75,  86 => 69,  82 => 67,  79 => 66,  76 => 62,  74 => 64,  72 => 63,  69 => 62,  67 => 61,  61 => 58,  52 => 52,  48 => 50,  41 => 45,  30 => 37,  27 => 36,  25 => 2,  23 => 1,);
     }
 
     public function getSourceContext()
@@ -374,7 +372,7 @@ class __TwigTemplate_4ed89c2ffcfa0f312d4b7af12dda9c7f1afc2a8de1e394a967cd5b87193
             </li>
             {% else %}
             <li class=\" dropdown\">
-              <a href=\"#\" data-toggle=\"dropdown\" class=\"dropdown-toggle\"><img src=\"{% if user.facebook_id %} https://graph.facebook.com/{{ user.facebook_id }}/picture?type=small {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}\" alt=\"{{ user.name }}\"  title=\"{{ user.name }}\" class=\"avatar-sm\"> {{ user.name }}<span class=\"caret\"></span></a>
+              <a href=\"#\" data-toggle=\"dropdown\" class=\"dropdown-toggle\"><img src=\"{% if user.facebook_id %} https://graph.facebook.com/{{ user.facebook_id }}/picture?type=small {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}\" title=\"{{ user.name }}\" class=\"avatar-sm\"> {{ user.name }}<span class=\"caret\"></span></a>
               <span class=\"dropdown-arrow\"></span>
               <ul class=\"dropdown-menu\">
                 <li><a href=\"/login/profile\"><img src=\"{{ '/assets/images/icons/png/fa-address-book.png'|theme }}\" width=\"30\"> {{ 'My profile'|_ }}</a></li>
