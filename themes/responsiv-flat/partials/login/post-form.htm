@@ -122,17 +122,17 @@
   <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
   <script>
     var editor_config = {
+      selector: "textarea.mytinymce",
       path_absolute : "/",
       setup: function (mytinymce) {
         mytinymce.on('change', function () {
-            tinymce.triggerSave();
+          tinymce.triggerSave();
         });
         mytinymce.on('init', function() {
-            this.getDoc().body.style.fontSize = '18px';
-            this.getDoc().body.style.fontFamily = 'Arial, Tahoma, Sarabun';
+          this.getDoc().body.style.fontSize = '18px';
+          this.getDoc().body.style.fontFamily = 'Sarabun, Tahoma, Arial';
         });
       },
-      selector: "textarea.mytinymce",
       plugins: [
         "advlist autolink lists link image charmap print preview hr anchor pagebreak",
         "searchreplace wordcount visualblocks visualchars code fullscreen",

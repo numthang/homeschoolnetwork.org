@@ -81,10 +81,10 @@ class Helper
 
             $ogTags .= '
               <meta property="og:type" content="article">
-              <meta property="article:published_time" content="'.strtotime($post->created_at).'"/>';
+              <meta property="article:published_time" content="'.strtotime($post->created_at).'"/>'."\n";
 
-            $ogTags .= '<meta property="og:title" content="' . $ogTitle . '" />' . "\n";
-            $ogTags .= '<meta property="og:url" content="' . $ogUrl . '" />';
+            $ogTags .= '<meta property="og:title" content="' . $ogTitle . '" />'."\n";
+            $ogTags .= '<meta property="og:url" content="' . $ogUrl . '" />'."\r\n";
 
             return $ogTags;
         }

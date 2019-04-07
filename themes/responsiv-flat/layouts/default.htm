@@ -13,6 +13,7 @@ security = "all"
     <head>
     	<meta charset="UTF-8">
       {% component 'SeoCmsPage' %}
+      
       <meta property="og:image" content="{% if this.page.og_image  %}{{ this.page.og_image }}{% else %}{{ 'assets/images/logo-company.png'|theme }}{% endif %}" />
       <meta property="og:image:url" content="{% if this.page.og_image  %}{{ this.page.og_image }}{% else %}{{ 'assets/images/logo-company.png'|theme }}{% endif %}" />
       <meta property="og:image:secure_url" content="{% if this.page.og_image  %}{{ this.page.og_image }}{% else %}{{ 'assets/images/logo-company.png'|theme }}{% endif %}" />
