@@ -95,8 +95,8 @@
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
             <div class="col-sm-12">
-              <div class="form-group" style="padding:2px;">
-                <textarea class="form-control mytinymce" name="cover" placeholder="" rows="24">{% if evaluation.cover is defined %} {{ evaluation.cover }} {% else %} {{ this.page['default_0'] }} {% endif %}</textarea>
+              <div class="form-group">
+                <textarea class="form-control mytinymce" name="cover" placeholder="" rows="35">{% if evaluation.cover is defined %} {{ evaluation.cover }} {% else %} {{ this.page['default_0'] }} {% endif %}</textarea>
               </div>
             </div>
           </div>
@@ -367,6 +367,7 @@
 			relative_urls: false,
 			force_br_newlines : true,
 			force_p_newlines : false,
+			paste_as_text: true,
 			forced_root_block : '',
 			file_browser_callback : function(field_name, url, type, win) {
 				var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
