@@ -4,7 +4,7 @@ plugin:
     author: watchlearn
     icon: oc-icon-video-camera
     homepage: ''
-navigation:
+/*navigation:
     main-menu-item:
         label: Movies
         url: watchlearn/movies/movies
@@ -17,4 +17,4 @@ navigation:
             side-menu-item2:
                 label: Actors
                 url: watchlearn/movies/actors
-                icon: icon-user
+                icon: icon-user*/
