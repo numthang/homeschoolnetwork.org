@@ -36,13 +36,12 @@ public function onEnd() {
   }*/
   #dump($this->post->excerpt);
 
-  #preg_match('#(\.be/|/embed/|/v/|/watch\?v=)([A-Za-z0-9_-]{5,11})#', $this->post->excerpt.$this->post->content_html, $matches);
+  preg_match('#(\.be/|/embed/|/v/|/watch\?v=)([A-Za-z0-9_-]{5,11})#', $this->post->excerpt.$this->post->content_html, $matches);
   if(isset($matches[2]) && $matches[2] != ''){
     $this->page->og_image = 'https://img.youtube.com/vi/'.$matches[2].'/hqdefault.jpg';
   }
   else if(count($this->post->featured_images))
     $this->page->og_image = $this->post->featured_images[0]->path;
-
 }
 ?>
 ==
