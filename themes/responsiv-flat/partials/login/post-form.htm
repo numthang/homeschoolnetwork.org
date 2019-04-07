@@ -1,4 +1,3 @@
-<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 <!-- START postform-default.htm -->
 {% if PostForm.backUser %}
 {{ form_open({ 'id':'bpostform', 'data-request': 'onSave','data-request-validate':'','data-request-flash':'', files: true }) }}
@@ -118,54 +117,59 @@
 {% else %}
 <p>{{ PostForm.trans('general.unauthorized') }}</p>
 {% endif %}
-<!-- End postform-default.htm --><script>
-  var editor_config = {
-    path_absolute : "/",
-    setup: function (mytinymce) {
-      mytinymce.on('change', function () {
-          tinymce.triggerSave();
-      });
-      mytinymce.on('init', function() {
-          this.getDoc().body.style.fontSize = '18px';
-          this.getDoc().body.style.fontFamily = 'Arial, Tahoma, Sarabun';
-      });
-    },
-    selector: "textarea.mytinymce",
-    plugins: [
-      "advlist autolink lists link image charmap print preview hr anchor pagebreak",
-      "searchreplace wordcount visualblocks visualchars code fullscreen",
-      "insertdatetime media nonbreaking save table contextmenu directionality",
-      "emoticons template paste textcolor colorpicker textpattern"
-    ],
-    toolbar: "fontsizeselect forecolor | blockquote bold italic underline | alignleft aligncenter alignright | bullist numlist indent outdent table | image media link | removeformat",
-    templates: [
-      {title: 'Some title 1', description: 'Some desc 1', content: 'My content'},
-      {title: 'Some title 2', description: 'Some desc 2', url: 'development.html'}
-    ],
-		relative_urls: false,
-		force_br_newlines : true,
-		force_p_newlines : false,
-		forced_root_block : '',
-    file_browser_callback : function(field_name, url, type, win) {
-      var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
-      var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
+<!-- End postform-default.htm -->
+{% put scripts %}
+  <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+  <script>
+    var editor_config = {
+      path_absolute : "/",
+      setup: function (mytinymce) {
+        mytinymce.on('change', function () {
+            tinymce.triggerSave();
+        });
+        mytinymce.on('init', function() {
+            this.getDoc().body.style.fontSize = '18px';
+            this.getDoc().body.style.fontFamily = 'Arial, Tahoma, Sarabun';
+        });
+      },
+      selector: "textarea.mytinymce",
+      plugins: [
+        "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+        "searchreplace wordcount visualblocks visualchars code fullscreen",
+        "insertdatetime media nonbreaking save table contextmenu directionality",
+        "emoticons template paste textcolor colorpicker textpattern"
+      ],
+      toolbar: "fontsizeselect forecolor | blockquote bold italic underline | alignleft aligncenter alignright | bullist numlist indent outdent table | image media link | removeformat",
+      templates: [
+        {title: 'Some title 1', description: 'Some desc 1', content: 'My content'},
+        {title: 'Some title 2', description: 'Some desc 2', url: 'development.html'}
+      ],
+  		relative_urls: false,
+  		force_br_newlines : true,
+  		force_p_newlines : false,
+  		forced_root_block : false,
+      visualblocks_default_state : true,
+      file_browser_callback : function(field_name, url, type, win) {
+        var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+        var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
 
-      var cmsURL = editor_config.path_absolute + 'laravel-filemanager?field_name=' + field_name;
-      if (type == 'image') {
-        cmsURL = cmsURL + "&type=Images";
-      } else {
-        cmsURL = cmsURL + "&type=Files";
+        var cmsURL = editor_config.path_absolute + 'laravel-filemanager?field_name=' + field_name;
+        if (type == 'image') {
+          cmsURL = cmsURL + "&type=Images";
+        } else {
+          cmsURL = cmsURL + "&type=Files";
+        }
+
+        tinyMCE.activeEditor.windowManager.open({
+          file : cmsURL,
+          title : 'Filemanager',
+          width : x * 0.8,
+          height : y * 0.8,
+          resizable : "yes",
+          close_previous : "no"
+        });
       }
-
-      tinyMCE.activeEditor.windowManager.open({
-        file : cmsURL,
-        title : 'Filemanager',
-        width : x * 0.8,
-        height : y * 0.8,
-        resizable : "yes",
-        close_previous : "no"
-      });
-    }
-  };
-  tinymce.init(editor_config);
-</script>
+    };
+    tinymce.init(editor_config);
+  </script>
+{% endput %}
