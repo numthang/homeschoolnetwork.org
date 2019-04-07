@@ -37,46 +37,61 @@ class __TwigTemplate_8d32f66788a4979e1a29b377c2ba1fe7dad37d7187c746895ac54b62635
             echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/logo-company.png");
         }
         echo "\" />
-      <meta property=\"og:type\" content=\"article\">
+      <meta property=\"og:image:url\" content=\"";
+        // line 7
+        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", array()), "og_image", array())) {
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", array()), "og_image", array()), "html", null, true);
+        } else {
+            echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/logo-company.png");
+        }
+        echo "\" />
+      <meta property=\"og:image:secure_url\" content=\"";
+        // line 8
+        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", array()), "og_image", array())) {
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", array()), "og_image", array()), "html", null, true);
+        } else {
+            echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/logo-company.png");
+        }
+        echo "\" />
 <!--
       <meta property=\"og:description\" content=\"";
-        // line 9
+        // line 10
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", array()), "og_description", array()), "html", null, true);
         echo "\" />
       <meta name=\"description\" content=\"";
-        // line 10
+        // line 11
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", array()), "meta_description", array()), "html", null, true);
         echo "\">-->
       <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
       <meta name=\"author\" content=\"OctoberCMS\">
       <meta name=\"generator\" content=\"OctoberCMS\">
       <link rel=\"icon\" type=\"image/png\" href=\"";
-        // line 14
+        // line 15
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/logo.png");
         echo "\">
       ";
-        // line 15
+        // line 16
         echo $this->env->getExtension('Cms\Twig\Extension')->assetsFunction('css');
         echo $this->env->getExtension('Cms\Twig\Extension')->displayBlock('styles');
-        // line 16
+        // line 17
         echo "      <link href=\"";
         echo $this->extensions['Cms\Twig\Extension']->themeFilter(array(0 => "assets/less/theme.less", 1 => "assets/css/custom.css"));
-        // line 19
+        // line 20
         echo "\" rel=\"stylesheet\">
       <meta property=\"fb:admins\" content=\"528931910\" />
       <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
       <!--[if lt IE 9]>
       <script src=\"";
-        // line 23
+        // line 24
         echo $this->extensions['Cms\Twig\Extension']->themeFilter(array(0 => "assets/javascript/html5shiv.js", 1 => "assets/javascript/respond.min.js"));
-        // line 26
+        // line 27
         echo "\"></script>
       <![endif]-->
       <link href=\"https://fonts.googleapis.com/css?family=Sarabun\" rel=\"stylesheet\">
       <link href=\"https://fonts.googleapis.com/css?family=Kanit\" rel=\"stylesheet\">
     </head>
     <body class=\"page-";
-        // line 31
+        // line 32
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", array()), "id", array()), "html", null, true);
         echo " layout-";
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "layout", array()), "id", array()), "html", null, true);
@@ -89,39 +104,39 @@ class __TwigTemplate_8d32f66788a4979e1a29b377c2ba1fe7dad37d7187c746895ac54b62635
       <header id=\"layout-header\" class=\"header-navbar\">
           <!-- Nav -->
           ";
-        // line 39
+        // line 40
         $context['__cms_partial_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("nav"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
-        // line 40
+        // line 41
         echo "      </header>
 
       <!-- Content -->
       <div id=\"layout-content\">
         ";
-        // line 44
-        echo $this->env->getExtension('Cms\Twig\Extension')->pageFunction();
         // line 45
+        echo $this->env->getExtension('Cms\Twig\Extension')->pageFunction();
+        // line 46
         echo "      </div>
 
       <!-- Footer -->
       <footer id=\"layout-footer\">
           ";
-        // line 49
+        // line 50
         $context['__cms_partial_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("footer"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
-        // line 50
+        // line 51
         echo "      </footer>
 
       <!-- Scripts -->
       <script src=\"";
-        // line 53
+        // line 54
         echo $this->extensions['Cms\Twig\Extension']->themeFilter(array(0 => "assets/javascript/jquery.min.js", 1 => "assets/javascript/pages/ui-elements.js", 2 => "assets/vendor/bootstrap/js/transition.js", 3 => "assets/vendor/bootstrap/js/alert.js", 4 => "assets/vendor/bootstrap/js/button.js", 5 => "assets/vendor/bootstrap/js/carousel.js", 6 => "assets/vendor/bootstrap/js/collapse.js", 7 => "assets/vendor/bootstrap/js/dropdown.js", 8 => "assets/vendor/bootstrap/js/modal.js", 9 => "assets/vendor/bootstrap/js/tooltip.js", 10 => "assets/vendor/bootstrap/js/popover.js", 11 => "assets/vendor/bootstrap/js/scrollspy.js", 12 => "assets/vendor/bootstrap/js/tab.js", 13 => "assets/vendor/bootstrap/js/affix.js", 14 => "assets/vendor/jquery-ui/js/jquery.ui.core.js", 15 => "assets/vendor/jquery-ui/js/jquery.ui.widget.js", 16 => "assets/vendor/jquery-ui/js/jquery.ui.mouse.js", 17 => "assets/vendor/jquery-ui/js/jquery.ui.position.js", 18 => "assets/vendor/jquery-ui/js/jquery.ui.button.js", 19 => "assets/vendor/jquery-ui/js/jquery.ui.slider.js", 20 => "assets/vendor/jquery-ui/js/jquery.ui.effects.js", 21 => "assets/vendor/jquery-ui/js/jquery.ui.touchpunch.js", 22 => "assets/vendor/flat-ui/js/video.js", 23 => "assets/vendor/flat-ui/js/bootstrap-switch.js", 24 => "assets/vendor/flat-ui/js/bootstrap-tagsinput.js", 25 => "assets/vendor/flat-ui/js/holder.js", 26 => "assets/vendor/flat-ui/js/typeahead.jquery.js", 27 => "assets/vendor/flat-ui/js/select2.js", 28 => "assets/vendor/flat-ui/js/flatui-radiocheck.js", 29 => "assets/javascript/app.js"));
-        // line 88
+        // line 89
         echo "\"></script>
       ";
-        // line 89
+        // line 90
         $_minify = System\Classes\CombineAssets::instance()->useMinify;
         if ($_minify) {
             echo '<script src="'. Request::getBasePath()
@@ -136,11 +151,11 @@ class __TwigTemplate_8d32f66788a4979e1a29b377c2ba1fe7dad37d7187c746895ac54b62635
         echo '<link rel="stylesheet" property="stylesheet" href="'. Request::getBasePath()
                     .'/modules/system/assets/css/framework.extras'.($_minify ? '-min' : '').'.css">'.PHP_EOL;
         unset($_minify);
-        // line 90
+        // line 91
         echo "      ";
         echo $this->env->getExtension('Cms\Twig\Extension')->assetsFunction('js');
         echo $this->env->getExtension('Cms\Twig\Extension')->displayBlock('scripts');
-        // line 91
+        // line 92
         echo "      <script>
         function checkScroll(){
           var startY = \$('.navbar').height() * 2; //The point where the navbar changes in px
@@ -188,7 +203,7 @@ class __TwigTemplate_8d32f66788a4979e1a29b377c2ba1fe7dad37d7187c746895ac54b62635
 
     public function getDebugInfo()
     {
-        return array (  144 => 91,  140 => 90,  125 => 89,  122 => 88,  120 => 53,  115 => 50,  111 => 49,  105 => 45,  103 => 44,  97 => 40,  93 => 39,  80 => 31,  73 => 26,  71 => 23,  65 => 19,  62 => 16,  59 => 15,  55 => 14,  48 => 10,  44 => 9,  33 => 6,  29 => 5,  23 => 1,);
+        return array (  159 => 92,  155 => 91,  140 => 90,  137 => 89,  135 => 54,  130 => 51,  126 => 50,  120 => 46,  118 => 45,  112 => 41,  108 => 40,  95 => 32,  88 => 27,  86 => 24,  80 => 20,  77 => 17,  74 => 16,  70 => 15,  63 => 11,  59 => 10,  50 => 8,  42 => 7,  33 => 6,  29 => 5,  23 => 1,);
     }
 
     public function getSourceContext()
@@ -199,7 +214,8 @@ class __TwigTemplate_8d32f66788a4979e1a29b377c2ba1fe7dad37d7187c746895ac54b62635
     \t<meta charset=\"UTF-8\">
       {% component 'SeoCmsPage' %}
       <meta property=\"og:image\" content=\"{% if this.page.og_image  %}{{ this.page.og_image }}{% else %}{{ 'assets/images/logo-company.png'|theme }}{% endif %}\" />
-      <meta property=\"og:type\" content=\"article\">
+      <meta property=\"og:image:url\" content=\"{% if this.page.og_image  %}{{ this.page.og_image }}{% else %}{{ 'assets/images/logo-company.png'|theme }}{% endif %}\" />
+      <meta property=\"og:image:secure_url\" content=\"{% if this.page.og_image  %}{{ this.page.og_image }}{% else %}{{ 'assets/images/logo-company.png'|theme }}{% endif %}\" />
 <!--
       <meta property=\"og:description\" content=\"{{ this.page.og_description }}\" />
       <meta name=\"description\" content=\"{{ this.page.meta_description }}\">-->
