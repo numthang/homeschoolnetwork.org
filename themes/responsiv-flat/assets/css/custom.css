@@ -130,3 +130,7 @@ blockquote p {
     height: 100%;
   }
 }
+.form-control {
+  font-size:16px;
+  line-height: 25px;
+}
