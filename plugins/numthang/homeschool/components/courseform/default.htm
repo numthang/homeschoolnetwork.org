@@ -336,6 +336,18 @@
           this.getDoc().body.style.fontSize = '18px';
           this.getDoc().body.style.fontFamily = 'Arial, Tahoma, Sarabun';
         });
+				mytinymce.on('keydown', function(event) {
+	       if (event.keyCode == 9) { // tab pressed
+	          if (event.shiftKey) {
+	            mytinymce.execCommand('Outdent');
+	          }
+	          else {
+	            mytinymce.execCommand('Indent');
+	          }
+	          event.preventDefault();
+	          return false;
+	        }
+		    });
 	    },
 			plugins: [
 				"advlist autolink lists link image charmap print preview hr anchor pagebreak",
@@ -353,7 +365,6 @@
 			force_p_newlines : false,
 			paste_as_text: false,
 			forced_root_block : 'div',
-			advlist_bullet_styles: "disc",
 			file_browser_callback : function(field_name, url, type, win) {
 				var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
 				var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
