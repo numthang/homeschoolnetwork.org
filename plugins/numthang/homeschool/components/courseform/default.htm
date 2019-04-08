@@ -197,7 +197,7 @@
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
             <div class="col-sm-12">
-              <div class="form-group" style="padding:2px;">
+              <div class="form-group">
                 <textarea class="form-control mytinymce" name="class_reason" placeholder="ระดับชั้น เช่น ประถมศึกษา (ชั้น ป.1 – ป.3) เหตุผลในการจัดการศึกษาของครอบครัว" rows="20">{% if record.class_reason is defined %} {{ record.class_reason }} {% else %} {{ this.page['default_3'] }} {% endif %}</textarea>
               </div>
             </div>
@@ -207,7 +207,7 @@
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
           <div class="col-sm-12">
-            <div class="form-group" style="padding:2px;">
+            <div class="form-group">
               <textarea class="form-control mytinymce" name="purpose" placeholder="ระบุความต้องการ เช่น ต้องการพึ่งตนเอง ลดค่าใช้จ่าย เป็นต้น" rows="20">{% if record.purpose is defined %} {{ record.purpose }} {% else %} {{ this.page['default_4'] }} {% endif %}</textarea>
             </div>
           </div>
@@ -217,7 +217,7 @@
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
             <div class="col-sm-12">
-              <div class="form-group" style="padding:2px;">
+              <div class="form-group">
                 <textarea class="form-control mytinymce" name="format" placeholder="" rows="20">{% if record.edu_type is defined %} {{ record.format }} {% else %} {{ this.page['default_5'] }} {% endif %}</textarea>
               </div>
             </div>
@@ -227,7 +227,7 @@
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
             <div class="col-sm-12">
-              <div class="form-group" style="padding:2px;">
+              <div class="form-group">
 								<textarea class="form-control mytinymce" name="schedule" placeholder="" rows="20">{% if record.schedule is defined %} {{ record.schedule }} {% else %} {{ this.page['default_6'] }} {% endif %}</textarea>
                 <!--<textarea class="form-control" name="schedule" placeholder="กลุ่มประสบการณ์ /กลุ่มสาระการเรียนรู้ (ตามตารางในข้อ 7)" rows="20">{% if record.schedule is defined %} {{ record.schedule }} {% else %} {% endif %}</textarea>-->
               </div>
@@ -238,7 +238,7 @@
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
             <div class="col-sm-12">
-              <div class="form-group" style="padding:2px;">
+              <div class="form-group">
                 <textarea class="form-control mytinymce" name="curriculum" placeholder="" rows="20">{% if record.curriculum is defined %} {{ record.curriculum }} {% else %} {{ this.page['default_7'] }} {% endif %}</textarea>
               </div>
             </div>
@@ -248,7 +248,7 @@
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
             <div class="col-sm-12">
-              <div class="form-group" style="padding:2px;">
+              <div class="form-group">
                 <textarea class="form-control mytinymce" name="activity" placeholder="" rows="20">{% if record.activity is defined %} {{ record.activity }} {% else %} {{ this.page['default_8'] }} {% endif %}</textarea>
               </div>
             </div>
@@ -258,7 +258,7 @@
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
             <div class="col-sm-12">
-              <div class="form-group" style="padding:2px;">
+              <div class="form-group">
                 <textarea class="form-control mytinymce" name="learning" placeholder="" rows="20">{% if record.learning is defined %} {{ record.learning }} {% else %} {{ this.page['default_9'] }} {% endif %}</textarea>
               </div>
             </div>
@@ -268,7 +268,7 @@
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
             <div class="col-sm-12">
-              <div class="form-group" style="padding:2px;">
+              <div class="form-group">
                 <textarea class="form-control mytinymce" name="evaluate" placeholder="" rows="20">{% if record.evaluate is defined %} {{ record.evaluate }} {% else %} {{ this.page['default_10'] }} {% endif %}</textarea>
               </div>
             </div>
@@ -278,7 +278,7 @@
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
             <div class="col-sm-12">
-              <div class="form-group" style="padding:2px;">
+              <div class="form-group">
                 <textarea class="form-control mytinymce" name="other" placeholder="" rows="20">{{ record.other }}</textarea>
               </div>
             </div>
@@ -336,6 +336,18 @@
           this.getDoc().body.style.fontSize = '18px';
           this.getDoc().body.style.fontFamily = 'Arial, Tahoma, Sarabun';
         });
+				mytinymce.on('keydown', function(event) {
+	       if (event.keyCode == 9) { // tab pressed
+	          if (event.shiftKey) {
+	            mytinymce.execCommand('Outdent');
+	          }
+	          else {
+	            mytinymce.execCommand('Indent');
+	          }
+	          event.preventDefault();
+	          return false;
+	        }
+		    });
 	    },
 			plugins: [
 				"advlist autolink lists link image charmap print preview hr anchor pagebreak",

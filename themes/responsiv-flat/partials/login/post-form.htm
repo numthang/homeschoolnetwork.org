@@ -132,6 +132,18 @@
           this.getDoc().body.style.fontSize = '18px';
           this.getDoc().body.style.fontFamily = 'Sarabun, Tahoma, Arial';
         });
+        mytinymce.on('keydown', function(event) {
+	       if (event.keyCode == 9) { // tab pressed
+	          if (event.shiftKey) {
+	            mytinymce.execCommand('Outdent');
+	          }
+	          else {
+	            mytinymce.execCommand('Indent');
+	          }
+	          event.preventDefault();
+	          return false;
+	        }
+		    });
       },
       plugins: [
         "advlist autolink lists link image charmap print preview hr anchor pagebreak",
