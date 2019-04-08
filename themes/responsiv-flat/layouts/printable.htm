@@ -21,15 +21,15 @@ description = "Printable layout"
       ]|theme }}"></script>
       <![endif]-->
 
-      <link href="https://fonts.googleapis.com/css?family=Sarabun" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Sarabun:500" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
       <style>
         body {
           margin:0px;
           padding:0px;
-          font-family: 'Sarabun';
-          font-size: 12pt;
-          line-height: 32px;
+          font-family: 'Sarabun', sans-serif;
+          font-size: 17px;
+          line-height: 28px;
         }
         .cover img {
           width: 100%;
@@ -81,6 +81,10 @@ description = "Printable layout"
             background: initial;
             page-break-after: always;
           }
+        }
+        li {
+          /*list-style-image: url({{ 'assets/images/icons/png/bullet.png'|theme }});*/
+          list-style-type: square;
         }
       </style>
     </head>
