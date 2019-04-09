@@ -50,10 +50,10 @@ public function onEnd() {
 <div class="page cover" style="font-family:Kanit;">
   {{ evaluation.cover|raw }}
 </div>
-<div class="page">
+<div class="page other">
   <b>1. ข้อมูลพื้นฐานของครอบครัว</b>
   <p>
-    บิดา นาย {{ this.page.father_name }} อายุ {{ this.page.father_age }} ปี <br>
+    <b>บิดา {{ this.page.father_name }} อายุ {{ this.page.father_age }} ปี </b><br>
     การศึกษา : {{ this.page.father_degree }} <br>
     ประสบการณ์ : {{ this.page.father_exp }}<br>
     อาชีพ : {{ this.page.father_job}}<br>
@@ -61,23 +61,23 @@ public function onEnd() {
     ติดต่อ : {{ this.page.father_contact}}
   </p>
   <p>
-    มารดา นาง {{ this.page.mother_name }} อายุ {{ this.page.mother_age }} ปี <br>
+    <b>มารดา {{ this.page.mother_name }} อายุ {{ this.page.mother_age }} ปี </b><br>
     การศึกษา : {{ this.page.mother_degree }} <br>
     ประสบการณ์ : {{ this.page.mother_exp }}<br>
     อาชีพ : {{ this.page.mother_job}}<br>
     ที่อยู่ปัจจุบัน : {{ this.page.mother_addr }}<br>
     ติดต่อ : {{ this.page.mother_contact }}
   </p>
-</p>
-<p>
+</div>
+<div class="page other">
   <b>2. ข้อมูลพื้นฐานของผู้เรียน</b>
   <p>
-    2.1 ข้อมูลของผู้เรียน <br>
+    <b>2.1 ข้อมูลของผู้เรียน</b><br>
     {{ course.student_name|raw }} อายุ {{ "now"|date('Y')-course.birth_date|date('Y') }} ปี  <!--เพศ {{ course.gender }}--><br>
     วัน-เดือน-ปีเกิด {{ course.birth_date|date('d/m/Y') }}<br>
     ประวัติการศึกษา : {{ course.school_exp|raw }}
     <br><br>
-    2.2 พัฒนาการของผู้เรียน<br>
+    <b>2.2 พัฒนาการของผู้เรียน</b><br>
     {{ course.development|raw }}
   </p>
 </div>
