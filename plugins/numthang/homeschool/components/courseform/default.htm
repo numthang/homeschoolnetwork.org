@@ -163,7 +163,7 @@
               <div class="form-group">
                 <label>วัน เดือน ปี เกิด</label>
                 <div class="input-group date" data-provide="datepicker">
-                  <input type="text" class="form-control" name="birth_date" value="{% if this.page.birt_date %} {{ this.page.birth_date }} {% else %} {{ "now"|date("d/m/Y") }} {% endif %}">
+                  <input type="text" class="form-control" name="birth_date" id="datepicker" value="{% if this.page.birth_date %} {{ this.page.birth_date }} {% else %} {{ "now"|date("d/m/Y") }} {% endif %}">
                     <div class="input-group-addon">
                       <span class="fui-calendar"></span>
                     </div>
@@ -317,8 +317,12 @@
 </form>
 {% put scripts %}
 	<script src="{{ ['assets/js/accordion.js']|theme }}"></script>
+	<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 	<link id="bsdp-css" href="https://uxsolutions.github.io/bootstrap-datepicker/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet">
 	<script src="https://uxsolutions.github.io/bootstrap-datepicker/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+	<script type="text/javascript">
+		$.fn.datepicker.defaults.format = "dd/mm/yyyy";
+	</script>
 	<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 	<script>
 		var editor_config = {
