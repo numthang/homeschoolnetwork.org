@@ -337,8 +337,12 @@
 </form>
 {% put scripts %}
 	<script src="{{ ['assets/js/accordion.js']|theme }}"></script>
+	<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 	<link id="bsdp-css" href="https://uxsolutions.github.io/bootstrap-datepicker/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet">
 	<script src="https://uxsolutions.github.io/bootstrap-datepicker/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+	<script type="text/javascript">
+		$.fn.datepicker.defaults.format = "dd/mm/yyyy";
+	</script>
 	<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 	<script>
 		var editor_config = {
