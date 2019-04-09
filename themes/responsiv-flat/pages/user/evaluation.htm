@@ -6,6 +6,10 @@ robot_index = "noindex"
 robot_follow = "nofollow"
 
 [evaluationform]
+
+[session]
+security = "user"
+redirect = "login/login"
 ==
 <?php
 public function onEnd() {
@@ -31,6 +35,7 @@ public function onEnd() {
 
     $date = explode('-', $course->attributes['birth_date']);
     $this->page['birth_date'] = $date[2].'/'.$date[1].'/'.$date[0];
+    $this->page['title'] = $this->evaluationform->record->name;
   }
 }
 ?>
