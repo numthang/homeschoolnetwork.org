@@ -73,12 +73,12 @@ public function onEnd() {
 <div class="page other">
   <b>2. ข้อมูลพื้นฐานของผู้เรียน</b>
   <p>
-    <b>2.1 ข้อมูลของผู้เรียน</b><br>
+    <b>2.1 ข้อมูลของผู้เรียน</b><br><br>
     {{ record.student_name|raw }} อายุ {{ "now"|date('Y')-record.birth_date|date('Y') }} ปี  <!--เพศ {{ record.gender }}--><br>
     วัน-เดือน-ปีเกิด {{ record.birth_date|date('d/m/Y') }}<br>
     ประวัติการศึกษา : {{ record.school_exp|raw }}
     <br><br>
-    <b>2.2 พัฒนาการของผู้เรียน</b><br>
+    <b>2.2 พัฒนาการของผู้เรียน</b><br><br>
     {{ record.development|raw }}
   </p>
 </div>

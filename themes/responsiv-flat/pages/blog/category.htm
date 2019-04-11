@@ -47,10 +47,10 @@ postPage = "blog/post"
               </p>
               <a class="btn btn-lg btn-default" href="{{ post.url }}">{{ 'Read More'|_}} ...</a>
             </div>
-            {% set i = i + 1 %}
-            {% if i == 2 or i == 7 or i == 15 %}
+            <!--{% set i = i + 1 %}
+            {% if i == 2 or i == 7 or i == 15 %}-->
               {% partial 'ads/new-in-feed' %}
-            {% endif %}
+            <!--{% endif %}-->
           </div>
           {% endfor %}
           {% if posts.lastPage > 1 %}

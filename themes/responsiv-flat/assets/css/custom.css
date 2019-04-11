@@ -34,7 +34,7 @@
 .brand-title {
   display: none;
 }
-@media screen and (min-width: 375px) {
+@media screen and (min-width: 360px) {
   .brand-title {
     display: block;
   }
@@ -79,7 +79,7 @@ hr {
   text-align:center;
   box-shadow: 5px 5px 10px #999;
 }
-.form-control, input[type="text"] {
+.form-control {
   line-height: 2.8;
   font-size: 16px;
 }
