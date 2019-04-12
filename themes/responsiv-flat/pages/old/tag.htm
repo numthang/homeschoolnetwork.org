@@ -1,0 +1,22 @@
+title = "Old tag"
+url = "/content/tag/:tag/1/"
+layout = "default"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[blogTagSearch]
+tag = "{{ :tag }}"
+page = "{{ :page }}"
+resultsPerPage = 10
+postPage = "blog/post"
+categoryPage = "blog/category"
+==
+<?php
+function onEnd() {
+  header("HTTP/1.1 301 Moved Permanently");
+  header("Location: /blog/tagged/".$this->blogTagSearch->tag->attributes['id']);
+  exit;
+}
+?>
+==
