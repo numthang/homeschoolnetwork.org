@@ -1,0 +1,15 @@
+title = "Old content"
+url = "/content/:id"
+layout = "default"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+==
+<?php
+function onStart() {
+  header("HTTP/1.1 301 Moved Permanently");
+  header("Location: /blog/".substr($this->param('id'), 0, -5));
+  exit;
+}
+?>
+==
