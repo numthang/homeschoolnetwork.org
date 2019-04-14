@@ -287,7 +287,6 @@
   <div class="row">
     <div class="col-sm-12">
     	<input type="hidden" name="save_as" value="0">
-			<button type="button" title="{{ 'Preview'|_ }}" class="btn btn-lg btn-info fa fa-eye float2" onClick="window.open('/user/course/{{ record.created_at| date('U') }}', '_blank');"></button>
 			<!--เฉพาะ admin จะ save ได้ทุกครั้ง หรือ ถ้าเป็นการเขียนแผนใหม่ หรือ การแก้ไขแผนและเป็นแผนตัวเองเท่านั้น-->
 			{% if (can('edit_course_template') or (record.id is not defined and record.template == 0) or (record.id is defined and record.template == 0 and record.user_id == user.id))  %}
     		<div class="col-sm-2">
@@ -295,15 +294,16 @@
 				</div>
 				<button type="submit" title="{{ 'Save'|_ }}" class="btn btn-lg btn-default fa fa-save float" data-hotkey="ctrl+s, cmd+s"></button>
     	{% endif %}
-    	{% if record.id is defined%}
+    	{% if record.id is defined %}
+				<button type="button" title="{{ 'Preview'|_ }}" class="btn btn-lg btn-info fa fa-eye float2" onClick="window.open('/user/course/{{ record.created_at| date('U') }}', '_blank');"></button>
 				<div class="col-sm-3">
 			    <button type="submit" class="btn btn-lg btn-info btn-block" onClick="if(confirm('{{ 'Save as'|_ }} '+this.form.name.value)) this.form.save_as.value = 1; else return false;">{{ 'Save as'|_ }} ...</button>
 				</div>
 				<div class="col-sm-2">
-					<button type="button" class="btn btn-lg btn-info btn-block" onClick="window.open('/user/course/{{ record.created_at| date('U') }}', '_blank');">{{ 'Preview'|_ }} </button>
+					<button type="button" class="btn btn-lg btn-info btn-block" onClick="window.open('/user/course/{{ record.created_at|date('U') }}', '_blank');">{{ 'Preview'|_ }} </button>
 				</div>
 				<div class="col-sm-3">
-					<button type="button" class="btn btn-lg btn-info btn-block" onClick="window.open('/user/course/{{ record.created_at| date('U') }}?print=1', '_blank');">{{ 'Print to PDF'|_ }} </button>
+					<button type="button" class="btn btn-lg btn-info btn-block" onClick="window.open('/user/course/{{ record.created_at|date('U') }}?print=1', '_blank');">{{ 'Print to PDF'|_ }} </button>
 				</div>
 				{% if (can('edit_course_template') or (record.template == 0 and record.id is not defined) or (record.template == 0 and record.user_id == user.id and record.id is defined))  %}
 					<div class="col-sm-2">
@@ -346,17 +346,18 @@
 	        }
 		    });
 	    },
-			plugins: [
-				"advlist autolink lists link image charmap print preview hr anchor pagebreak",
+			plugins: [ 
+				"advlist autolink lists link image imagetools charmap print preview hr anchor pagebreak",
 				"searchreplace wordcount visualblocks visualchars code fullscreen",
 				"insertdatetime media nonbreaking save table contextmenu directionality",
 				"emoticons template paste textcolor colorpicker textpattern"
 			],
-			toolbar: "fontsizeselect forecolor | blockquote bold italic underline | alignleft aligncenter alignright | bullist numlist indent outdent table | image media link | removeformat",
+			toolbar: "copy paste pastetext cut | fontsizeselect forecolor | blockquote bold italic underline | alignleft aligncenter alignright | bullist numlist indent outdent table | image media link | removeformat",
 			templates: [
 				{title: 'Some title 1', description: 'Some desc 1', content: 'My content'},
 				{title: 'Some title 2', description: 'Some desc 2', url: 'development.html'}
 			],
+			contextmenu: "copy cut paste pastetext | link image | cell row column deletetable",
 			relative_urls: false,
 			force_br_newlines : true,
 			force_p_newlines : false,

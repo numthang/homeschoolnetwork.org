@@ -93,13 +93,13 @@ label {
 }
 textarea.form-control, textarea.select2-search {
   height: auto;
-  line-height: 25px;
+  line-height: 27px;
 }
 .pagination {
   white-space: inherit;
 }
 .blog-desc, .blog-desc p {
-  line-height: 2;
+  line-height: 1.8;
 }
 blockquote {
   background: #f9f9f9;
