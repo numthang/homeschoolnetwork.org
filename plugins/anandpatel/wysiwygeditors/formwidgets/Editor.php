@@ -53,7 +53,7 @@ class Editor extends FormWidgetBase
         $locale = App::getLocale();
 
         if ($editor == 'tinymce') {
-            $this->addJs('/plugins/anandpatel/wysiwygeditors/formwidgets/editor/assets/tinymce/tinymce.min.js');
+            $this->addJs('//cdn.tinymce.com/4/tinymce.min.js');
 
             if ($locale != 'en' && File::exists('plugins/anandpatel/wysiwygeditors/formwidgets/editor/assets/tinymce/langs/'.$locale.'.js')) {
                 $this->addJs('/plugins/anandpatel/wysiwygeditors/formwidgets/editor/assets/tinymce/langs/'.$locale.'.js');

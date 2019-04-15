@@ -23,6 +23,10 @@ $tID = substr($this->getId('textarea'), 16) . time();
                 editor.on('change', function() {
                     tinymce.triggerSave();
                 });
+                editor.on('init', function() {
+                  this.getDoc().body.style.fontSize = '18px';
+                  this.getDoc().body.style.fontFamily = 'Arial, Tahoma, Sarabun';
+                });
             },
             relative_urls: false,
             width:  '<?php echo $width; ?>',
