@@ -1,6 +1,7 @@
 /bootstrap/compiled.php
 /config/database.php
 /storage
+/sql
 .htaccess
 #/vendor
 composer.phar
