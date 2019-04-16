@@ -23,14 +23,14 @@
     <div class="col-sm-6">
       <div class="form-group {% if errors.first('name') %} has-error {% endif %}">
         <label>ชื่อแผนการศึกษา</label>
-        <input type="text" class="form-control" name="name" placeholder="Enter course name : {{ errors.first('name') }}" value="{{ record.name }}">
+        <input type="text" class="form-control" name="name" placeholder="{{ 'Enter course name'|_ }}" value="{{ record.name }}">
         {% if errors.first('name') %}<div class="alert alert-warning" style="margin-top:4px;">{{ errors.first('name') }}</div>{% endif %}
       </div>
     </div>
     <div class="col-sm-6">
       <div class="form-group {% if errors.first('hs_name') %} has-error {% endif %}">
         <label>ชื่อบ้านเรียน</label>
-        <input type="text" class="form-control" name="hs_name" placeholder="Enter homeschool name : " value="{{ record.hs_name }}">
+        <input type="text" class="form-control" name="hs_name" placeholder="{{ 'Enter homeschool name'|_ }}" value="{{ record.hs_name }}">
         {% if errors.first('hs_name') %}<div class="alert alert-warning" style="margin-top:4px;">{{ errors.first('hs_name') }}</div>{% endif %}
       </div>
     </div>
@@ -54,86 +54,86 @@
             <div class="col-sm-4">
               <div class="form-group">
                 <label>บิดา</label>
-                <input type="text" class="form-control" name="father_name" placeholder="Enter father's name" value="{{ this.page.father_name }}">
+                <input type="text" class="form-control" name="father_name" placeholder="{{ 'Enter father name'|_ }}" value="{{ this.page.father_name }}">
               </div>
             </div>
             <div class="col-sm-8">
               <div class="form-group">
                 <label>วุฒิการศึกษา</label>
-                <input type="text" class="form-control" name="father_degree" placeholder="Enter father's degree" value="{{ this.page.father_degree }}">
+                <input type="text" class="form-control" name="father_degree" placeholder="{{ 'Enter father degree'|_ }}" value="{{ this.page.father_degree }}">
               </div>
             </div>
             <div class="col-sm-12">
               <div class="form-group">
                 <label>ประสบการณ์</label>
-                <textarea class="form-control" name="father_exp" placeholder="Enter father's experience" rows="5">{{ this.page.father_exp }}</textarea>
+                <textarea class="form-control" name="father_exp" placeholder="{{ 'Enter father experience'|_ }}" rows="5">{{ this.page.father_exp }}</textarea>
               </div>
             </div>
             <div class="col-sm-2">
               <div class="form-group">
                 <label>อายุ</label>
-                <input type="text" class="form-control" name="father_age" placeholder="Age" value="{{ this.page.father_age }}">
+                <input type="text" class="form-control" name="father_age" placeholder="{{ 'Age'|_ }}" value="{{ this.page.father_age }}">
               </div>
             </div>
             <div class="col-sm-10">
               <div class="form-group">
                 <label>อาชีพ</label>
-                <input type="text" class="form-control" name="father_job" placeholder="Enter father's job"  value="{{ this.page.father_job }}">
+                <input type="text" class="form-control" name="father_job" placeholder="{{ 'Enter father job'|_ }}"  value="{{ this.page.father_job }}">
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label>ที่อยู่</label>
-                <input type="text" class="form-control" name="father_addr" placeholder="Enter father's address" value="{{ this.page.father_addr }}">
+                <input type="text" class="form-control" name="father_addr" placeholder="{{ 'Enter father address'|_ }}" value="{{ this.page.father_addr }}">
               </div>
             </div>
 						<div class="col-sm-6">
 							<div class="form-group">
 								<label>ติดต่อ</label>
-								<input type="text" class="form-control" name="father_contact" placeholder="Email address or phone number" value="{{ this.page.father_contact }}">
+								<input type="text" class="form-control" name="father_contact" placeholder="{{ 'Email address or phone number'|_ }}" value="{{ this.page.father_contact }}">
 							</div>
 						</div>
 
             <div class="col-sm-4">
               <div class="form-group">
                 <label>มารดา</label>
-                <input type="text" class="form-control" name="mother_name" placeholder="Enter mother's name" value="{{ this.page.mother_name }}">
+                <input type="text" class="form-control" name="mother_name" placeholder="{{ 'Enter mother name'|_ }}" value="{{ this.page.mother_name }}">
               </div>
             </div>
             <div class="col-sm-8">
               <div class="form-group">
                 <label>วุฒิการศึกษา</label>
-                <input type="text" class="form-control" name="mother_degree" placeholder="Enter mother's degree" value="{{ this.page.mother_degree }}">
+                <input type="text" class="form-control" name="mother_degree" placeholder="{{ 'Enter mother degree'|_ }}" value="{{ this.page.mother_degree }}">
               </div>
             </div>
             <div class="col-sm-12">
               <div class="form-group">
                 <label>ประสบการณ์</label>
-                <textarea class="form-control" name="mother_exp" placeholder="Enter mother's experience" rows="5">{{ this.page.mother_exp }}</textarea>
+                <textarea class="form-control" name="mother_exp" placeholder="{{ 'Enter mother experience'|_ }}" rows="5">{{ this.page.mother_exp }}</textarea>
               </div>
             </div>
             <div class="col-sm-2">
               <div class="form-group">
                 <label>อายุ</label>
-                <input type="text" class="form-control" name="mother_age" placeholder="Age" value="{{ this.page.mother_age }}">
+                <input type="text" class="form-control" name="mother_age" placeholder="{{ 'Age'|_ }}" value="{{ this.page.mother_age }}">
               </div>
             </div>
             <div class="col-sm-10">
               <div class="form-group">
                 <label>อาชีพ</label>
-                <input type="text" class="form-control" name="mother_job" placeholder="Enter mother's job" value="{{ this.page.mother_job }}">
+                <input type="text" class="form-control" name="mother_job" placeholder="{{ 'Enter mother job'|_ }}" value="{{ this.page.mother_job }}">
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label>ที่อยู่</label>
-                <input type="text" class="form-control" name="mother_addr" placeholder="Enter mother's address" value="{{ this.page.mother_addr }}">
+                <input type="text" class="form-control" name="mother_addr" placeholder="{{ 'Enter mother address'|_ }}" value="{{ this.page.mother_addr }}">
               </div>
             </div>
 						<div class="col-sm-6">
               <div class="form-group">
                 <label>ติดต่อ</label>
-                <input type="text" class="form-control" name="mother_contact" placeholder="Email address or phone number" value="{{ this.page.mother_contact }}">
+                <input type="text" class="form-control" name="mother_contact" placeholder="{{ 'Email address or phone number'|_ }}" value="{{ this.page.mother_contact }}">
               </div>
             </div>
           </div>
@@ -145,7 +145,7 @@
             <div class="col-sm-6">
               <div class="form-group">
                 <label>ชื่อ-สกุล</label>
-                <input type="text" class="form-control" name="student_name" placeholder="Enter student's name" value="{{ record.student_name }}">
+                <input type="text" class="form-control" name="student_name" placeholder="{{ 'Enter student name'|_ }}" value="{{ record.student_name }}">
               </div>
             </div>
 						<div class="col-sm-3">
@@ -175,7 +175,7 @@
             <div class="col-sm-12">
               <div class="form-group">
                 <label>ประวัติการศึกษา (กรณีเรียนในระบบโรงเรียนมาก่อน)</label>
-                <textarea class="form-control" name="school_exp" placeholder="Enter school's experience" rows="5">{{ record.school_exp }}</textarea>
+                <textarea class="form-control" name="school_exp" placeholder="{{ 'Enter school experience'|_ }}" rows="5">{{ record.school_exp }}</textarea>
               </div>
             </div>
           </div>
@@ -184,17 +184,17 @@
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group">
-                <textarea class="form-control" name="development" placeholder="พัฒนาการตามวัย, พัฒนาการตามความสามารถพิเศษ หรือ พัฒนาการตามความตองการพิเศษ" rows="10">{{ record.development }}</textarea>
+                <textarea class="form-control" name="development" placeholder="{{ 'Enter student development'|_ }} พัฒนาการตามวัย, พัฒนาการตามความสามารถพิเศษ หรือ พัฒนาการตามความตองการพิเศษ" rows="10">{{ record.development }}</textarea>
               </div>
             </div>
           </div>
         </dd>
-        <dt><a href="#" class="accordionTitle">3. ระดับที่จัดการศึกษา / เหตุผลในการจัดการศึกษาของครอบครัว</a></dt>
+        <dt><a href="#" class="accordionTitle" title="{{ 'Enter student class and reason'|_ }} ระดับชั้น เช่น ประถมศึกษา (ชั้น ป.1 – ป.3) เหตุผลในการจัดการศึกษาของครอบครัว">3. ระดับที่จัดการศึกษา / เหตุผลในการจัดการศึกษาของครอบครัว</a></dt>
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group">
-                <textarea class="form-control mytinymce" name="class_reason" placeholder="ระดับชั้น เช่น ประถมศึกษา (ชั้น ป.1 – ป.3) เหตุผลในการจัดการศึกษาของครอบครัว" rows="20">{% if record.class_reason is defined %} {{ record.class_reason }} {% else %} {{ this.page['default_3'] }} {% endif %}</textarea>
+                <textarea class="form-control mytinymce" name="class_reason" placeholder="" rows="20">{% if record.class_reason is defined %} {{ record.class_reason }} {% else %} {{ this.page['default_3'] }} {% endif %}</textarea>
               </div>
             </div>
           </div>
@@ -204,7 +204,7 @@
           <div class="row">
           <div class="col-sm-12">
             <div class="form-group">
-              <textarea class="form-control mytinymce" name="purpose" placeholder="ระบุความต้องการ เช่น ต้องการพึ่งตนเอง ลดค่าใช้จ่าย เป็นต้น" rows="20">{% if record.purpose is defined %} {{ record.purpose }} {% else %} {{ this.page['default_4'] }} {% endif %}</textarea>
+              <textarea class="form-control mytinymce" name="purpose" placeholder="{{ 'Enter your purpose'|_ }}ระบุความต้องการ เช่น ต้องการพึ่งตนเอง ลดค่าใช้จ่าย เป็นต้น" rows="20">{% if record.purpose is defined %} {{ record.purpose }} {% else %} {{ this.page['default_4'] }} {% endif %}</textarea>
             </div>
           </div>
         </div>
@@ -214,7 +214,7 @@
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group">
-                <textarea class="form-control mytinymce" name="format" placeholder="" rows="20">{% if record.edu_type is defined %} {{ record.format }} {% else %} {{ this.page['default_5'] }} {% endif %}</textarea>
+                <textarea class="form-control mytinymce" name="format" placeholder="{{ 'Enter your education format'|_ }}5. รูปแบบการจัดการศึกษา" rows="20">{% if record.edu_type is defined %} {{ record.format }} {% else %} {{ this.page['default_5'] }} {% endif %}</textarea>
               </div>
             </div>
           </div>
@@ -346,7 +346,7 @@
 	        }
 		    });
 	    },
-			plugins: [ 
+			plugins: [
 				"advlist autolink lists link image imagetools charmap print preview hr anchor pagebreak",
 				"searchreplace wordcount visualblocks visualchars code fullscreen",
 				"insertdatetime media nonbreaking save table contextmenu directionality",
