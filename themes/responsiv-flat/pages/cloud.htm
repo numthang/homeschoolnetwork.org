@@ -29,10 +29,10 @@ function onLoadHomschooler()
   $users = $user->where('state_id', '=', $query[0]->id)->orderBy('status', 'desc')->get();
   #dump($users);
   $listed = ''; $headed = 0;
-  $listed .= '<h3>Homeschooler in '.$query[0]->name.'</h3>';
+  $listed .= '<h4>Homeschooler in '.$query[0]->name.'</h4>';
   foreach ($users as $key=>$value) {
     if($users[$key]->status == 0 and !$headed) {
-      $listed .= '<div class="clearfix"></div><h3>Interested in homeschooling</h3>';
+      $listed .= '<div class="clearfix"></div><h4>Interested in homeschooling</h4>';
       $headed = 1;
     }
     if($users[$key]->facebook_id)
@@ -52,7 +52,7 @@ function onLoadHomschooler()
     #if(!$key%6)
     #  $listed .= '<div class="clearfix"></div>';
   }
-  return $listed;
+  return $listed.'<div class="clearfix"></div><br>';
 }
 function onStart() {
   $user = new User();
@@ -82,6 +82,7 @@ function onStart() {
 <script>
   $('#map').vectorMap({
     map: 'th_mill',
+    zoomButtons : false,
     series: {
       regions: [{
         values: hsPopulation,
@@ -93,6 +94,7 @@ function onStart() {
         data: { value: code },
         success: function(data) {
           this.success(data).done(function() {
+            location.href="#results";
             document.getElementById('result').innerHTML = data.result;
           });
         }
@@ -102,7 +104,7 @@ function onStart() {
     onRegionTipShow: function(e, el, code) {
       el.html(el.html()+' (Homeschooler : '+hsPopulation[code]+')');
     },
-    backgroundColor: '#eee',
+    backgroundColor: '#ecf0f1',
 
   });
 </script>
@@ -110,20 +112,22 @@ function onStart() {
 
 <section id="layout-title">
     <div class="container">
-        <h3>{{ 'Cloud homeschooling'|_ }}</h3>
+      <h3>{{ 'Cloud homeschooling'|_ }}</h3>
     </div>
 </section>
 
 <div class="container">
   <div class="row">
     <div class="col-sm-4">
-      <div id="map" style="width: 100%; height: 700px"></div>
+      <a name="map"></a>
+      <div id="map"></div>
     </div>
     <div class="col-sm-8">
       {% partial 'ads/top' %}
+      <a name="results"></a>
       <div class="row">
-        <div id="result">
-        </div>
+        <div id="result"></div>
+        <a href="#map"><span class="fa fa-fw" aria-hidden="true" title="Copy to use arrow-circle-o-left"></span> {{ 'Back to map'|_ }}</a>
       </div>
     </div>
   </div>

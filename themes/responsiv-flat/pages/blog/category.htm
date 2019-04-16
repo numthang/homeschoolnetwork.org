@@ -49,10 +49,11 @@ postPage = "blog/post"
             </div>
             <!--{% set i = i + 1 %}
             {% if i == 2 or i == 7 or i == 15 %}-->
-              {% partial 'ads/new-in-feed' %}
+            {% partial 'ads/new-in-feed' %}
             <!--{% endif %}-->
           </div>
           {% endfor %}
+          <br>
           {% if posts.lastPage > 1 %}
           <ul class="pagination">
               {% if posts.currentPage > 1 %}

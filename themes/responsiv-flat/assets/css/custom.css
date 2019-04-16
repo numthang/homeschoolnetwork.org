@@ -143,3 +143,9 @@ blockquote p {
     height: 100%;
   }
 }
+#map {
+  width: 98%;
+  height: 700px;
+  border: 1px #ddd solid;
+  padding: 10px;
+}
