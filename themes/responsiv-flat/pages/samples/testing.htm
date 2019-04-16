@@ -5,8 +5,15 @@ is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
 
-[facebookSession]
-security = "all"
+[PostForm]
+use_authors = 1
+restrict_owner = 1
+allowpublish = 1
+show_excerpt = 0
+allow_images = 1
+slug = "{{ :slug }}"
+listPage = "blog/list"
+postPage = "blog/post"
 ==
 <?php
 function onSubmitContactForm()
@@ -15,152 +22,4 @@ function onSubmitContactForm()
 }
 ?>
 ==
-{% component 'facebookSession' %}
-{% put scripts %}
-    <script src="{{ [
-        'assets/javascript/pages/ui-elements.js',
-    ]|theme }}"></script>
-{% endput %}
-<select class="form-control select select-primary" data-toggle="select">
-	            <option value="0">Choose hero</option>
-	            <option value="1">Spider Man</option>
-	            <option value="2">Wolverine</option>
-	            <option value="3">Captain America</option>
-	            <option value="4" selected>X-Men</option>
-	            <option value="5">Crocodile</option>
-	        </select>
-<!-- Demo CSS -->
-<link rel="stylesheet" href="{{ 'assets/css/flexslider.css'|theme }}" type="text/css" media="screen" />
-<div id="container" class="cf">
-
-  <div id="main" role="main">
-    <section class="slider">
-      <div class="flexslider">
-        <ul class="slides">
-          <li>
-            <iframe id="player_1" src="https://player.vimeo.com/video/39683393?api=1&amp;player_id=player_1" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-          </li>
-          <li>
-            <div id="youtube1"></div>
-          </li>
-          <li>
-            <div id="youtube2"></div>
-          </li>
-          <li>
-            <img src="images/kitchen_adventurer_lemon.jpg" />
-          </li>
-        </ul>
-      </div>
-    </section>
-
-  </div>
-
-</div>
-
-<!-- jQuery -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<!-- FlexSlider -->
-<script defer src="{{ 'assets/js/flexslider/jquery.flexslider.js'|theme }}"></script>
-
-<script type="text/javascript">
-
-  $(window).load(function(){
-
-    // Vimeo API nonsense
-    var player = document.getElementById('player_1');
-    $f(player).addEvent('ready', ready);
-
-    function addEvent(element, eventName, callback) {
-      (element.addEventListener) ? element.addEventListener(eventName, callback, false) : element.attachEvent(eventName, callback, false);
-    }
-
-    function ready(player_id) {
-      var froogaloop = $f(player_id);
-
-      froogaloop.addEvent('play', function(data) {
-        $('.flexslider').flexslider("pause");
-      });
-
-      froogaloop.addEvent('pause', function(data) {
-        $('.flexslider').flexslider("play");
-      });
-    }
-
-
-    // Call fitVid before FlexSlider initializes, so the proper initial height can be retrieved.
-    $(".flexslider")
-      .fitVids()
-      .flexslider({
-        animation: "slide",
-        useCSS: false,
-        animationLoop: false,
-        smoothHeight: true,
-        start: function(slider){
-          $('body').removeClass('loading');
-        },
-        before: function(slider){
-          $f(player).api('pause');
-        }
-    });
-  });
-
-
-  // YouTube
-  // Load the iFrame Player API code asynchronously.
-  var tag = document.createElement('script');
-  tag.src = "https://www.youtube.com/player_api";
-  var firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-  var player,
-  youtubePlayers = [];
-
-  // Replace the 'ytplayer' element with an <iframe> and
-  // YouTube player after the API code downloads.
-  function onYouTubePlayerAPIReady() {
-    player = new YT.Player('youtube1', {
-      //		height: '281',
-      width: '600',
-      videoId: 'HKOCX8gxQTk',
-      playerVars: { 'autoplay': 0, 'controls': 0 },
-      events: {
-        'onStateChange': onPlayerStateChange
-      }
-    });
-    youtubePlayers[0] = player;
-
-    player = new YT.Player('youtube2', {
-      //		height: '281',
-      width: '600',
-      videoId: '_VluJjS3IfQ',
-      playerVars: { 'autoplay': 0, 'controls': 0 },
-      events: {
-        'onStateChange': onPlayerStateChange
-      }
-    });
-    youtubePlayers[1] = player;
-  }
-
-  function onPlayerStateChange(event) {
-    if (event.data == YT.PlayerState.PLAYING || event.data == YT.PlayerState.BUFFERING) {
-      console.log( 'Playing / Buffering' );
-      $('.flexslider').flexslider("pause");
-    }
-    else if (event.data == YT.PlayerState.ENDED || event.data == YT.PlayerState.PAUSED) {
-      console.log('Ended / Paused');
-      $('.flexslider').flexslider("play");
-    }
-  }
-
-  function pausePlayers() {
-    var i = 0;
-    for (i; i < youtubePlayers.length; i+=1) {
-      // YouTube videos
-      youtubePlayers[i].pauseVideo();
-    }
-  }
-</script>
-
-<!-- Optional FlexSlider Additions -->
-<script src="{{ 'assets/js/flexslider/froogaloop.js'|theme }}"></script>
-<script src="{{ 'assets/js/flexslider/jquery.fitvid.js'|theme }}"></script>
+{% component 'PostForm' %}
