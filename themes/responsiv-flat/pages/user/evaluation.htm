@@ -73,7 +73,7 @@ public function onEnd() {
   <b>2. ข้อมูลพื้นฐานของผู้เรียน</b>
   <p>
     <b>2.1 ข้อมูลของผู้เรียน</b><br><br>
-    {{ course.student_name|raw }} อายุ {{ "now"|date('Y')-course.birth_date|date('Y') }} ปี  <!--เพศ {{ course.gender }}--><br>
+    {{ course.student_name|raw }} อายุ {{ "now"|date('Y')+543 - course.birth_date|date('Y') }} ปี  <!--เพศ {{ course.gender }}--><br>
     วัน-เดือน-ปีเกิด {{ course.birth_date|date('d/m/Y') }}<br>
     ประวัติการศึกษา : {{ course.school_exp|raw }}
     <br><br>
