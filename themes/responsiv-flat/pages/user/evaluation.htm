@@ -50,7 +50,21 @@ public function onEnd() {
 <div class="page cover" style="font-family:Kanit;">
   {{ evaluation.cover|raw }}
 </div>
+<div class="page other" style="font-family:Kanit;">
+  <a name="index" id="index"></a>
+  <h1>สารบัญ</h1><br>
+  <h2><a href="#first">1. ข้อมูลพื้นฐานของครอบครัว</a></h2>
+  <h2><a href="#second">2. ข้อมูลพื้นฐานของผู้เรียน</a></h2>
+  <h2><a href="#third">3. การวัดและประเมินผลการเรียนรู้</a></h2>
+  <h2><a href="#forth">4. สรุปผลการเรียนรู้ของผู้เรียนตามเกณฑ์การจบชั้นเรียน</a></h2>
+  <h2><a href="#fifth">5. จุดเด่น / ความสำเร็จที่สำคัญของการจัดการศึกษา</a></h2>
+  <h2><a href="#sixth">6. ปัญหา, อุปสรรคหรือสิ่งที่ควรพัฒนา</a></h2>
+  <h2><a href="#seventh">7. แนวทางการจัดการเรียนรู้ในปีต่อไป</a></h2>
+  <h2><a href="#eighth">8. ข้อคิดเห็น / ข้อเสนอแนะอื่น ๆ</a></h2>
+  <h2><a href="#ninth">ภาคผนวก ร่องรอยการเรียนรู้</a></h2>
+</div>
 <div class="page other">
+  <a name="first" id="first"></a>
   <b>1. ข้อมูลพื้นฐานของครอบครัว</b>
   <p>
     <b>บิดา {{ this.page.father_name }} อายุ {{ this.page.father_age }} ปี </b><br>
@@ -70,6 +84,7 @@ public function onEnd() {
   </p>
 </div>
 <div class="page other">
+  <a name="second" id="second"></a>
   <b>2. ข้อมูลพื้นฐานของผู้เรียน</b>
   <p>
     <b>2.1 ข้อมูลของผู้เรียน</b><br><br>
@@ -82,30 +97,32 @@ public function onEnd() {
   </p>
 </div>
 <div class="page other">
+  <a name="third" id="third"></a>
   <b>3. การวัดและประเมินผลการเรียนรู้</b>
   <p>{{ evaluation.learning|raw }}</p>
 </div>
 <div class="page other">
+  <a name="forth" id="forth"></a>
   <b>4. สรุปผลการเรียนรู้ของผู้เรียนตามเกณฑ์การจบชั้นเรียน</b>
   <p>{{ evaluation.summary|raw }}</p>
 </div>
 <div class="page other">
+  <a name="fifth" id="fifth"></a>
   <b>5. จุดเด่น / ความสำเร็จที่สำคัญของการจัดการศึกษา</b>
   <p>{{ evaluation.successful|raw }}</p>
-</div>
-<div class="page other">
+  <a name="sixth" id="sixth"></a>
   <b>6. ปัญหา, อุปสรรคหรือสิ่งที่ควรพัฒนา</b>
   <p>{{ evaluation.problem|raw }}</p>
-</div>
-<div class="page other">
+  <a name="seventh" id="seventh"></a>
   <b>7. แนวทางการจัดการเรียนรู้ในปีต่อไป</b>
   <p>{{ evaluation.next|raw }}</p>
-</div>
-<div class="page other">
+  <a name="eighth" id="eighth"></a>
   <b>8. ข้อคิดเห็น / ข้อเสนอแนะอื่น ๆ</b>
   <p>{{ evaluation.suggestion|raw }}</p>
 </div>
 <div class="page other" align="center">
+  <a name="ninth" id="ninth"></a>
   <strong><span style="font-size: 24pt;">ภาคผนวก ร่องรอยการเรียนรู้</span></strong>
   <p>{{ evaluation.footprint|raw }}</p>
 </div>
+<a href="#index"><img src="/themes/responsiv-flat/assets/images/icons/png/back-to-top.png" class="float no-print" title="กลับไปสารบัญ"><a>

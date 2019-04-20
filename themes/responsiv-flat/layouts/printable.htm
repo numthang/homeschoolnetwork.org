@@ -59,7 +59,19 @@ description = "Printable layout"
           box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 
         }
-
+        a {
+          color: #2980b9;
+          text-decoration: none;
+          transition: .25s;
+        }
+        a:hover,
+        a:focus {
+          color: #e89c43;
+          text-decoration: none;
+        }
+        a:focus {
+          outline: none;
+        }
         /*.subpage {
           padding: 1cm;
           height: 256mm;
@@ -113,14 +125,39 @@ description = "Printable layout"
         blockquote p {
           display: inline;
         }
+        .float{
+          position:fixed;
+          width:50px;
+          height:50px;
+          bottom:40px;
+          right:40px;
+          text-align:center;
+          border-radius: 12px;
+        }
+        @media print {
+          .no-print, .no-print *
+          {
+              display: none !important;
+          }
+        }
       </style>
     </head>
     <body class="page-{{ this.page.id }} layout-{{ this.layout.id }}">
-        <!-- Content -->
-        <div id="layout-content">
-            {% page %}
-        </div>
+      <!-- Content -->
+      <div id="layout-content">
+          {% page %}
+      </div>
     </body>
+    <script>
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+      });
+    </script>
     <script type="text/javascript">
 
 			var _gaq = _gaq || [];
@@ -134,5 +171,4 @@ description = "Printable layout"
 				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 			})();
 		</script>
-
 </html>

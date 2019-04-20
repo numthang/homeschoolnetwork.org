@@ -51,7 +51,23 @@ public function onEnd() {
 <div class="page cover" style="font-family:Kanit;">
   {{ record.cover|raw }}
 </div>
+<div class="page other" style="font-family:Kanit;">
+  <a name="index" id="index"></a>
+  <h1>สารบัญ</h1><br>
+  <h2><a href="#first">1. ข้อมูลพื้นฐานของครอบครัว</a></h2>
+  <h2><a href="#second">2. ข้อมูลพื้นฐานของผู้เรียน</a></h2>
+  <h2><a href="#third">3. ระดับที่จัดการศึกษา / เหตุผลในการจัดการศึกษาของครอบครัว</a></h2>
+  <h2><a href="#forth">4. จุดมุ่งหมายของการจัดการศึกษา</a></h2>
+  <h2><a href="#fifth">5. รูปแบบการจัดการศึกษา</a></h2>
+  <h2><a href="#sixth">6. โครงสร้างเวลาเรียน</a></h2>
+  <h2><a href="#seventh">7. การจัดกลุ่มสาระการเรียนรู้ / กลุ่มประสบการณ์</a></h2>
+  <h2><a href="#eighth">8. การจัดกิจกรรมพัฒนาผู้เรียน</a></h2>
+  <h2><a href="#ninth">9. การจัดกระบวนการเรียนรู้</a></h2>
+  <h2><a href="#tenth">10. การวัดและประเมินผลการเรียนรู้</h2>
+  <h2><a href="#eleventh">11. อื่นๆ</h2>
+</div>
 <div class="page other">
+  <a name="first" id="first"></a>
   <b>1. ข้อมูลพื้นฐานของครอบครัว</b>
   <p>
     <b>บิดา {{ this.page.father_name }} อายุ {{ this.page.father_age }} ปี </b><br>
@@ -71,6 +87,7 @@ public function onEnd() {
   </p>
 </div>
 <div class="page other">
+  <a name="second" id="second"></a>
   <b>2. ข้อมูลพื้นฐานของผู้เรียน</b>
   <p>
     <b>2.1 ข้อมูลของผู้เรียน</b><br><br>
@@ -83,32 +100,42 @@ public function onEnd() {
   </p>
 </div>
 <div class="page other">
+  <a name="third" id="third"></a>
   <b>3. ระดับที่จัดการศึกษา / เหตุผลในการจัดการศึกษาของครอบครัว</b>
   <p>{{ record.class_reason|raw }}</p>
 </div>
 <div class="page other">
+  <a name="forth" id="forth"></a>
   <b>4. จุดมุ่งหมายของการจัดการศึกษา</b>
   <p>{{ record.purpose|raw }}</p>
+  <a name="fifth" id="fifth"></a>
   <b>5. รูปแบบการจัดการศึกษา</b>
   <p>{{ record.format|raw }}</p>
 </div>
 <div class="page other">
+  <a name="sixth" id="sixth"></a>
   <b>6. โครงสร้างเวลาเรียน</b>
   <p>{{ record.schedule|raw }}</p>
 </div>
 <div class="page other">
+  <a name="seventh" id="seventh"></a>
   <b>7. การจัดกลุ่มสาระการเรียนรู้ / กลุ่มประสบการณ์</b>
   <p>{{ record.curriculum|raw }}</p>
 </div>
 <div class="page other">
+  <a name="eighth" id="eighth"></a>
   <b>8. การจัดกิจกรรมพัฒนาผู้เรียน</b>
   <p>{{ record.activity|raw }}</p>
+  <a name="ninth" id="ninth"></a>
   <b>9. การจัดกระบวนการเรียนรู้</b>
   <p>{{ record.learning|raw }}</p>
+  <a name="tenth" id="tenth"></a>
   <b>10. การวัดและประเมินผลการเรียนรู้</b>
   <p>{{ record.evaluate|raw }}</p>
 </div>
 <div class="page other">
+  <a name="eleventh" id="eleventh"></a>
   <b>11. อื่นๆ</b>
   <p>{{ record.other|raw }}</p>
 </div>
+<a href="#index"><img src="/themes/responsiv-flat/assets/images/icons/png/back-to-top.png" class="float no-print" title="กลับไปสารบัญ"><a>
