@@ -12,9 +12,9 @@
 					<li><a href="/login/new/evaluation"><span class="fui-new"></span> {{ 'New Evaluation'|_ }}</a></li>
 					{% for c in evaluations %}
 					<li><b>&nbsp;
-					 	{{ c.name }} <!--[ {{ c.updated_at|date("m/d/Y") }} ]--></b>
+					 	<a href="/login/edit/course/{{c.id}}" {% if c.template %}style="color:#bbbbbb;"{% endif %}>{{ 'Course'|_ }} : {{ c.name }}</a> <!--[ {{ c.updated_at|date("m/d/Y") }} ]--></b>
 						{% for e in c.evaluations %}
-							<a href="/login/edit/evaluation/{{ e.id }}" {% if c.template %}style="color:#AAAAAA;"{% endif %}> <span class="fui-new"></span> {{ e.name }}  <!--[ {{ e.updated_at|date("m/d/Y") }} ]--></a>
+							<a href="/login/edit/evaluation/{{ e.id }}" {% if c.template %}style="color:#bbbbbb;"{% endif %}> <span class="fui-new"></span> {{ 'Evaluation'|_ }} : {{ e.name }}  <!--[ {{ e.updated_at|date("m/d/Y") }} ]--></a>
 						{% endfor %}
 					</li>
 					<li class="divider"></li>
