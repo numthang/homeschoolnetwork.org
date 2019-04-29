@@ -492,4 +492,7 @@
   'Responsiv\\Uploader\\Components\\FileUploader' => 'plugins/responsiv/uploader/components/FileUploader.php',
   'Rainlab\\User\\Controllers\\Users' => 'plugins/rainlab/user/controllers/Users.php',
   'Flynsarmy\\SocialLogin\\Classes\\UserManager' => 'plugins/flynsarmy/sociallogin/classes/UserManager.php',
+  'toughdeveloper\\imageresizer\\Plugin' => 'plugins/toughdeveloper/imageresizer/Plugin.php',
+  'ToughDeveloper\\ImageResizer\\Classes\\Image' => 'plugins/toughdeveloper/imageresizer/classes/Image.php',
+  'ToughDeveloper\\ImageResizer\\Models\\Settings' => 'plugins/toughdeveloper/imageresizer/models/Settings.php',
 );
