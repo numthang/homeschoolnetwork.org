@@ -490,4 +490,7 @@
   'Responsiv\\Uploader\\Traits\\ComponentUtils' => 'plugins/responsiv/uploader/traits/ComponentUtils.php',
   'Responsiv\\Uploader\\Components\\ImageUploader' => 'plugins/responsiv/uploader/components/ImageUploader.php',
   'Responsiv\\Uploader\\Components\\FileUploader' => 'plugins/responsiv/uploader/components/FileUploader.php',
+  'toughdeveloper\\imageresizer\\Plugin' => 'plugins/toughdeveloper/imageresizer/Plugin.php',
+  'ToughDeveloper\\ImageResizer\\Classes\\Image' => 'plugins/toughdeveloper/imageresizer/classes/Image.php',
+  'ToughDeveloper\\ImageResizer\\Models\\Settings' => 'plugins/toughdeveloper/imageresizer/models/Settings.php',
 );

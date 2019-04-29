@@ -76,7 +76,7 @@ public function onEnd() {
             <p>
               <img data-src="{{ image.filename }}" src="{{ image.path }}" alt="{{ image.description }}" style="max-width: 100%" />
               {% put meta %}
-                <meta property="og:image" content="{{ image.path }}" />
+              <meta property="og:image" content="{{ image.path | resize(600, 600) }}" />
               {% endput %}
             </p>
             {% endfor %}
