@@ -85,44 +85,32 @@ public function onEnd() {
     ที่อยู่ปัจจุบัน : {{ this.page.mother_addr }}<br>
     ติดต่อ : {{ this.page.mother_contact }}
   </p>
-</div>
-<div class="page other">
   <a name="second" id="second"></a>
   <b>2. ข้อมูลพื้นฐานของผู้เรียน</b>
   <p>
-    <b>2.1 ข้อมูลของผู้เรียน</b><br><br>
+    <b>2.1 ข้อมูลของผู้เรียน</b><br>
     {{ record.student_name|raw }} อายุ {{ "now"|date('Y')-record.birth_date|date('Y') }} ปี  <!--เพศ {{ record.gender }}--><br>
     วัน-เดือน-ปีเกิด {{ record.birth_date|date('d/m/Y') }}<br>
-    ประวัติการศึกษา : {{ record.school_exp|raw }}
+    ประวัติการศึกษา : {{ record.school_exp|nl2br }}
     <br><br>
-    <b>2.2 พัฒนาการของผู้เรียน</b><br><br>
-    {{ record.development|raw }}
+    <b>2.2 พัฒนาการของผู้เรียน</b><br>
+    {{ record.development|nl2br }}
   </p>
-</div>
-<div class="page other">
   <a name="third" id="third"></a>
   <b>3. ระดับที่จัดการศึกษา / เหตุผลในการจัดการศึกษาของครอบครัว</b>
   <p>{{ record.class_reason|raw }}</p>
-</div>
-<div class="page other">
   <a name="forth" id="forth"></a>
   <b>4. จุดมุ่งหมายของการจัดการศึกษา</b>
   <p>{{ record.purpose|raw }}</p>
   <a name="fifth" id="fifth"></a>
   <b>5. รูปแบบการจัดการศึกษา</b>
   <p>{{ record.format|raw }}</p>
-</div>
-<div class="page other">
   <a name="sixth" id="sixth"></a>
   <b>6. โครงสร้างเวลาเรียน</b>
   <p>{{ record.schedule|raw }}</p>
-</div>
-<div class="page other">
   <a name="seventh" id="seventh"></a>
   <b>7. การจัดกลุ่มสาระการเรียนรู้ / กลุ่มประสบการณ์</b>
   <p>{{ record.curriculum|raw }}</p>
-</div>
-<div class="page other">
   <a name="eighth" id="eighth"></a>
   <b>8. การจัดกิจกรรมพัฒนาผู้เรียน</b>
   <p>{{ record.activity|raw }}</p>
@@ -132,8 +120,6 @@ public function onEnd() {
   <a name="tenth" id="tenth"></a>
   <b>10. การวัดและประเมินผลการเรียนรู้</b>
   <p>{{ record.evaluate|raw }}</p>
-</div>
-<div class="page other">
   <a name="eleventh" id="eleventh"></a>
   <b>11. อื่นๆ</b>
   <p>{{ record.other|raw }}</p>

@@ -87,26 +87,20 @@ public function onEnd() {
   <a name="second" id="second"></a>
   <b>2. ข้อมูลพื้นฐานของผู้เรียน</b>
   <p>
-    <b>2.1 ข้อมูลของผู้เรียน</b><br><br>
+    <b>2.1 ข้อมูลของผู้เรียน</b><br>
     {{ course.student_name|raw }} อายุ {{ "now"|date('Y')+543 - course.birth_date|date('Y') }} ปี  <!--เพศ {{ course.gender }}--><br>
     วัน-เดือน-ปีเกิด {{ course.birth_date|date('d/m/Y') }}<br>
-    ประวัติการศึกษา : {{ course.school_exp|raw }}
+    ประวัติการศึกษา : {{ course.school_exp|nl2br }}
     <br><br>
-    <b>2.2 พัฒนาการของผู้เรียน</b><br><br>
-    {{ course.development|raw }}
+    <b>2.2 พัฒนาการของผู้เรียน</b><br>
+    {{ course.development|nl2br }}
   </p>
-</div>
-<div class="page other">
   <a name="third" id="third"></a>
   <b>3. การวัดและประเมินผลการเรียนรู้</b>
   <p>{{ evaluation.learning|raw }}</p>
-</div>
-<div class="page other">
   <a name="forth" id="forth"></a>
   <b>4. สรุปผลการเรียนรู้ของผู้เรียนตามเกณฑ์การจบชั้นเรียน</b>
   <p>{{ evaluation.summary|raw }}</p>
-</div>
-<div class="page other">
   <a name="fifth" id="fifth"></a>
   <b>5. จุดเด่น / ความสำเร็จที่สำคัญของการจัดการศึกษา</b>
   <p>{{ evaluation.successful|raw }}</p>
