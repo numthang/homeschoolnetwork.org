@@ -74,9 +74,9 @@ public function onEnd() {
           <div class="featured-images text-center">
             {% for image in post.featured_images %}
             <p>
-              <img data-src="{{ image.filename }}" src="{{ image.path | resize(650, 650) }}" alt="{{ image.description }}" style="max-width: 100%" />
+              <img data-src="{{ image.filename }}" src="{{ image.path | resize(650, 650) }}" alt="{{ image.description }}" />
               {% put meta %}
-              <meta property="og:image" content="{{ image.path | resize(600, 600) }}" />
+              <meta property="og:image" content="{{ image.path | resize(650, 650) }}" />
               {% endput %}
             </p>
             {% endfor %}
