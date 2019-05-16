@@ -236,6 +236,7 @@
   'Backend\\Traits\\FormModelWidget' => 'modules/backend/traits/FormModelWidget.php',
   'Backend\\FormWidgets\\FileUpload' => 'modules/backend/formwidgets/FileUpload.php',
   'AnandPatel\\WysiwygEditors\\Models\\Settings' => 'plugins/anandpatel/wysiwygeditors/models/Settings.php',
+<<<<<<< HEAD
   'Backend\\Models\\ExportModel' => 'modules/backend/models/ExportModel.php',
   'RainLab\\Blog\\Models\\PostExport' => 'plugins/rainlab/blog/models/PostExport.php',
   'RainLab\\Translate\\Traits\\MLControl' => 'plugins/rainlab/translate/traits/MLControl.php',
@@ -261,4 +262,19 @@
   'Backend\\Classes\\ListColumn' => 'modules/backend/classes/ListColumn.php',
   'Cms\\Twig\\FlashNode' => 'modules/cms/twig/FlashNode.php',
   'Backend\\Behaviors\\ReorderController' => 'modules/backend/behaviors/ReorderController.php',
+=======
+  'Cms\\FormWidgets\\Components' => 'modules/cms/formwidgets/Components.php',
+  'RainLab\\User\\Models\\Throttle' => 'plugins/rainlab/user/models/Throttle.php',
+  'Numthang\\Homeschool\\Models\\Course' => 'plugins/numthang/homeschool/models/Course.php',
+  'Numthang\\Homeschool\\Models\\Evaluation' => 'plugins/numthang/homeschool/models/Evaluation.php',
+  'FireUnion\\BlogFront\\Models\\Author' => 'plugins/fireunion/blogfront/models/Author.php',
+  'System\\Classes\\SystemController' => 'modules/system/classes/SystemController.php',
+  'KurtJensen\\Passage\\Models\\Variance' => 'plugins/kurtjensen/passage/models/Variance.php',
+  'KurtJensen\\Passage\\Models\\Key' => 'plugins/kurtjensen/passage/models/Key.php',
+  'Cms\\Twig\\PageNode' => 'modules/cms/twig/PageNode.php',
+  'RainLab\\Builder\\Validation\\ReservedValidator' => 'plugins/rainlab/builder/validation/ReservedValidator.php',
+  'RainLab\\Translate\\Traits\\MLControl' => 'plugins/rainlab/translate/traits/MLControl.php',
+  'RainLab\\Translate\\FormWidgets\\MLText' => 'plugins/rainlab/translate/formwidgets/MLText.php',
+  'System\\Models\\PluginVersion' => 'modules/system/models/PluginVersion.php',
+>>>>>>> 6b61ccd990be0a476ad9a24c16dba4feb4af3f83
 );
