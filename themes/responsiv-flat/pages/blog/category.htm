@@ -30,13 +30,9 @@ postPage = "blog/post"
           {% set i = 0 %}
           {% for post in posts %}
           <!-- Blog Post -->
-          <div class="blog">
-            <img src="{% if post.author.facebook_id %} https://graph.facebook.com/{{ post.author.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" alt="{{ post.author.name }}" style="cursor:pointer;" onClick="window.location.href = '/user/profile/{{post.author_id}}';">
-            <div class="blog-desc">
-              <h5><a href="{{ post.url }}">{{ post.title }}</a> {% if post.author.id == user.id %} <a href="/login/edit/post/{{ post.slug }}">{{ 'Edit'|_ }}</a> {% endif %}</h5>
-              <hr>
-              <p class="text-muted">by {{ post.author.name }} on {{ post.published_at|date('M d, Y') }}</p>
-              <p class="excerpt">{{ post.summary|raw }}</p>
+            <img src="{% if post.author.facebook_id %} https://graph.facebook.com/{{ post.author.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" alt="{{ post.author.name }}" class="avatar-sm" onClick="window.location.href = '/user/profile/{{post.author_id}}';">
+            <a href="{{ post.url }}">{{ post.title }}</a> {% if post.author.id == user.id %} <a href="/login/edit/post/{{ post.slug }}">{{ 'Edit'|_ }}</a> {% endif %} <span class="text-muted">by {{ post.author.name }} on {{ post.published_at|date('M d, Y') }}</span>
+              <!--<p class="excerpt">{{ post.summary|raw }}</p>
               <a href="{{ post.url }}"><img class="img-responsive" src="{{ post.featured_images[0].path }}" alt=""></a>
               <p class="info">
                 Posted
@@ -45,13 +41,12 @@ postPage = "blog/post"
                     <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
                 {% endfor %}
               </p>
-              <a class="btn btn-lg btn-default" href="{{ post.url }}">{{ 'Read More'|_}} ...</a>
-            </div>
+              <a class="btn btn-lg btn-default" href="{{ post.url }}">{{ 'Read More'|_}} ...</a>-->
             <!--{% set i = i + 1 %}
             {% if i == 2 or i == 7 or i == 15 %}-->
             {% partial 'ads/new-in-feed' %}
             <!--{% endif %}-->
-          </div>
+            <hr>
           {% endfor %}
           <br>
           {% if posts.lastPage > 1 %}

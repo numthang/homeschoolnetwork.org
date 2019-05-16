@@ -233,4 +233,7 @@
   'KurtJensen\\Passage\\Models\\Key' => 'plugins/kurtjensen/passage/models/Key.php',
   'Cms\\Twig\\PageNode' => 'modules/cms/twig/PageNode.php',
   'RainLab\\Builder\\Validation\\ReservedValidator' => 'plugins/rainlab/builder/validation/ReservedValidator.php',
+  'RainLab\\Translate\\Traits\\MLControl' => 'plugins/rainlab/translate/traits/MLControl.php',
+  'RainLab\\Translate\\FormWidgets\\MLText' => 'plugins/rainlab/translate/formwidgets/MLText.php',
+  'System\\Models\\PluginVersion' => 'modules/system/models/PluginVersion.php',
 );
