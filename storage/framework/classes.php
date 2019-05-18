@@ -236,4 +236,6 @@
   'RainLab\\Translate\\Traits\\MLControl' => 'plugins/rainlab/translate/traits/MLControl.php',
   'RainLab\\Translate\\FormWidgets\\MLText' => 'plugins/rainlab/translate/formwidgets/MLText.php',
   'System\\Models\\PluginVersion' => 'modules/system/models/PluginVersion.php',
+  'Cms\\Twig\\FrameworkNode' => 'modules/cms/twig/FrameworkNode.php',
+  'Cms\\Twig\\ScriptsNode' => 'modules/cms/twig/ScriptsNode.php',
 );

@@ -1,5 +1,5 @@
 title = "Course preview"
-url = "/user/course/:slug"
+url = "/user/course/:slug/:raw"
 layout = "printable"
 is_hidden = 0
 robot_index = "noindex"
@@ -65,64 +65,51 @@ public function onEnd() {
   <h2><a href="#eighth">8. การจัดกิจกรรมพัฒนาผู้เรียน</a></h2>
   <h2><a href="#ninth">9. การจัดกระบวนการเรียนรู้</a></h2>
   <h2><a href="#tenth">10. การวัดและประเมินผลการเรียนรู้</h2>
-  <h2><a href="#eleventh">11. อื่นๆ</h2>
+  <h2><a href="#eleventh">11. อื่นๆ</a></h2>
 </div>
 <div class="page other">
-  <a name="first" id="first"></a>
-  <b>1. ข้อมูลพื้นฐานของครอบครัว</b>
-  <p>
-    <b>บิดา {{ this.page.father_name }} อายุ {{ this.page.father_age }} ปี </b><br>
-    การศึกษา : {{ this.page.father_degree }} <br>
-    ประสบการณ์ : {{ this.page.father_exp }}<br>
-    อาชีพ : {{ this.page.father_job}}<br>
-    ที่อยู่ปัจจุบัน : {{ this.page.father_addr }}<br>
-    ติดต่อ : {{ this.page.father_contact}}
-  </p>
-  <p>
-    <b>มารดา {{ this.page.mother_name }} อายุ {{ this.page.mother_age }} ปี </b><br>
-    การศึกษา : {{ this.page.mother_degree }} <br>
-    ประสบการณ์ : {{ this.page.mother_exp }}<br>
-    อาชีพ : {{ this.page.mother_job}}<br>
-    ที่อยู่ปัจจุบัน : {{ this.page.mother_addr }}<br>
-    ติดต่อ : {{ this.page.mother_contact }}
-  </p>
-  <a name="second" id="second"></a>
-  <b>2. ข้อมูลพื้นฐานของผู้เรียน</b>
-  <p>
-    <b>2.1 ข้อมูลของผู้เรียน</b><br>
-    {{ record.student_name|raw }} อายุ {{ ("now"|date('Y')+543)-record.birth_date|date('Y') }} ปี  <!--เพศ {{ record.gender }}--><br>
-    วัน-เดือน-ปีเกิด {{ record.birth_date|date('d/m/Y') }}<br>
-    ประวัติการศึกษา : {{ record.school_exp|nl2br }}
-    <br><br>
-    <b>2.2 พัฒนาการของผู้เรียน</b><br>
-    {{ record.development|nl2br }}
-  </p>
-  <a name="third" id="third"></a>
-  <b>3. ระดับที่จัดการศึกษา / เหตุผลในการจัดการศึกษาของครอบครัว</b>
-  <p>{{ record.class_reason|raw }}</p>
-  <a name="forth" id="forth"></a>
-  <b>4. จุดมุ่งหมายของการจัดการศึกษา</b>
-  <p>{{ record.purpose|raw }}</p>
-  <a name="fifth" id="fifth"></a>
-  <b>5. รูปแบบการจัดการศึกษา</b>
-  <p>{{ record.format|raw }}</p>
-  <a name="sixth" id="sixth"></a>
-  <b>6. โครงสร้างเวลาเรียน</b>
-  <p>{{ record.schedule|raw }}</p>
-  <a name="seventh" id="seventh"></a>
-  <b>7. การจัดกลุ่มสาระการเรียนรู้ / กลุ่มประสบการณ์</b>
-  <p>{{ record.curriculum|raw }}</p>
-  <a name="eighth" id="eighth"></a>
-  <b>8. การจัดกิจกรรมพัฒนาผู้เรียน</b>
-  <p>{{ record.activity|raw }}</p>
-  <a name="ninth" id="ninth"></a>
-  <b>9. การจัดกระบวนการเรียนรู้</b>
-  <p>{{ record.learning|raw }}</p>
-  <a name="tenth" id="tenth"></a>
-  <b>10. การวัดและประเมินผลการเรียนรู้</b>
-  <p>{{ record.evaluate|raw }}</p>
-  <a name="eleventh" id="eleventh"></a>
-  <b>11. อื่นๆ</b>
-  <p>{{ record.other|raw }}</p>
+  <a name="first" id="first"><strong>1. ข้อมูลพื้นฐานของครอบครัว</strong></a><br><br>
+  <strong>บิดา {{ this.page.father_name }} อายุ {{ this.page.father_age }} ปี </strong><br>
+  การศึกษา : {{ this.page.father_degree }} <br>
+  ประสบการณ์ : {{ this.page.father_exp }}<br>
+  อาชีพ : {{ this.page.father_job}}<br>
+  ที่อยู่ปัจจุบัน : {{ this.page.father_addr }}<br>
+  ติดต่อ : {{ this.page.father_contact}}
+  <br><br>
+  <strong>มารดา {{ this.page.mother_name }} อายุ {{ this.page.mother_age }} ปี </strong><br>
+  การศึกษา : {{ this.page.mother_degree }} <br>
+  ประสบการณ์ : {{ this.page.mother_exp }}<br>
+  อาชีพ : {{ this.page.mother_job}}<br>
+  ที่อยู่ปัจจุบัน : {{ this.page.mother_addr }}<br>
+  ติดต่อ : {{ this.page.mother_contact }}
+  <br><br>
+  <a name="second" id="second"><strong>2. ข้อมูลพื้นฐานของผู้เรียน</strong></a><br><br>
+  <strong>2.1 ข้อมูลของผู้เรียน</strong><br>
+  {{ record.student_name|raw }} อายุ {{ ("now"|date('Y')+543)-record.birth_date|date('Y') }} ปี  <!--เพศ {{ record.gender }}--><br>
+  วัน-เดือน-ปีเกิด {{ record.birth_date|date('d/m/Y') }}<br>
+  ประวัติการศึกษา : {{ record.school_exp|nl2br }}
+  <br><br>
+  <strong>2.2 พัฒนาการของผู้เรียน</strong><br>
+  {{ record.development|nl2br }}
+  <br><br>
+  <a name="third" id="third"><strong>3. ระดับที่จัดการศึกษา / เหตุผลในการจัดการศึกษาของครอบครัว</strong></a><br><br>
+  {{ record.class_reason|raw }}<br>
+  <a name="forth" id="forth"><strong>4. จุดมุ่งหมายของการจัดการศึกษา</strong></a><br><br>
+  {{ record.purpose|raw }}<br>
+  <a name="fifth" id="fifth"><strong>5. รูปแบบการจัดการศึกษา</strong></a><br><br>
+  {{ record.format|raw }}<br>
+  <a name="sixth" id="sixth"><strong>6. โครงสร้างเวลาเรียน</strong></a><br><br>
+  {{ record.schedule|raw }}<br>
+  <a name="seventh" id="seventh"><strong>7. การจัดกลุ่มสาระการเรียนรู้ / กลุ่มประสบการณ์</strong></a><br><br>
+  {{ record.curriculum|raw }}<br>
+  <a name="eighth" id="eighth"><strong>8. การจัดกิจกรรมพัฒนาผู้เรียน</strong></a><br><br>
+  {{ record.activity|raw }}<br>
+  <a name="ninth" id="ninth"><strong>9. การจัดกระบวนการเรียนรู้</strong></a><br><br>
+  {{ record.learning|raw }}<br>
+  <a name="tenth" id="tenth"><strong>10. การวัดและประเมินผลการเรียนรู้</strong></a><br><br>
+  {{ record.evaluate|raw }}<br>
+  <a name="eleventh" id="eleventh"><strong>11. อื่นๆ</strong></a><br><br>
+  {{ record.other|raw }}
 </div>
+
 <a href="#index"><img src="/themes/responsiv-flat/assets/images/icons/png/back-to-top.png" class="float no-print" title="กลับไปสารบัญ"><a>

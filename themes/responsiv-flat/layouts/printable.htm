@@ -61,6 +61,16 @@ description = "Printable layout"
           box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 
         }
+        .page-no-margin {
+          max-width: 23cm;
+          min-height: 29.7cm;
+          padding: 0cm;
+          margin: 0cm auto;
+          border: 1px #D3D3D3 solid;
+          border-radius: 5px;
+          background: white;
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
         a {
           color: #2980b9;
           text-decoration: none;
@@ -127,6 +137,9 @@ description = "Printable layout"
         blockquote p {
           display: inline;
         }
+        p {
+          margin-top:20px;
+        }
         .float{
           position:fixed;
           width:50px;
@@ -142,14 +155,60 @@ description = "Printable layout"
               display: none !important;
           }
         }
+        hr {
+          border: none;
+          height: 1px;
+          /* Set the hr color */
+          color: #CCC; /* old IE */
+          background-color: #CCC; /* Modern Browsers */
+        }
       </style>
     </head>
     <body class="page-{{ this.page.id }} layout-{{ this.layout.id }}">
       <!-- Content -->
       <div id="layout-content">
-          {% page %}
+        {% page %}
       </div>
     </body>
+    <!-- Scripts -->
+    <script src="{{ [
+        'assets/javascript/jquery.min.js',
+        'assets/javascript/pages/ui-elements.js',
+
+        'assets/vendor/bootstrap/js/transition.js',
+        'assets/vendor/bootstrap/js/alert.js',
+        'assets/vendor/bootstrap/js/button.js',
+        'assets/vendor/bootstrap/js/carousel.js',
+        'assets/vendor/bootstrap/js/collapse.js',
+        'assets/vendor/bootstrap/js/dropdown.js',
+        'assets/vendor/bootstrap/js/modal.js',
+        'assets/vendor/bootstrap/js/tooltip.js',
+        'assets/vendor/bootstrap/js/popover.js',
+        'assets/vendor/bootstrap/js/scrollspy.js',
+        'assets/vendor/bootstrap/js/tab.js',
+        'assets/vendor/bootstrap/js/affix.js',
+
+        'assets/vendor/jquery-ui/js/jquery.ui.core.js',
+        'assets/vendor/jquery-ui/js/jquery.ui.widget.js',
+        'assets/vendor/jquery-ui/js/jquery.ui.mouse.js',
+        'assets/vendor/jquery-ui/js/jquery.ui.position.js',
+        'assets/vendor/jquery-ui/js/jquery.ui.button.js',
+        'assets/vendor/jquery-ui/js/jquery.ui.slider.js',
+        'assets/vendor/jquery-ui/js/jquery.ui.effects.js',
+        'assets/vendor/jquery-ui/js/jquery.ui.touchpunch.js',
+
+        'assets/vendor/flat-ui/js/video.js',
+        'assets/vendor/flat-ui/js/bootstrap-switch.js',
+        'assets/vendor/flat-ui/js/bootstrap-tagsinput.js',
+        'assets/vendor/flat-ui/js/holder.js',
+        'assets/vendor/flat-ui/js/typeahead.jquery.js',
+        'assets/vendor/flat-ui/js/select2.js',
+        'assets/vendor/flat-ui/js/flatui-radiocheck.js',
+
+        'assets/javascript/app.js'
+    ]|theme }}"></script>
+    {% framework extras %}
+    {% scripts %}
     <script>
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -161,7 +220,6 @@ description = "Printable layout"
       });
     </script>
     <script type="text/javascript">
-
 			var _gaq = _gaq || [];
 			_gaq.push(['_setAccount', 'UA-32138803-1']);
 			_gaq.push(['_setDomainName', 'homeschoolnetwork.org']);
