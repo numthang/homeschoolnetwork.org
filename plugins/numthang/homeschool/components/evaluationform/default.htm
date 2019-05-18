@@ -289,11 +289,37 @@
         <dt><a href="#" class="accordionTitle">9. ภาคผนวก ร่องรอยการเรียนรู้</a></dt>
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-4">
               <div class="form-group">
-                <textarea class="form-control mytinymce" name="footprint" placeholder="" rows="40"><div align="center">{% if evaluation.footprint is defined %} {{ evaluation.footprint }} {% else %} {{ this.page['default_7'] }} {% endif %}</div></textarea>
+								<label>ผู้แต่ง</label>
+								<select class="form-control" name="author">
+									<option value="">Numthang</option>
+									<option value="">Unnop Sricharoenchai</option>
+									<option value="">Patai W</option>
+								</select>
+                <!--<textarea class="form-control mytinymce" name="footprint" placeholder="" rows="40"><div align="center">{% if evaluation.footprint is defined %} {{ evaluation.footprint }} {% else %} {{ this.page['default_7'] }} {% endif %}</div></textarea>-->
               </div>
             </div>
+						<div class="col-sm-4">
+              <div class="form-group">
+								<label>ผู้แต่ง</label>
+								<select class="form-control" name="author">
+									<option value="">Numthang</option>
+									<option value="">Unnop Sricharoenchai</option>
+									<option value="">Patai W</option>
+								</select>
+              </div>
+            </div>
+						<div class="col-sm-4">
+							<div class="form-group">
+								<label>ผู้แต่ง</label>
+								<select class="form-control" name="author">
+									<option value="">Numthang</option>
+									<option value="">Unnop Sricharoenchai</option>
+									<option value="">Patai W</option>
+								</select>
+							</div>
+						</div>
           </div>
         </dd>
       </dl>

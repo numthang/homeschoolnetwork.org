@@ -235,5 +235,10 @@
   'AnandPatel\\WysiwygEditors\\FormWidgets\\Editor' => 'plugins/anandpatel/wysiwygeditors/formwidgets/Editor.php',
   'Backend\\Models\\BrandSetting' => 'modules/backend/models/BrandSetting.php',
   'System\\Models\\PluginVersion' => 'modules/system/models/PluginVersion.php',
+<<<<<<< HEAD
   'Backend\\Models\\EditorSetting' => 'modules/backend/models/EditorSetting.php',
+=======
+  'Cms\\Twig\\FrameworkNode' => 'modules/cms/twig/FrameworkNode.php',
+  'Cms\\Twig\\ScriptsNode' => 'modules/cms/twig/ScriptsNode.php',
+>>>>>>> 1009b21da7bff772454097792fabeb62ff8dc0ff
 );
