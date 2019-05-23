@@ -5,7 +5,7 @@
   {% if PostForm.allow_images %}
     <div class="form-group">
       <label>{{ 'Feature image'|_ }}</label>
-      <!-- File uploader -->
+      <!-- 0File uploader -->
       {% component 'imageUploader' %}
     </div>
     <div class="form-group">
@@ -60,6 +60,20 @@
   <div class="form-group">
     <label for="Form-field-blog-content">{{ 'Content'|_ }}</label>
     <textarea name="content" id="content" class="form-control mytinymce" rows="20">{{ PostForm.post.content }}</textarea>
+  </div>
+  <div class="">
+    <label for="Form-field-blog-tag">{{ 'Tags'|_ }}</label>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-control">
+          <select name="tags[]" class="s2" multiple="multiple" style="width:100%;">
+            <option>homeschool</option>
+            <option>บ้านเรียนนำทาง</option>
+            <option selected="selected">กิจกรรมของเด็กโฮมสกูล</option>
+          </select>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="form-group">
     <label for="Form-field-blog-category">{{ 'Category'|_ }}</label>
@@ -119,6 +133,12 @@
 {% endif %}
 <!-- End postform-default.htm -->
 {% put scripts %}
+  <!--<link rel="stylesheet" href="{{ 'assets/css/select2.css'|theme }}">
+  <script src="{{ 'assets/js/select2.js'|theme }}"></script>-->
+  <script type="text/javascript">
+    $(".s2").select2({
+    });
+  </script>
   <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
   <script>
     var editor_config = {

@@ -1,5 +1,5 @@
 title = "Testing"
-url = "/testing/:slug"
+url = "/testing"
 layout = "default"
 is_hidden = 0
 robot_index = "index"
@@ -17,47 +17,74 @@ postPage = "blog/post"
 <?php
 function onSubmitContactForm()
 {
-  echo post('value');
 }
 ?>
 ==
-{% set posts = blogPosts.posts %}
+<h3>Select 2 With no tag</h3>
 
-<ul class="post-list">
-    {% for post in posts %}
-        <li>
-            <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+<div class="form-control">
+  <select class="s2" multiple="multiple" style="width:100%; color:#999;">
+    <option>homeschool</option>
+    <option>บ้านเรียนนำทาง</option>
+    <option selected="selected">กิจกรรมของเด็กโฮมสกูล</option>
+  </select>
+</div><br>
+<h3>Select 2</h3>
+<div class="form-control">
+  <input type="text" id="tags" length="30" />
+</div>
+<br>
 
-            <p class="info">
-                Posted
-                {% if post.categories.count %} in {% endif %}
-                {% for category in post.categories %}
-                    <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
-                {% endfor %}
-                on {{ post.published_at|date('M d, Y') }}
-            </p>
+<div class="example example_typeahead">
+  <h3>Typeahead</h3>
+  Typeahead is not included in Bootstrap 3, so you'll have to include your own typeahead library. I'd recommed <a href="http://twitter.github.io/typeahead.js/">typeahead.js</a>. An example of using this is shown below.
 
-            <p class="excerpt">{{ post.summary|raw }}</p>
-        </li>
-    {% else %}
-        <li class="no-data">{{ blogPosts.noPostsMessage }}</li>
-    {% endfor %}
-</ul>
+  <div class="bs-example">
+    <input type="text" value="Amsterdam,Washington" />
+  </div>
+</div>
+<br>
+<!--<input type="text" value="Amsterdam,Washington" data-role="tagsinput" />-->
 
-{% if posts.lastPage > 1 %}
-    <ul class="pagination">
-        {% if posts.currentPage > 1 %}
-            <li><a href="{{ this.page.baseFileName|page({ (blogPosts.pageParam): (posts.currentPage-1) }) }}">&larr; Prev</a></li>
-        {% endif %}
+{% put scripts %}
+<link rel="stylesheet" href="http://localhost/~tee/select2/bootstrap-tagsinput-latest/dist/bootstrap-tagsinput.css">
+<link rel="stylesheet" href="http://localhost/~tee/select2/bootstrap-tagsinput-latest/examples/assets/app.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+<script>
 
-        {% for page in 1..posts.lastPage %}
-            <li class="{{ posts.currentPage == page ? 'active' : null }}">
-                <a href="{{ this.page.baseFileName|page({ (blogPosts.pageParam): page }) }}">{{ page }}</a>
-            </li>
-        {% endfor %}
+var citynames = new Bloodhound({
+  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+  queryTokenizer: Bloodhound.tokenizers.whitespace,
+  prefetch: {
+    url: '/themes/responsiv-flat/assets/citynames.json',
+    filter: function(list) {
+      return $.map(list, function(cityname) {
+        return { name: cityname }; });
+    }
+  }
+});
+citynames.initialize();
 
-        {% if posts.lastPage > posts.currentPage %}
-            <li><a href="{{ this.page.baseFileName|page({ (blogPosts.pageParam): (posts.currentPage+1) }) }}">Next &rarr;</a></li>
-        {% endif %}
-    </ul>
-{% endif %}
+/**
+ * Typeahead
+ */
+var elt = $('.example_typeahead > > input');
+elt.tagsinput({
+  typeaheadjs: {
+    name: 'citynames',
+    displayKey: 'name',
+    valueKey: 'name',
+    source: citynames.ttAdapter()
+  }
+});
+
+</script>
+<script type="text/javascript">
+  // Do this before you initialize any of your modals
+  $(".s2").select2({
+
+  });
+  $("#tags").select2({tags:[ "homeschool", "บ้านเรียนนำทาง", "กิจกรรมของเด็กโฮมสกูล", "โฮมสคูล", "นำทาง"
+]});
+</script>
+{% endput %}

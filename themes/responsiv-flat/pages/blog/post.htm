@@ -54,7 +54,7 @@ public function onEnd() {
 </section>
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-9">
+    <div class="col-sm-12 col-md-12">
       <!-- Blog Post #1 -->
       <div class="blog">
         <img src="{% if post.author.facebook_id %} https://graph.facebook.com/{{ post.author.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" alt="{{ post.author.name }}" style="cursor:pointer;" onClick="window.location.href = '/user/profile/{{post.author_id}}';">
@@ -69,7 +69,13 @@ public function onEnd() {
           </h5>
           <hr />
           <p class="text-muted">by {{ post.author.name }} on {{ post.published_at|date('M d, Y') }}</p>
-          {{ post.excerpt|raw }}
+          {% if post.excerpt %}
+            <blockquote>
+              {{ post.excerpt|raw }}
+            </blockquote>
+          {% else %}
+            {{ post.excerpt|raw }}
+          {% endif %}
           {% if post.featured_images.count %}
           <div class="featured-images text-center">
             {% for image in post.featured_images %}
@@ -144,7 +150,7 @@ public function onEnd() {
       <script id="dsq-count-scr" src="//homeschoolnetwork.disqus.com/count.js" async></script>
     </div>
 
-    <div class="col-sm-12 col-md-3">
+    <div class="col-sm-12 col-md-12">
       {% partial 'blog/sidebar' %}
     </div>
   </div>
