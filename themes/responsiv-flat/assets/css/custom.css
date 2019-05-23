@@ -34,6 +34,9 @@
 .brand-title {
   display: none;
 }
+.navbar-brand {
+    font-size: 24px;
+}
 @media screen and (min-width: 360px) {
   .brand-title {
     display: block;
@@ -178,4 +181,28 @@ blockquote p {
   .mce-menu.mce-fixed                  {max-height: 90%; overflow: auto;}
   .mce-title                          {white-space:normal !important;}
   .mce-btn-group                      {overflow-y: hidden !important;}
+}
+
+
+.select2-search-choice {
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 13px;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  overflow: hidden;
+  margin: 0 5px 4px 0;
+  line-height: 15px;
+  height: 27px;
+  padding: 6px 21px;
+  transition: .25s linear;
+  background-color: #e89c43;
+}
+.select2-search-choice:hover {
+  padding-right: 28px;
+  padding-left: 14px;
+  color: #ffffff;
+  background-color: #e67e22;
 }

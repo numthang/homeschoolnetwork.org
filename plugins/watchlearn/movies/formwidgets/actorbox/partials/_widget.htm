@@ -7,7 +7,7 @@
 
 <select class="s2" name="<?php echo $name ?>" multiple>
     <?php foreach($actors as $key => $value): ?>
-        <option value="<?php echo $key ?>"  
+        <option value="<?php echo $key ?>"
         <?php echo in_array($key, $selectedValues) ? 'selected="selected"' : '';  ?>><?php echo $value ?></option>
     <?php endforeach; ?>
 </select>
@@ -19,6 +19,4 @@
             tags: true
         })
     });
-
 </script>
-
