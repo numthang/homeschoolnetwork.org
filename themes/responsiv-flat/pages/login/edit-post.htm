@@ -19,13 +19,16 @@ postPage = "blog/post"
 [session]
 security = "user"
 redirect = "login/login"
+
+[blogTags]
+results = 0
+direction = "desc"
 ==
 <section id="layout-title">
     <div class="container">
       <h3>{{ 'Edit post'|_ }} : {{ PostForm.post.title }}</h3>
     </div>
 </section>
-
 <div class="container">
   <div class="row">
     <div class="col-md-12">

@@ -4,12 +4,15 @@ use Cms\Classes\ComponentBase;
 use Redirect;
 use System\Classes\PluginManager;
 use RainLab\Blog\Models\Post as BlogPost;
+use Bedard\BlogTags\Models\Tag;
+use Input;
 
 class PostForm extends ComponentBase {
 	use \FireUnion\BlogFront\Traits\Loaders;
 	use \FireUnion\BlogFront\Traits\Mailer;
 	public $listPage;
 	public $postPage;
+	public $tags;
 
 	public function componentDetails() {
 		return [
@@ -28,7 +31,6 @@ class PostForm extends ComponentBase {
 		$this->post = $this->loadPost();
 
 		if ($this->allow_images) {
-
 			$manager = PluginManager::instance();
 			if ($manager->exists('Responsiv.Uploader')) {
 
@@ -52,6 +54,21 @@ class PostForm extends ComponentBase {
 
 	public function onRun() {
 		$this->runFor('form');
+
+		//$user = User::find(1);
+		//dd($post->id);
+		$query = BlogPost::isPublished()
+				->where('slug', '=', $this->param('slug'))
+				->with('tags');
+		$post = $query->get();
+		//dd($post[0]->tags[0]['id']);
+		foreach ($post[0]->tags as $key => $value) {
+			$this->tags[] = $value['id'];
+		}
+		#$post = BlogPost::where('slug', '=', $this->param('slug'));
+
+		#$this->tags = $post->tags()->get();
+		#dd($tags[1]['name']);
 	}
 
 	/**
@@ -60,6 +77,13 @@ class PostForm extends ComponentBase {
 	 * @return array for a flash like error message if there is a problem with form validation
 	 */
 	public function onSave() {
+		/*numthang insert tag*/
+		$post = BlogPost::find(post('id'));
+		//delete all tags loop value
+		$post->tags()->detach();
+		//insert new tag relationship
+		$post->tags()->attach(post('tags'));
+		/*end numthang*/
 
 		if (!$result=$this->save()) {
 			return null;
@@ -70,7 +94,7 @@ class PostForm extends ComponentBase {
 		else
 			$redirectUrl = $this->pageUrl($this->property('postPage'));
 
-		#var_dump($redirectUrl);
+		#dd($redirectUrl);
 		return Redirect::to($redirectUrl);
 	}
 	public function onDelete() {
