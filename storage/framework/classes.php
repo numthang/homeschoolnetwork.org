@@ -185,4 +185,11 @@
   'SureSoftware\\PowerSEO\\Models\\Settings' => 'plugins/suresoftware/powerseo/models/Settings.php',
   'Numthang\\Homeschool\\Components\\EvaluationForm' => 'plugins/numthang/homeschool/components/EvaluationForm.php',
   'RainLab\\User\\Components\\ResetPassword' => 'plugins/rainlab/user/components/ResetPassword.php',
+  'Cms\\Twig\\ComponentNode' => 'modules/cms/twig/ComponentNode.php',
+  'Cms\\Twig\\PutNode' => 'modules/cms/twig/PutNode.php',
+  'System\\Models\\RequestLog' => 'modules/system/models/RequestLog.php',
+  'System\\Models\\LogSetting' => 'modules/system/models/LogSetting.php',
+  'Bedard\\BlogTags\\Components\\BlogTagSearch' => 'plugins/bedard/blogtags/components/BlogTagSearch.php',
+  'System\\Models\\EventLog' => 'modules/system/models/EventLog.php',
+  'System\\Classes\\ErrorHandler' => 'modules/system/classes/ErrorHandler.php',
 );
