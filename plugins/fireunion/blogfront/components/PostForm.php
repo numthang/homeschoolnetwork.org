@@ -6,6 +6,7 @@ use System\Classes\PluginManager;
 use RainLab\Blog\Models\Post as BlogPost;
 use Bedard\BlogTags\Models\Tag;
 use Input;
+use DB;
 
 class PostForm extends ComponentBase {
 	use \FireUnion\BlogFront\Traits\Loaders;
@@ -56,6 +57,7 @@ class PostForm extends ComponentBase {
 		$this->runFor('form');
 
 		//dd($post->id);
+		/*numthang find current tags*/
 		if($this->param('slug')) {
 			$query = BlogPost::isPublished()
 					->where('slug', '=', $this->param('slug'))
@@ -66,6 +68,7 @@ class PostForm extends ComponentBase {
 				$this->tags[] = $value['id'];
 			}
 		}
+		/*end numthang*/
 	}
 
 	/**
@@ -74,17 +77,18 @@ class PostForm extends ComponentBase {
 	 * @return array for a flash like error message if there is a problem with form validation
 	 */
 	public function onSave() {
+		if (!$result=$this->save()) {
+			return null;
+		}
 		/*numthang insert tag*/
-		$post = BlogPost::find(post('id'));
+		post('id') ? $id = post('id') : $id = DB::table('rainlab_blog_posts')->max('id');
+		$post = BlogPost::find($id);
 		//delete all tags loop value
 		$post->tags()->detach();
 		//insert new tag relationship
 		$post->tags()->attach(post('tags'));
 		/*end numthang*/
 
-		if (!$result=$this->save()) {
-			return null;
-		}
 		// Redirect to the intended page after successful update
 		if(empty($this->param('slug')))
 			$redirectUrl = $this->pageUrl($this->property('listPage'));
