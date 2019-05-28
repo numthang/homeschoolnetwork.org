@@ -8,17 +8,20 @@ robot_follow = "follow"
 [PostForm]
 use_authors = 1
 restrict_owner = 1
-backUser = 1
+backUser = 2
 allowpublish = 1
-show_excerpt = 0
+show_excerpt = 1
 allow_images = 1
-slug = "{{ :slug }}"
 listPage = "blog/blog"
 postPage = "blog/post"
 
 [session]
 security = "user"
 redirect = "login/login"
+
+[blogTags]
+results = 0
+direction = "desc"
 ==
 <?php
 function onStart() {
@@ -29,7 +32,7 @@ function onStart() {
       $author = new Author;
       $author->user_id = $user->id;
       $author->admin_id = 2;
-      $author->categories = ["2", "3", "1", "4", "5", "6"];
+      $author->categories = ["2", "3", "1", "5", "6"];
       $author->can_publish = 1;
       $author->show_excerpt = 1;
       $author->allow_images = 1;

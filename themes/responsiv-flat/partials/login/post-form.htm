@@ -66,7 +66,7 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="form-control">
-          
+
           <select name="tags[]" class="s2" multiple="multiple" style="width:100%;">
             {% for tag in blogTags.tags %}
             <option value="{{ tag.id }}" {% if tag.id in PostForm.tags %} selected {% endif %}>{{ tag.name }}</option>
