@@ -55,20 +55,17 @@ class PostForm extends ComponentBase {
 	public function onRun() {
 		$this->runFor('form');
 
-		//$user = User::find(1);
 		//dd($post->id);
-		$query = BlogPost::isPublished()
-				->where('slug', '=', $this->param('slug'))
-				->with('tags');
-		$post = $query->get();
-		//dd($post[0]->tags[0]['id']);
-		foreach ($post[0]->tags as $key => $value) {
-			$this->tags[] = $value['id'];
+		if($this->param('slug')) {
+			$query = BlogPost::isPublished()
+					->where('slug', '=', $this->param('slug'))
+					->with('tags');
+			$post = $query->get();
+			//dd($post[0]->tags[0]['id']);
+			foreach ($post[0]->tags as $key => $value) {
+				$this->tags[] = $value['id'];
+			}
 		}
-		#$post = BlogPost::where('slug', '=', $this->param('slug'));
-
-		#$this->tags = $post->tags()->get();
-		#dd($tags[1]['name']);
 	}
 
 	/**

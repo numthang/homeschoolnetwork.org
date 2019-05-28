@@ -17,6 +17,16 @@ postPage = "blog/post"
 [blogTags]
 results = 5
 direction = "desc"
+
+[PostForm]
+use_authors = 1
+restrict_owner = 1
+allowpublish = 1
+show_excerpt = 0
+allow_images = 1
+slug = "{{ :slug }}"
+listPage = "blog/list"
+postPage = "blog/post"
 ==
 <?php
 function onSubmitContactForm()
@@ -30,7 +40,7 @@ function onSubmitContactForm()
     {% endfor %}
 </ul>
 
-
+{% component 'PostForm' %}
 <!--
 <h3>Select 2 With no tag</h3>
 
