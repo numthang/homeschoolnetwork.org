@@ -47,7 +47,7 @@
     <!--<div class="col-sm-6">
       <div class="form-group">
         <label for="Form-field-blog-slug">{{ PostForm.blogtrans('post.slug') }}</label>
-        <input type="text" name="slug" id="Form-field-blog-slug" value="{{ record.slug }}" placeholder="{{ PostForm.blogtrans('post.slug_placeholder') }}" class="form-control" maxlength="255">
+        <input type="text" name="slug" id="Form-field-blog-slug" value="{{ PostForm.post.slug }}" placeholder="{{ PostForm.blogtrans('post.slug_placeholder') }}" class="form-control" maxlength="255">
       </div>
     </div>-->
   </div>
@@ -66,10 +66,11 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="form-control">
+          
           <select name="tags[]" class="s2" multiple="multiple" style="width:100%;">
-            <option>homeschool</option>
-            <option>บ้านเรียนนำทาง</option>
-            <option selected="selected">กิจกรรมของเด็กโฮมสกูล</option>
+            {% for tag in blogTags.tags %}
+            <option value="{{ tag.id }}" {% if tag.id in PostForm.tags %} selected {% endif %}>{{ tag.name }}</option>
+            {% endfor %}
           </select>
         </div>
       </div>

@@ -99,7 +99,7 @@ class BlogTags extends ComponentBase
         // Limit the number of results
         if ($take = intval($this->property('results')))
             $query->take($take);
-
         $this->tags = $query->get();
+        #dd($this->tags);
     }
 }

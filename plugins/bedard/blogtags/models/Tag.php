@@ -65,10 +65,10 @@ class Tag extends Model
      */
     protected function setInitialSlug()
     {
-        #$this->slug = str_slug($this->name);
-
+        $this->slug = str_slug($this->name);
         /*numthang added this because slug always empty because of the Thai alphabet*/
         $this->slug = DB::table($this->table)->max('id') + 1;
+        /*end numthang*/
     }
     /**
      * Convert tag names to lower case

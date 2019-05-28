@@ -13,6 +13,10 @@ noPostsMessage = "No posts found"
 sortOrder = "published_at desc"
 categoryPage = "blog/category"
 postPage = "blog/post"
+
+[blogTags]
+results = 5
+direction = "desc"
 ==
 <?php
 function onSubmitContactForm()
@@ -20,6 +24,14 @@ function onSubmitContactForm()
 }
 ?>
 ==
+<ul>
+    {% for tag in blogTags.tags %}
+        <li>{{ tag.name }} ({{ tag.posts|length }})</li>
+    {% endfor %}
+</ul>
+
+
+<!--
 <h3>Select 2 With no tag</h3>
 
 <div class="form-control">
@@ -44,7 +56,7 @@ function onSubmitContactForm()
   </div>
 </div>
 <br>
-<!--<input type="text" value="Amsterdam,Washington" data-role="tagsinput" />-->
+
 
 {% put scripts %}
 <link rel="stylesheet" href="http://localhost/~tee/select2/bootstrap-tagsinput-latest/dist/bootstrap-tagsinput.css">
@@ -87,4 +99,4 @@ elt.tagsinput({
   $("#tags").select2({tags:[ "homeschool", "บ้านเรียนนำทาง", "กิจกรรมของเด็กโฮมสกูล", "โฮมสคูล", "นำทาง"
 ]});
 </script>
-{% endput %}
+{% endput %}-->
