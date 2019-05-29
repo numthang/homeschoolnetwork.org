@@ -20,7 +20,6 @@ class ResizeController extends LfmController
     {
         $ratio = 1.0;
         $image = request('img');
-
         $original_image = Image::make(parent::getCurrentPath($image));
         $original_width = $original_image->width();
         $original_height = $original_image->height();
@@ -28,8 +27,8 @@ class ResizeController extends LfmController
         $scaled = false;
 
         // FIXME size should be configurable
-        if ($original_width > 600) {
-            $ratio = 600 / $original_width;
+        if ($original_width > 1024) {
+            $ratio = 1024 / $original_width;
             $width = $original_width * $ratio;
             $height = $original_height * $ratio;
             $scaled = true;
@@ -38,8 +37,8 @@ class ResizeController extends LfmController
             $height = $original_height;
         }
 
-        if ($height > 400) {
-            $ratio = 400 / $original_height;
+        if ($height > 800) {
+            $ratio = 800 / $original_height;
             $width = $original_width * $ratio;
             $height = $original_height * $ratio;
             $scaled = true;

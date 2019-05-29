@@ -70,7 +70,7 @@ class UploadController extends LfmController
             if (parent::fileIsImage($file) && !in_array($file->getMimeType(), ['image/gif', 'image/svg+xml'])) {
                 // Handle image rotation
                 Image::make($file->getRealPath())
-                    ->orientate() //Apply orientation from exif data
+                    ->orientate() //Apply orientation from exif data ->resize(1024, '')
                     ->save($new_file_path);
 
                 // Generate a thumbnail
@@ -98,7 +98,6 @@ class UploadController extends LfmController
 
         // TODO should be "FileWasUploaded"
         event(new ImageWasUploaded(realpath($new_file_path)));
-
         return $new_filename;
     }
 
