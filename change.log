@@ -5,8 +5,10 @@ Try plugin
 - Blog Search
 
 Do
+- resize feature image หน้า list blog
 - Resize image laravel file manager
 - เลือก แสดง port ในประเมิน ด้วย multiple select
+- view by author
 - Gen QR
 - aaaa
 
@@ -139,7 +141,7 @@ Extending user plugin fronend form
 1. copy html form มาสร้าง partial ใหม่
 2. เพิ่ม function model UserModel::extend ใน boot
 
-=======================================================================================
+====================================================================================
 Laravel File manager
 
 Follow Laravel Filemanager installation guide here https://unisharp.github.io/laravel-filemanager/installation. (recommend version 1.9.2 or below because after this version still have a problem with auth middlewares and I don't know how to fix it)
@@ -168,6 +170,7 @@ Open /vendor/unisharp/laravel-filemanager/src/Traits/LfmHelpers.php find $thumb_
 $thumb_url = asset(config('lfm.assets_directory').'/images/icons/png/folder.png');
 
 /vendor/unisharp/laravel-filemanager/src/Handlers/ConfigHandler.php
+vendor/unisharp/laravel-filemanager/src/Events/ImageWasUploaded.php
 ===========================================================================================
 Hard code changed
 

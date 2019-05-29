@@ -15,7 +15,7 @@ return [
     'middlewares' => ['web'],
 
     // The url to this package. Change it if necessary.
-    'url_prefix' => 'laravel-filemanager',
+    'url_prefix' => 'lfm',
 
     /*
     |--------------------------------------------------------------------------
@@ -187,5 +187,4 @@ return [
     'php_ini_overrides' => [
         'memory_limit'        => '256M',
     ],
-
 ];
