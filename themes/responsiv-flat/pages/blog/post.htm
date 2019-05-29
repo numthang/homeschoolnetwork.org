@@ -80,7 +80,7 @@ public function onEnd() {
           <div class="featured-images text-center">
             {% for image in post.featured_images %}
             <p>
-              <img data-src="{{ image.filename }}" src="{{ image.path | resize(800, 650) }}" alt="{{ image.description }}" />
+              <img data-src="{{ image.filename }}" src="{{ image.path | resize(800, 800) }}" alt="{{ image.description }}" />
               {% put meta %}
               <meta property="og:image" content="{{ image.path | resize(650, 650) }}" />
               {% endput %}
