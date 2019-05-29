@@ -35,7 +35,7 @@ postPage = "blog/post"
             <hr>
             <p class="text-muted">by {{ post.author.name }} on {{ post.published_at|date('M d, Y') }}</p>
             <p class="excerpt">{{ post.summary|raw }}</p>
-            <a href="{{ post.url }}"><img class="img-responsive" src="{{ post.featured_images[0].path }}" alt=""></a>
+            <a href="{{ post.url }}"><img class="img-responsive" src="{{ post.featured_images[0].path|resize(650, 650) }}" alt=""></a>
             <p class="info">
               Posted
               {% if post.categories.count %} in {% endif %}
