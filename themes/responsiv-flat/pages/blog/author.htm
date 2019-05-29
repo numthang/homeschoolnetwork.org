@@ -1,0 +1,49 @@
+title = "Posts by author"
+url = "/blog/author/:id"
+layout = "default"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[builderDetails]
+modelClass = "RainLab\User\Models\User"
+identifierValue = "{{ :id }}"
+modelKeyColumn = "id"
+displayColumn = "name"
+notFoundMessage = "Record not found"
+==
+<section id="layout-title">
+    <div class="container">
+        <h3>{{ 'Author'|_ }} :{% component 'builderDetails' %} {{ record.surname }}</h3>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-9">
+          {% partial 'ads/top' %}
+
+          {% if blogTagSearch.posts %}
+              <ul>
+                  {% for Post in blogTagSearch.tag.posts %}
+                       <li>
+                           <a href="{{Post.url}}">{{ Post.title }}</a>
+                           {% if Post.categories %}
+                           - published in
+                              {% for category in Post.categories %}
+                                  <a href="{{category.url|e}}">{{category.name}}</a>{% if not loop.last %}, {% endif %}
+                              {% endfor %}
+                           {% endif %}
+                       </li>
+                  {% endfor %}
+              </ul>
+          {% else %}
+              No posts found.
+          {% endif %}
+
+        </div>
+        <div class="col-sm-12 col-md-3">
+          {% partial 'blog/sidebar' %}
+        </div>
+    </div>
+</div>

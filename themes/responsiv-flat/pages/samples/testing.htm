@@ -5,27 +5,22 @@ is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
 
-[blogPosts]
+[searchForm]
+resultPage = "samples/testing"
+categoryFilter = 1
+
+[searchResult]
+searchTerm = "{{ :search }}"
 pageNumber = "{{ :page }}"
-categoryFilter = "{{ :slug }}"
-postsPerPage = 2
+postsPerPage = 10
 noPostsMessage = "No posts found"
 sortOrder = "published_at desc"
+includeCategories[] = 1
+includeCategories[] = 2
+includeCategories[] = 3
+includeCategories[] = 5
+includeCategories[] = 6
 categoryPage = "blog/category"
-postPage = "blog/post"
-
-[blogTags]
-results = 5
-direction = "desc"
-
-[PostForm]
-use_authors = 1
-restrict_owner = 1
-allowpublish = 1
-show_excerpt = 0
-allow_images = 1
-slug = "{{ :slug }}"
-listPage = "blog/list"
 postPage = "blog/post"
 ==
 <?php
@@ -34,13 +29,28 @@ function onSubmitContactForm()
 }
 ?>
 ==
+<form class="form-inline" method="GET" action="{{ searchForm.resultPage|page }}">
+    <input type="text" name="search" class="form-control">
+
+    {% if searchForm.categoryFilter %}
+        <select name="cat[]" class="form-control">
+        {% for key,cat in searchForm.categories %}
+            <option value="{{ key }}">{{ cat }}</option>
+        {% endfor %}
+        </select>
+    {% endif %}
+
+    <button class="btn btn btn-primary" type="submit">{{ 'Search'|_ }}</button>
+</form>
+
+{% component 'searchResult' %}
 <ul>
     {% for tag in blogTags.tags %}
         <li>{{ tag.name }} ({{ tag.posts|length }})</li>
     {% endfor %}
 </ul>
 
-{% component 'PostForm' %}
+
 <!--
 <h3>Select 2 With no tag</h3>
 
