@@ -49,7 +49,6 @@ class Courses extends ComponentBase
     }
 
     public function onRun(){
-      #if(Session::get('token'))
       if(Auth::getUser())
         $this->courses = $this->loadCourses();
     }

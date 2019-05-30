@@ -5,23 +5,12 @@ is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
 
-[searchForm]
-resultPage = "samples/testing"
-categoryFilter = 1
-
-[searchResult]
-searchTerm = "{{ :search }}"
-pageNumber = "{{ :page }}"
-postsPerPage = 10
-noPostsMessage = "No posts found"
-sortOrder = "published_at desc"
-includeCategories[] = 1
-includeCategories[] = 2
-includeCategories[] = 3
-includeCategories[] = 5
-includeCategories[] = 6
-categoryPage = "blog/category"
-postPage = "blog/post"
+[scopePosts]
+results = 0
+byAuthorID = 0
+from = "0000-00-00 00:00:00"
+to = "0000-00-00 00:00:00"
+sortOrder = "name asc"
 ==
 <?php
 function onSubmitContactForm()
@@ -29,28 +18,7 @@ function onSubmitContactForm()
 }
 ?>
 ==
-<form class="form-inline" method="GET" action="{{ searchForm.resultPage|page }}">
-    <input type="text" name="search" class="form-control">
-
-    {% if searchForm.categoryFilter %}
-        <select name="cat[]" class="form-control">
-        {% for key,cat in searchForm.categories %}
-            <option value="{{ key }}">{{ cat }}</option>
-        {% endfor %}
-        </select>
-    {% endif %}
-
-    <button class="btn btn btn-primary" type="submit">{{ 'Search'|_ }}</button>
-</form>
-
-{% component 'searchResult' %}
-<ul>
-    {% for tag in blogTags.tags %}
-        <li>{{ tag.name }} ({{ tag.posts|length }})</li>
-    {% endfor %}
-</ul>
-
-
+{% component 'scopePosts' %}
 <!--
 <h3>Select 2 With no tag</h3>
 

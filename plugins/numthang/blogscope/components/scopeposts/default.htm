@@ -1,0 +1,24 @@
+{% if __SELF__.posts %}
+  <ul>
+    {% for Post in __SELF__.posts %}
+     <li>
+         <a href="{{Post.url}}">{{ Post.title }}</a>
+         {% if Post.categories %}
+          - published in
+            {% for category in Post.categories %}
+              <a href="{{category.url|e}}">{{category.name}}</a>{% if not loop.last %}, {% endif %}
+            {% endfor %}
+         {% endif %}
+
+         {% if Post.tags %}
+          - tagged in
+            {% for tag in Post.tags %}
+              <a href="/blog/tagged/{{ tag.id }}">{{tag.name}}</a>{% if not loop.last %}, {% endif %}
+            {% endfor %}
+         {% endif %}
+     </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  No posts found.
+{% endif %}
