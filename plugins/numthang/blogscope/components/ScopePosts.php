@@ -195,7 +195,7 @@ class ScopePosts extends ComponentBase
 
       $posts = BlogPost::with('categories')->with('tags')->where('author_id', '=', $this->property('authorID'))->listFrontEnd([
           'page'             => $this->property('pageNumber'),
-          'sort'             => 'tags.name asc',
+          'sort'             => $this->property('sortOrder'),
           'perPage'          => $this->property('postsPerPage'),
           'search'           => trim(input('search')),
           'category'         => $category,
