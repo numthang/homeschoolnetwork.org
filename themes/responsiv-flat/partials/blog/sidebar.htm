@@ -44,18 +44,19 @@ categoryPage = "blog/category"
         {% endif %}
 
         {% if category.children|length > 0 %}
-            <ul>
-                {% partial __SELF__ ~ "::items"
-                    categories=category.children
-                    currentCategorySlug=currentCategorySlug
-                %}
-            </ul>
+          <ul>
+              {% partial __SELF__ ~ "::items"
+                  categories=category.children
+                  currentCategorySlug=currentCategorySlug
+              %}
+          </ul>
         {% endif %}
     </li>
   {% endfor %}
   </ul>
 </div>
 {% partial 'ads/link' %}
+
 
 <!-- Tags -->
 <div class="panel panel-default">
@@ -66,6 +67,17 @@ categoryPage = "blog/category"
     {% for tag in blogTags.tags %}
       <li class="list-group-item"><a href="/blog/tagged/{{ tag.id }}">{{ tag.name }} ({{ tag.posts|length }})</a></li>
     {% endfor %}
+  </ul>
+</div>
+
+
+<!-- External -->
+<div class="panel panel-default">
+  <div class="panel-heading">
+      {{ 'External'|_ }}
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item"><a href="https://homeschoolthailand.wordpress.com/">ภาคีเครือข่ายบ้านเรียนไทย</a></li>
   </ul>
 </div>
 

@@ -1,0 +1,51 @@
+title = "Posts by author"
+url = "/blog/author/:author"
+layout = "default"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[builderDetails]
+modelClass = "RainLab\User\Models\User"
+identifierValue = "{{ :author }}"
+modelKeyColumn = "id"
+displayColumn = "name"
+notFoundMessage = "Record not found"
+
+[scopePosts]
+pageNumber = "{{ :page }}"
+categoryFilter = "portfolio"
+postsPerPage = 300
+userID = 0
+authorID = "{{ :author }}"
+from = "0000-00-00"
+to = "0000-00-00"
+categoryPage = "blog/category"
+postPage = "blog/post"
+noPostsMessage = "No posts found"
+sortOrder = "title asc"
+==
+<?php
+function onRender() {
+   $from = $this->property('from');  // 55
+   $to = $this->property('to'); // Johan
+}
+?>
+==
+<section id="layout-title">
+    <div class="container">
+        <h3>{{ 'Author'|_ }} :{% component 'builderDetails' %} {{ record.surname }}</h3>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-9">
+          {% partial 'ads/top' %}
+          {% component 'scopePosts' %}
+        </div>
+        <div class="col-sm-12 col-md-3">
+          {% partial 'blog/sidebar' %}
+        </div>
+    </div>
+</div>

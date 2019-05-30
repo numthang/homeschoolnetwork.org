@@ -5,28 +5,12 @@ is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
 
-[blogPosts]
-pageNumber = "{{ :page }}"
-categoryFilter = "{{ :slug }}"
-postsPerPage = 2
-noPostsMessage = "No posts found"
-sortOrder = "published_at desc"
-categoryPage = "blog/category"
-postPage = "blog/post"
-
-[blogTags]
-results = 5
-direction = "desc"
-
-[PostForm]
-use_authors = 1
-restrict_owner = 1
-allowpublish = 1
-show_excerpt = 0
-allow_images = 1
-slug = "{{ :slug }}"
-listPage = "blog/list"
-postPage = "blog/post"
+[scopePosts]
+results = 0
+byAuthorID = 0
+from = "0000-00-00 00:00:00"
+to = "0000-00-00 00:00:00"
+sortOrder = "name asc"
 ==
 <?php
 function onSubmitContactForm()
@@ -34,13 +18,7 @@ function onSubmitContactForm()
 }
 ?>
 ==
-<ul>
-    {% for tag in blogTags.tags %}
-        <li>{{ tag.name }} ({{ tag.posts|length }})</li>
-    {% endfor %}
-</ul>
-
-{% component 'PostForm' %}
+{% component 'scopePosts' %}
 <!--
 <h3>Select 2 With no tag</h3>
 
