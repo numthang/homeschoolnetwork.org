@@ -49,16 +49,16 @@ class ScopePosts extends ComponentBase
    * @var string
    */
   public $sortOrder;
-  public function componentDetails()
-  {
+  public $tags;
+
+  public function componentDetails() {
       return [
         'name'        => 'Scope posts',
         'description' => 'Scope blog posts'
       ];
   }
 
-  public function defineProperties()
-  {
+  public function defineProperties() {
     return [
       'pageNumber' => [
           'title'       => 'rainlab.blog::lang.settings.posts_pagination',
@@ -148,21 +148,15 @@ class ScopePosts extends ComponentBase
   }
   public function getSortOrderOptions(){
     $options = BlogPost::$allowedSortingOptions;
-
     foreach ($options as $key => $value) {
         $options[$key] = Lang::get($value);
     }
-
     return $options;
   }
-  public function onRun()
-  {
+  public function onRun() {
     $this->prepareVars();
-
     $this->category = $this->page['category'] = $this->loadCategory();
-
     $this->posts = $this->page['posts'] = $this->listPosts();
-
     /*
      * If the page number is not valid, redirect
      */
@@ -174,8 +168,7 @@ class ScopePosts extends ComponentBase
         }
     }
   }
-  protected function prepareVars()
-  {
+  protected function prepareVars() {
     $this->pageParam = $this->page['pageParam'] = $this->paramName('pageNumber');
     $this->noPostsMessage = $this->page['noPostsMessage'] = $this->property('noPostsMessage');
     /*
@@ -184,26 +177,23 @@ class ScopePosts extends ComponentBase
     $this->postPage = $this->page['postPage'] = $this->property('postPage');
     $this->categoryPage = $this->page['categoryPage'] = $this->property('categoryPage');
   }
-  protected function listPosts()
-  {
+  protected function listPosts() {
       $category = $this->category ? $this->category->id : null;
       /*
        * List all the posts, eager load their categories
        */
       #$isPublished = !$this->checkEditor();
-      //ค้นหาแบบเลือก category ได้, with tag
-
       $posts = BlogPost::with('categories')->with('tags')->where('author_id', '=', $this->property('authorID'))->listFrontEnd([
-          'page'             => $this->property('pageNumber'),
-          'sort'             => $this->property('sortOrder'),
-          'perPage'          => $this->property('postsPerPage'),
-          'search'           => trim(input('search')),
-          'category'         => $category,
-          'published'        => 1,
-          'exceptPost'       => $this->property('exceptPost'),
-          'exceptCategories' => is_array($this->property('exceptCategories'))
-              ? $this->property('exceptCategories')
-              : explode(',', $this->property('exceptCategories')),
+        'page'             => $this->property('pageNumber'),
+        'sort'             => $this->property('sortOrder'),
+        'perPage'          => $this->property('postsPerPage'),
+        'search'           => trim(input('search')),
+        'category'         => $category,
+        'published'        => 1,
+        'exceptPost'       => $this->property('exceptPost'),
+        'exceptCategories' => is_array($this->property('exceptCategories'))
+            ? $this->property('exceptCategories')
+            : explode(',', $this->property('exceptCategories')),
       ]);
 
       #dump($posts);
@@ -217,7 +207,7 @@ class ScopePosts extends ComponentBase
           }
         }
       }
-      #dd($tags);
+      //dd($this->tags = $tags);
       /*
        * Add a "url" helper attribute for linking to each post and category
        */
