@@ -15,7 +15,10 @@ categoryPage = "blog/category"
 <?php
 function onEnd() {
   header("HTTP/1.1 301 Moved Permanently");
-  header("Location: /blog/tagged/".$this->blogTagSearch->tag->attributes['id']);
+  if(isset($this->blogTagSearch->tag->attributes['id']))
+    header("Location: /blog/tagged/".$this->blogTagSearch->tag->attributes['id']);
+  else
+    header("Location: /blog/tags");
   exit;
 }
 ?>
