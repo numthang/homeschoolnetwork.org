@@ -205,7 +205,19 @@ class ScopePosts extends ComponentBase
               ? $this->property('exceptCategories')
               : explode(',', $this->property('exceptCategories')),
       ]);
-      dump($posts);
+
+      #dump($posts);
+      $tags['id'] = Array(); $tags['name'] = Array();
+
+      for($i=0;$i<count($posts);$i++) {
+        foreach ($posts[$i]->tags as $key => $value) {
+          if(!in_array($value['id'], $tags['id'])) {
+  				  $tags['id'][] = $value['id'];
+            $tags['name'][] = $value['name'];
+          }
+        }
+      }
+      #dd($tags);
       /*
        * Add a "url" helper attribute for linking to each post and category
        */
