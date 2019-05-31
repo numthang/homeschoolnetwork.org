@@ -89,17 +89,6 @@ class Evaluations extends ComponentBase
 
     #$query = Course::where('user_id', '=', $user->id)->Evaluation::where('course_id', '=', '1')->get();
 
-    /*if($this->property('sortOrder') == 'name asc'){
-        $query = $query->sortBy('name');
-    }
-
-    if($this->property('sortOrder') == 'name desc'){
-        $query = $query->sortByDesc('name');
-    }
-
-    if($this->property('results') > 0){
-        $query = $query->take($this->property('results'));
-    }*/
     /*foreach ($query as $key => $value) {
       // code...
       dump($value->attributes['name']);

@@ -207,7 +207,7 @@ class ScopePosts extends ComponentBase
           }
         }
       }
-      //dd($this->tags = $tags);
+      $this->tags = $tags;
       /*
        * Add a "url" helper attribute for linking to each post and category
        */

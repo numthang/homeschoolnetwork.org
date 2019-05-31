@@ -1,6 +1,7 @@
 {%  set evaluations = evaluations.evaluations %}
 {%  set course = evaluationform.course %}
 {%  set evaluation = evaluationform.record %}
+{%  set authors = evaluationform.authors %}
 
 <form data-request="onSave">
 	<div class="row">
@@ -287,36 +288,14 @@
           </div>
         </dd>
         <dt><a href="#" class="accordionTitle">9. ภาคผนวก ร่องรอยการเรียนรู้</a></dt>
-        <dd class="accordionItem accordionItemCollapsed">
+        <dd class="accordionItem">
           <div class="row">
-            <div class="col-sm-4">
-              <div class="form-group">
-								<label>ผู้แต่ง</label>
-								<select class="form-control" name="author">
-									<option value="">Numthang</option>
-									<option value="">Unnop Sricharoenchai</option>
-									<option value="">Patai W</option>
-								</select>
-                <!--<textarea class="form-control mytinymce" name="footprint" placeholder="" rows="40"><div align="center">{% if evaluation.footprint is defined %} {{ evaluation.footprint }} {% else %} {{ this.page['default_7'] }} {% endif %}</div></textarea>-->
-              </div>
-            </div>
-						<div class="col-sm-4">
-              <div class="form-group">
-								<label>ผู้แต่ง</label>
-								<select class="form-control" name="author">
-									<option value="">Numthang</option>
-									<option value="">Unnop Sricharoenchai</option>
-									<option value="">Patai W</option>
-								</select>
-              </div>
-            </div>
-						<div class="col-sm-4">
-							<div class="form-group">
-								<label>ผู้แต่ง</label>
-								<select class="form-control" name="author">
-									<option value="">Numthang</option>
-									<option value="">Unnop Sricharoenchai</option>
-									<option value="">Patai W</option>
+            <div class="col-sm-12">
+							<div class="form-control">
+								<select name="authors[]" class="s2" multiple="multiple" style="width:100%;">
+									{% for key,author in authors %}
+									<option value="{{ key }}" {% if key == user.id %} selected {% endif %}>{{ author }}</option>
+						      {% endfor %}
 								</select>
 							</div>
 						</div>
@@ -358,6 +337,10 @@
   <br>
 </form>
 {% put scripts %}
+	<script type="text/javascript">
+		$(".s2").select2({
+		});
+	</script>
 	<script src="{{ ['assets/js/accordion.js']|theme }}"></script>
 	<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 	<link id="bsdp-css" href="https://uxsolutions.github.io/bootstrap-datepicker/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet">
