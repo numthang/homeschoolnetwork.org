@@ -1,0 +1,15 @@
+title = "Tag Redirect"
+url = "/content/tag/:slug/1/"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+==
+<?php
+function onStart() {
+  #echo $this->param('slug');
+  header("HTTP/1.1 301 Moved Permanently");
+  header("Location: /blog/tags");
+  exit;
+}
+?>
+==
