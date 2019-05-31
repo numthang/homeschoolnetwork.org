@@ -322,7 +322,14 @@
   'System\\Helpers\\Cache' => 'modules/system/helpers/Cache.php',
   'RainLab\\Sitemap\\Classes\\DefinitionItem' => 'plugins/rainlab/sitemap/classes/DefinitionItem.php',
   'RainLab\\Sitemap\\FormWidgets\\SitemapItems' => 'plugins/rainlab/sitemap/formwidgets/SitemapItems.php',
+<<<<<<< HEAD
   'Cms\\Twig\\PutNode' => 'modules/cms/twig/PutNode.php',
   'Cms\\Twig\\DefaultNode' => 'modules/cms/twig/DefaultNode.php',
   'Cms\\Twig\\PlaceholderNode' => 'modules/cms/twig/PlaceholderNode.php',
+=======
+  'Backend\\Behaviors\\ReorderController' => 'modules/backend/behaviors/ReorderController.php',
+  'zen\\robots\\Plugin' => 'plugins/zen/robots/Plugin.php',
+  'Zen\\Robots\\Models\\Settings' => 'plugins/zen/robots/models/Settings.php',
+  'Zen\\Robots\\Controllers\\Generate' => 'plugins/zen/robots/controllers/Generate.php',
+>>>>>>> 3e0a3916ffbd9a95ba4cc2cb997a20924a25fd25
 );
