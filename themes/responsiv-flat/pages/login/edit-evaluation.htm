@@ -2,6 +2,8 @@ title = "Edit evaluation"
 url = "/login/edit/evaluation/:id"
 layout = "default"
 is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
 
 [viewBag]
 
@@ -13,6 +15,7 @@ redirect = "login/login"
 
 [evaluations]
 results = 0
+byUserID = 0
 sortOrder = "name asc"
 ==
 <?php
@@ -45,9 +48,9 @@ public function onEnd() {
 ==
 {%  set evaluation = evaluationform.record %}
 <section id="layout-title">
-    <div class="container">
-        <h3>{{ 'New evaluation'|_ }} : {{ evaluation.name }} </h3>
-    </div>
+  <div class="container">
+    <h3>{{ 'New evaluation'|_ }} : {{ evaluation.name }} </h3>
+  </div>
 </section>
 
 <div class="container">
@@ -55,7 +58,6 @@ public function onEnd() {
     <div class="col-md-12">
       {% component 'evaluationform' %}
       {% partial 'ads/bottom' %}
-
 	  </div>
 	</div>
 </div>
