@@ -1,6 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /user/course
-Disallow: /user/evaluation
-
-Sitemap: https://www.homeschoolnetwork.org/sitemap.xml
