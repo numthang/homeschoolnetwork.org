@@ -49,7 +49,14 @@ public function onEnd() {
 {% component 'SeoBlogPost' data=post %}
 <section id="layout-title">
   <div class="container">
-      <h3>{{ 'Blog post'|_ }}</h3>
+    <h5>{{ post.title|raw }}
+      {% if post.author.id == user.id %}
+        <a href="/login/edit/post/{{ post.slug }}"> {{ 'Edit'|_ }}</a>
+      {% endif %}
+      {% if can('edit_course_template') %}
+        <a href="/backend/rainlab/blog/posts/update/{{ post.id }}"> {{ 'Advance edit'|_ }}</a>
+      {% endif %}
+    </h5>
   </div>
 </section>
 <div class="container">
@@ -59,16 +66,8 @@ public function onEnd() {
       <div class="blog">
         <img src="{% if post.author.facebook_id %} https://graph.facebook.com/{{ post.author.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" alt="{{ post.author.name }}" style="cursor:pointer;" onClick="window.location.href = '/user/profile/{{post.author_id}}';">
         <div class="blog-desc">
-          <h5>{{ post.title|raw }}
-            {% if post.author.id == user.id %}
-              <a href="/login/edit/post/{{ post.slug }}"> {{ 'Edit'|_ }}</a>
-            {% endif %}
-            {% if can('edit_course_template') %}
-              | <a href="/backend/rainlab/blog/posts/update/{{ post.id }}"> {{ 'Advance edit'|_ }}</a>
-            {% endif %}
-          </h5>
+          <p class="text-muted">by <a href="/blog/author/{{post.author_id}}">{{ post.author.name }}</a> on {{ post.published_at|date('M d, Y') }}</p>
           <hr />
-          <p class="text-muted">by {{ post.author.name }} on {{ post.published_at|date('M d, Y') }}</p>
           {% if post.excerpt %}
             <blockquote>
               {{ post.excerpt|raw }}
