@@ -287,12 +287,12 @@
             </div>
           </div>
         </dd>
-        <dt><a href="#" class="accordionTitle">9. ภาคผนวก ร่องรอยการเรียนรู้</a></dt>
+        <dt><a href="#" class="accordionTitle">9. ร่องรอยการเรียนรู้ (เลือกชื่อผู้เขียน)</a></dt>
         <dd class="accordionItem">
           <div class="row">
             <div class="col-sm-12">
-							<div class="form-control">
-								<select name="authors[]" class="s2" multiple="multiple" style="width:100%;">
+							<div class="">
+								<select name="authors[]" class="s2 multiple-select-box" multiple="multiple">
 									{% for key,author in authors %}
 									<option value="{{ key }}" {% if key == user.id %} selected {% endif %}>{{ author }}</option>
 						      {% endfor %}
@@ -317,6 +317,7 @@
       {% endif %}
       {% if evaluation.id is defined %}
 				<button type="button" title="{{ 'Preview'|_ }}" class="btn btn-lg btn-info fa fa-eye float2" onClick="window.open('/user/evaluation/{{ evaluation.created_at| date('U') }}', '_blank');"></button>
+
 				<div class="col-sm-3">
 			    <button type="submit" class="btn btn-lg btn-info btn-block" onClick="if(confirm('{{ 'Save as'|_ }} '+this.form.name.value)) this.form.save_as.value = 1; else return false;">{{ 'Save as'|_ }} ...</button>
 				</div>
