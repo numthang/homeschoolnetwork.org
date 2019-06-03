@@ -12,6 +12,7 @@
 .avatar-responsive {
   border-radius: 200px;
   cursor:pointer;
+  width:100px;
 }
 .user-menu {
   font-size: 15px;
@@ -74,6 +75,7 @@ hr {
   right:40px;
   text-align:center;
   box-shadow: 5px 5px 10px #999;
+  z-index: 999;
 }
 .float2{
   position:fixed;
@@ -83,10 +85,17 @@ hr {
   right:40px;
   text-align:center;
   box-shadow: 5px 5px 10px #999;
+  z-index: 999;
 }
 .form-control {
   /*line-height: 2.8;*/
   font-size: 16px;
+}
+
+.multiple-select-box {
+  border: 2px solid #7f8c8d;
+  padding: 5px;
+  border-radius: 6px;
 }
 .select,.dropdown-toggle, .dropdown-menu, .select2-choice, .select2-result-label, .select2-result  {
   font-size: 16px;
