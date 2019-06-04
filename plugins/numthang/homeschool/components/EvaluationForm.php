@@ -69,11 +69,11 @@ class EvaluationForm extends ComponentBase
       if($this->param('id') && Input::get('save_as') == 0)
      		return ['#flash_message' => $this->renderPartial('flash.htm', ['message' => 'Evaluation '.$evaluation->name.' saved!', 'type' => 'success'])];
      	else//ถ้าเป็นการสร้างใหม่ให้ redirect ไป edit
-     		return Redirect::to('/login/edit/evaluation/'.$evaluation->id);
+     		return Redirect::to('/edit/evaluation/'.$evaluation->id);
     }
     public function onDelete() {
       $evaluation = new Evaluation();
       $evaluation->where('id', '=', $this->param('id'))->delete();
-      return Redirect::to('/login/new/evaluation')->with('message', $evaluation->name.' Removed');
+      return Redirect::to('/add/evaluation')->with('message', $evaluation->name.' Removed');
     }
 }

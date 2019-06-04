@@ -99,10 +99,10 @@ categoryPage = "blog/category"
               <a href="#" data-toggle="dropdown" class="dropdown-toggle"><img src="{% if user.facebook_id %} https://graph.facebook.com/{{ user.facebook_id }}/picture?type=small {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" title="{{ user.name }}" class="avatar-sm"> {{ user.name }}<span class="caret"></span></a>
               <span class="dropdown-arrow"></span>
               <ul class="dropdown-menu">
-                <li><a href="/login/profile"><img src="{{ '/assets/images/icons/png/fa-address-book.png'|theme }}" width="30"> {{ 'My profile'|_ }}</a></li>
-                <li><a href="/login/new/course"><img src="{{ '/assets/images/icons/png/fa-file-text.png'|theme }}" width="30"> {{ 'New course'|_ }}</a></li>
-                <li><a href="/login/new/evaluation"><img src="{{ '/assets/images/icons/png/fa-file-picture.png'|theme }}" width="30"> {{ 'New evaluation'|_ }}</a></li>
-                <li><a href="/login/new/post"><img src="{{ '/assets/images/icons/png/fa-pencil.png'|theme }}" width="30"> {{ 'New post'|_ }}</a></li>
+                <li><a href="/edit/profile"><img src="{{ '/assets/images/icons/png/fa-address-book.png'|theme }}" width="30"> {{ 'My profile'|_ }}</a></li>
+                <li><a href="/add/post"><img src="{{ '/assets/images/icons/png/fa-pencil.png'|theme }}" width="30"> {{ 'New post'|_ }}</a></li>
+                <li><a href="/add/course"><img src="{{ '/assets/images/icons/png/fa-file-text.png'|theme }}" width="30"> {{ 'New course'|_ }}</a></li>
+                <li><a href="/add/evaluation"><img src="{{ '/assets/images/icons/png/fa-file-picture.png'|theme }}" width="30"> {{ 'New evaluation'|_ }}</a></li>
                 <li><a href="javascript:void(0);" data-request="onLogout" data-request-data="redirect: '/'"><img src="{{ '/assets/images/icons/png/fa-sign-out.png'|theme }}" width="30"> {{ 'Sign out'|_ }}</a></li>
               </ul>
                   <!--<button data-request="onLogout" data-request-data="redirect: '/'" class="btn btn-sm navbar-btn btn-primary navbar-right hidden-sm hidden-xs">

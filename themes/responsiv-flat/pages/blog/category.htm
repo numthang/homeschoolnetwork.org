@@ -31,7 +31,7 @@ postPage = "blog/post"
           {% for post in posts %}
           <!-- Blog Post -->
             <img src="{% if post.author.facebook_id %} https://graph.facebook.com/{{ post.author.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" alt="{{ post.author.name }}" class="avatar-sm" onClick="window.location.href = '/user/profile/{{post.author_id}}';">
-            <a href="{{ post.url }}">{{ post.title }}</a> {% if post.author.id == user.id %} <a href="/login/edit/post/{{ post.slug }}">{{ 'Edit'|_ }}</a> {% endif %} <span class="text-muted">by <a href="/blog/author/{{post.author_id}}">{{ post.author.name }}</a> on {{ post.published_at|date('M d, Y') }}</span>
+            <a href="{{ post.url }}">{{ post.title }}</a> {% if post.author.id == user.id %} <a href="/edit/post/{{ post.slug }}">{{ 'Edit'|_ }}</a> {% endif %} <span class="text-muted">by <a href="/user/profile/{{post.author_id}}">{{ post.author.name }}</a> on {{ post.published_at|date('M d, Y') }}</span>
               <!--<p class="excerpt">{{ post.summary|raw }}</p>
               <a href="{{ post.url }}"><img class="img-responsive" src="{{ post.featured_images[0].path }}" alt=""></a>
               <p class="info">

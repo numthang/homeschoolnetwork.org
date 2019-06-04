@@ -51,7 +51,7 @@ public function onEnd() {
   <div class="container">
     <h5>{{ post.title|raw }}
       {% if post.author.id == user.id %}
-        <a href="/login/edit/post/{{ post.slug }}"> {{ 'Edit'|_ }}</a>
+        <a href="/edit/post/{{ post.slug }}"> {{ 'Edit'|_ }}</a>
       {% endif %}
       {% if can('edit_course_template') %}
         <a href="/backend/rainlab/blog/posts/update/{{ post.id }}"> {{ 'Advance edit'|_ }}</a>
@@ -66,7 +66,7 @@ public function onEnd() {
       <div class="blog">
         <img src="{% if post.author.facebook_id %} https://graph.facebook.com/{{ post.author.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" alt="{{ post.author.name }}" style="cursor:pointer;" onClick="window.location.href = '/user/profile/{{post.author_id}}';">
         <div class="blog-desc">
-          <p class="text-muted">by <a href="/blog/author/{{post.author_id}}">{{ post.author.name }}</a> on {{ post.published_at|date('M d, Y') }}</p>
+          <p class="text-muted">by <a href="/u/{{post.author_id}}">{{ post.author.name }}</a> on {{ post.published_at|date('M d, Y') }}</p>
           <hr />
           {% if post.excerpt %}
             <blockquote>

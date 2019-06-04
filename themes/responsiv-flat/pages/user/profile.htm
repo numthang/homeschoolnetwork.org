@@ -1,5 +1,5 @@
 title = "User Profile"
-url = "/user/profile/:id"
+url = "/u/:id"
 layout = "default"
 is_hidden = 0
 robot_index = "noindex"
@@ -29,11 +29,23 @@ sortOrder = "updated_at"
 results = 0
 byUserID = "{{ :id }}"
 sortOrder = "updated_at"
+
+[scopePosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 5
+userID = 0
+authorID = "{{ :id }}"
+from = "0000-00-00"
+to = "0000-00-00"
+categoryPage = "blog/category"
+postPage = "blog/post"
+noPostsMessage = "No posts found"
+sortOrder = "updated_at desc"
 ==
 <section id="layout-title">
     <div class="container">
       <div class="col-sm-12">
-        <h3><a href="/user/profile/{{record.id}}"><img src="{% if record.facebook_id %} https://graph.facebook.com/{{ record.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" title="{{ record.name }}" class="avatar"></a> {{ record.name }} {{ record.surname }}</h3>
+        <h3><a href="/u/{{record.id}}"><img src="{% if record.facebook_id %} https://graph.facebook.com/{{ record.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" title="{{ record.name }}" class="avatar"></a> {{ record.name }} {{ record.surname }}</h3>
       </div>
     </div>
 </section>
@@ -41,11 +53,21 @@ sortOrder = "updated_at"
   <div class="row">
     <div class="col-md-7">
       <b>{{ 'About'|_ }}</b> <p>{{ record.note|raw }}</p>
+      <b>{{ 'Latest posts'|_ }}</b> <a href="/blog/author/{{ record.id }}">{{ 'View all'|_ }}</a>
+      <p>
+        {% if scopePosts.posts %}
+          {% for Post in scopePosts.posts %}
+            <a href="{{Post.url}}"><span class="fa fa-fw" aria-hidden="true">&#xf040;</span> {{ Post.title }}</a><br>
+          {% endfor %}
+        {% else %}
+          {{ 'No posts found'|_ }}
+        {% endif %}
+      </p>
       <b>{{ 'Course'|_ }}</b>
       <p>
         {%  set courses = courses.courses %}
         {% for c in courses %}
-          <a href="/user/course/{{ c.created_at|date('U') }}"> <span class="fui-new"></span> {{ c.name }}</a> [ {{ c.modified_at|date("m/d/Y") }} ]<br>
+          <a href="/course/{{ c.created_at|date('U') }}">  <span class="fa fa-fw" aria-hidden="true">&#xf0f6;</span> {{ c.name }}</a> <br>
         {% endfor %}
       </p>
       <b>{{ 'Evaluation'|_ }}</b>
@@ -53,7 +75,7 @@ sortOrder = "updated_at"
         {%  set evaluations = evaluations.evaluations %}
         {% for c in evaluations %}
           {% for e in c.evaluations %}
-            <a href="/user/evaluation/{{ e.created_at|date('U') }}"> <span class="fui-new"></span> {{ e.name }}</a> [ {{ e.modified_at|date("m/d/Y") }} ]<br>
+            <a href="/evaluation/{{ e.created_at|date('U') }}"> <span class="fa fa-fw" aria-hidden="true">&#xf1c5;</span> {{ e.name }}</a> <br>
           {% endfor %}
         {% endfor %}
       </p>

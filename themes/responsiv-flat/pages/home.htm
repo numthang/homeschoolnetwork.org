@@ -59,27 +59,27 @@ sortOrder = "updated_at"
           {% else %}
             <div class="row">
               <div class="col-sm-12">
-                <h3><a href="/user/profile/{{ user.id }}">{{ user.name }} {{ user.surname }}</a></h3>
+                <h3><a href="/u/{{ user.id }}">{{ user.name }} {{ user.surname }}</a></h3>
               </div>
             </div>
 		        <div class="row">
               <!--<div class="col-sm-2 col-xs-2" align="center">
-                <a href="/user/profile/{{ user.id }}"><img src="{% if user.facebook_id %} https://graph.facebook.com/{{ user.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" alt="{{ user.name }}"  title="{{ user.name }}" class="img-rounded img-responsive user-icon avatar-responsive"></a>
+                <a href="/u/{{ user.id }}"><img src="{% if user.facebook_id %} https://graph.facebook.com/{{ user.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" alt="{{ user.name }}"  title="{{ user.name }}" class="img-rounded img-responsive user-icon avatar-responsive"></a>
               </div>-->
 		          <div class="col-sm-3 col-xs-3" align="center">
-		            <a href="/login/profile"><img src="/themes/responsiv-flat/assets/images/icons/png/fa-address-book-o.png" class="img-rounded user-icon img-responsive" title="{{ 'My profile'|_ }}"></a>
+		            <a href="/edit/profile"><img src="/themes/responsiv-flat/assets/images/icons/png/fa-address-book-o.png" class="img-rounded user-icon img-responsive" title="{{ 'My profile'|_ }}"></a>
 		          </div>
 		          <div class="col-sm-3 col-xs-3" align="center">
-		            <a href="/login/new/course"><img src="/themes/responsiv-flat/assets/images/icons/png/fa-file-text-o.png" class="img-rounded user-icon img-responsive" title="{{ 'New course'|_ }}"></a>
+		            <a href="/add/course"><img src="/themes/responsiv-flat/assets/images/icons/png/fa-file-text-o.png" class="img-rounded user-icon img-responsive" title="{{ 'New course'|_ }}"></a>
 		          </div>
 		          <div class="col-sm-3 col-xs-3" align="center">
-		            <a href="/login/new/evaluation"><img src="/themes/responsiv-flat/assets/images/icons/png/fa-file-picture-o.png" class="img-rounded user-icon img-responsive" title="{{ 'New evaluation'|_ }}"></a>
+		            <a href="/add/evaluation"><img src="/themes/responsiv-flat/assets/images/icons/png/fa-file-picture-o.png" class="img-rounded user-icon img-responsive" title="{{ 'New evaluation'|_ }}"></a>
 		          </div>
 		          <div class="col-sm-3 col-xs-3" align="center">
-		            <a href="/login/new/post"><img src="/themes/responsiv-flat/assets/images/icons/png/fa-pencil-o.png" class="img-rounded user-icon img-responsive" title="{{ 'New post'|_ }}"></a>
+		            <a href="/add/post"><img src="/themes/responsiv-flat/assets/images/icons/png/fa-pencil-o.png" class="img-rounded user-icon img-responsive" title="{{ 'New post'|_ }}"></a>
 		          </div>
               <!--<div class="col-sm-2 col-xs-2" align="center">
-		            <a href="/login/new/post"><img src="/themes/responsiv-flat/assets/images/icons/png/signout.png" class="img-rounded user-icon img-responsive" title="{{ 'Sign out'|_ }}"></a>
+		            <a href="/add/post"><img src="/themes/responsiv-flat/assets/images/icons/png/signout.png" class="img-rounded user-icon img-responsive" title="{{ 'Sign out'|_ }}"></a>
 		          </div>-->
             </div>
             <div class="row" style="margin-top:10px;">
@@ -88,7 +88,7 @@ sortOrder = "updated_at"
                 <p>
                   {%  set courses = courses.courses %}
                   {% for c in courses %}
-                    <a href="/login/edit/course/{{ c.id }}"> <span class="fui-new"></span> {{ c.name }}</a><br>
+                    <a href="/edit/course/{{ c.id }}"> <span class="fui-new"></span> {{ c.name }}</a><br>
                   {% endfor %}
                 </p>
                 <b>{{ 'Evaluation'|_ }}</b>
@@ -96,7 +96,7 @@ sortOrder = "updated_at"
                   {%  set evaluations = evaluations.evaluations %}
                   {% for c in evaluations %}
                     {% for e in c.evaluations %}
-                      <a href="/login/edit/evaluation/{{ e.id }}"> <span class="fui-new"></span> {{ e.name }}</a><br>
+                      <a href="/edit/evaluation/{{ e.id }}"> <span class="fui-new"></span> {{ e.name }}</a><br>
                     {% endfor %}
                   {% endfor %}
                 </p>
@@ -140,7 +140,7 @@ sortOrder = "updated_at"
             <div class="service-item">
               <i class="fa fa-book"></i>
               <div class="service-desc">
-                <h5><a href="/login/new/course">{{ 'New course'|_ }}</a></h5>
+                <h5><a href="/add/course">{{ 'New course'|_ }}</a></h5>
                 <p>หากคุณประสบปัญหาในการเขียนรายงาน, ออกแบบการเรียนการสอนและการจัดเรียงเอกสาร
                   ด้านในจะมีตัวอย่างการเขียนแผนแบบสำเร็จรูปให้เลือกใช้งาน
                 </p>
@@ -153,7 +153,7 @@ sortOrder = "updated_at"
             <div class="service-item">
               <i class="fa fa-clipboard"></i>
               <div class="service-desc">
-                <h5><a href="/login/new/evaluation">{{ 'New evaluation'|_ }}</a></h5>
+                <h5><a href="/add/evaluation">{{ 'New evaluation'|_ }}</a></h5>
                 <p>ทุกปี จะมีเทศกาลปั่นรายงาน ส่วนนี้จะเป็นส่วนของการทำรายงานประเมินผล ท่านสามารถอัพเดทร่องรอยการเรียนรู้ของนักเรียนได้เรื่อยๆ ตลอดปี </p>
               </div>
             </div>
@@ -164,7 +164,7 @@ sortOrder = "updated_at"
             <div class="service-item">
               <i class="fa fui-new"></i>
               <div class="service-desc">
-                <h5><a href="/login/new/post">{{ 'New post'|_ }}</a></h5>
+                <h5><a href="/add/post">{{ 'New post'|_ }}</a></h5>
                 <p>นอกเหนือจากงานเขียนที่ต้องส่งเขตแล้ว ท่านยังสามารถช่วยเหลือชุมชน ด้วยการเขียนบทความหรืออื่นๆ แสดงบนหน้าเว็บแก่คนรุ่นหลังต่อไป</p>
               </div>
             </div>
@@ -202,7 +202,7 @@ sortOrder = "updated_at"
       <div class="row">
         <div class="col-sm-3 col-xs-12">
           <div class="team-member text-center">
-            <img class="img-responsive center-block avatar-responsive" src="https://graph.facebook.com/528931910/picture?type=normal" onClick="window.location.href = '/user/profile/2';">
+            <img class="img-responsive center-block avatar-responsive" src="https://graph.facebook.com/528931910/picture?type=normal" onClick="window.location.href = '/u/2';">
             <div class="info" style="font-size:17px;">
               Unnop Sricharoenchai
               <p class="text-muted">Administrator</p>
@@ -211,7 +211,7 @@ sortOrder = "updated_at"
         </div>
         <div class="col-sm-3 col-xs-12">
           <div class="team-member text-center">
-            <img class="img-responsive center-block avatar-responsive" src="https://graph.facebook.com/100001891270373/picture?type=normal" onClick="window.location.href = '/user/profile/10';">
+            <img class="img-responsive center-block avatar-responsive" src="https://graph.facebook.com/100001891270373/picture?type=normal" onClick="window.location.href = '/u/10';">
             <div class="info" style="font-size:17px;">
               Joompot Sriyapan
               <p class="text-muted">Administrator</p>
@@ -220,7 +220,7 @@ sortOrder = "updated_at"
         </div>
         <div class="col-sm-3 col-xs-12">
           <div class="team-member text-center">
-            <img class="img-responsive center-block avatar-responsive" src="https://graph.facebook.com/100000122460462/picture?type=normal" onClick="window.location.href = '/user/profile/12';">
+            <img class="img-responsive center-block avatar-responsive" src="https://graph.facebook.com/100000122460462/picture?type=normal" onClick="window.location.href = '/u/12';">
             <div class="info" style="font-size:17px;">
               Patai Wonganutrohd
               <p class="text-muted">Editor & Writer</p>
@@ -229,7 +229,7 @@ sortOrder = "updated_at"
         </div>
         <div class="col-sm-3 col-xs-12">
           <div class="team-member text-center">
-            <img class="img-responsive center-block avatar-responsive" src="https://graph.facebook.com/100001719473463/picture?type=normal" onClick="window.location.href = '/user/profile/3';">
+            <img class="img-responsive center-block avatar-responsive" src="https://graph.facebook.com/100001719473463/picture?type=normal" onClick="window.location.href = '/u/3';">
             <div class="info" style="font-size:17px;">
               Tita Yossopon
               <p class="text-muted">Editor</p>

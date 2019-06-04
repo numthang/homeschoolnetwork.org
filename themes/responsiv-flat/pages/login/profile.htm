@@ -1,5 +1,5 @@
 title = "Login Profile"
-url = "/login/profile"
+url = "/edit/profile"
 layout = "default"
 is_hidden = 0
 robot_index = "index"
@@ -23,7 +23,7 @@ sortOrder = "name asc"
 <section id="layout-title">
   <div class="container">
     <div class="col-sm-12">
-      <h3><a href="/user/profile/{{user.id}}"><img src="{% if user.facebook_id %} https://graph.facebook.com/{{ user.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" title="{{ user.name }}" class="avatar"></a> {{ user.name }} {{ user.surname }}</h3>
+      <h3><a href="/u/{{user.id}}"><img src="{% if user.facebook_id %} https://graph.facebook.com/{{ user.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" title="{{ user.name }}" class="avatar"></a> {{ user.name }} {{ user.surname }}</h3>
     </div>
   </div>
 </section>
