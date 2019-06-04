@@ -6,9 +6,9 @@
 		<div class="btn-group" style="width:100%;">
 			<button data-toggle="dropdown" class="btn btn-primary dropdown-toggle" type="button" style="width:100%; text-align:left;">&nbsp; <span class="fui-new"></span> {{ 'Select Course'|_ }} <span class="caret"></span></button>
 			<ul role="menu" class="dropdown-menu" style="width:100%;">
-				<li><a href="/login/new/course"><span class="fui-new"></span>&nbsp; {{ 'New Course'|_ }}</a></li>
+				<li><a href="/add/course"><span class="fui-new"></span>&nbsp; {{ 'New Course'|_ }}</a></li>
 				{% for c in courses %}
-				<li><a href="/login/edit/course/{{ c.id }}" {% if c.template %}style="color:#bbbbbb;"{% endif %}> <span class="fui-new"></span>&nbsp;
+				<li><a href="/edit/course/{{ c.id }}" {% if c.template %}style="color:#bbbbbb;"{% endif %}> <span class="fui-new"></span>&nbsp;
 					{{ 'Course'|_ }} : {{ c.name }} <!--[ {{ c.updated_at|date("m/d/Y") }} ]--></a></li>
 				<li class="divider"></li>
 				{% endfor %}
@@ -295,15 +295,15 @@
 				<button type="submit" title="{{ 'Save'|_ }}" class="btn btn-lg btn-default fa fa-save float" data-hotkey="ctrl+s, cmd+s"></button>
     	{% endif %}
     	{% if record.id is defined %}
-				<button type="button" title="{{ 'Preview'|_ }}" class="btn btn-lg btn-info fa fa-eye float2" onClick="window.open('/user/course/{{ record.created_at| date('U') }}', '_blank');"></button>
+				<button type="button" title="{{ 'Preview'|_ }}" class="btn btn-lg btn-info fa fa-eye float2" onClick="window.open('/course/{{ record.created_at| date('U') }}', '_blank');"></button>
 				<div class="col-sm-3">
 			    <button type="submit" class="btn btn-lg btn-info btn-block" onClick="if(confirm('{{ 'Save as'|_ }} '+this.form.name.value)) this.form.save_as.value = 1; else return false;">{{ 'Save as'|_ }} ...</button>
 				</div>
 				<div class="col-sm-2">
-					<button type="button" class="btn btn-lg btn-info btn-block" onClick="window.open('/user/course/{{ record.created_at|date('U') }}', '_blank');">{{ 'Preview'|_ }} </button>
+					<button type="button" class="btn btn-lg btn-info btn-block" onClick="window.open('/course/{{ record.created_at|date('U') }}', '_blank');">{{ 'Preview'|_ }} </button>
 				</div>
 				<div class="col-sm-3">
-					<button type="button" class="btn btn-lg btn-info btn-block" onClick="window.open('/user/course/{{ record.created_at|date('U') }}?print=1', '_blank');">{{ 'Print to PDF'|_ }} </button>
+					<button type="button" class="btn btn-lg btn-info btn-block" onClick="window.open('/course/{{ record.created_at|date('U') }}?print=1', '_blank');">{{ 'Print to PDF'|_ }} </button>
 				</div>
 				{% if (can('edit_course_template') or (record.template == 0 and record.id is not defined) or (record.template == 0 and record.user_id == user.id and record.id is defined))  %}
 					<div class="col-sm-2">

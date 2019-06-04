@@ -319,4 +319,20 @@
   'Backend\\Widgets\\Table\\DataSourceBase' => 'modules/backend/widgets/table/DataSourceBase.php',
   'Backend\\Widgets\\Table\\ServerEventDataSource' => 'modules/backend/widgets/table/ServerEventDataSource.php',
   'Backend\\Behaviors\\ReorderController' => 'modules/backend/behaviors/ReorderController.php',
+<<<<<<< HEAD
+=======
+  'zen\\robots\\Plugin' => 'plugins/zen/robots/Plugin.php',
+  'Zen\\Robots\\Models\\Settings' => 'plugins/zen/robots/models/Settings.php',
+  'Zen\\Robots\\Controllers\\Generate' => 'plugins/zen/robots/controllers/Generate.php',
+  'Flynsarmy\\SocialLogin\\Models\\Provider' => 'plugins/flynsarmy/sociallogin/models/Provider.php',
+  'RainLab\\Translate\\Models\\MessageImport' => 'plugins/rainlab/translate/models/MessageImport.php',
+  'RainLab\\Translate\\Models\\MessageExport' => 'plugins/rainlab/translate/models/MessageExport.php',
+  'Backend\\Widgets\\Table' => 'modules/backend/widgets/Table.php',
+  'Backend\\Widgets\\Table\\DataSourceBase' => 'modules/backend/widgets/table/DataSourceBase.php',
+  'Backend\\Widgets\\Table\\ServerEventDataSource' => 'modules/backend/widgets/table/ServerEventDataSource.php',
+  'RainLab\\Translate\\Classes\\ThemeScanner' => 'plugins/rainlab/translate/classes/ThemeScanner.php',
+  'System\\Models\\MailTemplate' => 'modules/system/models/MailTemplate.php',
+  'System\\Twig\\Engine' => 'modules/system/twig/Engine.php',
+  'System\\Models\\MailLayout' => 'modules/system/models/MailLayout.php',
+>>>>>>> 01023c64632d7614063a29523a8f8933bae9a7f1
 );

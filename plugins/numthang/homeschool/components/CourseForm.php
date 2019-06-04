@@ -68,11 +68,11 @@ class CourseForm extends ComponentBase
       if($this->param('id') && Input::get('save_as') == 0)//ถ้ามีการ update จะส่ง query id ให้แสดง flash message
      		return ['#flash_message' => $this->renderPartial('flash.htm', ['message' => 'Course '.$course->name.' saved!', 'type' => 'success'])];
      	else//ถ้าเป็นการสร้างใหม่ให้ redirect ไป edit
-     		return Redirect::to('/login/edit/course/'.$course->id);
+     		return Redirect::to('/edit/course/'.$course->id);
     }
     public function onDelete() {
       $course = new Course();
       $course->where('id', '=', $this->param('id'))->delete();
-      return Redirect::to('/login/new/course')->with('message', $course->name.' Removed');
+      return Redirect::to('/add/course')->with('message', $course->name.' Removed');
     }
 }

@@ -22,7 +22,7 @@ paramCode = "code"
 <?php
 function onStart() {
     if(Auth::check()) {
-      header('Location:/login/profile');
+      header('Location:/edit/profile');
       exit;
     }
     #$user = Auth::getUser();

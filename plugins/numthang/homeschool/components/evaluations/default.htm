@@ -2,7 +2,7 @@
 
 <ul class="list-group filter-list-group">
   {% for course in evaluations %}
-  <li class="list-group-item" ><a href="/login/edit/course/{{ course.id }}" style="font-size: 18px; ">{{ course.name }} {{ key }}</a><br>
+  <li class="list-group-item" ><a href="/edit/course/{{ course.id }}" style="font-size: 18px; ">{{ course.name }} {{ key }}</a><br>
     {% for evaluation in course.evaluations %}
       &bull; {{ 'Evaluation'|_ }} : {{ evaluation.id }} <br>
     {% endfor %}

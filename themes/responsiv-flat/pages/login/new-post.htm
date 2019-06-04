@@ -1,5 +1,5 @@
 title = "New post"
-url = "/login/new/post"
+url = "/add/post"
 layout = "default"
 is_hidden = 0
 robot_index = "index"
@@ -12,6 +12,7 @@ backUser = 2
 allowpublish = 1
 show_excerpt = 1
 allow_images = 1
+slug = "{{ :slug }}"
 listPage = "blog/blog"
 postPage = "blog/post"
 
@@ -37,7 +38,7 @@ function onStart() {
       $author->show_excerpt = 1;
       $author->allow_images = 1;
       $author->save();
-      return Redirect::to('/login/new/post');
+      return Redirect::to('/add/post');
     }
   }
 ?>

@@ -1,24 +1,24 @@
 {% if __SELF__.posts %}
-  <ul>
+  <ul style="list-style:none;">
     {% for Post in __SELF__.posts %}
      <li>
-         <a href="{{Post.url}}">{{ Post.title }}</a>
-         {% if Post.categories %}
-          - published in
-            {% for category in Post.categories %}
-              <a href="{{category.url|e}}">{{category.name}}</a>{% if not loop.last %}, {% endif %}
-            {% endfor %}
-         {% endif %}
+       <a href="{{Post.url}}"><span class="fa fa-fw" aria-hidden="true">&#xf040;</span> {{ Post.title }}</a>
+       {% if Post.categories %}
+        {{ 'published in'|_ }}
+          {% for category in Post.categories %}
+            <a href="{{category.url|e}}">{{category.name}}</a>{% if not loop.last %}, {% endif %}
+          {% endfor %}
+       {% endif %}
 
-         {% if Post.tags %}
-          tagged in
-            {% for tag in Post.tags %}
-              <a href="/blog/tagged/{{ tag.id }}">{{tag.name}}</a>{% if not loop.last %}, {% endif %}
-            {% endfor %}
-         {% endif %}
+       {% if Post.tags %}
+        {{ 'tagged in'|_ }}
+          {% for tag in Post.tags %}
+            <a href="/blog/tagged/{{ tag.id }}">{{tag.name}}</a>{% if not loop.last %}, {% endif %}
+          {% endfor %}
+       {% endif %}
      </li>
     {% endfor %}
   </ul>
 {% else %}
-  No posts found.
+  {{ 'No posts found'|_ }}
 {% endif %}
