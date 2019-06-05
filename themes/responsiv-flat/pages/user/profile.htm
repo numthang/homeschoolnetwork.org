@@ -67,7 +67,7 @@ sortOrder = "updated_at desc"
       <p>
         {%  set courses = courses.courses %}
         {% for c in courses %}
-          <a href="/course/{{ c.created_at|date('U') }}">  <span class="fa fa-fw" aria-hidden="true">&#xf0f6;</span> {{ c.name }}</a> <br>
+          <a href="/course/{{ c.created_at|date('U') }}"><span class="fa fa-fw" aria-hidden="true">&#xf0f6;</span> {{ c.name }}</a> <br>
         {% endfor %}
       </p>
       <b>{{ 'Evaluation'|_ }}</b>
@@ -75,7 +75,7 @@ sortOrder = "updated_at desc"
         {%  set evaluations = evaluations.evaluations %}
         {% for c in evaluations %}
           {% for e in c.evaluations %}
-            <a href="/evaluation/{{ e.created_at|date('U') }}"> <span class="fa fa-fw" aria-hidden="true">&#xf1c5;</span> {{ e.name }}</a> <br>
+            <a href="/evaluation/{{ e.created_at|date('U') }}"><span class="fa fa-fw" aria-hidden="true">&#xf1c5;</span> {{ e.name }}</a> <br>
           {% endfor %}
         {% endfor %}
       </p>

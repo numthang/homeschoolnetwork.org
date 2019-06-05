@@ -8,14 +8,15 @@
 		<div class="col-md-6">
 			<label>{{ 'Evaluation'|_ }}</label><br>
 			<div class="btn-group" style="width:100%;">
-	      <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle" type="button" style="width:100%; text-align:left;">&nbsp; <span class="fui-new"></span> {{ 'Select Evaluation'|_ }} <span class="caret"></span></button>
+	      <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle" type="button" style="width:100%; text-align:left;">&nbsp; <span class="fa fa-fw" aria-hidden="true">&#xf1c5;</span> {{ 'Select Evaluation'|_ }} <span class="caret"></span></button>
 	      <ul role="menu" class="dropdown-menu" style="width:100%;">
 					<li><a href="/add/evaluation"><span class="fui-new"></span> {{ 'New Evaluation'|_ }}</a></li>
 					{% for c in evaluations %}
-					<li><b>&nbsp;
-					 	<a href="/edit/course/{{c.id}}" {% if c.template %}style="color:#bbbbbb;"{% endif %}>{{ 'Course'|_ }} : {{ c.name }}</a> <!--[ {{ c.updated_at|date("m/d/Y") }} ]--></b>
+					<li>
+						<!--<b>&nbsp;
+					 	<a href="/edit/course/{{c.id}}" {% if c.template %}style="color:#bbbbbb;"{% endif %}><span class="fa fa-fw" aria-hidden="true">&#xf0f6;</span> {{ 'Course'|_ }} : {{ c.name }}</a> </b>-->
 						{% for e in c.evaluations %}
-							<a href="/edit/evaluation/{{ e.id }}" {% if c.template %}style="color:#bbbbbb;"{% endif %}> <span class="fui-new"></span> {{ 'Evaluation'|_ }} : {{ e.name }}  <!--[ {{ e.updated_at|date("m/d/Y") }} ]--></a>
+							<a href="/edit/evaluation/{{ e.id }}" {% if c.template %}style="color:#bbbbbb;"{% endif %}> <span class="fa fa-fw" aria-hidden="true">&#xf1c5;</span> {{ 'Evaluation'|_ }} : {{ e.name }}  <!--[ {{ e.updated_at|date("m/d/Y") }} ]--></a>
 						{% endfor %}
 					</li>
 					<li class="divider"></li>
@@ -292,9 +293,9 @@
           <div class="row">
             <div class="col-sm-12">
 							<div class="">
-								<select name="authors[]" class="s2 multiple-select-box" multiple="multiple">
+								<select name="portfolios[]" class="s2 multiple-select-box" multiple="multiple">
 									{% for key,author in authors %}
-									<option value="{{ key }}" {% if key == user.id %} selected {% endif %}>{{ author }}</option>
+									<option value="{{ key }}" {% if key == user.id or key in evaluation.portfolios %} selected {% endif %}>{{ author }}</option>
 						      {% endfor %}
 								</select>
 							</div>

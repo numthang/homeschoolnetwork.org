@@ -356,4 +356,10 @@
   'System\\Models\\MailTemplate' => 'modules/system/models/MailTemplate.php',
   'System\\Twig\\Engine' => 'modules/system/twig/Engine.php',
   'System\\Models\\MailLayout' => 'modules/system/models/MailLayout.php',
+  'RainLab\\Builder\\Classes\\MigrationColumnType' => 'plugins/rainlab/builder/classes/MigrationColumnType.php',
+  'Backend\\FormWidgets\\DataTable' => 'modules/backend/formwidgets/DataTable.php',
+  'Backend\\Widgets\\Table\\ClientMemoryDataSource' => 'modules/backend/widgets/table/ClientMemoryDataSource.php',
+  'RainLab\\Builder\\Classes\\DatabaseTableSchemaCreator' => 'plugins/rainlab/builder/classes/DatabaseTableSchemaCreator.php',
+  'RainLab\\Builder\\Classes\\TableMigrationCodeGenerator' => 'plugins/rainlab/builder/classes/TableMigrationCodeGenerator.php',
+  'RainLab\\Builder\\Classes\\MigrationModel' => 'plugins/rainlab/builder/classes/MigrationModel.php',
 );
