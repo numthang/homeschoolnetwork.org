@@ -181,6 +181,7 @@ class ScopePosts extends ComponentBase
     $this->categoryPage = $this->page['categoryPage'] = $this->property('categoryPage');
   }
   protected function listTagsWithPost() {
+    return true;
     $tags = Tag::with(['posts'=>function($query) {
             $query->where('id', '=', 2);
           }])->get();
