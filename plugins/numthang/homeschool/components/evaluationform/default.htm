@@ -295,7 +295,7 @@
 							<div class="">
 								<select name="portfolios[]" class="s2 multiple-select-box" multiple="multiple">
 									{% for key,author in authors %}
-									<option value="{{ key }}" {% if key == user.id or key in evaluation.portfolios %} selected {% endif %}>{{ author }}</option>
+									<option value="{{ key }}" {% if key in evaluation.portfolios %} selected {% endif %}>{{ author }}</option>
 						      {% endfor %}
 								</select>
 							</div>
