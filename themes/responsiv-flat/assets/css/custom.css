@@ -88,8 +88,8 @@ hr {
   z-index: 999;
 }
 .form-control {
-  /*line-height: 2.8;*/
   font-size: 16px;
+  line-height: 2.7;
 }
 
 .multiple-select-box {

@@ -5,6 +5,7 @@ use Cms\Classes\ComponentBase;
 use Cms\Classes\Page;
 use RainLab\Blog\Models\Post as BlogPost;
 use RainLab\Blog\Models\Category as BlogCategory;
+use Bedard\BlogTags\Models\Tag;
 
 class ScopePosts extends ComponentBase
 {
@@ -50,6 +51,7 @@ class ScopePosts extends ComponentBase
    */
   public $sortOrder;
   public $tags;
+  public $post;
 
   public function componentDetails() {
       return [
@@ -157,6 +159,7 @@ class ScopePosts extends ComponentBase
     $this->prepareVars();
     $this->category = $this->page['category'] = $this->loadCategory();
     $this->posts = $this->page['posts'] = $this->listPosts();
+    $this->tagswithpost = $this->listTagsWithPost();
     /*
      * If the page number is not valid, redirect
      */
@@ -176,6 +179,21 @@ class ScopePosts extends ComponentBase
      */
     $this->postPage = $this->page['postPage'] = $this->property('postPage');
     $this->categoryPage = $this->page['categoryPage'] = $this->property('categoryPage');
+  }
+  protected function listTagsWithPost() {
+    $tags = Tag::with(['posts'=>function($query) {
+            $query->where('id', '=', 2);
+          }])->get();
+    $tags = BlogPost::with(['tags' => function($query) {
+        $query->orderby('id');
+    }])->where('author_id', '=', 1349)->get();
+    dd($tags);
+    $tags = Tag::Where('id', 132)
+        ->with(['posts' => function($query) {
+            $query->where('author_id', '=', 2);
+        }])
+        ->get();
+    dd($tags);
   }
   protected function listPosts() {
       $category = $this->category ? $this->category->id : null;
@@ -197,8 +215,8 @@ class ScopePosts extends ComponentBase
       ]);
 
       #dump($posts);
+      //prepareVars tags list from this author
       $tags['id'] = Array(); $tags['name'] = Array();
-
       for($i=0;$i<count($posts);$i++) {
         foreach ($posts[$i]->tags as $key => $value) {
           if(!in_array($value['id'], $tags['id'])) {
