@@ -28,8 +28,9 @@ class Evaluation extends Model
     #protected $jsonable = ['portfolios'];
 
     public $belongsTo = [
-        'course' => 'Numthang\Homeschool\Models\Course'
-
+        'course' => 'Numthang\Homeschool\Models\Course',
+        'post' => ['RainLab\Blog\Models\Post', 'key' => 'id'],
     ];
+
 
 }

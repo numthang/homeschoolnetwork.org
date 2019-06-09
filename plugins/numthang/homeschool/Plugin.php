@@ -23,11 +23,7 @@ class Plugin extends PluginBase
     }
     public function boot() {
 
-      EvaluationModel::extend(function ($model) {
-        $model->hasMany['blogposts'] = ['RainLab\Blog\Models\Post',
-          'key' => 'evaluation_id'];
-      });
-      BlogPost::extend(function($model) {//กำหนด fillable field เพิ่ม
+      /*BlogPost::extend(function($model) {//กำหนด fillable field เพิ่ม
         $model->addFillable([
           'evaluation_id'
         ]);

@@ -363,4 +363,6 @@
   'RainLab\\Builder\\Classes\\TableMigrationCodeGenerator' => 'plugins/rainlab/builder/classes/TableMigrationCodeGenerator.php',
   'RainLab\\Builder\\Classes\\MigrationModel' => 'plugins/rainlab/builder/classes/MigrationModel.php',
   'RainLab\\Builder\\Classes\\MigrationFileParser' => 'plugins/rainlab/builder/classes/MigrationFileParser.php',
+  'bedard\\debugbar\\Plugin' => 'plugins/bedard/debugbar/Plugin.php',
+  'System\\Models\\MailSetting' => 'modules/system/models/MailSetting.php',
 );
