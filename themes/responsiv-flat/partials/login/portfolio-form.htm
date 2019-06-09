@@ -2,12 +2,24 @@
 results = 0
 byUserID = "{{ user_id }}"
 sortOrder = "template"
+
+[courses]
+results = 0
+byUserID = "{{ user_id }}"
+sortOrder = "template"
 ==
 <!-- START postform-default.htm -->
 {% if PostForm.backUser %}
 {{ form_open({ 'id':'bpostform', 'data-request': 'onSave','data-request-validate':'','data-request-flash':'', files: true }) }}
   <input type="hidden" id="Form-field-blog-id" name="id" value="{{ PostForm.post.id }}"></input>
-  {% component 'evaluations' %}
+  <p>
+   {%  set evaluations = evaluations.evaluations %}
+   {% for c in evaluations %}
+     {% for e in c.evaluations %}
+       <a href="/evaluation/{{ e.created_at|date('U') }}"><span class="fa fa-fw" aria-hidden="true">&#xf1c5;</span> {{ e.name }}</a> <br>
+     {% endfor %}
+   {% endfor %}
+  </p>
   {% if PostForm.allow_images %}
     <div class="form-group">
       <label>{{ 'Feature image'|_ }}</label>
