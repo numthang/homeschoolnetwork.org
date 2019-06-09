@@ -1,7 +1,13 @@
+[evaluations]
+results = 0
+byUserID = "{{ user_id }}"
+sortOrder = "template"
+==
 <!-- START postform-default.htm -->
 {% if PostForm.backUser %}
 {{ form_open({ 'id':'bpostform', 'data-request': 'onSave','data-request-validate':'','data-request-flash':'', files: true }) }}
   <input type="hidden" id="Form-field-blog-id" name="id" value="{{ PostForm.post.id }}"></input>
+  {% component 'evaluations' %}
   {% if PostForm.allow_images %}
     <div class="form-group">
       <label>{{ 'Feature image'|_ }}</label>
@@ -95,7 +101,7 @@
   <div class="alert alert-danger" data-validate-error>
     <p data-message></p>
   </div>
-  <div class="col-sm-3">
+  <!--<div class="col-sm-3">
     <button
       id="draft_save"
       type="button"
@@ -105,7 +111,7 @@
       data-load-indicator="{{ PostForm.trans('kurtjensen.mycalendar::lang.general.saving') }}"
       class="btn btn-warning btn-block">{{ PostForm.trans('general.btn_save_draft') }}
     </button>
-  </div>
+  </div>-->
   {% if PostForm.allowpublish %}
     <div class="col-sm-3">
       <button

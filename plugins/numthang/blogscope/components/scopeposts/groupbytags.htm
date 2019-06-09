@@ -1,0 +1,8 @@
+{% set postsbytag = __SELF__.postsbytag %}
+
+{% for value in postsbytag %}
+
+    {{ value.title }},
+    {{ value.tag }}<br>
+
+{% endfor %}

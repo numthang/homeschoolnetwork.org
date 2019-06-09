@@ -1,0 +1,21 @@
+title = "Portfolio"
+url = "/portfolio/:id"
+layout = "default"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[scopePosts]
+pageNumber = "{{ :page }}"
+categoryFilter = 6
+postsPerPage = 100
+userID = 0
+authorID = "{{ :id }}"
+from = "0000-00-00"
+to = "0000-00-00"
+categoryPage = "blog/category"
+postPage = "blog/post"
+noPostsMessage = "No posts found"
+sortOrder = "published_at asc"
+==
+{% partial 'scopePosts::groupbytags' %}

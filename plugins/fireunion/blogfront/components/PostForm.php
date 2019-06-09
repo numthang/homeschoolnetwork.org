@@ -59,11 +59,9 @@ class PostForm extends ComponentBase {
 		//dd($post->id);
 		/*numthang find current tags*/
 		if($this->param('slug')) {
-			$query = BlogPost::isPublished()
-					->where('slug', '=', $this->param('slug'))
+			$query = BlogPost::where('slug', '=', $this->param('slug'))
 					->with('tags');
 			$post = $query->get();
-			//dd($post[0]->tags[0]['id']);
 			foreach ($post[0]->tags as $key => $value) {
 				$this->tags[] = $value['id'];
 			}

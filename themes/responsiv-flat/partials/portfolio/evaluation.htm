@@ -1,0 +1,40 @@
+[scopePosts]
+pageNumber = "{{ :page }}"
+categoryFilter = "portfolio"
+postsPerPage = 100
+userID = 1
+authorID = "{{ authorID }}"
+from = "{{ from }}"
+to = "{{ to }}"
+isPublished = false
+categoryPage = "blog/category"
+postPage = "blog/post"
+noPostsMessage = "No posts found"
+sortOrder = "published_at asc"
+==
+{% set postsbytag = scopePosts.postsbytag %}
+{% set tags = scopePosts.tags %}
+
+{% for tag in tags['name'] %}
+  <h1>กลุ่มประสบการณ์ {{ loop.index }} : {% set tag_id = tags['id'][loop.index0] %} {{ tag }} </h1>
+  {% set parent = loop.index %}
+  {% set continue = true %}
+  {% set child = 1 %}
+  {% for post in postsbytag if continue %}
+    {% if(post.tag_id == tag_id) %}
+      <a href="/blog/{{post.slug}}"><h2>{{ parent }}.{{ child }} {% set child = child+1 %} {{ post.title }}</h2></a>
+      {% if post.featured_images|length %}
+      <div class="featured-images text-center">
+        {% for image in post.featured_images %}
+        <p><img src="{{ image | resize(800, 800) }}"/></p>
+        {% endfor %}
+      </div>
+      {% endif %}
+      {{ post.excerpt|raw }}<br>
+      {{ post.content_html|raw }}<br>
+      {% set break = false %}
+    {% else %}
+      {% set break = true %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}

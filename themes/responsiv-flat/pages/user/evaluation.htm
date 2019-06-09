@@ -11,17 +11,6 @@ robot_follow = "nofollow"
 security = "all"
 redirect = "login/login"
 
-[scopePosts]
-pageNumber = "{{ :page }}"
-postsPerPage = 100
-userID = 0
-authorID = 0
-from = "0000-00-00"
-to = "0000-00-00"
-categoryPage = "blog/category"
-postPage = "blog/post"
-noPostsMessage = "No posts found"
-sortOrder = "published_at asc"
 ==
 <?php
 public function onEnd() {
@@ -49,6 +38,10 @@ public function onEnd() {
     $this->page['birth_date'] = $date[2].'/'.$date[1].'/'.$date[0];
     $this->page['title'] = $this->evaluationform->record->name;
   }
+  $year = $this->evaluationform->record->graduated-543;
+  $this->page['from'] = $year.'-05-01';
+  $this->page['to'] = ($year+1).'-05-01';
+  $this->evaluationform->record->portfolio_id ? $this->page['authorID'] = $this->evaluationform->record->portfolio_id : $this->page['authorID'] = $course->user_id;
 }
 ?>
 ==
@@ -59,31 +52,7 @@ public function onEnd() {
  if(urlParams.get('print') == 1)
    window.print();
 </script>
-{% if scopePosts.posts %}
-  <ul style="list-style:none;">
-    {% for Post in scopePosts.posts %}
-     <li>
-       <a href="{{Post.url}}"><span class="fa fa-fw" aria-hidden="true">&#xf040;</span> {{ Post.title }}</a>
-       {% if Post.categories %}
-        {{ 'published in'|_ }}
-          {% for category in Post.categories %}
-            <a href="{{category.url|e}}">{{category.name}}</a>{% if not loop.last %}, {% endif %}
-          {% endfor %}
-       {% endif %}
-
-       {% if Post.tags %}
-        {{ 'tagged in'|_ }}
-          {% for tag in Post.tags %}
-            <a href="/blog/tagged/{{ tag.id }}">{{tag.name}}</a>{% if not loop.last %}, {% endif %}
-          {% endfor %}
-       {% endif %}
-     </li>
-    {% endfor %}
-  </ul>
-{% else %}
-  {{ 'No posts found'|_ }}
-{% endif %}
-
+{% partial 'portfolio/evaluation' authorID=this.page.authorID from=this.page.from to=this.page.to %}
 <div class="page cover" style="font-family:Kanit;">
   {{ evaluation.cover|raw }}
 </div>
@@ -142,8 +111,9 @@ public function onEnd() {
   {{ evaluation.suggestion|raw }}<br>
 </div>
 <div class="page other">
-  <a name="ninth" id="ninth"><strong><span style="font-size: 24pt;">ภาคผนวก ร่องรอยการเรียนรู้</span></strong></a>
-  <br><br>{% component 'scopePosts' %}
+  <div align="center"><a name="ninth" id="ninth"><strong><span style="font-size: 26pt;">ภาคผนวก ร่องรอยการเรียนรู้</span></strong></a></div>
+  <br><br>
+    {% partial 'portfolio/evaluation' authorID=this.page.authorID from=this.page.from to=this.page.to %}
   <!--{{ evaluation.footprint|raw }}-->
 </div>
 

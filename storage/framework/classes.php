@@ -362,4 +362,5 @@
   'RainLab\\Builder\\Classes\\DatabaseTableSchemaCreator' => 'plugins/rainlab/builder/classes/DatabaseTableSchemaCreator.php',
   'RainLab\\Builder\\Classes\\TableMigrationCodeGenerator' => 'plugins/rainlab/builder/classes/TableMigrationCodeGenerator.php',
   'RainLab\\Builder\\Classes\\MigrationModel' => 'plugins/rainlab/builder/classes/MigrationModel.php',
+  'RainLab\\Builder\\Classes\\MigrationFileParser' => 'plugins/rainlab/builder/classes/MigrationFileParser.php',
 );

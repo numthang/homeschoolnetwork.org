@@ -6,6 +6,7 @@ use Cms\Classes\Page;
 use RainLab\Blog\Models\Post as BlogPost;
 use RainLab\Blog\Models\Category as BlogCategory;
 use Bedard\BlogTags\Models\Tag;
+use BackendAuth;
 
 class ScopePosts extends ComponentBase
 {
@@ -51,7 +52,8 @@ class ScopePosts extends ComponentBase
    */
   public $sortOrder;
   public $tags;
-  public $post;
+  public $postsbytag;
+  public $from, $to;
 
   public function componentDetails() {
       return [
@@ -96,6 +98,10 @@ class ScopePosts extends ComponentBase
       'to' => [
           'title' => 'Published to',
           'default' => '0000-00-00'
+      ],
+      'isPublished' => [
+          'title' => 'Published',
+          'default' => false
       ],
       'categoryPage' => [
           'title'       => 'rainlab.blog::lang.settings.posts_category',
@@ -159,7 +165,7 @@ class ScopePosts extends ComponentBase
     $this->prepareVars();
     $this->category = $this->page['category'] = $this->loadCategory();
     $this->posts = $this->page['posts'] = $this->listPosts();
-    $this->tagswithpost = $this->listTagsWithPost();
+    $this->postsbytag = $this->sortPostsbyTags();
     /*
      * If the page number is not valid, redirect
      */
@@ -179,36 +185,69 @@ class ScopePosts extends ComponentBase
      */
     $this->postPage = $this->page['postPage'] = $this->property('postPage');
     $this->categoryPage = $this->page['categoryPage'] = $this->property('categoryPage');
+
+    if($this->property('from') == '0000-00-00' || $this->property('to') == '0000-00-00' || $this->property('from') == null) {
+      $this->from = '1978-01-01';
+      $this->to = '2100-01-01';
+    }
+    else {
+      $this->from = $this->property('from');
+      $this->to = $this->property('to');
+    }
   }
-  protected function listTagsWithPost() {
-    return true;
-    $tags = Tag::with(['posts'=>function($query) {
-            $query->where('id', '=', 2);
-          }])->get();
-    $tags = BlogPost::with(['tags' => function($query) {
-        $query->orderby('id');
-    }])->where('author_id', '=', 1349)->get();
-    dd($tags);
-    $tags = Tag::Where('id', 132)
+  protected function sortPostsbyTags() {
+    $tags = $this->tags;
+    $i = 0; $list = array();
+
+    foreach ($tags['id'] as $key1 => $tag_id) {
+      $posts = Tag::Where('id', $tag_id)
         ->with(['posts' => function($query) {
-            $query->where('author_id', '=', 2);
+          $category = $this->category ? $this->category->id : null;
+          $query
+            ->where('author_id', '=', $this->property('authorID'))
+            ->whereBetween('published_at', [$this->from, $this->to])
+            ->listFrontEnd([
+              'category'  => $category,
+              'published' => $this->property('isPublished')
+            ]);
         }])
         ->get();
-    dd($tags);
+      foreach ($posts[0]->posts as $key => $value) {
+        // code...
+        $list[$i]['tag_id'] = $tag_id;
+        $list[$i]['tag'] = $tags['name'][$key1];
+        $list[$i]['post_id'] = $value->id;
+        $list[$i]['slug'] = $value->slug;
+        $list[$i]['title'] = $value->title;
+        $list[$i]['excerpt'] = $value->excerpt;
+        $list[$i]['content_html'] = $value->content_html;
+        #$list[$i]['featured_images'] = $value->featured_images[0]->path;
+        for($j=0;$j<count($value->featured_images);$j++) {
+          $list[$i]['featured_images'][] = $value->featured_images[$j]->path;
+        }
+        $i++;
+      }
+    }
+    return $list;
   }
   protected function listPosts() {
       $category = $this->category ? $this->category->id : null;
       /*
        * List all the posts, eager load their categories
        */
-      #$isPublished = !$this->checkEditor();
-      $posts = BlogPost::with('categories')->with('tags')->where('author_id', '=', $this->property('authorID'))->listFrontEnd([
+      $isPublished = !$this->checkEditor(); //if backend user logged in and can access post then isPublished is false also show unpublished
+
+      $posts = BlogPost::with('categories')
+        ->with('tags')
+        ->where('author_id', '=', $this->property('authorID'))
+        ->whereBetween('published_at', [$this->from, $this->to])
+        ->listFrontEnd([
         'page'             => $this->property('pageNumber'),
         'sort'             => $this->property('sortOrder'),
         'perPage'          => $this->property('postsPerPage'),
         'search'           => trim(input('search')),
         'category'         => $category,
-        'published'        => 1,
+        'published'        => $this->property('isPublished'),
         'exceptPost'       => $this->property('exceptPost'),
         'exceptCategories' => is_array($this->property('exceptCategories'))
             ? $this->property('exceptCategories')
@@ -217,15 +256,19 @@ class ScopePosts extends ComponentBase
 
       #dump($posts);
       //prepareVars tags list from this author
-      $tags['id'] = Array(); $tags['name'] = Array();
+      $tags['id'] = $tags['name'] = Array();
+      #$tags['name'] = Array();
       for($i=0;$i<count($posts);$i++) {
         foreach ($posts[$i]->tags as $key => $value) {
           if(!in_array($value['id'], $tags['id'])) {
-  				  $tags['id'][] = $value['id'];
             $tags['name'][] = $value['name'];
+            $tags['id'][] = $value['id'];
           }
         }
       }
+      #dd($tags);
+      //dd($posts[0]->featured_images);
+
       $this->tags = $tags;
       /*
        * Add a "url" helper attribute for linking to each post and category
@@ -252,7 +295,11 @@ class ScopePosts extends ComponentBase
           : $category->where('slug', $slug);
 
       $category = $category->first();
-
       return $category ?: null;
+  }
+  protected function checkEditor()
+  {
+      $backendUser = BackendAuth::getUser();
+      return $backendUser && $backendUser->hasAccess('rainlab.blog.access_posts');
   }
 }

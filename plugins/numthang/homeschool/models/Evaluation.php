@@ -24,8 +24,8 @@ class Evaluation extends Model
      */
     public $rules = [
     ];
-    protected $fillable = ['name', 'learning', 'summary', 'successful', 'problem', 'class_reason', 'next', 'suggestion', 'footprint', 'course_id', 'graduated', 'degree', 'cover', 'portfolios'];
-    protected $jsonable = ['portfolios'];
+    protected $fillable = ['name', 'learning', 'summary', 'successful', 'problem', 'class_reason', 'next', 'suggestion', 'footprint', 'course_id', 'graduated', 'degree', 'cover', 'portfolio_id'];
+    #protected $jsonable = ['portfolios'];
 
     public $belongsTo = [
         'course' => 'Numthang\Homeschool\Models\Course'

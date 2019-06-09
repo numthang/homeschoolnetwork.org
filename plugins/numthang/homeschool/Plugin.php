@@ -2,6 +2,9 @@
 
 use System\Classes\PluginBase;
 use Numthang\Homeschool\Models\Course as CourseModel;
+use Numthang\Homeschool\Models\Evaluation as EvaluationModel;
+use RainLab\Blog\Models\Post as BlogPost;
+
 
 class Plugin extends PluginBase
 {
@@ -19,6 +22,16 @@ class Plugin extends PluginBase
     {
     }
     public function boot() {
+
+      EvaluationModel::extend(function ($model) {
+        $model->hasMany['blogposts'] = ['RainLab\Blog\Models\Post',
+          'key' => 'evaluation_id'];
+      });
+      BlogPost::extend(function($model) {//กำหนด fillable field เพิ่ม
+        $model->addFillable([
+          'evaluation_id'
+        ]);
+      });
       /*CourseModel::extend(function($model) {//ทำให้ save ข้อมูลด้วย fill() functionเพิ่มได้
         $model->addFillable([
           'user_id',
