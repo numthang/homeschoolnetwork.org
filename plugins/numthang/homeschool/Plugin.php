@@ -22,8 +22,7 @@ class Plugin extends PluginBase
     {
     }
     public function boot() {
-
-      /*BlogPost::extend(function($model) {//กำหนด fillable field เพิ่ม
+      BlogPost::extend(function($model) {//กำหนด fillable field เพิ่ม
         $model->addFillable([
           'evaluation_id'
         ]);

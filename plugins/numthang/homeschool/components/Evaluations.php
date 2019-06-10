@@ -69,6 +69,7 @@ class Evaluations extends ComponentBase
     $query = Course::with('evaluations')
       ->where('user_id', '=', $userid)
       ->orWhere('template', '=', 1);
+      
     if($this->property('sortOrder') == 'name asc')
         $query = $query->orderBy('name');
     else if($this->property('sortOrder') == 'name desc')

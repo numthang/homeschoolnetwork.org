@@ -83,6 +83,10 @@ class ScopePosts extends ComponentBase
           'validationMessage' => 'rainlab.blog::lang.settings.posts_per_page_validation',
           'default'           => '100',
       ],
+      'evaluationID' => [
+          'title' => 'Posts by evaluation',
+          'default' => 0
+      ],
       'userID' => [
           'title' => 'Posts by user',
           'default' => 0
@@ -101,7 +105,12 @@ class ScopePosts extends ComponentBase
       ],
       'isPublished' => [
           'title' => 'Published',
-          'default' => false
+          'description' => 'If false show all posts and drafted',
+          'default' => true
+      ],
+      'drafted' => [
+          'title' => 'Show only drafted',
+          'default' => 0
       ],
       'categoryPage' => [
           'title'       => 'rainlab.blog::lang.settings.posts_category',
@@ -164,8 +173,13 @@ class ScopePosts extends ComponentBase
   public function onRun() {
     $this->prepareVars();
     $this->category = $this->page['category'] = $this->loadCategory();
-    $this->posts = $this->page['posts'] = $this->listPosts();
-    $this->postsbytag = $this->sortPostsbyTags();
+
+    if($this->property('drafted'))
+      $this->posts = $this->page['posts'] = $this->listDraftPosts();
+    else {
+      $this->posts = $this->page['posts'] = $this->listPosts();
+      $this->postsbytag = $this->sortPostsbyTags();
+    }
     /*
      * If the page number is not valid, redirect
      */
@@ -196,6 +210,7 @@ class ScopePosts extends ComponentBase
     }
   }
   protected function sortPostsbyTags() {
+    $category = $this->category ? $this->category->id : null;
     $tags = $this->tags;
     $i = 0; $list = array();
 
@@ -205,13 +220,20 @@ class ScopePosts extends ComponentBase
           $category = $this->category ? $this->category->id : null;
           $query
             ->where('author_id', '=', $this->property('authorID'))
+            ->orWhere(function ($query2) {
+              $query2
+                ->where('author_id', '=', $this->property('userID'))
+                ->where('evaluation_id', '=', $this->property('evaluationID'));
+            })
             ->whereBetween('published_at', [$this->from, $this->to])
             ->listFrontEnd([
               'category'  => $category,
+              'sort'      => $this->property('sortOrder'),
               'published' => $this->property('isPublished')
             ]);
         }])
         ->get();
+
       foreach ($posts[0]->posts as $key => $value) {
         // code...
         $list[$i]['tag_id'] = $tag_id;
@@ -228,6 +250,8 @@ class ScopePosts extends ComponentBase
         $i++;
       }
     }
+    sort($list);
+    //dd($list);
     return $list;
   }
   protected function listPosts() {
@@ -236,25 +260,25 @@ class ScopePosts extends ComponentBase
        * List all the posts, eager load their categories
        */
       $isPublished = !$this->checkEditor(); //if backend user logged in and can access post then isPublished is false also show unpublished
-
       $posts = BlogPost::with('categories')
         ->with('tags')
         ->where('author_id', '=', $this->property('authorID'))
+        ->orWhere('author_id', '=', $this->property('userID'))
         ->whereBetween('published_at', [$this->from, $this->to])
         ->listFrontEnd([
-        'page'             => $this->property('pageNumber'),
-        'sort'             => $this->property('sortOrder'),
-        'perPage'          => $this->property('postsPerPage'),
-        'search'           => trim(input('search')),
-        'category'         => $category,
-        'published'        => $this->property('isPublished'),
-        'exceptPost'       => $this->property('exceptPost'),
-        'exceptCategories' => is_array($this->property('exceptCategories'))
+          'page'             => $this->property('pageNumber'),
+          'sort'             => $this->property('sortOrder'),
+          'perPage'          => $this->property('postsPerPage'),
+          'search'           => trim(input('search')),
+          'category'         => $category,
+          'published'        => $this->property('isPublished'),
+          'exceptPost'       => $this->property('exceptPost'),
+          'exceptCategories' => is_array($this->property('exceptCategories'))
             ? $this->property('exceptCategories')
             : explode(',', $this->property('exceptCategories')),
       ]);
 
-      #dump($posts);
+      //dd($posts);
       //prepareVars tags list from this author
       $tags['id'] = $tags['name'] = Array();
       #$tags['name'] = Array();
@@ -268,7 +292,6 @@ class ScopePosts extends ComponentBase
       }
       #dd($tags);
       //dd($posts[0]->featured_images);
-
       $this->tags = $tags;
       /*
        * Add a "url" helper attribute for linking to each post and category
@@ -281,6 +304,35 @@ class ScopePosts extends ComponentBase
       });
 
       return $posts;
+  }
+  protected function listDraftPosts() {
+    $category = $this->category ? $this->category->id : null;
+
+    $posts = BlogPost::with('categories')
+      ->with('tags')
+      ->where('author_id', '=', $this->property('authorID'))
+      ->where('published', '=', 0)
+      ->listFrontEnd([
+        'page'             => $this->property('pageNumber'),
+        'sort'             => $this->property('sortOrder'),
+        'perPage'          => $this->property('postsPerPage'),
+        'search'           => trim(input('search')),
+        'category'         => $category,
+        'published'        => $this->property('isPublished'),
+        'exceptPost'       => $this->property('exceptPost'),
+        'exceptCategories' => is_array($this->property('exceptCategories'))
+          ? $this->property('exceptCategories')
+          : explode(',', $this->property('exceptCategories')),
+    ]);
+    //dd($posts);
+    $posts->each(function($post) {
+      $post->setUrl($this->postPage, $this->controller);
+      $post->categories->each(function($category) {
+          $category->setUrl($this->categoryPage, $this->controller);
+      });
+    });
+
+    return $posts;
   }
   protected function loadCategory()
   {

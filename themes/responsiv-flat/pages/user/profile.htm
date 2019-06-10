@@ -31,16 +31,34 @@ byUserID = "{{ :id }}"
 sortOrder = "updated_at"
 
 [scopePosts]
-pageNumber = "{{ :page }}"
-postsPerPage = 5
+pageNumber = 1
+postsPerPage = 10
+evaluationID = 0
 userID = 0
 authorID = "{{ :id }}"
 from = "0000-00-00"
 to = "0000-00-00"
+isPublished = true
+drafted = 0
 categoryPage = "blog/category"
 postPage = "blog/post"
 noPostsMessage = "No posts found"
 sortOrder = "updated_at desc"
+
+[scopePosts scopePosts2]
+pageNumber = 1
+postsPerPage = 10
+evaluationID = 0
+userID = 0
+authorID = "{{ :id }}"
+from = "0000-00-00"
+to = "0000-00-00"
+isPublished = false
+drafted = 1
+categoryPage = "blog/category"
+postPage = "blog/post"
+noPostsMessage = "No posts found"
+sortOrder = "published_at asc"
 ==
 <section id="layout-title">
     <div class="container">
@@ -52,7 +70,8 @@ sortOrder = "updated_at desc"
 <div class="container">
   <div class="row">
     <div class="col-md-7">
-      <b>{{ 'About'|_ }}</b> <p>{{ record.note|raw }}</p>
+      <b>{{ 'About'|_ }}</b>
+      <p>{{ record.note|raw }}</p>
       <b>{{ 'Latest posts'|_ }}</b> <a href="/blog/author/{{ record.id }}">{{ 'View all'|_ }}</a>
       <p>
         {% if scopePosts.posts %}
@@ -63,6 +82,17 @@ sortOrder = "updated_at desc"
           {{ 'No posts found'|_ }}
         {% endif %}
       </p>
+      <b>{{ 'Drafted posts'|_ }}</b>
+      <p>
+        {% if scopePosts2.posts %}
+          {% for Post in scopePosts2.posts %}
+            <a href="{{Post.url}}"><span class="fa fa-fw" aria-hidden="true">&#xf040;</span> {{ Post.title }}</a><br>
+          {% endfor %}
+        {% else %}
+          {{ 'No posts found'|_ }}
+        {% endif %}
+      </p>
+
       <b>{{ 'Course'|_ }}</b>
       <p>
         {%  set courses = courses.courses %}

@@ -293,12 +293,6 @@
 	        <div class="row">
 	          <div class="col-sm-12">
 							<div class="form-group">
-								<label>ร่องรอยการเรียนรู้</label>
-								<select name="portfolios" class="s2 multiple-select-box" multiple>
-									{% for key,author in authors %}
-									<option value="{{ key }}" {% if key == evaluation.portfolio_id %} selected {% endif %}>{{ author }}</option>
-						      {% endfor %}
-								</select>
 								<label>นำเข้าผู้แต่ง</label>
 								<select name="portfolio_id" class="s2 select-default">
 									<option value="">{{ 'Select external author'|_ }}</option>
