@@ -25,7 +25,10 @@ paramCode = "code"
 forceSecure = 0
 ==
 <?php
-public function onEnd() {
+function onEnd() {
+  if(!is_object($this->post))
+    return $this->controller->run('404');
+
   #$this->page->meta_title = $this->post->title;
   /*$this->post->excerpt == null ? $description = substr(strip_tags($this->post->content), 0, 500) : $description = strip_tags($this->post->excerpt);
   $this->page->og_description = $this->page->meta_description = $description;
