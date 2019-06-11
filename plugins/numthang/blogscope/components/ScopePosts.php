@@ -279,19 +279,19 @@ class ScopePosts extends ComponentBase
             : explode(',', $this->property('exceptCategories')),
       ]);
 
-      //dd($posts);
+      //dd($posts[0]);
       //prepareVars tags list from this author
       $tags['id'] = $tags['name'] = Array();
-      #$tags['name'] = Array();
       for($i=0;$i<count($posts);$i++) {
         foreach ($posts[$i]->tags as $key => $value) {
           if(!in_array($value['id'], $tags['id'])) {
             $tags['name'][] = $value['name'];
             $tags['id'][] = $value['id'];
+            echo $posts[$i]->id.'<br>';
           }
         }
       }
-      #dd($tags);
+      dd($tags);
       //dd($posts[0]->featured_images);
       $this->tags = $tags;
       /*
