@@ -17,7 +17,7 @@ sortOrder = "published_at asc"
 {% set tags = scopePosts.tags %}
 
 {% for tag in tags['name'] %}
-  <h1>กลุ่มประสบการณ์ {{ loop.index }} : {% set tag_id = tags['id'][loop.index0] %} {{ tag }} </h1>
+  <h1>กลุ่มประสบการณ์ {{ loop.index }} : {% set tag_id = tags['id'][loop.index0] %} {{ tag }} {{ tag_id }}</h1>
   {% set parent = loop.index %}
   {% set continue = true %}
   {% set child = 1 %}
