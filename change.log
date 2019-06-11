@@ -5,8 +5,11 @@ Try plugin
 - Rainlab twitter
 
 Do
-- ทดสอบให้นำทาง login แล้วดึงให้ถูกตาม bportfolio_id
 - ทำหน้าเขียน ร่องรอยการเรียนรู้ เอาปุ่ม draft กลับมา และให้แสดงทุกโพสต์รวมทั้ง draft ในกรณีที่เป็นของตัวเอง หน้า profile ของตัวเอง แยกส่วน draft ไว้ ต่างหาก
+
+
+- ทดสอบให้นำทาง login แล้วดึงให้ถูกตาม portfolio_id
+
 - Gen QR
 - feature image banner big on Topic
 
