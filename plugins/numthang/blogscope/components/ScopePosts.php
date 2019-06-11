@@ -269,14 +269,22 @@ class ScopePosts extends ComponentBase
           $category = $this->category ? $this->category->id : null;
           $query
             ->where('author_id', '=', $this->property('authorID'))
-            ->whereBetween('created_at', [$this->from, $this->to]);
+            ->whereBetween('created_at', [$this->from, $this->to])
+            ->listFrontEnd([
+              'category'  => $category,
+              'published' => $this->property('isPublished')
+            ]);
         })
         ->orWhere(function ($query) {
           $category = $this->category ? $this->category->id : null;
           $query
             ->where('author_id', '=', $this->property('userID'))
             ->where('evaluation_id', '=', $this->property('evaluationID'))
-            ->whereBetween('created_at', [$this->from, $this->to]);
+            ->whereBetween('created_at', [$this->from, $this->to])
+            ->listFrontEnd([
+              'category'  => $category,
+              'published' => $this->property('isPublished')
+            ]);
         })
         ->listFrontEnd([
           'page'             => $this->property('pageNumber'),
