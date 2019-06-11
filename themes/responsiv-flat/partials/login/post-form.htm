@@ -14,7 +14,7 @@ sortOrder = "template"
       <div class="form-group">
         <label>{{ 'For Evaluation'|_ }}</label>
         <select name="evaluation_id" class="form-control select select-primary" data-toggle="select">
-          <option value="-1">{{ 'Select Evaluation'|_ }}</option>
+          <option value="0">{{ 'Select Evaluation'|_ }}</option>
           {%  set evaluations = evaluations.evaluations %}
           {% for c in evaluations %}
             {% for e in c.evaluations %}

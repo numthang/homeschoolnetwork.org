@@ -218,10 +218,13 @@ class ScopePosts extends ComponentBase
         ->with(['posts' => function($query) {
           $category = $this->category ? $this->category->id : null;
           $query
-            ->where('author_id', '=', $this->property('authorID'))
-            ->whereBetween('created_at', [$this->from, $this->to])
-            ->orWhere(function ($query2) {
-              $query2
+            ->Where(function ($query) {
+              $query
+                ->where('author_id', '=', $this->property('authorID'))
+                ->whereBetween('created_at', [$this->from, $this->to]);
+            })
+            ->orWhere(function ($query) {
+              $query
                 ->where('author_id', '=', $this->property('userID'))
                 ->where('evaluation_id', '=', $this->property('evaluationID'))
                 ->whereBetween('created_at', [$this->from, $this->to]);
@@ -262,10 +265,15 @@ class ScopePosts extends ComponentBase
       $isPublished = !$this->checkEditor(); //if backend user logged in and can access post then isPublished is false also show unpublished
       $posts = BlogPost::with('categories')
         ->with('tags')
-        ->where('author_id', '=', $this->property('authorID'))
-        ->whereBetween('created_at', [$this->from, $this->to])
-        ->orWhere(function ($query2) {
-          $query2
+        ->Where(function ($query) {
+          $category = $this->category ? $this->category->id : null;
+          $query
+            ->where('author_id', '=', $this->property('authorID'))
+            ->whereBetween('created_at', [$this->from, $this->to]);
+        })
+        ->orWhere(function ($query) {
+          $category = $this->category ? $this->category->id : null;
+          $query
             ->where('author_id', '=', $this->property('userID'))
             ->where('evaluation_id', '=', $this->property('evaluationID'))
             ->whereBetween('created_at', [$this->from, $this->to]);
@@ -291,11 +299,11 @@ class ScopePosts extends ComponentBase
           if(!in_array($value['id'], $tags['id'])) {
             $tags['name'][] = $value['name'];
             $tags['id'][] = $value['id'];
-            echo $posts[$i]->id.'<br>';
+            #echo $posts[$i]->id.'<br>';
           }
         }
       }
-      dd($tags);
+      //dd($tags);
       //dd($posts[0]->featured_images);
       $this->tags = $tags;
       /*
