@@ -52,7 +52,7 @@ function onEnd() {
 {% component 'SeoBlogPost' data=post %}
 <section id="layout-title">
   <div class="container">
-    <h5>{{ post.title|raw }}
+    <h5><img src="{% if post.author.facebook_id %} https://graph.facebook.com/{{ post.author.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" alt="{{ post.author.name }}" class="avatar" onClick="window.location.href = '/u/{{post.author_id}}';"> {{ post.title|raw }}
       {% if post.author.id == user.id %}
         <a href="/edit/post/{{ post.slug }}"> {{ 'Edit'|_ }}</a>
       {% endif %}
@@ -67,9 +67,20 @@ function onEnd() {
     <div class="col-sm-12 col-md-12">
       <!-- Blog Post #1 -->
       <div class="blog">
-        <img src="{% if post.author.facebook_id %} https://graph.facebook.com/{{ post.author.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" alt="{{ post.author.name }}" style="cursor:pointer;" onClick="window.location.href = '/user/profile/{{post.author_id}}';">
         <div class="blog-desc">
-          <p class="text-muted">by <a href="/u/{{post.author_id}}">{{ post.author.name }}</a> on {{ post.published_at|date('M d, Y') }}</p>
+          {% if post.featured_images.count %}
+          <div id="projectImages" class="project-images">
+            {% for image in post.featured_images %}
+              <div>
+                <div class="image"><img data-src="{{ image.filename }}"  src="{{ image.path | resize(1280, 1280) }}" class="img-responsive" alt="{{ image.description }}" /></div>
+                {% put meta %}
+                <meta property="og:image" content="{{ image.path | resize(650, 650) }}" />
+                {% endput %}
+              </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+          <p class="text-muted" align="right">by <a href="/u/{{post.author_id}}">{{ post.author.name }}</a> on {{ post.published_at|date('M d, Y') }}</p>
           <hr />
           {% if post.excerpt %}
             <blockquote>
@@ -78,18 +89,7 @@ function onEnd() {
           {% else %}
             {{ post.excerpt|raw }}
           {% endif %}
-          {% if post.featured_images.count %}
-          <div class="featured-images text-center">
-            {% for image in post.featured_images %}
-            <p>
-              <img data-src="{{ image.filename }}" src="{{ image.path | resize(800, 800) }}" alt="{{ image.description }}" />
-              {% put meta %}
-              <meta property="og:image" content="{{ image.path | resize(650, 650) }}" />
-              {% endput %}
-            </p>
-            {% endfor %}
-          </div>
-          {% endif %}
+
           <div align="left" style="text-align:left;">{% partial "ads/in-article" %}</div>
           {{ post.content_html|raw }}
           <p class="info">
@@ -153,3 +153,29 @@ function onEnd() {
     </div>
   </div>
 </div>
+
+{% put styles %}
+  <link href="{{ [
+    'assets/vendor/slick/slick.css',
+  ]|theme }}" rel="stylesheet">
+{% endput %}
+{% put scripts %}
+  <script src="{{ [
+    'assets/vendor/slick/slick.js',
+  ]|theme }}"></script>
+  <script>
+    $(document).ready(function() {
+      $('#projectImages').slick({
+        dots: true,
+        infinite: true,
+        speed: 1000,
+        fade: true,
+        cssEase: 'linear',
+        slidesToShow: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        pauseOnHover: true
+      });
+    })
+  </script>
+{% endput %}

@@ -5,13 +5,10 @@ Try plugin
 - Rainlab twitter
 
 Do
-- ทำหน้าเขียน ร่องรอยการเรียนรู้ เอาปุ่ม draft กลับมา และให้แสดงทุกโพสต์รวมทั้ง draft ในกรณีที่เป็นของตัวเอง หน้า profile ของตัวเอง แยกส่วน draft ไว้ ต่างหาก
-
-
-- ทดสอบให้นำทาง login แล้วดึงให้ถูกตาม portfolio_id
-
+- feature image banner big on slide like project
+- เพิ่ม link index ร่องรอยการเรียนรู้ ตามกลุ่มประสบการณ์
+- กรณีไม่กรอกอะไรเลยใน form ไม่ต้องแสดง index และหัวข้อ
 - Gen QR
-- feature image banner big on Topic
 
 ================================================================================
 ชวนกันขุดมันหวานญี่ปุ่นพันธุ์ส้มโอกินาวา (Harvest Japanese Sweet Potatoes experience)
