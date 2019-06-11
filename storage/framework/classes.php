@@ -1,6 +1,12 @@
 <?php return array (
   'System\\Classes\\PluginManager' => 'modules/system/classes/PluginManager.php',
   'System\\Classes\\PluginBase' => 'modules/system/classes/PluginBase.php',
+<<<<<<< HEAD
+=======
+  'october\\demo\\Plugin' => 'plugins/october/demo/Plugin.php',
+  'zen\\robots\\Plugin' => 'plugins/zen/robots/Plugin.php',
+  'kurtjensen\\passage\\Plugin' => 'plugins/kurtjensen/passage/Plugin.php',
+>>>>>>> 8e9bbe1196b513ce76ccabf50b053999c7f829fa
   'fireunion\\blogfront\\Plugin' => 'plugins/fireunion/blogfront/Plugin.php',
   'kurtjensen\\passage\\Plugin' => 'plugins/kurtjensen/passage/Plugin.php',
   'anandpatel\\wysiwygeditors\\Plugin' => 'plugins/anandpatel/wysiwygeditors/Plugin.php',
@@ -13,6 +19,7 @@
   'responsiv\\uploader\\Plugin' => 'plugins/responsiv/uploader/Plugin.php',
   'bedard\\debugbar\\Plugin' => 'plugins/bedard/debugbar/Plugin.php',
   'bedard\\blogtags\\Plugin' => 'plugins/bedard/blogtags/Plugin.php',
+<<<<<<< HEAD
   'martin\\ssbuttons\\Plugin' => 'plugins/martin/ssbuttons/Plugin.php',
   'flynsarmy\\sociallogin\\Plugin' => 'plugins/flynsarmy/sociallogin/Plugin.php',
   'toughdeveloper\\imageresizer\\Plugin' => 'plugins/toughdeveloper/imageresizer/Plugin.php',
@@ -20,12 +27,16 @@
   'watchlearn\\contact\\Plugin' => 'plugins/watchlearn/contact/Plugin.php',
   'watchlearn\\movies\\Plugin' => 'plugins/watchlearn/movies/Plugin.php',
   'rainlab\\sitemap\\Plugin' => 'plugins/rainlab/sitemap/Plugin.php',
+=======
+  'bedard\\debugbar\\Plugin' => 'plugins/bedard/debugbar/Plugin.php',
+>>>>>>> 8e9bbe1196b513ce76ccabf50b053999c7f829fa
   'rainlab\\user\\Plugin' => 'plugins/rainlab/user/Plugin.php',
   'rainlab\\forum\\Plugin' => 'plugins/rainlab/forum/Plugin.php',
   'rainlab\\userplus\\Plugin' => 'plugins/rainlab/userplus/Plugin.php',
   'rainlab\\notify\\Plugin' => 'plugins/rainlab/notify/Plugin.php',
   'rainlab\\translate\\Plugin' => 'plugins/rainlab/translate/Plugin.php',
   'rainlab\\builder\\Plugin' => 'plugins/rainlab/builder/Plugin.php',
+<<<<<<< HEAD
   'rainlab\\location\\Plugin' => 'plugins/rainlab/location/Plugin.php',
   'rainlab\\blog\\Plugin' => 'plugins/rainlab/blog/Plugin.php',
   'System\\Classes\\ComposerManager' => 'modules/system/classes/ComposerManager.php',
@@ -36,13 +47,42 @@
   'Cms\\Classes\\Page' => 'modules/cms/classes/Page.php',
   'System\\Classes\\CombineAssets' => 'modules/system/classes/CombineAssets.php',
   'RainLab\\Blog\\Classes\\TagProcessor' => 'plugins/rainlab/blog/classes/TagProcessor.php',
+=======
+  'rainlab\\sitemap\\Plugin' => 'plugins/rainlab/sitemap/Plugin.php',
+  'toughdeveloper\\imageresizer\\Plugin' => 'plugins/toughdeveloper/imageresizer/Plugin.php',
+  'numthang\\profile\\Plugin' => 'plugins/numthang/profile/Plugin.php',
+  'numthang\\blogscope\\Plugin' => 'plugins/numthang/blogscope/Plugin.php',
+  'numthang\\homeschool\\Plugin' => 'plugins/numthang/homeschool/Plugin.php',
+  'flynsarmy\\sociallogin\\Plugin' => 'plugins/flynsarmy/sociallogin/Plugin.php',
+  'martin\\ssbuttons\\Plugin' => 'plugins/martin/ssbuttons/Plugin.php',
+  'anandpatel\\wysiwygeditors\\Plugin' => 'plugins/anandpatel/wysiwygeditors/Plugin.php',
+  'pkleindienst\\blogsearch\\Plugin' => 'plugins/pkleindienst/blogsearch/Plugin.php',
+  'watchlearn\\movies\\Plugin' => 'plugins/watchlearn/movies/Plugin.php',
+  'watchlearn\\contact\\Plugin' => 'plugins/watchlearn/contact/Plugin.php',
+  'responsiv\\uploader\\Plugin' => 'plugins/responsiv/uploader/Plugin.php',
+  'System\\Classes\\ComposerManager' => 'modules/system/classes/ComposerManager.php',
+  'RainLab\\Notify\\Classes\\Notifier' => 'plugins/rainlab/notify/classes/Notifier.php',
+>>>>>>> 8e9bbe1196b513ce76ccabf50b053999c7f829fa
   'System\\Classes\\MailManager' => 'modules/system/classes/MailManager.php',
   'System\\Classes\\MarkupManager' => 'modules/system/classes/MarkupManager.php',
+  'System\\Classes\\CombineAssets' => 'modules/system/classes/CombineAssets.php',
+  'Backend\\Facades\\BackendMenu' => 'modules/backend/facades/BackendMenu.php',
+  'Backend\\Classes\\NavigationManager' => 'modules/backend/classes/NavigationManager.php',
+  'Backend\\Classes\\WidgetManager' => 'modules/backend/classes/WidgetManager.php',
+  'Backend\\Facades\\BackendAuth' => 'modules/backend/facades/BackendAuth.php',
+  'Backend\\Classes\\AuthManager' => 'modules/backend/classes/AuthManager.php',
+  'System\\Classes\\SettingsManager' => 'modules/system/classes/SettingsManager.php',
   'Cms\\Classes\\ComponentManager' => 'modules/cms/classes/ComponentManager.php',
+<<<<<<< HEAD
   'RainLab\\User\\Models\\User' => 'plugins/rainlab/user/models/User.php',
   'RainLab\\Blog\\Models\\Post' => 'plugins/rainlab/blog/models/Post.php',
   'RainLab\\User\\Models\\UserGroup' => 'plugins/rainlab/user/models/UserGroup.php',
   'KurtJensen\\Passage\\Services\\PassageServiceProvider' => 'plugins/kurtjensen/passage/services/PassageServiceProvider.php',
+=======
+  'Cms\\Contracts\\CmsObject' => 'modules/cms/contracts/CmsObject.php',
+  'Cms\\Classes\\CmsObject' => 'modules/cms/classes/CmsObject.php',
+  'RainLab\\User\\Models\\User' => 'plugins/rainlab/user/models/User.php',
+>>>>>>> 8e9bbe1196b513ce76ccabf50b053999c7f829fa
   'System\\Traits\\ViewMaker' => 'modules/system/traits/ViewMaker.php',
   'System\\Traits\\AssetMaker' => 'modules/system/traits/AssetMaker.php',
   'System\\Traits\\ConfigMaker' => 'modules/system/traits/ConfigMaker.php',
@@ -50,12 +90,17 @@
   'Backend\\Traits\\ErrorMaker' => 'modules/backend/traits/ErrorMaker.php',
   'Backend\\Traits\\WidgetMaker' => 'modules/backend/traits/WidgetMaker.php',
   'Backend\\Classes\\Controller' => 'modules/backend/classes/Controller.php',
+<<<<<<< HEAD
   'Rainlab\\User\\Controllers\\Users' => 'plugins/rainlab/user/controllers/Users.php',
+=======
+  'RainLab\\User\\Controllers\\Users' => 'plugins/rainlab/user/controllers/Users.php',
+>>>>>>> 8e9bbe1196b513ce76ccabf50b053999c7f829fa
   'Backend\\Traits\\SessionMaker' => 'modules/backend/traits/SessionMaker.php',
   'Backend\\Classes\\ControllerBehavior' => 'modules/backend/classes/ControllerBehavior.php',
   'Backend\\Traits\\FormModelSaver' => 'modules/backend/traits/FormModelSaver.php',
   'Backend\\Behaviors\\FormController' => 'modules/backend/behaviors/FormController.php',
   'Backend\\Behaviors\\ListController' => 'modules/backend/behaviors/ListController.php',
+<<<<<<< HEAD
   'RainLab\\Blog\\Controllers\\Posts' => 'plugins/rainlab/blog/controllers/Posts.php',
   'Backend\\Behaviors\\ImportExportController' => 'modules/backend/behaviors/ImportExportController.php',
   'RainLab\\Notify\\Interfaces\\Action' => 'plugins/rainlab/notify/interfaces/Action.php',
@@ -159,6 +204,8 @@
   'Backend\\Classes\\NavigationManager' => 'modules/backend/classes/NavigationManager.php',
   'Backend\\Classes\\WidgetManager' => 'modules/backend/classes/WidgetManager.php',
   'System\\Classes\\SettingsManager' => 'modules/system/classes/SettingsManager.php',
+=======
+>>>>>>> 8e9bbe1196b513ce76ccabf50b053999c7f829fa
   'Backend\\Classes\\BackendController' => 'modules/backend/classes/BackendController.php',
   'Backend\\Traits\\InspectableContainer' => 'modules/backend/traits/InspectableContainer.php',
   'Backend\\Classes\\Skin' => 'modules/backend/classes/Skin.php',
@@ -168,6 +215,7 @@
   'Backend\\Classes\\WidgetBase' => 'modules/backend/classes/WidgetBase.php',
   'Backend\\Widgets\\MediaManager' => 'modules/backend/widgets/MediaManager.php',
   'Backend\\Models\\Preference' => 'modules/backend/models/Preference.php',
+<<<<<<< HEAD
   'Backend\\Behaviors\\UserPreferencesModel' => 'modules/backend/behaviors/UserPreferencesModel.php',
   'Backend\\Models\\UserPreference' => 'modules/backend/models/UserPreference.php',
   'Backend\\Widgets\\ReportContainer' => 'modules/backend/widgets/ReportContainer.php',
@@ -176,11 +224,22 @@
   'Backend\\ReportWidgets\\Welcome' => 'modules/backend/reportwidgets/Welcome.php',
   'System\\ReportWidgets\\Status' => 'modules/system/reportwidgets/Status.php',
   'Cms\\ReportWidgets\\ActiveTheme' => 'modules/cms/reportwidgets/ActiveTheme.php',
+=======
+  'System\\Models\\PluginVersion' => 'modules/system/models/PluginVersion.php',
+  'Backend\\Widgets\\Lists' => 'modules/backend/widgets/Lists.php',
+  'Backend\\Widgets\\Toolbar' => 'modules/backend/widgets/Toolbar.php',
+>>>>>>> 8e9bbe1196b513ce76ccabf50b053999c7f829fa
   'Backend\\Facades\\Backend' => 'modules/backend/facades/Backend.php',
   'Backend\\Helpers\\Backend' => 'modules/backend/helpers/Backend.php',
+  'Backend\\Classes\\ListColumn' => 'modules/backend/classes/ListColumn.php',
+  'System\\Classes\\ModelBehavior' => 'modules/system/classes/ModelBehavior.php',
+  'System\\Behaviors\\SettingsModel' => 'modules/system/behaviors/SettingsModel.php',
+  'Backend\\Behaviors\\UserPreferencesModel' => 'modules/backend/behaviors/UserPreferencesModel.php',
+  'Backend\\Models\\UserPreference' => 'modules/backend/models/UserPreference.php',
   'Backend\\Models\\BrandSetting' => 'modules/backend/models/BrandSetting.php',
   'Backend\\Models\\EditorSetting' => 'modules/backend/models/EditorSetting.php',
   'System\\Models\\LogSetting' => 'modules/system/models/LogSetting.php',
+<<<<<<< HEAD
   'Backend\\Traits\\SelectableWidget' => 'modules/backend/traits/SelectableWidget.php',
   'Backend\\Traits\\CollapsableWidget' => 'modules/backend/traits/CollapsableWidget.php',
   'Cms\\Widgets\\TemplateList' => 'modules/cms/widgets/TemplateList.php',
@@ -273,4 +332,8 @@
   'Cms\\Classes\\ThemeManager' => 'modules/cms/classes/ThemeManager.php',
   'System\\Classes\\VersionManager' => 'modules/system/classes/VersionManager.php',
   'System\\Classes\\ErrorHandler' => 'modules/system/classes/ErrorHandler.php',
+=======
+  'System\\Models\\File' => 'modules/system/models/File.php',
+  'RainLab\\User\\Classes\\UserRedirector' => 'plugins/rainlab/user/classes/UserRedirector.php',
+>>>>>>> 8e9bbe1196b513ce76ccabf50b053999c7f829fa
 );
