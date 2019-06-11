@@ -1,5 +1,5 @@
 1.0.1:
-    - 'Initialize plugin.'
+    - 'Initialize plugin'
 1.0.2:
     - 'Created table numthang_homeschool_course'
     - builder_table_create_numthang_homeschool_course.php
