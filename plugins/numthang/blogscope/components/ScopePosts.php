@@ -205,27 +205,27 @@ class ScopePosts extends ComponentBase
       $this->to = '2100-01-01';
     }
     else {
-      $this->from = $this->property('from');
-      $this->to = $this->property('to');
+      $this->from = $this->property('from').' 00:00:00';
+      $this->to = $this->property('to').' 00:00:00';
     }
   }
   protected function sortPostsbyTags() {
     $category = $this->category ? $this->category->id : null;
     $tags = $this->tags;
     $i = 0; $list = array();
-
     foreach ($tags['id'] as $key1 => $tag_id) {
       $posts = Tag::Where('id', $tag_id)
         ->with(['posts' => function($query) {
           $category = $this->category ? $this->category->id : null;
           $query
             ->where('author_id', '=', $this->property('authorID'))
+            ->whereBetween('created_at', [$this->from, $this->to])
             ->orWhere(function ($query2) {
               $query2
                 ->where('author_id', '=', $this->property('userID'))
-                ->where('evaluation_id', '=', $this->property('evaluationID'));
+                ->where('evaluation_id', '=', $this->property('evaluationID'))
+                ->whereBetween('created_at', [$this->from, $this->to]);
             })
-            ->whereBetween('published_at', [$this->from, $this->to])
             ->listFrontEnd([
               'category'  => $category,
               'sort'      => $this->property('sortOrder'),
@@ -263,8 +263,9 @@ class ScopePosts extends ComponentBase
       $posts = BlogPost::with('categories')
         ->with('tags')
         ->where('author_id', '=', $this->property('authorID'))
+        ->whereBetween('created_at', [$this->from, $this->to])
         ->orWhere('author_id', '=', $this->property('userID'))
-        ->whereBetween('published_at', [$this->from, $this->to])
+        ->whereBetween('created_at', [$this->from, $this->to])
         ->listFrontEnd([
           'page'             => $this->property('pageNumber'),
           'sort'             => $this->property('sortOrder'),
