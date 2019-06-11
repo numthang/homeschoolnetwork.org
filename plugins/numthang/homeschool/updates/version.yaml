@@ -77,7 +77,7 @@
     - builder_table_update_numthang_homeschool_courses_10.php
 1.0.27:
     - 'Updated table numthang_homeschool_evaluations'
-    - builder_table_update_numthang_homeschool_evaluations_10.php
+    - builder_table_update_numthang_homeschool_evaluations10.php
 1.0.28:
     - 'Updated table numthang_homeschool_evaluations'
-    - builder_table_update_numthang_homeschool_evaluations_11.php
+    - builder_table_update_numthang_homeschool_evaluations11.php
