@@ -288,21 +288,23 @@
             </div>
           </div>
         </dd>
-        <dt><a href="#" class="accordionTitle">9. ร่องรอยการเรียนรู้ (เลือกชื่อผู้เขียน)</a></dt>
-        <dd class="accordionItem">
-          <div class="row">
-            <div class="col-sm-12">
-							<div class="">
-								<select name="portfolios[]" class="s2 multiple-select-box" multiple="multiple">
+				<dt><a href="#" class="accordionTitle">9. ภาคผนวก/ร่องรอยการเรียนรู้</a></dt>
+				<dd class="accordionItem accordionItemCollapsed">
+	        <div class="row">
+	          <div class="col-sm-12">
+							<div class="form-group">
+								<label>นำเข้าผู้แต่ง</label>
+								<select name="portfolio_id" class="s2 select-default">
+									<option value="">{{ 'Select external author'|_ }}</option>
+									<option value="">{{ 'None'|_ }}</option>
 									{% for key,author in authors %}
-									<option value="{{ key }}" {% if key in evaluation.portfolios %} selected {% endif %}>{{ author }}</option>
+									<option value="{{ key }}" {% if key == evaluation.portfolio_id %} selected {% endif %}>{{ author }}</option>
 						      {% endfor %}
 								</select>
 							</div>
 						</div>
-          </div>
-        </dd>
-      </dl>
+	        </div>
+				</dd>
     </div>
     <div class="clearfix"></div>
   </div>

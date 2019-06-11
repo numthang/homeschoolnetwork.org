@@ -66,17 +66,20 @@ sortOrder = "updated_at"
               <!--<div class="col-sm-2 col-xs-2" align="center">
                 <a href="/u/{{ user.id }}"><img src="{% if user.facebook_id %} https://graph.facebook.com/{{ user.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" alt="{{ user.name }}"  title="{{ user.name }}" class="img-rounded img-responsive user-icon avatar-responsive"></a>
               </div>-->
-		          <div class="col-sm-3 col-xs-3" align="center">
-		            <a href="/edit/profile"><img src="/themes/responsiv-flat/assets/images/icons/png/fa-address-book-o.png" class="img-rounded user-icon img-responsive" title="{{ 'My profile'|_ }}"></a>
+		          <div class="col-sm-2 col-xs-2" align="center">
+		            <a href="/edit/profile" title="{{ 'My profile'|_ }}"><span class="fa fa-fw user-icon img-responsive" aria-hidden="true">&#xf2ba;</span></a>
 		          </div>
-		          <div class="col-sm-3 col-xs-3" align="center">
-		            <a href="/add/course"><img src="/themes/responsiv-flat/assets/images/icons/png/fa-file-text-o.png" class="img-rounded user-icon img-responsive" title="{{ 'New course'|_ }}"></a>
+		          <div class="col-sm-2 col-xs-2" align="center">
+		            <a href="/add/course" title="{{ 'New course'|_ }}"><span class="fa fa-fw user-icon img-responsive" aria-hidden="true">&#xf0f6;</span></a>
 		          </div>
-		          <div class="col-sm-3 col-xs-3" align="center">
-		            <a href="/add/evaluation"><img src="/themes/responsiv-flat/assets/images/icons/png/fa-file-picture-o.png" class="img-rounded user-icon img-responsive" title="{{ 'New evaluation'|_ }}"></a>
+		          <div class="col-sm-2 col-xs-2" align="center">
+		            <a href="/add/evaluation" title="{{ 'New evaluation'|_ }}"><span class="fa fa-fw user-icon img-responsive" aria-hidden="true">&#xf15c;</span></a>
 		          </div>
-		          <div class="col-sm-3 col-xs-3" align="center">
-		            <a href="/add/post"><img src="/themes/responsiv-flat/assets/images/icons/png/fa-pencil-o.png" class="img-rounded user-icon img-responsive" title="{{ 'New post'|_ }}"></a>
+		          <div class="col-sm-2 col-xs-2" align="center">
+		            <a href="/add/post" title="{{ 'New post'|_ }}"><span class="fa fa-fw user-icon" aria-hidden="true">&#xf040;</span></a>
+		          </div>
+              <div class="col-sm-2 col-xs-2" align="center">
+		            <a href="/add/portfolio" title="{{ 'New portfolio'|_ }}"><span class="fa fa-fw user-icon" aria-hidden="true">&#xf1c5;</span></a>
 		          </div>
               <!--<div class="col-sm-2 col-xs-2" align="center">
 		            <a href="/add/post"><img src="/themes/responsiv-flat/assets/images/icons/png/signout.png" class="img-rounded user-icon img-responsive" title="{{ 'Sign out'|_ }}"></a>

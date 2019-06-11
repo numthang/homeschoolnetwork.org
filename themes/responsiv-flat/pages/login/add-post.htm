@@ -1,5 +1,5 @@
 title = "New post"
-url = "/add/post"
+url = "/add/:mod|^\bpost\b|\bportfolio\b$"
 layout = "default"
 is_hidden = 0
 robot_index = "index"
@@ -52,7 +52,7 @@ function onStart() {
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-     {% partial 'login/post-form' %}
+      {% partial 'login/post-form' user=user.id %}
     </div>
 	</div>
 </div>

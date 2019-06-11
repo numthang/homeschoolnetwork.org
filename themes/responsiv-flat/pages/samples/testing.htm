@@ -4,13 +4,6 @@ layout = "default"
 is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
-
-[scopePosts]
-results = 0
-byAuthorID = 0
-from = "0000-00-00 00:00:00"
-to = "0000-00-00 00:00:00"
-sortOrder = "name asc"
 ==
 <?php
 function onSubmitContactForm()
@@ -18,8 +11,11 @@ function onSubmitContactForm()
 }
 ?>
 ==
-{% component 'scopePosts' %}
-<!--
+<select class="js-example-basic" name="state">
+  <option value="AL">Alabama</option>
+    ...
+  <option value="WY">Wyoming</option>
+</select>
 <h3>Select 2 With no tag</h3>
 
 <div class="form-control">
@@ -47,39 +43,13 @@ function onSubmitContactForm()
 
 
 {% put scripts %}
-<link rel="stylesheet" href="http://localhost/~tee/select2/bootstrap-tagsinput-latest/dist/bootstrap-tagsinput.css">
-<link rel="stylesheet" href="http://localhost/~tee/select2/bootstrap-tagsinput-latest/examples/assets/app.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
-<script>
 
-var citynames = new Bloodhound({
-  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
-  queryTokenizer: Bloodhound.tokenizers.whitespace,
-  prefetch: {
-    url: '/themes/responsiv-flat/assets/citynames.json',
-    filter: function(list) {
-      return $.map(list, function(cityname) {
-        return { name: cityname }; });
-    }
-  }
-});
-citynames.initialize();
 
-/**
- * Typeahead
- */
-var elt = $('.example_typeahead > > input');
-elt.tagsinput({
-  typeaheadjs: {
-    name: 'citynames',
-    displayKey: 'name',
-    valueKey: 'name',
-    source: citynames.ttAdapter()
-  }
-});
-
-</script>
 <script type="text/javascript">
+  // In your Javascript (external .js resource or <script> tag)
+  $(document).ready(function() {
+      $('.js-example-basic').select2();
+  });
   // Do this before you initialize any of your modals
   $(".s2").select2({
 
@@ -87,4 +57,4 @@ elt.tagsinput({
   $("#tags").select2({tags:[ "homeschool", "บ้านเรียนนำทาง", "กิจกรรมของเด็กโฮมสกูล", "โฮมสคูล", "นำทาง"
 ]});
 </script>
-{% endput %}-->
+{% endput %}

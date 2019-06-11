@@ -313,6 +313,7 @@
   'System\\Models\\MailTemplate' => 'modules/system/models/MailTemplate.php',
   'System\\Twig\\Engine' => 'modules/system/twig/Engine.php',
   'System\\Models\\MailLayout' => 'modules/system/models/MailLayout.php',
+<<<<<<< HEAD
   'System\\Twig\\MailPartialTokenParser' => 'modules/system/twig/MailPartialTokenParser.php',
   'System\\Helpers\\View' => 'modules/system/helpers/View.php',
   'System\\Models\\MailBrandSetting' => 'modules/system/models/MailBrandSetting.php',
@@ -330,4 +331,15 @@
   'Cms\\Twig\\ScriptsNode' => 'modules/cms/twig/ScriptsNode.php',
   'System\\Classes\\MediaLibrary' => 'modules/system/classes/MediaLibrary.php',
   'System\\Classes\\MediaLibraryItem' => 'modules/system/classes/MediaLibraryItem.php',
+=======
+  'RainLab\\Builder\\Classes\\MigrationColumnType' => 'plugins/rainlab/builder/classes/MigrationColumnType.php',
+  'Backend\\FormWidgets\\DataTable' => 'modules/backend/formwidgets/DataTable.php',
+  'Backend\\Widgets\\Table\\ClientMemoryDataSource' => 'modules/backend/widgets/table/ClientMemoryDataSource.php',
+  'RainLab\\Builder\\Classes\\DatabaseTableSchemaCreator' => 'plugins/rainlab/builder/classes/DatabaseTableSchemaCreator.php',
+  'RainLab\\Builder\\Classes\\TableMigrationCodeGenerator' => 'plugins/rainlab/builder/classes/TableMigrationCodeGenerator.php',
+  'RainLab\\Builder\\Classes\\MigrationModel' => 'plugins/rainlab/builder/classes/MigrationModel.php',
+  'RainLab\\Builder\\Classes\\MigrationFileParser' => 'plugins/rainlab/builder/classes/MigrationFileParser.php',
+  'bedard\\debugbar\\Plugin' => 'plugins/bedard/debugbar/Plugin.php',
+  'System\\Models\\MailSetting' => 'modules/system/models/MailSetting.php',
+>>>>>>> 1bc196bbbb4c5e6d34dfb6b54fe5674ab792df67
 );

@@ -1,0 +1,54 @@
+title = "Select2 Sample"
+url = "/select2"
+layout = "default"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+==
+<select class="js-example-basic" name="state">
+  <option value="AL">Alabama</option>
+    ...
+  <option value="WY">Wyoming</option>
+</select>
+<h3>Select 2 With no tag</h3>
+
+<div class="form-control">
+  <select class="s2" multiple="multiple" style="width:100%; color:#999;">
+    <option>homeschool</option>
+    <option>บ้านเรียนนำทาง</option>
+    <option selected="selected">กิจกรรมของเด็กโฮมสกูล</option>
+  </select>
+</div><br>
+<h3>Select 2</h3>
+<div class="form-control">
+  <input type="text" id="tags" length="30" />
+</div>
+<br>
+
+<div class="example example_typeahead">
+  <h3>Typeahead</h3>
+  Typeahead is not included in Bootstrap 3, so you'll have to include your own typeahead library. I'd recommed <a href="http://twitter.github.io/typeahead.js/">typeahead.js</a>. An example of using this is shown below.
+
+  <div class="bs-example">
+    <input type="text" value="Amsterdam,Washington" />
+  </div>
+</div>
+<br>
+
+
+{% put scripts %}
+
+
+<script type="text/javascript">
+  // In your Javascript (external .js resource or <script> tag)
+  $(document).ready(function() {
+      $('.js-example-basic').select2();
+  });
+  // Do this before you initialize any of your modals
+  $(".s2").select2({
+
+  });
+  $("#tags").select2({tags:[ "homeschool", "บ้านเรียนนำทาง", "กิจกรรมของเด็กโฮมสกูล", "โฮมสคูล", "นำทาง"
+]});
+</script>
+{% endput %}

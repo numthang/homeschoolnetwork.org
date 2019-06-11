@@ -80,4 +80,14 @@
     - builder_table_update_numthang_homeschool_evaluations10.php
 1.0.28:
     - 'Updated table numthang_homeschool_evaluations'
+<<<<<<< HEAD
     - builder_table_update_numthang_homeschool_evaluations11.php
+=======
+    - builder_table_update_numthang_homeschool_evaluations_11.php
+1.0.29:
+    - 'Updated table numthang_homeschool_evaluations'
+    - builder_table_update_numthang_homeschool_evaluations_12.php
+1.0.30:
+    - 'Updated table rainlab_blog_posts'
+    - table_update_rainlab_blog_posts1.php
+>>>>>>> 1bc196bbbb4c5e6d34dfb6b54fe5674ab792df67
