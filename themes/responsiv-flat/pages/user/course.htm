@@ -62,10 +62,10 @@ public function onEnd() {
   <h2><a href="#fifth">5. รูปแบบการจัดการศึกษา</a></h2>
   <h2><a href="#sixth">6. โครงสร้างเวลาเรียน</a></h2>
   <h2><a href="#seventh">7. การจัดกลุ่มสาระการเรียนรู้ / กลุ่มประสบการณ์</a></h2>
-  <h2><a href="#eighth">8. การจัดกิจกรรมพัฒนาผู้เรียน</a></h2>
-  <h2><a href="#ninth">9. การจัดกระบวนการเรียนรู้</a></h2>
-  <h2><a href="#tenth">10. การวัดและประเมินผลการเรียนรู้</h2>
-  <h2><a href="#eleventh">11. อื่นๆ</a></h2>
+  <!--<h2><a href="#eighth">8. การจัดกิจกรรมพัฒนาผู้เรียน</a></h2>-->
+  <h2><a href="#ninth">8. การจัดกระบวนการเรียนรู้</a></h2>
+  <h2><a href="#tenth">9. การวัดและประเมินผลการเรียนรู้</h2>
+  <h2><a href="#eleventh">10. อื่นๆ</a></h2>
 </div>
 <div class="page other">
   <a name="first" id="first"><strong>1. ข้อมูลพื้นฐานของครอบครัว</strong></a><br><br>
@@ -102,13 +102,13 @@ public function onEnd() {
   {{ record.schedule|raw }}<br>
   <a name="seventh" id="seventh"><strong>7. การจัดกลุ่มสาระการเรียนรู้ / กลุ่มประสบการณ์</strong></a><br><br>
   {{ record.curriculum|raw }}<br>
-  <a name="eighth" id="eighth"><strong>8. การจัดกิจกรรมพัฒนาผู้เรียน</strong></a><br><br>
-  {{ record.activity|raw }}<br>
-  <a name="ninth" id="ninth"><strong>9. การจัดกระบวนการเรียนรู้</strong></a><br><br>
+  <!--<a name="eighth" id="eighth"><strong>8. การจัดกิจกรรมพัฒนาผู้เรียน</strong></a><br><br>
+  {{ record.activity|raw }}<br>-->
+  <a name="ninth" id="ninth"><strong>8. การจัดกระบวนการเรียนรู้</strong></a><br><br>
   {{ record.learning|raw }}<br>
-  <a name="tenth" id="tenth"><strong>10. การวัดและประเมินผลการเรียนรู้</strong></a><br><br>
+  <a name="tenth" id="tenth"><strong>9. การวัดและประเมินผลการเรียนรู้</strong></a><br><br>
   {{ record.evaluate|raw }}<br>
-  <a name="eleventh" id="eleventh"><strong>11. อื่นๆ</strong></a><br><br>
+  <a name="eleventh" id="eleventh"><strong>10. อื่นๆ</strong></a><br><br>
   {{ record.other|raw }}
 </div>
 
