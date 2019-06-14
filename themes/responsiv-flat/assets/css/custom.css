@@ -233,3 +233,28 @@ blockquote p {
 
     white-space: nowrap;
 }
+
+/*portfolio*/
+.picture {
+  margin-top: 20px;
+
+}
+.picture img{
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.3);
+
+}
+.picture .description{
+  margin-top:5px;
+}
+.picture:hover {
+  opacity: 0.7;
+}
+/* 5 columns, percentage width */
+.portfolio-item,
+.grid-sizer {
+  width: 20%;
+}
+.portfolio-item {
+  float: left;
+}

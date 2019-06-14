@@ -1,8 +1,6 @@
 {% set postsbytag = __SELF__.postsbytag %}
+{% set tags = __SELF__.tags %}
 
-{% for value in postsbytag %}
-
-    {{ value.title }},
-    {{ value.tag }}<br>
-
+{% for tag in tags['name'] %}
+  {{ tag }}<br>
 {% endfor %}
