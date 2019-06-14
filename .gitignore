@@ -26,7 +26,7 @@ composer.lock
 nbproject
 
 # Exclude the OctoberCMS module folders from being included, they're pulled in via composer
-/modules/**
+#/modules/**
 
 # Exclude the builder plugin
 #plugins/rainlab/builder
