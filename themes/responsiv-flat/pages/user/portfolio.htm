@@ -48,7 +48,6 @@ sortOrder = "published_at asc"
         {% else %}
           <img src="/storage/app/media/heliports_image_placeholder.jpg" width="100%" alt="{{Post.title}}"/>
         {% endif %}
-
         </a>
         <div class="description">
           <a href="/blog/{{Post.id}}" class="btn btn-info btn-block">{{ str_limit(Post.title, 20) }}</a>
