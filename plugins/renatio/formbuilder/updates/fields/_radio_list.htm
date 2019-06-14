@@ -1,0 +1,23 @@
+<div class="{{ wrapper_class }} form-group">
+
+    <label class="btn-block" for="{{ name }}">{{ label }}</label>
+
+    {% for option in options %}
+
+        <label class="radio-inline">
+            <input {{ default == option.o_key ? 'checked' : '' }}
+                type="radio"
+                name="{{ name }}"
+                class="{{ class }}"
+                id="{{ option.o_label }}"
+                value="{{ option.o_key }}"
+                {{ custom_attributes|raw }}
+            >
+            {{ option.o_label }}
+        </label>
+
+    {% endfor %}
+
+    {% if comment %}<p class="help-block">{{ comment }}</p>{% endif %}
+
+</div>

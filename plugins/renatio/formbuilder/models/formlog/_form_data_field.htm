@@ -1,0 +1,27 @@
+<?php if (is_array($formModel->form_data)) : ?>
+
+<?php foreach($formModel->form_data as $key => $data) : ?>
+
+    <?php if ( ! in_array($key, ['files', 'g-recaptcha-response'])) : ?>
+        <p><strong><?php echo $data['label']; ?></strong>:
+
+            <?php if (is_array($data['value'])) : ?>
+
+                <?php echo implode(', ', $data['value']); ?>
+
+            <?php else : ?>
+
+                <?php echo $data['value']; ?>
+
+            <?php endif; ?>
+
+        </p>
+    <?php endif; ?>
+
+<?php endforeach; ?>
+
+<?php else : ?>
+
+    <p><?php echo e(trans('renatio.formbuilder::lang.logs.no_form_data')); ?></p>
+
+<?php endif; ?>

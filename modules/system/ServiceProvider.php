@@ -1,32 +1,30 @@
 <?php namespace System;
 
 use App;
-use Lang;
 use View;
 use Event;
 use Config;
 use Backend;
 use Request;
-use Validator;
 use BackendMenu;
 use BackendAuth;
-use Twig_Environment;
-use Twig_Loader_String;
+use Twig\Environment as TwigEnvironment;
 use System\Classes\MailManager;
 use System\Classes\ErrorHandler;
 use System\Classes\MarkupManager;
 use System\Classes\PluginManager;
 use System\Classes\SettingsManager;
+use System\Classes\UpdateManager;
 use System\Twig\Engine as TwigEngine;
 use System\Twig\Loader as TwigLoader;
 use System\Twig\Extension as TwigExtension;
 use System\Models\EventLog;
 use System\Models\MailSetting;
-use System\Models\MailTemplate;
 use System\Classes\CombineAssets;
 use Backend\Classes\WidgetManager;
 use October\Rain\Support\ModuleServiceProvider;
 use October\Rain\Router\Helper as RouterHelper;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Schema;
 
 class ServiceProvider extends ModuleServiceProvider
@@ -89,6 +87,8 @@ class ServiceProvider extends ModuleServiceProvider
         if (Config::get('database.connections.mysql.charset') === 'utf8mb4') {
             Schema::defaultStringLength(191);
         }
+
+        Paginator::defaultSimpleView('system::pagination.simple-default');
 
         /*
          * Boot plugins
@@ -209,6 +209,11 @@ class ServiceProvider extends ModuleServiceProvider
          * Allow plugins to use the scheduler
          */
         Event::listen('console.schedule', function ($schedule) {
+            // Fix initial system migration with plugins that use settings for scheduling - see #3208
+            if (App::hasDatabase() && !Schema::hasTable(UpdateManager::instance()->getMigrationTableName())) {
+                return;
+            }
+
             $plugins = PluginManager::instance()->getPlugins();
             foreach ($plugins as $plugin) {
                 if (method_exists($plugin, 'registerSchedule')) {
@@ -238,12 +243,16 @@ class ServiceProvider extends ModuleServiceProvider
 
         $this->registerConsoleCommand('plugin.install', 'System\Console\PluginInstall');
         $this->registerConsoleCommand('plugin.remove', 'System\Console\PluginRemove');
+        $this->registerConsoleCommand('plugin.disable', 'System\Console\PluginDisable');
+        $this->registerConsoleCommand('plugin.enable', 'System\Console\PluginEnable');
         $this->registerConsoleCommand('plugin.refresh', 'System\Console\PluginRefresh');
+        $this->registerConsoleCommand('plugin.list', 'System\Console\PluginList');
 
         $this->registerConsoleCommand('theme.install', 'System\Console\ThemeInstall');
         $this->registerConsoleCommand('theme.remove', 'System\Console\ThemeRemove');
         $this->registerConsoleCommand('theme.list', 'System\Console\ThemeList');
         $this->registerConsoleCommand('theme.use', 'System\Console\ThemeUse');
+        $this->registerConsoleCommand('theme.sync', 'System\Console\ThemeSync');
     }
 
     /*
@@ -278,7 +287,7 @@ class ServiceProvider extends ModuleServiceProvider
          * Register system Twig environment
          */
         App::singleton('twig.environment', function ($app) {
-            $twig = new Twig_Environment(new TwigLoader, ['auto_reload' => true]);
+            $twig = new TwigEnvironment(new TwigLoader, ['auto_reload' => true]);
             $twig->addExtension(new TwigExtension);
             return $twig;
         });
@@ -328,9 +337,10 @@ class ServiceProvider extends ModuleServiceProvider
         /*
          * Override standard Mailer content with template
          */
-        Event::listen('mailer.beforeAddContent', function ($mailer, $message, $view, $data, $raw) {
+        Event::listen('mailer.beforeAddContent', function ($mailer, $message, $view, $data, $raw, $plain) {
             $method = $raw === null ? 'addContentToMailer' : 'addRawContentToMailer';
-            return !MailManager::instance()->$method($message, $raw ?: $view, $data);
+            $plainOnly = $view === null; // When "plain-text only" email is sent, $view is null, this sets the flag appropriately
+            return !MailManager::instance()->$method($message, $raw ?: $view ?: $plain, $data, $plainOnly);
         });
     }
 

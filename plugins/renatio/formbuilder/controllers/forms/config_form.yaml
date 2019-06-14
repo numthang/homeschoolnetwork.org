@@ -1,0 +1,27 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: renatio.formbuilder::lang.form.name
+
+# Model Form Field configuration
+form: $/renatio/formbuilder/models/form/fields.yaml
+
+# Model Class name
+modelClass: Renatio\FormBuilder\Models\Form
+
+# Default redirect location
+defaultRedirect: renatio/formbuilder/forms
+
+# Create page
+create:
+    title: renatio.formbuilder::lang.form.create
+    redirect: renatio/formbuilder/forms/update/:id
+    redirectClose: renatio/formbuilder/forms
+
+# Update page
+update:
+    title: renatio.formbuilder::lang.form.edit
+    redirect: renatio/formbuilder/forms
+    redirectClose: renatio/formbuilder/forms

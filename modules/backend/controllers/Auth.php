@@ -32,6 +32,22 @@ class Auth extends Controller
     public function __construct()
     {
         parent::__construct();
+
+        $this->middleware(function ($request, $response) {
+            // Clear Cache and any previous data to fix Invalid security token issue, see github: #3707
+            $response->headers->set('Cache-Control', 'no-cache, no-store, must-revalidate');
+        })->only('signin');
+
+        // Only run on HTTPS connections
+        if (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] === "on") {
+            $this->middleware(function ($request, $response) {
+                // Add HTTP Header 'Clear Site Data' to remove all Sensitive Data when signout, see github issue: #3707
+                $response->headers->set('Clear-Site-Data', 'cache, cookies, storage, executionContexts');
+            })->only('signout');
+        }
+
+        // Add JS File to un-install SW to avoid Cookie Cache Issues when Signin, see github issue: #3707
+        $this->addJs(url("/modules/backend/assets/js/auth/uninstall-sw.js"));
         $this->layout = 'auth';
     }
 
@@ -54,9 +70,8 @@ class Auth extends Controller
             if (post('postback')) {
                 return $this->signin_onSubmit();
             }
-            else {
-                $this->bodyClass .= ' preload';
-            }
+
+            $this->bodyClass .= ' preload';
         }
         catch (Exception $ex) {
             Flash::error($ex->getMessage());
@@ -75,7 +90,7 @@ class Auth extends Controller
             throw new ValidationException($validation);
         }
 
-        if (is_null($remember = config('cms.backendForceRemember', true))) {
+        if (($remember = config('cms.backendForceRemember', true)) === null) {
             $remember = (bool) post('remember');
         }
 
@@ -105,7 +120,12 @@ class Auth extends Controller
      */
     public function signout()
     {
-        BackendAuth::logout();
+        if (BackendAuth::isImpersonator()) {
+            BackendAuth::stopImpersonate();
+        } else {
+            BackendAuth::logout();
+        }
+
         return Backend::redirect('backend');
     }
 

@@ -73,18 +73,19 @@ class Helper
             if ($post->powerseo_description) {
                 $ogTags .= '<meta property="og:description" content="' . $post->powerseo_description . '" />' . "\n";
             }
-            else
-              $ogTags .= '<meta property="og:description" content="'.trim(strip_tags(str_replace('"', '', ($post->excerpt)))).'" />' . "\n";
 
-            $ogTitle = empty($post->meta_title) ? $post->title : $post->meta_title;
-            $ogUrl = empty($post->canonical_url) ? Request::url() : $this->page->canonical_url;
+            $ogTitle = empty($post->powerseo_title) ? $post->title : $post->powerseo_title;
+            $ogUrl = Request::url();
+            if(!empty($post->powerseo_canonical_url)){
+                $ogUrl = $post->powerseo_canonical_url;
+            }
+            else if(!empty($this->page->powerseo_canonical_url)){
+                $ogUrl = $this->page->powerseo_canonical_url;
+            }
 
-            $ogTags .= '
-              <meta property="og:type" content="article">
-              <meta property="article:published_time" content="'.strtotime($post->created_at).'"/>'."\n";
+            $ogTags .= '<meta property="og:title" content="' . $ogTitle . '" />' . "\n";
 
-            $ogTags .= '<meta property="og:title" content="' . $ogTitle . '" />'."\n";
-            $ogTags .= '<meta property="og:url" content="' . $ogUrl . '" />'."\r\n";
+            $ogTags .= '<meta property="og:url" content="' . $ogUrl . '" />';
 
             return $ogTags;
         }

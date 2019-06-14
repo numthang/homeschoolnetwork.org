@@ -1,0 +1,36 @@
+<div class="control-multi-file-uploader form-group"
+     data-handler="{{ __SELF__ ~ '::onUpdateFile' }}"
+     data-control="multi-file-uploader"
+     data-max-size="{{ fileConfig.maxSize }}"
+     data-file-types="{{ fileConfig.fileTypes|join(', ') }}">
+
+    <div class="clickable"></div>
+    <div class="content">
+        <p class="placeholder">{{ fileConfig.placeholder }}</p>
+    </div>
+
+    <div class="template" style="display: none">
+        <div class="dz-preview dz-file-preview">
+            <img class="thumbnail" src="{{ 'plugins/renatio/formbuilder/assets/images/upload.png'|app }}"
+                 data-dz-thumbnail/>
+
+            <div class="dz-details">
+                <div class="dz-filename"><span data-dz-name></span></div>
+                <div class="dz-size" data-dz-size></div>
+                <div class="activity">
+                    <div class="loading"></div>
+                </div>
+            </div>
+            <div class="action-panel">
+                <a href="javascript:;" class="delete">&times;</a>
+            </div>
+            <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
+
+            <div class="dz-error-message">
+                <div class="dz-error-mark">&cross;</div>
+                <span data-dz-errormessage></span>
+            </div>
+        </div>
+    </div>
+
+</div>

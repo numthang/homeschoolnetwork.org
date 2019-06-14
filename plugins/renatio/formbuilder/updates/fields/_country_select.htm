@@ -1,0 +1,25 @@
+{% if locationPluginEnabled() %}
+
+    <div class="{{ wrapper_class }} form-group">
+
+        {% if label %}<label for="{{ name }}">{{ label }}</label>{% endif %}
+
+        {{ form_select_country(name, null,
+        {
+            class: class ~ ' form-control',
+            emptyOption: placeholder,
+            'data-request': 'onChangeCountry',
+            'data-request-data': {placeholder: placeholder, name: name},
+        }) }}
+
+        {% if comment %}<p class="help-block">{{ comment }}</p>{% endif %}
+
+    </div>
+
+{% else %}
+
+    <p style="color: #ff0033;">
+        You must install <a target="_blank" href="https://octobercms.com/plugin/rainlab-location">Location Plugin</a> to use location fields!
+    </p>
+
+{% endif %}

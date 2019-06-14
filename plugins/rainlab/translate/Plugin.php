@@ -4,6 +4,7 @@ use Lang;
 use Event;
 use Backend;
 use Cms\Classes\Page;
+use System\Models\File;
 use System\Classes\PluginBase;
 use RainLab\Translate\Models\Message;
 use RainLab\Translate\Classes\EventRegistry;
@@ -43,7 +44,18 @@ class Plugin extends PluginBase
          * Handle translated page URLs
          */
         Page::extend(function($page) {
+            $page->addDynamicProperty('translatable', ['title', 'description', 'meta_title', 'meta_description']);
             $page->extendClassWith('RainLab\Translate\Behaviors\TranslatablePageUrl');
+            $page->extendClassWith('RainLab\Translate\Behaviors\TranslatablePage');
+        });
+
+        /*
+         * Add translation support to file models
+         */
+        File::extend(function ($model) {
+            $model->addDynamicProperty('translatable', ['title', 'description']);
+            $model->extendClassWith('October\Rain\Database\Behaviors\Purgeable');
+            $model->extendClassWith('RainLab\Translate\Behaviors\TranslatableModel');
         });
     }
 
@@ -168,6 +180,7 @@ class Plugin extends PluginBase
             'RainLab\Translate\FormWidgets\MLRichEditor' => 'mlricheditor',
             'RainLab\Translate\FormWidgets\MLMarkdownEditor' => 'mlmarkdowneditor',
             'RainLab\Translate\FormWidgets\MLRepeater' => 'mlrepeater',
+            'RainLab\Translate\FormWidgets\MLMediaFinder' => 'mlmediafinder',
         ];
     }
 

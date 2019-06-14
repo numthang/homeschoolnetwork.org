@@ -10,12 +10,16 @@ use Model;
 use Markdown;
 use BackendAuth;
 use ValidationException;
-use RainLab\Blog\Classes\TagProcessor;
 use Backend\Models\User;
 use Carbon\Carbon;
 use Cms\Classes\Page as CmsPage;
 use Cms\Classes\Theme;
+use Cms\Classes\Controller;
+use RainLab\Blog\Classes\TagProcessor;
 
+/**
+ * Class Post
+ */
 class Post extends Model
 {
     use \October\Rain\Database\Traits\Validation;
@@ -28,6 +32,8 @@ class Post extends Model
      */
     public $rules = [
         'title'   => 'required',
+        /*numthang remove tag required
+        'slug'    => ['required', 'regex:/^[a-z0-9\/\:_\-\*\[\]\+\?\|]*$/i', 'unique:rainlab_blog_posts'],*/
         'content' => 'required',
         'excerpt' => ''
     ];
@@ -134,8 +140,6 @@ class Post extends Model
 
     public function beforeSave()
     {
-      //dd(post('evaluation_id') !== null);
-      //return true;
       /*numthang added this because slug always empty because of the Thai alphabet*/
       if(empty($this->slug))
         $this->slug = DB::table('rainlab_blog_posts')->max('id') + 1;
@@ -143,28 +147,31 @@ class Post extends Model
         $this->evaluation_id = post('evaluation_id');
       /*end numthang*/
 
-      $this->content_html = self::formatHtml($this->content);
+        $this->content_html = self::formatHtml($this->content);
     }
 
     /**
      * Sets the "url" attribute with a URL to this object.
      * @param string $pageName
-     * @param Cms\Classes\Controller $controller
+     * @param Controller $controller
+     * @param array $urlParams A mapping of possible overrides of default URL parameter names
+     *
+     * @return string
      */
-    public function setUrl($pageName, $controller)
+    public function setUrl($pageName, $controller, array $urlParams = array())
     {
         $params = [
-            'id'   => $this->id,
-            'slug' => $this->slug
+            array_get($urlParams, 'id', 'id')   => $this->id,
+            array_get($urlParams, 'slug', 'slug') => $this->slug,
         ];
 
         $params['category'] = $this->categories->count() ? $this->categories->first()->slug : null;
 
         // Expose published year, month and day as URL parameters.
         if ($this->published) {
-            $params['year']  = $this->published_at->format('Y');
-            $params['month'] = $this->published_at->format('m');
-            $params['day']   = $this->published_at->format('d');
+            $params[array_get($urlParams, 'year', 'year')] = $this->published_at->format('Y');
+            $params[array_get($urlParams, 'month', 'month')] = $this->published_at->format('m');
+            $params[array_get($urlParams, 'day', 'day')] = $this->published_at->format('d');
         }
 
         return $this->url = $controller->pageUrl($pageName, $params);
@@ -239,14 +246,28 @@ class Post extends Model
         }
 
         /*
-         * Ignore a post
+         * Except post(s)
          */
         if ($exceptPost) {
-            if (is_numeric($exceptPost)) {
-                $query->where('id', '<>', $exceptPost);
+            $exceptPosts = (is_array($exceptPost)) ? $exceptPost : [$exceptPost];
+            $exceptPostIds = [];
+            $exceptPostSlugs = [];
+
+            foreach ($exceptPosts as $exceptPost) {
+                $exceptPost = trim($exceptPost);
+
+                if (is_numeric($exceptPost)) {
+                    $exceptPostIds[] = $exceptPost;
+                } else {
+                    $exceptPostSlugs[] = $exceptPost;
+                }
             }
-            else {
-                $query->where('slug', '<>', $exceptPost);
+
+            if (count($exceptPostIds)) {
+                $query->whereNotIn('id', $exceptPostIds);
+            }
+            if (count($exceptPostSlugs)) {
+                $query->whereNotIn('slug', $exceptPostSlugs);
             }
         }
 
@@ -288,9 +309,11 @@ class Post extends Model
         /*
          * Except Categories
          */
-        if ($exceptCategories !== null) {
+        if (!empty($exceptCategories)) {
             $exceptCategories = is_array($exceptCategories) ? $exceptCategories : [$exceptCategories];
-            $query->whereDoesntHave('categories', function($q) use ($exceptCategories) {
+            array_walk($exceptCategories, 'trim');
+
+            $query->whereDoesntHave('categories', function ($q) use ($exceptCategories) {
                 $q->whereIn('slug', $exceptCategories);
             });
         }

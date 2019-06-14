@@ -1,35 +1,32 @@
 {% put meta %}
-  {% default %}
-  {% if post.redirect_url %}
-    <meta http-equiv="refresh" content="0; url={{post.redirect_url}}" />
-  {% endif %}
+    {% default %}
+    {% if post.powerseo_redirect_url %}
+        <meta http-equiv="refresh" content="0; url={{post.powerseo_redirect_url}}" />
+    {% endif %}
 
-  {% if post.powerseo_title %}
-    <title>{{ post.powerseo_title | generateTitle}}</title>
-  {% else %}
-    <title>{{ post.title | generateTitle }}</title>
-  {% endif %}
+    {% if post.powerseo_title %}
+        <title>{{ post.powerseo_title | generateTitle}}</title>
+    {% else %}
+        <title>{{ post.title | generateTitle }}</title>
+    {% endif %}
 
-  {% if post.powerseo_description %}
-    <meta name="description" content="{{post.powerseo_description}}">
-  {% else %}
-    <meta name="description" content="{{post.meta_description}}">
-  {% endif %}
+    {% if post.powerseo_description %}
+        <meta name="description" content="{{post.powerseo_description}}">
+    {% endif %}
 
+    {% if post.powerseo_keywords %}
+        <meta name="keywords" content="{{post.powerseo_keywords}}">
+    {% endif %}
 
-  {% if post.powerseo_keywords %}
-    <meta name="keywords" content="{{post.powerseo_keywords}}">
-  {% endif %}
-
-  {% if post.canonical_url %}
-    <link rel="canonical" href="{{post.canonical_url}}" />
-  {% else %}
-    {{ '' | generateCanonicalUrl}}
-  {% endif %}
+    {% if post.powerseo_canonical_url %}
+        <link rel="canonical" href="{{post.powerseo_canonical_url}}" />
+    {% else %}
+        {{ '' | generateCanonicalUrl}}
+    {% endif %}
 
     <meta name="robots" content="{{post.powerseo_robot_index}},{{post.powerseo_robot_follow}}">
 
-  {{ ''|otherMetaTags|raw }}
-  {{ post|generateOgTags }}
+    {{ ''|otherMetaTags|raw }}
 
+    {{ post|generateOgTags }}
 {% endput %}

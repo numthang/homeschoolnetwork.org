@@ -3,7 +3,12 @@
     var $container = $('#portfolioItems');
 
     $container.isotope({
-        itemSelector: '.portfolio-item',
+      itemSelector: '.portfolio-item',
+      percentPosition: true,
+      masonry: {
+        // use outer width of grid-sizer for columnWidth
+        columnWidth: '.grid-sizer'
+      }
     });
 
     $('#filters').on('click', "a", function() {

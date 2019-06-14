@@ -5,10 +5,10 @@ use Str;
 use Lang;
 use Flash;
 use Event;
-use Input;
 use Redirect;
 use Backend;
 use Backend\Classes\ControllerBehavior;
+use October\Rain\Html\Helper as HtmlHelper;
 use October\Rain\Router\Helper as RouterHelper;
 use ApplicationException;
 use Exception;
@@ -80,6 +80,11 @@ class FormController extends ControllerBehavior
     protected $requiredConfig = ['modelClass', 'form'];
 
     /**
+     * @var array Visible actions in context of the controller
+     */
+    protected $actions = ['create', 'update', 'preview'];
+
+    /**
      * @var string The context to pass to the form widget.
      */
     protected $context;
@@ -138,6 +143,11 @@ class FormController extends ControllerBehavior
          * Form Widget with extensibility
          */
         $this->formWidget = $this->makeWidget('Backend\Widgets\Form', $config);
+
+        // Setup the default preview mode on form initialization if the context is preview
+        if ($config->context === 'preview') {
+            $this->formWidget->previewMode = true;
+        }
 
         $this->formWidget->bindEvent('form.extendFieldsBefore', function () {
             $this->controller->formExtendFieldsBefore($this->formWidget);
@@ -436,8 +446,7 @@ class FormController extends ControllerBehavior
     protected function createModel()
     {
         $class = $this->config->modelClass;
-        $model = new $class;
-        return $model;
+        return new $class;
     }
 
     /**
@@ -464,7 +473,7 @@ class FormController extends ControllerBehavior
         }
 
         if ($model && $redirectUrl) {
-            $redirectUrl = RouterHelper::parseValues($model, array_keys($model->getAttributes()), $redirectUrl);
+            $redirectUrl = RouterHelper::replaceParameters($model, $redirectUrl);
         }
 
         if (starts_with($redirectUrl, 'http://') || starts_with($redirectUrl, 'https://')) {
@@ -472,7 +481,7 @@ class FormController extends ControllerBehavior
             $redirect = Redirect::to($redirectUrl);
         } else {
             // Process relative redirects
-            $redirect = ($redirectUrl) ? Backend::redirect($redirectUrl) : null;
+            $redirect = $redirectUrl ? Backend::redirect($redirectUrl) : null;
         }
 
         return $redirect;
@@ -532,11 +541,12 @@ class FormController extends ControllerBehavior
      *     <?= $this->formRenderField('field_name') ?>
      *
      * @param string $name Field name
+     * @param array $options (e.g. ['useContainer'=>false])
      * @return string HTML markup
      */
-    public function formRenderField($name)
+    public function formRenderField($name, $options = [])
     {
-        return $this->formWidget->renderField($name);
+        return $this->formWidget->renderField($name, $options);
     }
 
     /**
