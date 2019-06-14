@@ -36,6 +36,7 @@ function onStart() {
       <p data-control="flash-message" data-interval="5" class="{{ type == 'error' ? 'danger' : type }}">{{ message }}<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></p>
     {% endflash %}
     <div class="col-md-6">
+      <h3>{{ 'Log in'|_ }}</h3>
       {% partial account ~ '::signin' %}
       <a href="/flynsarmy/sociallogin/Facebook"><img src="{{ 'assets/images/fb-login.png'|theme }}" class="social-login"></a>
       <a href="/flynsarmy/sociallogin/Google"><img src="{{ 'assets/images/g-login.png'|theme }}" class="social-login"></a>

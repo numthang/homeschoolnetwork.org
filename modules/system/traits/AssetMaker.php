@@ -2,6 +2,7 @@
 
 use Url;
 use Html;
+use File;
 use System\Models\Parameter;
 use System\Models\PluginVersion;
 use System\Classes\CombineAssets;
@@ -112,7 +113,7 @@ trait AssetMaker
     public function addJs($name, $attributes = [])
     {
         if (is_array($name)) {
-            $name = $this->combineAssets($name);
+            $name = $this->combineAssets($name, $this->getLocalPath($this->assetPath));
         }
 
         $jsPath = $this->getAssetPath($name);
@@ -126,6 +127,13 @@ trait AssetMaker
         }
 
         $jsPath = $this->getAssetScheme($jsPath);
+
+        // Prevent CloudFlare's Rocket Loader from breaking stuff
+        // @see octobercms/october#4092, octobercms/october#3841, octobercms/october#3839
+        if (isset($attributes['cache']) && $attributes['cache'] == 'false') {
+            $attributes['data-cfasync'] = 'false';
+            unset($attributes['cache']);
+        }
 
         if (!in_array($jsPath, $this->assets['js'])) {
             $this->assets['js'][] = ['path' => $jsPath, 'attributes' => $attributes];
@@ -142,7 +150,7 @@ trait AssetMaker
     public function addCss($name, $attributes = [])
     {
         if (is_array($name)) {
-            $name = $this->combineAssets($name);
+            $name = $this->combineAssets($name, $this->getLocalPath($this->assetPath));
         }
 
         $cssPath = $this->getAssetPath($name);
@@ -323,5 +331,14 @@ trait AssetMaker
             }
 
         }
+    }
+
+    protected function getLocalPath(string $relativePath)
+    {
+        $relativePath = File::symbolizePath($relativePath);
+        if (!starts_with($relativePath, [base_path()])) {
+            $relativePath = base_path($relativePath);
+        }
+        return $relativePath;
     }
 }

@@ -1,5 +1,8 @@
 # Front-end user plugin
 
+[![Build Status](https://img.shields.io/travis/rainlab/user-plugin.svg?branch=master)](https://travis-ci.org/rainlab/user-plugin)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/rainlab/user-plugin/blob/master/LICENCE.md)
+
 Front-end user management for October CMS.
 
 ## Requirements
@@ -113,7 +116,7 @@ The reset password component allows a user to reset their password if they have 
     title = "Forgotten your password?"
     url = "/forgot-password/:code?"
 
-    [resetPass]
+    [resetPassword]
     paramCode = "code"
     ==
     {% component 'resetPassword' %}

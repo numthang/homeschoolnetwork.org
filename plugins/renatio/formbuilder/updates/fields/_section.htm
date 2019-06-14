@@ -1,0 +1,8 @@
+{{ wrapper_begin|raw }}
+
+    <fieldset class="{{ class }}" id="{{ name }}">
+        {% if label %}<legend>{{ label }}</legend>{% endif %}
+        {{ fields|raw }}
+    </fieldset>
+
+{{ wrapper_end|raw }}

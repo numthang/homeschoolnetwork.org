@@ -29,7 +29,7 @@ nbproject
 /modules/**
 
 # Exclude the builder plugin
-plugins/rainlab/builder
+#plugins/rainlab/builder
 
 # Exclude the symlinked public directory
 public/

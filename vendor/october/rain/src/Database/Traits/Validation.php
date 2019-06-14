@@ -41,6 +41,11 @@ trait Validation
     protected $validationErrors;
 
     /**
+     * @var array Default custom attribute names.
+     */
+    protected $validationDefaultAttrNames = [];
+
+    /**
      * Boot the validation trait for this model.
      *
      * @return void
@@ -77,6 +82,28 @@ trait Validation
     }
 
     /**
+     * Programatically sets multiple validation attribute names.
+     * @param array $attributeNames
+     * @return void
+     */
+    public function setValidationAttributeNames($attributeNames)
+    {
+        $this->validationDefaultAttrNames = $attributeNames;
+    }
+
+    /**
+     * Programatically sets the validation attribute names, will take lower priority
+     * to model defined attribute names found in `$attributeNames`.
+     * @param string $attr
+     * @param string $name
+     * @return void
+     */
+    public function setValidationAttributeName($attr, $name)
+    {
+        $this->validationDefaultAttrNames[$attr] = $name;
+    }
+
+    /**
      * Returns the model data used for validation.
      * @return array
      */
@@ -95,9 +122,8 @@ trait Validation
         if ($relationType === 'attachOne' || $relationType === 'attachMany') {
             return $this->$relationName()->getValidationValue();
         }
-        else {
-            return $this->getRelationValue($relationName);
-        }
+
+        return $this->getRelationValue($relationName);
     }
 
     /**
@@ -155,13 +181,12 @@ trait Validation
          *     });
          *
          */
-        if (($this->fireModelEvent('validating') === false) || ($this->fireEvent('model.beforeValidate') === false)) {
+        if (($this->fireModelEvent('validating') === false) || ($this->fireEvent('model.beforeValidate', [], true) === false)) {
             if ($throwOnValidation) {
                 throw new ModelException($this);
             }
-            else {
-                return false;
-            }
+
+            return false;
         }
 
         if ($this->methodExists('beforeValidate')) {
@@ -247,6 +272,8 @@ trait Validation
                 $attributeNames = [];
             }
 
+            $attributeNames = array_merge($this->validationDefaultAttrNames, $attributeNames);
+
             if (property_exists($this, 'attributeNames')) {
                 $attributeNames = array_merge($this->attributeNames, $attributeNames);
             }
@@ -321,6 +348,11 @@ trait Validation
      */
     protected function processValidationRules($rules)
     {
+        /*
+         * Run through field names and convert array notation field names to dot notation
+         */
+        $rules = $this->processRuleFieldNames($rules);
+
         foreach ($rules as $field => $ruleParts) {
             /*
              * Trim empty rules
@@ -362,6 +394,32 @@ trait Validation
         }
 
         return $rules;
+    }
+
+    /**
+     * Processes field names in a rule array.
+     *
+     * Converts any field names using array notation (ie. `field[child]`) into dot notation (ie. `field.child`)
+     *
+     * @param array $rules Rules array
+     * @return array
+     */
+    protected function processRuleFieldNames($rules)
+    {
+        $processed = [];
+
+        foreach ($rules as $field => $ruleParts) {
+            $fieldName = $field;
+
+            if (preg_match('/^.*?\[.*?\]/', $fieldName)) {
+                $fieldName = str_replace('[]', '.*', $fieldName);
+                $fieldName = str_replace(['[', ']'], ['.', ''], $fieldName);
+            }
+
+            $processed[$fieldName] = $ruleParts;
+        }
+
+        return $processed;
     }
 
     /**

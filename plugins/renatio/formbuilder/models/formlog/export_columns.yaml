@@ -1,0 +1,26 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+
+    id:
+        label: renatio.formbuilder::lang.field.id
+
+    form_id:
+        label: renatio.formbuilder::lang.field.form_id
+
+    form_name:
+        label: renatio.formbuilder::lang.field.form_name
+
+    form_data:
+        label: renatio.formbuilder::lang.field.form_data
+
+    content_html:
+        label: renatio.formbuilder::lang.field.content_html
+
+    created_at:
+        label: renatio.formbuilder::lang.field.created_at
+
+    updated_at:
+        label: renatio.formbuilder::lang.field.updated_at

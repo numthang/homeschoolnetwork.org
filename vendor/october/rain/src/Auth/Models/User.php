@@ -4,13 +4,12 @@ use Str;
 use Hash;
 use October\Rain\Database\Model;
 use InvalidArgumentException;
-use RuntimeException;
 use Exception;
 
 /**
  * User model
  */
-class User extends Model
+class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
 {
     use \October\Rain\Database\Traits\Hashable;
     use \October\Rain\Database\Traits\Purgeable;
@@ -99,6 +98,11 @@ class User extends Model
      * @var string The login attribute.
      */
     public static $loginAttribute = 'email';
+
+    /**
+     * @var string The column name of the "remember me" token.
+     */
+    protected $rememberTokenName = 'persist_code';
 
     /**
      * @var array The user merged permissions.
@@ -400,10 +404,8 @@ class User extends Model
         if (!$this->mergedPermissions) {
             $permissions = [];
 
-            if ($role = $this->getRole()) {
-                if (is_array($role->permissions)) {
-                    $permissions = array_merge($permissions, $role->permissions);
-                }
+            if (($role = $this->getRole()) && is_array($role->permissions)) {
+                $permissions = array_merge($permissions, $role->permissions);
             }
 
             if (is_array($this->permissions)) {
@@ -540,11 +542,7 @@ class User extends Model
             }
         }
 
-        if ($all === false) {
-            return false;
-        }
-
-        return true;
+        return !($all === false);
     }
 
     /**
@@ -585,12 +583,21 @@ class User extends Model
     //
 
     /**
+     * Get the name of the unique identifier for the user.
+     * @return string
+     */
+    public function getAuthIdentifierName()
+    {
+        return $this->getKeyName();
+    }
+
+    /**
      * Get the unique identifier for the user.
      * @return mixed
      */
     public function getAuthIdentifier()
     {
-        return $this->getKey();
+        return $this->{$this->getAuthIdentifierName()};
     }
 
     /**
@@ -636,7 +643,7 @@ class User extends Model
      */
     public function getRememberTokenName()
     {
-        return 'persist_code';
+        return $this->rememberTokenName;
     }
 
     //
