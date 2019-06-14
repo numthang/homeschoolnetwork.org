@@ -42,7 +42,7 @@ sortOrder = "published_at asc"
     {% for Post in scopePosts.posts %}
     <div class="col-md-{{random([3])}} grid-sizer portfolio-item {% for tag in Post.tags %} {{ tag.id }}{% endfor %}">
       <div class="picture">
-        <a class="image" href="/blog/{{Post.id}}" title="{{Post.title}}">
+        <a class="image" href="/blog/{{Post.slug}}" title="{{Post.title}}">
         {% if Post.featured_images[0] %}
           <img src="{{ Post.featured_images[0] | resize(340, 340) }}" alt="{{Post.title}}" style="width:100%; height:auto;"/>
         {% else %}
@@ -50,7 +50,7 @@ sortOrder = "published_at asc"
         {% endif %}
         </a>
         <div class="description">
-          <a href="/blog/{{Post.id}}" class="btn btn-info btn-block">{{ str_limit(Post.title, 20) }}</a>
+          <a href="/blog/{{Post.slug}}" class="btn btn-info btn-block">{{ str_limit(Post.title, 20) }}</a>
         </div>
       </div>
     </div>
