@@ -38,7 +38,7 @@ userID = 0
 authorID = "{{ :id }}"
 from = "0000-00-00"
 to = "0000-00-00"
-isPublished = true
+isPublished = 1
 drafted = 0
 categoryPage = "blog/category"
 postPage = "blog/post"
@@ -53,8 +53,24 @@ userID = 0
 authorID = "{{ :id }}"
 from = "0000-00-00"
 to = "0000-00-00"
-isPublished = false
+isPublished = 0
 drafted = 1
+categoryPage = "blog/category"
+postPage = "blog/post"
+noPostsMessage = "No posts found"
+sortOrder = "published_at asc"
+
+[scopePosts scopePosts3]
+pageNumber = "{{ :page }}"
+categoryFilter = "portfolio"
+postsPerPage = 5
+evaluationID = 0
+userID = 0
+authorID = "{{ :id }}"
+from = "0000-00-00"
+to = "0000-00-00"
+isPublished = 0
+drafted = 0
 categoryPage = "blog/category"
 postPage = "blog/post"
 noPostsMessage = "No posts found"
@@ -72,7 +88,7 @@ sortOrder = "published_at asc"
     <div class="col-md-7">
       <b>{{ 'About'|_ }}</b>
       <p>{{ record.note|raw }}</p>
-      <b>{{ 'Latest posts'|_ }}</b> <a href="/blog/author/{{ record.id }}">{{ 'View all'|_ }}</a>
+      <b><a href="/blog/author/{{ record.id }}">{{ 'Latest posts'|_ }}</a></b>
       <p>
         {% if scopePosts.posts %}
           {% for Post in scopePosts.posts %}
@@ -92,7 +108,16 @@ sortOrder = "published_at asc"
           {{ 'No posts found'|_ }}
         {% endif %}
       </p>
-
+      <b><a href="/portfolio/{{record.id}}">{{ 'Portfolios'|_ }}</a></b>
+      <p>
+        {% if scopePosts3.posts %}
+          {% for Post in scopePosts3.posts %}
+            <a href="{{Post.url}}"><span class="fa fa-fw" aria-hidden="true">&#xf040;</span> {{ Post.title }}</a><br>
+          {% endfor %}
+        {% else %}
+          {{ 'No posts found'|_ }}
+        {% endif %}
+      </p>
       <b>{{ 'Course'|_ }}</b>
       <p>
         {%  set courses = courses.courses %}
