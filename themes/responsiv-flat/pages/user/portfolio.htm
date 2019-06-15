@@ -20,12 +20,19 @@ categoryPage = "blog/category"
 postPage = "blog/post"
 noPostsMessage = "No posts found"
 sortOrder = "published_at asc"
+
+[builderDetails]
+modelClass = "RainLab\User\Models\User"
+identifierValue = "{{ :author }}"
+modelKeyColumn = "id"
+displayColumn = "name"
+notFoundMessage = "Record not found"
 ==
 {% set postsbytag = scopePosts.postsbytag %}
 {% set tags = scopePosts.tags %}
 <section id="layout-title">
   <div class="container">
-    <h3 class="pull-left">Portfolio</h3>
+    <h3 class="pull-left">Portfolio : {% component 'builderDetails' %} {{ record.surname }}</h3>
     <div class="btn-toolbar pull-right">
       <div class="btn-group" id="filters">
         <a class="btn btn-primary active" href="#filter" class="selected" data-filter="*"><span class="fui-list"></span> All</a>
