@@ -1,32 +1,15 @@
 Try plugin
-- BlogFeaturedVideo, Blog Video Extension
+
 - Related Articles
 - Most Visited Posts
+- BlogFeaturedVideo, Blog Video Extension
 - Rainlab twitter
 
-
-ประกาศออก homeschoolNetwork Version 1.0 - 1.2
-
-รุ่นนี้เป็นการปรับปรุงขนานใหญ่ทั้งเว็บจากเดิมที่ไม่สามารถดูบนมือถือได้อย่างสวยงามนัก เราจึงต้องยกเครื่องใหม่ทั้งเว็บ รวมถึงได้เพิ่มเติม feature ใหม่ๆ เข้ามาด้วยดังนี้
-
-1. ระบบเขียนแผนการศึกษาออนไลน์
-
-2. ระบบเขียนแบบประเมินออนไลน์
-
-3. สมาชิกสามารถเขียน portfolio ได้ที่ frontend มีเมนู เขียน portfolio สามารถเลือกใส่ชื่อกลุ่มประสบการณ์ได้ลักษณะงานเหมือน Hashtag
-
-4. ในแบบประเมินมีการแสดงผล portfolio เป็นรายงาน
-
-5. มีหน้า portfolio ของสมาชิกแต่ละคนที่หน้าเว็บสำหรับสาธารณะ
-
-6. QR Code ที่หน้ารายงานการประเมินอัตโนมัติ
-
 Do
-- portfolio fronend
-- Tutorial 4 : การเขียนแบบประเมินและร่องรอยการเรียนรู้ออนไลน์
+- Tutorial 4 : การเขียนแบบประเมินออนไลน์
+- Tutorial 5 : การเขียนร่องรอยการเรียนรู้ออนไลน์
 
-patai
-
+Patai
 สร้างแบบฟอร์มออนไลน์บนพื้นฐานของไฟล์จากพี่นิ่มดังนี้
 - ฟอร์มแผนการศึกษาปฐมวัย
 - ฟอร์มแบบประเมิน SAR ระดับปฐมวัย
@@ -84,10 +67,6 @@ PostForm
 สรุปว่าเงินกองทุนเราหมดพอดีในปีนี้ ในโอกาสต่อไปจะขออนุญาตระดมทุนอีกครั้ง เมื่อมีการอัพเดทกันเพิ่มเติม
 
 ===================================================================
-- Video Tutorial - การเขียนแบบประเมิน
-- tagged ป้ายคำค้นใส่ seo หัวข้อให้ถูก
-- จัดหมวดหมู่ใหม่
-
 Future
 1. recent tweet
 Introduction
@@ -100,12 +79,6 @@ Introduction
 - การเขียนแผนส่งเขต (ขอฟอร์มแบบ minimalist)
 - การยื่นแบบประเมิน (SAR) + ร่องรอยการเรียนรู้ (ขอฟอร์มแบบ minimalist)
 - ขั้นตอนการจดทะเบียนบ้านเรียนกับเขต ดู รูปและคำแนะนำที่ https://issuu.com/manncomely/docs/
-=========================================================================================
-I'm using for our membership on my website to contact each other via Facbook profile
-
-1. Click Login via Facebook on website.
-2. Go to https://www.homeschoolnetwork.org/cloud and see how many people around on map
-3. Click on profile picture to see their profile. This feature allow only for membership.
 =========================================================================================
 Technical Hint
 
@@ -157,7 +130,6 @@ Extending user plugin backend form : เพิ่ม field table กรณีท
 Extending user plugin fronend form
 1. copy html form มาสร้าง partial ใหม่
 2. เพิ่ม function model UserModel::extend ใน boot
-
 ====================================================================================
 Laravel File manager
 
@@ -188,7 +160,7 @@ $thumb_url = asset(config('lfm.assets_directory').'/images/icons/png/folder.png'
 
 /vendor/unisharp/laravel-filemanager/src/Handlers/ConfigHandler.php
 vendor/unisharp/laravel-filemanager/src/Events/ImageWasUploaded.php
-===========================================================================================
+========================================================================================
 Hard code changed
 
 //update slug as next id
