@@ -45,7 +45,7 @@ function onStart() {
 ==
 <section id="layout-title">
     <div class="container">
-        <h3>{{ 'New post'|_ }}</h3>
+      <h3>{% if this.param.mod == 'portfolio' %}{{ 'New portfolio'|_}}{% else %}{{ 'New post'|_ }}{% endif %}</h3>
     </div>
 </section>
 
