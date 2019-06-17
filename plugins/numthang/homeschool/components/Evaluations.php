@@ -48,7 +48,7 @@ class Evaluations extends ComponentBase
           'name asc' => 'Name (ascending)',
           'name desc' => 'Name (descending)',
           'template' => 'Template (descending)',
-          'updated_at' => 'Modified'
+          'created_at' => 'Created'
       ];
   }
 
@@ -69,7 +69,7 @@ class Evaluations extends ComponentBase
     $query = Course::with('evaluations')
       ->where('user_id', '=', $userid)
       ->orWhere('template', '=', 1);
-      
+
     if($this->property('sortOrder') == 'name asc')
         $query = $query->orderBy('name');
     else if($this->property('sortOrder') == 'name desc')
