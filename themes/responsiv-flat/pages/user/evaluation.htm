@@ -55,10 +55,10 @@ public function onEnd() {
 <div class="page cover" style="font-family:Kanit;">
   {{ evaluation.cover|raw }}
 </div>
-<div class="page" style="font-family:Kanit;">
-  <div align="center">
-    <a name="index" id="index"><h1>สารบัญ</h1></a>
-    <img src="https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl={{ ''| page }}&choe=UTF-8" title="Link to {{ evaluation.name }}" />
+<div class="page other" style="font-family:Kanit;">
+  <div align="left">
+    <div align="center"><a name="index" id="index"><h1>สารบัญ</h1></a>
+    <img src="https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl={{ ''| page }}&choe=UTF-8" title="Link to {{ evaluation.name }}" /></div>
     <h2><a href="#first">1. ข้อมูลพื้นฐานของครอบครัว</a></h2>
     <h2><a href="#second">2. ข้อมูลพื้นฐานของผู้เรียน</a></h2>
     <h2><a href="#third">3. การวัดและประเมินผลการเรียนรู้</a></h2>
@@ -72,7 +72,7 @@ public function onEnd() {
   </div>
 </div>
 <div class="page other">
-  <a name="first" id="first"><h2>1. ข้อมูลพื้นฐานของครอบครัว</h2></a><br><br>
+  <a name="first" id="first"><h2>1. ข้อมูลพื้นฐานของครอบครัว</h2></a>
   <strong>บิดา {{ this.page.father_name }} อายุ {{ this.page.father_age }} ปี </strong><br>
   การศึกษา : {{ this.page.father_degree }} <br>
   ประสบการณ์ : {{ this.page.father_exp }}<br>
@@ -87,29 +87,26 @@ public function onEnd() {
   ที่อยู่ปัจจุบัน : {{ this.page.mother_addr }}<br>
   ติดต่อ : {{ this.page.mother_contact }}<br><br>
 
-  <a name="second" id="second"><strong>2. ข้อมูลพื้นฐานของผู้เรียน</strong></a><br><br>
+  <a name="second" id="second"><h2>2. ข้อมูลพื้นฐานของผู้เรียน</h2></a>
   <strong>2.1 ข้อมูลของผู้เรียน</strong><br>
   {{ course.student_name|raw }} อายุ {{ "now"|date('Y')+543 - course.birth_date|date('Y') }} ปี  <!--เพศ {{ course.gender }}--><br>
   วัน-เดือน-ปีเกิด {{ course.birth_date|date('d/m/Y') }}<br>
   ประวัติการศึกษา : {{ course.school_exp|nl2br }}
   <br><br>
   <strong>2.2 พัฒนาการของผู้เรียน</strong><br>
-  {{ course.development|nl2br }}<br><br>
-
-  <a name="third" id="third"><strong>3. การวัดและประเมินผลการเรียนรู้</strong></a><br><br>
-  {{ evaluation.learning|raw }}<br>
-
-  <a name="forth" id="forth"><strong>4. สรุปผลการเรียนรู้ของผู้เรียนตามเกณฑ์การจบชั้นเรียน</strong></a><br><br>
-  {{ evaluation.summary|raw }}<br>
-
-  <a name="fifth" id="fifth"><strong>5. จุดเด่น / ความสำเร็จที่สำคัญของการจัดการศึกษา</strong></a><br><br>
-  {{ evaluation.successful|raw }}<br>
-  <a name="sixth" id="sixth"><strong>6. ปัญหา, อุปสรรคหรือสิ่งที่ควรพัฒนา</strong></a><br><br>
-  {{ evaluation.problem|raw }}<br>
-  <a name="seventh" id="seventh"><strong>7. แนวทางการจัดการเรียนรู้ในปีต่อไป</strong></a><br><br>
-  {{ evaluation.next|raw }}<br>
-  <a name="eighth" id="eighth"><strong>8. ข้อคิดเห็น / ข้อเสนอแนะอื่น ๆ</strong></a><br><br>
-  {{ evaluation.suggestion|raw }}<br>
+  {{ course.development|nl2br }}
+  <a name="third" id="third"><h2>3. การวัดและประเมินผลการเรียนรู้</h2></a>
+  {{ evaluation.learning|raw }}
+  <a name="forth" id="forth"><h2>4. สรุปผลการเรียนรู้ของผู้เรียนตามเกณฑ์การจบชั้นเรียน</h2></a>
+  {{ evaluation.summary|raw }}
+  <a name="fifth" id="fifth"><h2>5. จุดเด่น / ความสำเร็จที่สำคัญของการจัดการศึกษา</h2></a>
+  {{ evaluation.successful|raw }}
+  <a name="sixth" id="sixth"><h2>6. ปัญหา, อุปสรรคหรือสิ่งที่ควรพัฒนา</h2></a>
+  {{ evaluation.problem|raw }}
+  <a name="seventh" id="seventh"><h2>7. แนวทางการจัดการเรียนรู้ในปีต่อไป</h2></a>
+  {{ evaluation.next|raw }}
+  <a name="eighth" id="eighth"><h2>8. ข้อคิดเห็น / ข้อเสนอแนะอื่น ๆ</h2></a>
+  {{ evaluation.suggestion|raw }}
 </div>
 <div class="page other">
   <div align="center"><a name="ninth" id="ninth"><strong><h1>ภาคผนวก ร่องรอยการเรียนรู้</h1></strong></a></div>
