@@ -184,3 +184,5 @@ Hard code changed
 /plugins/bedard/blogtags/models/Tag.php
 /plugins/fireunion/blogfront/components/PostForm.php
 /plugins/flynsarmy/sociallogin/classes/UserManager.php
+//use traslatable title
+/plugins/suresoftware/powerseo/components/cmspage/default.htm

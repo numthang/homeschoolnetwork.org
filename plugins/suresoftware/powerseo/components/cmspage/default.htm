@@ -10,7 +10,7 @@
     {% endif %}
 
     {% if __SELF__.seo_title %}
-        <title>{{__SELF__.seo_title | generateTitle}}</title>
+        <title>{{__SELF__.seo_title|_| generateTitle}}</title>
     {% endif %}
 
     {% if __SELF__.seo_description %}
@@ -32,7 +32,7 @@
     {{ ''|otherMetaTags|raw }}
 
     {% if __SELF__.ogTitle %}
-        <meta property="og:title" content="{{ __SELF__.ogTitle }}" />
+        <meta property="og:title" content="{{ __SELF__.ogTitle|_ }}" />
     {% endif %}
 
     {% if __SELF__.ogUrl %}

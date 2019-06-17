@@ -16,6 +16,12 @@ sortOrder = "published_at desc"
 categoryPage = "blog/category"
 postPage = "blog/post"
 ==
+<?php
+function onEnd() {
+    #$this->page->custom_title = $this->param->slug;
+  }
+?>
+==
 {% set posts = newsList.posts %}
 
 <section id="layout-title">
