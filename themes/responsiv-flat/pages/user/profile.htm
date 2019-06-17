@@ -1,7 +1,7 @@
 title = "User Profile"
-meta_title = "User Profile"
 url = "/u/:id"
 layout = "default"
+meta_title = "User Profile"
 is_hidden = 0
 robot_index = "noindex"
 robot_follow = "nofollow"
@@ -75,10 +75,10 @@ drafted = 0
 categoryPage = "blog/category"
 postPage = "blog/post"
 noPostsMessage = "No posts found"
-sortOrder = "published_at asc"
+sortOrder = "created_at desc"
 ==
 <?php
-  function onEnd() {
+function onEnd() {
     $this->page->custom_title = $this->record->name.' '.$this->record->surname;
   }
 ?>
