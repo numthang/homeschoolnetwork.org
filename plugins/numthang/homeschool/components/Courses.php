@@ -44,7 +44,7 @@ class Courses extends ComponentBase
             'name asc' => 'Name (ascending)',
             'name desc' => 'Name (descending)',
             'template' => 'Template (descending)',
-            'updated_at' => 'Modified'
+            'created_at' => 'Created'
         ];
     }
 
