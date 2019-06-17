@@ -1,4 +1,5 @@
 title = "User Profile"
+meta_title = "User Profile"
 url = "/u/:id"
 layout = "default"
 is_hidden = 0
@@ -75,6 +76,12 @@ categoryPage = "blog/category"
 postPage = "blog/post"
 noPostsMessage = "No posts found"
 sortOrder = "published_at asc"
+==
+<?php
+  function onEnd() {
+    $this->page->custom_title = $this->record->name.' '.$this->record->surname;
+  }
+?>
 ==
 <section id="layout-title">
     <div class="container">
