@@ -68,6 +68,13 @@ function onEnd() {
       <!-- Blog Post #1 -->
       <div class="blog">
         <div class="blog-desc">
+          {% if post.excerpt %}
+            <blockquote>
+              {{ post.excerpt|raw }}
+            </blockquote>
+          {% else %}
+            {{ post.excerpt|raw }}
+          {% endif %}
           {% if post.featured_images.count %}
           <div id="projectImages" class="project-images">
             {% for image in post.featured_images %}
@@ -82,14 +89,6 @@ function onEnd() {
           {% endif %}
           <p class="text-muted" align="right">by <a href="/u/{{post.author_id}}">{{ post.author.name }}</a> on {{ post.published_at|date('M d, Y') }}</p>
           <hr />
-          {% if post.excerpt %}
-            <blockquote>
-              {{ post.excerpt|raw }}
-            </blockquote>
-          {% else %}
-            {{ post.excerpt|raw }}
-          {% endif %}
-
           <!--<div align="left" style="text-align:left;">{% partial "ads/in-article" %}</div>-->
           {{ post.content_html|raw }}
           <p class="info">
