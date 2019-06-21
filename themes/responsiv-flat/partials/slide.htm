@@ -49,7 +49,7 @@ postPage = "blog/post"
     <li>
       <div class="slide-container">
         {% if post.featured_images.count %}
-          <img src="{{ post.featured_images[0].path | resize(800, 450) }}" class="img-responsive" height="100%"  />
+          <img src="{{ post.featured_images[0].path | resize(645, 375) }}" class="img-responsive" height="100%"  />
         {% else %}
           <img src="/themes/responsiv-flat/assets/images/blog/noimg-{{random(18)}}.jpg" class="img-responsive" height="100%" />
         {% endif %}
