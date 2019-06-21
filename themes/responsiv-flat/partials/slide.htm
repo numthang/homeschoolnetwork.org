@@ -29,7 +29,7 @@ postPage = "blog/post"
   color: #f1f1f1;
   width: 100%;
   padding: 6px;
-  height: 20%;
+  height: 18%;
   text-align: center;
 }
 .slide-content span {
@@ -49,13 +49,13 @@ postPage = "blog/post"
     <li>
       <div class="slide-container">
         {% if post.featured_images.count %}
-          <img data-src="{{ post.featured_images[0].filename }}"  src="{{ post.featured_images[0].path | resize(800, 450) }}" class="img-responsive" height="100%"  />
+          <img src="{{ post.featured_images[0].path | resize(800, 450) }}" class="img-responsive" height="100%"  />
         {% else %}
-          <img data-src="{{ post.featured_images[0].filename }}"  src="{{ post.featured_images[0].path | resize(800, 450) }}" class="img-responsive" height="100%" />
+          <img src="/themes/responsiv-flat/assets/images/blog/noimg-{{random(18)}}.jpg" class="img-responsive" height="100%" />
         {% endif %}
         <div class="slide-content">
           <span><a href="{{ post.url }}" style="color:#f1f1f1;">{{ post.title }}</a></span>
-          {{ post.excerpt|slice(0,80)|raw }}
+          <div>{{ post.excerpt|slice(0,80)|raw }}</div>
         </div>
       </div>
 
