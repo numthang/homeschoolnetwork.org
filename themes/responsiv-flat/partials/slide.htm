@@ -54,8 +54,7 @@ postPage = "blog/post"
         {% if post.featured_images.count %}
           <img src="{{ post.featured_images[0].path | resize(960, 639) }}" class="img-responsive"  />
         {% else %}
-          <img src="/themes/responsiv-flat/assets/images/blog/noimg-{{random(17)}}.jpg" class="img-responsive"/>
-          
+          <img src="/themes/responsiv-flat/assets/images/blog/noimg-{{random(22)}}.jpg" class="img-responsive"/>
         {% endif %}
         <div class="slide-content">
           <span><a href="{{ post.url }}" style="color:#f1f1f1;">{{ post.title }}</a></span>
