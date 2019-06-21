@@ -83,6 +83,10 @@ function onEnd() {
   }
 ?>
 ==
+{%  set student_evaluations = evaluations.student_evaluations %}
+{%  set courses = courses.courses %}
+{%  set student_courses = evaluations.student_courses %}
+{%  set evaluations = evaluations.evaluations %}
 <section id="layout-title">
     <div class="container">
       <div class="col-sm-12">
@@ -127,18 +131,22 @@ function onEnd() {
       </p>
       <b><a href="/add/course">{{ 'Course'|_ }}</a></b>
       <p>
-        {%  set courses = courses.courses %}
         {% for c in courses %}
           <a href="/course/{{ c.created_at|date('U') }}"><span class="fa fa-fw" aria-hidden="true">&#xf0f6;</span> {{ c.name }}</a> <br>
+        {% endfor %}
+        {% for e in student_courses %}
+          <a href="/course/{{ e.course.created_at|date('U') }}"> <span class="fa fa-fw" aria-hidden="true">&#xf0f6;</span> {{ e.course.name }}</a><br>
         {% endfor %}
       </p>
       <b><a href="/add/evaluation">{{ 'Evaluation'|_ }}</a></b>
       <p>
-        {%  set evaluations = evaluations.evaluations %}
         {% for c in evaluations %}
           {% for e in c.evaluations %}
             <a href="/evaluation/{{ e.created_at|date('U') }}"><span class="fa fa-fw" aria-hidden="true">&#xf1c5;</span> {{ e.name }}</a> <br>
           {% endfor %}
+        {% endfor %}
+        {% for e in student_evaluations %}
+          <a href="/evaluation/{{ e.created_at|date('U') }}"> <span class="fa fa-fw" aria-hidden="true">&#xf1c5;</span> {{ e.name }}</a><br>
         {% endfor %}
       </p>
     </div>

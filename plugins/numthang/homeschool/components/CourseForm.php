@@ -57,11 +57,13 @@ class CourseForm extends ComponentBase
       $course->father_profile = json_encode(Array('father_name'=>Input::get('father_name'), 'father_degree'=>Input::get('father_degree'), 'father_exp'=>Input::get('father_exp'), 'father_age'=>Input::get('father_age'), 'father_job'=>Input::get('father_job'), 'father_addr'=>Input::get('father_addr'), 'father_contact'=>Input::get('father_contact')));
 
       $course->mother_profile = json_encode(Array('mother_name'=>Input::get('mother_name'), 'mother_degree'=>Input::get('mother_degree'), 'mother_exp'=>Input::get('mother_exp'), 'mother_age'=>Input::get('mother_age'), 'mother_job'=>Input::get('mother_job'), 'mother_addr'=>Input::get('mother_addr'), 'mother_contact'=>Input::get('mother_contact')));
-      #print_r(post());
-      if(Input::get('birth_date')) {
-		    $date = explode('/', Input::get('birth_date'));
+      //dump(Input::get('birth_date'));
+      if(Input::get('birth')) {
+		    $date = explode('/', Input::get('birth'));
 		    $_POST['birth_date'] = $course->birth_date = $date[2].'-'.$date[1].'-'.$date[0];
 		  }
+      //$date = explode('/', Input::get('birth_date'));
+      //$_POST['birth_date'] = $course->birth_date = '2010-01-01';
       $course->fill(post());//กำหนด fillable field ใน Models/Course
       $course->save();
       Flash::success('Course '.$course->name.' saved!');

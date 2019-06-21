@@ -146,8 +146,7 @@ class Post extends Model
       if(post('evaluation_id') !== null)
         $this->evaluation_id = post('evaluation_id');
       /*end numthang*/
-
-        $this->content_html = self::formatHtml($this->content);
+      $this->content_html = self::formatHtml($this->content);
     }
 
     /**

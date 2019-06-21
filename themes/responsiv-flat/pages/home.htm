@@ -18,15 +18,20 @@ paramCode = "code"
 forceSecure = 0
 
 [courses]
-results = 3
+results = 2
 byUserID = 0
 sortOrder = "created_at"
 
 [evaluations]
-results = 3
+results = 2
 byUserID = 0
 sortOrder = "created_at"
 ==
+{%  set student_evaluations = evaluations.student_evaluations %}
+{%  set courses = courses.courses %}
+{%  set student_courses = evaluations.student_courses %}
+{%  set evaluations = evaluations.evaluations %}
+
 <section class="home-title">
   <div class="container">
     <div class="row">
@@ -90,19 +95,24 @@ sortOrder = "created_at"
               <div class="col-sm-12">
                 <b><a href="/add/course">{{ 'Course'|_ }}</a></b>
                 <p>
-                  {%  set courses = courses.courses %}
                   {% for c in courses %}
-                    <a href="/edit/course/{{ c.id }}"> <span class="fui-new"></span> {{ c.name }}</a><br>
+                    <a href="/edit/course/{{ c.id }}"> <span class="fa fa-fw" aria-hidden="true">&#xf0f6;</span> {{ c.name }}</a><br>
                   {% endfor %}
+                  {% for e in student_courses %}
+          					<a href="/edit/course/{{ e.course.id }}"> <span class="fa fa-fw" aria-hidden="true">&#xf0f6;</span> {{ e.course.name }}</a><br>
+          				{% endfor %}
                 </p>
                 <b><a href="/add/evaluation">{{ 'Evaluation'|_ }}</a></b>
                 <p>
-                  {%  set evaluations = evaluations.evaluations %}
                   {% for c in evaluations %}
                     {% for e in c.evaluations %}
-                      <a href="/edit/evaluation/{{ e.id }}"> <span class="fui-new"></span> {{ e.name }}</a><br>
+                      <a href="/edit/evaluation/{{ e.id }}"> <span class="fa fa-fw" aria-hidden="true">&#xf1c5;</span> {{ e.name }}</a><br>
                     {% endfor %}
                   {% endfor %}
+
+                  {% for e in student_evaluations %}
+        						<a href="/edit/evaluation/{{ e.id }}"> <span class="fa fa-fw" aria-hidden="true">&#xf1c5;</span> {{ e.name }}</a><br>
+        					{% endfor %}
                 </p>
               </div>
 		          <!--<div class="col-sm-2" align="center">

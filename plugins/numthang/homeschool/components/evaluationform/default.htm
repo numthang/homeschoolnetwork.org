@@ -1,3 +1,6 @@
+{%  set student_evaluations = evaluations.student_evaluations %}
+{%  set student_courses = evaluations.student_courses %}
+
 {%  set evaluations = evaluations.evaluations %}
 {%  set course = evaluationform.course %}
 {%  set evaluation = evaluationform.record %}
@@ -8,7 +11,7 @@
 		<div class="col-md-6">
 			<label>{{ 'Evaluation'|_ }}</label><br>
 			<div class="btn-group" style="width:100%;">
-	      <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle" type="button" style="width:100%; text-align:left;">&nbsp; <span class="fa fa-fw" aria-hidden="true">&#xf1c5;</span> {{ 'Select Evaluation'|_ }} <span class="caret"></span></button>
+	      <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle" type="button" style="width:100%; text-align:left;">&nbsp; <span class="fa fa-fw" aria-hidden="true">&#xf15c;</span> {{ 'Select Evaluation'|_ }} <span class="caret"></span></button>
 	      <ul role="menu" class="dropdown-menu" style="width:100%;">
 					<li><a href="/add/evaluation"><span class="fui-new"></span> {{ 'New Evaluation'|_ }}</a></li>
 					{% for c in evaluations %}
@@ -16,10 +19,15 @@
 						<!--<b>&nbsp;
 					 	<a href="/edit/course/{{c.id}}" {% if c.template %}style="color:#bbbbbb;"{% endif %}><span class="fa fa-fw" aria-hidden="true">&#xf0f6;</span> {{ 'Course'|_ }} : {{ c.name }}</a> </b>-->
 						{% for e in c.evaluations %}
-							<a href="/edit/evaluation/{{ e.id }}" {% if c.template %}style="color:#bbbbbb;"{% endif %}> <span class="fa fa-fw" aria-hidden="true">&#xf1c5;</span> {{ 'Evaluation'|_ }} : {{ e.name }}  <!--[ {{ e.updated_at|date("m/d/Y") }} ]--></a>
+							<a href="/edit/evaluation/{{ e.id }}" {% if c.template %}style="color:#bbbbbb;"{% endif %}> <span class="fa fa-fw" aria-hidden="true">&#xf15c;</span> {{ 'Evaluation'|_ }} : {{ e.name }}  <!--[ {{ e.updated_at|date("m/d/Y") }} ]--></a>
 						{% endfor %}
 					</li>
+					{% endfor %}
 					<li class="divider"></li>
+					{% for e in student_evaluations %}
+					<li>
+						<a href="/edit/evaluation/{{ e.id }}" {% if c.template %}style="color:#bbbbbb;"{% endif %}> <span class="fa fa-fw" aria-hidden="true">&#xf15c;</span> {{ 'Evaluation'|_ }} : {{ e.name }} </a>
+					</li>
 					{% endfor %}
 	      </ul>
 	    </div>
@@ -28,10 +36,14 @@
 			<label>{{ 'Courses'|_ }} </label>
 			<select class="form-control select select-primary" data-toggle="select" name="course_id" style="width:100%">
 				<option value="">{{ 'Select Course'|_ }}</option>
-				{% for e in evaluations %}
-					{% if e.template == 0 or can('edit_course_template') %}
-					<option value="{{ e.id }}" {{ course.id == e.id ? 'selected' : '' }}>{{ e.name }}</option>
+				{% for c in evaluations %}
+					{% if c.template == 0 or can('edit_course_template') %}
+					<option value="{{ c.id }}" {{ course.id == c.id ? 'selected' : '' }}>{{ 'Course'|_ }} : {{ c.name }}</option>
 					{% endif %}
+				{% endfor %}
+					<option value="">.......</option>
+				{% for e in student_courses %}
+					<option value="{{ e.course.id }}" {{ course.id == e.course.id ? 'selected' : '' }}>{{ 'Course'|_ }} : {{ e.course.name }}</option>
 				{% endfor %}
 			</select>
 		</div>
@@ -39,20 +51,20 @@
 
   <input type="hidden" name="user_id" value="{{ user.id }}">
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-6">
       <div class="form-group {% if errors.first('name') %} has-error {% endif %}">
         <label>ชื่อแบบประเมิน</label>
         <input type="text" class="form-control" name="name" placeholder="Enter course name : {{ errors.first('name') }}" value="{{ evaluation.name }}">
         {% if errors.first('name') %}<div class="alert alert-warning" style="margin-top:4px;">{{ errors.first('name') }}</div>{% endif %}
       </div>
     </div>
-    <div class="col-md-3">
+    <!--<div class="col-md-3">
       <div class="form-group {% if errors.first('hs_name') %} has-error {% endif %}">
         <label>ชื่อบ้านเรียน</label>
         <input type="text" class="form-control" name="hs_name" placeholder="Enter homeschool name : " value="{{ course.hs_name }}" readonly>
         {% if errors.first('hs_name') %}<div class="alert alert-warning" style="margin-top:4px;">{{ errors.first('hs_name') }}</div>{% endif %}
       </div>
-    </div>
+    </div>-->
 		<div class="col-md-3">
 			<label>ระดับชั้น</label>
 			<select class="form-control select select-primary" data-toggle="select" name="degree" style="width:100%">
@@ -143,8 +155,6 @@
 								<input type="text" class="form-control" name="father_contact" placeholder="Email address or phone number" value="{{ this.page.father_contact }}" readonly>
 							</div>
 						</div>
-
-
             <div class="col-sm-4">
               <div class="form-group">
                 <label>มารดา</label>
@@ -325,7 +335,7 @@
 			    <button type="submit" class="btn btn-lg btn-info btn-block" onClick="if(confirm('{{ 'Save as'|_ }} '+this.form.name.value)) this.form.save_as.value = 1; else return false;">{{ 'Save as'|_ }} ...</button>
 				</div>
 				<div class="col-sm-2">
-					<button type="button" class="btn btn-lg btn-info btn-block" onClick="window.open('/evaluation/{{ evaluation.created_at| date('U') }}', '_blank');">{{ 'Preview'|_ }} </button>
+					<button type="button" class="btn btn-lg btn-info btn-block" onClick="window.open('/e-portfolio/{{ evaluation.created_at| date('U') }}', '_blank');">{{ 'Portfolio'|_ }} </button>
 				</div>
 				<div class="col-sm-3">
 					<button type="button" class="btn btn-lg btn-info btn-block" onClick="window.open('/evaluation/{{ evaluation.created_at| date('U') }}?print=1', '_blank');">{{ 'Print to PDF'|_ }} </button>

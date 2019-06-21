@@ -72,7 +72,7 @@ class Courses extends ComponentBase
         $query = $query->orderByDesc($this->property('sortOrder'));
 
       if($this->property('results') > 0){
-          $query = $query->take($this->property('results'));
+        $query = $query->take($this->property('results'));
       }
 
       $query = $query->get();

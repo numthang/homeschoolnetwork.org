@@ -1,5 +1,5 @@
 title = "Evaluation preview"
-url = "/evaluation/:slug"
+url = "/:mod|^\bevaluation\b|\be-portfolio\b/:slug"
 layout = "printable"
 is_hidden = 0
 robot_index = "noindex"
@@ -41,6 +41,7 @@ public function onEnd() {
   $year = $this->evaluationform->record->graduated-543;
   $this->page['from'] = $year.'-05-01';
   $this->page['to'] = ($year+1).'-05-01';
+  //ถ้ามีการนำเข้าผู้แต่งจากภายนอก ให้เลือกโพสต์ (author_id) ผู้แต่งจากภายนอก ถ้าไม่ก็ให้ใช้โพสต์ของเจ้าของ course
   $this->evaluationform->record->portfolio_id ? $this->page['author_id'] = $this->evaluationform->record->portfolio_id : $this->page['author_id'] = $course->user_id;
 }
 ?>
@@ -58,19 +59,22 @@ public function onEnd() {
 <div class="page other" style="font-family:Kanit;">
   <div align="left">
     <div align="center"><a name="index" id="index"><h1>สารบัญ</h1></a>
-    <img src="https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl={{ ''| page }}&choe=UTF-8" title="Link to {{ evaluation.name }}" /></div>
-    <h2><a href="#first">1. ข้อมูลพื้นฐานของครอบครัว</a></h2>
-    <h2><a href="#second">2. ข้อมูลพื้นฐานของผู้เรียน</a></h2>
-    <h2><a href="#third">3. การวัดและประเมินผลการเรียนรู้</a></h2>
-    <h2><a href="#forth">4. สรุปผลการเรียนรู้ของผู้เรียนตามเกณฑ์การจบชั้นเรียน</a></h2>
-    <h2><a href="#fifth">5. จุดเด่น / ความสำเร็จที่สำคัญของการจัดการศึกษา</a></h2>
-    <h2><a href="#sixth">6. ปัญหา, อุปสรรคหรือสิ่งที่ควรพัฒนา</a></h2>
-    <h2><a href="#seventh">7. แนวทางการจัดการเรียนรู้ในปีต่อไป</a></h2>
-    <h2><a href="#eighth">8. ข้อคิดเห็น / ข้อเสนอแนะอื่น ๆ</a></h2>
+    <img src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl={{ ''| page }}&choe=UTF-8" title="Link to {{ evaluation.name }}" /></div>
+    {% if this.param.mod == 'evaluation' %}
+      <h2><a href="#first">1. ข้อมูลพื้นฐานของครอบครัว</a></h2>
+      <h2><a href="#second">2. ข้อมูลพื้นฐานของผู้เรียน</a></h2>
+      <h2><a href="#third">3. การวัดและประเมินผลการเรียนรู้</a></h2>
+      <h2><a href="#forth">4. สรุปผลการเรียนรู้ของผู้เรียนตามเกณฑ์การจบชั้นเรียน</a></h2>
+      <h2><a href="#fifth">5. จุดเด่น / ความสำเร็จที่สำคัญของการจัดการศึกษา</a></h2>
+      <h2><a href="#sixth">6. ปัญหา, อุปสรรคหรือสิ่งที่ควรพัฒนา</a></h2>
+      <h2><a href="#seventh">7. แนวทางการจัดการเรียนรู้ในปีต่อไป</a></h2>
+      <h2><a href="#eighth">8. ข้อคิดเห็น / ข้อเสนอแนะอื่น ๆ</a></h2>
+    {% endif %}
     <h2><a href="#ninth">ภาคผนวก / ร่องรอยการเรียนรู้</a></h2>
     {% partial 'portfolio/indexes' evaluation=evaluation.id user=course.user_id author=this.page.author_id from=this.page.from to=this.page.to %}
   </div>
 </div>
+{% if this.param.mod == 'evaluation' %}
 <div class="page other">
   <a name="first" id="first"><h2>1. ข้อมูลพื้นฐานของครอบครัว</h2></a>
   <strong>บิดา {{ this.page.father_name }} อายุ {{ this.page.father_age }} ปี </strong><br>
@@ -108,8 +112,10 @@ public function onEnd() {
   <a name="eighth" id="eighth"><h2>8. ข้อคิดเห็น / ข้อเสนอแนะอื่น ๆ</h2></a>
   {{ evaluation.suggestion|raw }}
 </div>
+{% endif %}
 <div class="page other">
   <div align="center"><a name="ninth" id="ninth"><strong><h1>ภาคผนวก ร่องรอยการเรียนรู้</h1></strong></a></div>
+    <!--author_id สำหรับเลือกโพสต์ของผู้แต่ง user_id คือเจ้าของ course แต่ละโพสต์ของเจ้าของคอร์ต้องเลือก evaluation ด้วย ไม่งั้นจะไม่แสดง-->
     {% partial 'portfolio/evaluation' evaluation=evaluation.id user=course.user_id author=this.page.author_id from=this.page.from to=this.page.to %}
   <!--{{ evaluation.footprint|raw }}-->
 </div>

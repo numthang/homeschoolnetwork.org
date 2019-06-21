@@ -265,7 +265,7 @@ class ScopePosts extends ComponentBase
       $isPublished = !$this->checkEditor(); //if backend user logged in and can access post then isPublished is false also show unpublished
       $posts = BlogPost::with('categories')
         ->with('tags')
-        ->Where(function ($query) {
+        ->Where(function ($query) {//กรณีเอาผู้แต่งจากภายนอกเลยไม่ต้องสังกัด evalution ก็ได้ หาแต่ผู้แต่ง
           $category = $this->category ? $this->category->id : null;
           $query
             ->where('author_id', '=', $this->property('authorID'))
@@ -275,7 +275,7 @@ class ScopePosts extends ComponentBase
               'published' => $this->property('isPublished')
             ]);
         })
-        ->orWhere(function ($query) {
+        ->orWhere(function ($query) {//กระณีหาโพสต์ของตัวเองควรมีการเลือก evaluation ด้วย
           $category = $this->category ? $this->category->id : null;
           $query
             ->where('author_id', '=', $this->property('userID'))

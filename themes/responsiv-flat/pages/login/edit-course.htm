@@ -23,7 +23,12 @@ redirect = "login/login"
 [courses]
 results = 0
 byUserID = 0
-sortOrder = "template"
+sortOrder = "created_at"
+
+[evaluations]
+results = 0
+byUserID = 0
+sortOrder = "created_at"
 ==
 <?php
 public function onEnd() {
@@ -47,7 +52,7 @@ public function onEnd() {
   $this->page['mother_contact'] = $j->mother_contact;
 
   $date = explode('-', $this->record->attributes['birth_date']);
-  $this->page['birth_date'] = $date[2].'/'.$date[1].'/'.$date[0];
+  $this->page['birth'] = $date[2].'/'.$date[1].'/'.$date[0];
 }
 ?>
 ==

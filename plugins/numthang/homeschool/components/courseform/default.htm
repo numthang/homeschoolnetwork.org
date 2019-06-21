@@ -1,3 +1,5 @@
+{%  set student_evaluations = evaluations.student_evaluations %}
+{%  set student_courses = evaluations.student_courses %}
 {%  set courses = courses.courses %}
 
 <div class="row">
@@ -10,7 +12,11 @@
 				{% for c in courses %}
 				<li><a href="/edit/course/{{ c.id }}" {% if c.template %}style="color:#bbbbbb;"{% endif %}> <span class="fa fa-fw" aria-hidden="true">&#xf0f6;</span>
 					{{ 'Course'|_ }} : {{ c.name }} <!--[ {{ c.updated_at|date("m/d/Y") }} ]--></a></li>
+				{% endfor %}
 				<li class="divider"></li>
+				{% for e in student_courses %}
+					<li><a href="/edit/course/{{ e.course.id }}"> <span class="fa fa-fw" aria-hidden="true">&#xf0f6;</span>
+					{{ 'Course'|_ }} : {{ e.course.name }} <!--[ {{ c.updated_at|date("m/d/Y") }} ]--></a></li>
 				{% endfor %}
 			</ul>
 		</div>
@@ -163,7 +169,7 @@
               <div class="form-group">
                 <label>วัน เดือน ปี เกิด</label>
                 <div class="input-group date" data-provide="datepicker">
-                  <input type="text" class="form-control" name="birth_date" id="datepicker" value="{% if this.page.birth_date %}{{ this.page.birth_date }}{% else %}{{ "now"|date("d/m/Y") }} {% endif %}">
+                  <input type="text" class="form-control" name="birth" id="datepicker" value="{% if this.page.birth %}{{ this.page.birth }}{% else %}{{ "now"|date("d/m/Y") }} {% endif %}">
                     <div class="input-group-addon">
                       <span class="fui-calendar"></span>
                     </div>
@@ -318,8 +324,8 @@
 {% put scripts %}
 	<script src="{{ ['assets/js/accordion.js']|theme }}"></script>
 	<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-	<link id="bsdp-css" href="https://uxsolutions.github.io/bootstrap-datepicker/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet">
-	<script src="https://uxsolutions.github.io/bootstrap-datepicker/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+	<link id="bsdp-css" href="/themes/responsiv-flat/assets/css/bootstrap-datepicker3.min.css" rel="stylesheet">
+	<script src="/themes/responsiv-flat/assets/js/bootstrap-datepicker.js"></script>
 	<script type="text/javascript">
 		$.fn.datepicker.defaults.format = "dd/mm/yyyy";
 	</script>
