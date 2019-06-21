@@ -1,3 +1,5 @@
+{%  set student_evaluations = evaluations.student_evaluations %}
+{%  set student_courses = evaluations.student_courses %}
 {%  set courses = courses.courses %}
 
 <div class="row">
@@ -10,7 +12,11 @@
 				{% for c in courses %}
 				<li><a href="/edit/course/{{ c.id }}" {% if c.template %}style="color:#bbbbbb;"{% endif %}> <span class="fa fa-fw" aria-hidden="true">&#xf0f6;</span>
 					{{ 'Course'|_ }} : {{ c.name }} <!--[ {{ c.updated_at|date("m/d/Y") }} ]--></a></li>
+				{% endfor %}
 				<li class="divider"></li>
+				{% for e in student_courses %}
+					<li><a href="/edit/course/{{ e.course.id }}"> <span class="fa fa-fw" aria-hidden="true">&#xf0f6;</span>
+					{{ 'Course'|_ }} : {{ e.course.name }} <!--[ {{ c.updated_at|date("m/d/Y") }} ]--></a></li>
 				{% endfor %}
 			</ul>
 		</div>

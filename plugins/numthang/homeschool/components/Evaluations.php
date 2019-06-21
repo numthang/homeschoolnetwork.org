@@ -72,6 +72,8 @@ class Evaluations extends ComponentBase
   protected function loadStudentEvaluations() {//มอง portfolio เหมือน student_id
     $query = Evaluation::where('portfolio_id', '=', $this->user_id)
       ->orderByDesc('created_at');
+    if($this->property('results') > 0)
+      $query = $query->take($this->property('results'));
     $query = $query->get();
     return $query;
   }
@@ -80,6 +82,8 @@ class Evaluations extends ComponentBase
       ->where('portfolio_id', '=', $this->user_id)
       ->groupBy('course_id')
       ->orderByDesc('created_at');
+    if($this->property('results') > 0)
+      $query = $query->take($this->property('results'));
     $query = $query->get();
     return $query;
   }
@@ -96,9 +100,9 @@ class Evaluations extends ComponentBase
     else
       $query = $query->orderByDesc($this->property('sortOrder'));
 
-    if($this->property('results') > 0){
-        $query = $query->take($this->property('results'));
-    }
+    if($this->property('results') > 0)
+      $query = $query->take($this->property('results'));
+
     $query = $query->get();
 
     #dump($query);

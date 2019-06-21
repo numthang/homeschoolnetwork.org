@@ -1,18 +1,69 @@
+[viewBag]
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = "portfolio"
+postsPerPage = 10
+noPostsMessage = "No posts found"
+sortOrder = "id"
+categoryPage = "blog/category"
+postPage = "blog/post"
+==
 <!-- Demo CSS -->
 <link rel="stylesheet" href="{{ 'assets/css/flexslider.css'|theme }}" type="text/css" media="screen" />
-
+<style>
+.slide-container {
+  position: relative;
+  margin: 0 auto;
+}
+@media screen and (min-width: 1024px) {
+  .slide-container {
+    height:372px;
+  }
+}
+.slide-container img {vertical-align: middle;}
+.slide-container .slide-content {
+  position: absolute;
+  bottom: 0;
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  color: #f1f1f1;
+  width: 100%;
+  padding: 6px;
+  height: 20%;
+  text-align: center;
+}
+.slide-content span {
+  font-family: Kanit;
+}
+</style>
 <div class="flexslider">
   <ul class="slides">
     <!--<li>
       <iframe id="player_1" src="https://player.vimeo.com/video/39683393?api=1&amp;player_id=player_1" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-    </li>-->
-    {% for i in 0..3 %}
-      <li><div id="youtube_{{i}}"></div></li>
+    </li>
+    <li><div id="youtube_{{i}}"></div></li>-->
+
+    {% set posts = blogPosts.posts %}
+
+    {% for post in posts %}
+    <li>
+      <div class="slide-container">
+        {% if post.featured_images.count %}
+          <img data-src="{{ post.featured_images[0].filename }}"  src="{{ post.featured_images[0].path | resize(800, 450) }}" class="img-responsive" height="100%"  />
+        {% else %}
+          <img data-src="{{ post.featured_images[0].filename }}"  src="{{ post.featured_images[0].path | resize(800, 450) }}" class="img-responsive" height="100%" />
+        {% endif %}
+        <div class="slide-content">
+          <span><a href="{{ post.url }}" style="color:#f1f1f1;">{{ post.title }}</a></span>
+          {{ post.summary|slice(0,80)|raw }}
+        </div>
+      </div>
+
+    </li>
     {% endfor %}
   </ul>
 </div>
-
-
 {% put scripts %}
 <!-- FlexSlider -->
 <script defer src="{{ 'assets/js/flexslider/jquery.flexslider.js'|theme }}"></script>
