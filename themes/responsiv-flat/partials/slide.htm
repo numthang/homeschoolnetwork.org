@@ -14,10 +14,14 @@ postPage = "blog/post"
 .slide-container {
   position: relative;
   margin: 0 auto;
+
 }
 @media screen and (min-width: 1024px) {
   .flexslider .slides img {
     vertical-align: middle;
+  }
+  .slide-container {
+    height: 375px;
   }
 }
 .slide-container .slide-content {
@@ -50,11 +54,12 @@ postPage = "blog/post"
         {% if post.featured_images.count %}
           <img src="{{ post.featured_images[0].path | resize(960, 639) }}" class="img-responsive"  />
         {% else %}
-          <img src="/themes/responsiv-flat/assets/images/blog/noimg-{{random(18)}}.jpg" class="img-responsive"/>
+          <img src="/themes/responsiv-flat/assets/images/blog/noimg-{{random(17)}}.jpg" class="img-responsive"/>
+          
         {% endif %}
         <div class="slide-content">
           <span><a href="{{ post.url }}" style="color:#f1f1f1;">{{ post.title }}</a></span>
-          <div>{{ post.excerpt|slice(0,80)|raw }}</div>
+          <div>{{ post.excerpt|slice(0,70)|raw }}</div>
         </div>
       </div>
 
