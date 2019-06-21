@@ -12,6 +12,9 @@ use Session;
 class Evaluations extends ComponentBase
 {
   public $evaluations;
+  public $student_evaluations;
+  public $student_courses;
+  private $user_id;
 
   public function componentDetails()
   {
@@ -53,21 +56,37 @@ class Evaluations extends ComponentBase
   }
 
   public function onRun(){
-    if(Auth::getUser())
-      $this->evaluations = $this->loadEvaluations();
-  }
-
-  protected function loadEvaluations(){
-    if(!$this->property('byUserID')) {//if no user id specific
-      $user = Auth::getUser();
-      $userid = $user->id;
+    if(Auth::getUser()) {
+      if(!$this->property('byUserID')) //if no user id specific to component
+        $this->user_id = Auth::getUser()->id;
+      else
+        $this->user_id = $this->property('byUserID');
     }
-    else
-      $userid = $this->property('byUserID');
 
+    if($this->user_id) {
+      $this->evaluations = $this->loadEvaluations();
+      $this->student_evaluations = $this->loadStudentEvaluations();
+      $this->student_courses = $this->loadStudentCourses();
+    }
+  }
+  protected function loadStudentEvaluations() {//มอง portfolio เหมือน student_id
+    $query = Evaluation::where('portfolio_id', '=', $this->user_id)
+      ->orderByDesc('created_at');
+    $query = $query->get();
+    return $query;
+  }
+  protected function loadStudentCourses() {//มอง portfolio เหมือน student_id
+    $query = Evaluation::with('course')
+      ->where('portfolio_id', '=', $this->user_id)
+      ->groupBy('course_id')
+      ->orderByDesc('created_at');
+    $query = $query->get();
+    return $query;
+  }
+  protected function loadEvaluations(){
     #$query = Course::all();
     $query = Course::with('evaluations')
-      ->where('user_id', '=', $userid)
+      ->where('user_id', '=', $this->user_id)
       ->orWhere('template', '=', 1);
 
     if($this->property('sortOrder') == 'name asc')
@@ -81,6 +100,7 @@ class Evaluations extends ComponentBase
         $query = $query->take($this->property('results'));
     }
     $query = $query->get();
+
     #dump($query);
     #dump($query[0]->evaluations);
     #dump($query[0]->attributes['id']);

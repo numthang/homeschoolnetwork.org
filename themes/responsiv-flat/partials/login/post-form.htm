@@ -1,9 +1,11 @@
 [evaluations]
 results = 0
 byUserID = "{{ user }}"
-sortOrder = "template"
+sortOrder = "created_at"
 
 ==
+{%  set student_evaluations = evaluations.student_evaluations %}
+{%  set evaluations = evaluations.evaluations %}
 <!-- START postform-default.htm -->
 {% if PostForm.backUser %}
 {{ form_open({ 'id':'bpostform', 'data-request': 'onSave','data-request-validate':'','data-request-flash':'', files: true }) }}
@@ -13,9 +15,10 @@ sortOrder = "template"
       {% if this.param.mod == 'portfolio' or 6 in PostForm.postCategoryIds or PostForm.post.evaluation_id != 0  %}
       <div class="form-group">
         <label>{{ 'For Evaluation'|_ }}</label>
-        {%  set evaluations = evaluations.evaluations %}
         <select name="evaluation_id" class="form-control select select-primary" data-toggle="select">
-          <option value="0">{{ 'Select Evaluation'|_ }}</option>
+          {% for e in student_evaluations %}
+            <option value="{{ e.id }}" {% if(e.graduated == ("now"|date("Y")+543) and PostForm.post.id == null) or (PostForm.post.evaluation_id == e.id) %} selected {% endif %}> {{ e.name }}</option>
+          {% endfor %}
           {% for c in evaluations %}
             {% for e in c.evaluations %}
             <option value="{{ e.id }}" {% if(e.graduated == ("now"|date("Y")+543) and PostForm.post.id == null) or (PostForm.post.evaluation_id == e.id) %} selected {% endif %}> {{ e.name }}</option>
