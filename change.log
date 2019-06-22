@@ -1,24 +1,5 @@
 Try plugin
 
-{"providers":{"Google":{"enabled":"1","enabledForBackend":"1","app_name":"Homeschool Network","client_id":"787930973087-l0v695prngcjartbiv9ib6c7me71nc8k.apps.googleusercontent.com","client_secret":"gtq-9eD98shjIWFrkgiXM6XM"},
-"Twitter":{"enabled":"1","identifier":"7ak1kCriY9sELBLQSk3VEM6x3","secret":"SBkk3jEpKujuK3i3oAb8ZCCGY30drfM7ywzOK9WsUo96TubStK"},
-"Facebook":{"enabled":"1","enabledForBackend":"1","client_id":"345191885891796","client_secret":"6108c48466a76b1e8abf7bc3cb22b50d"}}}
-
-response_type=code
-client_id=345191885891796
-redirect_uri=https://www.homeschoolnetwork.org/flynsarmy/sociallogin/Facebook/callback
-scope=https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email
-access_type=offline
-state=HA-4DXG2LCRA5SMK9O8UH1WPYQTZBN60EIF7J3V
-
-response_type=code
-client_id=7ak1kCriY9sELBLQSk3VEM6x3
-redirect_uri=https://www.homeschoolnetwork.org/flynsarmy/sociallogin/Twitter/callback
-scope=https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email
-access_type=offline
-state=HA-F9S85CYGDO7NKLPX4EHWI1JVUZTQRMB026A3
-That’s all we know.
-
 - Related Articles
 - Most Visited Posts
 - BlogFeaturedVideo, Blog Video Extension

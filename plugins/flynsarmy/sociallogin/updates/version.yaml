@@ -33,3 +33,13 @@
     - 'Bug fix in Rainlab.Users pages'
     - 'Update socialite'
     - 'Attached providers now display on both preview and update pages (previously just update page)'
+<<<<<<< HEAD
+=======
+1.0.23:
+    - 'Switch back to HybridAuth'
+    - update_user_providers_token_column1023.php
+1.0.24:
+    - 'Fix facebook login'
+1.0.25:
+    - 'Fix backend errors when settings have not yet been added'
+>>>>>>> a5e5f793c04b2a37979e987ab9aacaa41b778489
