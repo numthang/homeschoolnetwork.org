@@ -18,11 +18,6 @@ class Provider extends Model
 	 */
 	public $table = 'flynsarmy_sociallogin_user_providers';
 
-    /**
-     * @var array List of attribute names which are json encoded and decoded from the database.
-     */
-    protected $jsonable = ['provider_token'];
-
 	/**
 	 * @var array The attributes that are mass assignable.
 	 */

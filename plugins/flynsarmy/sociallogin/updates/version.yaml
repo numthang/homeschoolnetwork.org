@@ -30,9 +30,15 @@
     - 'Update socialite'
     - 'Remove deprecated Facebook scope'
 1.0.22:
+<<<<<<< HEAD
     - 'Bug fix in Rainlab.Users pages'
     - 'Update socialite'
     - 'Attached providers now display on both preview and update pages (previously just update page)'
 1.0.23:
     - 'Switch back to HybridAuth'
     - update_user_providers_token_column1023.php
+=======
+    - Bug fix in Rainlab.Users pages
+    - Update socialite
+    - Attached providers now display on both preview and update pages (previously just update page)
+>>>>>>> ebd4f29fcabcf843a76890cc09924b45a0687f3f
