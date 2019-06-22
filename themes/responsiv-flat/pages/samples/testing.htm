@@ -4,6 +4,8 @@ layout = "default"
 is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
+
+[sociallogin]
 ==
 <?php
 function onSubmitContactForm()
@@ -11,6 +13,8 @@ function onSubmitContactForm()
 }
 ?>
 ==
+{% component 'sociallogin' %}
+
 <select class="js-example-basic" name="state">
   <option value="AL">Alabama</option>
     ...
