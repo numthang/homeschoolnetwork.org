@@ -41,4 +41,7 @@
     - Bug fix in Rainlab.Users pages
     - Update socialite
     - Attached providers now display on both preview and update pages (previously just update page)
+<<<<<<< HEAD
 >>>>>>> ebd4f29fcabcf843a76890cc09924b45a0687f3f
+=======
+>>>>>>> eb47b0385f6414f5d3a55f8ab9407b4ef7fff970
