@@ -63,7 +63,11 @@ class Plugin extends PluginBase
 
 	public function boot()
 	{
-	    User::extend(function($model) {
+	    // Load socialite
+        App::register('\Laravel\Socialite\SocialiteServiceProvider');
+        AliasLoader::getInstance()->alias('Socialite', 'Laravel\Socialite\Facades\Socialite');
+
+		User::extend(function($model) {
 			$model->hasMany['flynsarmy_sociallogin_providers'] = ['Flynsarmy\SocialLogin\Models\Provider'];
 		});
 

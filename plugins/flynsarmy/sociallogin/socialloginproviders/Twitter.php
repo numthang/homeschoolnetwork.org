@@ -2,6 +2,9 @@
 
 use Backend\Widgets\Form;
 use Flynsarmy\SocialLogin\SocialLoginProviders\SocialLoginProviderBase;
+use Socialite;
+use Laravel\Socialite\One\TwitterProvider;
+use League\OAuth1\Client\Server\Twitter as TwitterServer;
 use URL;
 
 class Twitter extends SocialLoginProviderBase
@@ -10,41 +13,27 @@ class Twitter extends SocialLoginProviderBase
 
 	protected $driver = 'twitter';
 
-    protected $callback;
-    protected $adapter;
-
 	/**
 	 * Initialize the singleton free from constructor parameters.
 	 */
 	protected function init()
 	{
-        parent::init();
+		parent::init();
 
-        $this->callback = URL::route('flynsarmy_sociallogin_provider_callback', ['Twitter'], true);
+        // Socialite uses config files for credentials but we want to pass from
+        // our settings page - so override the login method for this provider
+        Socialite::extend($this->driver, function($app) {
+            $providers = \Flynsarmy\SocialLogin\Models\Settings::instance()->get('providers', []);
+            $providers['Twitter']['redirect'] = URL::route('flynsarmy_sociallogin_provider_callback', ['Twitter'], true);
+
+            return new TwitterProvider(
+                app()->request, new TwitterServer($providers['Twitter'])
+            );
+            return Socialite::buildProvider(
+                TwitterProvider::class, (array)@$providers['Twitter']
+            );
+        });
 	}
-
-	public function getAdapter()
-    {
-        if ( !$this->adapter )
-        {
-            // Instantiate adapter using the configuration from our settings page
-            $providers = $this->settings->get('providers', []);
-
-            $this->adapter = new \Hybridauth\Provider\Google([
-                'callback' => $this->callback,
-
-                'keys' => [
-                    'key'    => @$providers['Twitter']['identifier'],
-                    'secret' => @$providers['Twitter']['secret'],
-                ],
-
-                'debug_mode' => config('app.debug', false),
-                'debug_file' => storage_path('logs/flynsarmy.sociallogin.'.basename(__FILE__).'.log'),
-            ]);
-        }
-
-        return $this->adapter;
-    }
 
 	public function isEnabled()
 	{
@@ -108,10 +97,7 @@ class Twitter extends SocialLoginProviderBase
      */
     public function redirectToProvider()
     {
-        if ($this->getAdapter()->isConnected() )
-            return \Redirect::to($this->callback);
-
-        $this->getAdapter()->authenticate();
+        return Socialite::driver($this->driver)->redirect();
     }
 
     /**
@@ -121,14 +107,11 @@ class Twitter extends SocialLoginProviderBase
      */
     public function handleProviderCallback()
     {
-        $this->getAdapter()->authenticate();
+        $user = Socialite::driver($this->driver)->user();
 
-        $token = $this->getAdapter()->getAccessToken();
-        $profile = $this->getAdapter()->getUserProfile();
+        if ( empty($user->email) )
+            $user->email = $user->nickname.'@dev.null';
 
-        return [
-            'token' => $token,
-            'profile' => $profile
-        ];
+        return (array)$user;
     }
 }
