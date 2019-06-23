@@ -27,18 +27,19 @@ direction = "desc"
 <?php
 function onStart() {
     use FireUnion\BlogFront\Models\Author as Author;
-    $user = Auth::getUser();
-    $query = Author::where('user_id', '=', $user->id)->get();
-    if(!count($query)) {
-      $author = new Author;
-      $author->user_id = $user->id;
-      $author->admin_id = 2;
-      $author->categories = ["2", "3", "1", "5", "6"];
-      $author->can_publish = 1;
-      $author->show_excerpt = 1;
-      $author->allow_images = 1;
-      $author->save();
-      return Redirect::to('/add/post');
+    if($user = Auth::getUser()) {
+      $query = Author::where('user_id', '=', $user->id)->get();
+      if(!count($query)) {
+        $author = new Author;
+        $author->user_id = $user->id;
+        $author->admin_id = 2;
+        $author->categories = ["2", "3", "1", "5", "6"];
+        $author->can_publish = 1;
+        $author->show_excerpt = 1;
+        $author->allow_images = 1;
+        $author->save();
+        return Redirect::to('/add/post');
+      }
     }
   }
 ?>
