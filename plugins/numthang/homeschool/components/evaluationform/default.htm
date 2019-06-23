@@ -331,10 +331,10 @@
       {% if evaluation.id is defined %}
 				<button type="button" title="{{ 'Preview'|_ }}" class="btn btn-lg btn-info fa fa-eye float2" onClick="window.open('/evaluation/{{ evaluation.created_at| date('U') }}', '_blank');"></button>
 
-				<div class="col-sm-3">
+				<div class="col-sm-2">
 			    <button type="submit" class="btn btn-lg btn-info btn-block" onClick="if(confirm('{{ 'Save as'|_ }} '+this.form.name.value)) this.form.save_as.value = 1; else return false;">{{ 'Save as'|_ }} ...</button>
 				</div>
-				<div class="col-sm-2">
+				<div class="col-sm-3">
 					<button type="button" class="btn btn-lg btn-info btn-block" onClick="window.open('/e-portfolio/{{ evaluation.created_at| date('U') }}', '_blank');">{{ 'Portfolio'|_ }} </button>
 				</div>
 				<div class="col-sm-3">
