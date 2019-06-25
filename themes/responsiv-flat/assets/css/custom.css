@@ -91,7 +91,7 @@ hr {
 }
 .form-control {
   font-size: 16px;
-  line-height: 2.7;
+  /*line-height: 2.7; don't use this not work on safari*/
 }
 
 .multiple-select-box {
