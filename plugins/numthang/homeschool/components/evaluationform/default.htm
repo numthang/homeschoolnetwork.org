@@ -11,30 +11,22 @@
 		<div class="col-md-6">
 			<label>{{ 'Evaluation'|_ }}</label><br>
 			<div class="btn-group" style="width:100%;">
-	      <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle" type="button" style="width:100%; text-align:left;">&nbsp; <span class="fa fa-fw" aria-hidden="true">&#xf15c;</span> {{ 'Select Evaluation'|_ }} <span class="caret"></span></button>
-	      <ul role="menu" class="dropdown-menu" style="width:100%;">
-					<li><a href="/add/evaluation"><span class="fui-new"></span> {{ 'New Evaluation'|_ }}</a></li>
+				<select class="form-control select select-primary" data-toggle="" name="evaluation_id" style="width:100%" onChange="if(this.value == '') { location.href='/add/evaluation'; } else { location.href='/edit/evaluation/'+this.value; }">
+					<option value=""> {{ 'New Evaluation'|_ }}</option>
 					{% for c in evaluations %}
-					<li>
-						<!--<b>&nbsp;
-					 	<a href="/edit/course/{{c.id}}" {% if c.template %}style="color:#bbbbbb;"{% endif %}><span class="fa fa-fw" aria-hidden="true">&#xf0f6;</span> {{ 'Course'|_ }} : {{ c.name }}</a> </b>-->
 						{% for e in c.evaluations %}
-							<a href="/edit/evaluation/{{ e.id }}" {% if c.template %}style="color:#bbbbbb;"{% endif %}> <span class="fa fa-fw" aria-hidden="true">&#xf15c;</span> {{ 'Evaluation'|_ }} : {{ e.name }}  <!--[ {{ e.updated_at|date("m/d/Y") }} ]--></a>
+							<option value="{{ e.id }}" {{ evaluation.id == e.id ? 'selected' : '' }} {% if c.template %}style="color:#bbbbbb;"{% endif %}>{{ 'Evaluation'|_ }} : {{ e.name }}</option>
 						{% endfor %}
-					</li>
 					{% endfor %}
-					<li class="divider"></li>
 					{% for e in student_evaluations %}
-					<li>
-						<a href="/edit/evaluation/{{ e.id }}" {% if c.template %}style="color:#bbbbbb;"{% endif %}> <span class="fa fa-fw" aria-hidden="true">&#xf15c;</span> {{ 'Evaluation'|_ }} : {{ e.name }} </a>
-					</li>
+						<option value="{{ e.id }}" {{ evaluation.id == e.id ? 'selected' : '' }}>{{ 'Evaluation'|_ }} : {{ e.name }}</option>
 					{% endfor %}
-	      </ul>
+				</select>
 	    </div>
 		</div>
 		<div class="col-md-6">
 			<label>{{ 'Courses'|_ }} </label>
-			<select class="form-control select select-primary" data-toggle="select" name="course_id" style="width:100%">
+			<select class="form-control select select-primary" data-toggle="" name="course_id" style="width:100%">
 				<option value="">{{ 'Select Course'|_ }}</option>
 				{% for c in evaluations %}
 					{% if c.template == 0 or can('edit_course_template') %}
@@ -67,7 +59,7 @@
     </div>-->
 		<div class="col-md-3">
 			<label>ระดับชั้น</label>
-			<select class="form-control select select-primary" data-toggle="select" name="degree" style="width:100%">
+			<select class="form-control select select-primary" data-toggle="" name="degree" style="width:100%">
 				<option value="">{{ 'Select Degree'|_ }}</option>
 				<option value="1" {{ evaluation.degree == 1 ? 'selected' : '' }}>อนุบาล 1</option>
 				<option value="2" {{ evaluation.degree == 2 ? 'selected' : '' }}>อนุบาล 2</option>
@@ -88,7 +80,7 @@
 		</div>
 		<div class="col-md-3">
 			<label>ปีการศึกษา</label>
-			<select class="form-control select select-primary" data-toggle="select" name="graduated" style="width:100%">
+			<select class="form-control select select-primary" data-toggle="" name="graduated" style="width:100%">
 				<option value="">{{ 'Select Year'|_ }}</option>
 				{% set year = "now"|date("Y")+543 %}
 				{% for i in 2561..year %}
@@ -357,8 +349,8 @@
 	</script>
 	<script src="{{ ['assets/js/accordion.js']|theme }}"></script>
 	<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-	<link id="bsdp-css" href="https://uxsolutions.github.io/bootstrap-datepicker/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet">
-	<script src="https://uxsolutions.github.io/bootstrap-datepicker/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+	<link id="bsdp-css" href="/themes/responsiv-flat/assets/css/bootstrap-datepicker3.min.css" rel="stylesheet">
+	<script src="/themes/responsiv-flat/assets/js/bootstrap-datepicker.js"></script>
 	<script type="text/javascript">
 		$.fn.datepicker.defaults.format = "dd/mm/yyyy";
 	</script>

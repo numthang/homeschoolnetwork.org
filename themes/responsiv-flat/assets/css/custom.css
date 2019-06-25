@@ -103,6 +103,10 @@ hr {
   font-size: 16px;
   line-height: 25px;
 }
+.select.form-control {
+  border: 2px #e89c43 solid;
+  padding: 8px;
+}
 label {
   font-weight: 400;
   font-size: 16px;
