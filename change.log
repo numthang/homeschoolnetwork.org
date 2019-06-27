@@ -1,27 +1,28 @@
 Try plugin
+
 - Related Articles
 - Most Visited Posts
 - BlogFeaturedVideo, Blog Video Extension
 - Rainlab twitter
 
 Presentation
-- demo เข้า user ทั่วไปดู อันไหนก็ได้
-- เราเขียนบล็อกเองคนเดียว
-- นำทางเขียนบล็อก นำเข้าจากภายนอก
 
 Do
+- ทดสอบเปิดดูใน iphone textbox ตก, ไม่มี avatar
+
 - select แบบประเมินทำ wordwrap ใน mobile ตัวหนังสืออ่านไม่ออก
-- ไม่มี avatar
 - กรณีลูกหลายคนร่องรอยเดียวกัน
 - ทำ SCG ก่อน
 - เปลี่ยน new eva เป็น แบบประเมินผู้เรียน
 - ไม่แน่เราอาจจะมี super resume ให้เด็กโฮมสคูลโดยเฉพาะ
 
 Patai
+
 สร้างแบบฟอร์มออนไลน์บนพื้นฐานของไฟล์จากพี่นิ่มดังนี้
+
 - ฟอร์มแผนการศึกษาปฐมวัย
 - ฟอร์มแบบประเมิน SAR ระดับปฐมวัย
-- ฟอร์มแผนการศึกษาระดับประถม (ตอนนี้มีแล้วแต่ปรับปรุง)
+- ฟอร์มแผนการศึกษาระดับประถม (ตอนนี้มีอยู่แล้วอันที่พ่อจิวทำ แต่ปรับให้ใกล้เคียงแบบของพี่นิ่มมากที่สุด)
 - ฟอร์มแบบประเมิน SAR ระดับประถม
 
 
@@ -188,3 +189,5 @@ Hard code changed
 /plugins/flynsarmy/sociallogin/classes/UserManager.php
 //use traslatable title
 /plugins/suresoftware/powerseo/components/cmspage/default.htm
+//remove quote
+/plugins/suresoftware/powerseo/classes/Helper.php
