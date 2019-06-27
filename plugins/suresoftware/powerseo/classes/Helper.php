@@ -83,7 +83,7 @@ class Helper
                 $ogUrl = $this->page->powerseo_canonical_url;
             }
 
-            $ogTags .= '<meta property="og:title" content="' . $ogTitle . '" />' . "\n";
+            $ogTags .= '<meta property="og:title" content="' . str_replace(array("\""), '', $ogTitle) . '" />' . "\n";
 
             $ogTags .= '<meta property="og:url" content="' . $ogUrl . '" />';
 

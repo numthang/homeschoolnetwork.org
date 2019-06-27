@@ -91,9 +91,8 @@ hr {
 }
 .form-control {
   font-size: 16px;
-  /*line-height: 2.7; don't use this not work on safari*/
+  /*line-height: 45px;*/
 }
-
 .multiple-select-box {
   border: 2px solid #7f8c8d;
   padding: 5px;
@@ -106,6 +105,7 @@ hr {
 .select.form-control {
   border: 2px #e89c43 solid;
   padding: 8px;
+  line-height: 45px;
 }
 label {
   font-weight: 400;
