@@ -120,6 +120,19 @@ security = "all"
         }
     </script>
     <script type="text/javascript">
+      var userAgent = navigator.userAgent.toLowerCase();
+      if (userAgent .indexOf('safari')!=-1){
+        if(userAgent .indexOf('chrome')  > -1){
+          //browser is chrome
+        } else if((userAgent .indexOf('opera')  > -1)||(userAgent .indexOf('opr')  > -1)){
+         //browser is opera
+        } else{
+          //browser is safari, add css
+
+        }
+      }
+    </script>
+    <script type="text/javascript">
 			var _gaq = _gaq || [];
 			_gaq.push(['_setAccount', 'UA-32138803-1']);
 			_gaq.push(['_setDomainName', 'homeschoolnetwork.org']);

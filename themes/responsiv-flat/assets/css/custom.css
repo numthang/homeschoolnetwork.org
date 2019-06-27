@@ -89,9 +89,10 @@ hr {
   box-shadow: 5px 5px 10px #999;
   z-index: 999;
 }
-.form-control {
+.form-control, .select2-search input[type="text"] {
   font-size: 16px;
-  /*line-height: 45px;*/
+  line-height: 43px;
+  height:43px;
 }
 .multiple-select-box {
   border: 2px solid #7f8c8d;
@@ -105,7 +106,8 @@ hr {
 .select.form-control {
   border: 2px #e89c43 solid;
   padding: 8px;
-  line-height: 45px;
+  line-height: 43px;
+  height: 43px;
 }
 label {
   font-weight: 400;

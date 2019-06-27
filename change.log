@@ -8,13 +8,13 @@ Try plugin
 Presentation
 
 Do
-- ทดสอบเปิดดูใน iphone textbox ตก, ไม่มี avatar
-
+- ทดสอบเปิดดูใน iphone ไม่มี avatar
 - select แบบประเมินทำ wordwrap ใน mobile ตัวหนังสืออ่านไม่ออก
 - กรณีลูกหลายคนร่องรอยเดียวกัน
 - ทำ SCG ก่อน
 - เปลี่ยน new eva เป็น แบบประเมินผู้เรียน
 - ไม่แน่เราอาจจะมี super resume ให้เด็กโฮมสคูลโดยเฉพาะ
+- smooth scroll ไม่ทำงานบน safari
 
 Patai
 
