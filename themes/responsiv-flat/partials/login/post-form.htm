@@ -15,7 +15,7 @@ sortOrder = "created_at"
       {% if this.param.mod == 'portfolio' or 6 in PostForm.postCategoryIds or PostForm.post.evaluation_id != 0  %}
       <div class="form-group">
         <label>{{ 'For Evaluation'|_ }}</label>
-        <select name="evaluation_id" class="form-control select select-primary" data-toggle="select">
+        <select name="evaluation_id" class="form-control select select-primary" data-toggle="">
           {% for e in student_evaluations %}
             <option value="{{ e.id }}" {% if(e.graduated == ("now"|date("Y")+543) and PostForm.post.id == null) or (PostForm.post.evaluation_id == e.id) %} selected {% endif %}> {{ e.name }}</option>
           {% endfor %}
