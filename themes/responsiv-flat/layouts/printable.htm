@@ -20,16 +20,17 @@ description = "Printable layout"
       'assets/javascript/respond.min.js',
       ]|theme }}"></script>
       <![endif]-->
-
-      <link href="https://fonts.googleapis.com/css?family=Sarabun" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Kanit|Pridi|Sarabun|Kodchasan:500&display=swap&subset=thai" rel="stylesheet">
       <style>
+        html {
+          scroll-behavior: smooth;
+        }
         body {
           margin:0px;
           padding:0px;
-          font-family: 'Sarabun', sans-serif;
-          font-size: 15px;
-          line-height: 26px;
+          font-family: 'Sarabun', 'Kanit', 'Tahoma', Helvetica, Arial, sans-serif;
+          font-size: 18px; /*for ipad 20px*/
+          line-height: 28px;
         }
         h1,h2,h3,h4,h5 {
           line-height: 30px;
@@ -212,16 +213,7 @@ description = "Printable layout"
     ]|theme }}"></script>
     {% framework extras %}
     {% scripts %}
-    <script>
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-      });
-    </script>
+    <script type="text/javascript" src="/themes/responsiv-flat/assets/js/zenscroll-min.js"></script>
     <script type="text/javascript">
 			var _gaq = _gaq || [];
 			_gaq.push(['_setAccount', 'UA-32138803-1']);
