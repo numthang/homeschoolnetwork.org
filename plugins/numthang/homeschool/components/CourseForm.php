@@ -42,9 +42,8 @@ class CourseForm extends ComponentBase
       );
 
       if($validator->fails()){
-        #print_r($validator->errors());
-        #return ['#flash_message' => $this->renderPartial('flash.htm', ['message' => $validator->errors()->first('hs_name'), 'type' => 'error'])];
-        return Redirect::back()->withErrors($validator);
+        return ['#flash_message' => $this->renderPartial('flash.htm', ['message' => $validator->errors()->first(), 'type' => 'error'])];
+        #return Redirect::back()->withErrors($validator);
 
       }
 

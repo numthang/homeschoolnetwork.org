@@ -7,10 +7,10 @@
 		<select class="form-control select select-primary" data-toggle="" name="course_id" style="width:100%" onChange="if(this.value == '') { location.href='/add/course'; } else { location.href='/edit/course/'+this.value; }">
 			<option value=""> {{ 'New Course'|_ }}</option>
 			{% for c in courses %}
-				<option value="{{ c.id }}" {{ record.id == c.id ? 'selected' : '' }} {% if c.template %}style="color:#bbbbbb;"{% endif %}>{{ 'Course'|_ }} : {{ c.name }}</option>
+				<option value="{{ c.id }}" {{ record.id == c.id ? 'selected' : '' }} {% if c.template %}style="color:#bbbbbb;"{% endif %}>{{ c.name }}</option>
 			{% endfor %}
 			{% for e in student_courses %}
-				<option value="{{ e.course.id }}" {{ record.id == e.course.id ? 'selected' : '' }}>{{ 'Course'|_ }} : {{ e.course.name }}</option>
+				<option value="{{ e.course.id }}" {{ record.id == e.course.id ? 'selected' : '' }}>{{ e.course.name }}</option>
 			{% endfor %}
 		</select>
 	</div>
@@ -150,7 +150,7 @@
 						<div class="col-sm-3">
 							<div class="form-group">
 								<label>เพศ</label>
-								<select class="form-control select select-primary" data-toggle="select" name="gender">
+								<select class="form-control select select-primary" data-toggle="" name="gender">
 									<option value="">{{ 'Gender'|_ }}</option>
 									<option value="1" {{ record.gender == 1 ? 'selected' : '' }}>{{ 'Male'|_ }}</option>
 									<option value="2" {{ record.gender == 2 ? 'selected' : '' }}>{{ 'Female'|_ }}</option>
