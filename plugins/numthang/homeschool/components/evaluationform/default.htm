@@ -15,29 +15,31 @@
 					<option value=""> {{ 'New Evaluation'|_ }}</option>
 					{% for c in evaluations %}
 						{% for e in c.evaluations %}
-							<option value="{{ e.id }}" {{ evaluation.id == e.id ? 'selected' : '' }} {% if c.template %}style="color:#bbbbbb;"{% endif %}>{{ 'Evaluation'|_ }} : {{ e.name }}</option>
+							<option value="{{ e.id }}" {{ evaluation.id == e.id ? 'selected' : '' }} {% if c.template %}style="color:#bbbbbb;"{% endif %}>{{ e.name }}</option>
 						{% endfor %}
 					{% endfor %}
 					{% for e in student_evaluations %}
-						<option value="{{ e.id }}" {{ evaluation.id == e.id ? 'selected' : '' }}>{{ 'Evaluation'|_ }} : {{ e.name }}</option>
+						<option value="{{ e.id }}" {{ evaluation.id == e.id ? 'selected' : '' }}>{{ e.name }}</option>
 					{% endfor %}
 				</select>
 	    </div>
 		</div>
 		<div class="col-md-6">
-			<label>{{ 'Courses'|_ }} </label>
-			<select class="form-control select select-primary" data-toggle="" name="course_id" style="width:100%">
-				<option value="">{{ 'Select Course'|_ }}</option>
-				{% for c in evaluations %}
-					{% if c.template == 0 or can('edit_course_template') %}
-					<option value="{{ c.id }}" {{ course.id == c.id ? 'selected' : '' }}>{{ 'Course'|_ }} : {{ c.name }}</option>
-					{% endif %}
-				{% endfor %}
-					<option value="">.......</option>
-				{% for e in student_courses %}
-					<option value="{{ e.course.id }}" {{ course.id == e.course.id ? 'selected' : '' }}>{{ 'Course'|_ }} : {{ e.course.name }}</option>
-				{% endfor %}
-			</select>
+			<div class="form-group {% if errors.first('course_id') %} has-error {% endif %}">
+				<label>{{ 'Courses'|_ }} </label>
+				<select class="form-control select select-primary" data-toggle="" name="course_id" style="width:100%">
+					<option value="">{{ 'Select Course'|_ }}</option>
+					{% for c in evaluations %}
+						{% if c.template == 0 or can('edit_course_template') %}
+						<option value="{{ c.id }}" {{ course.id == c.id ? 'selected' : '' }}>{{ c.name }}</option>
+						{% endif %}
+					{% endfor %}
+					{% for e in student_courses %}
+						<option value="{{ e.course.id }}" {{ course.id == e.course.id ? 'selected' : '' }}>{{ e.course.name }}</option>
+					{% endfor %}
+				</select>
+				{% if errors.first('course_id') %}<div class="alert alert-warning" style="margin-top:4px;">{{ errors.first('course_id') }}</div>{% endif %}
+			</div>
 		</div>
 	</div>
 
