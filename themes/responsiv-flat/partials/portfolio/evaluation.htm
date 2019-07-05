@@ -25,6 +25,7 @@ sortOrder = "published_at asc"
   {% for post in postsbytag if continue %}
     {% if(post.tag_id == tag_id) %}
       <a href="/blog/{{post.slug}}"><h3>{{ parent }}.{{ child }} {% set child = child+1 %} {{ post.title }}</h3></a>
+      {{ post.excerpt|raw }}<br>
       {% if post.featured_images|length %}
       <div class="featured-images text-center">
         {% for image in post.featured_images %}
@@ -32,7 +33,6 @@ sortOrder = "published_at asc"
         {% endfor %}
       </div>
       {% endif %}
-      {{ post.excerpt|raw }}<br>
       {{ post.content_html|raw }}<br>
       {% set break = false %}
     {% else %}
