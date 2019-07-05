@@ -220,7 +220,7 @@ class ScopePosts extends ComponentBase
           $query
             ->Where(function ($query) {
               $query
-                ->where('author_id', '=', $this->property('authorID'))
+                ->where('author_id', '=', $this->property('authorID'))//authorID คือผู้แต่งที่นำเข้ามา
                 ->whereBetween('created_at', [$this->from, $this->to]);
             })
             ->orWhere(function ($query) {
@@ -263,19 +263,21 @@ class ScopePosts extends ComponentBase
        * List all the posts, eager load their categories
        */
       $isPublished = !$this->checkEditor(); //if backend user logged in and can access post then isPublished is false also show unpublished
+      #dump($this->property('authorID'));
+      #dump($this->property('userID'));
       $posts = BlogPost::with('categories')
         ->with('tags')
         ->Where(function ($query) {//กรณีเอาผู้แต่งจากภายนอกเลยไม่ต้องสังกัด evalution ก็ได้ หาแต่ผู้แต่ง
           $category = $this->category ? $this->category->id : null;
           $query
-            ->where('author_id', '=', $this->property('authorID'))
+            ->where('author_id', '=', $this->property('authorID'))//authorID คือผู้แต่งที่นำเข้ามา
             ->whereBetween('created_at', [$this->from, $this->to])
             ->listFrontEnd([
               'category'  => $category,
               'published' => $this->property('isPublished')
             ]);
         })
-        ->orWhere(function ($query) {//กระณีหาโพสต์ของตัวเองควรมีการเลือก evaluation ด้วย
+        ->orWhere(function ($query) {//กรณีหาโพสต์ของตัวเองควรมีการเลือก evaluation ด้วย
           $category = $this->category ? $this->category->id : null;
           $query
             ->where('author_id', '=', $this->property('userID'))

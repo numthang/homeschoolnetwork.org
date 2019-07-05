@@ -41,8 +41,9 @@ public function onEnd() {
   $year = $this->evaluationform->record->graduated-543;
   $this->page['from'] = $year.'-05-01';
   $this->page['to'] = ($year+1).'-05-01';
-  //ถ้ามีการนำเข้าผู้แต่งจากภายนอก ให้เลือกโพสต์ (author_id) ผู้แต่งจากภายนอก ถ้าไม่ก็ให้ใช้โพสต์ของเจ้าของ course
-  $this->evaluationform->record->portfolio_id ? $this->page['author_id'] = $this->evaluationform->record->portfolio_id : $this->page['author_id'] = $course->user_id;
+  //ถ้ามีการนำเข้าผู้แต่งจากภายนอก ให้เลือกโพสต์ (author_id) ผู้แต่งจากภายนอก
+  $this->page['author_id'] = $this->evaluationform->record->portfolio_id;
+  #$this->evaluationform->record->portfolio_id ? $this->page['author_id'] = $this->evaluationform->record->portfolio_id : $this->page['author_id'] = $course->user_id;
 }
 ?>
 ==
