@@ -104,7 +104,7 @@
             </div>
           </div>
         </dd>
-        <dt><a class="accordionTitle" href="#">1. ข้อมูลพื้นฐานของครอบครัว</a></dt>
+        <!--<dt><a class="accordionTitle" href="#">1. ข้อมูลพื้นฐานของครอบครัว</a></dt>
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
             <div class="col-sm-4">
@@ -208,10 +208,10 @@
                 <label>วัน เดือน ปี เกิด</label>
                 <div class="input-group date" data-provide="datepicker">
 									{{ this.page.birth_date }}
-                  <!--<input type="text" class="form-control" name="birth_date" value="{{ this.page.birth_date }}">
+                  <input type="text" class="form-control" name="birth_date" value="{{ this.page.birth_date }}">
                     <div class="input-group-addon">
                       <span class="fui-calendar"></span>
-                    </div>-->
+                    </div>
                 </div>
               </div>
             </div>
@@ -231,67 +231,141 @@
               </div>
             </div>
           </div>
-        </dd>
-        <dt><a href="#" class="accordionTitle">3. การวัดและประเมินผลการเรียนรู้</a></dt>
+        </dd>-->
+				<h6>ส่วนที่ 1 แนวทาง/วิธีการวัดและประเมินผล  ตามแผนการจัดการศึกษาโดยครอบครัว และคู่มือการดำเนินงานการจัดการศึกษาโดยครอบครัว</h6>
+        <dt><a href="#" class="accordionTitle">1.1 แผนการจัดการศึกษาของครอบครัว</a></dt>
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group">
-                <textarea class="form-control mytinymce" name="learning" placeholder="" rows="20">{% if evaluation.learning is defined %} {{ evaluation.learning }} {% else %} {{ this.page['default_3'] }} {% endif %}</textarea>
+                <textarea class="form-control mytinymce" name="part1_1" placeholder="" rows="20">{% if evaluation.part1_1 is defined %} {{ evaluation.part1_1 }} {% else %} {{ this.page['default_3'] }} {% endif %}</textarea>
               </div>
             </div>
           </div>
         </dd>
-        <dt><a href="#" class="accordionTitle">4. สรุปผลการเรียนรู้ของผู้เรียนตามเกณฑ์การจบชั้นเรียน</a></dt>
+				<h6>ส่วนที่ 2 รูปแบบและผลพัฒนาคุณภาพผู้เรียนการศึกษาขั้นพื้นฐานโดยครอบครัว</h6>
+        <dt><a href="#" class="accordionTitle">2.1 วิธีการจัดการศึกษาของครอบครัว สรุปผลการเรียนรู้ของผู้เรียนตามเกณฑ์การจบชั้นเรียน</a></dt>
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
           <div class="col-sm-12">
             <div class="form-group">
-              <textarea class="form-control mytinymce" name="summary" placeholder="ระบุความต้องการ เช่น ต้องการพึ่งตนเอง ลดค่าใช้จ่าย เป็นต้น" rows="20">{% if evaluation.summary is defined %} {{ evaluation.summary }} {% else %} {{ this.page['default_4'] }} {% endif %}</textarea>
+              <textarea class="form-control mytinymce" name="part2_1" placeholder="ระบุความต้องการ เช่น ต้องการพึ่งตนเอง ลดค่าใช้จ่าย เป็นต้น" rows="20">{% if evaluation.part2_1 is defined %} {{ evaluation.part2_1 }} {% else %} {{ this.page['default_4'] }} {% endif %}</textarea>
             </div>
           </div>
         </div>
         </dd>
-        <dt><a href="#" class="accordionTitle">5. จุดเด่น / ความสำเร็จที่สำคัญของการจัดการศึกษา</a></dt>
+        <dt><a href="#" class="accordionTitle">2.2 ผลการพัฒนาคุณภาพผู้เรียนตามจุดมุ่งหมายการศึกษาของครอบครัว</a></dt>
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group">
-                <textarea class="form-control mytinymce" name="successful" placeholder="" rows="20">{% if evaluation.successful is defined %} {{ evaluation.successful }} {% else %} {{ this.page['default_5'] }} {% endif %}</textarea>
+                <textarea class="form-control mytinymce" name="part2_2" placeholder="" rows="20">{% if evaluation.part2_2 is defined %} {{ evaluation.part2_2 }} {% else %} {{ this.page['default_5'] }} {% endif %}</textarea>
               </div>
             </div>
           </div>
         </dd>
-        <dt><a href="#" class="accordionTitle">6. ปัญหา, อุปสรรคหรือสิ่งที่ควรพัฒนา</a></dt>
+        <dt><a href="#" class="accordionTitle">2.3 คุณลักษณะอันพึงประสงค์ (เพิ่มเติม) ตามความคาดหวังของครอบครัว</a></dt>
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group">
-								<textarea class="form-control mytinymce" name="problem" placeholder="" rows="20">{% if evaluation.problem is defined %} {{ evaluation.problem }} {% else %} {{ this.page['default_6'] }} {% endif %}</textarea>
+								<textarea class="form-control mytinymce" name="part2_3" placeholder="" rows="20">{% if evaluation.part2_3 is defined %} {{ evaluation.part2_3 }} {% else %} {{ this.page['default_6'] }} {% endif %}</textarea>
               </div>
             </div>
           </div>
         </dd>
-        <dt><a href="#" class="accordionTitle">7. แนวทางการจัดการเรียนรู้ในปีต่อไป</a></dt>
+        <dt><a href="#" class="accordionTitle">2.4 กรอบการจัดการเรียนรู้ของครอบครัว</a></dt>
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group">
-                <textarea class="form-control mytinymce" name="next" placeholder="" rows="20">{% if evaluation.next is defined %} {{ evaluation.next }} {% else %} {{ this.page['default_7'] }} {% endif %}</textarea>
+                <textarea class="form-control mytinymce" name="part2_4" placeholder="" rows="20">{% if evaluation.part2_4 is defined %} {{ evaluation.part2_4 }} {% else %} {{ this.page['default_7'] }} {% endif %}</textarea>
               </div>
             </div>
           </div>
         </dd>
-        <dt><a href="#" class="accordionTitle">8. ข้อคิดเห็น / ข้อเสนอแนะอื่น ๆ</a></dt>
+        <dt><a href="#" class="accordionTitle">2.5 ครอบครัวเลือกการให้ระดับผลการเรียน สะท้อนมาตรฐานระบบ</a></dt>
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group">
-                <textarea class="form-control mytinymce" name="suggestion" placeholder="" rows="20">{% if evaluation.suggestion is defined %} {{ evaluation.suggestion }} {% else %} {{ this.page['default_7'] }} {% endif %}</textarea>
+                <textarea class="form-control mytinymce" name="part2_5" placeholder="" rows="20">{% if evaluation.part2_5 is defined %} {{ evaluation.part2_5 }} {% else %} {{ this.page['default_7'] }} {% endif %}</textarea>
               </div>
             </div>
           </div>
         </dd>
+				<dt><a href="#" class="accordionTitle">ตารางที่ 1 เกณฑ์การประเมิน : การให้ระดับคะแนน</a></dt>
+				<dd class="accordionItem accordionItemCollapsed">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="form-group">
+								<textarea class="form-control mytinymce" name="table1" placeholder="" rows="20">{% if evaluation.table1 is defined %} {{ evaluation.table1 }} {% else %} {{ this.page['default_7'] }} {% endif %}</textarea>
+							</div>
+						</div>
+					</div>
+				</dd>
+				<dt><a href="#" class="accordionTitle">ตารางที่ 2 ตารางบันทึกผลการเรียนรู้ตามกลุ่มสาระการเรียนรู้/กลุ่มประสบการณ์</a></dt>
+				<dd class="accordionItem accordionItemCollapsed">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="form-group">
+								<textarea class="form-control mytinymce" name="table2" placeholder="" rows="20">{% if evaluation.table2 is defined %} {{ evaluation.table2 }} {% else %} {{ this.page['default_7'] }} {% endif %}</textarea>
+							</div>
+						</div>
+					</div>
+				</dd>
+				<dt><a href="#" class="accordionTitle">ตารางที่ 3 สรุปผลการประเมินคุณภาพผู้เรียนตามแผนการศึกษาของครอบครัว</a></dt>
+				<dd class="accordionItem accordionItemCollapsed">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="form-group">
+								<textarea class="form-control mytinymce" name="table3" placeholder="" rows="20">{% if evaluation.table3 is defined %} {{ evaluation.table3 }} {% else %} {{ this.page['default_7'] }} {% endif %}</textarea>
+							</div>
+						</div>
+					</div>
+				</dd>
+				<h6>ส่วนที่ 3
+				ผลการประเมินความสามารถและทักษะการเรียนรู้ คุณลักษณะ การอ่าน การคิดวิเคราะห์ และการเขียน กิจกรรมพัฒนาผู้เรียนตามจุดเน้นการพัฒนาผู้เรียนที่สอดคล้องกับการเรียนรู้ของผู้เรียนในแผนการศึกษาของครอบครัว/คุณลักษณะอันพึงประสงค์</h6>
+				<dt><a href="#" class="accordionTitle">ตารางที่ 4 บันทึกผลการให้คะแนนระดับคุณภาพการเรียนรู้ ตาม "จุดเน้นการพัฒนาผู้เรียน"</a></dt>
+				<dd class="accordionItem accordionItemCollapsed">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="form-group">
+								<textarea class="form-control mytinymce" name="table4" placeholder="" rows="20">{% if evaluation.table4 is defined %} {{ evaluation.table4 }} {% else %} {{ this.page['default_7'] }} {% endif %}</textarea>
+							</div>
+						</div>
+					</div>
+				</dd>
+				<dt><a href="#" class="accordionTitle">ตารางที่ 5 แบบประเมินเพื่อพัฒนาการเรียนรู้ด้าน “การอ่าน การคิดวิเคราะห์ และการเขียน”</a></dt>
+				<dd class="accordionItem accordionItemCollapsed">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="form-group">
+								<textarea class="form-control mytinymce" name="table5" placeholder="" rows="20">{% if evaluation.table5 is defined %} {{ evaluation.table5 }} {% else %} {{ this.page['default_7'] }} {% endif %}</textarea>
+							</div>
+						</div>
+					</div>
+				</dd>
+				<dt><a href="#" class="accordionTitle">ตารางที่ 6 ประเมินผล “กิจกรรมพัฒนาผู้เรียน”</a></dt>
+				<dd class="accordionItem accordionItemCollapsed">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="form-group">
+								<textarea class="form-control mytinymce" name="table6" placeholder="" rows="20">{% if evaluation.table6 is defined %} {{ evaluation.table6 }} {% else %} {{ this.page['default_7'] }} {% endif %}</textarea>
+							</div>
+						</div>
+					</div>
+				</dd>
+				<dt><a href="#" class="accordionTitle">สรุปผลการเรียนรู้ตามแผนการจัดการศึกษาโดยครอบครัว</a></dt>
+				<dd class="accordionItem accordionItemCollapsed">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="form-group">
+								<textarea class="form-control mytinymce" name="summary" placeholder="" rows="20">{% if evaluation.summary is defined %} {{ evaluation.summary }} {% else %} {{ this.page['default_7'] }} {% endif %}</textarea>
+							</div>
+						</div>
+					</div>
+				</dd>
 				<dt><a href="#" class="accordionTitle">9. ภาคผนวก/ร่องรอยการเรียนรู้</a></dt>
 				<dd class="accordionItem accordionItemCollapsed">
 	        <div class="row">
