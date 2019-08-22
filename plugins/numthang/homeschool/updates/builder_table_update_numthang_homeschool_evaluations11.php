@@ -9,7 +9,7 @@ class BuilderTableUpdateNumthangHomeschoolEvaluations11 extends Migration
     {
         Schema::table('numthang_homeschool_evaluations', function($table)
         {
-            $table->renameColumn('portfolio', 'portfolios');
+            $table->text('summary')->nullable();
         });
     }
     
@@ -17,7 +17,7 @@ class BuilderTableUpdateNumthangHomeschoolEvaluations11 extends Migration
     {
         Schema::table('numthang_homeschool_evaluations', function($table)
         {
-            $table->renameColumn('portfolios', 'portfolio');
+            $table->dropColumn('summary');
         });
     }
 }
