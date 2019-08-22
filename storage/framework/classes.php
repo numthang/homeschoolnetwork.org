@@ -404,4 +404,10 @@
   'System\\Console\\ThemeList' => 'modules/system/console/ThemeList.php',
   'System\\Console\\ThemeUse' => 'modules/system/console/ThemeUse.php',
   'System\\Console\\ThemeSync' => 'modules/system/console/ThemeSync.php',
+  'Flynsarmy\\SocialLogin\\FormWidgets\\LoginProviders' => 'plugins/flynsarmy/sociallogin/formwidgets/LoginProviders.php',
+  'RainLab\\Forum\\Models\\Member' => 'plugins/rainlab/forum/models/Member.php',
+  'RainLab\\Sitemap\\FormWidgets\\SitemapItems' => 'plugins/rainlab/sitemap/formwidgets/SitemapItems.php',
+  'RainLab\\Builder\\Classes\\MigrationColumnType' => 'plugins/rainlab/builder/classes/MigrationColumnType.php',
+  'Backend\\FormWidgets\\DataTable' => 'modules/backend/formwidgets/DataTable.php',
+  'Backend\\Widgets\\Table\\ClientMemoryDataSource' => 'modules/backend/widgets/table/ClientMemoryDataSource.php',
 );
