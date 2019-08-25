@@ -12,7 +12,7 @@ sortOrder = "created_at"
   <input type="hidden" id="Form-field-blog-id" name="id" value="{{ PostForm.post.id }}"></input>
   <div class="row">
     <div class="col-sm-6">
-      {% if this.param.mod == 'portfolio' or 6 in PostForm.postCategoryIds or PostForm.post.evaluation_id != 0  %}
+      {% if this.param.mod == 'portfolio' or 6 in PostForm.postCategoryIds or PostForm.post.evaluation_id != 0  %}<!--ใช้ในกรณี add/portfolio และกรณีแก้ไข กรณีที่อยู่ในหมวด 6 คือ portfolio หรือ ใน post มีการระบุ evaluation_id ใน post -->
       <div class="form-group">
         <label>{{ 'For Evaluation'|_ }}</label>
         <select name="evaluation_id" class="form-control select select-primary" data-toggle="">

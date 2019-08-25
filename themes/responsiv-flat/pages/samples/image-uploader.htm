@@ -1,0 +1,22 @@
+title = "Image uploader"
+url = "/image-uploader"
+layout = "default"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[PostForm]
+use_authors = 1
+restrict_owner = 1
+allowpublish = 1
+show_excerpt = 0
+allow_images = 1
+slug = "{{ :slug }}"
+listPage = "blog/list"
+postPage = "blog/post"
+
+[blogTags]
+results = 0
+direction = "desc"
+==
+{% partial 'login/post-form' user=user.id %}
