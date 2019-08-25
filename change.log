@@ -1,3 +1,20 @@
+tee@numthang.org - octoberspeaker
+
+I was a programmer in a little company in Bangkok. Now, I'm a founder of Numthang Permaculture Farm https://www.facebook.com/numthang.org/. Currently, I'm a web freelancer and Linux administrator. I work few jobs per year to have more time to taking care the farm and my kids as homeschooler.
+
+ผมเป็นอดีตโปรแกรมเมอร์ที่ผันตัวมาทำเกษตรพึ่งตนเอง ชื่อว่า นำทางฟาร์ม https://www.facebook.com/numthang.org/. ปัจจุบันยังมีงานฟรีแลนซ์เก่าๆ และดูแลลีนุกซ์เซอร์เวอร์อยู่บ้าง ทำงานปีละ 1-2 ชิ้น เพื่อจะได้มีเวลาดูแลฟาร์มและลูกสาวสองคนที่ไม่ได้ไปโรงเรียนหรือโฮมสคูล
+
+In 2019. I've a big changed. There was a Swiss guy looking for web programmer who can code with him. His website is running on OctoberCMS. The CMS base on Laravel PHP Framework. Then I have to learn by doing. I chose a website name homeschoolnetwork.org to be a test project for learning. I learned for couple month until I know some code and structure of OctoberCMS. Then I can code for him. The learning curve not that much difficult. I want to share my open source project and the user experience about OctoberCMS.
+
+ในปี 2019 ได้มีโอกาสอัพเดทการทำงานครั้งใหญ่ มีคนรู้จักชาวสวิสต้องการหา backend programmer เพื่อต่อเติมเว็บที่ทำงานบน OctoberCMS ซึ่งเป็น CMS ที่ทำงานบน Laravel Framework เฟรมเวิร์คดาวรุ่ง ฝั่ง PHP ประสิทธิภาพจึงสูงและรวดเร็วไปด้วย ในขณะที่กำลังไม่มีงานทำพอดี ประจวบเหมาะกับเว็บที่เคยดูแลอยู่ของกลุ่มโฮมสคูลต้องทำใหม่ คือ https://www.homeschoolnetwork.org/ จึงรับมาเป็นหนูทดลอง เพื่อหาเรื่องทำเว็บสักเว็บนึง พอเริ่มศึกษาและผ่านการใช้งานมาได้สักสองสามเดือน ก็สามารถทำงานให้กับชาวสวิสได้ ไม่ยากเย็นนัก ผมต้องการพูดคุยเกี่ยวกับโปรเจ็กต์ของผมและประสบการณ์การใช้งาน OctoberCMS
+
+
+
+
+ขอให้เข้าใจโครงสร้างของมันสักหน่อย และสุดท้ายพบว่า OctoberCMS คือสิ่งที่ผมต้องการ หากต้องการโค้ดสะอาดตา เป็นระบบระเบียบไม่เลอะเทอะ แบบ MVC PHP Framework ติดตั้งด้วยคำสั่งเดียวด้วย composer ตรวจหาข้อดีอื่นๆ เทียบกับ Wordpress เน้นระบบที่ต้องการความสามารถเฉพาะตัว มีระบบ backend มาให้พร้อม แถมความสามารถในการสร้างฟอร์มใน backend ได้อย่างไง สิ่งที่ต้องทำคือการสร้าง plugin ภายในสมารถสร้าง component ซึ่งเปรียบเสมือนกลุ่มก้อนโปรแกรมตัวนึง และ partial สำหรับการนำไปใช้ซ้ำในเว็บไซต์ นอกจาก Wordpress แล้ว ตัวนี้อนาคตค่อนข้างสดใส เป็นซอฟต์แวร์ที่ดีมากๆ ตัวนึง
+
+ปัญหาที่เกิดจากการใช้งานจะเจอในส่วนของ migration ที่เกิดจาก plugin builder ยังทำได้ไม่ดีเท่าไรนัก การทำงานของ cms ตัวนี้เป็น flat file cms ทั้งยังได้รับการโหวตในปี 2018 อีกด้วย เขียนข้อดีของ file based
+
 Try plugin
 
 - Related Articles
