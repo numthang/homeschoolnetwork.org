@@ -264,3 +264,18 @@ blockquote p {
 .portfolio-item {
   float: left;
 }
+.oc-icon-upload {
+  font-family: 'Flat-UI-Icons', 'Tahoma';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: block;
+  width: 100%;
+}
+.oc-icon-upload:before {
+  content: "\e62a";
+}

@@ -1,0 +1,77 @@
+[evaluations]
+results = 0
+byUserID = "{{ user_id }}"
+sortOrder = "created_at"
+
+==
+{%  set student_evaluations = evaluations.student_evaluations %}
+{%  set evaluations = evaluations.evaluations %}
+<!-- START postform-default.htm -->
+{% if PostForm.backUser %}
+{{ form_open({ 'id':'bpostform', 'data-request': 'onSave', 'data-request-validate':'', 'data-request-flash':'', files: true }) }}
+  <input type="hidden" id="Form-field-blog-id" name="id" value="{{ PostForm.post.id }}"></input>
+  <input type="hidden" name="title" value="Whatson">
+  <input type="hidden" name="content" value="&nbsp;">
+  <input type="hidden" name="category[0]" value="6">
+  <div class="row">
+    <div class="col-sm-3 col-xs-3">
+      <a href="/u/{{ user.id }}"><img src="{% if user.facebook_id %} https://graph.facebook.com/{{ user.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" title="{{ user.name }}" class="avatar" style="margin-left:15px;margin-top:15px;"></a>
+    </div>
+    <div class="col-sm-9 col-xs-9">
+      <div class="form-group">
+        <div style="font-size:20px;"><a href="/u/{{ user.id }}">{{ user.name }} {{ user.surname }}</a></div>
+        <select name="evaluation_id" class="form-control select select-primary" data-toggle="">
+          <option value="">{{ 'Select Evaluation'|_ }}</option>
+          {% for e in student_evaluations %}
+            <option value="{{ e.id }}" {% if(e.graduated == ("now"|date("Y")+543) and PostForm.post.id == null) or (PostForm.post.evaluation_id == e.id) %} selected {% endif %}> {{ e.name }}</option>
+          {% endfor %}
+          {% for c in evaluations %}
+            {% if c.template == 0 or can('edit_course_template') %}
+              {% for e in c.evaluations %}
+              <option value="{{ e.id }}" {% if(e.graduated == ("now"|date("Y")+543) and PostForm.post.id == null) or (PostForm.post.evaluation_id == e.id) %} selected {% endif %}> {{ e.name }}</option>
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      {% if PostForm.show_excerpt %}
+      <div class="form-group">
+        <textarea name="excerpt" id="Form-field-blog-excerpt" class="form-control" rows="7" placeholder="{{ 'What\'s on today'|_ }}, {{ user.name }}?" onkeyup="if(this.value == '') document.getElementById('publish_save').disabled = true; else document.getElementById('publish_save').disabled = false;">{{ PostForm.post.excerpt }}</textarea>
+      </div>
+      {% endif %}
+    </div>
+    <div class="col-sm-12">
+      <div class="alert alert-danger" data-validate-error>
+        <p data-message></p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      {% component 'imageUploader' %}
+    </div>
+    <div class="col-sm-4">
+      <select name="published" class="form-control select-primary" >
+        <option value="0">Draft</option>
+        <option value="1" selected>Publish</option>
+      </select>
+    </div>
+    <div class="col-sm-4">
+      <button
+        id="publish_save"
+        type="button"
+        data-request="onSave"
+        data-load-indicator="{{ PostForm.trans('kurtjensen.mycalendar::lang.general.saving') }}"
+        class="btn btn-primary btn-block" onClick="this.form.title.value = this.form.excerpt.value.substr(0, 100);" disabled>{{ 'Save'|_ }}
+      </button>
+    </div>
+  </div>
+{{ form_close() }}
+{% else %}
+<p>{{ PostForm.trans('general.unauthorized') }}</p>
+{% endif %}
+<!-- End postform-default.htm -->

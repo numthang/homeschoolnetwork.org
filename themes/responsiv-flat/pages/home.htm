@@ -26,6 +26,17 @@ sortOrder = "created_at"
 results = 3
 byUserID = 0
 sortOrder = "created_at"
+
+[PostForm]
+use_authors = 1
+restrict_owner = 1
+backUser = 1
+allowpublish = 1
+show_excerpt = 0
+allow_images = 1
+slug = "{{ :slug }}"
+listPage = "blog/blog"
+postPage = "blog/post"
 ==
 {%  set student_evaluations = evaluations.student_evaluations %}
 {%  set courses = courses.courses %}
@@ -63,15 +74,9 @@ sortOrder = "created_at"
           </form>
           <br>{{ 'No account ?'|_ }} <a href="/login">{{ 'Register'|_ }}</a>
           {% else %}
-            <div class="row">
-              <div class="col-sm-12">
-                <h3><a href="/u/{{ user.id }}">{{ user.name }} {{ user.surname }}</a></h3>
-              </div>
-            </div>
-		        <div class="row">
-              <!--<div class="col-sm-2 col-xs-2" align="center">
-                <a href="/u/{{ user.id }}"><img src="{% if user.facebook_id %} https://graph.facebook.com/{{ user.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" alt="{{ user.name }}"  title="{{ user.name }}" class="img-rounded img-responsive user-icon avatar-responsive"></a>
-              </div>-->
+            {% partial 'login/whats-on'  %}
+
+		        <!--<div class="row">
 		          <div class="col-sm-2 col-xs-2" align="center">
 		            <a href="/edit/profile" title="{{ 'My profile'|_ }}"><span class="fa fa-fw user-icon" aria-hidden="true">&#xf2ba;</span></a>
 		          </div>
@@ -87,11 +92,11 @@ sortOrder = "created_at"
               <div class="col-sm-2 col-xs-2" align="center">
 		            <a href="/add/portfolio" title="{{ 'New portfolio'|_ }}"><span class="fa fa-fw user-icon" aria-hidden="true">&#xf1c5;</span></a>
 		          </div>
-              <!--<div class="col-sm-2 col-xs-2" align="center">
-		            <a href="/add/post"><img src="/themes/responsiv-flat/assets/images/icons/png/signout.png" class="img-rounded user-icon img-responsive" title="{{ 'Sign out'|_ }}"></a>
-		          </div>-->
-            </div>
-            <div class="row" style="margin-top:10px;">
+              <div class="col-sm-2 col-xs-2" align="center">
+		            <a href="javascript:void(0);" data-request="onLogout" data-request-data="redirect: '/'" title="{{ 'Sign out'|_ }}"><span class="fa fa-fw user-icon" aria-hidden="true">&#xf1c5;</span></a>
+		          </div>
+            </div>-->
+            <!--<div class="row" style="margin-top:10px;">
               <div class="col-sm-12">
                 <b><a href="/add/course">{{ 'Course'|_ }}</a></b>
                 <p>
@@ -115,10 +120,7 @@ sortOrder = "created_at"
         					{% endfor %}
                 </p>
               </div>
-		          <!--<div class="col-sm-2" align="center">
-		            <a href="javascript:void(0);" data-request="onLogout" data-request-data="redirect: '/'"><img src="/themes/responsiv-flat/assets/images/icons/png/signout.png" class="img-rounded user-icon"><font class="user-menu">{{ 'Sign out'|_ }}</font></a>
-		          </div>-->
-		        </div>
+		        </div>-->
           {% endif %}
         </div>
         <!--<div class="additional-links">
