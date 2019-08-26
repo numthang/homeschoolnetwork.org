@@ -1,6 +1,6 @@
 [evaluations]
 results = 0
-byUserID = "{{ user }}"
+byUserID = "{{ user_id }}"
 sortOrder = "created_at"
 
 ==
@@ -8,29 +8,20 @@ sortOrder = "created_at"
 {%  set evaluations = evaluations.evaluations %}
 <!-- START postform-default.htm -->
 {% if PostForm.backUser %}
-{{ form_open({ 'id':'bpostform', 'data-request': 'onSave','data-request-validate':'','data-request-flash':'', files: true }) }}
+{{ form_open({ 'id':'bpostform', 'data-request': 'onSave', 'data-request-validate':'', 'data-request-flash':'', files: true }) }}
   <input type="hidden" id="Form-field-blog-id" name="id" value="{{ PostForm.post.id }}"></input>
+  <input type="hidden" name="title" value="Whatson">
+  <input type="hidden" name="content" value="&nbsp;">
+  <input type="hidden" name="category[0]" value="6">
   <div class="row">
-    <div class="col-sm-2 col-xs-3" align="center">
-      <a href="/u/{{ user.id }}"><img src="{% if user.facebook_id %} https://graph.facebook.com/{{ user.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" alt="{{ user.name }}"  title="{{ user.name }}" class="img-rounded img-responsive user-icon avatar-responsive" ></a>
+    <div class="col-sm-3 col-xs-3">
+      <a href="/u/{{ user.id }}"><img src="{% if user.facebook_id %} https://graph.facebook.com/{{ user.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" title="{{ user.name }}" class="avatar" style="margin-left:15px;margin-top:15px;"></a>
     </div>
-    <div class="col-sm-10 col-xs-9" style="padding-left:0px;">
-      <a href="/u/{{ user.id }}">{{ user.name }} {{ user.surname }}</a>
-      <label class="checkbox" for="Form-field-blog-cat-ร่องรอยการเรียนรู้">
-        <input type="checkbox" id="Form-field-blog-cat-ร่องรอยการเรียนรู้"  data-toggle="checkbox" name="category[]" value="6" checked="checked">
-        ร่องรอยการเรียนรู้
-      </label>
-    </div>
-    <div class="col-sm-12">
-      {% if PostForm.show_excerpt %}
+    <div class="col-sm-9 col-xs-9">
       <div class="form-group">
-        <textarea name="excerpt" id="Form-field-blog-excerpt" class="form-control" rows="5" placeholder="{{ 'What\'s on today'|_ }}, {{ user.name }}?">{{ PostForm.post.excerpt }}</textarea>
-      </div>
-      {% endif %}
-    </div>
-    <div class="col-sm-12">
-      <div class="form-group">
+        <div style="font-size:20px;"><a href="/u/{{ user.id }}">{{ user.name }} {{ user.surname }}</a></div>
         <select name="evaluation_id" class="form-control select select-primary" data-toggle="">
+          <option value="">{{ 'Select Evaluation'|_ }}</option>
           {% for e in student_evaluations %}
             <option value="{{ e.id }}" {% if(e.graduated == ("now"|date("Y")+543) and PostForm.post.id == null) or (PostForm.post.evaluation_id == e.id) %} selected {% endif %}> {{ e.name }}</option>
           {% endfor %}
@@ -44,40 +35,41 @@ sortOrder = "created_at"
         </select>
       </div>
     </div>
-
-    <!--<div class="col-sm-12">
-      <button
-        id="draft_save"
-        type="button"
-        data-hotkey="ctrl+s, cmd+s"
-        data-request="onSave"
-        data-request-data="published:0"
-        data-load-indicator="{{ PostForm.trans('kurtjensen.mycalendar::lang.general.saving') }}"
-        class="btn btn-warning btn-block">{{ PostForm.trans('general.btn_save_draft') }}
-      </button>
-    </div>-->
-    <div class="col-sm-3">
-      {% if PostForm.allow_images %}
-      {% component 'imageUploader' %}
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      {% if PostForm.show_excerpt %}
+      <div class="form-group">
+        <textarea name="excerpt" id="Form-field-blog-excerpt" class="form-control" rows="7" placeholder="{{ 'What\'s on today'|_ }}, {{ user.name }}?" onkeyup="if(this.value == '') document.getElementById('publish_save').disabled = true; else document.getElementById('publish_save').disabled = false;">{{ PostForm.post.excerpt }}</textarea>
+      </div>
       {% endif %}
     </div>
-  {% if PostForm.allowpublish %}
-    <div class="col-sm-9">
+    <div class="col-sm-12">
+      <div class="alert alert-danger" data-validate-error>
+        <p data-message></p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      {% component 'imageUploader' %}
+    </div>
+    <div class="col-sm-4">
+      <select name="published" class="form-control select-primary" >
+        <option value="0">Draft</option>
+        <option value="1" selected>Publish</option>
+      </select>
+    </div>
+    <div class="col-sm-4">
       <button
         id="publish_save"
         type="button"
         data-request="onSave"
-        data-request-data="published:1"
         data-load-indicator="{{ PostForm.trans('kurtjensen.mycalendar::lang.general.saving') }}"
-        class="btn btn-primary btn-block">{{ PostForm.trans('general.btn_save_publish') }}
+        class="btn btn-primary btn-block" onClick="this.form.title.value = this.form.excerpt.value.substr(0, 100);" disabled>{{ 'Save'|_ }}
       </button>
     </div>
-  {% endif %}
-  <div class="alert alert-danger" data-validate-error>
-    <p data-message></p>
   </div>
-</div>
-
 {{ form_close() }}
 {% else %}
 <p>{{ PostForm.trans('general.unauthorized') }}</p>

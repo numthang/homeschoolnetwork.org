@@ -30,13 +30,13 @@ sortOrder = "created_at"
 [PostForm]
 use_authors = 1
 restrict_owner = 1
+backUser = 1
 allowpublish = 1
 show_excerpt = 0
 allow_images = 1
 slug = "{{ :slug }}"
-listPage = "blog/list"
+listPage = "blog/blog"
 postPage = "blog/post"
-
 ==
 {%  set student_evaluations = evaluations.student_evaluations %}
 {%  set courses = courses.courses %}

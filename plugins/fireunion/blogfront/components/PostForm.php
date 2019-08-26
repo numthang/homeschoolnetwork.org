@@ -75,7 +75,7 @@ class PostForm extends ComponentBase {
 	 * @return array for a flash like error message if there is a problem with form validation
 	 */
 	public function onSave() {
-		//return $this;
+		//return false;
 		if (!$result=$this->save()) {
 			return null;
 		}
@@ -89,12 +89,12 @@ class PostForm extends ComponentBase {
 		/*end numthang*/
 
 		// Redirect to the intended page after successful update
-		if(empty($this->param('slug')))
+		if(empty($this->param('slug'))) //in case of edit blog
 			$redirectUrl = $this->pageUrl($this->property('listPage'));
-		else
+		else //create new blog
 			$redirectUrl = $this->pageUrl($this->property('postPage'));
 
-		#dd($redirectUrl);
+		//dd($redirectUrl);
 		return Redirect::to($redirectUrl);
 	}
 	public function onDelete() {
