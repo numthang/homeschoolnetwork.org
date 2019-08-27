@@ -76,7 +76,7 @@ function onEnd() {
             {{ post.excerpt|raw }}
           {% endif %}
           {% if post.featured_images.count %}
-          <div id="projectImages" class="project-images">
+          <div class="project-images">
             {% for image in post.featured_images %}
               <div>
                 <div class="image"><img data-src="{{ image.filename }}"  src="{{ image.path | resize(1280, 1280) }}" class="img-responsive" alt="{{ image.description }}" /></div>
