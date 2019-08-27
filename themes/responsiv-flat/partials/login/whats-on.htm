@@ -11,7 +11,7 @@ sortOrder = "created_at"
 {{ form_open({ 'id':'bpostform', 'data-request': 'onSave', 'data-request-validate':'', 'data-request-flash':'', files: true }) }}
   <input type="hidden" id="Form-field-blog-id" name="id" value="{{ PostForm.post.id }}"></input>
   <input type="hidden" name="title" value="Whatson">
-  <input type="hidden" name="content" value="&nbsp;">
+  <input type="hidden" name="excerpt" value="">
   <input type="hidden" name="category[0]" value="6">
   <div class="row">
     <div class="col-sm-3 col-xs-3">
@@ -40,11 +40,9 @@ sortOrder = "created_at"
   </div>
   <div class="row">
     <div class="col-sm-12">
-      {% if PostForm.show_excerpt %}
       <div class="form-group">
-        <textarea name="excerpt" id="Form-field-blog-excerpt" class="form-control" rows="5" placeholder="{{ 'What\'s on today'|_ }}, {{ user.name }}?" onkeyup="if(this.value == '') document.getElementById('publish_save').disabled = true; else document.getElementById('publish_save').disabled = false;">{{ PostForm.post.excerpt }}</textarea>
+        <textarea name="content" id="Form-field-blog-content" class="form-control" rows="5" placeholder="{{ 'What\'s on today'|_ }}, {{ user.name }}?" onkeyup="if(this.value == '') document.getElementById('publish_save').disabled = true; else document.getElementById('publish_save').disabled = false;">{{ PostForm.post.content }}</textarea>
       </div>
-      {% endif %}
     </div>
     <div class="col-sm-12">
       <div class="alert alert-danger" data-validate-error>
@@ -68,7 +66,7 @@ sortOrder = "created_at"
         type="button"
         data-request="onSave"
         data-load-indicator="{{ PostForm.trans('kurtjensen.mycalendar::lang.general.saving') }}"
-        class="btn btn-primary btn-block" onClick="this.form.title.value = this.form.excerpt.value.substr(0, 60);" disabled>{{ 'Save'|_ }}
+        class="btn btn-primary btn-block" onClick="this.form.title.value = this.form.content.value.substr(0, 60);" disabled>{{ 'Save'|_ }}
       </button>
     </div>
   </div>
