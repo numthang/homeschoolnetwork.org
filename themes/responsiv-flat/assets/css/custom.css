@@ -163,13 +163,16 @@ blockquote p {
 .blog-desc embed {
   border:0px;
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767px) { /*if screen width less than 767 (ipad) then do this*/
   .blog-desc iframe,
   .blog-desc object,
   .blog-desc embed {
     border:0px;
     width: 100%;
     height: 100%;
+  }
+  .button-margin-top {
+    margin-top:10px;
   }
 }
 #map {
