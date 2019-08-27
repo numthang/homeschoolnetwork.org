@@ -44,11 +44,11 @@ sortOrder = "created_at"
         <textarea name="content" id="Form-field-blog-content" class="form-control" rows="5" placeholder="{{ 'What\'s on today'|_ }}, {{ user.name }}?" onkeyup="if(this.value == '') document.getElementById('publish_save').disabled = true; else document.getElementById('publish_save').disabled = false;">{{ PostForm.post.content }}</textarea>
       </div>
     </div>
-    <div class="col-sm-12">
+    <!--<div class="col-sm-12">
       <div class="alert alert-danger" data-validate-error>
         <p data-message></p>
       </div>
-    </div>
+    </div>-->
   </div>
   <div class="row">
     <div class="col-sm-4">
@@ -60,7 +60,7 @@ sortOrder = "created_at"
         <option value="1" selected>Publish</option>
       </select>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4 button-margin-top">
       <button
         id="publish_save"
         type="button"
