@@ -24,12 +24,12 @@ notFoundMessage = "Record not found"
 [courses]
 results = 0
 byUserID = "{{ :id }}"
-sortOrder = "created_at"
+sortOrder = "updated_at"
 
 [evaluations]
 results = 0
 byUserID = "{{ :id }}"
-sortOrder = "created_at"
+sortOrder = "updated_at"
 
 [scopePosts]
 pageNumber = 1
@@ -142,7 +142,7 @@ function onEnd() {
       <p>
         {% for c in evaluations %}
           {% for e in c.evaluations %}
-            <a href="/evaluation/{{ e.created_at|date('U') }}"><span class="fa fa-fw" aria-hidden="true">&#xf1c5;</span> {{ e.name }}</a> <br>
+            <a href="/evaluation/{{ e.created_at|date('U') }}"><span class="fa fa-fw" aria-hidden="true">&#xf1c5;</span> {{ e.name }}</a> (<a href="/reportfolio/{{ e.created_at|date('U') }}">{{ 'portfolio'|_ }}</a>) <br>
           {% endfor %}
         {% endfor %}
         {% for e in student_evaluations %}
