@@ -80,7 +80,7 @@ return [
     // If true, the uploading file's size will be verified for over than max_image_size/max_file_size.
     'should_validate_size' => false,
 
-    'max_image_size' => 4000, //4Mb
+    'max_image_size' => 7000, //7Mb
     'max_file_size' => 100000, //100Mb
 
     // If true, the uploading file's mime type will be valid in valid_image_mimetypes/valid_file_mimetypes.

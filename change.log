@@ -77,40 +77,6 @@ Patai
 - ฟอร์มแผนการศึกษาระดับประถม (ตอนนี้มีอยู่แล้วอันที่พ่อจิวทำ แต่ปรับให้ใกล้เคียงแบบของพี่นิ่มมากที่สุด)
 - ฟอร์มแบบประเมิน SAR ระดับประถม
 
-
-================================================================================
-เวิร์คช็อปการเก็บร่องรอยการเรียนรู้ออนไลน์
-
-เรียงอ่านจากปรัชญา tutorial 1-5
-
-ส่วนที่ยังเป็นปัญหา บ้าง ณ.ตอนนี้คือเรื่องชื่อกลุ่มประสบการณ์ บอกตรงๆ ว่าหลังจากดูกลุ่มประสบการณ์ของแต่ละคนแล้วมึน ส่วนนี้เราจะลิงค์กันไม่ได้เนื่องจากกลุ่มประสบการณ์ต่างคนต่างคิดแล้วแพรวพราวมาก ชื่อหลายตัวเหมือนกันแต่เขียนไม่ได้เหมือนกัน ไม่แน่ใจว่าเราควรจะเอายังไงกันดี ในส่วนของ portfolio ตอนนี้เราสามารถใช้ชื่ออื่นที่ตกลงร่วมกันได้ไหม ถึงแม้ว่าชื่อจะไม่เหมือนกับแผนที่ยื่นไป หรือจะยังไงดี
-
-
-
-================================================================================
-ชวนกันขุดมันหวานญี่ปุ่นพันธุ์ส้มโอกินาวา (Harvest Japanese Sweet Potatoes experience)
-
-(English Version Below)
-มันหวานญี่ปุ่นสีส้มโอกินาว่า พร้อมให้เก็บเกี่ยวแล้วครับ ตั้งแต่วันนี้ จนถึงวันที่ 7 เมษายน 2562 เราจะเก็บมันหวานส้มโอกินาว่าเรื่อยๆ จนหมดแปลง ขอเชิญร่วมเก็บเกี่ยวประสบการณ์ ขุดมันหวานสดๆ จากแปลง มาปรุงความสด จะนึ่งย่าง ปิ้ง แล้วแต่ชอบ ได้ที่ Numthang Permaculture Farm
-
-ค่าลงทะเบียน : วันละ 350 บาท/ท่าน พร้อมที่พัก จะค้างหรือไม่ค้างก็ได้ ชำระเงินบัญชี ธ.กสิกรไทย สาขา โชคชัย 4 ชื่อบัญชี อรรณพ ศรีเจริญชัย เลขที่บัญชี 721-2-18045-3
-
-Facebook : https://fb.com/numthang.org
-
-บรรยากาศภายในฟาร์ม : https://www.fb.com/numthang.org/photos/
-
-สถานที่ : พิมพ์คำว่า Numthang 3.0 บน Google Maps หรือ https://goo.gl/maps/RLRpicX35aL2 ราชบุรีห่างจากกรุงเทพฯ 94 กม. วิธีเดินทางอื่นๆสามารถดูได้ที่ http://www.numthang.org/content/7044/1/
-===========================================================================
-Sweet Orange Oginawa Potatoes are get ready to harvesting. We are going to harvest Sweet Orange Oginawa Potatoes fresh from the garden. If you want to try fresh sweet potato and harvest them and cook fresh from the garden bed by yourself. Welcome to Numthang Permaculture Farm only from today until 7 April 2562
-
-Fee : 350 baht/day/person with room included which you can choose to stay overnight or not. Our bank account number is 721-2-18045-3 (UNNOP SRICHAROENCHAI, Chokechai 4 branch) Thai Farmer Bank
-
-Facebook : https://fb.com/numthang.org
-
-Space : https://www.fb.com/numthang.org/photos/
-
-Place : Use "Numthang 3.0" on Google Maps (https://goo.gl/maps/RLRpicX35aL2) or other way is http://www.numthang.org/content/7044/1/
-
 ===========================================================================
 เบิกจ่ายทุนสนับสนุนในการทำเว็บไซต์ Homeschool Network ครั้งที่ 2
 PostForm
@@ -239,6 +205,10 @@ Hard code changed
 /plugins/bedard/blogtags/models/Tag.php
 /plugins/fireunion/blogfront/components/PostForm.php
 /plugins/flynsarmy/sociallogin/classes/UserManager.php
+
 //use traslatable title
 /plugins/suresoftware/powerseo/components/cmspage/default.htm
 /plugins/suresoftware/powerseo/classes/Helper.php
+
+//LaravelFilemanager
+/vendor/unisharp/laravel-filemanager/src/Events/ImageWasUploaded.php

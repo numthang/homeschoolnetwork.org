@@ -42,7 +42,7 @@ sortOrder = "created_at"
     <div class="col-sm-12">
       {% if PostForm.show_excerpt %}
       <div class="form-group">
-        <textarea name="excerpt" id="Form-field-blog-excerpt" class="form-control" rows="7" placeholder="{{ 'What\'s on today'|_ }}, {{ user.name }}?" onkeyup="if(this.value == '') document.getElementById('publish_save').disabled = true; else document.getElementById('publish_save').disabled = false;">{{ PostForm.post.excerpt }}</textarea>
+        <textarea name="excerpt" id="Form-field-blog-excerpt" class="form-control" rows="5" placeholder="{{ 'What\'s on today'|_ }}, {{ user.name }}?" onkeyup="if(this.value == '') document.getElementById('publish_save').disabled = true; else document.getElementById('publish_save').disabled = false;">{{ PostForm.post.excerpt }}</textarea>
       </div>
       {% endif %}
     </div>
@@ -68,7 +68,7 @@ sortOrder = "created_at"
         type="button"
         data-request="onSave"
         data-load-indicator="{{ PostForm.trans('kurtjensen.mycalendar::lang.general.saving') }}"
-        class="btn btn-primary btn-block" onClick="this.form.title.value = this.form.excerpt.value.substr(0, 100);" disabled>{{ 'Save'|_ }}
+        class="btn btn-primary btn-block" onClick="this.form.title.value = this.form.excerpt.value.substr(0, 60);" disabled>{{ 'Save'|_ }}
       </button>
     </div>
   </div>
