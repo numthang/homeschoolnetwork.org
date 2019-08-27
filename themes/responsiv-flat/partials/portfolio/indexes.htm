@@ -13,11 +13,21 @@ postPage = "blog/post"
 noPostsMessage = "No posts found"
 sortOrder = "published_at asc"
 ==
+{% set postsbytag = scopePosts.postsbytag %}
 {% set tags = scopePosts.tags %}
 
 {% for tag in tags['name'] %}
-  <h2><a href="#port-{{ tags['id'][loop.index0] }}">กลุ่มประสบการณ์ :  {{ tag }}</a></h2>
+  {% set tag_id = tags['id'][loop.index0] %}
+  <h3><a href="#port-{{ tags['id'][loop.index0] }}">กลุ่มประสบการณ์ {{ loop.index }} :  {{ tag }}</a></h3>
   {% set parent = loop.index %}
   {% set continue = true %}
   {% set child = 1 %}
+  {% for post in postsbytag if continue %}
+    {% if(post.tag_id == tag_id) %}
+      <a href="#post-{{ post.slug }}">{{ parent }}.{{ child }} {% set child = child+1 %} {{ post.title }}</a>
+      {% set break = false %}
+    {% else %}
+      {% set break = true %}
+    {% endif %}
+  {% endfor %}
 {% endfor %}
