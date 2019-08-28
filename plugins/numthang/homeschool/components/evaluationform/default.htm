@@ -332,7 +332,7 @@
 				<div class="col-sm-3">
 					<button type="button" class="btn btn-lg btn-info btn-block" onClick="window.open('/evaluation/{{ evaluation.created_at| date('U') }}?print=1', '_blank');">{{ 'Print to PDF'|_ }} </button>
 				</div>
-					{% if (record.template == 0 or can('edit_course_template')) and course.user_id == user.id  %}
+					{% if (record.template == 0 or can('edit_course_template')) and evaluation.user_id == user.id  %}
 						<div class="col-sm-2">
 						  <button type="button" data-request="onDelete" data-request-confirm="Are you sure?" class="btn btn-lg btn-danger btn-block">{{ 'Remove'|_ }}</button>
 						</div>
