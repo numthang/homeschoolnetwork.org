@@ -188,96 +188,61 @@
             </div>
           </div>
         </dd>
-        <dt><a href="#" class="accordionTitle" title="{{ 'Enter student class and reason'|_ }} ระดับชั้น เช่น ประถมศึกษา (ชั้น ป.1 – ป.3) เหตุผลในการจัดการศึกษาของครอบครัว">3. ระดับที่จัดการศึกษา / เหตุผลในการจัดการศึกษาของครอบครัว</a></dt>
+				<div class="form-group">
+	        <label>หัวข้อส่วนที่ 1</label>
+	        <input type="text" class="form-control" name="part1_label" placeholder="Enter label part 1" value="{{ record.part1_label }}">
+	      </div>
+        <dt><a href="#" class="accordionTitle">&nbsp;{{ record.part1_label }}</a></dt>
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group">
-                <textarea class="form-control mytinymce" name="class_reason" placeholder="" rows="20">{% if record.class_reason is defined %} {{ record.class_reason }} {% else %} {{ this.page['default_3'] }} {% endif %}</textarea>
+                <textarea class="form-control mytinymce" name="part1" placeholder="" rows="20">{{ record.part1 }}</textarea>
               </div>
             </div>
           </div>
         </dd>
-        <dt><a href="#" class="accordionTitle">4. จุดมุ่งหมายของการจัดการศึกษา</a></dt>
+				<div class="form-group">
+	        <label>หัวข้อส่วนที่ 2</label>
+	        <input type="text" class="form-control" name="part2_label" placeholder="Enter label part 2" value="{{ record.part2_label }}">
+	      </div>
+        <dt><a href="#" class="accordionTitle">&nbsp;{{ record.part2_label }}</a></dt>
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
           <div class="col-sm-12">
             <div class="form-group">
-              <textarea class="form-control mytinymce" name="purpose" placeholder="{{ 'Enter your purpose'|_ }}ระบุความต้องการ เช่น ต้องการพึ่งตนเอง ลดค่าใช้จ่าย เป็นต้น" rows="20">{% if record.purpose is defined %} {{ record.purpose }} {% else %} {{ this.page['default_4'] }} {% endif %}</textarea>
+              <textarea class="form-control mytinymce" name="part2" placeholder="" rows="20">{{ record.part2 }}</textarea>
             </div>
           </div>
         </div>
         </dd>
-        <dt><a href="#" class="accordionTitle">5. รูปแบบการจัดการศึกษา</a></dt>
+				<div class="form-group">
+	        <label>หัวข้อส่วนที่ 3</label>
+	        <input type="text" class="form-control" name="part3_label" placeholder="Enter label part 3" value="{{ record.part3_label }}">
+	      </div>
+        <dt><a href="#" class="accordionTitle">&nbsp;{{ record.part3_label }}</a></dt>
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
-            <div class="col-sm-12">
-              <div class="form-group">
-                <textarea class="form-control mytinymce" name="format" placeholder="{{ 'Enter your education format'|_ }}5. รูปแบบการจัดการศึกษา" rows="20">{% if record.edu_type is defined %} {{ record.format }} {% else %} {{ this.page['default_5'] }} {% endif %}</textarea>
-              </div>
+          <div class="col-sm-12">
+            <div class="form-group">
+              <textarea class="form-control mytinymce" name="part3" placeholder="" rows="20">{{ record.part3 }}</textarea>
             </div>
           </div>
+        </div>
         </dd>
-        <dt><a href="#" class="accordionTitle">6. โครงสร้างเวลาเรียน</a></dt>
+				<div class="form-group">
+	        <label>หัวข้อส่วนที่ 4</label>
+	        <input type="text" class="form-control" name="part4_label" placeholder="Enter label part 4" value="{{ record.part4_label }}">
+	      </div>
+        <dt><a href="#" class="accordionTitle">&nbsp;{{ record.part4_label }}</a></dt>
         <dd class="accordionItem accordionItemCollapsed">
           <div class="row">
-            <div class="col-sm-12">
-              <div class="form-group">
-								<textarea class="form-control mytinymce" name="schedule" placeholder="" rows="20">{% if record.schedule is defined %} {{ record.schedule }} {% else %} {{ this.page['default_6'] }} {% endif %}</textarea>
-                <!--<textarea class="form-control" name="schedule" placeholder="กลุ่มประสบการณ์ /กลุ่มสาระการเรียนรู้ (ตามตารางในข้อ 7)" rows="20">{% if record.schedule is defined %} {{ record.schedule }} {% else %} {% endif %}</textarea>-->
-              </div>
+          <div class="col-sm-12">
+            <div class="form-group">
+              <textarea class="form-control mytinymce" name="part4" placeholder="" rows="20">{{ record.part4 }}</textarea>
             </div>
           </div>
-        </dd>
-        <dt><a href="#" class="accordionTitle">7. การจัดกลุ่มสาระการเรียนรู้ /กลุ่มประสบการณ์</a></dt>
-        <dd class="accordionItem accordionItemCollapsed">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-group">
-                <textarea class="form-control mytinymce" name="curriculum" placeholder="" rows="20">{% if record.curriculum is defined %} {{ record.curriculum }} {% else %} {{ this.page['default_7'] }} {% endif %}</textarea>
-              </div>
-            </div>
-          </div>
-        </dd>
-        <!--<dt><a href="#" class="accordionTitle">8. การจัดกิจกรรมพัฒนาผู้เรียน</a></dt>
-        <dd class="accordionItem accordionItemCollapsed">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-group">
-                <textarea class="form-control mytinymce" name="activity" placeholder="" rows="20">{% if record.activity is defined %} {{ record.activity }} {% else %} {{ this.page['default_8'] }} {% endif %}</textarea>
-              </div>
-            </div>
-          </div>
-        </dd>-->
-        <dt><a href="#" class="accordionTitle">8. การจัดกระบวนการเรียนรู้</a></dt>
-        <dd class="accordionItem accordionItemCollapsed">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-group">
-                <textarea class="form-control mytinymce" name="learning" placeholder="" rows="20">{% if record.learning is defined %} {{ record.learning }} {% else %} {{ this.page['default_9'] }} {% endif %}</textarea>
-              </div>
-            </div>
-          </div>
-        </dd>
-        <dt><a href="#" class="accordionTitle">9. การวัดและประเมินผลการเรียนรู้</a></dt>
-        <dd class="accordionItem accordionItemCollapsed">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-group">
-                <textarea class="form-control mytinymce" name="evaluate" placeholder="" rows="20">{% if record.evaluate is defined %} {{ record.evaluate }} {% else %} {{ this.page['default_10'] }} {% endif %}</textarea>
-              </div>
-            </div>
-          </div>
-        </dd>
-        <dt><a href="#" class="accordionTitle">10. อื่นๆ (ครอบครัวสามารถเพิ่มเติมรายละเอียดที่เห็นว่าเป็นประโยชน์ต่อผู้เรียนได้)</a></dt>
-        <dd class="accordionItem accordionItemCollapsed">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-group">
-                <textarea class="form-control mytinymce" name="other" placeholder="" rows="20">{{ record.other }}</textarea>
-              </div>
-            </div>
-          </div>
+        </div>
         </dd>
       </dl>
     </div>

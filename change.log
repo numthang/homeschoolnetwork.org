@@ -1,3 +1,12 @@
+class_reason -> part1_label
+3. class_reason + 4 purpose + 5 format -> part1
+format -> part2_label
+6. schedule -> part2
+curriculum -> part3_label
+7. curriculum + 8. (activity + learning) + 9. evaluate-> part3
+learning -> part4_label
+10. other -> part4
+
 ทำ index สำหรับ portfolio
 - แยกแบบประเมินออกจาก port
 
