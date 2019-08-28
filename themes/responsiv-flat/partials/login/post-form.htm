@@ -16,14 +16,15 @@ sortOrder = "created_at"
       <div class="form-group">
         <label>{{ 'For Evaluation'|_ }}</label>
         <select name="evaluation_id" class="form-control select select-primary" data-toggle="">
+          <option value="">{{ 'Select Evaluation'|_ }}</option>
           {% for e in student_evaluations %}
             <option value="{{ e.id }}" {% if(e.graduated == ("now"|date("Y")+543) and PostForm.post.id == null) or (PostForm.post.evaluation_id == e.id) %} selected {% endif %}> {{ e.name }}</option>
           {% endfor %}
-          {% for c in evaluations %}
-            {% if c.template == 0 or can('edit_course_template') %}
-              {% for e in c.evaluations %}
+          {% for e in evaluations %}
+            {% if e.template == 0 or can('edit_course_template') %}
+              {% if e.graduated >= 2562 %}
               <option value="{{ e.id }}" {% if(e.graduated == ("now"|date("Y")+543) and PostForm.post.id == null) or (PostForm.post.evaluation_id == e.id) %} selected {% endif %}> {{ e.name }}</option>
-              {% endfor %}
+              {% endif %}
             {% endif %}
           {% endfor %}
         </select>
