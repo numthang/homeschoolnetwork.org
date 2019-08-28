@@ -258,75 +258,75 @@ class ScopePosts extends ComponentBase
     return $list;
   }
   protected function listPosts() {
-      $category = $this->category ? $this->category->id : null;
-      /*
-       * List all the posts, eager load their categories
-       */
-      $isPublished = !$this->checkEditor(); //if backend user logged in and can access post then isPublished is false also show unpublished
-      #dump($this->property('authorID'));
-      #dump($this->property('userID'));
-      $posts = BlogPost::with('categories')
-        ->with('tags')
-        ->Where(function ($query) {//กรณีเอาผู้แต่งจากภายนอกเลยไม่ต้องสังกัด evalution ก็ได้ หาแต่ผู้แต่ง
-          $category = $this->category ? $this->category->id : null;
-          $query
-            ->where('author_id', '=', $this->property('authorID'))//authorID คือผู้แต่งที่นำเข้ามา
-            ->whereBetween('created_at', [$this->from, $this->to])
-            ->listFrontEnd([
-              'category'  => $category,
-              'published' => $this->property('isPublished')
-            ]);
-        })
-        ->orWhere(function ($query) {//กรณีหาโพสต์ของตัวเองควรมีการเลือก evaluation ด้วย
-          $category = $this->category ? $this->category->id : null;
-          $query
-            ->where('author_id', '=', $this->property('userID'))
-            ->where('evaluation_id', '=', $this->property('evaluationID'))
-            ->whereBetween('created_at', [$this->from, $this->to])
-            ->listFrontEnd([
-              'category'  => $category,
-              'published' => $this->property('isPublished')
-            ]);
-        })
-        ->listFrontEnd([
-          'page'             => $this->property('pageNumber'),
-          'sort'             => $this->property('sortOrder'),
-          'perPage'          => $this->property('postsPerPage'),
-          'search'           => trim(input('search')),
-          'category'         => $category,
-          'published'        => $this->property('isPublished'),
-          'exceptPost'       => $this->property('exceptPost'),
-          'exceptCategories' => is_array($this->property('exceptCategories'))
-            ? $this->property('exceptCategories')
-            : explode(',', $this->property('exceptCategories')),
-      ]);
+    $category = $this->category ? $this->category->id : null;
+    /*
+     * List all the posts, eager load their categories
+     */
+    $isPublished = !$this->checkEditor(); //if backend user logged in and can access post then isPublished is false also show unpublished
+    #dump($this->property('authorID'));
+    #dump($this->property('userID'));
+    $posts = BlogPost::with('categories')
+      ->with('tags')
+      ->Where(function ($query) {//กรณีเอาผู้แต่งจากภายนอกเลยไม่ต้องสังกัด evalution ก็ได้ หาแต่ผู้แต่ง
+        $category = $this->category ? $this->category->id : null;
+        $query
+          ->where('author_id', '=', $this->property('authorID'))//authorID คือผู้แต่งที่นำเข้ามา
+          ->whereBetween('created_at', [$this->from, $this->to])
+          ->listFrontEnd([
+            'category'  => $category,
+            'published' => $this->property('isPublished')
+          ]);
+      })
+      ->orWhere(function ($query) {//กรณีหาโพสต์ของตัวเองควรมีการเลือก evaluation ด้วย
+        $category = $this->category ? $this->category->id : null;
+        $query
+          ->where('author_id', '=', $this->property('userID'))
+          ->where('evaluation_id', '=', $this->property('evaluationID'))
+          ->whereBetween('created_at', [$this->from, $this->to])
+          ->listFrontEnd([
+            'category'  => $category,
+            'published' => $this->property('isPublished')
+          ]);
+      })
+      ->listFrontEnd([
+        'page'             => $this->property('pageNumber'),
+        'sort'             => $this->property('sortOrder'),
+        'perPage'          => $this->property('postsPerPage'),
+        'search'           => trim(input('search')),
+        'category'         => $category,
+        'published'        => $this->property('isPublished'),
+        'exceptPost'       => $this->property('exceptPost'),
+        'exceptCategories' => is_array($this->property('exceptCategories'))
+          ? $this->property('exceptCategories')
+          : explode(',', $this->property('exceptCategories')),
+    ]);
 
-      //dd($posts[0]);
-      //prepareVars tags list from this author
-      $tags['id'] = $tags['name'] = Array();
-      for($i=0;$i<count($posts);$i++) {
-        foreach ($posts[$i]->tags as $key => $value) {
-          if(!in_array($value['id'], $tags['id'])) {
-            $tags['name'][] = $value['name'];
-            $tags['id'][] = $value['id'];
-            #echo $posts[$i]->id.'<br>';
-          }
+    //dd($posts[0]);
+    //prepareVars tags list from this author
+    $tags['id'] = $tags['name'] = Array();
+    for($i=0;$i<count($posts);$i++) {
+      foreach ($posts[$i]->tags as $key => $value) {
+        if(!in_array($value['id'], $tags['id'])) {
+          $tags['name'][] = $value['name'];
+          $tags['id'][] = $value['id'];
+          #echo $posts[$i]->id.'<br>';
         }
       }
-      //dd($tags);
-      //dd($posts[0]->featured_images);
-      $this->tags = $tags;
-      /*
-       * Add a "url" helper attribute for linking to each post and category
-       */
-      $posts->each(function($post) {
-        $post->setUrl($this->postPage, $this->controller);
-        $post->categories->each(function($category) {
-            $category->setUrl($this->categoryPage, $this->controller);
-        });
+    }
+    //dd($tags);
+    //dd($posts[0]->featured_images);
+    $this->tags = $tags;
+    /*
+     * Add a "url" helper attribute for linking to each post and category
+     */
+    $posts->each(function($post) {
+      $post->setUrl($this->postPage, $this->controller);
+      $post->categories->each(function($category) {
+          $category->setUrl($this->categoryPage, $this->controller);
       });
+    });
 
-      return $posts;
+    return $posts;
   }
   protected function listDraftPosts() {
     $category = $this->category ? $this->category->id : null;
