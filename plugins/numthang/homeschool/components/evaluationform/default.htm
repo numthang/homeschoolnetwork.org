@@ -1,5 +1,6 @@
 {%  set student_evaluations = evaluations.student_evaluations %}
 {%  set student_courses = evaluations.student_courses %}
+{%  set courses = courses.courses %}
 
 {%  set evaluations = evaluations.evaluations %}
 {%  set course = evaluationform.course %}
@@ -7,16 +8,15 @@
 {%  set authors = evaluationform.authors %}
 
 <form data-request="onSave">
+	<input type="hidden" name="user_id" value="{{ user.id }}">
 	<div class="row">
 		<div class="col-md-6">
 			<label>{{ 'Evaluation'|_ }}</label><br>
 			<div class="btn-group" style="width:100%;">
 				<select class="form-control select select-primary" data-toggle="" name="evaluation_id" style="width:100%" onChange="if(this.value == '') { location.href='/add/evaluation'; } else { location.href='/edit/evaluation/'+this.value; }">
 					<option value=""> {{ 'New Evaluation'|_ }}</option>
-					{% for c in evaluations %}
-						{% for e in c.evaluations %}
-							<option value="{{ e.id }}" {{ evaluation.id == e.id ? 'selected' : '' }} {% if c.template %}style="color:#bbbbbb;"{% endif %}>{{ e.name }}</option>
-						{% endfor %}
+					{% for e in evaluations %}
+						<option value="{{ e.id }}" {{ evaluation.id == e.id ? 'selected' : '' }} {% if e.template %}style="color:#bbbbbb;"{% endif %}>{{ e.name }}</option>
 					{% endfor %}
 					{% for e in student_evaluations %}
 						<option value="{{ e.id }}" {{ evaluation.id == e.id ? 'selected' : '' }}>{{ e.name }}</option>
@@ -29,7 +29,7 @@
 				<label>{{ 'Courses'|_ }} </label>
 				<select class="form-control select select-primary" data-toggle="" name="course_id" style="width:100%">
 					<option value="">{{ 'Select Course'|_ }}</option>
-					{% for c in evaluations %}
+					{% for c in courses %}
 						{% if c.template == 0 or can('edit_course_template') %}
 						<option value="{{ c.id }}" {{ course.id == c.id ? 'selected' : '' }}>{{ c.name }}</option>
 						{% endif %}

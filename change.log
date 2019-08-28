@@ -1,3 +1,5 @@
+ถ้า eva ไม่เลือกแผน ไม่ต้องแสดงข้อมูลพื้นฐาน
+
 class_reason -> part1_label
 3. class_reason + 4 purpose + 5 format -> part1
 format -> part2_label

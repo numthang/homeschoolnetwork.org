@@ -89,7 +89,7 @@ class Evaluations extends ComponentBase
   }
   protected function loadEvaluations(){
     #$query = Course::all();
-    $query = Course::with('evaluations')
+    $query = Evaluation::with('course')
       ->where('user_id', '=', $this->user_id)
       ->orWhere('template', '=', 1);
 

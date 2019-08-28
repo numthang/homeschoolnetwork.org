@@ -48,11 +48,9 @@ class EvaluationForm extends ComponentBase
       $validator = Validator::make(
         [
           'name' => Input::get('name'),
-          'course_id' => Input::get('course_id')
         ],
         [
           'name' => 'required|min:4',
-          'course_id' => 'required|min:1'
         ]
       );
 
