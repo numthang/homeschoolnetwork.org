@@ -103,7 +103,9 @@ function onEnd() {
       <p>
         {% if scopePosts.posts %}
           {% for Post in scopePosts.posts %}
-            <a href="{{Post.url}}"><span class="fa fa-fw" aria-hidden="true">&#xf040;</span> {{ Post.title }}</a><br>
+            <a href="{{Post.url}}"><span class="fa fa-fw" aria-hidden="true">&#xf040;</span> {{ Post.title }}</a>{% if Post.author.id == user.id %}
+              <a href="/edit/post/{{ Post.slug }}"> {{ 'Edit'|_ }}</a>
+            {% endif %}<br>
           {% endfor %}
         {% else %}
           {{ 'No posts found'|_ }}
@@ -113,7 +115,9 @@ function onEnd() {
       <p>
         {% if scopePosts2.posts %}
           {% for Post in scopePosts2.posts %}
-            <a href="{{Post.url}}"><span class="fa fa-fw" aria-hidden="true">&#xf040;</span> {{ Post.title }}</a><br>
+            <a href="{{Post.url}}"><span class="fa fa-fw" aria-hidden="true">&#xf040;</span> {{ Post.title }}</a>{% if Post.author.id == user.id %}
+              <a href="/edit/post/{{ Post.slug }}"> {{ 'Edit'|_ }}</a>
+            {% endif %}<br>
           {% endfor %}
         {% else %}
           {{ 'No posts found'|_ }}
@@ -123,7 +127,9 @@ function onEnd() {
       <p>
         {% if scopePosts3.posts %}
           {% for Post in scopePosts3.posts %}
-            <a href="{{Post.url}}"><span class="fa fa-fw" aria-hidden="true">&#xf040;</span> {{ Post.title }}</a><br>
+            <a href="{{Post.url}}"><span class="fa fa-fw" aria-hidden="true">&#xf040;</span> {{ Post.title }}</a>{% if Post.author.id == user.id %}
+              <a href="/edit/post/{{ Post.slug }}"> {{ 'Edit'|_ }}</a>
+            {% endif %}<br>
           {% endfor %}
         {% else %}
           {{ 'No posts found'|_ }}
