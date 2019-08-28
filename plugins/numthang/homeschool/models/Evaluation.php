@@ -24,7 +24,7 @@ class Evaluation extends Model
      */
     public $rules = [
     ];
-    protected $fillable = ['name', 'user_id', 'template', 'part1_label', 'part1', 'part2_label', 'part2', 'part3_label', 'part3', 'part4_label', 'part4', 'course_id', 'graduated', 'degree', 'cover', 'portfolio_id'];
+    protected $fillable = ['name', 'user_id', 'part1_label', 'part1', 'part2_label', 'part2', 'part3_label', 'part3', 'part4_label', 'part4', 'course_id', 'graduated', 'degree', 'cover', 'portfolio_id'];
     #protected $jsonable = ['portfolios'];
 
     public $belongsTo = [

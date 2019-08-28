@@ -140,10 +140,8 @@ function onEnd() {
       </p>
       <b><a href="/add/evaluation">{{ 'Evaluation'|_ }}</a></b>
       <p>
-        {% for c in evaluations %}
-          {% for e in c.evaluations %}
-            <a href="/evaluation/{{ e.created_at|date('U') }}"><span class="fa fa-fw" aria-hidden="true">&#xf1c5;</span> {{ e.name }}</a> (<a href="/reportfolio/{{ e.created_at|date('U') }}">{{ 'portfolio'|_ }}</a>) <br>
-          {% endfor %}
+        {% for e in evaluations %}
+          <a href="/evaluation/{{ e.created_at|date('U') }}"><span class="fa fa-fw" aria-hidden="true">&#xf1c5;</span> {{ e.name }}</a> (<a href="/reportfolio/{{ e.created_at|date('U') }}">{{ 'portfolio'|_ }}</a>) <br>
         {% endfor %}
         {% for e in student_evaluations %}
           <a href="/evaluation/{{ e.created_at|date('U') }}"> <span class="fa fa-fw" aria-hidden="true">&#xf1c5;</span> {{ e.name }}</a><br>
