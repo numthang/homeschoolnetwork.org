@@ -104,8 +104,4 @@
     - builder_table_update_numthang_homeschool_evaluations_15.php
 1.0.36:
     - 'Updated table numthang_homeschool_courses'
-    - builder_table_update_numthang_homeschool_courses_13.php
-<<<<<<< HEAD
-
-=======
->>>>>>> 188d80a6465fa8e4d18e9c57f367543232dd437f
+    - builder_table_update_numthang_homeschool_courses13.php

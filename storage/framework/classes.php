@@ -410,4 +410,12 @@
   'RainLab\\Builder\\Classes\\MigrationColumnType' => 'plugins/rainlab/builder/classes/MigrationColumnType.php',
   'Backend\\FormWidgets\\DataTable' => 'modules/backend/formwidgets/DataTable.php',
   'Backend\\Widgets\\Table\\ClientMemoryDataSource' => 'modules/backend/widgets/table/ClientMemoryDataSource.php',
+  'Martin\\SSButtons\\Classes\\ButtonsParameters' => 'plugins/martin/ssbuttons/classes/ButtonsParameters.php',
+  'pollozen\\mostvisited\\Plugin' => 'plugins/pollozen/mostvisited/Plugin.php',
+  'tallpro\\related\\Plugin' => 'plugins/tallpro/related/Plugin.php',
+  'PolloZen\\MostVisited\\Components\\TopVisited' => 'plugins/pollozen/mostvisited/components/TopVisited.php',
+  'PolloZen\\MostVisited\\Models\\Visits' => 'plugins/pollozen/mostvisited/models/Visits.php',
+  'Tallpro\\Related\\Components\\Related' => 'plugins/tallpro/related/components/Related.php',
+  'PolloZen\\MostVisited\\Components\\RegisterVisit' => 'plugins/pollozen/mostvisited/components/RegisterVisit.php',
+  'Tallpro\\Related\\Models\\Settings' => 'plugins/tallpro/related/models/Settings.php',
 );
