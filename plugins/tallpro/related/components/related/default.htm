@@ -1,0 +1,12 @@
+
+<ul class="related-posts">
+    {% for relate in related %}
+    {% set image = relate.featured_images.first %}
+    <li>
+        <a href="{{url('/blog', {'seo': relate.slug})}}" title="{{relate.title}}">
+            <img src="{{ image.path }}" alt="{{relate.title}}">
+            <h4>{{relate.title}}</h4>
+        </a>
+    </li>
+    {% endfor %}
+</ul>

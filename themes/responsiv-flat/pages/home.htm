@@ -37,6 +37,13 @@ allow_images = 1
 slug = "{{ :slug }}"
 listPage = "blog/blog"
 postPage = "blog/post"
+
+[topPosts]
+period = 5
+category = 0
+postPerPage = 5
+postPage = "blog/post"
+slug = "{{ :slug }}"
 ==
 {%  set student_evaluations = evaluations.student_evaluations %}
 {%  set courses = courses.courses %}
@@ -137,6 +144,7 @@ postPage = "blog/post"
   </div>
 </section>
 <div class="container">
+  {% component 'topPosts' %}
   <!-- Services -->
   <div class="row our-services" style="margin-top:10px;">
     <div class="col-sm-12">

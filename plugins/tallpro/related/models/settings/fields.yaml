@@ -1,0 +1,5 @@
+fields:
+    number_posts:
+        span: left
+        label: tallpro.related::lang.settings.number_posts
+        type: number

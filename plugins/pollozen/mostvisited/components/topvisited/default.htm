@@ -1,0 +1,18 @@
+{% set mostVisitedPosts = __SELF__.mostVisitedPosts %}
+<div class="popular-post">
+	<h3>Top Publications</h3>
+	<div>
+		<ul>
+		{% for post in mostVisitedPosts %}
+			<li>
+				<div>
+					<div class="thumb"><img alt="" src="{{post.featured_images[0].path}}"></div>
+					<div class="post-content">
+						<h3><a href="{{post.url}}">{{post.title}}</a></h3>
+					</div>
+				</div>
+			</li>
+		{% endfor %}
+		</ul>
+	</div>
+</div>

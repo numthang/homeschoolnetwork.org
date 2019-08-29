@@ -49,6 +49,11 @@ order_wordpress = 9
 order_pinboard = 10
 order_email = 11
 theme = "social_flat_rounded_rects_svg"
+
+[related]
+slug = "{{ :slug }}"
+
+[registerVisit]
 ==
 <?php
 function onEnd() {
@@ -128,6 +133,7 @@ function onEnd() {
               {% endif %}
           </p>
           <h4>{{ 'Related posts'|_ }}</h4>
+          {% component 'related' %}
           <ul>
             {% for Post in blogRelated.posts %}
                 <a href="{{Post.url}}"><li>{{ Post.title }}</li></a>
