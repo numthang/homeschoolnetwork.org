@@ -146,7 +146,7 @@ slug = "{{ :slug }}"
 <div class="container">
   {% set mostVisitedPosts = topPosts.mostVisitedPosts %}
   <div class="popular-post">
-  	<h4>{{ 'Top Publications'|_ }}</h4>
+  	<h4><a href="/blog/top-posts">{{ 'Top Publications'|_ }}</a></h4>
   	<div>
   		<ul>
   		{% for post in mostVisitedPosts %}
