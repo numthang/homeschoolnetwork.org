@@ -23,6 +23,32 @@ post = "post"
 [account]
 paramCode = "code"
 forceSecure = 0
+
+[ssbuttonsssb]
+js = 0
+facebook = 1
+twitter = 1
+google+ = 1
+tumblr = 1
+pinterest = 1
+pocket = 0
+reddit = 0
+linkedin = 0
+wordpress = 0
+pinboard = 0
+email = 1
+order_facebook = 1
+order_twitter = 2
+order_google+ = 3
+order_tumblr = 4
+order_pinterest = 5
+order_pocket = 6
+order_reddit = 7
+order_linkedin = 8
+order_wordpress = 9
+order_pinboard = 10
+order_email = 11
+theme = "social_flat_rounded_rects_svg"
 ==
 <?php
 function onEnd() {
@@ -88,8 +114,10 @@ function onEnd() {
           </div>
           {% endif %}
           <p class="text-muted" align="right">by <a href="/u/{{post.author_id}}">{{ post.author.name }}</a> on {{ post.published_at|date('M d, Y') }}</p>
+          
           <hr />
-          <!--<div align="left" style="text-align:left;">{% partial "ads/in-article" %}</div>-->
+          <div align="right">{% component 'ssbuttonsssb' %}</div>
+          <div align="left" style="text-align:left;">{% partial "ads/in-article" %}</div>
           {{ post.content_html|raw }}
           <p class="info">
               Posted
