@@ -26,7 +26,14 @@ security = "all"
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="OctoberCMS">
     <meta name="generator" content="OctoberCMS">
-    <link rel="icon" type="image/png" href="{{ 'assets/images/icon-green.png'|theme }}">
+
+    <!-- These two are what you want to use by default -->
+    <link rel="apple-touch-icon" href="{{ 'assets/images/icon-green.png'|theme }}">
+    <link rel="apple-touch-icon-precomposed" href="{{ 'assets/images/icon-green.png'|theme }}">
+    <!-- This one works for anything below iOS 4.2 -->
+    <link rel="apple-touch-icon-precomposed apple-touch-icon" href="{{ 'assets/images/icon-green.png'|theme }}">
+    <link rel="shortcut icon" sizes="32x32" href="{{ 'assets/images/logo-green.png'|theme }}">
+
     {% styles %}
     <link href="{{ [
       'assets/less/theme.less',
