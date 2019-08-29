@@ -1,0 +1,46 @@
+title = "Top Posts"
+url = "/blog/top-posts"
+layout = "default"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[topPosts]
+period = 5
+category = 0
+postPerPage = 10
+postPage = "blog/post"
+slug = "{{ :slug }}"
+==
+<section id="layout-title">
+  <div class="container">
+      <h3>Top Posts</h3>
+  </div>
+</section>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-9">
+      {% set mostVisitedPosts = topPosts.mostVisitedPosts %}
+      <div class="popular-post">
+      	<div>
+      		<ul>
+      		{% for post in mostVisitedPosts %}
+      			<li>
+      				<div>
+      					<div class="thumb"><img alt="" src="{{post.featured_images[0].path}}"></div>
+      					<div class="post-content">
+      						<h3><a href="{{post.url}}">{{post.title}}</a></h3>
+      					</div>
+      				</div>
+      			</li>
+      		{% endfor %}
+      		</ul>
+      	</div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-3">
+      {% partial 'blog/sidebar' %}
+    </div>
+  </div>
+</div>
