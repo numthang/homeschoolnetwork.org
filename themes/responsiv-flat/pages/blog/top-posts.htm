@@ -28,9 +28,9 @@ slug = "{{ :slug }}"
       		{% for post in mostVisitedPosts %}
       			<li>
       				<div>
-      					<div class="thumb"><img alt="" src="{{post.featured_images[0].path}}"></div>
+      					<div class="thumb"><img alt="" src="{{post.featured_images[0].path}}" class="img-responsive"></div>
       					<div class="post-content">
-      						<a href="{{post.url}}">{{post.title}}</a><br>
+      						<a href="{{post.url}}">{{post.title}}</a>
       					</div>
       				</div>
       			</li>
