@@ -23,20 +23,13 @@ slug = "{{ :slug }}"
     <div class="col-sm-12 col-md-9">
       {% set mostVisitedPosts = topPosts.mostVisitedPosts %}
       <div class="popular-post">
-      	<div>
-      		<ul>
-      		{% for post in mostVisitedPosts %}
-      			<li>
-      				<div>
-      					<div class="thumb"><img alt="" src="{{post.featured_images[0].path}}" class="img-responsive"></div>
-      					<div class="post-content">
-      						<a href="{{post.url}}">{{post.title}}</a>
-      					</div>
-      				</div>
-      			</li>
-      		{% endfor %}
-      		</ul>
-      	</div>
+      	<h4><a href="/blog/top-posts">{{ 'Top Publications'|_ }}</a></h4>
+    		{% for post in mostVisitedPosts %}
+      		<div class="post-content">
+      			<img src="{% if post.author.facebook_id %} https://graph.facebook.com/{{ post.author.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" alt="{{ post.author.name }}" class="avatar-sm" onClick="window.location.href = '/u/{{post.author_id}}';"> <a href="{{post.url}}">{{post.title}}</a>
+      		</div>
+          <hr>
+    		{% endfor %}
       </div>
     </div>
     <div class="col-sm-12 col-md-3">
