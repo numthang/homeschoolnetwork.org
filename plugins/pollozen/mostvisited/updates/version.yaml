@@ -1,0 +1,5 @@
+1.0.1:
+  - First version of MostVisited. Create the Visitis table
+  - create_visits_table.php
+1.0.2:
+  - Improve a new query to get the top visited post. Same results in 4x faster
