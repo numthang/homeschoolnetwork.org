@@ -144,7 +144,24 @@ slug = "{{ :slug }}"
   </div>
 </section>
 <div class="container">
-  {% component 'topPosts' %}
+  {% set mostVisitedPosts = topPosts.mostVisitedPosts %}
+  <div class="popular-post">
+  	<h4>{{ 'Top Publications'|_ }}</h4>
+  	<div>
+  		<ul>
+  		{% for post in mostVisitedPosts %}
+  			<li>
+  				<div>
+  					<div class="post-content">
+  						<a href="{{post.url}}">{{post.title}}</a><br>
+  					</div>
+  				</div>
+  			</li>
+  		{% endfor %}
+  		</ul>
+  	</div>
+  </div>
+
   <!-- Services -->
   <div class="row our-services" style="margin-top:10px;">
     <div class="col-sm-12">
