@@ -290,8 +290,8 @@
           </div>
         </div>
         </dd>
-				<dt><a href="#" class="accordionTitle">9. ภาคผนวก/ร่องรอยการเรียนรู้</a></dt>
-				<dd class="accordionItem accordionItemCollapsed">
+				<dt><a href="#" class="accordionTitle">ภาคผนวก/ร่องรอยการเรียนรู้</a></dt>
+				<dd class="accordionItem">
 	        <div class="row">
 	          <div class="col-sm-12">
 							<div class="form-group">
@@ -321,16 +321,18 @@
 				<button type="submit" title="{{ 'Save'|_ }}" class="btn btn-lg btn-default fa fa-save float" data-hotkey="ctrl+s, cmd+s"></button>
       {% endif %}
       {% if evaluation.id is defined %}
-				<button type="button" title="{{ 'Preview'|_ }}" class="btn btn-lg btn-info fa fa-eye float2" onClick="window.open('/evaluation/{{ evaluation.created_at| date('U') }}', '_blank');"></button>
+				<button type="button" title="{{ 'Preview'|_ }}" class="btn btn-lg btn-info fa fa-file-text-o float2" onClick="window.open('/evaluation/{{ evaluation.created_at| date('U') }}', '_blank');"></button>
+
+				<button type="button" title="{{ 'Portfolio Preview'|_ }}" class="btn btn-lg btn-default fa fa-photo float3" onClick="window.open('/reportfolio/{{ evaluation.created_at| date('U') }}', '_blank');"></button>
 
 				<div class="col-sm-2">
 			    <button type="submit" class="btn btn-lg btn-info btn-block" onClick="if(confirm('{{ 'Save as'|_ }} '+this.form.name.value)) this.form.save_as.value = 1; else return false;">{{ 'Save as'|_ }} ...</button>
 				</div>
 				<div class="col-sm-3">
-					<button type="button" class="btn btn-lg btn-info btn-block" onClick="window.open('/reportfolio/{{ evaluation.created_at| date('U') }}', '_blank');">{{ 'Portfolio'|_ }} </button>
+					<button type="button" class="btn btn-lg btn-info btn-block" onClick="window.open('/evaluation/{{ evaluation.created_at| date('U') }}?print=1', '_blank');">{{ 'Evaluation to PDF'|_ }} </button>
 				</div>
 				<div class="col-sm-3">
-					<button type="button" class="btn btn-lg btn-info btn-block" onClick="window.open('/evaluation/{{ evaluation.created_at| date('U') }}?print=1', '_blank');">{{ 'Print to PDF'|_ }} </button>
+					<button type="button" class="btn btn-lg btn-info btn-block" onClick="window.open('/reportfolio/{{ evaluation.created_at| date('U') }}?print=1', '_blank');">{{ 'Portfolio to PDF'|_ }} </button>
 				</div>
 					{% if (record.template == 0 or can('edit_course_template')) and evaluation.user_id == user.id  %}
 						<div class="col-sm-2">
