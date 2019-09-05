@@ -108,22 +108,21 @@ function onEnd() {
           {% endif %}
           {% if post.featured_images.count %}
           <div class="project-images">
-            {% for image in post.featured_images %}
-              <div>
-                <div class="image">
-                  {% if loop.index0 == 0 %}
-                    <img data-src="{{ image.filename }}"  src="{{ image.path | resize(1280, 1280) }}" class="img-responsive" alt="{{ image.description }}" />
-                  {% else %}
-                    <div class="col-sm-4">
-                      <img data-src="{{ image.filename }}"  src="{{ image.path | resize(420, 420) }}" class="img-responsive" height="420" alt="{{ image.description }}" />
-                    </div>
-                  {% endif %}
-                </div>
-                {% put meta %}
-                <meta property="og:image" content="{{ image.path | resize(650, 650) }}" />
-                {% endput %}
-              </div>
-            {% endfor %}
+            <div class="image">
+              <img data-src="{{ post.featured_images[0].filename }}"  src="{{ post.featured_images[0].path | resize(1280, 1280) }}" class="img-responsive" alt="{{ post.featured_images[0].description }}" />
+            </div>
+            <div class="row">
+              {% for image in post.featured_images %}
+                {% if loop.index0 > 0 %}
+                  <div class="col-sm-4 col-md-4">
+                    <img data-src="{{ image.filename }}"  src="{{ image.path | resize(420, 420) }}" class="img-responsive" style="height:250px;"  alt="{{ image.description }}" />
+                  </div>
+                  {% put meta %}
+                  <meta property="og:image" content="{{ image.path | resize(650, 650) }}" />
+                  {% endput %}
+                {% endif %}
+              {% endfor %}
+            </div>
           </div>
           {% endif %}
           <p class="text-muted" align="right">by <a href="/u/{{post.author_id}}">{{ post.author.name }}</a> on {{ post.published_at|date('M d, Y') }}</p>
