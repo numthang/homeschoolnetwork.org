@@ -115,7 +115,7 @@ function onEnd() {
                     <img data-src="{{ image.filename }}"  src="{{ image.path | resize(1280, 1280) }}" class="img-responsive" alt="{{ image.description }}" />
                   {% else %}
                     <div class="col-sm-4">
-                      <img data-src="{{ image.filename }}"  src="{{ image.path | resize(420, 420) }}" class="img-responsive" alt="{{ image.description }}" />
+                      <img data-src="{{ image.filename }}"  src="{{ image.path | resize(420, 420) }}" class="img-responsive" height="420" alt="{{ image.description }}" />
                     </div>
                   {% endif %}
                 </div>
