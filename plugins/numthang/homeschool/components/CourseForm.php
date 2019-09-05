@@ -44,7 +44,6 @@ class CourseForm extends ComponentBase
       if($validator->fails()){
         return ['#flash_message' => $this->renderPartial('flash.htm', ['message' => $validator->errors()->first(), 'type' => 'error'])];
         #return Redirect::back()->withErrors($validator);
-
       }
 
       if($this->param('id') && Input::get('save_as') == 0)//ถ้ามีการ update และไม่ได้กดปุ่ม save as จะส่ง query id ของแผนการศึกษาเข้ามา ให้ค้นหากรองด้วย id ก่อน

@@ -51,6 +51,7 @@
 1.0.18:
     - 'Updated table numthang_homeschool_courses'
     - builder_table_update_numthang_homeschool_courses_8.php
+<<<<<<< HEAD
 1.0.19:
     - 'Created table numthang_homeschool_evaluations'
     - builder_table_create_numthang_homeschool_evaluations.php
@@ -105,3 +106,5 @@
 1.0.36:
     - 'Updated table numthang_homeschool_courses'
     - builder_table_update_numthang_homeschool_courses13.php
+=======
+>>>>>>> e9d4a8097b59f532bf155e2c4f6003f5ee074bda
