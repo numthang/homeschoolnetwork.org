@@ -110,7 +110,15 @@ function onEnd() {
           <div class="project-images">
             {% for image in post.featured_images %}
               <div>
-                <div class="image"><img data-src="{{ image.filename }}"  src="{{ image.path | resize(1280, 1280) }}" class="img-responsive" alt="{{ image.description }}" /></div>
+                <div class="image">
+                  {% if loop.index0 == 0 %}
+                    <img data-src="{{ image.filename }}"  src="{{ image.path | resize(1280, 1280) }}" class="img-responsive" alt="{{ image.description }}" />
+                  {% else %}
+                    <div class="col-sm-4">
+                      <img data-src="{{ image.filename }}"  src="{{ image.path | resize(420, 420) }}" class="img-responsive" alt="{{ image.description }}" />
+                    </div>
+                  {% endif %}
+                </div>
                 {% put meta %}
                 <meta property="og:image" content="{{ image.path | resize(650, 650) }}" />
                 {% endput %}
