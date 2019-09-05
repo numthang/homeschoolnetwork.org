@@ -119,7 +119,7 @@ function onEnd() {
           </div>
           {% endif %}
           <p class="text-muted" align="right">by <a href="/u/{{post.author_id}}">{{ post.author.name }}</a> on {{ post.published_at|date('M d, Y') }}</p>
-          
+
           <hr />
           <div align="right">{% component 'ssbuttonsssb' %}</div>
           <div align="left" style="text-align:left;">{% partial "ads/in-article" %}</div>
@@ -133,10 +133,19 @@ function onEnd() {
               {% endif %}
           </p>
           <h4>{{ 'Related posts'|_ }}</h4>
-          {% component 'related' %}
-          <ul>
+          <ul class="related-posts">
+              {% for relate in related %}
+              {% set image = relate.featured_images.first %}
+              <li>
+                  <a href="{{url('/blog', {'seo': relate.slug})}}" title="{{relate.title}}">
+                    {{relate.title}}
+                  </a>
+              </li>
+              {% endfor %}
+          </ul>
+          <ul class="related-posts">
             {% for Post in blogRelated.posts %}
-                <a href="{{Post.url}}"><li>{{ Post.title }}</li></a>
+            <li>  <a href="{{Post.url}}">{{ Post.title }}</a></li>
             {% endfor %}
           </ul>
           {% partial 'ads/matched-content' %}

@@ -148,10 +148,9 @@ slug = "{{ :slug }}"
   <div class="popular-post">
   	<h4 class="headline"><span><a href="/blog/top-posts">{{ 'Top Publications'|_ }}</a></span></h4>
 		{% for post in mostVisitedPosts %}
-  		<div class="post-content">
+  		<div class="post-content" style="margin-bottom:10px;">
   			<img src="{% if post.author.facebook_id %} https://graph.facebook.com/{{ post.author.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" alt="{{ post.author.name }}" class="avatar-sm" onClick="window.location.href = '/u/{{post.author_id}}';"> <a href="{{post.url}}">{{post.title}}</a>
   		</div>
-      <hr>
 		{% endfor %}
   </div>
 

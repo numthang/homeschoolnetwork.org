@@ -145,8 +145,9 @@ Open /vendor/unisharp/laravel-filemanager/src/Traits/LfmHelpers.php find $thumb_
 
 $thumb_url = asset(config('lfm.assets_directory').'/images/icons/png/folder.png');
 
+//hard code
 /vendor/unisharp/laravel-filemanager/src/Handlers/ConfigHandler.php
-vendor/unisharp/laravel-filemanager/src/Events/ImageWasUploaded.php
+/vendor/unisharp/laravel-filemanager/src/Events/ImageWasUploaded.php
 ========================================================================================
 Hard code changed
 
@@ -161,4 +162,5 @@ Hard code changed
 /plugins/suresoftware/powerseo/classes/Helper.php
 
 //LaravelFilemanager
+/vendor/unisharp/laravel-filemanager/src/Handlers/ConfigHandler.php
 /vendor/unisharp/laravel-filemanager/src/Events/ImageWasUploaded.php
