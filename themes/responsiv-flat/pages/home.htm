@@ -144,21 +144,26 @@ slug = "{{ :slug }}"
   </div>
 </section>
 <div class="container">
-  {% set mostVisitedPosts = topPosts.mostVisitedPosts %}
-  <div class="popular-post">
-  	<h4 class="headline"><span><a href="/blog/top-posts">{{ 'Top Publications'|_ }}</a></span></h4>
-		{% for post in mostVisitedPosts %}
-  		<div class="post-content" style="margin-bottom:10px;">
-  			<img src="{% if post.author.facebook_id %} https://graph.facebook.com/{{ post.author.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" alt="{{ post.author.name }}" class="avatar-sm" onClick="window.location.href = '/u/{{post.author_id}}';"> <a href="{{post.url}}">{{post.title}}</a>
-  		</div>
-		{% endfor %}
+  <div class="row our-services" style="margin-top:10px;">
+    <div class="col-sm-4">
+      <h4 class="headline"><span><a href="/blog/how-to-use">{{ 'What we do'|_ }}</a></span></h4>
+      <p>"เครือข่ายบ้านเรียน" เว็บกลางสำหรับสมาชิกบ้านเรียนหรือโฮมสคูลในเมืองไทย สามารถติดต่อ แลกเปลี่ยน หาความรู้ในการทำโฮมสคูล โดยสมาชิกจะสามารถ ค้นฐานข้อมูลสมาชิกบ้านเรียน, เขียนแผนการศึกษาออนไลน์, เขียนแบบประเมินและร่องรอยการเรียนรู้และสามารถร่วมเขียนเนื้อหาหรือบันทึกใดๆ อ่านเพิ่มเติม <a href="/blog/about">เกี่ยวกับเรา</a></p>
+    </div>
+    <div class="col-sm-8">
+      {% set mostVisitedPosts = topPosts.mostVisitedPosts %}
+      <div class="popular-post">
+        <h4 class="headline"><span><a href="/blog/top-posts">{{ 'Top Publications'|_ }}</a></span></h4>
+        {% for post in mostVisitedPosts %}
+          <div class="post-content" style="margin-bottom:10px;">
+            <img src="{% if post.author.facebook_id %} https://graph.facebook.com/{{ post.author.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" alt="{{ post.author.name }}" class="avatar-sm" onClick="window.location.href = '/u/{{post.author_id}}';"> <a href="{{post.url}}">{{post.title}}</a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
   </div>
-
   <!-- Services -->
   <div class="row our-services" style="margin-top:10px;">
     <div class="col-sm-12">
-      <h4 class="headline"><span><a href="/blog/how-to-use">{{ 'What we do'|_ }}</a></span></h4>
-      <p>"เครือข่ายบ้านเรียน" เว็บกลางสำหรับสมาชิกบ้านเรียนหรือโฮมสคูลในเมืองไทย สามารถติดต่อ แลกเปลี่ยน หาความรู้ในการทำโฮมสคูล โดยสมาชิกจะสามารถ ค้นฐานข้อมูลสมาชิกบ้านเรียน, เขียนแผนการศึกษาออนไลน์, เขียนแบบประเมินและร่องรอยการเรียนรู้และสามารถร่วมเขียนเนื้อหาหรือบันทึกใดๆ อ่านเพิ่มเติม <a href="/blog/about">เกี่ยวกับเรา</a></p>
       <div class="row">
         <div class="col-sm-6 col-md-4">
           <div class="services">
@@ -230,6 +235,7 @@ slug = "{{ :slug }}"
         </div>
       </div>
     </div>
+
   </div>
   {% partial "ads/bottom" %}
   <div class="row our-team">
@@ -265,11 +271,11 @@ slug = "{{ :slug }}"
         </div>
         <div class="col-sm-3 col-xs-12">
           <div class="team-member text-center">
-            <img class="img-responsive center-block avatar-responsive" src="https://graph.facebook.com/100001719473463/picture?type=normal" onClick="window.location.href = '/u/3';">
+            <!--<img class="img-responsive center-block avatar-responsive" src="https://graph.facebook.com/100001719473463/picture?type=normal" onClick="window.location.href = '/u/3';">
             <div class="info" style="font-size:17px;">
               Tita Yossopon
               <p class="text-muted">Editor</p>
-            </div>
+            </div>-->
           </div>
         </div>
       </div>
