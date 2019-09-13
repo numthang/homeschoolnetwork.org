@@ -76,6 +76,7 @@ class PostForm extends ComponentBase {
 	 */
 	public function onSave() {
 		//return false;
+		//dd(post());
 		if (!$result=$this->save()) {
 			return null;
 		}
@@ -89,13 +90,15 @@ class PostForm extends ComponentBase {
 		/*end numthang*/
 
 		// Redirect to the intended page after successful update
-		if(empty($this->param('slug'))) //in case of edit blog
+		if(empty($this->param('slug')) || !post('published')) //create new blog
 			$redirectUrl = $this->pageUrl($this->property('listPage'));
-		else //create new blog
+		else { //in case of edit blog
 			$redirectUrl = $this->pageUrl($this->property('postPage'));
+		}
 
 		//dd($redirectUrl);
-		return Redirect::to($redirectUrl);
+		if(post('redirect'))
+			return Redirect::to($redirectUrl);
 	}
 	public function onDelete() {
 		$blogpost = new BlogPost();

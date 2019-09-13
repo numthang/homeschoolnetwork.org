@@ -66,6 +66,7 @@ sortOrder = "created_at"
         id="publish_save"
         type="button"
         data-request="onSave"
+        data-request-data="redirect:1"
         data-load-indicator="{{ PostForm.trans('kurtjensen.mycalendar::lang.general.saving') }}"
         class="btn btn-primary btn-block" onClick="this.form.title.value = this.form.content.value.substr(0, 60);" disabled>{{ 'Save'|_ }}
       </button>

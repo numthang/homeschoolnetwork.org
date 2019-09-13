@@ -125,13 +125,16 @@ sortOrder = "created_at"
   <div class="alert alert-danger" data-validate-error>
     <p data-message></p>
   </div>
+  <button type="submit" title="{{ 'Save'|_ }}" class="btn btn-lg btn-default fa fa-save float" data-hotkey="ctrl+s, cmd+s"
+  data-request="onSave"
+  data-request-data="published:1"></button>
   <div class="col-sm-3">
     <button
       id="draft_save"
       type="button"
       data-hotkey="ctrl+s, cmd+s"
       data-request="onSave"
-      data-request-data="published:0"
+      data-request-data="published:0, redirect:1"
       data-load-indicator="{{ PostForm.trans('kurtjensen.mycalendar::lang.general.saving') }}"
       class="btn btn-warning btn-block">{{ PostForm.trans('general.btn_save_draft') }}
     </button>
@@ -142,7 +145,7 @@ sortOrder = "created_at"
         id="publish_save"
         type="button"
         data-request="onSave"
-        data-request-data="published:1"
+        data-request-data="published:1, redirect:1"
         data-load-indicator="{{ PostForm.trans('kurtjensen.mycalendar::lang.general.saving') }}"
         class="btn btn-primary btn-block">{{ PostForm.trans('general.btn_save_publish') }}
       </button>
