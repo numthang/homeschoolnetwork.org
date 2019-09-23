@@ -1,0 +1,32 @@
+{
+  "name": "kharanenka/laravel-scope-hidden",
+  "description": "Scope for field 'hidden' (bool)",
+  "license": "GPL-3.0",
+  "keywords": [
+    "php",
+    "laravel",
+    "OctoberCMS",
+    "model",
+    "scope",
+    "hidden",
+    "field"
+  ],
+  "authors": [
+    {
+      "name": "Andrey Kharanenka",
+      "email": "kharanenka@gmail.com"
+    }
+  ],
+  "version": "1.0.0",
+  "require": {
+    "php": ">=7.0"
+  },
+  "autoload": {
+    "classmap": [
+      "src/Kharanenka/Scope"
+    ],
+    "psr-0": {
+      "Kharanenka\\Scope\\": "src/"
+    }
+  }
+}

@@ -1,3 +1,6 @@
+
+บางทีก็อยากมีชีวิตอยู่แบบงงๆ ถ้ามีลูกก็แค่ผลักดันลูกให้เก่งๆ เอาตัวรอดให้ได้เหนือคนอื่น ไม่ต้องสนใจอย่างอื่น หาเงินกิน หาเงินเที่ยว มีความสุขกับชีวิต ไปวันๆ อยากมีความคิดประเภทที่ว่า  ทำให้การกดขี่ของตัวเองเป็นเรื่องบุญคุณ การบริจาคเงินให้คนจนเป็นเรื่องของความดี เหมือนขโมยของเขามา แล้วค่อยมาลำเลิกบุญคุณตลอดชีวิต เพื่อให้เราหายใจร่วมโลกกับคนอื่นได้อย่างไม่ติดขัด ไม่ต้องรับรู้ว่าเราอยู่บนโครงสร้างที่เอารัดเอาเปรียบคนอื่น อะไรแบบนี้เหมือนกันว่ะ ชีวิตคงจะมีความสุขมากกว่านี้ มั้งนะ?
+
 Try plugin
 
 prism - pkdwswx7
@@ -157,7 +160,7 @@ Hard code changed
 /plugins/fireunion/blogfront/components/PostForm.php
 /plugins/flynsarmy/sociallogin/classes/UserManager.php
 
-//use traslatable title
+//use translatable title
 /plugins/suresoftware/powerseo/components/cmspage/default.htm
 /plugins/suresoftware/powerseo/classes/Helper.php
 
