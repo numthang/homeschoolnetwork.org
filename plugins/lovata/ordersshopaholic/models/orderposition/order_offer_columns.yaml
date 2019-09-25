@@ -1,0 +1,40 @@
+columns:
+    offer_name:
+          label: 'lovata.toolbox::lang.field.name'
+          relation: offer
+          select: name
+          searchable: true
+          sortable: true
+    code:
+          label: 'lovata.shopaholic::lang.field.vendor_code'
+          type: text
+          searchable: true
+          sortable: true
+    price:
+          label: 'lovata.shopaholic::lang.field.price'
+          type: text
+          searchable: false
+          sortable: false
+    old_price:
+          label: 'lovata.shopaholic::lang.field.old_price'
+          type: text
+          searchable: false
+          sortable: false
+    quantity:
+          label: 'lovata.shopaholic::lang.field.quantity'
+          type: text
+          searchable: false
+          sortable: true
+          width: 140px
+    total_price:
+          label: 'lovata.ordersshopaholic::lang.field.position_price'
+          type: partial
+          path: $/lovata/ordersshopaholic/controllers/orderpositions/_total_price_column.htm
+          searchable: false
+          sortable: false
+    old_total_price:
+          label: 'lovata.ordersshopaholic::lang.field.old_position_price'
+          type: partial
+          path: $/lovata/ordersshopaholic/controllers/orderpositions/_total_old_price_column.htm
+          searchable: false
+          sortable: false

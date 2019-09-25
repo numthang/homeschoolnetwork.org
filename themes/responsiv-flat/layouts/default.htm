@@ -13,7 +13,7 @@ security = "all"
   <head>
   	<meta charset="UTF-8">
     {% if this.page.custom_title %}
-      <title>{{ this.page.custom_title|_|generateTitle }}</title>
+      <title>{{ this.page.custom_title|generateTitle }}</title>
     {% endif %}
     {% if hasBlog %}
     {% placeholder meta default %}

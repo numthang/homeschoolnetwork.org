@@ -1,0 +1,14 @@
+title: 'lovata.ordersshopaholic::lang.shipping_type.list_title'
+modelClass: Lovata\OrdersShopaholic\Models\ShippingType
+list: $/lovata/ordersshopaholic/models/shippingtype/columns.yaml
+recordUrl: 'lovata/ordersshopaholic/shippingtypes/update/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+defaultSort:
+    column: sort_order
+    direction: asc
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
