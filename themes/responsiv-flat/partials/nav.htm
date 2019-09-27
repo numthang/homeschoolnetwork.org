@@ -53,10 +53,13 @@ categoryPage = "blog/category"
         </div>
         <div class="collapse navbar-collapse navbar-main-collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li class=" dropdown">
+            <li class="dropdown">
               <a href="#" data-toggle="dropdown" class="dropdown-toggle">{{ 'Shop'|_ }}<span class="caret"></span></a>
               <span class="dropdown-arrow"></span>
               <ul class="dropdown-menu">
+                <li class="">
+                  <a href="/cart" class="dropdown-toggle _ajax_cart_link_header_wrapper"><i class="fa fa-shopping-cart"></i> {{ 'Cart'|_ }} <span class="badge">{{ Cart.get().count }}</span></a>
+                </li>
                 <li class=" ">
                   <a href="/catalog/clothes">{{ 'Clothes'|_ }}</a>
                 </li>

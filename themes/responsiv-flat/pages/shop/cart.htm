@@ -1,0 +1,146 @@
+title = "Cart"
+url = "/cart"
+layout = "default"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[PaymentMethodList]
+
+[ShippingTypeList]
+
+[MakeOrder]
+mode = "ajax"
+redirect_on = 1
+redirect_page = "order-complete"
+
+[Cart]
+==
+{% set obActiveShippingType = ShippingTypeList.make().active().sort().first() %}
+{% set obCartPositionList = Cart.get(obActiveShippingType) %}
+
+{% put scripts %}
+<script src="{{ [
+  'partials/shop/cart-position-list/cart-position-list.js',
+  ]|theme }}"></script>
+{% endput %}
+
+<section id="layout-title">
+  <div class="container">
+    <h3>Your cart</h3>
+  </div>
+</section>
+{# @var obCartPositionList \Lovata\OrdersShopaholic\Classes\Collection\CartPositionCollection #}
+{# @var obCartPosition \Lovata\OrdersShopaholic\Classes\Item\CartPositionItem #}
+{# @var obActiveShippingType \Lovata\OrdersShopaholic\Classes\Item\ShippingTypeItem #}
+{# @var obOffer \Lovata\Shopaholic\Classes\Item\OfferItem #}
+{# @var obProduct \Lovata\Shopaholic\Classes\Item\ProductItem #}
+
+<div class="container shopping-cart cart">
+  {% if obCartPositionList.isNotEmpty() %}
+  <div class="cart__table-wrapper">
+    <table class="cart__table table table-bordered table-responsive">
+      <thead>
+        <tr>
+          <th width="5%"></tf>
+          <th>Product</th>
+          <th style="text-align: right;">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for obCartPosition in obCartPositionList %}
+        {% set obOffer = obCartPosition.offer %}
+        {% set obProduct = obOffer.product %}
+        <tr class="cart__item {% if obCartPosition.quantity > obOffer.quantity %}bg-danger{% endif %}" data-position-id="{{ obCartPosition.id }}" data-offer-id="{{ obOffer.id }}">
+          <td class="cart__delete-position">
+            <button class="btn btn-default cart__delete-btn" aria-label="Delete" data-id="{{ obOffer.id }}">
+            <i class="fa fa-trash-o"></i>
+            </button>
+          </td>
+          <td class="cart__picture align-middle">
+            <a href="{{ obProduct.getPageUrl('product') }}" class="cart__img-wrap d-block">
+            {% if obProduct.preview_image is not empty %}
+              <img class="img-responsive" src="{{ obProduct.preview_image.getThumb(100, 100, {quality: 80}) }}" alt="{{ obProduct.preview_image.description }}" title="{{ obProduct.preview_image.title }}">
+            {% else %}
+              <img class="cart__img" src="{{ 'assets/images/no-image.jpg'|theme }}">
+            {% endif %}
+            </a>
+            <a class="cart__product-name font-weight-bold d-block mb-2" href="{{ obProduct.getPageUrl() }}">
+              {{ obProduct.name }}
+            </a><br>
+            {{ 'Offer'|_ }} : {{ obOffer.name }}
+            <div class="cart__price-bar d-flex flex-column">
+              <input type="number" name="quantity" class="product-detailed__btn-qty-input"
+ value="{{ obCartPosition.quantity }}" min="1" max="{{ btnMaxQtyValue }}{{ obOffer.quantity }}"  data-ajax="updateTotal" maxlength="2">
+              x
+              <span class="cart__current-price pr-2 font-weight-bold {{ obOffer.old_price_value > 0 ? 'text-danger' : '' }} d-block mb-1">
+                {{ obOffer.price }}  THB
+              </span>
+              {% if obOffer.old_price_value > 0 %}
+                <span class="cart__old-price text-muted pr-2">
+                <s>{{ obOffer.old_price }} THB</s>
+                </span>
+              {% endif %}
+            </div>
+            <!--{{ 'Category'|_ }}<a href="{{ obProduct.category.getPageUrl('catalog') }}" class="cart__category-product-column text-black-50">
+            {{ obProduct.category.name }}-->
+            </a>
+          </td>
+
+          <td class="cart__total-price" align="right">
+            <span class="cart__total-price-figures cart__position-price-value">{{ obCartPosition.price }}</span> {{ obCartPosition.currency }}
+            <!--<span class="text-muted cart__position-old-price-figures {% if obCartPosition.discount_price_value == 0 %}d-none{% endif %}">
+              <span class="cart__position-old-price-value">{{ obCartPosition.old_price }}</span> {{ obCartPosition.currency }}
+            </span>-->
+          </td>
+
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="cart__total">
+    <ul class="text-right checkout">
+      <li class="cart__total-position">
+        <span class="cart__total-position-title"><strong>Sub Total</strong></span>
+        <!--<span class="cart__total-position-old-price text-muted">
+          <span class="cart__total-position-old-price-value {% if obCartPositionList.getDiscountTotalPriceValue() == 0 %}d-none{% endif %}">{{ obCartPositionList.getOldTotalPrice() }}</span>
+          <span class="cart__total-position-old-price-currency {% if obCartPositionList.getDiscountTotalPriceValue() == 0 %}d-none{% endif %}">{{ Cart.getCurrency() }}</span>
+        </span>-->
+        <span class="cart__total-position-current-price">
+          <span class="cart__total-position-price-value">{{ obCartPositionList.getTotalPrice() }}</span>
+          <span class="cart__total-position-price-currency">{{ Cart.getCurrency() }}</span>
+        </span>
+      </li>
+
+      <li class="cart__total-shipping">
+        <span class="cart__total-shipping-title"><strong>Shipping</strong></span>
+          <!--<span class="cart__total-shipping-old-price text-muted">
+            <span class="cart__total-shipping-old-price-value {% if obActiveShippingType.discount_price_value == 0 %}d-none{% endif %}">{{ obActiveShippingType.old_price }}</span>
+            <span class="cart__total-shipping-old-price-currency {% if obActiveShippingType.discount_price_value == 0 %}d-none{% endif %}">{{ Cart.getCurrency() }}</span>
+          </span>-->
+        <span class="cart__total-shipping-current-price">
+          <span class="cart__total-shipping-price-value">{{ obActiveShippingType.price }}</span>
+          <span class="cart__total-shipping-price-currency">{{ Cart.getCurrency() }}</span>
+        </span>
+      </li>
+
+
+      <li class="cart__total-price">
+        <span class="cart__total-price-title"><strong>Total Price</strong></span>
+        <!--<span class="cart__total-price-old-price text-muted">
+          <span class="cart__total-price-old-price-value {% if Cart.getDiscountTotalPriceValue() == 0 %}d-none{% endif %}">{{ Cart.getOldTotalPrice() }}</span>
+          <span class="cart__total-price-old-price-currency {% if Cart.getDiscountTotalPriceValue() == 0 %}d-none{% endif %}">{{ Cart.getCurrency() }}</span>
+        </span>-->
+        <span class="cart__total-price-current-price">
+          <span class="cart__total-price-price-value">{{ Cart.getTotalPrice() }}</span>
+          <span class="cart__total-price-price-currency">{{ Cart.getCurrency() }}</span>
+        </span>
+      </li>
+      <li><a href="#" class="btn btn-lg btn-success"><i class="fa fa-hand-o-right"></i> Proceed to checkout</a></li>
+    </ul>
+  </div>
+  {% else %}
+  <h2 class="cart__empty container mt-4 mb-4 text-center {% if obCartPositionList.isNotEmpty() %}d-none{% endif %}">Your cart is empty.</h2>
+  {% endif %}
+</div>
