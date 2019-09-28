@@ -1,4 +1,4 @@
-new class ButtonAddToCart {
+ButtonAddToCart = new class ButtonAddToCart {
   constructor() {
     //Init selectors
     this.btnAddToCart = 'btn-add-to-cart';
@@ -29,7 +29,7 @@ new class ButtonAddToCart {
           button.attr('data-content', form.find('input[name="quantity"]').val()+' Items added to cart');
           //CartLinkHeader.updateBlock();
           $.request('Cart::onGetData', {
-            update: {'shop/cart-link-header/cart-link-header': `._ajax_cart_link_header_wrapper`}
+            update: {'shop/cart-link-header': `._ajax_cart_link_header_wrapper`}
           });
         } else {
           button.attr('data-content', response.message);

@@ -19,8 +19,6 @@ smart_url_check = 0
 slug = "{{ :slug }}"
 slug_required = 1
 smart_url_check = 0
-
-[Cart]
 ==
 {# Get product item #}
 {% set obProduct = ProductPage.get() %}
@@ -54,7 +52,7 @@ smart_url_check = 0
       })
   </script>
   <script src="{{ [
-    'partials/shop/button-add-to-cart/button-add-to-cart.js',
+    'assets/js/shop/button-add-to-cart.js',
     ]|theme }}"></script>
 {% endput %}
 

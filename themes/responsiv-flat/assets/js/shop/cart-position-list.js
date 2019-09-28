@@ -1,4 +1,4 @@
-new class CartPositionList {
+CartPositionList = new class CartPositionList {
   constructor() {
     this.cartSelector = '.cart';
     this.orderForm = '_ajax_create_order';
@@ -83,7 +83,7 @@ new class CartPositionList {
       success: function (response) {
         //CartLinkHeader.updateBlock();
         $.request('Cart::onGetData', {
-          update: {'shop/cart-link-header/cart-link-header': `._ajax_cart_link_header_wrapper`}
+          update: {'shop/cart-link-header': `._ajax_cart_link_header_wrapper`}
         });
         if (!!response && response.status && !!response.data) {
           _this.updatePrice(response.data);
