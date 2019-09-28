@@ -1,0 +1,39 @@
+title = "Location"
+url = "/location"
+layout = "default"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+==
+<div class="col-sm-3">
+  <div class="form-group">
+
+    <label>{{ 'City'|_ }}</label>
+    <input name="city" type="text" class="form-control" value="{{ user.city }}">
+  </div>
+</div>
+<div class="col-sm-3">
+  <div class="{{ wrapper_class }} form-group">
+    <label>{{ 'State'|_ }}</label>
+    {{ form_select_province('state_id',  user.state_id, { id: 'state-select', class: class ~ ' form-control', emptyOption: placeholder }) }}
+  </div>
+</div>
+<div class="col-sm-3">
+  <div class="form-group">
+    <label>{{ 'Zip'|_ }}</label>
+    <input name="zip" type="text" class="form-control" value="{{ user.zip }}">
+  </div>
+</div>
+<div class="col-sm-3">
+  <div class="{{ wrapper_class }} form-group">
+    <label>{{ 'Country'|_ }}</label>
+    {{ form_select_country('country_id', user.country_id,
+    {
+      class: class ~ ' form-control',
+      emptyOption: '-- SELECT COUNTRY --',
+      'data-request': 'onChangeCountry',
+      'data-request-data': {placeholder: '-- SELECT STATE --', name: 'country_id'},
+    }) }}
+  </div>
+
+</div>

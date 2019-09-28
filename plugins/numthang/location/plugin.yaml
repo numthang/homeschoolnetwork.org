@@ -1,0 +1,6 @@
+plugin:
+    name: 'numthang.location::lang.plugin.name'
+    description: 'numthang.location::lang.plugin.description'
+    author: Numthang
+    icon: oc-icon-adjust
+    homepage: ''

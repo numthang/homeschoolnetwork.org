@@ -113,7 +113,6 @@ sortOrder = "name asc"
               <dt><a href="#" class="accordionTitle"><i class="fui-location"></i>{{ 'Address'|_ }} </a></dt>
               <dd class="accordionItem accordionItemCollapsed">
                 <div class="row">
-
                   <div class="col-sm-6">
                     <div class="form-group">
                       <label>{{ 'Company'|_ }}</label>
@@ -150,13 +149,12 @@ sortOrder = "name asc"
                       <label>{{ 'Country'|_ }}</label>
                       {{ form_select_country('country_id', user.country_id,
                       {
-                          class: class ~ ' form-control',
-                          emptyOption: '-- SELECT COUNTRY --',
-                          'data-request': 'onChangeCountry',
-                          'data-request-data': {placeholder: '-- SELECT STATE --', name: 'country_id'},
+                        class: class ~ ' form-control',
+                        emptyOption: '-- SELECT COUNTRY --',
+                        'data-request': 'onChangeCountry',
+                        'data-request-data': {placeholder: '-- SELECT STATE --', name: 'country_id'},
                       }) }}
                     </div>
-
                   </div>
                 </div>
               </dd>
