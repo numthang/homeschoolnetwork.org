@@ -48,4 +48,5 @@ class Province extends Model
     {
       return Form::select($name, self::getNameList(), $selectedValue, $options);
     }
+    
 }

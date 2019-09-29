@@ -1,59 +1,49 @@
 [viewBag]
 ==
-{% if location_is_available %}
-    {% set countryId = form_value('country') %}
-    {% set stateId = form_value('state') %}
-
-    <div class="row">
-        <div class="form-group col-sm-3">
-            <label for="inputCountry">Country</label>
-            {{ form_select_country('country_id', countryId, {
-                id: 'inputCountry',
-                class: 'form-control',
-                name: 'country',
-                emptyOption: '',
-                required: 'required',
-                'data-request': 'onInit',
-                'data-request-update': {
-                    'location/location-select': '._ajax_location_select_wrapper'
-                }
-            }) }}
-            <div class="invalid-feedback">
-                Please provide a valid country
-            </div>
-        </div>
-        <div class="form-group col-sm-3">
-            <label for="inputCity">Province</label>
-            {{ form_select_province('state_id', stateId, {
-                id: 'inputState',
-                class: 'form-control',
-                name: 'state',
-                required: 'required',
-                emptyOption: ''
-            }) }}
-            <div class="invalid-feedback">
-                Please provide a valid city
-            </div>
-        </div>
-        <div class="form-group col-sm-3">
-            <label for="inputCity">District</label>
-            {{ form_select_amphuer('state_id', countryId, stateId, {
-                id: 'inputState',
-                class: 'form-control',
-                name: 'state',
-                required: 'required',
-                emptyOption: ''
-            }) }}
-            <div class="invalid-feedback">
-                Please provide a valid city
-            </div>
-        </div>
-        <div class="form-group col-md-3">
-            <label for="inputZip">Zip</label>
-            <input type="text" class="form-control" id="inputZip" required>
-            <div class="invalid-feedback">
-                Please provide a valid zip
-            </div>
-        </div>
+<div class="row">
+  <div class="col-sm-3">
+    <div class="{{ wrapper_class }} form-group">
+      <label>{{ 'Country'|_ }}</label>
+      {{ form_select_country('country_id', form_value('country_id'),
+      {
+        class: class ~ ' form-control',
+        emptyOption: '-- SELECT COUNTRY --',
+        'data-request': 'onInit',
+      }) }}
     </div>
-{% endif %}
+  </div>
+  <div class="col-sm-3">
+    <div class="{{ wrapper_class }} form-group">
+      <label>{{ 'Province'|_ }}</label>
+      {{ form_select_province('state_id',  form_value('state_id'), {
+          class: class ~ ' form-control',
+          emptyOption: '-- SELECT PROVINCE --',
+          'data-request': 'onInit','data-request-update': {
+            'location/location-select': '._ajax_location_select_wrapper'
+      } }) }}
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label>{{ 'Amphure'|_ }}</label>
+      {{ form_select_amphure('amphure_id', form_value('state_id'), form_value('amphure_id'), {
+          class: class ~ ' form-control',
+          emptyOption: '-- SELECT CITY --',
+          'data-request': 'onInit',
+          'data-request-update': {
+            'location/location-select': '._ajax_location_select_wrapper'
+          }
+        }) }}
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label>{{ 'District'|_ }}</label>
+      {{ form_select_district('district_id', form_value('amphure_id'), form_value('district_id'), {
+          class: class ~ ' form-control',
+          emptyOption: '-- SELECT DISTRICT --',
+          
+        }) }}
+    </div>
+  </div>
+</div>

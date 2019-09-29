@@ -20,7 +20,9 @@ class Plugin extends PluginBase
         return [
             'functions' => [
                 'form_select_geography' => ['Numthang\Location\Models\Geography', 'formSelect'],
-                'form_select_province'   => ['Numthang\Location\Models\Province', 'formSelect']
+                'form_select_province'   => ['Numthang\Location\Models\Province', 'formSelect'],
+                'form_select_amphure'   => ['Numthang\Location\Models\Amphure', 'formSelect'],
+                'form_select_district'   => ['Numthang\Location\Models\District', 'formSelect']
             ]
         ];
     }

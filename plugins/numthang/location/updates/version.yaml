@@ -9,3 +9,9 @@
 1.0.4:
     - 'Updated table numthang_location_provinces'
     - builder_table_update_numthang_location_provinces.php
+1.0.5:
+    - 'Created table numthang_location_amphures'
+    - builder_table_create_numthang_location_amphures.php
+1.0.6:
+    - 'Created table numthang_location_districts'
+    - builder_table_create_numthang_location_districts.php

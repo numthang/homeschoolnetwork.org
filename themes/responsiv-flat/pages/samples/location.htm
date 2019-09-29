@@ -5,35 +5,57 @@ is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
 ==
-<div class="col-sm-3">
-  <div class="form-group">
-
-    <label>{{ 'City'|_ }}</label>
-    <input name="city" type="text" class="form-control" value="{{ user.city }}">
+<?php
+function onInit()
+{
+    $obPluginManager = \System\Classes\PluginManager::instance();
+    $this['location_is_available'] = $obPluginManager->hasPlugin('RainLab.Location');
+}
+?>
+==
+<form>
+<div class="_ajax_location_select_wrapper">
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="{{ wrapper_class }} form-group">
+        <label>{{ 'Country'|_ }}</label>
+        {{ form_select_country('country_id', user.country_id,
+        {
+          class: class ~ ' form-control',
+          emptyOption: '-- SELECT COUNTRY --',
+          'data-request': 'onInit',
+        }) }}
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="{{ wrapper_class }} form-group">
+        <label>{{ 'Province'|_ }}</label>
+        {{ form_select_province('state_id',  user.state_id, { id: 'state-select', class: class ~ ' form-control', emptyOption: '-- SELECT PROVINCE --', 'data-request': 'onInit', 'data-request-update': {
+          'location/location-select': '._ajax_location_select_wrapper'
+        } }) }}
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="form-group">
+        <label>{{ 'Amphure'|_ }}</label>
+        {{ form_select_amphure('amphure_id', form_value('state_id'), user.amphure_id, { id: 'state-select', class: class ~ ' form-control', emptyOption: '-- SELECT CITY --', 'data-request': 'onInit', 'data-request-update': {
+          'location/location-select': '._ajax_location_select_wrapper'
+        } }) }}
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="form-group">
+        <label>{{ 'District'|_ }}</label>
+        {{ form_select_district('district_id', form_value('amphure_id'), user.district_id, {
+            class: class ~ ' form-control',
+            emptyOption: '-- SELECT DISTRICT --',
+            'data-request': 'onInit',
+            'data-request-update': {
+              'location/location-select': '._ajax_location_select_wrapper'
+            }
+          }) }}
+      </div>
+    </div>
   </div>
 </div>
-<div class="col-sm-3">
-  <div class="{{ wrapper_class }} form-group">
-    <label>{{ 'State'|_ }}</label>
-    {{ form_select_province('state_id',  user.state_id, { id: 'state-select', class: class ~ ' form-control', emptyOption: placeholder }) }}
-  </div>
-</div>
-<div class="col-sm-3">
-  <div class="form-group">
-    <label>{{ 'Zip'|_ }}</label>
-    <input name="zip" type="text" class="form-control" value="{{ user.zip }}">
-  </div>
-</div>
-<div class="col-sm-3">
-  <div class="{{ wrapper_class }} form-group">
-    <label>{{ 'Country'|_ }}</label>
-    {{ form_select_country('country_id', user.country_id,
-    {
-      class: class ~ ' form-control',
-      emptyOption: '-- SELECT COUNTRY --',
-      'data-request': 'onChangeCountry',
-      'data-request-data': {placeholder: '-- SELECT STATE --', name: 'country_id'},
-    }) }}
-  </div>
-
-</div>
+</form>
