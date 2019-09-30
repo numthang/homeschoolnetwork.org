@@ -11,8 +11,9 @@ robot_follow = "follow"
 
 [MakeOrder]
 mode = "ajax"
+flash_on = 1
 redirect_on = 1
-redirect_page = "order-complete"
+redirect_page = "shop/complete"
 
 [session]
 security = "user"
@@ -47,40 +48,81 @@ function onInit() {
       <div class="col-sm-8">
         <div class="row">
           <div class="col-sm-6">
+            <label>{{ 'First Name'|_ }}</label>
             <input type="text" class="form-control" name="name" value="{{ user.name }}" placeholder="First name" required>
             <div class="invalid-feedback">
               Please add your name
             </div>
           </div>
           <div class="col-sm-6">
+            <label>{{ 'Last Name'|_ }}</label>
             <input type="text" class="form-control" name="last_name" value="{{ user.surname }}" placeholder="Last name" required>
             <div class="invalid-feedback">
               Please add your last name
             </div>
           </div>
         </div>
-        <div class="form-group">
-          <label class="sr-only" for="inlineFormInputGroup">Email</label>
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <div class="input-group-text">@</div>
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="accountEmail">{{ 'Email'|_ }}</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="inlineFormInputGroup" name="email" value="{{ user.email }}" placeholder="Email" required>
+                <div class="invalid-feedback">
+                  Please add your email
+                </div>
+              </div>
             </div>
-            <input type="text" class="form-control" id="inlineFormInputGroup" name="email" value="{{ user.email }}" placeholder="Email" required>
-            <div class="invalid-feedback">
-              Please add your email
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label>{{ 'Mobile'|_ }}</label>
+              <input name="mobile" type="text" class="form-control" value="{{ user.mobile }}">
             </div>
           </div>
         </div>
-        <div class="form-group">
-          <label for="inputAddress">Address</label>
-          <input type="text" class="form-control" id="inputAddress" name="address1" value="{{ user.street_addr }}" placeholder="1234 Main St" required>
-          <div class="invalid-feedback">
-            Please add your address
+        <div class="row">
+          <div class="col-sm-9">
+            <div class="form-group">
+              <label for="inputAddress">{{ 'Street Address'|_ }}</label>
+              <input type="text" class="form-control" id="inputAddress" name="address1" value="{{ user.street_addr }}" placeholder="1234 Main St" required>
+              <div class="invalid-feedback">
+                Please add your address
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label>{{ 'Zip'|_ }}</label>
+              <input name="zip" type="text" class="form-control" value="{{ user.zip }}">
+            </div>
           </div>
         </div>
-        <div class="form-group">
-          <label for="inputAddress2">Address 2 (optional)</label>
-          <input type="text" class="form-control" id="inputAddress2" name="address2" placeholder="Apartment or suite">
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="{{ wrapper_class }} form-group">
+              <label>{{ 'Country'|_ }}</label>
+              <input name="country" type="text" class="form-control" value="{{ user.zip }}">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="{{ wrapper_class }} form-group">
+              <label>{{ 'Province'|_ }}</label>
+              <input name="state" type="text" class="form-control" value="{{ user.zip }}">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label>{{ 'Amphure'|_ }}</label>
+              <input name="city" type="text" class="form-control" value="{{ user.zip }}">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label>{{ 'District'|_ }}</label>
+              <input name="district" type="text" class="form-control" value="{{ user.zip }}">
+            </div>
+          </div>
         </div>
         <div class="_ajax_location_select_wrapper">
           {% partial 'location/location-select' %}
