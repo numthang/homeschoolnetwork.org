@@ -23,6 +23,8 @@ class Plugin extends PluginBase
           'status',
           'country_id',
           'state_id',
+          'amphure_id',
+          'district_id',
           'note',
           'facebook_id',
           'twitter'

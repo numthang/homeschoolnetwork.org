@@ -1,0 +1,66 @@
+columns:
+    order_number:
+        label: 'lovata.ordersshopaholic::lang.field.order_number'
+        type: number
+        searchable: true
+        sortable: true
+    status_name:
+        label: 'lovata.ordersshopaholic::lang.field.status'
+        relation: status
+        searchable: false
+        sortable: true
+        select: name
+    payment_method_name:
+        label: 'lovata.ordersshopaholic::lang.field.payment_method'
+        relation: payment_method
+        searchable: false
+        sortable: true
+        select: name
+    shipping_type_name:
+        label: 'lovata.ordersshopaholic::lang.field.shipping_type'
+        relation: shipping_type
+        searchable: false
+        sortable: true
+        select: name
+    property[email]:
+        label: 'lovata.toolbox::lang.field.email'
+        type: text
+        searchable: true
+        sortable: true
+    property[name]:
+        label: 'lovata.ordersshopaholic::lang.field.name'
+        type: text
+        searchable: true
+        sortable: true
+    property[last_name]:
+        label: 'lovata.ordersshopaholic::lang.field.last_name'
+        type: text
+        searchable: true
+        sortable: true
+    property[phone]:
+        label: 'lovata.toolbox::lang.field.phone'
+        type: text
+        searchable: true
+        sortable: true
+    total_price:
+        label: 'lovata.ordersshopaholic::lang.field.total_price'
+        type: partial
+        path: $/lovata/ordersshopaholic/controllers/orders/_total_price_column.htm
+        searchable: false
+        sortable: false
+    id:
+        label: 'lovata.toolbox::lang.field.id'
+        type: text
+        searchable: true
+        sortable: true
+        width: 100px
+    created_at:
+        label: 'lovata.toolbox::lang.field.created_at'
+        type: timetense
+        sortable: true
+        invisible: true
+    updated_at:
+        label: 'lovata.toolbox::lang.field.updated_at'
+        type: timetense
+        sortable: true
+        invisible: true

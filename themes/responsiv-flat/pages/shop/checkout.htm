@@ -1,0 +1,175 @@
+title = "Checkout"
+url = "/checkout"
+layout = "default"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[PaymentMethodList]
+
+[ShippingTypeList]
+
+[MakeOrder]
+mode = "ajax"
+flash_on = 1
+redirect_on = 1
+redirect_page = "shop/complete"
+
+[session]
+security = "user"
+redirect = "login/login"
+==
+<?php
+function onInit() {
+}
+?>
+==
+{% set obActiveShippingType = ShippingTypeList.make().active().sort().first() %}
+{% set obCartPositionList = Cart.get(obActiveShippingType) %}
+{% put styles %}
+  <link href="{{ [
+      'assets/css/shop/checkout-form-validation.css',
+  ]|theme }}" rel="stylesheet">
+{% endput %}
+{% put scripts %}
+  <script src="{{ [
+    'assets/js/shop/checkout-form-validation.js',
+    ]|theme }}"></script>
+{% endput %}
+<section id="layout-title">
+  <div class="container">
+    <h3>{{ 'Checkout'|_ }}</h3>
+  </div>
+</section>
+<div class="container">
+  {% if obCartPositionList.count > 0 %}
+  <section class="row form">
+    <form class="needs-validation _ajax_create_order" novalidate>
+      <div class="col-sm-8">
+        <div class="row">
+          <div class="col-sm-6">
+            <label>{{ 'First Name'|_ }}</label>
+            <input type="text" class="form-control" name="name" value="{{ user.name }}" placeholder="First name" required>
+            <div class="invalid-feedback">
+              Please add your name
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <label>{{ 'Last Name'|_ }}</label>
+            <input type="text" class="form-control" name="last_name" value="{{ user.surname }}" placeholder="Last name" required>
+            <div class="invalid-feedback">
+              Please add your last name
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="accountEmail">{{ 'Email'|_ }}</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="inlineFormInputGroup" name="email" value="{{ user.email }}" placeholder="Email" required>
+                <div class="invalid-feedback">
+                  Please add your email
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label>{{ 'Mobile'|_ }}</label>
+              <input name="mobile" type="text" class="form-control" value="{{ user.mobile }}">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-9">
+            <div class="form-group">
+              <label for="inputAddress">{{ 'Street Address'|_ }}</label>
+              <input type="text" class="form-control" id="inputAddress" name="address1" value="{{ user.street_addr }}" placeholder="1234 Main St" required>
+              <div class="invalid-feedback">
+                Please add your address
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label>{{ 'Zip'|_ }}</label>
+              <input name="zip" type="text" class="form-control" value="{{ user.zip }}">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="{{ wrapper_class }} form-group">
+              <label>{{ 'Country'|_ }}</label>
+              <input name="country" type="text" class="form-control" value="{{ user.zip }}">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="{{ wrapper_class }} form-group">
+              <label>{{ 'Province'|_ }}</label>
+              <input name="state" type="text" class="form-control" value="{{ user.zip }}">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label>{{ 'Amphure'|_ }}</label>
+              <input name="city" type="text" class="form-control" value="{{ user.zip }}">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label>{{ 'District'|_ }}</label>
+              <input name="district" type="text" class="form-control" value="{{ user.zip }}">
+            </div>
+          </div>
+        </div>
+        <div class="_ajax_location_select_wrapper">
+          {% partial 'location/location-select' %}
+        </div>
+      </div>
+      <div class="col-sm-4">
+        {% set obShippingTypeList = ShippingTypeList.make().sort().active() %}
+        {% if obShippingTypeList.isNotEmpty() %}
+        <fieldset class="form-group">
+          <div class="row">
+            <div class="col-sm-12">
+              {% for obShippingType in obShippingTypeList %}
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="shipping_type_id" id="sipping-type-{{ obShippingType.id }}" value="{{ obShippingType.id }}" required {% if loop.first %}checked{% endif %}>
+                <label class="form-check-label" for="sipping-type-{{ obShippingType.id }}">
+                {{ obShippingType.name }} - {{ obShippingType.price }} {{ obShippingType.currency }}
+                </label>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </fieldset>
+        <hr>
+        {% endif %}
+        {% set obPaymentMethodList = PaymentMethodList.make().sort().active() %}
+        {% if obPaymentMethodList.isNotEmpty() %}
+        <fieldset class="form-group">
+          <div class="row">
+            <div class="col-sm-12">
+              {% for obPaymentMethod in obPaymentMethodList %}
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="payment_method_id" id="payment-method-{{ obPaymentMethod.id }}" value="{{ obPaymentMethod.id }}" required {% if loop.first %}checked{% endif %}>
+                <label class="form-check-label" for="payment-method-{{ obPaymentMethod.id }}">
+                {{ obPaymentMethod.name }}
+                </label>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </fieldset>
+        {% endif %}
+        <hr>
+        <div class="form-group">
+          <button type="submit" class="btn btn-lg btn-info _create_order_button" data-container="body" data-toggle="popover" data-placement="top" data-content=""><i class="fa fa-money"></i> Continue to checkout</button>
+        </div>
+      </div>
+    </form>
+  </section>
+  {% endif %}
+</div>

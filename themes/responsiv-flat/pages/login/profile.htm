@@ -111,10 +111,9 @@ sortOrder = "name asc"
                 </div>
               </dd>
               <dt><a href="#" class="accordionTitle"><i class="fui-location"></i>{{ 'Address'|_ }} </a></dt>
-              <dd class="accordionItem accordionItemCollapsed">
+              <dd class="accordionItem">
                 <div class="row">
-
-                  <div class="col-sm-6">
+                  <div class="col-sm-3">
                     <div class="form-group">
                       <label>{{ 'Company'|_ }}</label>
                       <input name="company" type="text" class="form-control" value="{{ user.company }}">
@@ -128,7 +127,16 @@ sortOrder = "name asc"
                   </div>
                   <div class="col-sm-3">
                     <div class="form-group">
-
+                      <label>{{ 'Zip'|_ }}</label>
+                      <input name="zip" type="text" class="form-control" value="{{ user.zip }}">
+                    </div>
+                  </div>
+                </div>
+                <div class="_ajax_location_select_wrapper">
+                  {% partial 'location/location-select' %}
+                </div>
+                <!--<div class="col-sm-3">
+                    <div class="form-group">
                       <label>{{ 'City'|_ }}</label>
                       <input name="city" type="text" class="form-control" value="{{ user.city }}">
                     </div>
@@ -150,15 +158,13 @@ sortOrder = "name asc"
                       <label>{{ 'Country'|_ }}</label>
                       {{ form_select_country('country_id', user.country_id,
                       {
-                          class: class ~ ' form-control',
-                          emptyOption: '-- SELECT COUNTRY --',
-                          'data-request': 'onChangeCountry',
-                          'data-request-data': {placeholder: '-- SELECT STATE --', name: 'country_id'},
+                        class: class ~ ' form-control',
+                        emptyOption: '-- SELECT COUNTRY --',
+                        'data-request': 'onChangeCountry',
+                        'data-request-data': {placeholder: '-- SELECT STATE --', name: 'country_id'},
                       }) }}
                     </div>
-
-                  </div>
-                </div>
+                  </div>-->
               </dd>
               <!--<dt><a href="#" class="accordionTitle"><i class="fui-chat"></i> Contact</a></dt>
               <dd class="accordionItem accordionItemCollapsed">
@@ -178,25 +184,29 @@ sortOrder = "name asc"
               </dd>-->
               <dt><a href="#" class="accordionTitle"><i class="fui-chat"></i> {{ 'Password'|_ }}</a></dt>
               <dd class="accordionItem accordionItemCollapsed">
-                <div class="col-sm-6">
-                  <div class="form-group">
-                      <label for="accountPassword">{{ 'New Password'|_ }}</label>
-                      <input name="password" type="password" class="form-control" id="accountPassword" autocomplete="new-password">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="accountPassword">{{ 'New Password'|_ }}</label>
+                        <input name="password" type="password" class="form-control" id="accountPassword" autocomplete="new-password">
+                    </div>
                   </div>
-                </div>
-                <div class="col-sm-6">
-                  <div class="form-group">
-                      <label for="accountPasswordConfirm">{{ 'Confirm New Password'|_ }}</label>
-                      <input name="password_confirmation" type="password" class="form-control" id="accountPasswordConfirm" autocomplete="new-password">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="accountPasswordConfirm">{{ 'Confirm New Password'|_ }}</label>
+                        <input name="password_confirmation" type="password" class="form-control" id="accountPasswordConfirm" autocomplete="new-password">
+                    </div>
                   </div>
                 </div>
               </dd>
               <dt><a href="#" class="accordionTitle"><i class="fui-chat"></i> {{ 'About me'|_ }}</a></dt>
               <dd class="accordionItem">
-                <div class="col-sm-12">
-                  <div class="{{ wrapper_class }} form-group">
-                    <label>{{ 'Description'|_ }}</label>
-                    <textarea name="note" class="form-control" style="line-height:1.8" rows="10">{{ user.note }}</textarea>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="{{ wrapper_class }} form-group">
+                      <label>{{ 'Description'|_ }}</label>
+                      <textarea name="note" class="form-control" style="line-height:1.8" rows="10">{{ user.note }}</textarea>
+                    </div>
                   </div>
                 </div>
               </dd>

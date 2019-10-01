@@ -1,0 +1,55 @@
+[staticMenu HeaderStaticMenu]
+code = "header-menu"
+
+[staticMenu FooterStaticMenu]
+code = "footer-menu"
+==
+<?php
+function onInit()
+{
+    $this['path_css'] = mix('css/common.css', 'themes/'.\Cms\Classes\Theme::getActiveTheme()->getDirName().'/assets');
+    $this['path_js'] = mix('js/common.js', 'themes/'.\Cms\Classes\Theme::getActiveTheme()->getDirName().'/assets');
+    $this['cart_is_available'] = false;
+
+    /**
+     * Check if Cart component has been registered and autoload it
+     **/
+
+    $obManager = \Cms\Classes\ComponentManager::instance();
+    if ($obManager->hasComponent('Lovata\OrdersShopaholic\Components\Cart')) {
+        $this['cart_is_available'] = true;
+        $this->addComponent('Lovata\OrdersShopaholic\Components\Cart', 'Cart', []);
+    }
+
+    if ($obManager->hasComponent('Lovata\MightySeo\Components\SeoToolbox')) {
+        $this['seo_toolbox_is_available'] = true;
+        $this->addComponent('Lovata\MightySeo\Components\SeoToolbox', 'SeoToolbox', []);
+    }
+}
+?>
+==
+{% spaceless %}
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{{ path_css }}">
+    {% styles %}
+    {% if seo_toolbox_is_available %}
+        {% placeholder seo_tags default %}
+            {% component 'SeoToolbox' %}
+        {% endplaceholder %}
+    {% endif %}
+</head>
+<body class="body" data-cart-is-available="{{ cart_is_available }}">
+    {% partial 'header/header' %}
+    <div class="site-content">
+        {% page %}
+    </div>
+    {% partial 'footer/footer' %}
+<script src="{{ path_js }}"></script>
+    {% framework extras %}
+    {% scripts %}
+</body>
+</html>
+{% endspaceless %}

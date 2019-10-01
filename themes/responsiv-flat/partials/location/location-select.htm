@@ -1,0 +1,103 @@
+[viewBag]
+==
+{% if user.id %}
+  {% set countryId = user.country_id %}
+  {% set stateId = user.state_id %}
+  {% set amphureId = user.amphure_id %}
+  {% set districtId = user.district_id %}
+{% else %}
+  {% set countryId = form_value('country_id') %}
+  {% set stateId = form_value('state_id') %}
+  {% set amphureId = form_value('amphure_id') %}
+  {% set districtId = form_value('district_id') %}
+{% endif %}
+<div class="row">
+  <div class="col-sm-3">
+    <div class="{{ wrapper_class }} form-group">
+      <label>{{ 'Country'|_ }}</label>
+      {{ form_select_country('country_id', countryId,
+      {
+        class: class ~ ' form-control',
+        emptyOption: '-- SELECT COUNTRY --',
+        'data-request': 'onInit',
+      }) }}
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="{{ wrapper_class }} form-group">
+      <label>{{ 'Province'|_ }}</label>
+      {{ form_select_province('state_id', stateId, {
+          class: class ~ ' form-control',
+          emptyOption: '-- SELECT PROVINCE --',
+          'data-request': 'onInit','data-request-update': {
+            'location/location-select': '._ajax_location_select_wrapper'
+      } }) }}
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label>{{ 'Amphure'|_ }}</label>
+      {{ form_select_amphure('amphure_id', stateId, amphureId, {
+          class: class ~ ' form-control',
+          emptyOption: '-- SELECT CITY --',
+          'data-request': 'onInit',
+          'data-request-update': {
+            'location/location-select': '._ajax_location_select_wrapper'
+          }
+        }) }}
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label>{{ 'District'|_ }}</label>
+      {{ form_select_district('district_id', amphureId, districtId, {
+          class: class ~ ' form-control',
+          emptyOption: '-- SELECT DISTRICT --',
+
+        }) }}
+    </div>
+  </div>
+</div>
+
+
+
+<!-- for logged in
+
+<div class="row">
+  <div class="col-sm-3">
+    <div class="{{ wrapper_class }} form-group">
+      <label>{{ 'Country'|_ }}</label>
+      {{ form_select_country('country_id', user.country_id,
+      {
+        class: class ~ ' form-control',
+        emptyOption: '-- SELECT COUNTRY --',
+        'data-request': 'onInit',
+      }) }}
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="{{ wrapper_class }} form-group">
+      <label>{{ 'Province'|_ }}</label>
+      {{ form_select_province('state_id',  user.state_id, { id: 'state-select', class: class ~ ' form-control', emptyOption: '-- SELECT PROVINCE --', 'data-request': 'onInit', 'data-request-update': {
+        'location/location-select': '._ajax_location_select_wrapper'
+      } }) }}
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label>{{ 'Amphure'|_ }}</label>
+      {{ form_select_amphure('amphure_id', user.state_id, user.amphure_id, { id: 'state-select', class: class ~ ' form-control', emptyOption: '-- SELECT CITY --', 'data-request': 'onInit', 'data-request-update': {
+        'location/location-select': '._ajax_location_select_wrapper'
+      } }) }}
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label>{{ 'District'|_ }}</label>
+      {{ form_select_district('district_id', user.amphure_id, user.district_id, {
+          class: class ~ ' form-control',
+          emptyOption: '-- SELECT DISTRICT --'
+        }) }}
+    </div>
+  </div>
+</div>-->

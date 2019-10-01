@@ -1,0 +1,32 @@
+plugin:
+    name: 'lovata.ordersshopaholic::lang.plugin.name'
+    description: 'lovata.ordersshopaholic::lang.plugin.description'
+    author: Lovata
+    icon: oc-icon-shopping-cart
+    homepage: ''
+navigation:
+    orders-shopaholic-menu:
+        label: 'lovata.ordersshopaholic::lang.menu.orders'
+        url: lovata/ordersshopaholic/orders
+        icon: icon-shopping-cart
+        permissions:
+            - shopaholic-order
+permissions:
+    shopaholic-order:
+        tab: 'lovata.shopaholic::lang.tab.permissions'
+        label: 'lovata.ordersshopaholic::lang.permission.order'
+    shopaholic-order-status:
+        tab: 'lovata.shopaholic::lang.tab.permissions'
+        label: 'lovata.ordersshopaholic::lang.permission.status'
+    shopaholic-order-payment-type:
+        tab: 'lovata.shopaholic::lang.tab.permissions'
+        label: 'lovata.ordersshopaholic::lang.permission.payment_type'
+    shopaholic-delivery-type:
+        tab: 'lovata.shopaholic::lang.tab.permissions'
+        label: 'lovata.ordersshopaholic::lang.permission.delivery_type'
+    shopaholic-order-property:
+        tab: 'lovata.shopaholic::lang.tab.permissions'
+        label: 'lovata.ordersshopaholic::lang.permission.property'
+    shopaholic-promo-mechanism:
+        tab: 'lovata.shopaholic::lang.tab.permissions'
+        label: 'lovata.ordersshopaholic::lang.permission.promo_mechanism'

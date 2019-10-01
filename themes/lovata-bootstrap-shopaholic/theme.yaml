@@ -1,0 +1,10 @@
+name: 'Free E-Commerce Bootstrap for Shopaholic'
+description: ''
+author: Lovata
+homepage: ''
+code: 'bootstrap-shopaholic'
+form: config/fields.yaml
+require:
+    - RainLab.Pages
+    - Lovata.Shopaholic
+    - Lovata.Toolbox

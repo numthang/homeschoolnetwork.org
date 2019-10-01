@@ -1,0 +1,133 @@
+1.0.0:
+    - 'Initialize plugin.'
+    - table_create_cart.php
+    - table_create_cart_element.php
+    - table_create_offer_order.php
+    - table_create_order.php
+    - table_create_payment_method.php
+    - table_create_shipping_type.php
+    - table_create_status.php
+    - seeder_default_status.php
+1.0.1:
+    - 'Fix permission tab label in config'
+1.0.2:
+    - 'Remove php short tags from orders/_price_block.htm'
+1.0.3:
+    - 'Change method for generation secret_key field in Order model'
+    - seeder_update_order_secret_key.php
+1.0.4:
+    - 'Adding additional cache cleaning for the sorted list of payment methods and shipping types, after the creation of a new element. Requires Toolbox plugin version 1.3.0 and later.'
+1.0.5:
+    - '$casts property is replaced with $jsonable property in the Order model'
+1.1.0:
+    - 'The "rewrite" and "increase" flags are removed from the method of updating the quantity of items in the cart'
+1.2.0:
+    - 'Add additional properties for Order model. Add settings for validation the email field as required.'
+    - table_create_addition_properties.php
+    - seeder_default_order_properties.php
+1.2.1:
+    - 'Remove php short tags from orders/_price_block.htm'
+1.3.0:
+    - 'Add "price" field in ShippingType model'
+    - table_update_shipping_type_add_price_field.php
+1.3.1:
+    - 'Added check for isNested flag when expanding forms'
+1.4.0:
+    - 'Add integration with RainLab.User plugin. Added sending emails to the user and managers after the order was created. Add events "shopaholic.order.created", "shopaholic.order.created.user.template.data", "shopaholic.order.created.manager.template.data". Requires Toolbox plugin version 1.7.0 and later.'
+1.5.0:
+    - 'Update logic for new version of CResult class. Requires Toolbox plugin version 1.9.1 and later.'
+1.6.0:
+    - 'Add classes: OrderCollection, OrderPositionCollection, StatusCollection,  OrderItem, OrderPositionItem, StatusItem. Add StatusList component. Adding the ability to create custom properties for order positions. Adding the ability to attach users with orders. Adding the ability to create/update order positions in backend. Add filter order list (backend) by payment method, shipping type, created_at/update_at fields. Add "hasMany" relation in User model with Order model. Add "user_list" property in User model. Add "order" in UserItem class. Refactoring CartProcessor, OrderProcessor classes. Rename classes: CartElementCollection => CartPositionCollection, CartElementItem => CartPositionItem. Requires Toolbox plugin version 1.10.0 and later.'
+    - table_update_status_add_is_user_show_field.php
+    - table_create_order_positions.php
+    - table_create_cart_positions.php
+    - table_create_order_position_addition_properties.php
+    - table_update_orders_remove_total_price_field.php
+1.6.1:
+    - 'Fix error in OrderPage::get() method.'
+1.6.2:
+    - 'Fix error in OfferOrderPositionProcessor class.'
+1.6.3:
+    - 'Fix work with *Store classes in *Handler classes'
+1.6.4:
+    - 'Fix position type default value'
+    - seeder_fix_position_type_value.php
+1.7.0:
+    - 'Improved integration with payment systems. Adds of shipping price filling from shipping type object, if shipping_price field value from request is empty.'
+    - table_update_payment_method_add_gateway_field.php
+    - table_update_orders_add_payment_data_fields.php
+1.8.0:
+    - 'Add payment_token field to Order model'
+    - table_update_orders_add_payment_token_field.php
+1.9.0:
+    - 'Added type returned by methods in AbstractStore * classes.'
+1.9.1:
+    - 'Adds secret_key field to OrderItem object.'
+1.10.0:
+    - 'Add Validation trait to Order model.'
+1.10.1:
+    - 'Remove links on lang file of Buddies plugin.'
+1.10.2:
+    - 'Fixed labels in ShippingType controller breadcrumbs.'
+1.11.0:
+    - 'Added PromoMechanism model. Added of opportunity to change price of order positions, shipping price, order total price, using promo mechanisms. Added user addresses. Added tasks with relation with orders, users.'
+    - table_create_promo_mechanism.php
+    - table_create_order_promo_mechanism.php
+    - table_create_user_addresses.php
+    - seeder_address_order_properties.php
+    - table_update_orders_add_currency_field.php
+    - table_update_orders_add_manager_id_field.php
+    - table_create_tasks.php
+1.11.1:
+    - 'Added annotations for integration with Coupons for Shopaholic, Discounts for Shopaholic, Campaigns for Shopaholic plugins.'
+1.11.2:
+    - 'Fixed the logic of getting custom field values of the saved user address when creating an order.'
+1.11.3:
+    - 'Fixed update of price data before sending an order to the payment gateway'
+1.11.4:
+    - 'Fixed creation of an order position via add() method.'
+1.12.0:
+    - 'Added supported types of order properties: number, rich editor, single checkbox, switch, balloon selector, tag list, radio.'
+1.12.1:
+    - 'Fixed logic for calculating old total price of order position without discounts.'
+1.13.0:
+    - 'Added Japanese language. Thanks for contribution pikanji.'
+1.14.0:
+    - 'Added getCurrency() method in Cart component. Improved parameter generation for redirecting to order page in MakeOrder component. Added shipping_type_id parameter processing in onAdd, onUpdate, onRemove methods (Cart component)'
+1.14.1:
+    - 'Changed type of "description" field in task table.'
+    - table_update_tasks_change_description_type.php
+1.14.2:
+    - 'Fixed link to cancel button in backend (OrderPosition controller)'
+1.14.3:
+    - 'Fixed OrderProcessor::EVENT_GET_SHIPPING_PRICE event. Thanks for contribution GitLog.'
+1.15.0:
+    - 'Added German language. Thanks for contribution Gerald.'
+1.16.0:
+    - 'Added checking addresses for uniqueness before creating a new user address or order.'
+1.17.0:
+    - 'Added shopaholic.shipping_type.get_price event. The event allows you to dynamically change the shipping price.'
+1.18.0:
+    - 'Added calculate_per_unit setting parameter in PromoMechanism model.'
+1.19.0:
+    - '!!! Added Taxes. Added multicyrrency. Requires Shopaholic plugin version 1.21.0 and later.'
+    - table_update_taxes_add_applied_to_shipping_price.php
+    - table_update_order_positions_add_tax_percent_field.php
+    - table_update_orders_add_currency_id_field.php
+    - table_update_orders_add_shipping_tax_percent_field.php
+1.20.0:
+    - 'Added ability to add multiple identical offers, but with different set of properties. Added ability to delete cart positions by ID. Added ability to create integration with API of delivery services. Added property fields in ShippingType model. Added ability to create restrictions for shipping types.  Added restrictions of shipping types by position total price. Added email, user_data, shipping_address, billing_address, shipping_type_id, payment_method_id, property fields in Cart model. Thanks for contribution Tsagan Noniev and Rubium Web.'
+    - table_update_shipping_types_add_method_and_property_fields.php
+    - table_update_carts_add_fields.php
+    - table_create_shipping_restrictions_table.php
+    - table_create_shipping_restrictions_link_table.php
+1.21.0:
+    - 'Added onRestore method to Cart component.'
+    - table_update_cart_positions_add_deleted_field.php
+1.22.0:
+    - 'Added ability to create restrictions for payment methods. Added restrictions of payment methods by shipping type. Thanks for contribution Tsagan Noniev and Rubium Web.'
+    - table_create_payment_restrictions_table.php
+    - table_create_payment_restrictions_link_table.php
+1.22.1:
+    - 'Changed type of postcode field from int to string.'
+    - table_update_user_addresses_change_postcode.php

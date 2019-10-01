@@ -1,0 +1,24 @@
+name: 'Header menu'
+items:
+    -
+        title: Catalog
+        nesting: '1'
+        type: shop-catalog
+        url: ''
+        code: ''
+        reference: ''
+        cmsPage: catalog
+        replace: '1'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Promo
+        type: cms-page
+        code: ''
+        reference: promo-block-list
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
