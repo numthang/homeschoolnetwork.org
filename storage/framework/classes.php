@@ -567,6 +567,7 @@
   'Lovata\\Toolbox\\Classes\\Storage\\CookieUserStorage' => 'plugins/lovata/toolbox/classes/storage/CookieUserStorage.php',
   'Backend\\FormWidgets\\RichEditor' => 'modules/backend/formwidgets/RichEditor.php',
   'RainLab\\Translate\\FormWidgets\\MLRichEditor' => 'plugins/rainlab/translate/formwidgets/MLRichEditor.php',
+<<<<<<< HEAD
   'Lovata\\Shopaholic\\Classes\\Item\\CategoryItem' => 'plugins/lovata/shopaholic/classes/item/CategoryItem.php',
   'Lovata\\Shopaholic\\Classes\\Store\\CategoryListStore' => 'plugins/lovata/shopaholic/classes/store/CategoryListStore.php',
   'Lovata\\Shopaholic\\Classes\\Store\\Category\\TopLevelListStore' => 'plugins/lovata/shopaholic/classes/store/category/TopLevelListStore.php',
@@ -598,11 +599,23 @@
   'Lovata\\OrdersShopaholic\\Classes\\Processor\\OfferCartPositionProcessor' => 'plugins/lovata/ordersshopaholic/classes/processor/OfferCartPositionProcessor.php',
   'Lovata\\OrdersShopaholic\\Classes\\Item\\AbstractPositionItem' => 'plugins/lovata/ordersshopaholic/classes/item/AbstractPositionItem.php',
   'Lovata\\OrdersShopaholic\\Classes\\Item\\CartPositionItem' => 'plugins/lovata/ordersshopaholic/classes/item/CartPositionItem.php',
+=======
+  'Lovata\\OrdersShopaholic\\Classes\\Item\\AbstractPositionItem' => 'plugins/lovata/ordersshopaholic/classes/item/AbstractPositionItem.php',
+  'Lovata\\OrdersShopaholic\\Classes\\Item\\CartPositionItem' => 'plugins/lovata/ordersshopaholic/classes/item/CartPositionItem.php',
+  'Lovata\\Shopaholic\\Classes\\Item\\OfferItem' => 'plugins/lovata/shopaholic/classes/item/OfferItem.php',
+  'Lovata\\Shopaholic\\Classes\\Item\\ProductItem' => 'plugins/lovata/shopaholic/classes/item/ProductItem.php',
+  'Lovata\\Shopaholic\\Classes\\Item\\CategoryItem' => 'plugins/lovata/shopaholic/classes/item/CategoryItem.php',
+>>>>>>> da43f9691814477d0c10f90b69d7fac5fed899e9
   'Lovata\\Toolbox\\Classes\\Helper\\PageHelper' => 'plugins/lovata/toolbox/classes/helper/PageHelper.php',
   'Lovata\\OrdersShopaholic\\Classes\\Collection\\PaymentMethodCollection' => 'plugins/lovata/ordersshopaholic/classes/collection/PaymentMethodCollection.php',
   'Lovata\\OrdersShopaholic\\Classes\\Store\\PaymentMethodListStore' => 'plugins/lovata/ordersshopaholic/classes/store/PaymentMethodListStore.php',
   'Lovata\\OrdersShopaholic\\Classes\\Store\\PaymentMethod\\SortingListStore' => 'plugins/lovata/ordersshopaholic/classes/store/paymentmethod/SortingListStore.php',
   'Lovata\\OrdersShopaholic\\Classes\\Store\\PaymentMethod\\ActiveListStore' => 'plugins/lovata/ordersshopaholic/classes/store/paymentmethod/ActiveListStore.php',
+<<<<<<< HEAD
   'RainLab\\Builder\\Classes\\DatabaseTableSchemaCreator' => 'plugins/rainlab/builder/classes/DatabaseTableSchemaCreator.php',
   'RainLab\\Builder\\Classes\\TableMigrationCodeGenerator' => 'plugins/rainlab/builder/classes/TableMigrationCodeGenerator.php',
+=======
+  'Lovata\\OrdersShopaholic\\Classes\\Item\\PaymentMethodItem' => 'plugins/lovata/ordersshopaholic/classes/item/PaymentMethodItem.php',
+  'Lovata\\Shopaholic\\Models\\PriceType' => 'plugins/lovata/shopaholic/models/PriceType.php',
+>>>>>>> da43f9691814477d0c10f90b69d7fac5fed899e9
 );

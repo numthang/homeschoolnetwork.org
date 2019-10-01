@@ -16,20 +16,19 @@ direction = "desc"
 ==
 <?php
 use October\Rain\Auth\Models\User;
-use RainLab\Location\Models\State;
+use Numthang\Location\Models\Province;
 
-function onLoadHomschooler()
-{
+function onLoadHomeschooler() {
   $code = post('value');
   $code = str_replace('TH-', '', $code);
-  $state = new State();
+  $state = new Province();
   $query = $state->where('code', '=', $code)->get();
 
   $user = new User();
   $users = $user->where('state_id', '=', $query[0]->id)->orderBy('status', 'desc')->get();
   #dump($users);
   $listed = ''; $headed = 0;
-  $listed .= '<h4>Homeschooler in '.$query[0]->name.'</h4>';
+  $listed .= '<h4>Homeschooler in '.$query[0]->name_th.'</h4>';
   foreach ($users as $key=>$value) {
     if($users[$key]->status == 0 and !$headed) {
       $listed .= '<div class="clearfix"></div><h4>Interested in homeschooling</h4>';
@@ -57,7 +56,7 @@ function onLoadHomschooler()
 function onStart() {
   $user = new User();
   $query = $user->all()->groupBy('state_id');
-  $state = new State();
+  $state = new Province();
   $handle = fopen('storage/app/uploads/public/hsPopulation.js', 'w');
   $tmp = '';
   foreach ($query as $key=>$value) {
@@ -90,7 +89,7 @@ function onStart() {
       }]
     },
     onRegionClick: function(event, code) {
-      $.request('onLoadHomschooler', {
+      $.request('onLoadHomeschooler', {
         data: { value: code },
         success: function(data) {
           this.success(data).done(function() {
