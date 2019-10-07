@@ -292,3 +292,11 @@ blockquote p {
 .oc-icon-upload:before {
   content: "\e62a";
 }
+.popover {
+  background-color: #e89c43;
+  color:#FFF;
+}
+.popover.top .arrow:after{
+  border-top-color: #e89c43;
+
+}

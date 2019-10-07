@@ -100,7 +100,7 @@ smart_url_check = 0
                     </div>
                   </div>
                   <input type="hidden" name="offer_id" value="{{ obOffer.id }}">
-                  <button class="btn btn-lg btn-add-to-cart btn-info" type="button">
+                  <button class="btn btn-lg btn-add-to-cart btn-info" type="button" data-placement="top">
                     <i class="fa fa-shopping-cart"></i> {{ 'Add to cart'|_ }}
                   </button>
                 </form>
@@ -108,7 +108,7 @@ smart_url_check = 0
           </div>
         </div>
         <div class="col-sm-3">
-          {% partial 'shop/sidebar' %}
+          {# partial 'shop/sidebar' #}
         </div>
     </div>
 </div>
