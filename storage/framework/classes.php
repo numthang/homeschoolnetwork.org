@@ -393,4 +393,6 @@
   'RainLab\\Translate\\FormWidgets\\MLText' => 'plugins/rainlab/translate/formwidgets/MLText.php',
   'RainLab\\Translate\\FormWidgets\\MLTextarea' => 'plugins/rainlab/translate/formwidgets/MLTextarea.php',
   'AnandPatel\\WysiwygEditors\\Models\\Settings' => 'plugins/anandpatel/wysiwygeditors/models/Settings.php',
+  'Backend\\Traits\\FormModelWidget' => 'modules/backend/traits/FormModelWidget.php',
+  'Backend\\FormWidgets\\FileUpload' => 'modules/backend/formwidgets/FileUpload.php',
 );
