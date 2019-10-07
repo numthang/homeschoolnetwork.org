@@ -77,7 +77,7 @@ function onInit() {
           <div class="col-sm-3">
             <div class="form-group">
               <label>{{ 'Mobile'|_ }}</label>
-              <input name="mobile" type="text" class="form-control" value="{{ user.mobile }}">
+              <input name="address2" id="inputPhone" type="text" class="form-control" value="">
             </div>
           </div>
         </div>
@@ -85,7 +85,7 @@ function onInit() {
           <div class="col-sm-9">
             <div class="form-group">
               <label for="inputAddress">{{ 'Street Address'|_ }}</label>
-              <input type="text" class="form-control" id="inputAddress" name="address1" value="{{ user.street_addr }}" placeholder="1234 Main St" required>
+              <input type="text" class="form-control" id="inputAddress" name="address1" value="{{ user.street_addr }} {{ get_district_info(user.district_id).name_th }} {{ get_amphure_info(user.amphure_id).name_th }} {{ get_province_info(user.state_id).name_th }}" placeholder="1234 Main St" required>
               <div class="invalid-feedback">
                 Please add your address
               </div>
@@ -94,41 +94,49 @@ function onInit() {
           <div class="col-sm-3">
             <div class="form-group">
               <label>{{ 'Zip'|_ }}</label>
-              <input name="zip" type="text" class="form-control" value="{{ user.zip }}">
+              <input name="postcode" type="text" class="form-control" value="{{ user.zip }}">
             </div>
           </div>
         </div>
-        <div class="row">
+        <!--<div class="row">
           <div class="col-sm-3">
             <div class="{{ wrapper_class }} form-group">
               <label>{{ 'Country'|_ }}</label>
-              <input name="country" type="text" class="form-control" value="{{ user.zip }}">
+              <input name="country" type="text" class="form-control" value="{{ user.country.name }}">
             </div>
           </div>
           <div class="col-sm-3">
             <div class="{{ wrapper_class }} form-group">
               <label>{{ 'Province'|_ }}</label>
-              <input name="state" type="text" class="form-control" value="{{ user.zip }}">
+              <input name="state" type="text" class="form-control" value="{{ get_province_info(user.state_id).name_th }}">
             </div>
           </div>
           <div class="col-sm-3">
-            <div class="form-group">
+            <div class="{{ wrapper_class }} form-group">
               <label>{{ 'Amphure'|_ }}</label>
-              <input name="city" type="text" class="form-control" value="{{ user.zip }}">
+              <input name="city" type="text" class="form-control" value="{{ get_amphure_info(user.amphure_id).name_th }}">
             </div>
           </div>
           <div class="col-sm-3">
-            <div class="form-group">
+            <div class="{{ wrapper_class }} form-group">
               <label>{{ 'District'|_ }}</label>
-              <input name="district" type="text" class="form-control" value="{{ user.zip }}">
+              <input name="district" type="text" class="form-control" value="{{ get_district_info(user.district_id).name_th }}">
             </div>
           </div>
         </div>
         <div class="_ajax_location_select_wrapper">
           {% partial 'location/location-select' %}
-        </div>
+        </div>-->
       </div>
       <div class="col-sm-4">
+        <h5>{{ 'Order Summary'|_ }}</h5>
+        {{ 'SubTotal'|_ }}
+        {{ obCartPositionList.getTotalPrice() }} {{ Cart.getCurrency() }} <br>
+        {{ 'Shipping'|_ }}
+        {{ obActiveShippingType.price }} {{ Cart.getCurrency() }}  <br>
+        <b>{{ 'Total'|_ }}
+        {{ Cart.getTotalPrice() }} {{ Cart.getCurrency() }} </b>
+        <hr>
         {% set obShippingTypeList = ShippingTypeList.make().sort().active() %}
         {% if obShippingTypeList.isNotEmpty() %}
         <fieldset class="form-group">

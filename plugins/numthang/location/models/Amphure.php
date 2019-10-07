@@ -2,13 +2,15 @@
 
 use Model;
 use Form;
+use Session;
+use RainLab\Translate\Classes\Translator;
+
 /**
  * Model
  */
 class Amphure extends Model
 {
     use \October\Rain\Database\Traits\Validation;
-
     /*
      * Disable timestamps by default.
      * Remove this line if timestamps are defined in the database table.
@@ -33,12 +35,14 @@ class Amphure extends Model
       if (isset(self::$nameList[$provinceId])) {
           return self::$nameList[$provinceId];
       }
-
       return self::$nameList[$provinceId] = self::whereProvinceId($provinceId)->lists('name_th', 'id');
     }
-
     public static function formSelect($name, $provinceId = null, $selectedValue = null, $options = [])
     {
         return Form::select($name, self::getNameList($provinceId), $selectedValue, $options);
+    }
+    public static function getInfo($id)
+    {
+      return self::find($id);
     }
 }

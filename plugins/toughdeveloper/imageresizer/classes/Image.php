@@ -28,7 +28,7 @@ class Image
     protected $options;
 
     /**
-     * Thumb filename 
+     * Thumb filename
      */
     protected $thumbFilename;
 
@@ -92,6 +92,11 @@ class Image
             if ($this->isCompressionEnabled()) {
                 $this->compressWithTinyPng();
             }
+
+            // Touch the cached image with the original mtime to align them
+            touch($this->getCachedImagePath(), filemtime($this->filePath));
+            
+            $this->deleteTempFile();
         }
 
         // Return the URL
@@ -99,7 +104,7 @@ class Image
     }
 
     /**
-     * Compresses a png image using tinyPNG
+     * Gets the path for the thumbnail
      * @return string
      */
     public function getCachedImagePath($public = false)
@@ -113,6 +118,11 @@ class Image
         return storage_path('app/' . $filePath);
     }
 
+    protected function deleteTempFile()
+    {
+        unlink(storage_path('app/' . $this->file->getStorageDirectory() . $this->getPartitionDirectory() . $this->file->disk_name));
+    }
+
     /**
      * Parse the file name to get a relative path for the file
      * This is mostly required for scenarios where a twig filter, e.g. theme has been applied.
@@ -120,7 +130,7 @@ class Image
      */
     protected function parseFileName($filePath)
     {
-        $path = parse_url($filePath, PHP_URL_PATH);
+        $path = urldecode(parse_url($filePath, PHP_URL_PATH));
 
         // Create array of commonly used folders
         // These will be used to try capture the actual file path to an image without the sub-directory path
@@ -178,7 +188,7 @@ class Image
     protected function diskName()
     {
         $diskName = $this->filePath;
-        
+
         // Ensures a unique filepath when tinypng compression is enabled
         if ($this->isCompressionEnabled()) {
             $diskName .= 'tinypng';
@@ -236,12 +246,28 @@ class Image
     }
 
     /**
-     * Checks if the requested resize/compressed image is already cached
+     * Checks if the requested resize/compressed image is already cached.
+     * Removes the cached image if the original image has a different mtime.
+     *
      * @return bool
      */
     protected function isImageCached()
     {
-        return is_file($this->getCachedImagePath());
+        // if there is no cached image return false
+        if (!is_file($cached_img = $this->getCachedImagePath())) {
+            return false;
+        }
+
+        // if cached image mtime match, the image is already cached
+        if (filemtime($this->filePath) === filemtime($cached_img)) {
+            return true;
+        }
+
+        // delete older cached file
+        unlink($cached_img);
+
+        // generate new cache file
+        return false;
     }
 
     /**
@@ -273,7 +299,7 @@ class Image
     {
         $width = (integer) $width;
         $height = (integer) $height;
-        
+
         return 'thumb__' . $width . '_' . $height . '_' . $this->options['offset'][0] . '_' . $this->options['offset'][1] . '_' . $this->options['mode'] . '.' . $this->options['extension'];
     }
 

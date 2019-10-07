@@ -60,6 +60,18 @@ class Plugin extends PluginBase
                 'resize' => function($file_path, $width = false, $height = false, $options = []) {
                     $image = new Image($file_path);
                     return $image->resize($width, $height, $options);
+                },
+                'imageWidth' => function($image) {
+                    if (!$image instanceOf Image) {
+                        $image = new Image($image);
+                    }
+                    return getimagesize($image->getCachedImagePath())[0];
+                },
+                'imageHeight' => function($image) {
+                    if (!$image instanceOf Image) {
+                        $image = new Image($image);
+                    }
+                    return getimagesize($image->getCachedImagePath())[1];
                 }
             ]
         ];
@@ -96,12 +108,12 @@ class Plugin extends PluginBase
         $options = isset($config['options']) ? $config['options'] : [];
 
         // attachMany relation?
-        if (isset($record['attachMany'][$column->columnName]))
+        if (isset($record->attachMany[$column->columnName]))
         {
             $file = $value->first();
         }
         // attachOne relation?
-        else if (isset($record['attachOne'][$column->columnName]))
+        else if (isset($record->attachOne[$column->columnName]))
         {
             $file = $value;
         }
