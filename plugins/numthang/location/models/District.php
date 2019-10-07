@@ -42,4 +42,8 @@ class District extends Model
     {
         return Form::select($name, self::getNameList($amphureId), $selectedValue, $options);
     }
+    public static function getInfo($id)
+    {
+      return self::find($id);
+    }
 }
