@@ -384,6 +384,7 @@
   'Zen\\Robots\\Models\\Settings' => 'plugins/zen/robots/models/Settings.php',
   'Bedard\\BlogTags\\Components\\BlogTagSearch' => 'plugins/bedard/blogtags/components/BlogTagSearch.php',
   'Bedard\\BlogTags\\Components\\BlogTags' => 'plugins/bedard/blogtags/components/BlogTags.php',
+<<<<<<< HEAD
   'Backend\\Behaviors\\ReorderController' => 'modules/backend/behaviors/ReorderController.php',
   'Backend\\Widgets\\Form' => 'modules/backend/widgets/Form.php',
   'Backend\\Classes\\FormTabs' => 'modules/backend/classes/FormTabs.php',
@@ -395,4 +396,6 @@
   'AnandPatel\\WysiwygEditors\\Models\\Settings' => 'plugins/anandpatel/wysiwygeditors/models/Settings.php',
   'Backend\\Traits\\FormModelWidget' => 'modules/backend/traits/FormModelWidget.php',
   'Backend\\FormWidgets\\FileUpload' => 'modules/backend/formwidgets/FileUpload.php',
+=======
+>>>>>>> b48e5b48062a70d0d7b7f40f9db0f9c96e0e53e1
 );
