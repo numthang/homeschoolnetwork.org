@@ -9,8 +9,8 @@ robot_follow = "follow"
 
 [ShippingTypeList]
 
-[MakeOrder]
-mode = "submit"
+[Numthang\Shop\Components\MakeOrder MakeOrder]
+mode = "ajax"
 flash_on = 1
 redirect_on = 1
 redirect_page = "shop/complete"
@@ -18,8 +18,6 @@ redirect_page = "shop/complete"
 [session]
 security = "user"
 redirect = "login/login"
-
-[Numthang\Shop\Components\MakeOrder MakeOrder]
 ==
 <?php
 function onInit() {

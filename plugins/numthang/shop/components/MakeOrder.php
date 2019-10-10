@@ -15,11 +15,6 @@ class MakeOrder extends LovataMakeOrder
             'description' => 'No description provided yet...'
         ];
     }
-
-    public function defineProperties()
-    {
-        return [];
-    }
     public function init() {
       $user = Auth::getUser();
       #dump($obOrder);
