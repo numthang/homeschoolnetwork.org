@@ -20,12 +20,11 @@ slug = "{{ :slug }}"
 slug_required = 1
 smart_url_check = 0
 ==
-{# Get product item #}
 {% set obProduct = ProductPage.get() %}
 {% set obMainCategory = MainCategoryPage.get() %}
 {% set obCategory = CategoryPage.get() %}
-{% set obOffer = obProduct.offer.first() %}
-
+{% set obOfferFirst = obProduct.offer.first() %}
+{% set obOfferList = obProduct.offer.all() %}
 {% put styles %}
   <link href="{{ [
       'assets/vendor/slick/slick.css',
@@ -57,9 +56,9 @@ smart_url_check = 0
 {% endput %}
 
 <section id="layout-title">
-    <div class="container">
-        <h3>{{ obProduct.name }}</h3>
-    </div>
+  <div class="container">
+    <h3>{{ obProduct.name }}</h3>
+  </div>
 </section>
 <div class="container shop-item" data-id="{{ obProduct.id }}">
     <div class="row">
@@ -95,12 +94,17 @@ smart_url_check = 0
                 <form>
                   <div>
                     <div class="price-block">
-                      <span class="price">{{ obOffer.price }} THB x</span>
+                      <span class="price">{{ obOfferFirst.price }} THB x</span>
                       <input type="number" name="quantity" value="1" class="form-control" min="1" max="{{obOffer.quantity}}" maxlength="2">
                     </div>
                   </div>
-                  <input type="hidden" name="offer_id" value="{{ obOffer.id }}">
-                  <button class="btn btn-lg btn-add-to-cart btn-info" type="button" data-placement="top">
+                  <input type="hidden" name="offer_id" id="offer_id" value="">
+                  {% for obOffer in obOfferList %}
+                    <input type="radio" name="ooo" value="{{ obOffer.id }}" onclick="document.getElementById('addtocart').disabled = false; document.getElementById('offer_id').value='{{ obOffer.id }}';">
+                    {{ obOffer.name }}
+                  {% endfor %}
+                  <br>
+                  <button class="btn btn-lg btn-add-to-cart btn-info" type="button" id="addtocart" data-placement="top" disabled>
                     <i class="fa fa-shopping-cart"></i> {{ 'Add to cart'|_ }}
                   </button>
                 </form>

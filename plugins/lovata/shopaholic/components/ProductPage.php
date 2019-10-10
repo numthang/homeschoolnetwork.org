@@ -71,7 +71,6 @@ class ProductPage extends ElementPage
         if (!empty($obElement)) {
             Event::fire('shopaholic.product.open', [$obElement]);
         }
-
         return $obElement;
     }
 

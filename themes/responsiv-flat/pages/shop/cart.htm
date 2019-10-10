@@ -117,10 +117,6 @@ function onInit()
       <ul class="text-right checkout">
         <li class="cart__total-position">
           <span class="cart__total-position-title"><strong>Sub Total</strong></span>
-          <!--<span class="cart__total-position-old-price text-muted">
-            <span class="cart__total-position-old-price-value {% if obCartPositionList.getDiscountTotalPriceValue() == 0 %}d-none{% endif %}">{{ obCartPositionList.getOldTotalPrice() }}</span>
-            <span class="cart__total-position-old-price-currency {% if obCartPositionList.getDiscountTotalPriceValue() == 0 %}d-none{% endif %}">{{ Cart.getCurrency() }}</span>
-          </span>-->
           <span class="cart__total-position-current-price">
             <span class="cart__total-position-price-value">{{ obCartPositionList.getTotalPrice() }}</span>
             <span class="cart__total-position-price-currency">{{ Cart.getCurrency() }}</span>
@@ -129,16 +125,11 @@ function onInit()
 
         <li class="cart__total-shipping">
           <span class="cart__total-shipping-title"><strong>Shipping</strong></span>
-            <!--<span class="cart__total-shipping-old-price text-muted">
-              <span class="cart__total-shipping-old-price-value {% if obActiveShippingType.discount_price_value == 0 %}d-none{% endif %}">{{ obActiveShippingType.old_price }}</span>
-              <span class="cart__total-shipping-old-price-currency {% if obActiveShippingType.discount_price_value == 0 %}d-none{% endif %}">{{ Cart.getCurrency() }}</span>
-            </span>-->
           <span class="cart__total-shipping-current-price">
             <span class="cart__total-shipping-price-value">{{ obActiveShippingType.price }}</span>
             <span class="cart__total-shipping-price-currency">{{ Cart.getCurrency() }}</span>
           </span>
         </li>
-
 
         <li class="cart__total-price">
           <span class="cart__total-price-title"><strong>Total Price</strong></span>
@@ -159,3 +150,6 @@ function onInit()
     {% endif %}
   </div>
 </section>
+<form class="_ajax_create_order">
+  <input type="hidden" name="shipping_type_id" id="sipping-type-1" value="1">
+</form>

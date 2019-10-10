@@ -1,0 +1,45 @@
+title = "Order"
+url = "/order/:slug"
+layout = "default"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[OrderPage]
+slug = "{{ :slug }}"
+slug_required = 1
+==
+{% set obOrder = OrderPage.get() %}
+{% set obOrderPositionList = obOrder.order_position.all() %}
+
+<section id="layout-title">
+  <div class="container">
+    <h3>{{ 'Order Number :' }} {{ obOrder.order_number }} ({{ obOrder.status.name }})</h3>
+  </div>
+</section>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div data-id="{{ obOrder.id }}">
+        <h5>{{ 'Order List'|_ }}</h5>
+        {% for obOrderPosition in obOrderPositionList %}
+          {% set obOffer = obOrderPosition.offer %}
+          {% set obProduct = obOffer.product %}
+          {{ loop.index }}.) {{ obProduct.name }} {{ obOffer.price }} THB x {{ obOrderPosition.quantity }}<br>
+        {% endfor %}
+        <h5>{{ 'Order Summary'|_ }}</h5>
+        {{ 'SubTotal'|_ }}
+        {{ obOrder.position_total_price }} THB <br>
+        {{ 'Shipping'|_ }}
+        {{ obOrder.shipping_price }} THB  <br>
+        <b>{{ 'Total'|_ }}
+        {{ obOrder.total_price }} THB </b>
+        <h5>{{ 'Payment'|_ }}</h5>
+        {{ obOrder.payment_method.name }}
+        <h5>{{ 'Shipping'|_ }}</h5>
+        {{ obOrder.shipping_type.name }}
+      </div>
+    </div>
+  </div>
+</div>
+<br>

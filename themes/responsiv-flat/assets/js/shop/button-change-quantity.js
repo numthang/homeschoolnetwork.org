@@ -40,6 +40,7 @@ ButtonChangeQuantity = new class ButtonChangeQuantity {
         })
         .on('change', this.quantitySelector, function (e) {
             const $input = $(e.currentTarget);
+
             if($input.attr('data-ajax') === 'updateTotal') {
                 CartPositionList.sendRequestUpdateItem($input);
             }
