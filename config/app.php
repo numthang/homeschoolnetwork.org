@@ -28,7 +28,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'October CMS',
+    'name' => 'Homeschool Network',
 
     /*
     |--------------------------------------------------------------------------
@@ -41,7 +41,7 @@ return [
     |
     */
 
-    'url' => 'octobercms.local',
+    'url' => 'homeschoolnetwork.org',
 
     /*
     |--------------------------------------------------------------------------

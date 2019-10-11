@@ -94,13 +94,13 @@ smart_url_check = 0
                 <form>
                   <div>
                     <div class="price-block">
-                      <span class="price">{{ obOfferFirst.price }} THB x</span>
+                      <span class="price"><span id="offer_price">{{ obOfferFirst.price }}</span> THB x</span>
                       <input type="number" name="quantity" value="1" class="form-control" min="1" max="{{obOffer.quantity}}" maxlength="2">
                     </div>
                   </div>
                   <input type="hidden" name="offer_id" id="offer_id" value="">
                   {% for obOffer in obOfferList %}
-                    <input type="radio" name="ooo" value="{{ obOffer.id }}" onclick="document.getElementById('addtocart').disabled = false; document.getElementById('offer_id').value='{{ obOffer.id }}';">
+                    <input type="radio" name="ooo" value="{{ obOffer.id }}" onclick="document.getElementById('addtocart').disabled = false; document.getElementById('offer_id').value='{{ obOffer.id }}'; document.getElementById('offer_price').innerHTML='{{ obOffer.price }}';"  data-ajax="updateOfferPrice">
                     {{ obOffer.name }}
                   {% endfor %}
                   <br>
