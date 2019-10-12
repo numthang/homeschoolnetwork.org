@@ -46,6 +46,13 @@ order_pinboard = 10
 order_email = 11
 theme = "social_flat_rounded_rects_svg"
 ==
+<?php
+function onEnd() {
+  $obProduct = $this->components['ProductPage']->get();
+  $this->page->og_image = $obProduct->images[0]->path;
+}
+?>
+==
 {% set obProduct = ProductPage.get() %}
 {% set obMainCategory = MainCategoryPage.get() %}
 {% set obCategory = CategoryPage.get() %}
@@ -111,7 +118,7 @@ theme = "social_flat_rounded_rects_svg"
             <div class="col-sm-6">
               <p class="text-muted">{{ obProduct.description|raw}}</p>
               <span>Category: {{ obProduct.category.name }}</span><br>
-            
+
               <form>
                 <div>
                   <div class="price-block">
