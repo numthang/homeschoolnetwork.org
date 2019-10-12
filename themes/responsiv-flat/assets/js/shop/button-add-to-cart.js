@@ -39,6 +39,8 @@ ButtonAddToCart = new class ButtonAddToCart {
         setTimeout(() => {
           button.popover('hide');
         }, 2500);
+
+        document.getElementById("btn-go-to-cart").style.display = "inline";
       }
     });
   }

@@ -62,6 +62,8 @@ CheckoutFormValidation = new class CheckoutFormValidation {
     };
 
     this.clearNotAvailableCartPosition();
+    //disabled when click
+    $(button).attr("disabled", true);
 
     $.request('MakeOrder::onCreate', {
       'data': data,

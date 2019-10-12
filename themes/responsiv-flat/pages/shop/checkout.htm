@@ -77,7 +77,10 @@ function onInit() {
           <div class="col-sm-3">
             <div class="form-group">
               <label>{{ 'Phone'|_ }}</label>
-              <input name="phone" id="inputPhone" type="text" class="form-control" value="{{ user.mobile }}">
+              <input name="phone" id="inputPhone" type="text" class="form-control" value="{{ user.mobile }}" required>
+              <div class="invalid-feedback">
+                Please add your phone number
+              </div>
             </div>
           </div>
         </div>
@@ -174,7 +177,7 @@ function onInit() {
         {% endif %}
         <hr>
         <div class="form-group">
-          <button type="submit" class="btn btn-lg btn-info _create_order_button" data-container="body" data-toggle="popover" data-placement="top" data-content=""><i class="fa fa-money"></i> Continue to checkout</button>
+          <button type="submit" class="btn btn-lg btn-info _create_order_button" id="_create_order_button" data-container="body" data-toggle="popover" data-placement="top" data-content=""><i class="fa fa-money"></i> Continue to checkout</button>
         </div>
       </div>
     </form>
