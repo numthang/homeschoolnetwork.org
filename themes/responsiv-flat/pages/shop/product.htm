@@ -46,7 +46,9 @@ smart_url_check = 0
               autoplay: true,
               autoplaySpeed: 2000,
               pauseOnHover: true,
-              arrows: false
+              arrows: false,
+              mouseDrag: false,
+              touchDrag : true
           });
       })
   </script>
@@ -65,11 +67,11 @@ smart_url_check = 0
         <div class="col-sm-9">
           <div class="row">
               <div class="col-sm-6">
-                <div id="shopImages" class="shop-images">
+                <div id="shopImages">
                   {% if obProduct.images is not empty %}
                     {% for obImage in obProduct.images %}
                       <div>
-                        <img src="{{ obImage.path }}" title="{{ obImage.title }}" alt="{{ obImage.description }}"  class="img-responsive main">
+                        <img src="{{ obImage.path }}" title="{{ obImage.title }}" alt="{{ obImage.description }}"  class="d-block w-100 h-100 product-detailed__carousel-item-img img-responsive">
                       </div>
                     {% endfor %}
                   {% else %}
