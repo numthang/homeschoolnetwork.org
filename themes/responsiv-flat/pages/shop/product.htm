@@ -50,6 +50,8 @@ theme = "social_flat_rounded_rects_svg"
 function onEnd() {
   $obProduct = $this->components['ProductPage']->get();
   $this->page->og_image = $obProduct->images[0]->path;
+  $this->page->custom_title = $obProduct->name;
+  $this->page->custom_og_title = $obProduct->name;
 }
 ?>
 ==
@@ -58,6 +60,9 @@ function onEnd() {
 {% set obCategory = CategoryPage.get() %}
 {% set obOfferFirst = obProduct.offer.first() %}
 {% set obOfferList = obProduct.offer.all() %}
+{% put meta %}
+<meta property="og:title" content="{{ obProduct.name }}" />
+{% endput %}
 {% put styles %}
   <link href="{{ [
       'assets/vendor/slick/slick.css',

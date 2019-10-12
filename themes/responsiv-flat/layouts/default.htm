@@ -18,11 +18,9 @@ security = "all"
       <title>{{ this.page.custom_title|generateTitle }}</title>
     {% endif %}
     {% if hasBlog %}
-    {% placeholder meta default %}
-
-    {% endplaceholder %}
-
-{% else %}
+      {% placeholder meta default %}
+      {% endplaceholder %}
+    {% else %}
 
     {% if SeoCmsPage.redirect_url %}
         <meta http-equiv="refresh" content="0; url={{SeoCmsPage.redirect_url}}" />
@@ -50,8 +48,10 @@ security = "all"
 
     {{ ''|otherMetaTags|raw }}
 
-    {% if SeoCmsPage.ogTitle %}
-        <meta property="og:title" content="{{ SeoCmsPage.ogTitle|_ }}" />
+    {% if this.page.custom_og_title %}
+      <meta property="og:title" content="{{ this.page.custom_og_title }}" />
+    {% else %}
+      <meta property="og:title" content="{{ SeoCmsPage.ogTitle|_ }}" />
     {% endif %}
 
     {% if SeoCmsPage.ogUrl %}
