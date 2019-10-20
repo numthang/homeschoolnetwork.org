@@ -36,6 +36,15 @@ last-more_button_limit = 1
 last_button_name = "Last"
 last_button_limit = 3
 ==
+<?php
+function onEnd() {
+  $obCategory = $this->components['CategoryPage']->get();
+  $this->page->og_image = $obCategory->preview_image->path;
+  #$this->page->custom_title = $obProduct->name;
+  #$this->page->custom_og_title = $obProduct->name;
+}
+?>
+==
 {# Get category item #}
 {% set obCategory = CategoryPage.get() %}
 {# Apply sorting, filter by "active" flag, filter by category ID #}
