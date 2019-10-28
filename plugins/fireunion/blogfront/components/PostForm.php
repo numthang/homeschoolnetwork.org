@@ -30,7 +30,6 @@ class PostForm extends ComponentBase {
 
 		$this->initFor('form');
 		$this->post = $this->loadPost();
-
 		if ($this->allow_images) {
 			$manager = PluginManager::instance();
 			if ($manager->exists('Responsiv.Uploader')) {
