@@ -2,6 +2,8 @@
 
 use Model;
 use Form;
+use RainLab\Translate\Classes\Translator;
+
 /**
  * Model
  */
@@ -31,11 +33,14 @@ class District extends Model
 
     public static function getNameList($amphureId)
     {
+      $translator = Translator::instance();
+      $activeLocale = $translator->getLocale();
+
       if (isset(self::$nameList[$amphureId])) {
           return self::$nameList[$amphureId];
       }
 
-      return self::$nameList[$amphureId] = self::whereAmphureId($amphureId)->lists('name_th', 'id');
+      return self::$nameList[$amphureId] = self::whereAmphureId($amphureId)->lists('name_'.$activeLocale, 'id');
     }
 
     public static function formSelect($name, $amphureId = null, $selectedValue = null, $options = [])

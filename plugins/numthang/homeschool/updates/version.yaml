@@ -75,3 +75,6 @@
 1.0.26:
     - 'Updated table numthang_homeschool_courses'
     - builder_table_update_numthang_homeschool_courses_10.php
+1.0.27:
+    - 'Updated table numthang_homeschool_courses'
+    - builder_table_update_numthang_homeschool_courses_9.php

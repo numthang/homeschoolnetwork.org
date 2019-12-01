@@ -1,6 +1,7 @@
 {%  set student_evaluations = evaluations.student_evaluations %}
 {%  set student_courses = evaluations.student_courses %}
 {%  set courses = courses.courses %}
+{%  set authors = courseform.authors %}
 <div class="row">
 	<div class="col-md-6">
 		<label>{{ 'Courses'|_ }} </label>
@@ -11,6 +12,16 @@
 			{% endfor %}
 			{% for e in student_courses %}
 				<option value="{{ e.course.id }}" {{ record.id == e.course.id ? 'selected' : '' }}>{{ e.course.name }}</option>
+			{% endfor %}
+		</select>
+	</div>
+	<div class="col-md-6">
+		<label>{{ 'Coach'|_ }} </label>
+		<select name="moderator_id" class="s2 select-default">
+			<option value="">{{ 'Select coach'|_ }}</option>
+			<option value="">{{ 'None'|_ }}</option>
+			{% for key,author in authors %}
+			<option value="{{ key }}" {% if key == evaluation.portfolio_id %} selected {% endif %}>{{ author }}</option>
 			{% endfor %}
 		</select>
 	</div>
@@ -280,6 +291,10 @@
   <br>
 </form>
 {% put scripts %}
+	<script type="text/javascript">
+		$(".s2").select2({
+		});
+	</script>
 	<script src="{{ ['assets/js/accordion.js']|theme }}"></script>
 	<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 	<link id="bsdp-css" href="/themes/responsiv-flat/assets/css/bootstrap-datepicker3.min.css" rel="stylesheet">

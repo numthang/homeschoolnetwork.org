@@ -32,13 +32,18 @@ class Amphure extends Model
 
     public static function getNameList($provinceId)
     {
+      $translator = Translator::instance();
+      $activeLocale = $translator->getLocale();
+
       if (isset(self::$nameList[$provinceId])) {
           return self::$nameList[$provinceId];
       }
-      return self::$nameList[$provinceId] = self::whereProvinceId($provinceId)->lists('name_th', 'id');
+
+      return self::$nameList[$provinceId] = self::whereProvinceId($provinceId)->lists('name_'.$activeLocale, 'id');
     }
     public static function formSelect($name, $provinceId = null, $selectedValue = null, $options = [])
     {
+      
         return Form::select($name, self::getNameList($provinceId), $selectedValue, $options);
     }
     public static function getInfo($id)

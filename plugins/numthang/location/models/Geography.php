@@ -1,6 +1,7 @@
 <?php namespace Numthang\Location\Models;
 
 use Model;
+use RainLab\Translate\Classes\Translator;
 
 /**
  * Model

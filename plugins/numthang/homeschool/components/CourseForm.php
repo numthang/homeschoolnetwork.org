@@ -6,11 +6,14 @@ use Validator;
 use Redirect;
 use Numthang\Homeschool\Models\Course;
 use Flash;
+use FireUnion\BlogFront\Models\Author;
 require_once './vendor/autoload.php';
 
 class CourseForm extends ComponentBase
 {
     public $record;
+    public $authors;
+
     public function componentDetails(){
         return [
             'name' => 'Course Form',
@@ -28,6 +31,11 @@ class CourseForm extends ComponentBase
         else if($id = $this->param('id'))
           $this->record = Course::find($id);
       }
+
+      foreach (Author::with('user')->get() as $user) {
+        $authors[$user->user->id] = $user->user->name.' '.$user->user->surname;
+  		}
+  		$this->authors = $authors;
 		}
     public function onSave(){
       $validator = Validator::make(

@@ -38,7 +38,7 @@ sortOrder = "created_at"
         {% component 'imageUploader' %}
       </div>
       <div class="form-group">
-        {% if record.featured_images.count %}
+        {% if PostForm.post.featured_images.count %}
         <table class="table">
           <thead>
             <tr>
@@ -48,7 +48,7 @@ sortOrder = "created_at"
             </tr>
           </thead>
           <tbody>
-          {% for image in record.featured_images %}
+          {% for image in PostForm.post.featured_images %}
             <tr>
               <td title="{{ image.path }}">
                 <img data-src="{{ image.filename }}" src="{{ image.path }}" alt="{{ image.description }}" height="50"/> {{ image.filename }}

@@ -17,6 +17,7 @@ class EvaluationForm extends ComponentBase
     public $record;
     public $course;
     public $authors;
+    
     public function componentDetails() {
         return [
             'name'        => 'Evaluation Form',

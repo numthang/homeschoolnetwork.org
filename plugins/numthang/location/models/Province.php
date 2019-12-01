@@ -2,6 +2,7 @@
 
 use Form;
 use Model;
+use RainLab\Translate\Classes\Translator;
 
 /**
  * Model
@@ -32,11 +33,14 @@ class Province extends Model
 
     public static function getNameList()
     {
+      $translator = Translator::instance();
+      $activeLocale = $translator->getLocale();
+
       if (self::$nameList) {
         return self::$nameList;
       }
 
-      return self::$nameList = self::lists('name_th', 'id');
+      return self::$nameList = self::lists('name_'.$activeLocale, 'id');
 
       /*if (isset(self::$nameList[$countryId])) {
           return self::$nameList[$countryId];
