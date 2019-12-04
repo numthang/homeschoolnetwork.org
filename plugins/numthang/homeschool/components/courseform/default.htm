@@ -26,7 +26,7 @@
 			</select>
 		</div>
 	</div>
-	{% if record.id == '' %}
+	{% if record.id == '' or record.template == 1 %}
 		<input type="hidden" name="user_id" value="{{ user.id }}">
  	{% endif %}
   <div class="row">
