@@ -26,9 +26,6 @@
 			</select>
 		</div>
 	</div>
-	{% if record.id == '' or record.template == 1 %}
-		<input type="hidden" name="user_id" value="{{ user.id }}">
- 	{% endif %}
   <div class="row">
     <div class="col-sm-6">
       <div class="form-group {% if errors.first('name') %} has-error {% endif %}">
