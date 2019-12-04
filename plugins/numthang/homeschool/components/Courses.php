@@ -54,15 +54,15 @@ class Courses extends ComponentBase
     }
 
     protected function loadCourses(){
-      if(!$this->property('byUserID')) {//if no user id specific
-        $user = Auth::getUser();
+      $user = Auth::getUser();
+      if(!$this->property('byUserID')) //if no user id specific
         $userid = $user->id;
-      }
       else
         $userid = $this->property('byUserID');
 
       $query = Course::where('user_id', '=', $userid)
-        ->orWhere('template', '=', 1);
+        ->orWhere('template', '=', 1)
+        ->orWhere('moderator_id', '=', $user->id);
 
       if($this->property('sortOrder') == 'name asc')
           $query = $query->orderBy('name');

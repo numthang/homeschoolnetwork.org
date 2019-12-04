@@ -6,13 +6,13 @@ use Validator;
 use Redirect;
 use Numthang\Homeschool\Models\Course;
 use Flash;
-use FireUnion\BlogFront\Models\Author;
+use RainLab\User\Models\User;
 require_once './vendor/autoload.php';
 
 class CourseForm extends ComponentBase
 {
     public $record;
-    public $authors;
+    public $coaches;
 
     public function componentDetails(){
         return [
@@ -31,11 +31,11 @@ class CourseForm extends ComponentBase
         else if($id = $this->param('id'))
           $this->record = Course::find($id);
       }
-
-      foreach (Author::with('user')->get() as $user) {
-        $authors[$user->user->id] = $user->user->name.' '.$user->user->surname;
-  		}
-  		$this->authors = $authors;
+      $key = 1;//passge key 1 is editor
+      $query = User::whereHas('groups.passage_keys', function ($q) use ($key) {
+        $q->where('key_id', $key);
+      });
+      $this->coaches = $query->orderBy('surname')->orderBy('name')->get(['surname', 'name', 'email', 'id']);
 		}
     public function onSave(){
       $validator = Validator::make(

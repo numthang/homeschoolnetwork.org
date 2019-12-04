@@ -1,34 +1,34 @@
 {%  set student_evaluations = evaluations.student_evaluations %}
 {%  set student_courses = evaluations.student_courses %}
 {%  set courses = courses.courses %}
-{%  set authors = courseform.authors %}
-<div class="row">
-	<div class="col-md-6">
-		<label>{{ 'Courses'|_ }} </label>
-		<select class="form-control select select-primary" data-toggle="" name="course_id" style="width:100%" onChange="if(this.value == '') { location.href='/add/course'; } else { location.href='/edit/course/'+this.value; }">
-			<option value=""> {{ 'New Course'|_ }}</option>
-			{% for c in courses %}
-				<option value="{{ c.id }}" {{ record.id == c.id ? 'selected' : '' }} {% if c.template %}style="color:#bbbbbb;"{% endif %}>{{ c.name }}</option>
-			{% endfor %}
-			{% for e in student_courses %}
-				<option value="{{ e.course.id }}" {{ record.id == e.course.id ? 'selected' : '' }}>{{ e.course.name }}</option>
-			{% endfor %}
-		</select>
-	</div>
-	<div class="col-md-6">
-		<label>{{ 'Coach'|_ }} </label>
-		<select name="moderator_id" class="s2 select-default">
-			<option value="">{{ 'Select coach'|_ }}</option>
-			<option value="">{{ 'None'|_ }}</option>
-			{% for key,author in authors %}
-			<option value="{{ key }}" {% if key == evaluation.portfolio_id %} selected {% endif %}>{{ author }}</option>
-			{% endfor %}
-		</select>
-	</div>
-</div>
-
+{%  set coaches = courseform.coaches %}
 <form data-request="onSave">
-  <input type="hidden" name="user_id" value="{{ user.id }}">
+	<div class="row">
+		<div class="col-md-6">
+			<label>{{ 'Courses'|_ }} </label>
+			<select class="form-control select select-primary" data-toggle="" name="course_id" style="width:100%" onChange="if(this.value == '') { location.href='/add/course'; } else { location.href='/edit/course/'+this.value; }">
+				<option value=""> {{ 'New Course'|_ }}</option>
+				{% for c in courses %}
+					<option value="{{ c.id }}" {{ record.id == c.id ? 'selected' : '' }} {% if c.template %} style="color:#bbbbbb;" {% elseif c.moderator_id %} style="color:#e89c43;" {% endif %}>{{ c.name }}</option>
+				{% endfor %}
+				{% for e in student_courses %}
+					<option value="{{ e.course.id }}" {{ record.id == e.course.id ? 'selected' : '' }}>{{ e.course.name }}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="col-md-6">
+			<label>{{ 'Coaches'|_ }} </label>
+			<select name="moderator_id" class="s2 select-default">
+				<option value="0">{{ 'Release'|_ }}</option>
+				{% for coach in coaches %}
+				<option value="{{ coach.id }}" {% if coach.id == record.moderator_id %} selected {% endif %}>{{ coach.name }} {{ coach.surname }}</option>
+				{% endfor %}
+			</select>
+		</div>
+	</div>
+	{% if record.id == '' %}
+		<input type="hidden" name="user_id" value="{{ user.id }}">
+ 	{% endif %}
   <div class="row">
     <div class="col-sm-6">
       <div class="form-group {% if errors.first('name') %} has-error {% endif %}">
@@ -262,8 +262,11 @@
   <div class="row">
     <div class="col-sm-12">
     	<input type="hidden" name="save_as" value="0">
-			<!--เฉพาะ admin จะ save ได้ทุกครั้ง หรือ ถ้าเป็นการเขียนแผนใหม่ หรือ การแก้ไขแผนและเป็นแผนตัวเองเท่านั้น-->
-			{% if (can('edit_course_template') or (record.id is not defined and record.template == 0) or (record.id is defined and record.template == 0 and record.user_id == user.id))  %}
+			<!-- (เฉพาะ group editor จะ save template ได้
+				หรือ เป็นโค้ชของแผนนี้
+				หรือ ถ้าเป็นการเขียนแผนใหม่
+				หรือ (การแก้ไขแผนและเป็นแผนตัวเองเท่านั้น และ ต้องไม่มีชื่อโค้ชจองอยู่))-->
+			{% if ((can('edit_course_template') and record.template == 1) or (can('edit_course_template') and record.moderator_id == user.id) or (record.id is not defined and record.template == 0) or (record.id is defined and record.template == 0 and record.user_id == user.id and record.moderator_id == ''))  %}
     		<div class="col-sm-2">
 					<button type="submit" class="btn btn-lg btn-default btn-block" data-hotkey="ctrl+s, cmd+s">{{ 'Save'|_ }}</button>
 				</div>
