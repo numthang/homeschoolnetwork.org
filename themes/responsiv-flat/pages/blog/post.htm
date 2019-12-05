@@ -88,7 +88,7 @@ slug = "{{ :slug }}"
       {% if post.author.id == user.id %}
         <a href="/edit/post/{{ post.slug }}"> {{ 'Edit'|_ }}</a>
       {% endif %}
-      {% if can('edit_course_template') %}
+      {% if can('edit_post') %}
         <a href="/backend/rainlab/blog/posts/update/{{ post.id }}"> {{ 'Advance edit'|_ }}</a>
       {% endif %}
     </h5>
