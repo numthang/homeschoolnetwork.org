@@ -53,7 +53,7 @@ class EvaluationForm extends ComponentBase
         ],
         [
           'name' => 'required|min:4',
-          'ปีการศึกษา' => 'required',
+          'graduated' => 'required',
         ]
       );
 
