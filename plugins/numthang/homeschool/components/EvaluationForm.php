@@ -17,7 +17,7 @@ class EvaluationForm extends ComponentBase
     public $record;
     public $course;
     public $authors;
-    
+
     public function componentDetails() {
         return [
             'name'        => 'Evaluation Form',
@@ -49,9 +49,11 @@ class EvaluationForm extends ComponentBase
       $validator = Validator::make(
         [
           'name' => Input::get('name'),
+          'graduated' => Input::get('graduated')
         ],
         [
-          'name' => 'required|min:4',
+          'ชื่อแบบประเมิน' => 'required|min:4',
+          'ปีการศึกษา' => 'required',
         ]
       );
 
