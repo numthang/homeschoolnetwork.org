@@ -314,7 +314,8 @@
     <div class="col-sm-12">
   		<input type="hidden" name="save_as" value="0">
 			<!--เฉพาะ admin จะ save ได้ทุกครั้ง หรือ ถ้าเป็นการเขียนแผนใหม่ หรือ การแก้ไขแผนและเป็นแผนตัวเองเท่านั้น-->
-			{% if (can('edit_course_template') or (evaluation.id is not defined and course.template == 0) or (evaluation.id is defined and course.template == 0 and course.user_id == user.id))  %}
+			{{ course }}
+			{% if (can('edit_course_template') or (evaluation.id is not defined and evaluation.template == 0) or (evaluation.id is defined and evaluation.template == 0 and evaluation.user_id == user.id))  %}
 				<div class="col-sm-2">
       		<button type="submit" class="btn btn-lg btn-default btn-block">{{ 'Save'|_ }}</button>
 				</div>
