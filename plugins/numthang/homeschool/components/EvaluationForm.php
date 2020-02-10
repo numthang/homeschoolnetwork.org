@@ -52,7 +52,7 @@ class EvaluationForm extends ComponentBase
           'graduated' => Input::get('graduated')
         ],
         [
-          'ชื่อแบบประเมิน' => 'required|min:4',
+          'name' => 'required|min:4',
           'ปีการศึกษา' => 'required',
         ]
       );
