@@ -48,10 +48,12 @@ class EvaluationForm extends ComponentBase
     public function onSave() {
       $validator = Validator::make(
         [
+          'evaluation_id' => Input::get('evaluation_id'),
           'name' => Input::get('name'),
-          'graduated' => Input::get('graduated')
+          'graduated' => Input::get('graduated'),
         ],
         [
+          'evaluation_id' => 'required',
           'name' => 'required|min:4',
           'graduated' => 'required',
         ]

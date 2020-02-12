@@ -11,10 +11,10 @@
 	<input type="hidden" name="user_id" value="{{ user.id }}">
 	<div class="row">
 		<div class="col-md-6">
-			<label>{{ 'Evaluation'|_ }}</label><br>
+			<label>{{ 'Evaluation'|_ }}</label> *<br>
 			<div class="btn-group" style="width:100%;">
 				<select class="form-control select select-primary" data-toggle="" name="evaluation_id" style="width:100%" onChange="if(this.value == '') { location.href='/add/evaluation'; } else { location.href='/edit/evaluation/'+this.value; }">
-					<option value=""> {{ 'New Evaluation'|_ }}</option>
+					<option value=""> {{ 'Select Evaluation'|_ }}</option>
 					{% for e in evaluations %}
 						<option value="{{ e.id }}" {{ evaluation.id == e.id ? 'selected' : '' }} {% if e.template %}style="color:#bbbbbb;"{% endif %}>{{ e.name }}</option>
 					{% endfor %}
@@ -47,7 +47,7 @@
   <div class="row">
     <div class="col-md-6">
       <div class="form-group {% if errors.first('name') %} has-error {% endif %}">
-        <label>ชื่อแบบประเมิน</label>
+        <label>ชื่อแบบประเมิน</label> *
         <input type="text" class="form-control" name="name" placeholder="Enter course name : {{ errors.first('name') }}" value="{{ evaluation.name }}">
         {% if errors.first('name') %}<div class="alert alert-warning" style="margin-top:4px;">{{ errors.first('name') }}</div>{% endif %}
       </div>
@@ -81,12 +81,17 @@
 			</select>
 		</div>
 		<div class="col-md-3">
-			<label>ปีการศึกษา</label>
+			<label>ปีการศึกษา</label> *
 			<select class="form-control select select-primary" data-toggle="" name="graduated" style="width:100%">
 				<option value="">{{ 'Select Year'|_ }}</option>
 				{% set year = "now"|date("Y")+543 %}
+				{% if evaluation.graduated %}
+					{% set graduated = evaluation.graduated %}
+				{% else %}
+					{% set graduated = year-1 %}
+				{% endif %}
 				{% for i in 2561..year %}
-					<option value="{{ i }}" {{ evaluation.graduated == i ? 'selected' : '' }}>{{ i }}</option>
+					<option value="{{ i }}" {{ graduated == i ? 'selected' : '' }}>{{ i }}</option>
 				{% endfor %}
 			</select>
 		</div>
