@@ -85,10 +85,10 @@
 			<select class="form-control select select-primary" data-toggle="" name="graduated" style="width:100%">
 				<option value="">{{ 'Select Year'|_ }}</option>
 				{% set year = "now"|date("Y")+543 %}
-				{% if evaluation.graduated %}
-					{% set graduated = evaluation.graduated %}
+				{% if evaluation.template %}
+					{% set graduated = year %}
 				{% else %}
-					{% set graduated = year-1 %}
+					{% set graduated = evaluation.graduated %}
 				{% endif %}
 				{% for i in 2561..year %}
 					<option value="{{ i }}" {{ graduated == i ? 'selected' : '' }}>{{ i }}</option>
@@ -319,7 +319,7 @@
     <div class="col-sm-12">
   		<input type="hidden" name="save_as" value="0">
 			<!--เฉพาะ admin จะ save ได้ทุกครั้ง หรือ ถ้าเป็นการเขียนแผนใหม่ หรือ การแก้ไขแผนและเป็นแผนตัวเองเท่านั้น-->
-			{% if (can('edit_course_template') or (evaluation.id is not defined and evaluation.template == 0) or (evaluation.id is defined and evaluation.template == 0 and evaluation.user_id == user.id))  %}
+			{% if (can('edit_course_template') or (evaluation.id is defined and evaluation.template == 0) or (evaluation.id is defined and evaluation.template == 0 and evaluation.user_id == user.id))  %}
 				<div class="col-sm-2">
       		<button type="submit" class="btn btn-lg btn-default btn-block">{{ 'Save'|_ }}</button>
 				</div>
