@@ -5,9 +5,9 @@
 <form data-request="onSave">
 	<div class="row">
 		<div class="col-md-6">
-			<label>{{ 'Courses'|_ }} </label>
+			<label>{{ 'Courses'|_ }} </label> *
 			<select class="form-control select select-primary" data-toggle="" name="course_id" style="width:100%" onChange="if(this.value == '') { location.href='/add/course'; } else { location.href='/edit/course/'+this.value; }">
-				<option value=""> {{ 'New Course'|_ }}</option>
+				<option value=""> {{ 'Select Course'|_ }}</option>
 				{% for c in courses %}
 					<option value="{{ c.id }}" {{ record.id == c.id ? 'selected' : '' }} {% if c.template %} style="color:#bbbbbb;" {% elseif c.moderator_id %} style="color:#e89c43;" {% endif %}>{{ c.name }}</option>
 				{% endfor %}
@@ -29,14 +29,14 @@
   <div class="row">
     <div class="col-sm-6">
       <div class="form-group {% if errors.first('name') %} has-error {% endif %}">
-        <label>ชื่อแผนการศึกษา</label>
+        <label>ชื่อแผนการศึกษา</label> *
         <input type="text" class="form-control" name="name" placeholder="{{ 'Enter course name'|_ }}" value="{{ record.name }}">
         {% if errors.first('name') %}<div class="alert alert-warning" style="margin-top:4px;">{{ errors.first('name') }}</div>{% endif %}
       </div>
     </div>
     <div class="col-sm-6">
       <div class="form-group {% if errors.first('hs_name') %} has-error {% endif %}">
-        <label>ชื่อบ้านเรียน</label>
+        <label>ชื่อบ้านเรียน</label> *
         <input type="text" class="form-control" name="hs_name" placeholder="{{ 'Enter homeschool name'|_ }}" value="{{ record.hs_name }}">
         {% if errors.first('hs_name') %}<div class="alert alert-warning" style="margin-top:4px;">{{ errors.first('hs_name') }}</div>{% endif %}
       </div>

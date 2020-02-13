@@ -43,10 +43,12 @@ class CourseForm extends ComponentBase
       $user = Auth::getUser();
       $validator = Validator::make(
         [
+          'course_id' => Input::get('course_id'),
           'name' => Input::get('name'),
           'hs_name' => Input::get('hs_name')
         ],
         [
+          'course_id' => 'required',
           'name' => 'required|min:4',
           'hs_name' => 'required|min:4'
         ]
