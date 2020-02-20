@@ -138,7 +138,9 @@ function onEnd() {
       <b><a href="/add/course">{{ 'Course'|_ }}</a></b>
       <p>
         {% for c in courses %}
-          <a href="/course/{{ c.created_at|date('U') }}"><span class="fa fa-fw" aria-hidden="true">&#xf0f6;</span> {{ c.name }}</a> <br>
+          {% if c.template == 0 %}
+            <a href="/course/{{ c.created_at|date('U') }}"><span class="fa fa-fw" aria-hidden="true">&#xf0f6;</span> {{ c.name }}</a> <br>
+          {% endif %}
         {% endfor %}
         {% for e in student_courses %}
           <a href="/course/{{ e.course.created_at|date('U') }}"> <span class="fa fa-fw" aria-hidden="true">&#xf0f6;</span> {{ e.course.name }}</a><br>
@@ -147,7 +149,9 @@ function onEnd() {
       <b><a href="/add/evaluation">{{ 'Evaluation'|_ }}</a></b>
       <p>
         {% for e in evaluations %}
-          <a href="/evaluation/{{ e.created_at|date('U') }}"><span class="fa fa-fw" aria-hidden="true">&#xf1c5;</span> {{ e.name }}</a> (<a href="/reportfolio/{{ e.created_at|date('U') }}">{{ 'portfolio'|_ }}</a>) <br>
+          {% if e.template == 0 %}
+            <a href="/evaluation/{{ e.created_at|date('U') }}"><span class="fa fa-fw" aria-hidden="true">&#xf1c5;</span> {{ e.name }}</a> (<a href="/reportfolio/{{ e.created_at|date('U') }}">{{ 'portfolio'|_ }}</a>) <br>
+          {% endif %}
         {% endfor %}
         {% for e in student_evaluations %}
           <a href="/evaluation/{{ e.created_at|date('U') }}"> <span class="fa fa-fw" aria-hidden="true">&#xf1c5;</span> {{ e.name }}</a><br>
