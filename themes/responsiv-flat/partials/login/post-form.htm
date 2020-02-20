@@ -126,11 +126,16 @@ sortOrder = "created_at"
   <div class="alert alert-danger" data-validate-error>
     <p data-message></p>
   </div>
-  <button type="submit" title="{{ 'Save'|_ }}" class="btn btn-lg btn-default fa fa-save float" data-hotkey="ctrl+s, cmd+s"
-  data-request="onSave"
-  data-request-data="published:1"></button>
 
-
+  {% if PostForm.post.id %}
+    <button type="button"
+      title="{{ 'Save'|_ }}"
+      class="btn btn-lg btn-default fa fa-save float"
+      data-hotkey="ctrl+s, cmd+s"
+      data-request="onSave"
+      data-request-data="published:1">
+    </button>
+  {% endif %}
   {% if PostForm.allowpublish %}
     <div class="col-sm-3">
       <button
