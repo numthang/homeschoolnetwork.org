@@ -80,8 +80,8 @@ return [
     // If true, the uploading file's size will be verified for over than max_image_size/max_file_size.
     'should_validate_size' => false,
 
-    'max_image_size' => 7000, //7Mb
-    'max_file_size' => 100000, //100Mb
+    'max_image_size' => 10000, //7Mb
+    'max_file_size' => 250000, //250mb //must edit php.ini post_max_size, upload_max_filesize
 
     // If true, the uploading file's mime type will be valid in valid_image_mimetypes/valid_file_mimetypes.
     'should_validate_mime' => false,
@@ -126,6 +126,10 @@ return [
         'text/plain',
 				'audio/mp3',
 				'video/mp4',
+				'application/zip',
+				'application/octet-stream',
+				'application/x-zip-compressed',
+				'multipart/x-zip'
     ],
 
     /*

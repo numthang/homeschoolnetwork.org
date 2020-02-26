@@ -18,13 +18,13 @@ sortOrder = "published_at asc"
 
 {% for tag in tags['name'] %}
   {% set tag_id = tags['id'][loop.index0] %}
-  <h2><a name="port-{{ tag_id }}" id="port-{{ tag_id }}">กลุ่มประสบการณ์ {{ loop.index }} : {{ tag }}</a></h2>
+  <h2><a name="port-{{ tag_id }}" id="port-{{ tag_id }}">กลุ่มประสบการณ์ <!--{{ loop.index }}--> : {{ tag }}</a></h2>
   {% set parent = loop.index %}
   {% set continue = true %}
   {% set child = 1 %}
   {% for post in postsbytag if continue %}
     {% if(post.tag_id == tag_id) %}
-      <a href="/blog/{{post.slug}}" name="post-{{ post.slug }}"><h3>{{ parent }}.{{ child }} {% set child = child+1 %} {{ post.title }}</h3></a>
+      <a href="/blog/{{post.slug}}" name="post-{{ post.slug }}"><h3><!--{{ parent }}.{{ child }}--> {% set child = child+1 %} {{ post.title }}</h3></a>
       {% if post.excerpt %}
         <blockquote>
           {{ post.excerpt|raw }}
