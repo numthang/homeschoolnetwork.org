@@ -23,7 +23,7 @@ sortOrder = "published_at asc"
   {% set child = 1 %}
   {% for post in postsbytag if continue %}
     {% if(post.tag_id == tag_id) %}
-      <a href="#post-{{ post.slug }}"><!--{{ parent }}.{{ child }}--> {% set child = child+1 %} {{ post.title }}</a><br>
+      <a href="#post-{{ post.slug }}"><!--{{ parent }}.{{ child }}--> &bull; {% set child = child+1 %} {{ post.title }}</a><br>
       {% set break = false %}
     {% else %}
       {% set break = true %}
