@@ -56,7 +56,7 @@ public function onEnd() {
   <div align="center"><a name="index" id="index"><h1>สารบัญ</h1></a>
   <img src="https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl={{ ''| page }}&choe=UTF-8" title="Link to {{ evaluation.name }}" /></div>
 
-  <a href="#first">1. ข้อมูลพื้นฐานของครอบครัว</a></h2>
+  <h2><a href="#first">1. ข้อมูลพื้นฐานของครอบครัว</a></h2>
   <h2><a href="#second">2. ข้อมูลพื้นฐานของผู้เรียน</a></h2>
 
   <h2><a href="#part1">{{ record.part1_label }}</a></h2>
@@ -101,3 +101,81 @@ public function onEnd() {
 </div>
 
 <a href="#index"><img src="/themes/responsiv-flat/assets/images/icons/png/back-to-top.png" class="float no-print" title="กลับไปสารบัญ"><a>
+
+
+<div class="page other">
+  <h2>{{ 'Source'|_ }}</h2>
+  <textarea class="form-control mytinymce" name="" placeholder="" rows="80"><h2><a name="part1">{{ record.part1_label }}</a></h2>
+  {{ record.part1|raw }}
+  <h2><a name="part2">{{ record.part2_label }}</a></h2>
+  {{ record.part2|raw }}
+  <h2><a name="part3">{{ record.part3_label }}</a></h2>
+  {{ record.part3|raw }}
+  <h2><a name="part4">{{ record.part4_label }}</a></h2>
+  {{ record.part4|raw }}</textarea>
+</div>
+{% put scripts %}
+<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+<script>
+  var editor_config = {
+    selector: "textarea.mytinymce",
+    path_absolute : "/",
+    setup : function(mytinymce) {
+      mytinymce.on('init', function() {
+        this.getDoc().body.style.fontSize = '18px';
+        this.getDoc().body.style.fontFamily = 'Arial, Tahoma, Sarabun';
+      });
+      mytinymce.on('keydown', function(event) {
+       if (event.keyCode == 9) { // tab pressed
+          if (event.shiftKey) {
+            mytinymce.execCommand('Outdent');
+          }
+          else {
+            mytinymce.execCommand('Indent');
+          }
+          event.preventDefault();
+          return false;
+        }
+      });
+    },
+    plugins: [
+      "advlist autolink lists charmap print preview hr anchor pagebreak",
+      "searchreplace wordcount visualblocks visualchars code fullscreen",
+      "insertdatetime nonbreaking save table contextmenu directionality",
+      "emoticons template paste textcolor colorpicker textpattern"
+    ],
+    toolbar: "fontsizeselect forecolor | blockquote bold italic underline | alignleft aligncenter alignright | bullist numlist indent outdent table | removeformat",
+    templates: [
+      {title: 'Some title 1', description: 'Some desc 1', content: 'My content'},
+      {title: 'Some title 2', description: 'Some desc 2', url: 'development.html'}
+    ],
+    contextmenu: "copy cut paste pastetext | link image | cell row column deletetable",
+    relative_urls: false,
+    force_br_newlines : true,
+    force_p_newlines : false,
+    paste_as_text: false,
+    forced_root_block : 'div',
+    file_browser_callback : function(field_name, url, type, win) {
+      var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+      var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
+
+      var cmsURL = editor_config.path_absolute + 'lfm?field_name=' + field_name;
+      if (type == 'image') {
+        cmsURL = cmsURL + "&type=Images";
+      } else {
+        cmsURL = cmsURL + "&type=Files";
+      }
+
+      tinyMCE.activeEditor.windowManager.open({
+        file : cmsURL,
+        title : 'Filemanager',
+        width : x * 0.8,
+        height : y * 0.8,
+        resizable : "yes",
+        close_previous : "no"
+      });
+    }
+  };
+  tinymce.init(editor_config);
+</script>
+{% endput %}
