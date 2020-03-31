@@ -40,8 +40,8 @@ public function onEnd() {
   }
   $this->page['title'] = $this->evaluationform->record->name;
   $year = $this->evaluationform->record->graduated-543;
-  $this->page['from'] = $year.'-03-19';//กำหนดให้เลือก blog จากปีการศึกษาปัจจุบัน
-  $this->page['to'] = ($year+1).'-03-19';//จนถึงปีหน้าประเมิน จบเทอมประมาณ 19 มีนา
+  $this->page['from'] = $year.'-03-20';//กำหนดให้เลือก blog จากปีการศึกษาปัจจุบัน
+  $this->page['to'] = ($year+1).'-03-20';//จนถึงปีหน้าประเมิน จบเทอมประมาณ 19 มีนา
   //ถ้ามีการนำเข้าผู้แต่งจากภายนอก ให้เลือกโพสต์ (author_id) ผู้แต่งจากภายนอก
   $this->page['author_id'] = $this->evaluationform->record->portfolio_id;
   #$this->evaluationform->record->portfolio_id ? $this->page['author_id'] = $this->evaluationform->record->portfolio_id : $this->page['author_id'] = $course->user_id;
