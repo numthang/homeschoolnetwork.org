@@ -1,5 +1,5 @@
 title = "Category"
-url = "/blog/category/:slug"
+url = "/blog/category/:slug/:page?"
 layout = "default"
 is_hidden = 0
 robot_index = "index"
@@ -7,7 +7,7 @@ robot_follow = "follow"
 
 [viewBag]
 
-[blogPosts newsList]
+[blogPosts]
 pageNumber = "{{ :page }}"
 categoryFilter = "{{ :slug }}"
 postsPerPage = 20
@@ -22,7 +22,7 @@ function onEnd() {
   }
 ?>
 ==
-{% set posts = newsList.posts %}
+{% set posts = blogPosts.posts %}
 
 <section id="layout-title">
     <div class="container">
