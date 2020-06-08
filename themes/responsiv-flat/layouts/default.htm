@@ -17,60 +17,59 @@ security = "all"
     {% if this.page.custom_title %}
       <title>{{ this.page.custom_title|generateTitle }}</title>
     {% endif %}
+
     {% if hasBlog %}
       {% placeholder meta default %}
       {% endplaceholder %}
     {% else %}
+      {% if SeoCmsPage.redirect_url %}
+          <meta http-equiv="refresh" content="0; url={{SeoCmsPage.redirect_url}}" />
+      {% endif %}
 
-    {% if SeoCmsPage.redirect_url %}
-        <meta http-equiv="refresh" content="0; url={{SeoCmsPage.redirect_url}}" />
+      {% if SeoCmsPage.seo_title %}
+          <title>{{SeoCmsPage.seo_title|generateTitle}}</title>
+      {% endif %}
+
+      {% if SeoCmsPage.seo_description %}
+          <meta name="description" content="{{SeoCmsPage.seo_description}}">
+      {% endif %}
+
+      {% if SeoCmsPage.seo_keywords %}
+          <meta name="keywords" content="{{SeoCmsPage.seo_keywords}}">
+      {% endif %}
+
+      {% if SeoCmsPage.canonical_url %}
+          <link rel="canonical" href="{{SeoCmsPage.canonical_url}}" />
+      {% else %}
+          {{ '' | generateCanonicalUrl}}
+      {% endif %}
+
+      <meta name="robots" content="{{SeoCmsPage.robot_index}},{{SeoCmsPage.robot_follow}}">
+
+      {{ ''|otherMetaTags|raw }}
+
+      {% if this.page.custom_og_title %}
+        <meta property="og:title" content="{{ this.page.custom_og_title }}" />
+      {% else %}
+        <meta property="og:title" content="{{ SeoCmsPage.ogTitle|_ }}" />
+      {% endif %}
+
+      {% if SeoCmsPage.ogUrl %}
+          <meta property="og:url" content="{{ SeoCmsPage.ogUrl }}" />
+      {% endif %}
+
+      {% if SeoCmsPage.ogSiteName %}
+          <meta property="og:site_name" content="{{ SeoCmsPage.ogSiteName }}" />
+      {% endif %}
+
+      {% if SeoCmsPage.ogDescription %}
+          <meta property="og:description" content="{{ SeoCmsPage.ogDescription }}" />
+      {% endif %}
+
+      {% if SeoCmsPage.ogFbAppId %}
+          <meta property="fb:app_id" content="{{ SeoCmsPage.ogFbAppId  }}" />
+      {% endif %}
     {% endif %}
-
-    {% if SeoCmsPage.seo_title %}
-        <title>{{SeoCmsPage.seo_title|generateTitle}}</title>
-    {% endif %}
-
-    {% if SeoCmsPage.seo_description %}
-        <meta name="description" content="{{SeoCmsPage.seo_description}}">
-    {% endif %}
-
-    {% if SeoCmsPage.seo_keywords %}
-        <meta name="keywords" content="{{SeoCmsPage.seo_keywords}}">
-    {% endif %}
-
-    {% if SeoCmsPage.canonical_url %}
-        <link rel="canonical" href="{{SeoCmsPage.canonical_url}}" />
-    {% else %}
-        {{ '' | generateCanonicalUrl}}
-    {% endif %}
-
-    <meta name="robots" content="{{SeoCmsPage.robot_index}},{{SeoCmsPage.robot_follow}}">
-
-    {{ ''|otherMetaTags|raw }}
-
-    {% if this.page.custom_og_title %}
-      <meta property="og:title" content="{{ this.page.custom_og_title }}" />
-    {% else %}
-      <meta property="og:title" content="{{ SeoCmsPage.ogTitle|_ }}" />
-    {% endif %}
-
-    {% if SeoCmsPage.ogUrl %}
-        <meta property="og:url" content="{{ SeoCmsPage.ogUrl }}" />
-    {% endif %}
-
-    {% if SeoCmsPage.ogSiteName %}
-        <meta property="og:site_name" content="{{ SeoCmsPage.ogSiteName }}" />
-    {% endif %}
-
-    {% if SeoCmsPage.ogDescription %}
-        <meta property="og:description" content="{{ SeoCmsPage.ogDescription }}" />
-    {% endif %}
-
-    {% if SeoCmsPage.ogFbAppId %}
-        <meta property="fb:app_id" content="{{ SeoCmsPage.ogFbAppId  }}" />
-    {% endif %}
-
-{% endif %}
 
 
     <meta property="og:image" content="{% if this.page.og_image  %}{{ this.page.og_image | resize(600, 600) }}{% else %}{{ 'assets/images/logo-company.png'|theme }}{% endif %}" />
