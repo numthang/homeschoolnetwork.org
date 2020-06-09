@@ -200,7 +200,7 @@ class ScopePosts extends ComponentBase
     $this->postPage = $this->page['postPage'] = $this->property('postPage');
     $this->categoryPage = $this->page['categoryPage'] = $this->property('categoryPage');
 
-    if($this->property('from') == '0000-00-00' || $this->property('to') == '0000-00-00' || $this->property('from') == null) {
+    if($this->property('from') == '0000-00-00' || $this->property('to') == '0000-00-00' || $this->property('from') == null) {//ถ้าไม่กำหนดวันที่ก็ให้หายาวไปเลย 100 ปี
       $this->from = '1978-01-01';
       $this->to = '2100-01-01';
     }
@@ -267,17 +267,17 @@ class ScopePosts extends ComponentBase
     #dump($this->property('userID'));
     $posts = BlogPost::with('categories')
       ->with('tags')
-      ->Where(function ($query) {//กรณีเอาผู้แต่งจากภายนอกเลยไม่ต้องสังกัด evalution ก็ได้ หาแต่ผู้แต่ง
+      ->Where(function ($query) {//กรณีเอาผู้แต่งจากภายนอกเลยไม่ต้องสังกัด evalution_id ก็ได้ หาแต่ผู้แต่ง
         $category = $this->category ? $this->category->id : null;
         $query
-          ->where('author_id', '=', $this->property('authorID'))//authorID คือผู้แต่งที่นำเข้ามา
+          ->where('author_id', '=', $this->property('authorID'))//authorID คือผู้แต่งที่นำเข้ามาสำหรับ fronend user เท่านั้น
           ->whereBetween('created_at', [$this->from, $this->to])
           ->listFrontEnd([
             'category'  => $category,
             'published' => $this->property('isPublished')
           ]);
       })
-      ->orWhere(function ($query) {//กรณีหาโพสต์ของตัวเองควรมีการเลือก evaluation ด้วย
+      ->orWhere(function ($query) {//กรณีหาโพสต์ของตัวเองควรมีการเลือก evaluation_id ด้วย
         $category = $this->category ? $this->category->id : null;
         $query
           ->where('author_id', '=', $this->property('userID'))
