@@ -127,7 +127,7 @@ categoryPage = "blog/category"
             </li>
             {% else %}
             <li class=" dropdown">
-              <a href="#" data-toggle="dropdown" class="dropdown-toggle"><img src="{% if user.facebook_id|length < 17 %} https://graph.facebook.com/{{ user.facebook_id }}/picture?type=small {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" class="avatar-sm" onClick="location.href='/u/{{user.id}}'"> {{ user.name }} {{ user.provider_id}}<span class="caret"></span></a>
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle"><img src="{% if user.facebook_id|length < 17 and user.facebook_id != 0  %} https://graph.facebook.com/{{ user.facebook_id }}/picture?type=small {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" class="avatar-sm" onClick="location.href='/u/{{user.id}}'"> {{ user.name }} {{ user.provider_id}}<span class="caret"></span></a>
               <span class="dropdown-arrow"></span>
               <ul class="dropdown-menu">
                 <li><a href="/edit/profile"><span class="fa fa-fw menu-icon" aria-hidden="true" >&#xf2ba;</span> {{ 'My profile'|_ }}</a></li>

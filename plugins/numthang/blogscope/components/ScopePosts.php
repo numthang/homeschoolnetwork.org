@@ -277,7 +277,7 @@ class ScopePosts extends ComponentBase
             'published' => $this->property('isPublished')
           ]);
       })
-      ->orWhere(function ($query) {//กรณีหาโพสต์ของตัวเองควรมีการเลือก evaluation_id ด้วย
+      ->orWhere(function ($query) {//กรณีหาโพสต์ของตัวเองใช้สำหรับหน้าไหนยังไม่รู้ มีการเลือก evaluation_id ด้วย evolution_id ใช้สำหรับบอกว่า บล๊อกไหนใช้ในแบบประเมินตัวไหน ใช้สำหรับหน้า themes/responsiv-flat/pages/user/evaluation.htm ส่งเข้า partial
         $category = $this->category ? $this->category->id : null;
         $query
           ->where('author_id', '=', $this->property('userID'))
