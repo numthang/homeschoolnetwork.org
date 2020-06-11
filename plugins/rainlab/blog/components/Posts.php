@@ -167,7 +167,6 @@ class Posts extends ComponentAbstract
 
         $this->category = $this->page['category'] = $this->loadCategory();
         $this->posts = $this->page['posts'] = $this->listPosts();
-
         /*
          * If the page number is not valid, redirect
          */

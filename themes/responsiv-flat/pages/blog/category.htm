@@ -10,7 +10,7 @@ robot_follow = "follow"
 [blogPosts]
 pageNumber = "{{ :page }}"
 categoryFilter = "{{ :slug }}"
-postsPerPage = 30
+postsPerPage = 20
 noPostsMessage = "No posts found"
 sortOrder = "updated_at desc"
 categoryPage = "blog/category"
@@ -23,7 +23,6 @@ function onEnd() {
 ?>
 ==
 {% set posts = blogPosts.posts %}
-
 <section id="layout-title">
     <div class="container">
         <h3>{{ this.param.slug }}</h3>
