@@ -88,11 +88,15 @@ class ScopePosts extends ComponentBase
           'default' => 0
       ],
       'userID' => [
-          'title' => 'Posts by user',
+          'title' => 'ค้นหาโดย backend user',
           'default' => 0
       ],
+      'ownerID' => [
+        'title' => 'ค้นหาโพสต์ของตัวเองซึ่งเป็นเจ้าของแบบประเมินในหน้า user/evaluation.htm เท่านั้น',
+        'default' => 0
+      ],
       'authorID' => [
-          'title' => 'Posts by author',
+          'title' => 'ค้นหาโพสต์ของผู้แต่งที่กำหนด',
           'default' => 0
       ],
       'from' => [
@@ -220,12 +224,12 @@ class ScopePosts extends ComponentBase
           $query
             ->Where(function ($query) {
               $query
-                ->where('author_id', '=', $this->property('authorID'))//authorID คือผู้แต่งที่นำเข้ามา
+                ->where('author_id', '=', $this->property('authorID'))
                 ->whereBetween('created_at', [$this->from, $this->to]);
             })
             ->orWhere(function ($query) {
               $query
-                ->where('author_id', '=', $this->property('userID'))
+                ->where('author_id', '=', $this->property('ownerID'))
                 ->where('evaluation_id', '=', $this->property('evaluationID'))
                 ->whereBetween('created_at', [$this->from, $this->to]);
             })
@@ -264,23 +268,23 @@ class ScopePosts extends ComponentBase
      */
     $isPublished = !$this->checkEditor(); //if backend user logged in and can access post then isPublished is false also show unpublished
     #dump($this->property('authorID'));
-    #dump($this->property('userID'));
+    #dump($this->property('ownerID'));
     $posts = BlogPost::with('categories')
       ->with('tags')
-      ->Where(function ($query) {//กรณีเอาผู้แต่งจากภายนอกเลยไม่ต้องสังกัด evalution_id ก็ได้ หาแต่ผู้แต่ง
+      ->Where(function ($query) {
         $category = $this->category ? $this->category->id : null;
         $query
-          ->where('author_id', '=', $this->property('authorID'))//authorID คือผู้แต่งที่นำเข้ามาสำหรับ fronend user เท่านั้น
+          ->where('author_id', '=', $this->property('authorID'))
           ->whereBetween('created_at', [$this->from, $this->to])
           ->listFrontEnd([
             'category'  => $category,
             'published' => $this->property('isPublished')
           ]);
       })
-      ->orWhere(function ($query) {//กรณีหาโพสต์ของตัวเองใช้สำหรับหน้าไหนยังไม่รู้ มีการเลือก evaluation_id ด้วย evolution_id ใช้สำหรับบอกว่า บล๊อกไหนใช้ในแบบประเมินตัวไหน ใช้สำหรับหน้า themes/responsiv-flat/pages/user/evaluation.htm ส่งเข้า partial
+      ->orWhere(function ($query) {//กรณีหาโพสต์ของตัวเองใช้สำหรับหน้า themes/responsiv-flat/pages/user/evaluation.htm ส่งเข้า partial, user_id คือตัวบอกว่าให้เปิดแบบประเมินจาก author คนไหน ไม่เกี่ยวกับ field user_id สำหรับ backend เลย มีการเลือก evaluation_id ด้วย evolution_id ใช้สำหรับบอกว่า บล๊อกไหนใช้ในแบบประเมินตัวไหน 
         $category = $this->category ? $this->category->id : null;
         $query
-          ->where('author_id', '=', $this->property('userID'))
+          ->where('author_id', '=', $this->property('ownerID'))
           ->where('evaluation_id', '=', $this->property('evaluationID'))
           ->whereBetween('created_at', [$this->from, $this->to])
           ->listFrontEnd([

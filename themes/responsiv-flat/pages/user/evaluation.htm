@@ -42,8 +42,10 @@ public function onEnd() {
   $year = $this->evaluationform->record->graduated-543;
   $this->page['from'] = $year.'-03-31';//กำหนดให้เลือก blog จากปีการศึกษาปัจจุบัน
   $this->page['to'] = ($year+1).'-03-31';//จนถึงปีหน้าประเมิน จบเทอมประมาณ 31 มีนา
+  
   //ถ้ามีการนำเข้าผู้แต่งจากภายนอก ให้เลือกโพสต์ (author_id) ผู้แต่งจากภายนอก
   $this->page['author_id'] = $this->evaluationform->record->portfolio_id;
+  
   #$this->evaluationform->record->portfolio_id ? $this->page['author_id'] = $this->evaluationform->record->portfolio_id : $this->page['author_id'] = $course->user_id;
 }
 ?>
@@ -73,7 +75,9 @@ public function onEnd() {
       <a href="#part4">{{ evaluation.part4_label }}</a><br></h2>
     {% else %}
       <h2><a href="#ninth">ร่องรอยการเรียนรู้</a></h2>
-      {% partial 'portfolio/indexes' evaluation=evaluation.id user=evaluation.user_id author=this.page.author_id from=this.page.from to=this.page.to %}
+      <!--author_id สำหรับเลือกโพสต์ของผู้แต่งจากภายนอกแบบประเมิน (ซึ่งก็คือ portfolio_id)
+          user_id คือเจ้าของคอร์สหรือแบบประเมิน evaluation สำหรับบอกว่าจะให้เลือก blog -->
+      {% partial 'portfolio/indexes' evaluation=evaluation.id owner=evaluation.user_id author=this.page.author_id from=this.page.from to=this.page.to %}
     {% endif %}
   </div>
 </div>
@@ -117,8 +121,8 @@ public function onEnd() {
 {% else %}
 <div class="page other">
   <div align="center"><a name="ninth" id="ninth"><strong><h1>ร่องรอยการเรียนรู้</h1></strong></a></div>
-    <!--author_id สำหรับเลือกโพสต์ของผู้แต่ง user_id คือเจ้าของ course แต่ละโพสต์ของเจ้าของคอร์ต้องเลือก evaluation ด้วย ไม่งั้นจะไม่แสดง-->
-    {% partial 'portfolio/evaluation' evaluation=evaluation.id user=evaluation.user_id author=this.page.author_id from=this.page.from to=this.page.to %}
+    
+    {% partial 'portfolio/evaluation' evaluation=evaluation.id owner=evaluation.user_id author=this.page.author_id from=this.page.from to=this.page.to %}
   <!--{{ evaluation.footprint|raw }}-->
 </div>
 {% endif %}

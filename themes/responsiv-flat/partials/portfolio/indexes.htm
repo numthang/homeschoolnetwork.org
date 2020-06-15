@@ -3,7 +3,7 @@ pageNumber = "{{ :page }}"
 categoryFilter = "portfolio"
 postsPerPage = 200
 evaluationID = "{{ evaluation }}"
-userID = "{{ user }}"
+ownerID = "{{ owner }}"
 authorID = "{{ author }}"
 from = "{{ from }}"
 to = "{{ to }}"
@@ -15,6 +15,7 @@ sortOrder = "published_at asc"
 ==
 {% set postsbytag = scopePosts.postsbytag %}
 {% set tags = scopePosts.tags %}
+
 {% for tag in tags['name'] %}
   {% set tag_id = tags['id'][loop.index0] %}
   <h3><a href="#port-{{ tags['id'][loop.index0] }}">กลุ่มประสบการณ์ <!--{{ loop.index }}--> :  {{ tag }}</a></h3>
