@@ -83,15 +83,15 @@ slug = "{{ :slug }}"
           </form>
           <div class="col-sm-12" style="padding-top:5px;text-align: right;">
             {{ 'No account ?'|_ }} <a href="/login">{{ 'Register'|_ }}</a>
+            <div class="additional-links">
+              By signing up you agree to <a href="#">Terms of Use</a> and <a href="/blog/privacy-policy">Privacy Policy</a>
+            </div>
           </div>
           {% else %}
             {% partial 'login/whats-on'  %}
           {% endif %}
           <div class="col-sm-12" align="right">
             <a href="/blog/how-to-use"><i class="fa fa-question-circle-o"></i> {{ 'How to use'|_ }}</a>
-            <div class="additional-links">
-              By signing up you agree to <a href="#">Terms of Use</a> and <a href="/blog/privacy-policy">Privacy Policy</a>
-            </div>
           </div>
         </div>
       </div>
