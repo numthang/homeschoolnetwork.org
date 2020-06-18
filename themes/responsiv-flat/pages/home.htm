@@ -81,7 +81,6 @@ slug = "{{ :slug }}"
             <a href="/flynsarmy/sociallogin/Google"><img src="{{ 'assets/images/g-login.png'|theme }}" class="social-login"></a>
             <a href="/flynsarmy/sociallogin/Twitter"><img src="{{ 'assets/images/t-login.png'|theme }}" class="social-login"></a>
           </form>
-          <br>{{ 'No account ?'|_ }} <a href="/login">{{ 'Register'|_ }}</a>
           {% else %}
             {% partial 'login/whats-on'  %}
 
@@ -132,7 +131,11 @@ slug = "{{ :slug }}"
 		        </div>-->
           {% endif %}
           <div class="col-sm-12" align="right">
-            <a href="/blog/how-to-use"><i class="fa fa-question-circle-o"></i> วิธีการใช้งานเว็บไซต์</a>
+            <div style="padding-top:5px;">
+              {{ 'No account ?'|_ }} <a href="/login">{{ 'Register'|_ }}</a> <br>
+              <a href="/blog/how-to-use"><i class="fa fa-question-circle-o"></i> {{ 'Forgot password'|_ }}</a><br>
+              <a href="/blog/how-to-use"><i class="fa fa-question-circle-o"></i> {{ 'How to use'|_ }}</a>
+            </div>
           </div>
         </div>
         <!--<div class="additional-links">
