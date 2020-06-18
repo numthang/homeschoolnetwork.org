@@ -298,5 +298,16 @@ blockquote p {
 }
 .popover.top .arrow:after{
   border-top-color: #e89c43;
-
+}
+.headline {
+  display: block;
+  position: relative;
+  margin-bottom: 5px;
+}
+.form-group {
+  position: relative;
+  margin-bottom: 10px;
+}
+.btn {
+  font-size: 16px;
 }

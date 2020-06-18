@@ -3,6 +3,9 @@ results = 0
 byUserID = "{{ user_id }}"
 sortOrder = "created_at"
 
+[blogTags]
+results = 0
+direction = "desc"
 ==
 {%  set student_evaluations = evaluations.student_evaluations %}
 {%  set evaluations = evaluations.evaluations %}
@@ -45,11 +48,25 @@ sortOrder = "created_at"
         <textarea name="content" id="Form-field-blog-content" class="form-control" rows="5" placeholder="{{ 'New portfolio'|_ }} {{ 'What\'s on today'|_ }}, {{ user.name }}?" onkeyup="if(this.value == '') document.getElementById('publish_save').disabled = true; else document.getElementById('publish_save').disabled = false;">{{ PostForm.post.content }}</textarea>
       </div>
     </div>
+    
     <!--<div class="col-sm-12">
       <div class="alert alert-danger" data-validate-error>
         <p data-message></p>
       </div>
     </div>-->
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <select name="tags[]" class="s2 multiple-select-box" multiple="multiple" style="width:100%;">
+          {% for tag in blogTags.tags %}
+            {% if 'กลุ่ม' in tag.name %}
+              <option value="{{ tag.id }}" {% if tag.id in PostForm.tags or (tag.id == 478) %} selected {% endif %}>{{ tag.name }}</option>
+            {% endif %}
+          {% endfor %}
+        </select>
+      </div>
+    </div>
   </div>
   <div class="row">
     <div class="col-sm-4">
@@ -78,3 +95,11 @@ sortOrder = "created_at"
 <p>{{ PostForm.trans('general.unauthorized') }}</p>
 {% endif %}
 <!-- End postform-default.htm -->
+{% put scripts %}
+  <!--<link rel="stylesheet" href="{{ 'assets/css/select2.css'|theme }}">
+  <script src="{{ 'assets/js/select2.js'|theme }}"></script>-->
+  <script type="text/javascript">
+    $(".s2").select2({
+    });
+  </script>
+{% endput %}
