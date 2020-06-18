@@ -84,7 +84,7 @@ slug = "{{ :slug }}"
 {% component 'SeoBlogPost' data=post %}
 <section id="layout-title">
   <div class="container">
-    <h5><img src="{% if post.author.facebook_id %} https://graph.facebook.com/{{ post.author.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" alt="{{ post.author.name }}" class="avatar" onClick="window.location.href = '/u/{{post.author_id}}';"> {{ post.title|raw }}
+    <h5><img src="{% if post.author.facebook_id|length <= 17 and post.author.facebook_id != 0  %} https://graph.facebook.com/{{ post.author.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" alt="{{ post.author.name }}" class="avatar" onClick="window.location.href = '/u/{{post.author_id}}';"> {{ post.title|raw }}
       {% if post.author.id == user.id %}
         <a href="/edit/post/{{ post.slug }}"> {{ 'Edit'|_ }}</a>
       {% endif %}

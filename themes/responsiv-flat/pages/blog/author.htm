@@ -34,7 +34,7 @@ function onRender() {
 ==
 <section id="layout-title">
     <div class="container">
-        <h3><a href="/u/{{record.id}}"><img src="{% if record.facebook_id %} https://graph.facebook.com/{{ record.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" title="{{ record.name }}" class="avatar"></a> {{ 'Posts by author'|_ }} : {% component 'builderDetails' %} {{ record.surname }}</h3>
+        <h3><a href="/u/{{record.id}}"><img src="{% if record.facebook_id|length <= 17 and record.facebook_id != 0 %} https://graph.facebook.com/{{ record.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" title="{{ record.name }}" class="avatar"></a> {{ 'Posts by author'|_ }} : {% component 'builderDetails' %} {{ record.surname }}</h3>
     </div>
 </section>
 
