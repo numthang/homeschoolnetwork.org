@@ -10,7 +10,7 @@
     {% endif %}
 
     {% if __SELF__.seo_title %}
-        <title>{{__SELF__.seo_title|_| generateTitle}}</title>
+        <title>{{__SELF__.seo_title|generateTitle}}...</title>
     {% endif %}
 
     {% if __SELF__.seo_description %}

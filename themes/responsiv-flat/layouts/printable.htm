@@ -4,7 +4,7 @@ description = "Printable layout"
 <html>
     <head>
     	<meta charset="UTF-8">
-      <title>{{ this.page.title|_ }}</title>
+      <title>{{ this.page.title|generateTitle }}</title>
       <meta name="title" content="{{ this.page.meta_title }}">
       <meta name="description" content="{{ this.page.meta_description }}">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
