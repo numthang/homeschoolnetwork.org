@@ -19,7 +19,6 @@ direction = "desc"
         <div class="col-sm-12">
           {% partial 'ads/top' %}
           {% for tag in blogTags.tags %}
-            {{ tag.posts|length }}
             <a href="/blog/tagged/{{ tag.id }}" style="font-size:{% if tag.posts|length > 30 %} {{ 50 }}{% else %}{{ tag.posts|length+16 }}{% endif %}px;">{{ tag.name }} ({{ tag.posts|length }})</a>,
           {% endfor %}
           {% partial 'ads/bottom' %}
