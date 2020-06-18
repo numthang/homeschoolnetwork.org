@@ -11,6 +11,15 @@ direction = "desc"
 {%  set evaluations = evaluations.evaluations %}
 <!-- START postform-default.htm -->
 {% if PostForm.backUser %}
+<h4 class="headline">
+    <span>
+      {% if user.company %}
+        {{ user.company }}
+      {% else %}
+        <a href="/edit/profile">[{{ 'Identify company name'|_ }}]</a>
+      {% endif %}
+    </span>
+</h4> 
 {{ form_open({ 'id':'bpostform', 'data-request': 'onSave', 'data-request-validate':'', 'data-request-flash':'', files: true }) }}
   <input type="hidden" id="Form-field-blog-id" name="id" value="{{ PostForm.post.id }}"></input>
   <input type="hidden" name="title" value="Whatson">
