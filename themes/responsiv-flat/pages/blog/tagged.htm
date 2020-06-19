@@ -8,17 +8,17 @@ robot_follow = "follow"
 [viewBag]
 localeUrl[en] = "/tagged"
 
-[blogTagSearch]
+[postsWithTag]
 tag = "{{ :id }}"
-pagination = 1
+orderBy = "published_at asc"
 page = "{{ :page }}"
-resultsPerPage = 100
+resultsPerPage = 10
 postPage = "blog/post"
 categoryPage = "blog/category"
 ==
 <section id="layout-title">
     <div class="container">
-        <h3>{{ 'Tagged'|_ }} "{{ blogTagSearch.tag.name }}"</h3>
+        <h3>{{ 'Tagged'|_ }} "{{ postsWithTag.tag.name }}"</h3>
     </div>
 </section>
 
@@ -26,10 +26,22 @@ categoryPage = "blog/category"
     <div class="row">
         <div class="col-sm-12 col-md-9">
           {% partial 'ads/top' %}
+          {% if postsWithTag.posts | length %}
+              <ul id="{{ postsWithTag.alias }}-list">
+                  {% partial postsWithTag ~ '::list' %}
+              </ul>
+          
+              <nav id="{{ postsWithTag.alias }}-pagination">
+                  {% partial postsWithTag ~ '::pagination' %}
+              </nav>
+          {% else %}
+              {{ "ginopane.blogtaxonomy::lang.components.tag_posts.no_posts_message" | trans }}
+          {% endif %}
 
-          {% if blogTagSearch.posts %}
+          
+          <!--{% if postsWithTag.posts %}
               <ul>
-                  {% for Post in blogTagSearch.tag.posts %}
+                  {% for Post in postsWithTag.tag.posts %}
                        <li>
                            <a href="{{Post.url}}">{{ Post.title }}</a>
                            {% if Post.categories %}
@@ -43,7 +55,7 @@ categoryPage = "blog/category"
               </ul>
           {% else %}
               No posts found.
-          {% endif %}
+          {% endif %}-->
 
         </div>
         <div class="col-sm-12 col-md-3">
