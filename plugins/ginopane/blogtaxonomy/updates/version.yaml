@@ -1,132 +1,98 @@
-2.3.0:
-  - Added status support for series
-  - Added possibility to delete series from the series list page
-  - add_series_status_column.php
-
-2.2.1:
-  - Added missing `include categories` filter for Tags list and Series list
-
-2.2.0:
-  - Added support of special characters for tag name
-
-2.1.1:
-  - Fix trait name
-
-2.1.0:
-  - Add filter by categories (included) for post lists (with tags/series)
-  - Rename 'Exceptions' section to 'Filters' in component settings
-
-2.0.3:
-  - Non-ajax version of pagination is now a default
-  - Do not include the existing routing parameters when generating new links
-
-2.0.2:
-  - Fix incorrect query being used for series model
-  - Remove accidental return operators from update files which prevented clean plugin installation
-
-2.0.1:
-  - Set index name explicitly to prevent the generation of too long name
-
-2.0.0:
-  - !!! Migrated to polymorphic tag relation. Make sure to backup and proceed with caution
-  - Implemented tags for series
-  - New options for existing components
-  - create_polymorphic_tag_table.php
-
-1.14.2:
-  - Added missing count of posts in the related series component
-
-1.14.1:
-  - Fixed auto generated index being too long
-
-1.14.0:
-  - Expose page parameter name for simple pagination
-
-1.13.2:
-  - Added missing exclusions handling for series and tags
-
-1.13.1:
-  - Fixed related posts component
-
-1.13.0:
-  - Implemented exclusions by post/category for tag and series lists
-
-1.12.0:
-  - Added functionality of migration from other plugins
-
-1.11.1:
-  - Fixed migration to prevent a ghost bug on update
-  - create_related_series_table.php
-
-1.11.0:
-  - Implemented related series
-  - Implemented exclusions by post/category for post lists
-
-1.10.0:
-  - Fixed default templates for posts with tags and series to show correct empty message on wrong pagination
-  - Updated mark.js
-
-1.9.0:
-  - !!! Internal directory structure was slightly changed
-  - Count only published blog posts in series list
-  - Allow fetching of all related posts for tags and series lists via a new option
-
-1.8.0:
-  - !!! Some properties of TagList component were either renamed or set to private, please check the changelog
-  - Exposed total tag count over the limit
-  - Implemented client tag filter for tag list
-  - Micro refactorings and optimizations
-
-1.7.0:
-  - Fixed a method to get real URL parameter names
-
-1.6.0:
-  - Stop using default slug value for TagList (to allow valid empty slug)
-  - Simplify internal query for posts relation
-
-1.5.4:
-  - Improved missing partials references so the backend expander could work correctly
-
-1.5.3:
-  - Improved partials references so the backend expander could work correctly
-
-1.5.2:
-  - Make translatable implementation truly optional
-  - Allow any valid character in validation for titles, names, etc.
-
-1.5.1:
-  - Fixed relation count condition for non-SQLite installations
-  - Fixed sorting options for post-related components
-
-1.5.0:
-  - Added Translate plugin support
-  - Added localization support for different strings
-  - Changed series description column type
-  - Loosen series title validation to allow punctuation
-  - Multiple internal enhancements
-  - change_description_field.php
-
-1.4.0:
-  - Added featured images for series
-  - Series edit page enhanced
-  - Several minor tweaks for tags and series lists
-
-1.3.1:
-  - Added missing slug generation for tags
-  - Minor enhancements
-
-1.3.0:
-  - Use another style to list required plugins
-
-1.2.0:
-  - Update tag name validation rules
-
-1.1.1:
-  - Skip extending Post form fields for a nested form case
-
-1.1.0:
-  - Degraded from PHP7.1 to PHP7.0 to support the minimal required version for October CMS
-
 1.0.0:
-  - The initial release of Blog Taxonomy
-  - create_taxonomies_tables.php
+    - 'The initial release of Blog Taxonomy'
+    - create_taxonomies_tables.php
+1.1.0:
+    - 'Degraded from PHP7.1 to PHP7.0 to support the minimal required version for October CMS'
+1.1.1:
+    - 'Skip extending Post form fields for a nested form case'
+1.2.0:
+    - 'Update tag name validation rules'
+1.3.0:
+    - 'Use another style to list required plugins'
+1.3.1:
+    - 'Added missing slug generation for tags'
+    - 'Minor enhancements'
+1.4.0:
+    - 'Added featured images for series'
+    - 'Series edit page enhanced'
+    - 'Several minor tweaks for tags and series lists'
+1.5.0:
+    - 'Added Translate plugin support'
+    - 'Added localization support for different strings'
+    - 'Changed series description column type'
+    - 'Loosen series title validation to allow punctuation'
+    - 'Multiple internal enhancements'
+    - change_description_field.php
+1.5.1:
+    - 'Fixed relation count condition for non-SQLite installations'
+    - 'Fixed sorting options for post-related components'
+1.5.2:
+    - 'Make translatable implementation truly optional'
+    - 'Allow any valid character in validation for titles, names, etc.'
+1.5.3:
+    - 'Improved partials references so the backend expander could work correctly'
+1.5.4:
+    - 'Improved missing partials references so the backend expander could work correctly'
+1.6.0:
+    - 'Stop using default slug value for TagList (to allow valid empty slug)'
+    - 'Simplify internal query for posts relation'
+1.7.0:
+    - 'Fixed a method to get real URL parameter names'
+1.8.0:
+    - '!!! Some properties of TagList component were either renamed or set to private, please check the changelog'
+    - 'Exposed total tag count over the limit'
+    - 'Implemented client tag filter for tag list'
+    - 'Micro refactorings and optimizations'
+1.9.0:
+    - '!!! Internal directory structure was slightly changed'
+    - 'Count only published blog posts in series list'
+    - 'Allow fetching of all related posts for tags and series lists via a new option'
+1.10.0:
+    - 'Fixed default templates for posts with tags and series to show correct empty message on wrong pagination'
+    - 'Updated mark.js'
+1.11.0:
+    - 'Implemented related series'
+    - 'Implemented exclusions by post/category for post lists'
+1.11.1:
+    - 'Fixed migration to prevent a ghost bug on update'
+    - create_related_series_table.php
+1.12.0:
+    - 'Added functionality of migration from other plugins'
+1.13.0:
+    - 'Implemented exclusions by post/category for tag and series lists'
+1.13.1:
+    - 'Fixed related posts component'
+1.13.2:
+    - 'Added missing exclusions handling for series and tags'
+1.14.0:
+    - 'Expose page parameter name for simple pagination'
+1.14.1:
+    - 'Fixed auto generated index being too long'
+1.14.2:
+    - 'Added missing count of posts in the related series component'
+2.0.0:
+    - '!!! Migrated to polymorphic tag relation. Make sure to backup and proceed with caution'
+    - 'Implemented tags for series'
+    - 'New options for existing components'
+    - create_polymorphic_tag_table.php
+2.0.1:
+    - 'Set index name explicitly to prevent the generation of too long name'
+2.0.2:
+    - 'Fix incorrect query being used for series model'
+    - 'Remove accidental return operators from update files which prevented clean plugin installation'
+2.0.3:
+    - 'Non-ajax version of pagination is now a default'
+    - 'Do not include the existing routing parameters when generating new links'
+2.1.0:
+    - 'Add filter by categories (included) for post lists (with tags/series)'
+    - 'Rename ''Exceptions'' section to ''Filters'' in component settings'
+2.1.1:
+    - 'Fix trait name'
+2.2.0:
+    - 'Added support of special characters for tag name'
+2.2.1:
+    - 'Added missing `include categories` filter for Tags list and Series list'
+2.3.0:
+    - 'Added status support for series'
+    - 'Added possibility to delete series from the series list page'
+    - add_series_status_column.php

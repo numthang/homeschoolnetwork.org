@@ -1,5 +1,5 @@
 plugin:
-    name: 'numthang.location::lang.plugin.name'
+    name: 'Numthang Location'
     description: 'numthang.location::lang.plugin.description'
     author: Numthang
     icon: oc-icon-adjust
