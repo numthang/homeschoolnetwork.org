@@ -60,6 +60,7 @@ class Plugin extends PluginBase
           ];
           $model->addFillable([
             'featured',
+            'evaluation_id'
           ]);
         });
         PostsController::extendFormFields(function($form, $model, $context) {//เพิ่ม user form ใน backend
