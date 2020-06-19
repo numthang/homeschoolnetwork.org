@@ -203,9 +203,8 @@ class ScopePosts extends ComponentBase
      */
     $this->postPage = $this->page['postPage'] = $this->property('postPage');
     $this->categoryPage = $this->page['categoryPage'] = $this->property('categoryPage');
-
     if($this->property('from') == '0000-00-00' || $this->property('to') == '0000-00-00' || $this->property('from') == null) {//ถ้าไม่กำหนดวันที่ก็ให้หายาวไปเลย 100 ปี
-      $this->from = '1978-01-01';
+      $this->from = '1900-01-01';
       $this->to = '2100-01-01';
     }
     else {
