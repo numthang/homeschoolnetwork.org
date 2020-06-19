@@ -116,22 +116,30 @@ class Posts extends RainLabPosts
         $category = $this->category ? $this->category->id : null;
         $tags = $this->tags;
         $i = 0; $list = array();
+        #dump($this->property('authorID'));
+        #dump($this->property('userID'));
+        #dump($this->property('ownerID'));
+        #dump($this->property('evaluationID'));
+
         foreach ($tags['id'] as $key1 => $tag_id) {
           $posts = Tag::Where('id', $tag_id)
             ->with(['posts' => function($query) {
-              $category = $this->category ? $this->category->id : null;
-              $query
-                ->Where(function ($query) {
-                    if($this->property('authorID'))
-                        $query->where('author_id', '=', $this->property('authorID'));
-                    if($this->property('userID'))
-                        $query->orwhere('user_id', '=', $this->property('userID'));
-                    $query->whereBetween('created_at', [$this->from, $this->to]);
-                })
-                ->orWhere(function ($query) {
-                    if($this->property('evaluation_id'))
+                $category = $this->category ? $this->category->id : null;
+                
+                if($this->property('authorID') || $this->property('userID')) {
+                    $query
+                    ->Where(function ($query) {
+                        if($this->property('authorID'))
+                            $query->where('author_id', '=', $this->property('authorID'));
+                        if($this->property('userID'))
+                            $query->orwhere('user_id', '=', $this->property('userID'));
+                        $query->whereBetween('created_at', [$this->from, $this->to]);
+                    });
+                }
+                $query->Where(function ($query) {
+                    if($this->property('evaluationID'))
                       $query
-                        ->where('author_id', '=', $this->property('userID'))
+                        ->where('author_id', '=', $this->property('ownerID'))
                         ->where('evaluation_id', '=', $this->property('evaluationID'))
                         ->whereBetween('created_at', [$this->from, $this->to]);
                 })
