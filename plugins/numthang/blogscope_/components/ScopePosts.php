@@ -5,7 +5,7 @@ use Cms\Classes\ComponentBase;
 use Cms\Classes\Page;
 use RainLab\Blog\Models\Post as BlogPost;
 use RainLab\Blog\Models\Category as BlogCategory;
-use Bedard\BlogTags\Models\Tag;
+use GinoPane\BlogTaxonomy\Models\Tag;
 use BackendAuth;
 
 class ScopePosts extends ComponentBase

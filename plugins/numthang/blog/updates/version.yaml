@@ -1,0 +1,5 @@
+1.0.1:
+    - 'First version of Blog Extension'
+1.0.2:
+    - 'Extend featured post checkbox field'
+    - migration100.php

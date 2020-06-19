@@ -1,0 +1,13 @@
+{% set series = __SELF__.series %}
+
+{% if series | length %}
+    <div class="list-group">
+        {% for item in series %}
+            <a href="{{ item.url }}" class="list-group-item">
+                {{ item.title }}
+            </a>
+        {% endfor %}
+    </div>
+{% else %}
+    {{ "ginopane.blogtaxonomy::lang.components.related_series.no_series_message" | trans }}
+{% endif %}

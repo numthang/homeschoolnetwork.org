@@ -1,0 +1,63 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+tabs:
+    fields:
+        title:
+            tab: ginopane.blogtaxonomy::lang.form.tabs.general
+            label: ginopane.blogtaxonomy::lang.form.fields.title
+            placeholder: ginopane.blogtaxonomy::lang.placeholders.title
+            span: left
+            required: true
+
+        slug:
+            tab: ginopane.blogtaxonomy::lang.form.tabs.general
+            label: ginopane.blogtaxonomy::lang.form.fields.slug
+            span: right
+            placeholder: ginopane.blogtaxonomy::lang.placeholders.slug
+            required: true
+            preset:
+                field: title
+                type: slug
+
+        status:
+            tab: ginopane.blogtaxonomy::lang.form.tabs.general
+            label: ginopane.blogtaxonomy::lang.form.fields.status
+            type: balloon-selector
+            span: left
+            options:
+                active: Active
+                inactive: Inactive
+
+        tags:
+            label: ginopane.blogtaxonomy::lang.form.tags.label
+            comment: ginopane.blogtaxonomy::lang.form.tags.comment_series
+            mode: 'relation'
+            type: taglist
+            placeholder: ginopane.blogtaxonomy::lang.placeholders.tags
+            tab: ginopane.blogtaxonomy::lang.form.tabs.general
+
+        featured_images:
+            label: ginopane.blogtaxonomy::lang.form.fields.images
+            type: fileupload
+            mode: image
+            tab: ginopane.blogtaxonomy::lang.form.tabs.general
+
+        description:
+            label: ginopane.blogtaxonomy::lang.form.fields.description
+            type: richeditor
+            size: large
+            tab: ginopane.blogtaxonomy::lang.form.tabs.general
+
+        posts:
+            label: ginopane.blogtaxonomy::lang.form.fields.posts
+            type: partial
+            path: field_posts
+            tab: ginopane.blogtaxonomy::lang.form.tabs.posts
+
+        related_series:
+            label: ginopane.blogtaxonomy::lang.form.fields.related_series
+            type: partial
+            path: related_series
+            tab: ginopane.blogtaxonomy::lang.form.tabs.related_series

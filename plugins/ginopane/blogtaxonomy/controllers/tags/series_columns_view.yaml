@@ -1,0 +1,21 @@
+# ===================================
+#  Column Definitions
+# ===================================
+
+noRecordsMessage: ginopane.blogtaxonomy::lang.form.tags.no_series_with_such_tag
+
+columns:
+    title:
+        label: ginopane.blogtaxonomy::lang.form.series.label
+        searchable: true
+        sortable: true
+
+    description:
+        label: ginopane.blogtaxonomy::lang.form.series.description
+        type: partial
+        path: ~/plugins/ginopane/blogtaxonomy/controllers/tags/_column_series_description.htm
+
+    created_at:
+        label: rainlab.blog::lang.post.created
+        sortable: true
+        type: date

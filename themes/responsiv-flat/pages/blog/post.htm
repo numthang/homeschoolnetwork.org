@@ -11,12 +11,6 @@ robot_follow = "follow"
 slug = "{{ :slug }}"
 categoryPage = "blog/category"
 
-[blogRelated]
-slug = "{{ :slug }}"
-results = 5
-direction = "desc"
-postPage = "blog/post"
-
 [SeoBlogPost]
 post = "post"
 
@@ -54,9 +48,22 @@ theme = "social_flat_rounded_rects_svg"
 slug = "{{ :slug }}"
 
 [registerVisit]
+
+[tagList]
+displayEmpty = 1
+fetchPosts = 1
+orderBy = "name asc"
+postSlug = "{{ :slug }}"
+includeSeriesTags = 1
+fetchSeriesPostCount = 1
+limit = 10
+enableTagFilter = "never"
+tagPage = 404
+tagsPage = 404
+debugOutput = 0
 ==
 <?php
-  function onEnd() {
+function onEnd() {
     if(!is_object($this->post))
       return $this->controller->run('404');
 
@@ -133,13 +140,18 @@ slug = "{{ :slug }}"
           <div align="left" style="text-align:left;">{% partial "ads/in-article" %}</div>
           {{ post.content_html|raw }}
           <p class="info">
-              Posted
-              {% if post.categories.count %} in
-                  {% for category in post.categories %}
-                      <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
-                  {% endfor %}
-              {% endif %}
+            {% component 'tagList' %}
+              {{ 'Tags'|_ }}
+              <a href="{{ category.url }}">tag1</a>
           </p>
+          <p class="info">
+            Posted
+            {% if post.categories.count %} in
+                {% for category in post.categories %}
+                    <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+                {% endfor %}
+            {% endif %}
+        </p>
           <h4>{{ 'Related posts'|_ }}</h4>
           <ul class="related-posts">
               {% for relate in related %}

@@ -96,7 +96,7 @@ sortOrder = "created_at"
   <div class="row">
     <div class="col-sm-12">
       <select name="tags[]" class="s2 multiple-select-box" multiple="multiple" style="width:100%;">
-        {% for tag in blogTags.tags %}
+        {% for tag in tagList.tags %}
         <option value="{{ tag.id }}" {% if tag.id in PostForm.tags or (this.param.mod == 'portfolio' and tag.id == 478) %} selected {% endif %}>{{ tag.name }}</option>
         {% endfor %}
       </select>

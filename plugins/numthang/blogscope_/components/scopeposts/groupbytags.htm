@@ -1,0 +1,6 @@
+{% set postsbytag = __SELF__.postsbytag %}
+{% set tags = __SELF__.tags %}
+
+{% for tag in tags['name'] %}
+  {{ tag }}<br>
+{% endfor %}

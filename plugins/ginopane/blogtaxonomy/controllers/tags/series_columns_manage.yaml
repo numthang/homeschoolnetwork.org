@@ -1,0 +1,14 @@
+# ===================================
+#  Column Definitions
+# ===================================
+
+columns:
+    title:
+        label: ginopane.blogtaxonomy::lang.form.series.label
+        searchable: true
+        sortable: true
+
+    created_at:
+        label: rainlab.blog::lang.post.created
+        sortable: true
+        type: date

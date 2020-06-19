@@ -3,9 +3,14 @@ results = 0
 byUserID = "{{ user_id }}"
 sortOrder = "created_at"
 
-[blogTags]
-results = 0
-direction = "desc"
+[tagList]
+orderBy = "name asc"
+limit = 0
+enableTagFilter = "never"
+tagPage = 404
+tagsPage = 404
+
+[viewBag]
 ==
 {%  set student_evaluations = evaluations.student_evaluations %}
 {%  set evaluations = evaluations.evaluations %}
@@ -68,7 +73,7 @@ direction = "desc"
     <div class="col-sm-12">
       <div class="form-group">
         <select name="tags[]" class="s2 multiple-select-box" multiple="multiple" style="width:100%;">
-          {% for tag in blogTags.tags %}
+          {% for tag in tagList.tags %}
             {% if 'กลุ่ม' in tag.name %}
               <option value="{{ tag.id }}" {% if tag.id in PostForm.tags or (tag.id == 478) %} selected {% endif %}>{{ tag.name }}</option>
             {% endif %}

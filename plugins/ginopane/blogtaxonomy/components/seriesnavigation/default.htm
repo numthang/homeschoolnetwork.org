@@ -1,0 +1,15 @@
+{% if __SELF__.series %}
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <p>{{ "ginopane.blogtaxonomy::lang.components.series_navigation.part_of_a_series"|trans }} <a href="{{ __SELF__.series.url }}">{{ __SELF__.series.title }}</a></p>
+        </div>
+
+        {% if __SELF__.series.posts %}
+            <div class="list-group">
+                {% for post in __SELF__.series.posts %}
+                    <a href="{{ post.url }}" class="list-group-item {{ post.slug == __SELF__.slug ? 'active' : null }}">{{ post.title }}</a>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+{% endif %}

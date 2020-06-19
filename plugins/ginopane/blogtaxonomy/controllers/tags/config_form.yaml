@@ -1,0 +1,27 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: ginopane.blogtaxonomy::lang.form.tags.label
+
+# Model Form Field configuration
+form: $/ginopane/blogtaxonomy/models/tag/fields.yaml
+
+# Model Class name
+modelClass: GinoPane\BlogTaxonomy\Models\Tag
+
+# Default redirect location
+defaultRedirect: ginopane/blogtaxonomy/tags
+
+# Create page
+create:
+  title: ginopane.blogtaxonomy::lang.form.tags.create_title
+  redirect: ginopane/blogtaxonomy/tags/update/:id
+  redirectClose: ginopane/blogtaxonomy/tags
+
+# Update page
+update:
+  title: ginopane.blogtaxonomy::lang.form.tags.edit_title
+  redirect: ginopane/blogtaxonomy/tags
+  redirectClose: ginopane/blogtaxonomy/tags

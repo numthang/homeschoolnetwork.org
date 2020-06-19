@@ -1,12 +1,14 @@
-[blogTags]
-results = 20
-orderBy = 0
-direction = "desc"
-
 [blogCategories]
 slug = "{{ :slug }}"
 displayEmpty = 1
 categoryPage = "blog/category"
+
+[tagList]
+orderBy = "name asc"
+limit = 0
+enableTagFilter = "never"
+
+[viewBag]
 ==
 <!-- Search -->
 <form role="form">
@@ -64,7 +66,7 @@ categoryPage = "blog/category"
       {{ 'Tags'|_ }}
   </div>
   <ul class="list-group">
-    {% for tag in blogTags.tags %}
+    {% for tag in tagList.tags %}
       <li class="list-group-item"><a href="/blog/tagged/{{ tag.id }}">{{ tag.name }} ({{ tag.posts|length }})</a></li>
     {% endfor %}
   </ul>
