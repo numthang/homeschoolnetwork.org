@@ -10,6 +10,7 @@ robot_follow = "follow"
 [blogPost]
 slug = "{{ :slug }}"
 categoryPage = "blog/category"
+postPage = "blog/post"
 
 [SeoBlogPost]
 post = "post"
@@ -140,18 +141,67 @@ function onEnd() {
           <div align="left" style="text-align:left;">{% partial "ads/in-article" %}</div>
           {{ post.content_html|raw }}
           <p class="info">
-            {% component 'tagList' %}
-              {{ 'Tags'|_ }}
-              <a href="{{ category.url }}">tag1</a>
-          </p>
-          <p class="info">
             Posted
             {% if post.categories.count %} in
                 {% for category in post.categories %}
                     <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
                 {% endfor %}
             {% endif %}
-        </p>
+          </p>
+          <p class="info">
+            <h4>{{ 'Tags'|_ }} ({{ 'Portfolio groups'|_ }})</h4>
+            {% set tags = tagList.tags %}
+
+            {% if tagList.tagFilterEnabled %}
+                {% set searchInputId = tagList.alias ~ "-filter" %}
+                {% set tagSectionId = tagList.alias ~ "-tags" %}
+
+                <!-- Search form -->
+                <div class="md-form mb-3">
+                    <input id="{{ searchInputId }}" class="form-control" type="text" placeholder="{{ "Search tags"|_ }}" aria-label="Search tags">
+                </div>
+
+                {% put scripts %}
+                    <script type="application/javascript">
+                        $(document).ready(function() {
+                            $(function() {
+                                var $input = $('input#{{ searchInputId }}'),
+                                    $context = $('div#{{ tagSectionId }}').find("a.list-group-item");
+                                $input.on("input", function() {
+                                    var term = $(this).val();
+                                    $context.show().unmark();
+                                    if (term) {
+                                        $context.mark(term, {
+                                            done: function() {
+                                                $context.not(":has(mark)").hide();
+                                            }
+                                        });
+                                    }
+                                });
+                            });
+                        });
+                    </script>
+                {% endput %}
+
+                <a href="{{ tagList.tagsPageUrl }}">{{ "ginopane.blogtaxonomy::lang.components.tag_list.all_tags_link" | trans }}</a>
+            {% endif %}
+
+            {% if tags | length %}
+                <div class="list-group" id="{{ tagSectionId }}">
+                    {% for item in tags %}
+                        {% set postCount = item.posts_count %}
+                        <a href="/blog/tagged/{{ item.id }}" class="">
+                            {{ item.name }}
+                            {% if postCount %}
+                                <span class="badge">{{ postCount }}</span>
+                            {% endif %}
+                        </a>
+                    {% endfor %}
+                </div>
+            {% else %}
+                {{ "ginopane.blogtaxonomy::lang.components.tag_list.no_tags_message" | trans }}
+            {% endif %}
+          </p>          
           <h4>{{ 'Related posts'|_ }}</h4>
           <ul class="related-posts">
               {% for relate in related %}
