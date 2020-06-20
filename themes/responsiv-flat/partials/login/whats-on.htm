@@ -17,12 +17,12 @@ tagsPage = 404
 <!-- START postform-default.htm -->
 {% if PostForm.backUser %}
 <h4 class="headline">
-    <span>
+    <span><a href="/edit/profile">
       {% if user.company %}
         {{ user.company }}
       {% else %}
-        <a href="/edit/profile">[{{ 'Identify company name'|_ }}]</a>
-      {% endif %}
+        [{{ 'Identify company name'|_ }}]
+      {% endif %}</a>
     </span>
 </h4> 
 {{ form_open({ 'id':'bpostform', 'data-request': 'onSave', 'data-request-validate':'', 'data-request-flash':'', files: true }) }}
@@ -33,7 +33,7 @@ tagsPage = 404
   <!--<input type="hidden" name="tags[0]" value="478">-->
   <div class="row">
     <div class="col-sm-3 col-xs-3">
-      <a href="/u/{{ user.id }}"><img src="{% if user.facebook_id %} https://graph.facebook.com/{{ user.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" title="{{ user.name }}" class="avatar" style="margin-left:15px; margin-top:15px;"></a>
+      <a href="/u/{{ user.id }}"><img src="{% if user.facebook_id|length <= 17 and user.facebook_id != 0 %} https://graph.facebook.com/{{ user.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" title="{{ user.name }}" class="avatar" style="margin-left:15px; margin-top:15px;"></a>
     </div>
     <div class="col-sm-9 col-xs-9">
       <div class="form-group">

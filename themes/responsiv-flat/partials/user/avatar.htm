@@ -1,0 +1,5 @@
+[viewBag]
+==
+<a href="/u/{{ user.id }}">
+    <img src="{% if user.facebook_id %} https://graph.facebook.com/{{ user.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" title="{{ user.name }}" class="avatar">
+</a>
