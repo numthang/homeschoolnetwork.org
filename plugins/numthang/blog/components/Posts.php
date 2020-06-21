@@ -80,7 +80,8 @@ class Posts extends RainLabPosts
             $this->posts = $this->page['posts'] = $this->listDraftPosts();
         else {
             $this->posts = $this->page['posts'] = $this->listPosts();
-            $this->postsbytag = $this->sortPostsbyTags();
+            if($this->property('evaluationID'))//in case of using evaluation field
+              $this->postsbytag = $this->sortPostsbyTags();
         }
         /*
          * If the page number is not valid, redirect
@@ -116,15 +117,15 @@ class Posts extends RainLabPosts
       #$category = $this->category ? $this->category->id : null;
       $tags = $this->tags;
       $i = 0; $list = array();
-      #dump($this->property('authorID')); #dump($this->property('userID')); #dump($this->property('ownerID')); #dump($this->property('evaluationID'));
+      #dump($this->property('userID')); #dump($this->property('userID')); #dump($this->property('ownerID')); #dump($this->property('evaluationID'));
       foreach ($tags['id'] as $key1 => $tag_id) {
         $posts = Tag::Where('id', $tag_id)
         ->with(['posts' => function($query) {
           $category = $this->category ? $this->category->id : null;
-          $query//select from author or from the owner of evaluation
+          $query
           ->Where(function ($query) {
             $query
-            ->where($this->user_field, '=', $this->property('authorID'))
+            ->where($this->user_field, '=', $this->property('userID'))
             ->where('evaluation_id', '=', $this->property('evaluationID'))
             ;
           })
@@ -168,18 +169,25 @@ class Posts extends RainLabPosts
         * List all the posts, eager load their categories
         */
       $isPublished = !$this->checkEditor(); //if backend user logged in and can access post then isPublished is false also show unpublished
-      $posts = BlogPost::with('categories')
-        ->with('tags')
-        ->Where(function ($query) {
+      #dump($this->property('userID')); dump($this->property('ownerID')); dump($this->property('evaluationID'));
+      $query = BlogPost::with('categories')->with('tags');
+      if($this->property('evaluationID') && ($this->property('userID') || $this->property('ownerID'))) {
+        $query->Where(function ($query) {
           $query
-            ->where('author_id', '=', $this->property('authorID'))
+            ->where($this->user_field, '=', $this->property('userID'))
             ->where('evaluation_id', '=', $this->property('evaluationID'));
         })
         ->orWhere(function ($query) {
           $query
-            ->where('author_id', '=', $this->property('ownerID'))
+            ->where($this->user_field, '=', $this->property('ownerID'))
             ->where('evaluation_id', '=', $this->property('evaluationID'));
-        })
+        });
+      }
+      else if($this->property('userID'))
+        $query->where($this->user_field, '=', $this->property('userID'));
+      if($this->property('featured'))
+        $query->where('featured', '=', $this->property('featured'));
+      $posts = $query
         ->whereBetween('created_at', [$this->from, $this->to])
         ->listFrontEnd([
           'page'             => $this->property('pageNumber'),
@@ -192,7 +200,7 @@ class Posts extends RainLabPosts
           'exceptCategories' => is_array($this->property('exceptCategories'))
             ? $this->property('exceptCategories')
             : explode(',', $this->property('exceptCategories')),
-      ]);
+        ]);
   
       //dd($posts[0]);
       //prepareVars tags list from this author
@@ -226,7 +234,7 @@ class Posts extends RainLabPosts
   
       $posts = BlogPost::with('categories')
         ->with('tags')
-        ->where('author_id', '=', $this->property('authorID'))
+        ->where($this->user_field, '=', $this->property('userID'))
         ->where('published', '=', 0)
         ->listFrontEnd([
           'page'             => $this->property('pageNumber'),
