@@ -2,16 +2,20 @@
 pageNumber = "{{ :page }}"
 categoryFilter = "portfolio"
 postsPerPage = 200
-evaluationID = "{{ evaluation }}"
-ownerID = "{{ owner }}"
-authorID = "{{ author }}"
-from = "{{ from }}"
-to = "{{ to }}"
-isPublished = false
-categoryPage = "blog/category"
-postPage = "blog/post"
 noPostsMessage = "No posts found"
 sortOrder = "published_at asc"
+categoryPage = "blog/category"
+postPage = "blog/post"
+backend = 0
+userID = "{{ author }}"
+featured = 0
+drafted = 0
+from = "{{ from }}"
+to = "{{ to }}"
+evaluationID = "{{ evaluation }}"
+ownerID = "{{ owner }}"
+
+[viewBag]
 ==
 {% set postsbytag = scopePosts.postsbytag %}
 {% set tags = scopePosts.tags %}

@@ -34,48 +34,51 @@ sortOrder = "updated_at"
 [scopePosts]
 pageNumber = 1
 postsPerPage = 10
-evaluationID = 0
-ownerID = 0
-authorID = "{{ :id }}"
-from = "0000-00-00"
-to = "0000-00-00"
-isPublished = 1
-drafted = 0
-categoryPage = "blog/category"
-postPage = "blog/post"
 noPostsMessage = "No posts found"
 sortOrder = "updated_at desc"
+categoryPage = "blog/category"
+postPage = "blog/post"
+backend = 0
+userID = "{{ :id }}"
+featured = 0
+drafted = 0
+from = "0000-00-00"
+to = "0000-00-00"
+evaluationID = 0
+ownerID = 0
 
 [scopePosts scopePosts2]
 pageNumber = 1
 postsPerPage = 10
-evaluationID = 0
-userID = 0
-authorID = "{{ :id }}"
-from = "0000-00-00"
-to = "0000-00-00"
-isPublished = 0
-drafted = 1
-categoryPage = "blog/category"
-postPage = "blog/post"
 noPostsMessage = "No posts found"
 sortOrder = "published_at asc"
+categoryPage = "blog/category"
+postPage = "blog/post"
+backend = 0
+userID = "{{ :id }}"
+featured = 0
+drafted = 1
+from = "0000-00-00"
+to = "0000-00-00"
+evaluationID = 0
+ownerID = 0
 
 [scopePosts scopePosts3]
 pageNumber = "{{ :page }}"
 categoryFilter = "portfolio"
 postsPerPage = 5
-evaluationID = 0
-userID = 0
-authorID = "{{ :id }}"
-from = "0000-00-00"
-to = "0000-00-00"
-isPublished = 0
-drafted = 0
-categoryPage = "blog/category"
-postPage = "blog/post"
 noPostsMessage = "No posts found"
 sortOrder = "created_at desc"
+categoryPage = "blog/category"
+postPage = "blog/post"
+backend = 0
+userID = "{{ :id }}"
+featured = 0
+drafted = 0
+from = "0000-00-00"
+to = "0000-00-00"
+evaluationID = 0
+ownerID = 0
 ==
 <?php
 function onEnd() {
