@@ -15,15 +15,18 @@ notFoundMessage = "Record not found"
 [scopePosts]
 pageNumber = "{{ :page }}"
 postsPerPage = 300
-userID = "{{ :author }}"
-authorID = "{{ :author }}"
-from = "0000-00-00"
-to = "0000-00-00"
-isPublished = true
-categoryPage = "blog/category"
-postPage = "blog/post"
 noPostsMessage = "No posts found"
 sortOrder = "published_at desc"
+categoryPage = "blog/category"
+postPage = "blog/post"
+backend = 0
+userID = "{{ :author }}"
+featured = 0
+drafted = 0
+from = "0000-00-00"
+to = "0000-00-00"
+evaluationID = 0
+ownerID = 0
 ==
 <?php
 function onRender() {
@@ -42,7 +45,45 @@ function onRender() {
     <div class="row">
         <div class="col-sm-12 col-md-9">
           {% partial 'ads/top' %}
-          {% component 'scopePosts' %}
+          {% set posts = scopePosts.posts %}
+
+<ul class="post-list">
+    {% for post in posts %}
+        <li>
+            <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+
+            <p class="info">
+                Posted
+                {% if post.categories.count %} in {% endif %}
+                {% for category in post.categories %}
+                    <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+                {% endfor %}
+                on {{ post.published_at|date('M d, Y') }}
+            </p>
+        </li>
+    {% else %}
+        <li class="no-data">{{ scopePosts.noPostsMessage }}</li>
+    {% endfor %}
+</ul>
+
+{% if posts.lastPage > 1 %}
+    <ul class="pagination">
+        {% if posts.currentPage > 1 %}
+            <li><a href="{{ this.page.baseFileName|page({ (scopePosts.pageParam): (posts.currentPage-1) }) }}">&larr; Prev</a></li>
+        {% endif %}
+
+        {% for page in 1..posts.lastPage %}
+            <li class="{{ posts.currentPage == page ? 'active' : null }}">
+                <a href="{{ this.page.baseFileName|page({ (scopePosts.pageParam): page }) }}">{{ page }}</a>
+            </li>
+        {% endfor %}
+
+        {% if posts.lastPage > posts.currentPage %}
+            <li><a href="{{ this.page.baseFileName|page({ (scopePosts.pageParam): (posts.currentPage+1) }) }}">Next &rarr;</a></li>
+        {% endif %}
+    </ul>
+{% endif %}
+
         </div>
         <div class="col-sm-12 col-md-3">
           {% partial 'blog/sidebar' %}
