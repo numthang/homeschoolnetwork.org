@@ -75,8 +75,7 @@ public function onEnd() {
       <a href="#part4">{{ evaluation.part4_label }}</a><br></h2>
     {% else %}
       <h2><a href="#ninth">ร่องรอยการเรียนรู้</a></h2>
-      <!--author_id สำหรับเลือกโพสต์ของผู้แต่งจากภายนอกแบบประเมิน (ซึ่งก็คือ portfolio_id)
-          user_id คือเจ้าของคอร์สหรือแบบประเมิน evaluation สำหรับบอกว่าจะให้เลือก blog -->
+      <!--ให้เลือกโพสต์จาก author หรือ เลือกจาก owner ก็ได้ แต่ต้องระบุว่าดึงจากแบบประเมินตัวไหนด้วย-->
       {% partial 'portfolio/indexes' evaluation=evaluation.id owner=evaluation.user_id author=this.page.author_id from=this.page.from to=this.page.to %}
     {% endif %}
   </div>
