@@ -20,6 +20,14 @@ postPage = "blog/post"
 security = "user"
 redirect = "login/login"
 ==
+<?php
+  function onStart() {
+    //redirect to portfolio edit page if category == 6
+    if($this->param('mod') == 'post' && in_array('6', $this->PostForm->postCategoryIds))
+      return Redirect::to('/edit/portfolio/'.$this->param('slug'));
+  }
+?>
+==
 <section id="layout-title">
     <div class="container">
       <h3>{{ 'Edit post'|_ }} : {{ PostForm.post.title }}</h3>

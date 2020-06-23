@@ -111,9 +111,9 @@ class PostForm extends ComponentBase {
         }
       }
       $post->tags()->attach($newArray);//attach all tags list
-
       if(isset($newTags)) {//insert serie of mod eg: post, portfolio
-        $serie = Series::where('slug', $this->param('mod'))->first();
+        empty($this->param('mod')) ? $mod = 'portfolio' : $mod = $this->param('mod');
+        $serie = Series::where('slug', $mod)->first();
         #$serie->tags()->detach();
         $serie->tags()->attach($newTags);//attach only new tags
       }
