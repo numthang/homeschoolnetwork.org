@@ -1,8 +1,25 @@
+[viewBag]
+
 [evaluations]
 results = 0
 byUserID = "{{ user }}"
 sortOrder = "created_at"
 
+[tagList]
+displayEmpty = 1
+orderBy = "name asc"
+includeSeriesTags = 0
+fetchSeriesPostCount = 1
+limit = 0
+enableTagFilter = "never"
+tagPage = 404
+tagsPage = 404
+==
+<?php
+public function onLoad() {
+  
+}
+?>
 ==
 {%  set student_evaluations = evaluations.student_evaluations %}
 {%  set evaluations = evaluations.evaluations %}
@@ -12,7 +29,9 @@ sortOrder = "created_at"
   <input type="hidden" id="Form-field-blog-id" name="id" value="{{ PostForm.post.id }}"></input>
   <div class="row">
     <div class="col-sm-6">
-      {% if this.param.mod == 'portfolio' or 6 in PostForm.postCategoryIds or PostForm.post.evaluation_id != 0  %}<!--ใช้ในกรณี add/portfolio และกรณีแก้ไข กรณีที่อยู่ในหมวด 6 คือ portfolio หรือ ใน post มีการระบุ evaluation_id ใน post -->
+      {% if this.param.mod == 'portfolio' or 6 in PostForm.postCategoryIds or PostForm.post.evaluation_id != 0  %}
+      {% set mod = 'portfolio' %}
+      <!--ใช้ในกรณี add/portfolio และกรณีแก้ไข กรณีที่อยู่ในหมวด 6 คือ portfolio หรือ ใน post มีการระบุ evaluation_id ใน post -->
       <div class="form-group">
         <label>{{ 'For Evaluation'|_ }}</label>
         <!-- ถ้าปีการศึกษาเท่ากับปีนี้ให้เลือก และ PostForm.post.id จะไม่มีค่านี้กรณีเลือก new post -->
@@ -30,6 +49,8 @@ sortOrder = "created_at"
           {% endfor %}
         </select>
       </div>
+      {% else %}
+        {% set mod = 'post' %}
       {% endif %}
       {% if PostForm.allow_images %}
       <div class="form-group">
@@ -95,18 +116,21 @@ sortOrder = "created_at"
   <label for="Form-field-blog-tag">{{ 'Tags'|_ }} ({{ 'Portfolio group'|_ }})</label>
   <div class="row">
     <div class="col-sm-12">
-      <select name="tags[]" class="s2 multiple-select-box" multiple="multiple" style="width:100%;">
+      <select name="tags[]" class="s2 multiple-select-box form-control" multiple="multiple" style="width:100%;">
         {% for tag in tagList.tags %}
-        <option value="{{ tag.id }}" {% if tag.id in PostForm.tags or (this.param.mod == 'portfolio' and tag.id == 478) %} selected {% endif %}>{{ tag.name }}</option>
+          {% if tag.series[0].slug == mod or tag.series[1].slug == mod %}
+          <option value="{{ tag.id }}" {% if tag.id in PostForm.tags or (mod == 'portfolio' and tag.id == 478) %} selected {% endif %}>{{ tag.name }}</option>
+          {% endif %}
         {% endfor %}
       </select>
+      <!--<input type="text" name="tags" class="s2 multiple-select-box" />-->
     </div>
   </div>
   <div class="form-group">
     <label for="Form-field-blog-category">{{ 'Category'|_ }}</label>
     {% for cat in PostForm.categories %}
       <label class="checkbox" for="Form-field-blog-cat-{{ cat.name }}">
-      <input type="checkbox" id="Form-field-blog-cat-{{ cat.name }}"  data-toggle="checkbox" name="category[]" value="{{ cat.id }}" {% if cat.id in PostForm.postCategoryIds or (this.param.mod == 'portfolio' and cat.id == 6) %}checked="checked"{% endif %}>
+      <input type="checkbox" id="Form-field-blog-cat-{{ cat.name }}"  data-toggle="checkbox" name="category[]" value="{{ cat.id }}" {% if cat.id in PostForm.postCategoryIds or (mod == 'portfolio' and cat.id == 6) %}checked="checked"{% endif %}>
         {{ cat.name }}
       </label>
     {% endfor %}
@@ -169,11 +193,14 @@ sortOrder = "created_at"
 <p>{{ PostForm.trans('general.unauthorized') }}</p>
 {% endif %}
 <!-- End postform-default.htm -->
+{% put styles %}
+<link rel="stylesheet" href="{{ 'assets/css/select2.css'|theme }}">
+{% endput %}
 {% put scripts %}
-  <!--<link rel="stylesheet" href="{{ 'assets/css/select2.css'|theme }}">
-  <script src="{{ 'assets/js/select2.js'|theme }}"></script>-->
+  <!--<script src="{{ 'assets/js/select2.js'|theme }}"></script>-->
   <script type="text/javascript">
     $(".s2").select2({
+      tags:true
     });
   </script>
   <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>

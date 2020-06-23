@@ -12,8 +12,10 @@ tagsPage = 404
 
 [viewBag]
 ==
-{%  set student_evaluations = evaluations.student_evaluations %}
-{%  set evaluations = evaluations.evaluations %}
+{% set student_evaluations = evaluations.student_evaluations %}
+{% set evaluations = evaluations.evaluations %}
+{% set mod = 'portfolio' %}
+
 <!-- START postform-default.htm -->
 {% if PostForm.backUser %}
 <h4 class="headline">
@@ -72,12 +74,12 @@ tagsPage = 404
   <div class="row">
     <div class="col-sm-12">
       <div class="form-group">
-        <select name="tags[]" class="s2 multiple-select-box" multiple="multiple" style="width:100%;">
+        <select name="tags[]" class="s2 multiple-select-box form-control " multiple="multiple" style="width:100%;">
           {% for tag in tagList.tags %}
-            {% if 'กลุ่ม' in tag.name %}
-              <option value="{{ tag.id }}" {% if tag.id in PostForm.tags or (tag.id == 478) %} selected {% endif %}>{{ tag.name }}</option>
-            {% endif %}
-          {% endfor %}
+          {% if tag.series[0].slug == mod or tag.series[1].slug == mod %}
+          <option value="{{ tag.id }}" {% if tag.id == 478 %} selected {% endif %}>{{ tag.name }}</option>
+          {% endif %}
+        {% endfor %}
         </select>
       </div>
     </div>
@@ -109,11 +111,16 @@ tagsPage = 404
 <p>{{ PostForm.trans('general.unauthorized') }}</p>
 {% endif %}
 <!-- End postform-default.htm -->
+{% put styles %}
+  <link rel="stylesheet" href="{{ 'assets/css/select2.css'|theme }}">
+{% endput %}
 {% put scripts %}
   <!--<link rel="stylesheet" href="{{ 'assets/css/select2.css'|theme }}">
   <script src="{{ 'assets/js/select2.js'|theme }}"></script>-->
   <script type="text/javascript">
     $(".s2").select2({
+      tags:true
+
     });
   </script>
 {% endput %}

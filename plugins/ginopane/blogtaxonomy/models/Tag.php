@@ -93,7 +93,7 @@ class Tag extends ModelAbstract
      * @var array
      */
     public $rules = [
-        'name' => "required|unique:" . self::TABLE_NAME . "|min:2|regex:/^[\w\-\?!,.()\"`' ]+$/iu",
+        'name' => "required|unique:" . self::TABLE_NAME . "|min:2|regex:/^[\w\-\?!,.()\"`' ][ก-๛]+$/iu",
         'slug' => "required|unique:" . self::TABLE_NAME . "|min:2|regex:/^[\w\-]+$/iu"
     ];
 
@@ -105,9 +105,6 @@ class Tag extends ModelAbstract
         // Generate a URL slug for this model
         if (!$this->exists && !$this->slug) {
             $this->slug = Str::slug($this->name);
-            /*numthang added this because slug always empty because of the Thai alphabet*/
-            $this->slug = DB::table($this->table)->max('id') + 1;
-            /*end numthang*/
         }
     }
 

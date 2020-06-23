@@ -4,9 +4,11 @@ use Cms\Classes\ComponentBase;
 use Redirect;
 use System\Classes\PluginManager;
 use RainLab\Blog\Models\Post as BlogPost;
-use Bedard\BlogTags\Models\Tag;
 use Input;
 use DB;
+
+use GinoPane\BlogTaxonomy\Models\Series as Series;
+
 
 class PostForm extends ComponentBase {
 	use \FireUnion\BlogFront\Traits\Loaders;
@@ -54,9 +56,7 @@ class PostForm extends ComponentBase {
 
 	public function onRun() {
 		$this->runFor('form');
-
-		//dd($post->id);
-		/*numthang find current tags*/
+		/*Numthang get post current using tags*/
 		if($this->param('slug')) {
 			$query = BlogPost::where('slug', '=', $this->param('slug'))
 					->with('tags');
@@ -65,7 +65,7 @@ class PostForm extends ComponentBase {
 				$this->tags[] = $value['id'];
 			}
 		}
-		/*end numthang*/
+		/*end Numthang*/
 	}
 
 	/**
@@ -74,19 +74,51 @@ class PostForm extends ComponentBase {
 	 * @return array for a flash like error message if there is a problem with form validation
 	 */
 	public function onSave() {
-		//return false;
-		//dd(post());
-		if (!$result=$this->save()) {
+    /*Numthang added this because slug always empty because of the Thai alphabet*/
+    BlogPost::extend(function($model) {
+      $model->bindEvent('model.beforeValidate', function() use ($model) {
+        if(empty($model->slug))
+          $model->slug = DB::table('rainlab_blog_posts')->max('id') + 1;
+        if(post('evaluation_id') !== null)//fillable doesn't work at frontend
+          $model->evaluation_id = post('evaluation_id');
+      });
+    });
+ 		/*end Numthang*/
+     if (!$result=$this->save()) {
 			return null;
-		}
-		/*numthang insert tag*/
+    }
+    /*Numthang insert tag*/
 		post('id') ? $id = post('id') : $id = DB::table('rainlab_blog_posts')->max('id');
 		$post = BlogPost::find($id);
-		//delete all tags loop value
-		$post->tags()->detach();
-		//insert new tag relationship
-		$post->tags()->attach(post('tags'));
-		/*end numthang*/
+    $post->tags()->detach(); //delete all tags relation to post
+    if($tags = post('tags')) {
+      foreach($tags as $tagID) {
+        \GinoPane\BlogTaxonomy\Models\Tag::extend(function($model) {//extend beforevalidate method add unique slug
+          $model->rules = [//override validation no checking thai alphabet
+            'name' => "required|unique:" .$model->table. "|min:2|regex:/^[\w\-][ก-๛]+$/iu"
+          ];
+          $model->bindEvent('model.beforeValidate', function() use ($model) {
+            $model->slug = DB::table('ginopane_blogtaxonomy_tags')->max('id') + 1;
+          });
+        });
+        if(!is_numeric($tagID)) {//If get letter is new tag adding
+          $newTag = new \GinoPane\BlogTaxonomy\Models\Tag;
+          $newTag->name = $tagID;
+          $newTag->save();
+          $newTags[] = $newArray[] = $newTag->id;
+        } else {
+          $newArray[] = $tagID;
+        }
+      }
+      $post->tags()->attach($newArray);//attach all tags list
+      if(isset($newTags)) {//insert serie of mod eg: post, portfolio
+        empty($this->param('mod')) ? $mod = 'portfolio' : $mod = $this->param('mod');
+        $serie = Series::where('slug', $mod)->first();
+        #$serie->tags()->detach();
+        $serie->tags()->attach($newTags);//attach only new tags
+      }
+    }
+    /*end Numthang*/
 
 		// Redirect to the intended page after successful update
 		if(empty($this->param('slug')) || !post('published')) //create new blog

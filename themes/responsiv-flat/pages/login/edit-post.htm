@@ -1,5 +1,5 @@
 title = "Edit post"
-url = "/edit/post/:slug"
+url = "/edit/:mod|^\bpost\b|\bportfolio\b$/:slug"
 layout = "default"
 is_hidden = 0
 robot_index = "index"
@@ -19,13 +19,14 @@ postPage = "blog/post"
 [session]
 security = "user"
 redirect = "login/login"
-
-[tagList]
-orderBy = "name asc"
-limit = 0
-enableTagFilter = "never"
-tagPage = 404
-tagsPage = 404
+==
+<?php
+  function onStart() {
+    //redirect to portfolio edit page if category == 6
+    if($this->param('mod') == 'post' && in_array('6', $this->PostForm->postCategoryIds))
+      return Redirect::to('/edit/portfolio/'.$this->param('slug'));
+  }
+?>
 ==
 <section id="layout-title">
     <div class="container">
