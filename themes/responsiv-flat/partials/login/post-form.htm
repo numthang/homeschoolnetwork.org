@@ -119,7 +119,7 @@ public function onLoad() {
       <select name="tags[]" class="s2 multiple-select-box form-control" multiple="multiple" style="width:100%;">
         {% for tag in tagList.tags %}
           {% if tag.series[0].slug == mod or tag.series[1].slug == mod %}
-          <option value="{{ tag.id }}" {% if tag.id in PostForm.tags or (mod == 'portfolio' and tag.id == 478) %} selected {% endif %}>{{ tag.name }}</option>
+          <option value="{{ tag.id }}" {% if tag.id in PostForm.tags or ('add' in this.page.url and tag.id == 478) %} selected {% endif %}>{{ tag.name }}</option>
           {% endif %}
         {% endfor %}
       </select>
