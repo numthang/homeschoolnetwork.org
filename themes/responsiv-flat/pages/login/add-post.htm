@@ -19,20 +19,13 @@ postPage = "blog/post"
 [session]
 security = "user"
 redirect = "login/login"
-
-[tagList]
-orderBy = "name asc"
-limit = 0
-enableTagFilter = "never"
-tagPage = 404
-tagsPage = 404
 ==
 <?php
 function onStart() {
     use FireUnion\BlogFront\Models\Author as Author;
     if($user = Auth::getUser()) {
       $query = Author::where('user_id', '=', $user->id)->get();
-      if(!count($query)) {
+      if(!count($query)) {//if no author yet then register new author automatically
         $author = new Author;
         $author->user_id = $user->id;
         $author->admin_id = 2;
@@ -52,7 +45,6 @@ function onStart() {
       <h3>{% if this.param.mod == 'portfolio' %}{{ 'New portfolio'|_}}{% else %}{{ 'New post'|_ }}{% endif %}</h3>
     </div>
 </section>
-
 <div class="container">
   <div class="row">
     <div class="col-md-12">

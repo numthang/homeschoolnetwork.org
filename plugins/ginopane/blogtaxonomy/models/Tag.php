@@ -105,9 +105,6 @@ class Tag extends ModelAbstract
         // Generate a URL slug for this model
         if (!$this->exists && !$this->slug) {
             $this->slug = Str::slug($this->name);
-            /*numthang added this because slug always empty because of the Thai alphabet*/
-            $this->slug = DB::table($this->table)->max('id') + 1;
-            /*end numthang*/
         }
     }
 

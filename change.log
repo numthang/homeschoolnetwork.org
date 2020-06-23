@@ -1,7 +1,8 @@
-Try plugin
+ใส่กลุ่มร่องรอยกันเองได้ กรองโดย series portfolio กรณีเขียน port ไม่ใช่บทความ
 
-Do
-ทำให้โพสต์เลือกว่า
+Create own PostForm component
+autosave
+default Evaluation
 Posts ยังไม่สามารถ customize parameter ได้
 
 ===================================================================
@@ -108,9 +109,9 @@ $thumb_url = asset(config('lfm.assets_directory').'/images/icons/png/folder.png'
 Hard code changed
 
 //update slug as next id
-/plugins/rainlab/blog/models/Post.php
-/plugins/bedard/blogtags/models/Tag.php
-/plugins/ginopane/blogtaxonomy/models/Tag.php
+#/plugins/rainlab/blog/models/Post.php
+#/plugins/bedard/blogtags/models/Tag.php
+#/plugins/ginopane/blogtaxonomy/models/Tag.php
 /plugins/fireunion/blogfront/components/PostForm.php
 /plugins/flynsarmy/sociallogin/classes/UserManager.php
 
