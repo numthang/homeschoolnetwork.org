@@ -1,5 +1,5 @@
 title = "Tagged"
-url = "/blog/tagged/:id"
+url = "/blog/tagged/:id/:page?"
 layout = "default"
 is_hidden = 0
 robot_index = "index"
@@ -12,10 +12,12 @@ localeUrl[en] = "/tagged"
 tag = "{{ :id }}"
 orderBy = "published_at asc"
 page = "{{ :page }}"
-resultsPerPage = 10
+resultsPerPage = 20
 postPage = "blog/post"
 categoryPage = "blog/category"
 ==
+{% set posts = postsWithTag.posts %}
+
 <section id="layout-title">
     <div class="container">
         <h3>{{ 'Tagged'|_ }} "{{ postsWithTag.tag.name }}"</h3>
@@ -26,14 +28,30 @@ categoryPage = "blog/category"
     <div class="row">
         <div class="col-sm-12 col-md-9">
           {% partial 'ads/top' %}
-          {% if postsWithTag.posts | length %}
+          {% if posts | length %}
               <ul id="{{ postsWithTag.alias }}-list">
                   {% partial postsWithTag ~ '::list' %}
               </ul>
-          
-              <nav id="{{ postsWithTag.alias }}-pagination">
+              {% if posts.lastPage > 1 %}
+              <ul class="pagination">
+                  {% if posts.currentPage > 1 %}
+                      <li><a href="{{ this.page.baseFileName|page({ (postsWithTag.pageParam): (posts.currentPage-1) }) }}">&larr; Prev</a></li>
+                  {% endif %}
+    
+                  {% for page in 1..posts.lastPage %}
+                      <li class="{{ posts.currentPage == page ? 'active' : null }}">
+                          <a href="{{ this.page.baseFileName|page({ (postsWithTag.pageParam): page }) }}">{{ page }}</a>
+                      </li>
+                  {% endfor %}
+    
+                  {% if posts.lastPage > posts.currentPage %}
+                      <li><a href="{{ this.page.baseFileName|page({ (postsWithTag.pageParam): (posts.currentPage+1) }) }}">Next &rarr;</a></li>
+                  {% endif %}
+              </ul>
+              {% endif %}
+              <!--<nav id="{{ postsWithTag.alias }}-pagination">
                   {% partial postsWithTag ~ '::pagination' %}
-              </nav>
+              </nav>-->
           {% else %}
               {{ "ginopane.blogtaxonomy::lang.components.tag_posts.no_posts_message" | trans }}
           {% endif %}
