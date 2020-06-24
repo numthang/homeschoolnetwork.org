@@ -15,15 +15,35 @@ redirect = "login/login"
 paramCode = "code"
 forceSecure = 0
 
+[imageUploader]
+placeholderText = "Click or drag images to upload"
+maxSize = 5
+fileTypes = ".gif,.jpg,.jpeg,.png"
+imageWidth = 100
+imageHeight = 100
+imageMode = "crop"
+deferredBinding = 0
+
 [courses]
 results = 0
 byUserID = 0
 sortOrder = "name asc"
 ==
-<section id="layout-title">
+<?php
+  function onInit() {
+    use RainLab\User\Models\User;
+    $user = Auth::getUser();
+    $this->imageUploader->bindModel('avatar', User::find($user->id));
+}
+?>
+==
+<section id="">
   <div class="container">
     <div class="col-sm-12">
-      <h3><a href="/u/{{user.id}}"><img src="{% if user.facebook_id %} https://graph.facebook.com/{{ user.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" title="{{ user.name }}" class="avatar"></a> {{ user.name }} {{ user.surname }}</h3>
+      <div style="padding: 10px 0px 10px 00px;">
+        {% partial imageUploader ~ '::image-single' %}
+        <!--<h5>{{ user.name }} {{ user.surname }}</h5>-->
+      </div>
     </div>
   </div>
 </section>
@@ -106,6 +126,11 @@ sortOrder = "name asc"
                     <div class="form-group">
                       <label>{{ 'Facebook ID'|_ }}</label>
                       <input name="facebook_id" type="text" class="form-control" value="{{ user.facebook_id }}" readonly>
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      
                     </div>
                   </div>
                 </div>
