@@ -3,3 +3,6 @@
 1.0.2:
     - 'Extend featured post checkbox field'
     - migration100.php
+1.0.3:
+    - 'Extend ginopane_blogtaxonomy_tags owner id'
+    - migration103.php

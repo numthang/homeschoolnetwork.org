@@ -6,6 +6,7 @@ use File;
 use Rainlab\Blog\Controllers\Posts as PostsController;
 use Rainlab\Blog\Models\Post as PostModel;
 use System\Classes\PluginBase;
+use GinoPane\BlogTaxonomy\Models\Tag;
 
 /**
  * Blog Plugin Information File
@@ -85,6 +86,12 @@ class Plugin extends PluginBase
               'type' => 'fileupload',
               'mode' => 'file',
             ],
+          ]);
+        });
+
+        Tag::extend(function($model) {//กำหนด fillable field เพิ่ม
+          $model->addFillable([
+            'user_id'
           ]);
         });
       }

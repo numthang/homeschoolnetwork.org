@@ -6,9 +6,9 @@ use System\Classes\PluginManager;
 use RainLab\Blog\Models\Post as BlogPost;
 use Input;
 use DB;
-
+//Numthang added
 use GinoPane\BlogTaxonomy\Models\Series as Series;
-
+use Auth;
 
 class PostForm extends ComponentBase {
 	use \FireUnion\BlogFront\Traits\Loaders;
@@ -88,6 +88,7 @@ class PostForm extends ComponentBase {
 			return null;
     }
     /*Numthang insert tag*/
+    $user = Auth::getUser();
 		post('id') ? $id = post('id') : $id = DB::table('rainlab_blog_posts')->max('id');
 		$post = BlogPost::find($id);
     $post->tags()->detach(); //delete all tags relation to post
@@ -104,6 +105,7 @@ class PostForm extends ComponentBase {
         if(!is_numeric($tagID)) {//If get letter is new tag adding
           $newTag = new \GinoPane\BlogTaxonomy\Models\Tag;
           $newTag->name = $tagID;
+          $newTag->user_id = $user->id;
           $newTag->save();
           $newTags[] = $newArray[] = $newTag->id;
         } else {

@@ -1,5 +1,18 @@
 [viewBag]
+
+[builderDetails]
+modelClass = "RainLab\User\Models\User"
+identifierValue = "{{ id }}"
+modelKeyColumn = "id"
+displayColumn = "name"
+notFoundMessage = "Record not found"
 ==
-<a href="/u/{{ user.id }}">
-    <img src="{% if user.facebook_id %} https://graph.facebook.com/{{ user.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" title="{{ user.name }}" class="avatar">
-</a>
+{% set record = builderDetails.record %}
+<img src="
+    {% if record.avatar.path %} 
+      {{ record.avatar.path }}
+    {% elseif facebookID|length <= 17 and facebookID != 0 %}
+      https://graph.facebook.com/{{ facebookID }}/picture?type=normal
+    {% else %}
+      {{ 'assets/images/anonymous.jpg'|theme }} 
+    {% endif %}" title="{{ record.name }}" class="{{ style }}" onClick="{% if redirect %} location.href='/u/{{id}}'; {% endif %}">
