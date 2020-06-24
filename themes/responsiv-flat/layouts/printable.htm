@@ -21,6 +21,10 @@ description = "Printable layout"
       ]|theme }}"></script>
       <![endif]-->
       <link href="https://fonts.googleapis.com/css?family=Kanit|Pridi|Sarabun|Kodchasan:500&display=swap&subset=thai" rel="stylesheet">
+      <link href="{{ [
+        'assets/less/theme.less',
+        'assets/css/custom.css',
+        ]|theme }}" rel="stylesheet">
       <style>
         html {
           scroll-behavior: smooth;
@@ -34,6 +38,8 @@ description = "Printable layout"
         }
         h1,h2,h3,h4,h5 {
           line-height: 30px;
+          color: #7a8822;
+
         }
         .cover img {
           width: 100%;
@@ -76,7 +82,7 @@ description = "Printable layout"
           box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
         }
         a {
-          color: #2980b9;
+          color: #7a8822;
           text-decoration: none;
           transition: .25s;
         }
@@ -166,7 +172,12 @@ description = "Printable layout"
           color: #CCC; /* old IE */
           background-color: #CCC; /* Modern Browsers */
         }
+        .link-none {
+          pointer: none;
+        }
       </style>
+      <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
+
     </head>
     <body class="page-{{ this.page.id }} layout-{{ this.layout.id }}">
       <!-- Content -->

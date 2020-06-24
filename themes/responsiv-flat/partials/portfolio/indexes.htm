@@ -22,13 +22,15 @@ ownerID = "{{ owner }}"
 
 {% for tag in tags['name'] %}
   {% set tag_id = tags['id'][loop.index0] %}
-  <h3><a href="#port-{{ tags['id'][loop.index0] }}">กลุ่มประสบการณ์ <!--{{ loop.index }}--> :  {{ tag }}</a></h3>
+  <h3 style="font-size:28px;"><span class="fa fa-fw" aria-hidden="true" title="Copy to use google-wallet">&#xf292
+  </span><a href="#port-{{ tags['id'][loop.index0] }}">กลุ่มประสบการณ์ {{ loop.index }} :  {{ tag }}</a></h3>
   {% set parent = loop.index %}
   {% set continue = true %}
   {% set child = 1 %}
   {% for post in postsbytag if continue %}
     {% if(post.tag_id == tag_id) %}
-      <a href="#post-{{ post.slug }}"><!--{{ parent }}.{{ child }}--> &bull; {% set child = child+1 %} {{ post.title }}</a><br>
+      <h4 style="font-size:22px;"><a href="#post-{{ post.slug }}">{{ parent }}.{{ child }} <!--<span class="fa fa-fw" aria-hidden="true" title="Copy to use hashtag">&#xf1ee
+      </span>--> {% set child = child+1 %} {{ post.title }}</a></h4>
       {% set break = false %}
     {% else %}
       {% set break = true %}
