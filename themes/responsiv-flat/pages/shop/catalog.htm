@@ -42,7 +42,7 @@ function onEnd() {
   if($obCategory->preview_image)
     $this->page->og_image = $obCategory->preview_image->path; //จำเป็นต้องมีรูป preview ใน category ด้วย
   $this->page->custom_title = $obCategory->name;
-  $this->page->custom_og_title = $obCategory->name;
+  #$this->page->custom_og_title = $obCategory->name;
 }
 ?>
 ==
