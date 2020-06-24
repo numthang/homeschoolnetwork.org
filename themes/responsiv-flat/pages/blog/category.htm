@@ -19,6 +19,7 @@ postPage = "blog/post"
 <?php
 function onEnd() {
   $this->page->custom_title = $this->blogPosts->category->name;
+  $this->page->custom_description = $this->blogPosts->category->description;
 }
 ?>
 ==

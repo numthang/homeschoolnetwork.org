@@ -62,8 +62,10 @@ security = "all"
           <meta property="og:site_name" content="{{ SeoCmsPage.ogSiteName }}" />
       {% endif %}
 
-      {% if SeoCmsPage.ogDescription %}
-          <meta property="og:description" content="{{ SeoCmsPage.ogDescription }}" />
+      {% if this.page.custom_description %}
+        <meta property="og:description" content="{{ this.page.custom_description }}" />
+      {% elseif SeoCmsPage.ogDescription %}
+        <meta property="og:description" content="{{ SeoCmsPage.ogDescription }}" />
       {% endif %}
 
       {% if SeoCmsPage.ogFbAppId %}
