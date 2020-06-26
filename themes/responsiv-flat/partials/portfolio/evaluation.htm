@@ -28,6 +28,7 @@ ownerID = "{{ owner }}"
   {% set child = 1 %}
   {% for post in postsbytag if continue %}
     {% if(post.tag_id == tag_id and post.skip != 1) %}
+      <hr>
       <a href="/blog/{{post.slug}}" name="post-{{ post.slug }}">
         <h5 style="font-family: 'Kanit';  font-size:23px;"><!--{{ parent }}.{{ child }}--><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span> {% set child = child+1 %} {{ post.title }}</h5>
       </a>
