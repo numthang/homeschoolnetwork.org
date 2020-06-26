@@ -22,15 +22,14 @@ ownerID = "{{ owner }}"
 
 {% for tag in tags['name'] %}
   {% set tag_id = tags['id'][loop.index0] %}
-  <h3 style="font-family: 'Kanit'; font-size:28px; color:#34495e;"><a name="port-{{ tag_id }}" id="port-{{ tag_id }}"></a> <span class="glyphicon glyphicon-tags" aria-hidden="true"></span> กลุ่มประสบการณ์ {{ loop.index }} : {{ tag }}</h3>
+  <h4 style="font-family: 'Kanit'; font-size:28px; color:#34495e;"><a name="port-{{ tag_id }}" id="port-{{ tag_id }}"></a> <span class="glyphicon glyphicon-tags" aria-hidden="true"></span> กลุ่มประสบการณ์ <!--{{ loop.index }}--> : {{ tag }}</h4>
   {% set parent = loop.index %}
   {% set continue = true %}
   {% set child = 1 %}
   {% for post in postsbytag if continue %}
-    {% if(post.tag_id == tag_id) %}
+    {% if(post.tag_id == tag_id and post.skip != 1) %}
       <a href="/blog/{{post.slug}}" name="post-{{ post.slug }}">
-        <h3 style="font-family: 'Kanit';  font-size:23px;">{{ parent }}.{{ child }}<!--<span class="fa fa-fw" aria-hidden="true" title="Copy to use hashtag">&#xf1ee
-        </span>--> {% set child = child+1 %} {{ post.title }}</h3>
+        <h5 style="font-family: 'Kanit';  font-size:23px;"><!--{{ parent }}.{{ child }}--><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span> {% set child = child+1 %} {{ post.title }}</h5>
       </a>
       {% if post.excerpt %}
         <blockquote>

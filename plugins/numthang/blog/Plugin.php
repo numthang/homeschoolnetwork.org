@@ -14,7 +14,7 @@ use GinoPane\BlogTaxonomy\Models\Tag;
 class Plugin extends PluginBase
 {
 
-    public $require = ['RainLab.Blog'];
+    public $require = ['RainLab.Blog', 'GinoPane.BlogTaxonomy'];
 
     /**
      * Returns information about this plugin.
@@ -79,16 +79,9 @@ class Plugin extends PluginBase
               'tab' => 'Files',
               'type' => 'fileupload',
               'mode' => 'file',
-            ],
-            'featured_files' => [
-              'label' => '',
-              'tab' => 'Files',
-              'type' => 'fileupload',
-              'mode' => 'file',
-            ],
+            ]
           ]);
         });
-
         Tag::extend(function($model) {//กำหนด fillable field เพิ่ม
           $model->addFillable([
             'user_id'
