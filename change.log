@@ -1,8 +1,9 @@
-gallery in blog detail
-หน้า portfolio เลือกตามปี show หน้าแรกด้วย banner ใหญ่ๆ โดยสุ่มเลือกเอาจากรูปของ user สักรูป เพื่อไม่ให้ gallery เละ
-autosave
-default Evaluation
-สร้าง component postform extended ใน blog plugin
+- เรียงรายงานใหม่ไม่ให้ซ้ำซ้อนแบบนี้
+- gallery in blog detail
+- หน้า portfolio เลือกตามปี show หน้าแรกด้วย banner ใหญ่ๆ โดยสุ่มเลือกเอาจากรูปของ user สักรูป เพื่อไม่ให้ gallery เละ
+- autosave
+- default Evaluation
+- สร้าง component postform extended ใน blog plugin
 ===================================================================
 Future
 1. recent tweet

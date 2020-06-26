@@ -116,7 +116,7 @@ class Posts extends RainLabPosts
     protected function sortPostsbyTags() {
       #$category = $this->category ? $this->category->id : null;
       $tags = $this->tags;
-      $i = 0; $list = array();
+      $i = 0; $list = array(); $already = array();
       #dump($this->property('userID')); #dump($this->property('userID')); #dump($this->property('ownerID')); #dump($this->property('evaluationID'));
       foreach ($tags['id'] as $key1 => $tag_id) {
         $posts = Tag::Where('id', $tag_id)
@@ -152,6 +152,12 @@ class Posts extends RainLabPosts
           $list[$i]['title'] = $value->title;
           $list[$i]['excerpt'] = $value->excerpt;
           $list[$i]['content_html'] = $value->content_html;
+          if(in_array($value->id, $already))
+            $list[$i]['skip'] = 1;
+          else {
+            $already[] = $value->id;
+            $list[$i]['skip'] = 0;
+          }
           #$list[$i]['featured_images'] = $value->featured_images[0]->path;
           for($j=0;$j<count($value->featured_images);$j++) {
             $list[$i]['featured_images'][] = $value->featured_images[$j]->path;
