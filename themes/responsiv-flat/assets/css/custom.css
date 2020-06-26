@@ -27,6 +27,15 @@
   cursor:pointer;
   width:100px;
 }
+.avatar-whatson {
+  border-radius: 100px;
+  height: 60px;
+  cursor:pointer;
+  width: 60px;
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.1);
+  margin-top: 15px;
+  margin-left: 15px;
+}
 .user-menu {
   font-size: 15px;
   margin-left: 5px;
