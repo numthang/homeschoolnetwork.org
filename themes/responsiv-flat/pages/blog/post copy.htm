@@ -1,0 +1,293 @@
+title = "Post"
+url = "/blog/:slug"
+layout = "default"
+meta_title = "Post"
+meta_description = "Post description"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[blogPost]
+slug = "{{ :slug }}"
+categoryPage = "blog/category"
+postPage = "blog/post"
+
+[SeoBlogPost]
+post = "post"
+
+[account]
+paramCode = "code"
+forceSecure = 0
+
+[ssbuttonsssb]
+js = 0
+facebook = 1
+twitter = 1
+google+ = 1
+tumblr = 1
+pinterest = 1
+pocket = 0
+reddit = 0
+linkedin = 0
+wordpress = 0
+pinboard = 0
+email = 1
+order_facebook = 1
+order_twitter = 2
+order_google+ = 3
+order_tumblr = 4
+order_pinterest = 5
+order_pocket = 6
+order_reddit = 7
+order_linkedin = 8
+order_wordpress = 9
+order_pinboard = 10
+order_email = 11
+theme = "social_flat_rounded_rects_svg"
+
+[related]
+slug = "{{ :slug }}"
+
+[registerVisit]
+
+[tagList]
+displayEmpty = 1
+fetchPosts = 1
+orderBy = "name asc"
+postSlug = "{{ :slug }}"
+includeSeriesTags = 1
+fetchSeriesPostCount = 1
+limit = 10
+enableTagFilter = "never"
+tagPage = 404
+tagsPage = 404
+debugOutput = 0
+==
+<?php
+function onEnd() {
+    if(!is_object($this->post))
+      return $this->controller->run('404');
+
+    #$this->page->meta_title = $this->post->title;
+    /*$this->post->excerpt == null ? $description = substr(strip_tags($this->post->content), 0, 500) : $description = strip_tags($this->post->excerpt);
+    $this->page->og_description = $this->page->meta_description = $description;
+
+    $_post = $this->components['blogPost'];
+    if ($_post->featured_images->first()) {
+        $this->page->og_image = $_post->featured_images->first()->path;
+    }*/
+    #dump($this->post->excerpt);
+
+    preg_match('#(\.be/|/embed/|/v/|/watch\?v=)([A-Za-z0-9_-]{5,11})#', $this->post->excerpt.$this->post->content_html, $matches);
+    if(isset($matches[2]) && $matches[2] != ''){
+      $this->page->og_image = 'https://img.youtube.com/vi/'.$matches[2].'/hqdefault.jpg';
+    }
+    else if(count($this->post->featured_images))
+      $this->page->og_image = $this->post->featured_images[0]->path;
+  }
+?>
+==
+{% set post = blogPost.post %}
+{# generated custom tag #}
+{% component 'SeoBlogPost' data=post %}
+<section id="layout-title">
+  <div class="container">
+    <h5><img src="{% if post.author.facebook_id|length <= 17 and post.author.facebook_id != 0  %} https://graph.facebook.com/{{ post.author.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" alt="{{ post.author.name }}" class="avatar" onClick="window.location.href = '/u/{{post.author_id}}';"> {{ post.title|raw }}
+      {% if post.author.id == user.id %}
+        <a href="/edit/post/{{ post.slug }}"> {{ 'Edit'|_ }}</a>
+      {% endif %}
+      {% if can('edit_post') %}
+        <a href="/backend/rainlab/blog/posts/update/{{ post.id }}"> {{ 'Advance edit'|_ }}</a>
+      {% endif %}
+    </h5>
+  </div>
+</section>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+      <!-- Blog Post #1 -->
+      <div class="blog">
+        <div class="blog-desc">
+          {% if post.excerpt %}
+            <blockquote>
+              {{ post.excerpt|raw }}
+            </blockquote>
+          {% else %}
+            {{ post.excerpt|raw }}
+          {% endif %}
+          {% if post.featured_images.count %}
+          <div class="project-images">
+            <div class="image">
+              <img data-src="{{ post.featured_images[0].filename }}"  src="{{ post.featured_images[0].path | resize(1280, 1280) }}" class="img-responsive" alt="{{ post.featured_images[0].description }}" />
+            </div>
+            <div class="row">
+              {% for image in post.featured_images %}
+                {% if loop.index0 > 0 %}
+                  <div class="col-sm-4 col-md-3">
+                    <img data-src="{{ image.filename }}"  src="{{ image.path | resize(420, 420) }}" class="img-responsive" style="width:100%"  alt="{{ image.description }}" />
+                  </div>
+                  {% put meta %}
+                  <meta property="og:image" content="{{ image.path | resize(650, 650) }}" />
+                  {% endput %}
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+          {% endif %}
+          <p class="text-muted" align="right">by <a href="/u/{{post.author_id}}">{{ post.author.name }}</a> on {{ post.published_at|date('M d, Y') }}</p>
+
+          <hr />
+          <div align="right">{% component 'ssbuttonsssb' %}</div>
+          <div align="left" style="text-align:left;">{% partial "ads/in-article" %}</div>
+          {{ post.content_html|raw }}
+          <p class="info">
+            Posted
+            {% if post.categories.count %} in
+                {% for category in post.categories %}
+                    <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+                {% endfor %}
+            {% endif %}
+          </p>
+          <p class="info">
+            <h4>{{ 'Tags'|_ }} ({{ 'Portfolio groups'|_ }})</h4>
+            {% set tags = tagList.tags %}
+
+            {% if tagList.tagFilterEnabled %}
+                {% set searchInputId = tagList.alias ~ "-filter" %}
+                {% set tagSectionId = tagList.alias ~ "-tags" %}
+
+                <!-- Search form -->
+                <div class="md-form mb-3">
+                    <input id="{{ searchInputId }}" class="form-control" type="text" placeholder="{{ "Search tags"|_ }}" aria-label="Search tags">
+                </div>
+
+                {% put scripts %}
+                    <script type="application/javascript">
+                        $(document).ready(function() {
+                            $(function() {
+                                var $input = $('input#{{ searchInputId }}'),
+                                    $context = $('div#{{ tagSectionId }}').find("a.list-group-item");
+                                $input.on("input", function() {
+                                    var term = $(this).val();
+                                    $context.show().unmark();
+                                    if (term) {
+                                        $context.mark(term, {
+                                            done: function() {
+                                                $context.not(":has(mark)").hide();
+                                            }
+                                        });
+                                    }
+                                });
+                            });
+                        });
+                    </script>
+                {% endput %}
+
+                <a href="{{ tagList.tagsPageUrl }}">{{ "ginopane.blogtaxonomy::lang.components.tag_list.all_tags_link" | trans }}</a>
+            {% endif %}
+
+            {% if tags | length %}
+                <div class="list-group" id="{{ tagSectionId }}">
+                    {% for item in tags %}
+                        {% set postCount = item.posts_count %}
+                        <a href="/blog/tagged/{{ item.id }}" class="">
+                            {{ item.name }}
+                            {% if postCount %}
+                                <span class="badge">{{ postCount }}</span>
+                            {% endif %}
+                        </a>
+                    {% endfor %}
+                </div>
+            {% else %}
+                {{ "ginopane.blogtaxonomy::lang.components.tag_list.no_tags_message" | trans }}
+            {% endif %}
+          </p>          
+          <h4>{{ 'Related posts'|_ }}</h4>
+          <ul class="related-posts">
+              {% for relate in related %}
+              {% set image = relate.featured_images.first %}
+              <li>
+                  <a href="{{url('/blog', {'seo': relate.slug})}}" title="{{relate.title}}">
+                    {{relate.title}}
+                  </a>
+              </li>
+              {% endfor %}
+          </ul>
+          <ul class="related-posts">
+            {% for Post in blogRelated.posts %}
+            <li>  <a href="{{Post.url}}">{{ Post.title }}</a></li>
+            {% endfor %}
+          </ul>
+          {% partial 'ads/matched-content' %}
+        </div>
+      </div>
+      <!-- Pagination -->
+      <ul class="pager pull-right">
+        {% if post.nextPost.slug  %}
+          <li class="previous">
+            <a href="/blog/{{ post.nextPost.slug }}">
+            <span class="fui-arrow-left"></span>
+            Previous
+            </a>
+          </li>
+        {% endif %}
+        {% if post.previousPost.slug %}
+          <li class="next">
+            <a href="/blog/{{ post.previousPost.slug }}">
+            Next
+            <span class="fui-arrow-right"></span>
+            </a>
+          </li>
+        {% endif %}
+      </ul>
+      <div class="clearfix"></div>
+      <div id="disqus_thread"></div>
+      <script>
+
+      /**
+      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+      var disqus_config = function () {
+      this.page.url = '{{ ''| page({ filter_slug:slug_var, filter_id:id_var }) }}';  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = {{ post.id }}; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      };
+
+      (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://homeschoolnetwork.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+      })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <script id="dsq-count-scr" src="//homeschoolnetwork.disqus.com/count.js" async></script>
+    </div>
+  </div>
+</div>
+
+{% put styles %}
+  <link href="{{ [
+    'assets/vendor/slick/slick.css',
+  ]|theme }}" rel="stylesheet">
+{% endput %}
+{% put scripts %}
+  <script src="{{ [
+    'assets/vendor/slick/slick.js',
+  ]|theme }}"></script>
+  <script>
+    $(document).ready(function() {
+      $('#projectImages').slick({
+        dots: true,
+        infinite: true,
+        speed: 1000,
+        fade: true,
+        cssEase: 'linear',
+        slidesToShow: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        pauseOnHover: true
+      });
+    })
+  </script>
+{% endput %}

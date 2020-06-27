@@ -35,7 +35,9 @@ tagsPage = 404
   <!--<input type="hidden" name="tags[0]" value="478">-->
   <div class="row">
     <div class="col-sm-3 col-xs-3">
-      <a href="/u/{{ user.id }}"><img src="{% if user.facebook_id|length <= 17 and user.facebook_id != 0 %} https://graph.facebook.com/{{ user.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" title="{{ user.name }}" class="avatar" style="margin-left:15px; margin-top:15px;"></a>
+      <a href="/u/{{ user.id }}">
+        {% partial 'user/avatar' id=user.id facebookID=user.facebook_id style='avatar-whatson' redirect=0 %}
+      </a>
     </div>
     <div class="col-sm-9 col-xs-9">
       <div class="form-group">

@@ -36,16 +36,17 @@ function onEnd() {
           {% set i = 0 %}
           {% for post in posts %}
           <!-- Blog Post -->
-            <h6><img src="{% if post.author.facebook_id|length <= 17 and post.author.facebook_id != 0  %} https://graph.facebook.com/{{ post.author.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" class="avatar-sm" onClick="window.location.href = '/u/{{post.author_id}}';">
-            <a href="{{ post.url }}">{{ post.title }}</a> {% if post.author.id == user.id %} <a href="/edit/post/{{ post.slug }}">{{ 'Edit'|_ }}</a> {% endif %} <span class="text-muted">{{ 'by'|_ }} <a href="/u/{{post.author_id}}">{{ post.author.name }}</a> {{ 'on'|_ }} {{ post.updated_at|date('M d, Y') }}</span></h6>
-            <p class="excerpt">
-              {% if post.excerpt %}
-                <blockquote>
-                  {{ post.excerpt|raw }}
-                </blockquote>
-              {% else %}
-              {% endif %}
-            </p>
+            <h6>
+              {% partial 'user/avatar' id=post.author_id facebookID=post.author.facebook_id style='avatar-sm' redirect=1 %}
+              <a href="{{ post.url }}">{{ post.title }}</a> {% if post.author.id == user.id %} <a href="/edit/post/{{ post.slug }}">{{ 'Edit'|_ }}</a> {% endif %} <span class="text-muted">{{ 'by'|_ }} <a href="/u/{{post.author_id}}">{{ post.author.name }}</a> {{ 'on'|_ }} {{ post.updated_at|date('M d, Y') }}</span></h6>
+              <p class="excerpt">
+                {% if post.excerpt %}
+                  <blockquote>
+                    {{ post.excerpt|raw }}
+                  </blockquote>
+                {% else %}
+                {% endif %}
+              </p>
               <!--<p class="excerpt">{{ post.summary|raw }}</p>
               <a href="{{ post.url }}"><img class="img-responsive" src="{{ post.featured_images[0].path }}" alt=""></a>
               <p class="info">
