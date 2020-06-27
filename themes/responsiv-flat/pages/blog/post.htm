@@ -111,17 +111,17 @@ function onEnd() {
 </section>
 
 <div class="container">
-  <div id="projectImages" class="project-images">
+  <div id="projectImages" class="project-images" style="height: auto;">
     {% if post.featured_images.count %}
       <div>
-        <div class="image"><img data-src="{{ post.featured_images[0].filename }}"  src="{{ post.featured_images[0].path | resize(1140, 485) }}" class="img-responsive" alt="{{ post.featured_images[0].description }}" /></div>
+        <div class="image"><img data-src="{{ post.featured_images[0].filename }}"  src="{{ post.featured_images[0].path | resize(0, 600) }}" class="img-responsive" alt="{{ post.featured_images[0].description }}" /></div>
         <div class="caption">Classic vintage</div>
       </div>
       
       {% for image in post.featured_images %}
         {% if loop.index0 > 0 %}
           <div>
-            <div class="image"><img data-src="{{ image.filename }}"  src="{{ image.path | resize(1140, 485) }}" class="img-responsive" alt="{{ image.description }}" /></div>
+            <div class="image"><img data-src="{{ image.filename }}"  src="{{ image.path | resize(0, 600) }}" class="img-responsive" alt="{{ image.description }}" /></div>
             <div class="caption">Classic vintage</div>
           </div>
           {% put meta %}
@@ -135,13 +135,7 @@ function onEnd() {
     <div class="col-md-9">
       <!-- Project description -->
       <div class="project-description">
-        
-        <hr />
         {% partial "ads/in-article" %}
-        {{ post.content_html|raw }}
-        {% partial 'ads/matched-content' %}
-        <!-- Quote -->
-        <h4 class="headline"><span>{{ 'Highlight'|_ }}</span></h4>
         {% if post.excerpt %}
           <blockquote>
             {{ post.excerpt|raw }}
@@ -150,6 +144,8 @@ function onEnd() {
         {% else %}
           {{ post.excerpt|raw }}
         {% endif %}
+        {{ post.content_html|raw }}        
+        {% partial 'ads/matched-content' %}
 
         <!-- Pagination -->
         <ul class="pager pull-right">
