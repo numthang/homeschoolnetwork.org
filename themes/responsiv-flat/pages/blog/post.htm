@@ -20,12 +20,12 @@ paramCode = "code"
 forceSecure = 0
 
 [ssbuttonsssb]
-js = 0
+js = 1
 facebook = 1
 twitter = 1
 google+ = 1
 tumblr = 1
-pinterest = 1
+pinterest = 0
 pocket = 0
 reddit = 0
 linkedin = 0
@@ -43,7 +43,7 @@ order_linkedin = 8
 order_wordpress = 9
 order_pinboard = 10
 order_email = 11
-theme = "social_flat_rounded_rects_svg"
+theme = "flat_web_icon_set_color"
 
 [related]
 slug = "{{ :slug }}"
@@ -62,6 +62,12 @@ enableTagFilter = "never"
 tagPage = 404
 tagsPage = 404
 debugOutput = 0
+
+[relatedPosts]
+slug = "{{ :slug }}"
+limit = 0
+orderBy = "published_at asc"
+postPage = "blog/post"
 ==
 <?php
 function onEnd() {
@@ -92,7 +98,8 @@ function onEnd() {
 {% component 'SeoBlogPost' data=post %}
 <section id="layout-title">
   <div class="container">
-    <h5><img src="{% if post.author.facebook_id|length <= 17 and post.author.facebook_id != 0  %} https://graph.facebook.com/{{ post.author.facebook_id }}/picture?type=normal {% else %} {{ 'assets/images/team/anonymous.jpg'|theme }} {% endif %}" alt="{{ post.author.name }}" class="avatar" onClick="window.location.href = '/u/{{post.author_id}}';"> {{ post.title|raw }}
+    <h5>
+      {% partial 'user/avatar' id=post.author_id facebookID=post.author.facebook_id style='avatar' redirect=1 %} {{ post.title|raw }}
       {% if post.author.id == user.id %}
         <a href="/edit/post/{{ post.slug }}"> {{ 'Edit'|_ }}</a>
       {% endif %}
@@ -102,170 +109,187 @@ function onEnd() {
     </h5>
   </div>
 </section>
+
 <div class="container">
-  <div class="row">
-    <div class="col-sm-12 col-md-12">
-      <!-- Blog Post #1 -->
-      <div class="blog">
-        <div class="blog-desc">
-          {% if post.excerpt %}
-            <blockquote>
-              {{ post.excerpt|raw }}
-            </blockquote>
-          {% else %}
-            {{ post.excerpt|raw }}
-          {% endif %}
-          {% if post.featured_images.count %}
-          <div class="project-images">
-            <div class="image">
-              <img data-src="{{ post.featured_images[0].filename }}"  src="{{ post.featured_images[0].path | resize(1280, 1280) }}" class="img-responsive" alt="{{ post.featured_images[0].description }}" />
-            </div>
-            <div class="row">
-              {% for image in post.featured_images %}
-                {% if loop.index0 > 0 %}
-                  <div class="col-sm-4 col-md-4">
-                    <img data-src="{{ image.filename }}"  src="{{ image.path | resize(420, 420) }}" class="img-responsive" style="height:250px;"  alt="{{ image.description }}" />
-                  </div>
-                  {% put meta %}
-                  <meta property="og:image" content="{{ image.path | resize(650, 650) }}" />
-                  {% endput %}
-                {% endif %}
-              {% endfor %}
-            </div>
+  <div id="projectImages" class="project-images">
+    {% if post.featured_images.count %}
+      <div>
+        <div class="image"><img data-src="{{ post.featured_images[0].filename }}"  src="{{ post.featured_images[0].path | resize(1140, 485) }}" class="img-responsive" alt="{{ post.featured_images[0].description }}" /></div>
+        <div class="caption">Classic vintage</div>
+      </div>
+      
+      {% for image in post.featured_images %}
+        {% if loop.index0 > 0 %}
+          <div>
+            <div class="image"><img data-src="{{ image.filename }}"  src="{{ image.path | resize(1140, 485) }}" class="img-responsive" alt="{{ image.description }}" /></div>
+            <div class="caption">Classic vintage</div>
           </div>
+          {% put meta %}
+          <meta property="og:image" content="{{ image.path | resize(650, 650) }}" />
+          {% endput %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  </div>
+  <div class="row">
+    <div class="col-md-9">
+      <!-- Project description -->
+      <div class="project-description">
+        
+        <hr />
+        {% partial "ads/in-article" %}
+        {{ post.content_html|raw }}
+        {% partial 'ads/matched-content' %}
+        <!-- Quote -->
+        <h4 class="headline"><span>{{ 'Highlight'|_ }}</span></h4>
+        {% if post.excerpt %}
+          <blockquote>
+            {{ post.excerpt|raw }}
+            <footer>{{ post.author.name }} {{ post.author.surname }} {{ 'in'|_ }} <cite title="Source Title">{{ this.page.url }} </cite></footer>
+          </blockquote>
+        {% else %}
+          {{ post.excerpt|raw }}
+        {% endif %}
+
+        <!-- Pagination -->
+        <ul class="pager pull-right">
+          {% if post.nextPost.slug  %}
+            <li class="previous">
+              <a href="/blog/{{ post.nextPost.slug }}">
+              <span class="fui-arrow-left"></span>
+              Previous
+              </a>
+            </li>
           {% endif %}
-          <p class="text-muted" align="right">by <a href="/u/{{post.author_id}}">{{ post.author.name }}</a> on {{ post.published_at|date('M d, Y') }}</p>
+          {% if post.previousPost.slug %}
+            <li class="next">
+              <a href="/blog/{{ post.previousPost.slug }}">
+              Next
+              <span class="fui-arrow-right"></span>
+              </a>
+            </li>
+          {% endif %}
+        </ul>
+        <div class="clearfix"></div>
+        <div id="disqus_thread"></div>
+        <script>
 
-          <hr />
-          <div align="right">{% component 'ssbuttonsssb' %}</div>
-          <div align="left" style="text-align:left;">{% partial "ads/in-article" %}</div>
-          {{ post.content_html|raw }}
-          <p class="info">
-            Posted
-            {% if post.categories.count %} in
-                {% for category in post.categories %}
-                    <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
-                {% endfor %}
-            {% endif %}
-          </p>
-          <p class="info">
-            <h4>{{ 'Tags'|_ }} ({{ 'Portfolio groups'|_ }})</h4>
-            {% set tags = tagList.tags %}
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
 
-            {% if tagList.tagFilterEnabled %}
-                {% set searchInputId = tagList.alias ~ "-filter" %}
-                {% set tagSectionId = tagList.alias ~ "-tags" %}
+        var disqus_config = function () {
+        this.page.url = '{{ ''| page({ filter_slug:slug_var, filter_id:id_var }) }}';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = {{ post.id }}; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
 
-                <!-- Search form -->
-                <div class="md-form mb-3">
-                    <input id="{{ searchInputId }}" class="form-control" type="text" placeholder="{{ "Search tags"|_ }}" aria-label="Search tags">
-                </div>
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://homeschoolnetwork.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <script id="dsq-count-scr" src="//homeschoolnetwork.disqus.com/count.js" async></script>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div>{% component 'ssbuttonsssb' %}</div>
+      <!-- Project information -->
+      <p class="info">
+        <p class="text-muted">by <a href="/u/{{post.author_id}}">{{ post.author.name }}</a> on {{ post.published_at|date('M d, Y') }}</p>
+        {{ 'Posted'|_ }}
+        {% if post.categories.count %} in
+          {% for category in post.categories %}
+            <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+          {% endfor %}
+        {% endif %}
+      </p>
+      <p class="info">
+        <h6>{{ 'Tags'|_ }}</h6>
+        {% set tags = tagList.tags %}
 
-                {% put scripts %}
-                    <script type="application/javascript">
-                        $(document).ready(function() {
-                            $(function() {
-                                var $input = $('input#{{ searchInputId }}'),
-                                    $context = $('div#{{ tagSectionId }}').find("a.list-group-item");
-                                $input.on("input", function() {
-                                    var term = $(this).val();
-                                    $context.show().unmark();
-                                    if (term) {
-                                        $context.mark(term, {
-                                            done: function() {
-                                                $context.not(":has(mark)").hide();
-                                            }
-                                        });
-                                    }
-                                });
+        {% if tagList.tagFilterEnabled %}
+            {% set searchInputId = tagList.alias ~ "-filter" %}
+            {% set tagSectionId = tagList.alias ~ "-tags" %}
+
+            <!-- Search form -->
+            <div class="md-form mb-3">
+                <input id="{{ searchInputId }}" class="form-control" type="text" placeholder="{{ "Search tags"|_ }}" aria-label="Search tags">
+            </div>
+
+            {% put scripts %}
+                <script type="application/javascript">
+                    $(document).ready(function() {
+                        $(function() {
+                            var $input = $('input#{{ searchInputId }}'),
+                                $context = $('div#{{ tagSectionId }}').find("a.list-group-item");
+                            $input.on("input", function() {
+                                var term = $(this).val();
+                                $context.show().unmark();
+                                if (term) {
+                                    $context.mark(term, {
+                                        done: function() {
+                                            $context.not(":has(mark)").hide();
+                                        }
+                                    });
+                                }
                             });
                         });
-                    </script>
-                {% endput %}
+                    });
+                </script>
+            {% endput %}
 
-                <a href="{{ tagList.tagsPageUrl }}">{{ "ginopane.blogtaxonomy::lang.components.tag_list.all_tags_link" | trans }}</a>
-            {% endif %}
+            <a href="{{ tagList.tagsPageUrl }}">{{ "ginopane.blogtaxonomy::lang.components.tag_list.all_tags_link" | trans }}</a>
+        {% endif %}
 
-            {% if tags | length %}
-                <div class="list-group" id="{{ tagSectionId }}">
-                    {% for item in tags %}
-                        {% set postCount = item.posts_count %}
-                        <a href="/blog/tagged/{{ item.id }}" class="">
-                            {{ item.name }}
-                            {% if postCount %}
-                                <span class="badge">{{ postCount }}</span>
-                            {% endif %}
-                        </a>
-                    {% endfor %}
-                </div>
-            {% else %}
-                {{ "ginopane.blogtaxonomy::lang.components.tag_list.no_tags_message" | trans }}
-            {% endif %}
-          </p>          
-          <h4>{{ 'Related posts'|_ }}</h4>
-          <ul class="related-posts">
-              {% for relate in related %}
-              {% set image = relate.featured_images.first %}
-              <li>
-                  <a href="{{url('/blog', {'seo': relate.slug})}}" title="{{relate.title}}">
-                    {{relate.title}}
-                  </a>
-              </li>
-              {% endfor %}
-          </ul>
-          <ul class="related-posts">
-            {% for Post in blogRelated.posts %}
-            <li>  <a href="{{Post.url}}">{{ Post.title }}</a></li>
-            {% endfor %}
-          </ul>
-          {% partial 'ads/matched-content' %}
+        {% if tags | length %}
+        <div class="list-group" id="{{ tagSectionId }}">
+          {% for item in tags %}
+            {% set postCount = item.posts_count %}
+            <span class="fa fa-fw" aria-hidden="true" title="Copy to use hashtag">&#xf292
+            </span>
+              <a href="/blog/tagged/{{ item.id }}" class="">
+              {{ item.name }}
+              {% if postCount %}
+                <span class="badge">{{ postCount }}</span>
+              {% endif %}
+              </a><br>
+          {% endfor %}
         </div>
-      </div>
-      <!-- Pagination -->
-      <ul class="pager pull-right">
-        {% if post.nextPost.slug  %}
-          <li class="previous">
-            <a href="/blog/{{ post.nextPost.slug }}">
-            <span class="fui-arrow-left"></span>
-            Previous
-            </a>
-          </li>
+        {% else %}
+          {{ "ginopane.blogtaxonomy::lang.components.tag_list.no_tags_message" | trans }}
         {% endif %}
-        {% if post.previousPost.slug %}
-          <li class="next">
-            <a href="/blog/{{ post.previousPost.slug }}">
-            Next
-            <span class="fui-arrow-right"></span>
-            </a>
-          </li>
-        {% endif %}
+      </p>          
+      <h6>{{ 'Related posts by category'|_ }}</h6>
+      <ul class="related-posts">
+        {% for relate in related %}
+        {% set image = relate.featured_images.first %}
+        <li>
+          <span class="fa fa-fw" aria-hidden="true">&#xf040;</span> <a href="{{url('/blog', {'seo': relate.slug})}}" title="{{relate.title}}">
+            {{relate.title}}
+          </a>
+        </li>
+        {% endfor %}
       </ul>
-      <div class="clearfix"></div>
-      <div id="disqus_thread"></div>
-      <script>
-
-      /**
-      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-
-      var disqus_config = function () {
-      this.page.url = '{{ ''| page({ filter_slug:slug_var, filter_id:id_var }) }}';  // Replace PAGE_URL with your page's canonical URL variable
-      this.page.identifier = {{ post.id }}; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-      };
-
-      (function() { // DON'T EDIT BELOW THIS LINE
-      var d = document, s = d.createElement('script');
-      s.src = 'https://homeschoolnetwork.disqus.com/embed.js';
-      s.setAttribute('data-timestamp', +new Date());
-      (d.head || d.body).appendChild(s);
-      })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-      <script id="dsq-count-scr" src="//homeschoolnetwork.disqus.com/count.js" async></script>
+      <h6>{{ 'Related posts by tags'|_ }}</h6>
+      {% if relatedPosts.posts | length %}
+      <ul class="related-posts">
+        {% for post in relatedPosts.posts %}
+          <li>
+            <span class="fa fa-fw" aria-hidden="true">&#xf040;</span><a href="{{ post.url }}">{{ post.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+        {{ "ginopane.blogtaxonomy::lang.components.related_posts.no_posts_message" | trans }}
+      {% endif %}
+      <br>
+      <a href="#" class="btn btn-info btn-lg btn-block">Project page</a>
     </div>
   </div>
 </div>
-
 {% put styles %}
   <link href="{{ [
     'assets/vendor/slick/slick.css',
