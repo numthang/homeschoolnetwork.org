@@ -111,7 +111,7 @@ function onEnd() {
 </section>
 
 <div class="container">
-  <div id="projectImages" class="project-images" style="height: auto;">
+  <div id="projectImages" class="project-images" align="center">
     {% if post.featured_images.count %}
       <div>
         <div class="image"><img data-src="{{ post.featured_images[0].filename }}"  src="{{ post.featured_images[0].path | resize(0, 600) }}" class="img-responsive" alt="{{ post.featured_images[0].description }}" /></div>
@@ -301,12 +301,12 @@ function onEnd() {
         dots: true,
         infinite: true,
         speed: 1000,
-        fade: true,
-        cssEase: 'linear',
+        fade: false,
         slidesToShow: 1,
         autoplay: true,
         autoplaySpeed: 3000,
-        pauseOnHover: true
+        pauseOnHover: true,
+        adaptiveHeight: true
       });
     })
   </script>
