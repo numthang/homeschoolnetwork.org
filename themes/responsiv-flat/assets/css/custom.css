@@ -323,3 +323,6 @@ blockquote p {
 .caption {
   font-family: Kanit;
 }
+footer {
+  word-break: break-all;
+}
