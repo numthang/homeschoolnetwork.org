@@ -1,14 +1,16 @@
+[viewBag]
+
 [blogCategories]
 slug = "{{ :slug }}"
 displayEmpty = 1
 categoryPage = "blog/category"
 
 [tagList]
-orderBy = "name asc"
-limit = 0
+orderBy = "random"
+limit = 10
 enableTagFilter = "never"
-
-[viewBag]
+tagPage = 404
+tagsPage = 404
 ==
 <!-- Search -->
 <form role="form">
