@@ -1,7 +1,7 @@
 - หน้า portfolio เลือกตามปี show หน้าแรกด้วย banner ใหญ่ๆ โดยสุ่มเลือกเอาจากรูปของ user สักรูป เพื่อไม่ให้ gallery เละ
 - autosave
 - default Evaluation
-- สร้าง component postform extended ใน blog plugin
+- สร้าง component postform extended ใน blog plugin ตอนนี้ component postform โมมั่วไปหมดแล้ว
 ===================================================================
 Future
 1. recent tweet
