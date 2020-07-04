@@ -170,7 +170,7 @@ class Posts extends RainLabPosts
       return $list;
     }
     protected function listPosts() {
-      dump($this->to);
+      #dump($this->to);
       $category = $this->category ? $this->category->id : null;
       /*
         * List all the posts, eager load their categories

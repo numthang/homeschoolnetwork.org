@@ -19,7 +19,7 @@ paramCode = "code"
 [sociallogin]
 ==
 <?php
-function onStart() {
+  function onStart() {
     if(Auth::check()) {
       header('Location:/edit/profile');
       exit;
