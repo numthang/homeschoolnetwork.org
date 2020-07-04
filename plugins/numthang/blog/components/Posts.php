@@ -135,7 +135,7 @@ class Posts extends RainLabPosts
             ->where('evaluation_id', '=', $this->property('evaluationID'))
             ;
           })
-          ->whereBetween('created_at', [$this->from, $this->to])
+          ->whereBetween('updated_at', [$this->from, $this->to])
           ->listFrontEnd([
             'category'  => $category,
             'sort'      => $this->property('sortOrder'),
@@ -195,7 +195,7 @@ class Posts extends RainLabPosts
       if($this->property('featured'))
         $query->where('featured', '=', $this->property('featured'));
       $posts = $query
-        ->whereBetween('created_at', [$this->from, $this->to])
+        ->whereBetween('updated_at', [$this->from, $this->to])
         ->listFrontEnd([
           'page'             => $this->property('pageNumber'),
           'sort'             => $this->property('sortOrder'),
