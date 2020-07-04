@@ -81,7 +81,7 @@ evaluationID = 0
 ownerID = 0
 ==
 <?php
-function onEnd() {
+  function onEnd() {
     $this->page->custom_title = $this->record->name.' '.$this->record->surname;
   }
 ?>
@@ -102,9 +102,9 @@ function onEnd() {
 <div class="container">
   <div class="row">
     <div class="col-md-7">
-      <b>{{ 'About'|_ }}</b>
+      <h4>{{ 'About'|_ }}</h4>
       <p>{{ record.note|raw }}</p>
-      <b><a href="/blog/author/{{ record.id }}">{{ 'Latest posts'|_ }}</a></b>
+      <h4><a href="/blog/author/{{ record.id }}">{{ 'Latest posts'|_ }}</a></h4>
       <p>
         {% if scopePosts.posts %}
           {% for Post in scopePosts.posts %}
@@ -116,7 +116,7 @@ function onEnd() {
           {{ 'No posts found'|_ }}
         {% endif %}
       </p>
-      <b>{{ 'Drafted posts'|_ }}</b>
+      <h4>{{ 'Drafted posts'|_ }}</h4>
       <p>
         {% if scopePosts2.posts %}
           {% for Post in scopePosts2.posts %}
@@ -128,7 +128,7 @@ function onEnd() {
           {{ 'No posts found'|_ }}
         {% endif %}
       </p>
-      <b><a href="/portfolio/{{record.id}}">{{ 'Portfolios'|_ }}</a></b>
+      <h4><a href="/portfolio/{{record.id}}">{{ 'Portfolios'|_ }}</a></h4>
       <p>
         {% if scopePosts3.posts %}
           {% for Post in scopePosts3.posts %}
@@ -140,7 +140,7 @@ function onEnd() {
           {{ 'No posts found'|_ }}
         {% endif %}
       </p>
-      <b><a href="/add/course">{{ 'Course'|_ }}</a></b>
+      <h4><a href="/add/course">{{ 'Course'|_ }}</a></h4>
       <p>
         {% for c in courses %}
           {% if c.template != 1 %}
@@ -151,7 +151,7 @@ function onEnd() {
           <a href="/course/{{ e.course.created_at|date('U') }}"> <span class="fa fa-fw" aria-hidden="true">&#xf0f6;</span> {{ e.course.name }}</a><br>
         {% endfor %}
       </p>
-      <b><a href="/add/evaluation">{{ 'Evaluation'|_ }}</a></b>
+      <h4><a href="/add/evaluation">{{ 'Evaluation'|_ }}</a></h4>
       <p>
         {% for e in evaluations %}
           {% if e.template != 1 %}

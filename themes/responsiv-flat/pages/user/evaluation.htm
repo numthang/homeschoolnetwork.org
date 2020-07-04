@@ -13,41 +13,41 @@ redirect = "login/login"
 
 ==
 <?php
-public function onEnd() {
-  $course = $this->evaluationform->course;
-  if($course) {
-    $j = json_decode($course->attributes['father_profile']);
-    $this->page['father_name'] = $j->father_name;
-    $this->page['father_degree'] = $j->father_degree;
-    $this->page['father_exp'] = $j->father_exp;
-    $this->page['father_age'] = $j->father_age;
-    $this->page['father_job'] = $j->father_job;
-    $this->page['father_addr'] = $j->father_addr;
-    $this->page['father_contact'] = $j->father_contact;
+  public function onEnd() {
+    $course = $this->evaluationform->course;
+    if($course) {
+      $j = json_decode($course->attributes['father_profile']);
+      $this->page['father_name'] = $j->father_name;
+      $this->page['father_degree'] = $j->father_degree;
+      $this->page['father_exp'] = $j->father_exp;
+      $this->page['father_age'] = $j->father_age;
+      $this->page['father_job'] = $j->father_job;
+      $this->page['father_addr'] = $j->father_addr;
+      $this->page['father_contact'] = $j->father_contact;
 
-  	$j = json_decode($course->attributes['mother_profile']);
-    $this->page['mother_name'] = $j->mother_name;
-    $this->page['mother_degree'] = $j->mother_degree;
-    $this->page['mother_exp'] = $j->mother_exp;
-    $this->page['mother_age'] = $j->mother_age;
-    $this->page['mother_job'] = $j->mother_job;
-    $this->page['mother_addr'] = $j->mother_addr;
-    $this->page['mother_contact'] = $j->mother_contact;
+      $j = json_decode($course->attributes['mother_profile']);
+      $this->page['mother_name'] = $j->mother_name;
+      $this->page['mother_degree'] = $j->mother_degree;
+      $this->page['mother_exp'] = $j->mother_exp;
+      $this->page['mother_age'] = $j->mother_age;
+      $this->page['mother_job'] = $j->mother_job;
+      $this->page['mother_addr'] = $j->mother_addr;
+      $this->page['mother_contact'] = $j->mother_contact;
 
-    $date = explode('-', $course->attributes['birth_date']);
-    $this->page['birth_date'] = $date[2].'/'.$date[1].'/'.$date[0];
-    #$this->page['title'] = $this->evaluationform->record->name;
+      $date = explode('-', $course->attributes['birth_date']);
+      $this->page['birth_date'] = $date[2].'/'.$date[1].'/'.$date[0];
+      #$this->page['title'] = $this->evaluationform->record->name;
+    }
+    $this->page['title'] = $this->evaluationform->record->name;
+    $year = $this->evaluationform->record->graduated-543;
+    $this->page['from'] = $year.'-03-31';//กำหนดให้เลือก blog จากปีการศึกษาปัจจุบัน
+    $this->page['to'] = ($year+1).'-03-31';//จนถึงปีหน้าประเมิน จบเทอมประมาณ 31 มีนา
+    
+    //ถ้ามีการนำเข้าผู้แต่งจากภายนอก ให้เลือกโพสต์ (author_id) ผู้แต่งจากภายนอก
+    $this->page['author_id'] = $this->evaluationform->record->portfolio_id;
+    
+    #$this->evaluationform->record->portfolio_id ? $this->page['author_id'] = $this->evaluationform->record->portfolio_id : $this->page['author_id'] = $course->user_id;
   }
-  $this->page['title'] = $this->evaluationform->record->name;
-  $year = $this->evaluationform->record->graduated-543;
-  $this->page['from'] = $year.'-04-31';//กำหนดให้เลือก blog จากปีการศึกษาปัจจุบัน
-  $this->page['to'] = ($year+1).'-04-31';//จนถึงปีหน้าประเมิน จบเทอมประมาณ 31 เมษา
-  
-  //ถ้ามีการนำเข้าผู้แต่งจากภายนอก ให้เลือกโพสต์ (author_id) ผู้แต่งจากภายนอก
-  $this->page['author_id'] = $this->evaluationform->record->portfolio_id;
-  
-  #$this->evaluationform->record->portfolio_id ? $this->page['author_id'] = $this->evaluationform->record->portfolio_id : $this->page['author_id'] = $course->user_id;
-}
 ?>
 ==
 {%  set course = evaluationform.course %}

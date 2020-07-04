@@ -1,5 +1,5 @@
 title = "ร่องรอยการเรียนรู้"
-url = "/portfolio/:author/:year?"
+url = "/portfolio/:author/:from?/:to?"
 layout = "default"
 is_hidden = 0
 robot_index = "index"
@@ -20,8 +20,8 @@ backend = 0
 userID = "{{ :author }}"
 featured = 0
 drafted = 0
-from = {{ :year }}
-to = {{ :year }}
+from = "{{ :from }}"
+to = "{{ :to }}"
 evaluationID = 0
 ownerID = 0
 
@@ -33,10 +33,16 @@ displayColumn = "name"
 notFoundMessage = "Record not found"
 ==
 <?php
-function onEnd() {
-  $this->page->custom_title = $this->page->title.' @'.$this->record->name.' '.$this->record->surname;
-  #$this->page->custom_description = strip_tags($this->blogPosts->category->description);
-}
+  function onStart() {
+    if($this->param('from') == null) {
+      header('Location:/portfolio/'.$this->param('author').'/'.date('Y').'-03-01/'.(date('Y')+1).'-03-01');
+      exit;
+    }
+  }
+  function onEnd() {
+    $this->page->custom_title = $this->page->title.' @'.$this->record->name.' '.$this->record->surname;
+    #$this->page->custom_description = strip_tags($this->blogPosts->category->description);
+  }
 ?>
 ==
 {% set postsbytag = scopePosts.postsbytag %}
@@ -47,8 +53,13 @@ function onEnd() {
     <div class="row">
       <div class="col-sm-12">
         <div class="btn-toolbar">
-            <a class="btn disabled" style="pointer:none;"><span class="fa fa-filter"></span> {{ 'Year'|_ }}</a>
-            <a class="btn btn-primary" href="{{ ''| page }}/2019">2019</a>
+          <a class="btn disabled" style="pointer:none;"><span class="fa fa-filter"></span> {{ 'Year'|_ }}</a>
+          {% set bc_year = "now"|date("Y")+543 %}
+          {% set ac_year = "now"|date("Y") %}
+          {% set selected_year = this.param.from|slice(0,4) %}
+          {% for i in 2562..bc_year %}
+            <a class="btn btn-primary {% if (selected_year == i-543) %}active{% endif %}" href="{{ this.page.localeUrl['en'] }}/{{ this.param.author }}/{{i-543}}-03-01/{{i-543+1}}-03-01">{{ i }}</a>
+          {% endfor %}
         </div>
       </div>
     </div>
