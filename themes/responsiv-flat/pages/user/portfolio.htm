@@ -1,9 +1,12 @@
-title = "Portfolio"
-url = "/portfolio/:author"
+title = "ร่องรอยการเรียนรู้"
+url = "/portfolio/:author/:year?"
 layout = "default"
 is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
+
+[viewBag]
+localeUrl[en] = "/portfolio"
 
 [scopePosts]
 pageNumber = "{{ :page }}"
@@ -17,8 +20,8 @@ backend = 0
 userID = "{{ :author }}"
 featured = 0
 drafted = 0
-from = "0000-00-00"
-to = "0000-00-00"
+from = {{ :year }}
+to = {{ :year }}
 evaluationID = 0
 ownerID = 0
 
@@ -29,36 +32,57 @@ modelKeyColumn = "id"
 displayColumn = "name"
 notFoundMessage = "Record not found"
 ==
+<?php
+function onEnd() {
+  $this->page->custom_title = $this->page->title.' @'.$this->record->name.' '.$this->record->surname;
+  #$this->page->custom_description = strip_tags($this->blogPosts->category->description);
+}
+?>
+==
 {% set postsbytag = scopePosts.postsbytag %}
 {% set tags = scopePosts.tags %}
 <section id="layout-title">
   <div class="container">
-    <h3 class="pull-left">Portfolio : {% component 'builderDetails' %} {{ record.surname }}</h3>
-    <div class="btn-toolbar pull-right">
-      <div class="btn-group" id="filters">
-        <a class="btn btn-primary active" href="#filter" class="selected" data-filter="*"><span class="fui-list"></span> All</a>
-        {% for tag in tags['id'] %}
-        <a class="btn btn-primary" href="#filter" data-filter=".{{ tag }}"> {{ tags['name'][loop.index0] }}</a>
-        {% endfor %}
+    <h3 class="pull-left">{{ 'Portfolio'|_ }} : {% component 'builderDetails' %} {{ record.surname }}</h3>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="btn-toolbar">
+            <a class="btn disabled" style="pointer:none;"><span class="fa fa-filter"></span> {{ 'Year'|_ }}</a>
+            <a class="btn btn-primary" href="{{ ''| page }}/2019">2019</a>
+        </div>
       </div>
     </div>
+    <br>
   </div>
 </section>
 <div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="btn-toolbar">
+        <div class="btn-group" id="filters">
+          <a class="btn btn-primary active" href="#filter" class="selected" data-filter="*"><span class="fui-list"></span> {{ 'All'|_ }}</a>
+          {% for tag in tags['id'] %}
+          <a class="btn btn-primary" href="#filter" data-filter=".{{ tag }}"> {{ tags['name'][loop.index0] }}</a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="clearfix"></div>
   <!-- start: Portfolio -->
   <div id="portfolioItems" class="row">
-    {% for Post in scopePosts.posts %}
-    <div class="col-md-{{random([3])}} grid-sizer portfolio-item {% for tag in Post.tags %} {{ tag.id }}{% endfor %}">
+    {% for post in scopePosts.posts %}
+    <div class="col-md-{{random([3])}} grid-sizer portfolio-item {% for tag in post.tags %} {{ tag.id }} {{ post.published_at|slice(0, 4) }} {% endfor %}">
       <div class="picture">
-        <a class="image" href="/blog/{{Post.slug}}" title="{{Post.title}}">
-        {% if Post.featured_images[0] %}
-          <img src="{{ Post.featured_images[0] | resize(340, 340) }}" alt="{{Post.title}}" style="width:100%; height:auto;"/>
+        <a class="image" href="/blog/{{post.slug}}" title="{{post.title}}">
+        {% if post.featured_images[0] %}
+          <img src="{{ post.featured_images[0] | resize(340, 340) }}" alt="{{post.title}}" style="width:100%; height:auto;"/>
         {% else %}
-          <img src="/storage/app/media/heliports_image_placeholder.jpg" width="100%" alt="{{Post.title}}"/>
+          <img src="/storage/app/media/heliports_image_placeholder.jpg" width="100%" alt="{{post.title}}"/>
         {% endif %}
         </a>
         <!--<div class="description">
-          <a href="/blog/{{Post.slug}}" class="btn btn-info btn-block">{{ str_limit(Post.title, 20) }}</a>
+          <a href="/blog/{{post.slug}}" class="btn btn-info btn-block">{{ str_limit(post.title, 20) }}</a>
         </div>-->
       </div>
     </div>
