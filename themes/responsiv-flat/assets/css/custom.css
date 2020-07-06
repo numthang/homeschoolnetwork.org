@@ -109,7 +109,6 @@ hr {
   z-index: 999;
 }
 .form-control, .select2-search input[type="text"] {
-  font-size: 16px;
   line-height: 43px;
   height:43px;
 }
@@ -119,7 +118,6 @@ hr {
   border-radius: 6px;
 }
 .select,.dropdown-toggle, .dropdown-menu, .select2-choice, .select2-result-label, .select2-result  {
-  font-size: 16px;
   line-height: 25px;
 }
 .select.form-control {
@@ -129,8 +127,8 @@ hr {
   height: 43px;
 }
 label {
-  font-weight: 400;
-  font-size: 16px;
+  font-family: 'Kanit';
+  font-weight: 500;
 }
 textarea.form-control, textarea.select2-search {
   height: auto;
@@ -231,7 +229,6 @@ blockquote p {
 .select2-search-choice {
   border-radius: 4px;
   color: #ffffff;
-  font-size: 13px;
   cursor: pointer;
   display: inline-block;
   position: relative;
@@ -320,7 +317,6 @@ blockquote p {
   margin-bottom: 10px;
 }
 .btn {
-  font-size: 16px;
 }
 .caption {
   font-family: Kanit;
