@@ -37,7 +37,7 @@
     <div class="col-sm-6">
       <div class="form-group {% if errors.first('hs_name') %} has-error {% endif %}">
         <label>ชื่อบ้านเรียน</label> *
-        <input type="text" class="form-control" name="hs_name" placeholder="{{ 'Enter homeschool name'|_ }}" value="{{ record.hs_name }}">
+        <input type="text" class="form-control" name="hs_name" placeholder="{{ 'Enter homeschool name'|_ }}" value="{% if record.hs_name %} {{ record.hs_name }}  {% else %} {{ user.company }} {% endif %}">
         {% if errors.first('hs_name') %}<div class="alert alert-warning" style="margin-top:4px;">{{ errors.first('hs_name') }}</div>{% endif %}
       </div>
     </div>
