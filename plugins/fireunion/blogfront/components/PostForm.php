@@ -96,13 +96,13 @@ class PostForm extends ComponentBase {
       foreach($tags as $tagID) {
         \GinoPane\BlogTaxonomy\Models\Tag::extend(function($model) {//extend beforevalidate method add unique slug
           $model->rules = [//override validation no checking thai alphabet
-            'name' => "required|unique:" .$model->table. "|min:2|regex:/^[\w\-][ก-๛]+$/iu"
+            #'name' => "required|unique:" .$model->table. "|min:2|regex:/^[\w\-][ก-๛\a-z0-9]+$/iu"
           ];
           $model->bindEvent('model.beforeValidate', function() use ($model) {
             $model->slug = DB::table('ginopane_blogtaxonomy_tags')->max('id') + 1;
           });
         });
-        if(!is_numeric($tagID)) {//If get letter is new tag adding
+        if(!is_numeric($tagID)) {//If is not nubmer or get letter is new tag adding
           $newTag = new \GinoPane\BlogTaxonomy\Models\Tag;
           $newTag->name = $tagID;
           $newTag->user_id = $user->id;
