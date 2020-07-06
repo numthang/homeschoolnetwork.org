@@ -109,6 +109,7 @@ hr {
   z-index: 999;
 }
 .form-control, .select2-search input[type="text"] {
+  font-size: 18px;
   line-height: 43px;
   height:43px;
 }
@@ -117,18 +118,20 @@ hr {
   padding: 5px;
   border-radius: 6px;
 }
-.select,.dropdown-toggle, .dropdown-menu, .select2-choice, .select2-result-label, .select2-result  {
+.select,.dropdown-toggle, .dropdown-menu, .select2-choice, .select2-result-label, .select2-result, .select2-container {
+  font-size: 18px;
   line-height: 25px;
 }
 .select.form-control {
   border: 2px #e89c43 solid;
   padding: 8px;
   line-height: 43px;
-  height: 43px;
+  height: 45px;
 }
 label {
+  font-weight: bolder;
+  font-size: 18px;
   font-family: 'Kanit';
-  font-weight: 500;
 }
 textarea.form-control, textarea.select2-search {
   height: auto;
@@ -229,6 +232,7 @@ blockquote p {
 .select2-search-choice {
   border-radius: 4px;
   color: #ffffff;
+  font-size: 13px;
   cursor: pointer;
   display: inline-block;
   position: relative;
@@ -317,6 +321,7 @@ blockquote p {
   margin-bottom: 10px;
 }
 .btn {
+  font-size: 18px;
 }
 .caption {
   font-family: Kanit;
