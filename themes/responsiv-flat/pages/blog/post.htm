@@ -246,7 +246,7 @@ function onEnd() {
             {% set postCount = item.posts_count %}
             <span class="fa fa-fw" aria-hidden="true" title="Copy to use hashtag">&#xf292
             </span>
-              <a href="/blog/tagged/{{ item.id }}" class="">
+              <a href="/blog/tagged/{{ item.slug }}" class="">
               {{ item.name }}
               {% if postCount %}
                 <span class="badge">{{ postCount }}</span>
