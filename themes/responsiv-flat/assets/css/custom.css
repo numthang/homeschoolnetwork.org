@@ -146,7 +146,6 @@ textarea.form-control, textarea.select2-search {
 .blog-desc img {
   max-width: 100%;
   height: auto;
-  height: auto;
   border-radius: 12px;
   box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.5);
 }

@@ -1,4 +1,3 @@
-
 error ตอน save new tag ถ้า tag ซ้ำ
 default ชื่อบ้านเรียนในแผน
 
@@ -23,7 +22,7 @@ default ชื่อบ้านเรียนในแผน
 
 - autosave
 - default Evaluation
-- สร้าง component postform extended ใน blog plugin ตอนนี้ component postform โมมั่วไปหมดแล้ว
+- สร้าง component postform extended ใน blog plugin ตอนนี้ component postแform โมมั่วไปหมดแล้ว
 ===================================================================
 Future
 1. recent tweet
@@ -130,7 +129,7 @@ Hard code changed
 //update slug as next id
 #/plugins/rainlab/blog/models/Post.php
 #/plugins/bedard/blogtags/models/Tag.php
-#/plugins/ginopane/blogtaxonomy/models/Tag.php
+/plugins/ginopane/blogtaxonomy/models/Tag.php
 /plugins/fireunion/blogfront/components/PostForm.php
 /plugins/flynsarmy/sociallogin/classes/UserManager.php
 
