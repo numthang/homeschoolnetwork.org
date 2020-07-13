@@ -54,7 +54,7 @@ tagsPage = 404
   </div>
   <ul class="list-group">
     {% for tag in tagList.tags %}
-      <li class="list-group-item"><a href="/blog/tagged/{{ tag.id }}">{{ tag.name }} ({{ tag.posts|length }})</a></li>
+      <li class="list-group-item"><a href="/blog/tagged/{{ tag.slug }}">{{ tag.name }} ({{ tag.posts|length }})</a></li>
     {% endfor %}
   </ul>
 </div>
