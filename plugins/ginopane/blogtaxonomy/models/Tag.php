@@ -92,8 +92,8 @@ class Tag extends ModelAbstract
      *
      * @var array
      */
-    public $rules = [
-        'name' => "required|unique:" . self::TABLE_NAME . "|min:2|regex:/^[\w\-\?!,.()\"`' ][ก-๛]+$/iu",
+    public $rules = [/*numthang edit name's rule still not working in Thai language slug always null*/
+        'name' => "required|unique:" . self::TABLE_NAME . "|min:2|regex:/^[\w\-\?!,.()\"`' ][ก-๛\a-z0-9]+$/iu",
         'slug' => "required|unique:" . self::TABLE_NAME . "|min:2|regex:/^[\w\-]+$/iu"
     ];
 
