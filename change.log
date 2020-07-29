@@ -117,7 +117,7 @@ Hard code changed
 /plugins/flynsarmy/sociallogin/classes/UserManager.php
 
 //use translatable title
-/plugins/suresoftware/powerseo/components/cmspage/default.htm
+#/plugins/suresoftware/powerseo/components/cmspage/default.htm
 /plugins/suresoftware/powerseo/classes/Helper.php
 
 //LaravelFilemanager

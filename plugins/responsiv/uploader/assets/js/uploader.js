@@ -90,10 +90,6 @@
             this.uploaderOptions.previewTemplate = $(this.options.template).html()
         }
 
-        if (this.options.uniqueId) {
-            this.uploaderOptions.headers['X-OCTOBER-FILEUPLOAD'] = this.options.uniqueId
-        }
-
         this.uploaderOptions.thumbnailWidth = this.options.thumbnailWidth
             ? this.options.thumbnailWidth : null
 
@@ -164,6 +160,7 @@
 
     FileUpload.prototype.onUploadSending = function(file, xhr, formData) {
         this.addExtraFormData(formData)
+        xhr.setRequestHeader('X-OCTOBER-REQUEST-HANDLER', this.options.uploadHandler)
     }
 
     FileUpload.prototype.onUploadSuccess = function(file, response) {
@@ -180,9 +177,10 @@
         }
 
         /*
-         * Trigger change event (Compatability with october.form.js)
+         * Trigger change event
          */
-        this.$el.closest('[data-field-name]').trigger('change.oc.formwidget')
+        this.$el.trigger('uploadSuccess')
+        this.$el.trigger('change')
     }
 
     FileUpload.prototype.onUploadError = function(file, error) {
@@ -237,6 +235,12 @@
             .one('ajaxDone', function(){
                 self.removeFileFromElement($object)
                 self.evalIsPopulated()
+
+                /*
+                 * Trigger change event
+                 */
+                self.$el.trigger('uploadRemove')
+                self.$el.trigger('change')
             })
             .request()
 
@@ -278,6 +282,7 @@
 
     FileUpload.DEFAULTS = {
         url: window.location,
+        uploadHandler: null,
         uniqueId: null,
         extraData: {},
         paramName: 'file_data',

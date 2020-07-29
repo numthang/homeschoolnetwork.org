@@ -3,6 +3,7 @@
     data-control="fileupload"
     data-template="#uploaderTemplate{{ __SELF__ }}"
     data-unique-id="{{ __SELF__ }}"
+    data-upload-handler="{{ __SELF__ }}::onUpload"
     {% if __SELF__.fileTypes %}data-file-types="{{ __SELF__.fileTypes }}"{% endif %}
 >
 
@@ -11,7 +12,7 @@
 
     <!-- Upload Button -->
     <button type="button" class="ui button btn btn-default oc-icon-upload upload-button">
-        {{ __SELF__.placeholderText|_ }}
+        {{ __SELF__.placeholderText }}
     </button>
 
     <!-- Existing files -->

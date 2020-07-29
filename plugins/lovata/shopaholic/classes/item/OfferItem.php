@@ -4,9 +4,12 @@ use Lovata\Toolbox\Classes\Helper\PriceHelper;
 use Lovata\Toolbox\Classes\Item\ElementItem;
 use Lovata\Toolbox\Traits\Helpers\PriceHelperTrait;
 
+use Lovata\Shopaholic\Classes\Helper\MeasureHelper;
 use Lovata\Shopaholic\Models\Offer;
+use Lovata\Shopaholic\Models\Settings;
 use Lovata\Shopaholic\Classes\Helper\TaxHelper;
 use Lovata\Shopaholic\Classes\Helper\CurrencyHelper;
+use Lovata\Shopaholic\Classes\Helper\PriceTypeHelper;
 
 /**
  * Class OfferItem
@@ -20,6 +23,17 @@ use Lovata\Shopaholic\Classes\Helper\CurrencyHelper;
  * @property string                                                                                                                      $code
  * @property int                                                                                                                         $product_id
  * @property ProductItem                                                                                                                 $product
+ * @property double                                                                                                                      $weight
+ * @property double                                                                                                                      $height
+ * @property double                                                                                                                      $length
+ * @property double                                                                                                                      $width
+ * @property double                                                                                                                      $quantity_in_unit
+ * @property int                                                                                                                         $measure_id
+ * @property MeasureItem                                                                                                                 $measure
+ * @property int                                                                                                                         $measure_of_unit_id
+ * @property MeasureItem                                                                                                                 $measure_of_unit
+ * @property MeasureItem                                                                                                                 $dimensions_measure
+ * @property MeasureItem                                                                                                                 $weight_measure
  *
  * @property string                                                                                                                      $preview_text
  * @property \System\Models\File                                                                                                         $preview_image
@@ -72,6 +86,22 @@ use Lovata\Shopaholic\Classes\Helper\CurrencyHelper;
  * @property int                                                                                                                         $discount_id
  * @property float                                                                                                                       $discount_value
  * @property string                                                                                                                      $discount_type
+ *
+ * Subscriptions for Shopaholic
+ * @property int                                                                                                                         $subscription_period_id
+ * @property \Lovata\SubscriptionsShopaholic\Classes\Item\SubscriptionPeriodItem                                                         $subscription_period
+ *
+ * YandexMarket for Shopaholic
+ * @property \System\Models\File                                                                                                         $preview_image_yandex
+ * @property \October\Rain\Database\Collection|\System\Models\File[]                                                                     $images_yandex
+ *
+ * Facebook for Shopaholic
+ * @property \System\Models\File                                                                                                         $preview_image_facebook
+ * @property \October\Rain\Database\Collection|\System\Models\File[]                                                                     $images_facebook
+ *
+ * VKontakte for Shopaholic
+ * @property \System\Models\File                                                                                                         $preview_image_vkontakte
+ * @property \October\Rain\Database\Collection|\System\Models\File[]                                                                     $images_vkontakte
  */
 class OfferItem extends ElementItem
 {
@@ -83,9 +113,13 @@ class OfferItem extends ElementItem
     protected $obElement = null;
 
     public $arRelationList = [
-        'product' => [
+        'product'         => [
             'class' => ProductItem::class,
             'field' => 'product_id',
+        ],
+        'measure' => [
+            'class' => MeasureItem::class,
+            'field' => 'measure_id',
         ],
     ];
 
@@ -146,6 +180,10 @@ class OfferItem extends ElementItem
      */
     public function getActivePriceType()
     {
+        if (empty($this->iActivePriceType)) {
+            $this->iActivePriceType = PriceTypeHelper::instance()->getActivePriceTypeID();
+        }
+
         return $this->iActivePriceType;
     }
 
@@ -176,10 +214,11 @@ class OfferItem extends ElementItem
      */
     protected function getPriceValueAttribute()
     {
-        if (empty($this->iActivePriceType)) {
+        $iActivePriceType = $this->getActivePriceType();
+        if (empty($iActivePriceType)) {
             $fPrice = $this->getAttribute('price_value');
         } else {
-            $fPrice = array_get($this->price_list, $this->iActivePriceType.'.price');
+            $fPrice = array_get($this->price_list, $iActivePriceType.'.price');
         }
 
         $fPrice = CurrencyHelper::instance()->convert($fPrice, $this->getActiveCurrency());
@@ -193,10 +232,11 @@ class OfferItem extends ElementItem
      */
     protected function getOldPriceValueAttribute()
     {
-        if (empty($this->iActivePriceType)) {
+        $iActivePriceType = $this->getActivePriceType();
+        if (empty($iActivePriceType)) {
             $fPrice = $this->getAttribute('old_price_value');
         } else {
-            $fPrice = array_get($this->price_list, $this->iActivePriceType.'.old_price');
+            $fPrice = array_get($this->price_list, $iActivePriceType.'.old_price');
         }
 
         $fPrice = CurrencyHelper::instance()->convert($fPrice, $this->getActiveCurrency());
@@ -382,6 +422,44 @@ class OfferItem extends ElementItem
         }
 
         return $obTaxList;
+    }
+
+    /**
+     * Get measure of one unit
+     * @return \Lovata\Shopaholic\Classes\Item\MeasureItem
+     */
+    protected function getMeasureOfUnitAttribute()
+    {
+        $iMeasureID = $this->measure_of_unit_id;
+        if (empty($iMeasureID)) {
+            $iMeasureID = Settings::getValue('measure_of_unit');
+        }
+
+        $obMeasureItem = MeasureItem::make($iMeasureID);
+
+        return $obMeasureItem;
+    }
+
+    /**
+     * Get dimensions unit measure
+     * @return \Lovata\Shopaholic\Classes\Item\MeasureItem
+     */
+    protected function getDimensionsMeasureAttribute()
+    {
+        $obMeasureItem = MeasureHelper::instance()->getDimensionsMeasureItem();
+
+        return $obMeasureItem;
+    }
+
+    /**
+     * Get weight unit measure
+     * @return \Lovata\Shopaholic\Classes\Item\MeasureItem
+     */
+    protected function getWeightMeasureAttribute()
+    {
+        $obMeasureItem = MeasureHelper::instance()->getWeightMeasureItem();
+
+        return $obMeasureItem;
     }
 
     /**

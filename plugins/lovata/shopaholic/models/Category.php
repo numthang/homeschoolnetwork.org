@@ -53,6 +53,8 @@ use Lovata\Shopaholic\Classes\Import\ImportCategoryModelFromCSV;
  * @property \October\Rain\Database\Collection|Product[]                                         $product_link
  * @method static \October\Rain\Database\Relations\BelongsToMany|Product product_link()
  *
+ * @method static $this getByParentID(int $iParentID)
+ *
  * Properties for Shopaholic
  * @see     \Lovata\PropertiesShopaholic\Classes\Event\CategoryModelHandler::addModelRelationConfig
  *
@@ -63,7 +65,9 @@ use Lovata\Shopaholic\Classes\Import\ImportCategoryModelFromCSV;
  * @property \October\Rain\Database\Collection|\Lovata\PropertiesShopaholic\Models\Property[]    $product_property
  * @property \October\Rain\Database\Collection|\Lovata\PropertiesShopaholic\Models\Property[]    $offer_property
  *
- * @method static $this getByParentID(int $iParentID)
+ * Search for Shopaholic, Sphinx for Shopaholic
+ * @property string                                                                              $search_synonym
+ * @property string                                                                              $search_content
  *
  * Discounts for Shopaholic
  * @property \October\Rain\Database\Collection|\Lovata\DiscountsShopaholic\Models\Discount[]     $discount
@@ -76,6 +80,9 @@ use Lovata\Shopaholic\Classes\Import\ImportCategoryModelFromCSV;
  * Campaign for Shopaholic
  * @property \October\Rain\Database\Collection|\Lovata\CampaignsShopaholic\Models\Campaign[]     $campaign
  * @method static \October\Rain\Database\Relations\BelongsToMany|\Lovata\CampaignsShopaholic\Models\Campaign campaign()
+ *
+ * VKontakte for Shopaholic
+ * @property int                                                                                 $category_vk_id
  */
 class Category extends ImportModel
 {
@@ -114,6 +121,8 @@ class Category extends ImportModel
         'import_file'   => [\System\Models\File::class, 'public' => false],
     ];
     public $attachMany = ['images' => 'System\Models\File'];
+
+    public $belongsTo = [];
     public $belongsToMany = [
         'product_link' => [
             Product::class,

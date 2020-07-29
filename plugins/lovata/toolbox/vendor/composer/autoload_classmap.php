@@ -10,8 +10,6 @@ return array(
     'Kharanenka\\Helper\\DataFileModel' => $vendorDir . '/kharanenka/oc-data-file-model/src/Kharanenka/Helper/DataFileModel.php',
     'Kharanenka\\Helper\\Pagination' => $vendorDir . '/kharanenka/oc-pagination/src/Kharanenka/Helper/Pagination.php',
     'Kharanenka\\Helper\\PaginationHelper' => $vendorDir . '/kharanenka/php-pagination/src/Kharanenka/Helper/PaginationHelper.php',
-    'Kharanenka\\Helper\\Result' => $vendorDir . '/kharanenka/php-result-store/src/Kharanenka/Helper/Result.php',
-    'Kharanenka\\Helper\\ResultStore' => $vendorDir . '/kharanenka/php-result-store/src/Kharanenka/Helper/ResultStore.php',
     'Kharanenka\\Scope\\ActiveField' => $vendorDir . '/kharanenka/laravel-scope-active/src/Kharanenka/Scope/ActiveField.php',
     'Kharanenka\\Scope\\CategoryBelongsTo' => $vendorDir . '/kharanenka/laravel-scope-category-belongs-to/src/Kharanenka/Scope/CategoryBelongsTo.php',
     'Kharanenka\\Scope\\CodeField' => $vendorDir . '/kharanenka/laravel-scope-code/src/Kharanenka/Scope/CodeField.php',

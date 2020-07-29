@@ -10,17 +10,15 @@ use Lovata\Shopaholic\Classes\Item\BrandItem;
  * Class BrandPage
  * @package Lovata\Shopaholic\Components
  * @author Andrey Kharanenka, a.khoronenko@lovata.com, LOVATA Group
- *
- * @link https://github.com/lovata/oc-shopaholic-plugin/wiki/BrandPage
  */
 class BrandPage extends ElementPage
 {
     protected $bNeedSmartURLCheck = true;
 
-    /** @var \Lovata\Shopaholic\Models\Brand */
+    /** @var Brand */
     protected $obElement;
 
-    /** @var \Lovata\Shopaholic\Classes\Item\BrandItem */
+    /** @var BrandItem */
     protected $obElementItem;
 
     /**

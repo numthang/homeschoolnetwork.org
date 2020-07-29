@@ -738,31 +738,31 @@
     },
     {
         "name": "kharanenka/php-result-store",
-        "version": "2.2.0",
-        "version_normalized": "2.2.0.0",
+        "version": "2.3.0",
+        "version_normalized": "2.3.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/kharanenka/php-result-store.git",
-            "reference": "ea6d9dda0ac65aaf7d7f6093223e273b2f0dc3f3"
+            "reference": "2adb2f7307db8ea0e597882aeb5b578a0105f376"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/kharanenka/php-result-store/zipball/ea6d9dda0ac65aaf7d7f6093223e273b2f0dc3f3",
-            "reference": "ea6d9dda0ac65aaf7d7f6093223e273b2f0dc3f3",
+            "url": "https://api.github.com/repos/kharanenka/php-result-store/zipball/2adb2f7307db8ea0e597882aeb5b578a0105f376",
+            "reference": "2adb2f7307db8ea0e597882aeb5b578a0105f376",
             "shasum": ""
         },
         "require": {
             "php": ">=7.0"
         },
-        "time": "2018-09-13T18:03:22+00:00",
+        "require-dev": {
+            "phpunit/phpunit": "^6.5"
+        },
+        "time": "2019-07-29T07:02:51+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
-            "classmap": [
-                "src/Kharanenka/Helper"
-            ],
-            "psr-0": {
-                "Kharanenka\\Result\\": "src/"
+            "psr-4": {
+                "Kharanenka\\Helper\\": "src/Kharanenka/Helper/"
             }
         },
         "notification-url": "https://packagist.org/downloads/",

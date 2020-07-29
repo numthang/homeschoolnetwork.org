@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit9d163ec3edb31b136f35329284ea23a0
+class ComposerStaticInit202259e63fe9c568e57706edaeec8df1
 {
     public static $files = array (
         '74ed299072414d276bb7568fe71d5b0c' => __DIR__ . '/..' . '/tinify/tinify/lib/Tinify.php',
@@ -36,8 +36,8 @@ class ComposerStaticInit9d163ec3edb31b136f35329284ea23a0
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit9d163ec3edb31b136f35329284ea23a0::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit9d163ec3edb31b136f35329284ea23a0::$prefixDirsPsr4;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit202259e63fe9c568e57706edaeec8df1::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit202259e63fe9c568e57706edaeec8df1::$prefixDirsPsr4;
 
         }, null, ClassLoader::class);
     }

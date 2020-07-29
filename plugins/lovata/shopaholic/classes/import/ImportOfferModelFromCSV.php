@@ -2,6 +2,7 @@
 
 use Lovata\Toolbox\Classes\Helper\AbstractImportModelFromCSV;
 
+use Lovata\Shopaholic\Models\Measure;
 use Lovata\Shopaholic\Models\Offer;
 use Lovata\Shopaholic\Models\Product;
 
@@ -36,6 +37,8 @@ class ImportOfferModelFromCSV extends AbstractImportModelFromCSV
         $this->setActiveField();
         $this->setProductField();
         $this->setQuantityField();
+        $this->setMeasureField();
+        $this->setMeasureOfUnitField();
 
         $this->initPreviewImage();
         $this->initImageList();
@@ -59,6 +62,12 @@ class ImportOfferModelFromCSV extends AbstractImportModelFromCSV
     {
         $sProductID = array_get($this->arImportData, 'product_id');
         if ($sProductID === null) {
+            return;
+        }
+
+        if (empty($sProductID)) {
+            $this->arImportData['product_id'] = null;
+
             return;
         }
 
@@ -87,5 +96,57 @@ class ImportOfferModelFromCSV extends AbstractImportModelFromCSV
         }
 
         $this->arImportData['quantity'] = $iQuantity;
+    }
+
+    /**
+     * Set measure filed value
+     */
+    protected function setMeasureOfUnitField()
+    {
+        $sMeasure = array_get($this->arImportData, 'measure_of_unit');
+        array_forget($this->arImportData, 'measure_of_unit');
+        if ($sMeasure === null) {
+            return;
+        }
+
+        if (empty($sMeasure)) {
+            $this->arImportData['measure_of_unit_id'] = null;
+            return;
+        }
+
+        $obMeasure = Measure::getByName($sMeasure)->first();
+        if (empty($obMeasure)) {
+            $obMeasure = Measure::create([
+                'name' => $sMeasure,
+            ]);
+        }
+
+        $this->arImportData['measure_of_unit_id'] = $obMeasure->id;
+    }
+
+    /**
+     * Set measure filed value
+     */
+    protected function setMeasureField()
+    {
+        $sMeasure = array_get($this->arImportData, 'measure_id');
+        array_forget($this->arImportData, 'measure_id');
+        if ($sMeasure === null) {
+            return;
+        }
+
+        if (empty($sMeasure)) {
+            $this->arImportData['measure_id'] = null;
+            return;
+        }
+
+        $obMeasure = Measure::getByName($sMeasure)->first();
+        if (empty($obMeasure)) {
+            $obMeasure = Measure::create([
+                'name' => $sMeasure,
+            ]);
+        }
+
+        $this->arImportData['measure_id'] = $obMeasure->id;
     }
 }

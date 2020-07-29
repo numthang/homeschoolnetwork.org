@@ -6,4 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Kharanenka\\Helper\\' => array($vendorDir . '/kharanenka/php-result-store/src/Kharanenka/Helper'),
 );
