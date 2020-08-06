@@ -74,7 +74,7 @@
     "config": {
         "preferred-install": "dist",
         "platform": {
-            "php": "7.0"
+            "php": "7.4.3"
         }
     },
     "minimum-stability": "dev",

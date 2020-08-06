@@ -1,4 +1,13 @@
+try
 
+changed in .upgrade
+plugins/numthang/blog/components/Posts.php
+
+TRUNCATE `ginopane_blogtaxonomy_taggables`;
+TRUNCATE `ginopane_blogtaxonomy_tags`;
+TRUNCATE `numthang_homeschool_evaluations`;
+TRUNCATE `rainlab_blog_posts`;
+TRUNCATE `rainlab_blog_posts_categories`;
 
 error ตอน save new tag ถ้า tag ซ้ำ
 default ชื่อบ้านเรียนในแผน
@@ -114,7 +123,7 @@ Hard code changed
 #/plugins/bedard/blogtags/models/Tag.php
 /plugins/ginopane/blogtaxonomy/models/Tag.php
 /plugins/fireunion/blogfront/components/PostForm.php
-/plugins/flynsarmy/sociallogin/classes/UserManager.php
+/plugins/flynsarmy/sociallogin/classes/UserManager.php //disabled update
 
 //use translatable title
 #/plugins/suresoftware/powerseo/components/cmspage/default.htm
