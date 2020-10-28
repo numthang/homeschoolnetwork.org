@@ -73,6 +73,14 @@ class Helper
             if ($post->powerseo_description) {
                 $ogTags .= '<meta property="og:description" content="' . $post->powerseo_description . '" />' . "\n";
             }
+            /*numthang add this when seo_description empty*/
+            else {
+                $ogTags .= '<meta property="og:description" content="' . $post->excerpt . '" />' . "\n";
+            }
+            $ogTags .= '<meta property="og:type" content="Article" />' . "\n";
+            $ogTags .= '<meta property="article:published_time" content="'.$post->published_at.'" />' . "\n";
+            $ogTags .= '<meta property="article:modified_time" content="'.$post->updated_at.'" />' . "\n";
+            /*end numthang add this when seo_description*/
 
             $ogTitle = empty($post->powerseo_title) ? $post->title : $post->powerseo_title;
             $ogUrl = Request::url();
