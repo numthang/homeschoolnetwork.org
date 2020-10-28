@@ -1,6 +1,6 @@
 /bootstrap/compiled.php
 #/vendor
-composer.phar
+#composer.phar
 .DS_Store
 .idea
 .env
@@ -14,8 +14,8 @@ nginx-ssl.error.log
 php-errors.log
 sftp-config.json
 .ftpconfig
-selenium.php
-composer.lock
+#selenium.php
+#composer.lock
 
 #MINE
 /config/database.php
@@ -27,7 +27,7 @@ composer.lock
 nbproject
 
 # Exclude the OctoberCMS module folders from being included, they're pulled in via composer
-/modules/**
+#/modules/**
 
 # Exclude the builder plugin
 #plugins/rainlab/builder

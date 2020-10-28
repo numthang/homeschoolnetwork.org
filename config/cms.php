@@ -116,7 +116,7 @@ return [
     |
     */
 
-    'disableCoreUpdates' => true,
+    'disableCoreUpdates' => false,
 
     /*
     |--------------------------------------------------------------------------
