@@ -129,7 +129,7 @@ class Posts extends RainLabPosts
             ->where($this->user_field, '=', $this->property('userID'))
             ->where('evaluation_id', '=', $this->property('evaluationID'))
             ;
-          })old code error some post may not appear*/
+          })old code error some posts may not appear*/
           ->Where(function ($query) {
             $query
             ->where($this->user_field, '=', $this->property('userID'))
@@ -146,7 +146,7 @@ class Posts extends RainLabPosts
         }])->get();
         foreach ($posts[0]->posts as $key => $value) {
           // code...
-          echo $value->title.'<br>';
+          //echo $value->title.'<br>';
           $list[$i]['tag_id'] = $tag_id;
           $list[$i]['tag'] = $tags['name'][$key1];
           $list[$i]['post_id'] = $value->id;
