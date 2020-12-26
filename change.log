@@ -1,7 +1,5 @@
 try
 
-แก้แล้ว php7.0 
-
 ไฟล์ที่แก้ไขเพิ่มใน homeschoolnetwork.org.upgrade2 คือ ซึ่งไฟล์ล่าสุดใน server ไม่ได้ ดึงจาก git แล้ว แต่ใช้วิธีแก้บน server โดยตรง
 plugins/numthang/blog/components/Posts.php
 ==
