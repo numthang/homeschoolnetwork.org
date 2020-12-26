@@ -102,3 +102,26 @@
     - 'Removed deleted offers from sorting by price.'
 1.22.5:
     - 'Fixed bug with deactivating items in import from XML files.'
+1.23.0:
+    - 'Added ability to show catalog with active price type. Added annotations for integration with Subscriptions for Shopaholic plugin.'
+1.23.1:
+    - 'Added step attribute to offer price field in backend view'
+1.24.0:
+    - 'Added support of wildcard params to CategoryPage component. Requires Toolbox plugin version 1.26.0 and later'
+1.24.1:
+    - 'Fixed support of wildcard params in CategoryPage component. Requires Toolbox plugin version 1.26.1 and later'
+1.24.2:
+    - 'Added annotations for Subscriptions for Shopaholic plugin.'
+1.24.3:
+    - 'Added validation of import fields that contains relation IDs.'
+1.25.0:
+    - 'Moved "Measure" model from "Properties for Shopaholic" plugin. Added weight, height, length, width, measure_of_unit, quantity_in_unit fields to Offer model. Added new global settings: size unit measure, weight unit measure, piece unit measure.'
+    - create_table_measure.php
+    - update_table_offers_add_dimensions_field.php
+1.26.0:
+    - 'Added relation to Offer model with Measure model.'
+    - update_table_offers_add_measure_field.php
+1.27.0:
+    - 'Added parent category field to backend in Category model. Thanks for contribution Dinwid.'
+1.27.1:
+    - 'Fixed logic of getting prices in Offer model.'

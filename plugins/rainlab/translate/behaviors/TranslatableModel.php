@@ -21,6 +21,16 @@ use Exception;
  */
 class TranslatableModel extends TranslatableBehavior
 {
+    public function __construct($model)
+    {
+        parent::__construct($model);
+
+        $model->morphMany['translations'] = [
+            'RainLab\Translate\Models\Attribute',
+            'name' => 'model'
+        ];
+    }
+
     /**
      * Applies a translatable index to a basic query. This scope will join the index
      * table and cannot be executed more than once.
@@ -54,7 +64,7 @@ class TranslatableModel extends TranslatableBehavior
         $query->leftJoin('rainlab_translate_indexes', function($join) use ($locale) {
             $join
                 ->on(Db::raw(DbDongle::cast($this->model->getQualifiedKeyName(), 'TEXT')), '=', 'rainlab_translate_indexes.model_id')
-                ->where('rainlab_translate_indexes.model_type', '=', get_class($this->model))
+                ->where('rainlab_translate_indexes.model_type', '=', $this->getClass())
                 ->where('rainlab_translate_indexes.locale', '=', $locale)
             ;
         });
@@ -84,7 +94,7 @@ class TranslatableModel extends TranslatableBehavior
             return;
         }
 
-        /** 
+        /**
          * @event model.translate.resolveComputedFields
          * Resolve computed fields before saving
          *
@@ -127,7 +137,7 @@ class TranslatableModel extends TranslatableBehavior
         $obj = Db::table('rainlab_translate_attributes')
             ->where('locale', $locale)
             ->where('model_id', $this->model->getKey())
-            ->where('model_type', get_class($this->model));
+            ->where('model_type', $this->getClass());
 
         if ($obj->count() > 0) {
             $obj->update(['attribute_data' => $data]);
@@ -136,7 +146,7 @@ class TranslatableModel extends TranslatableBehavior
             Db::table('rainlab_translate_attributes')->insert([
                 'locale' => $locale,
                 'model_id' => $this->model->getKey(),
-                'model_type' => get_class($this->model),
+                'model_type' => $this->getClass(),
                 'attribute_data' => $data
             ]);
         }
@@ -166,7 +176,7 @@ class TranslatableModel extends TranslatableBehavior
             $obj = Db::table('rainlab_translate_indexes')
                 ->where('locale', $locale)
                 ->where('model_id', $this->model->getKey())
-                ->where('model_type', get_class($this->model))
+                ->where('model_type', $this->getClass())
                 ->where('item', $attribute);
 
             $recordExists = $obj->count() > 0;
@@ -185,7 +195,7 @@ class TranslatableModel extends TranslatableBehavior
                 Db::table('rainlab_translate_indexes')->insert([
                     'locale' => $locale,
                     'model_id' => $this->model->getKey(),
-                    'model_type' => get_class($this->model),
+                    'model_type' => $this->getClass(),
                     'item' => $attribute,
                     'value' => $value
                 ]);
@@ -208,14 +218,23 @@ class TranslatableModel extends TranslatableBehavior
             return $this->translatableAttributes[$locale] = [];
         }
 
-        $obj = Db::table('rainlab_translate_attributes')
-            ->where('locale', $locale)
-            ->where('model_id', $this->model->getKey())
-            ->where('model_type', get_class($this->model))
-            ->first();
+        $obj = $this->model->translations->first(function ($value, $key) use ($locale) {
+            return $value->attributes['locale'] === $locale;
+        });
 
         $result = $obj ? json_decode($obj->attribute_data, true) : [];
 
         return $this->translatableOriginals[$locale] = $this->translatableAttributes[$locale] = $result;
+    }
+
+    /**
+     * Returns the class name of the model. Takes any
+     * custom morphMap aliases into account.
+     *
+     * @return string
+     */
+    protected function getClass()
+    {
+        return $this->model->getMorphClass();
     }
 }

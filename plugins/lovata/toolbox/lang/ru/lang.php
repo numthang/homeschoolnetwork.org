@@ -59,7 +59,6 @@
         'priority'                 => 'Приоритет',
         'group'                    => 'Группа',
         'count'                    => 'Количество',
-        'length'                   => 'Длинна',
         'amount'                   => 'Сумма',
         'author'                   => 'Автор',
         'link'                     => 'Ссылка',
@@ -67,6 +66,10 @@
         'is_default'               => 'По-умолчанию',
         'symbol'                   => 'Символ',
         'field'                    => 'Поле',
+        'weight'                   => 'Вес',
+        'height'                   => 'Высота',
+        'length'                   => 'Длина',
+        'width'                    => 'Ширина',
 
         'sort_order' => 'Сортировка',
         'created_at' => 'Создано',
@@ -133,6 +136,8 @@
         'property_mode'                  => 'Режим работы',
         'mode_submit'                    => 'Отправка формы',
         'mode_ajax'                      => 'Ajax',
+        'has_wildcard'                   => 'Часть URL является wildcard параметром',
+        'skip_error'                     => 'Пропустить ошибку "Не найдено"',
     ],
     'message'    => [
         'create_success'                  => 'Создание :name было успешно выполнено',

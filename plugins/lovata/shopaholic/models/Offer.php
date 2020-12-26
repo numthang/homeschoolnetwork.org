@@ -11,6 +11,7 @@ use Kharanenka\Scope\CodeField;
 use Kharanenka\Scope\ExternalIDField;
 use Kharanenka\Scope\NameField;
 
+use Lovata\Toolbox\Classes\Helper\PriceHelper;
 use Lovata\Toolbox\Traits\Helpers\TraitCached;
 use Lovata\Toolbox\Traits\Helpers\PriceHelperTrait;
 
@@ -40,6 +41,13 @@ use Lovata\Shopaholic\Classes\Import\ImportOfferModelFromCSV;
  * @property string                                                                                        $old_price
  * @property float                                                                                         $old_price_value
  * @property integer                                                                                       $quantity
+ * @property double                                                                                        $weight
+ * @property double                                                                                        $height
+ * @property double                                                                                        $length
+ * @property double                                                                                        $width
+ * @property double                                                                                        $quantity_in_unit
+ * @property int                                                                                           $measure_id
+ * @property int                                                                                           $measure_of_unit_id
  * @property int                                                                                           $product_id
  * @property \October\Rain\Argon\Argon                                                                     $created_at
  * @property \October\Rain\Argon\Argon                                                                     $updated_at
@@ -58,6 +66,11 @@ use Lovata\Shopaholic\Classes\Import\ImportOfferModelFromCSV;
  *
  * @property \Lovata\Shopaholic\Models\Product                                                             $product
  * @method \October\Rain\Database\Relations\BelongsTo|Product product()
+ *
+ * @property Measure                                                                                       $measure_of_unit
+ * @method static \October\Rain\Database\Relations\BelongsTo|Measure measure_of_unit()
+ * @property Measure                                                                                       $measure
+ * @method static \October\Rain\Database\Relations\BelongsTo|Measure measure()
  *
  * @method static $this getByProduct(int $iProductID)
  * @method static $this getByQuantity(int $iCount, string $sCondition = '=')
@@ -90,6 +103,23 @@ use Lovata\Shopaholic\Classes\Import\ImportOfferModelFromCSV;
  * Campaign for Shopaholic
  * @property \October\Rain\Database\Collection|\Lovata\CampaignsShopaholic\Models\Campaign[]               $campaign
  * @method static \October\Rain\Database\Relations\BelongsToMany|\Lovata\CampaignsShopaholic\Models\Campaign campaign()
+ *
+ * Subscriptions for Shopaholic
+ * @property int                                                                                           $subscription_period_id
+ * @property \Lovata\SubscriptionsShopaholic\Models\SubscriptionPeriod                                     $subscription_period
+ * @method static \October\Rain\Database\Relations\BelongsTo|\Lovata\SubscriptionsShopaholic\Models\SubscriptionPeriod subscription_period()
+ *
+ * YandexMarket for Shopaholic
+ * @property \System\Models\File                                                                           $preview_image_yandex
+ * @property \October\Rain\Database\Collection|\System\Models\File[]                                       $images_yandex
+ *
+ * Facebook for Shopaholic
+ * @property \System\Models\File                                                                           $preview_image_facebook
+ * @property \October\Rain\Database\Collection|\System\Models\File[]                                       $images_facebook
+ *
+ * VKontakte for Shopaholic
+ * @property \System\Models\File                                                                           $preview_image_vkontakte
+ * @property \October\Rain\Database\Collection|\System\Models\File[]                                       $images_vkontakte
  */
 class Offer extends ImportModel
 {
@@ -122,7 +152,11 @@ class Offer extends ImportModel
         'import_file'   => [\System\Models\File::class, 'public' => false],
     ];
     public $attachMany = ['images' => 'System\Models\File'];
-    public $belongsTo = ['product' => [Product::class]];
+    public $belongsTo = [
+        'product'          => [Product::class],
+        'measure_of_unit' => [Measure::class, 'key' => 'measure_of_unit_id', 'order' => 'name asc'],
+        'measure' => [Measure::class, 'order' => 'name asc'],
+    ];
     public $morphMany = [
         'price_link' => [
             Price::class,
@@ -151,6 +185,13 @@ class Offer extends ImportModel
         'quantity',
         'preview_text',
         'description',
+        'weight',
+        'height',
+        'length',
+        'width',
+        'measure_of_unit_id',
+        'measure_id',
+        'quantity_in_unit',
     ];
 
     public $cached = [
@@ -165,6 +206,13 @@ class Offer extends ImportModel
         'images',
         'price_list',
         'quantity',
+        'weight',
+        'height',
+        'length',
+        'width',
+        'measure_of_unit_id',
+        'measure_id',
+        'quantity_in_unit',
     ];
 
     public $dates = ['created_at', 'updated_at', 'deleted_at'];
@@ -238,20 +286,12 @@ class Offer extends ImportModel
     {
         $this->savePriceValue(null, $this->fSavedPrice, $this->fSavedOldPrice);
         $this->savePriceListValue();
-    }
 
-    /**
-     * Set quantity attribute value
-     * @param  int $iQuantity
-     */
-    public function setQuantityAttribute($iQuantity)
-    {
-        $iQuantity = (int) $iQuantity;
-        if (empty($iQuantity) || $iQuantity < 0) {
-            $iQuantity = 0;
-        }
-
-        $this->attributes['quantity'] = $iQuantity;
+        //Clear relations with old prices and saved values
+        $this->reloadRelations('main_price');
+        $this->reloadRelations('price_link');
+        $this->fSavedPrice = null;
+        $this->fSavedOldPrice = null;
     }
 
     /**
@@ -344,14 +384,19 @@ class Offer extends ImportModel
      */
     protected function getPriceValueAttribute()
     {
-        $obPriceModel = $this->getPriceObject($this->getActivePriceType());
-        $this->setActivePriceType(null);
+        if ($this->fSavedPrice !== null) {
+            $fPrice = $this->fSavedPrice;
+        } else {
+            $obPriceModel = $this->getPriceObject($this->getActivePriceType());
+            $this->setActivePriceType(null);
 
-        if (empty($obPriceModel)) {
-            return 0;
+            if (empty($obPriceModel)) {
+                return 0;
+            }
+
+            $fPrice = $obPriceModel->price_value;
         }
 
-        $fPrice = $obPriceModel->price_value;
         $fPrice = CurrencyHelper::instance()->convert($fPrice, $this->getActiveCurrency());
 
         return $fPrice;
@@ -363,14 +408,19 @@ class Offer extends ImportModel
      */
     protected function getOldPriceValueAttribute()
     {
-        $obPriceModel = $this->getPriceObject($this->getActivePriceType());
-        $this->setActivePriceType(null);
+        if ($this->fSavedOldPrice !== null) {
+            $fPrice = $this->fSavedOldPrice;
+        } else {
+            $obPriceModel = $this->getPriceObject($this->getActivePriceType());
+            $this->setActivePriceType(null);
 
-        if (empty($obPriceModel)) {
-            return 0;
+            if (empty($obPriceModel)) {
+                return 0;
+            }
+
+            $fPrice = $obPriceModel->old_price_value;
         }
 
-        $fPrice = $obPriceModel->old_price_value;
         $fPrice = CurrencyHelper::instance()->convert($fPrice, $this->getActiveCurrency());
         $this->setActiveCurrency(null);
 
@@ -406,8 +456,8 @@ class Offer extends ImportModel
 
         foreach ($this->price_link as $obPrice) {
             $arResult[$obPrice->price_type_id] = [
-                'price'     => $obPrice->price,
-                'old_price' => $obPrice->old_price,
+                'price'     => $obPrice->price_value,
+                'old_price' => $obPrice->old_price_value,
             ];
         }
 
@@ -421,7 +471,7 @@ class Offer extends ImportModel
      */
     protected function setPriceAttribute($sValue)
     {
-        $this->fSavedPrice = $sValue;
+        $this->fSavedPrice = PriceHelper::toFloat($sValue);
     }
 
     /**
@@ -431,7 +481,7 @@ class Offer extends ImportModel
      */
     protected function setOldPriceAttribute($sValue)
     {
-        $this->fSavedOldPrice = $sValue;
+        $this->fSavedOldPrice = PriceHelper::toFloat($sValue);
     }
 
     /**
@@ -446,8 +496,8 @@ class Offer extends ImportModel
         }
 
         if (isset($arPriceList[0])) {
-            $this->fSavedPrice = array_get($arPriceList[0], 'price');
-            $this->fSavedOldPrice = array_get($arPriceList[0], 'old_price');
+            $this->fSavedPrice = PriceHelper::toFloat(array_get($arPriceList[0], 'price'));
+            $this->fSavedOldPrice = PriceHelper::toFloat(array_get($arPriceList[0], 'old_price'));
             unset($arPriceList[0]);
         }
 
@@ -463,6 +513,34 @@ class Offer extends ImportModel
         $obOfferItem = OfferItem::make($this->id, $this);
 
         return $obOfferItem->tax_percent;
+    }
+
+    /**
+     * Set quantity attribute value
+     * @param int $iQuantity
+     */
+    protected function setQuantityAttribute($iQuantity)
+    {
+        $iQuantity = (int) $iQuantity;
+        if (empty($iQuantity) || $iQuantity < 0) {
+            $iQuantity = 0;
+        }
+
+        $this->attributes['quantity'] = $iQuantity;
+    }
+
+    /**
+     * Set quantity_in_unit attribute value
+     * @param int $iQuantity
+     */
+    protected function setQuantityInUnitAttribute($sQuantity)
+    {
+        $fQuantity = (float) PriceHelper::toFloat($sQuantity);
+        if (empty($fQuantity) || $fQuantity < 0) {
+            $fQuantity = 0;
+        }
+
+        $this->attributes['quantity_in_unit'] = $fQuantity;
     }
 
     /**

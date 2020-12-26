@@ -118,6 +118,7 @@ class Posts extends RainLabPosts
       $tags = $this->tags;
       $i = 0; $list = array(); $already = array();
       #dump($this->property('userID')); #dump($this->property('userID')); #dump($this->property('ownerID')); #dump($this->property('evaluationID'));
+      #echo $this->user_field.'-'.$this->property('userID').'-'.$this->property('ownerID');
       foreach ($tags['id'] as $key1 => $tag_id) {
         $posts = Tag::Where('id', $tag_id)
         ->with(['posts' => function($query) {
@@ -128,11 +129,19 @@ class Posts extends RainLabPosts
             ->where($this->user_field, '=', $this->property('userID'))
             ->where('evaluation_id', '=', $this->property('evaluationID'))
             ;
+<<<<<<< HEAD
 	  })*/
           ->Where(function ($query) {
             $query
             ->where($this->user_field, '=', $this->property('userID'))
 	    ->orWhere($this->user_field, '=', $this->property('ownerID'))
+=======
+          })old code error some post may not appear*/
+          ->Where(function ($query) {
+            $query
+            ->where($this->user_field, '=', $this->property('userID'))
+            ->orwhere($this->user_field, '=', $this->property('ownerID'))
+>>>>>>> 85c4f9726de3a4042c624a55c58a8bf6d393b316
             ->where('evaluation_id', '=', $this->property('evaluationID'))
             ;
           })
@@ -143,9 +152,9 @@ class Posts extends RainLabPosts
             'published' => $this->property('isPublished')
           ]);
         }])->get();
-  
         foreach ($posts[0]->posts as $key => $value) {
           // code...
+          echo $value->title.'<br>';
           $list[$i]['tag_id'] = $tag_id;
           $list[$i]['tag'] = $tags['name'][$key1];
           $list[$i]['post_id'] = $value->id;

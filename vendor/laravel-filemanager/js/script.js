@@ -288,6 +288,14 @@ function useFile(file_url) {
     }
     tinyMCEPopup.close();
   }
+  function useTinymce5(url) {
+    parent.postMessage({
+      mceAction: 'insert',
+      content: url
+    });
+    parent.postMessage({ mceAction: 'close' });
+  }
+  
 
   function useTinymce4AndColorbox(url, field_name) {
     parent.document.getElementById(field_name).value = url;
@@ -324,7 +332,9 @@ function useFile(file_url) {
   var is_fcke = typeof data != 'undefined' && data['Properties']['Width'] != '';
   var file_path = url.replace(route_prefix, '');
 
-  if (window.opener || window.tinyMCEPopup || field_name || getUrlParam('CKEditorCleanUpFuncNum') || is_ckeditor) {
+  if ('tinymce5' === getUrlParam('editor')) {
+    useTinymce5(url);
+  } else if (window.opener || window.tinyMCEPopup || field_name || getUrlParam('CKEditorCleanUpFuncNum') || is_ckeditor) {
     if (window.tinyMCEPopup) { // use TinyMCE > 3.0 integration method
       useTinymce3(url);
     } else if (field_name) {   // tinymce 4 and colorbox

@@ -42,7 +42,7 @@
         "october/system": "~1.0",
         "october/backend": "~1.0",
         "october/cms": "~1.0",
-        "laravel/framework": "^5.8.0",
+        "laravel/framework": "^6",
         "wikimedia/composer-merge-plugin": "dev-master",
         "unisharp/laravel-filemanager": "1.9.2",
         "doctrine/dbal": "^2.5",
@@ -74,7 +74,7 @@
     "config": {
         "preferred-install": "dist",
         "platform": {
-            "php": "7.0"
+            "php": "7.4.3"
         }
     },
     "minimum-stability": "dev",

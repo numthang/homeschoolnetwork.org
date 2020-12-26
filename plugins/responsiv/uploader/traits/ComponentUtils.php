@@ -4,16 +4,15 @@ use Input;
 use Request;
 use Response;
 use Validator;
-use ValidationException;
-use ApplicationException;
 use System\Models\File;
 use October\Rain\Support\Collection;
-use Exception;
 use October\Rain\Filesystem\Definitions;
+use ApplicationException;
+use ValidationException;
+use Exception;
 
 trait ComponentUtils
 {
-
     /**
      * @var Model
      */
@@ -31,8 +30,9 @@ trait ComponentUtils
 
     public function bindModel($attribute, $model)
     {
-        if (is_callable($model))
+        if (is_callable($model)) {
             $model = $model();
+        }
 
         $this->model = $model;
         $this->attribute = $attribute;
@@ -41,6 +41,14 @@ trait ComponentUtils
             $relationType = $this->model->getRelationType($attribute);
             $this->isMulti = ($relationType == 'attachMany' || $relationType == 'morphMany');
             $this->isBound = true;
+        }
+    }
+
+    public function autoPopulate()
+    {
+        if (!$this->isPopulated()) {
+            $this->fileList = $fileList = $this->getFileList();
+            $this->singleFile = $fileList->first();
         }
     }
 
@@ -67,6 +75,10 @@ trait ComponentUtils
 
     public function getFileList()
     {
+        if (!is_string($this->attribute)) {
+            throw new ApplicationException(sprintf('Attribute name must be a string, %s was passed.', gettype($this->attribute)));
+        }
+
         /*
          * Use deferred bindings
          */
@@ -98,12 +110,8 @@ trait ComponentUtils
         return $list;
     }
 
-    protected function checkUploadAction()
+    public function onUpload()
     {
-        if (!($uniqueId = Request::header('X-OCTOBER-FILEUPLOAD')) || $uniqueId != $this->alias) {
-            return;
-        }
-
         try {
             if (!Input::hasFile('file_data')) {
                 throw new ApplicationException('File missing from request');
@@ -112,7 +120,7 @@ trait ComponentUtils
             $uploadedFile = Input::file('file_data');
 
 
-            $validationRules = ['max:'.File::getMaxFilesize()];
+            $validationRules = ['max:'.$this->getMaxFileSize()];
             if ($fileTypes = $this->processFileTypes()) {
                 $validationRules[] = 'extensions:'.$fileTypes;
             }
@@ -130,9 +138,13 @@ trait ComponentUtils
                 throw new ApplicationException(sprintf('File %s is not valid.', $uploadedFile->getClientOriginalName()));
             }
 
-            $file = new File;
+            $relationDefinition = $this->model->getRelationDefinition($this->attribute);
+            $fileModel = $relationDefinition[0];
+            $isPublic = array_get($relationDefinition, 'public', true);
+
+            $file = new $fileModel;
             $file->data = $uploadedFile;
-            $file->is_public = true;
+            $file->is_public = $isPublic;
             $file->save();
 
             $this->model->{$this->attribute}()->add($file, $this->getSessionKey());
@@ -193,5 +205,19 @@ trait ComponentUtils
         }, $types);
 
         return implode(',', $types);
+    }
+
+    /**
+     * Get the max File Size
+     * @return int
+     */
+    protected function getMaxFileSize()
+    {
+        if ($maxSize = $this->property('maxSize')) {
+            return round($maxSize * 1024);
+        }
+        else {
+            return File::getMaxFilesize();
+        }
     }
 }

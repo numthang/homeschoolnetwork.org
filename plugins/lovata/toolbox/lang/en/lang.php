@@ -59,7 +59,6 @@
         'priority'                 => 'Priority',
         'group'                    => 'Group',
         'count'                    => 'Count',
-        'length'                   => 'Length',
         'amount'                   => 'Amount',
         'author'                   => 'Author',
         'link'                     => 'Link',
@@ -67,6 +66,10 @@
         'is_default'               => 'Is default',
         'symbol'                   => 'Symbol',
         'field'                    => 'Field',
+        'weight'                   => 'Weight',
+        'height'                   => 'Height',
+        'length'                   => 'Length',
+        'width'                    => 'Width',
 
         'sort_order' => 'Sorting',
         'created_at' => 'Created',
@@ -133,6 +136,8 @@
         'property_mode'                  => 'Component mode',
         'mode_submit'                    => 'Form submit',
         'mode_ajax'                      => 'Ajax',
+        'has_wildcard'                   => 'URL section is wildcard',
+        'skip_error'                     => 'Skip "Not found" error',
     ],
     'message'    => [
         'create_success'                  => 'Create :name was successful',

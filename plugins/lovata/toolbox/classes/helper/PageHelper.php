@@ -32,18 +32,19 @@ class PageHelper
      * @param string $sPageCode
      * @param string $sComponentName
      * @param string $sParamName
+     * @param bool   $bFindWildcard
      *
      * @return array
      */
-    public function getUrlParamList($sPageCode, $sComponentName, $sParamName = 'slug')
+    public function getUrlParamList($sPageCode, $sComponentName, $sParamName = 'slug', $bFindWildcard = false)
     {
-        $sCacheKey = implode('_', [$sPageCode, $sComponentName, $sParamName]);
+        $sCacheKey = implode('_', [$sPageCode, $sComponentName, $sParamName, (int) $bFindWildcard]);
         if ($this->hasCache($sCacheKey)) {
             return $this->getCachedData($sCacheKey);
         }
 
         $arResult = [];
-        if (empty($sPageCode) || empty($sComponentName) || empty($sParamName)) {
+        if (empty($sPageCode) || empty($sParamName)) {
             return $arResult;
         }
 
@@ -54,7 +55,7 @@ class PageHelper
         }
 
         foreach ($arComponentList as $sKey => $arPropertyList) {
-            if (!preg_match('%^'.$sComponentName.'%', $sKey)) {
+            if (!empty($sComponentName) && !preg_match('%^'.$sComponentName.'%', $sKey)) {
                 continue;
             }
 
@@ -72,7 +73,13 @@ class PageHelper
 
             $sValue = trim($arMatches[1]);
             $sValue = ltrim($sValue, ':');
-            $arResult[] = $sValue;
+
+            if ($bFindWildcard && array_get($arPropertyList, 'has_wildcard')) {
+                $arResult = [$sValue];
+                break;
+            } elseif (!$bFindWildcard) {
+                $arResult[] = $sValue;
+            }
         }
 
         $this->setCachedData($sCacheKey, $arResult);

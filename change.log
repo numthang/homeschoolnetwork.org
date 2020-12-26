@@ -1,3 +1,13 @@
+try
+
+ไฟล์ที่แก้ไขเพิ่มใน homeschoolnetwork.org.upgrade2 คือ ซึ่งไฟล์ล่าสุดใน server ไม่ได้ ดึงจาก git แล้ว แต่ใช้วิธีแก้บน server โดยตรง
+plugins/numthang/blog/components/Posts.php
+==
+TRUNCATE `ginopane_blogtaxonomy_taggables`;
+TRUNCATE `ginopane_blogtaxonomy_tags`;
+TRUNCATE `numthang_homeschool_evaluations`;
+TRUNCATE `rainlab_blog_posts`;
+TRUNCATE `rainlab_blog_posts_categories`;
 
 
 error ตอน save new tag ถ้า tag ซ้ำ
@@ -114,10 +124,10 @@ Hard code changed
 #/plugins/bedard/blogtags/models/Tag.php
 /plugins/ginopane/blogtaxonomy/models/Tag.php
 /plugins/fireunion/blogfront/components/PostForm.php
-/plugins/flynsarmy/sociallogin/classes/UserManager.php
+/plugins/flynsarmy/sociallogin/classes/UserManager.php //disabled update
 
 //use translatable title
-/plugins/suresoftware/powerseo/components/cmspage/default.htm
+#/plugins/suresoftware/powerseo/components/cmspage/default.htm
 /plugins/suresoftware/powerseo/classes/Helper.php
 
 //LaravelFilemanager
