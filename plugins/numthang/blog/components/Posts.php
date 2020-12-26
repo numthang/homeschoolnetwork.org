@@ -129,23 +129,11 @@ class Posts extends RainLabPosts
             ->where($this->user_field, '=', $this->property('userID'))
             ->where('evaluation_id', '=', $this->property('evaluationID'))
             ;
-<<<<<<< HEAD
           })old code error some posts may not appear*/
-=======
-<<<<<<< HEAD
-	  })*/
-          ->Where(function ($query) {
-            $query
-            ->where($this->user_field, '=', $this->property('userID'))
-	    ->orWhere($this->user_field, '=', $this->property('ownerID'))
-=======
-          })old code error some post may not appear*/
->>>>>>> 0709d448e1c46fac7b13a7eb52a42e879a3dc4cb
           ->Where(function ($query) {
             $query
             ->where($this->user_field, '=', $this->property('userID'))
             ->orwhere($this->user_field, '=', $this->property('ownerID'))
->>>>>>> 85c4f9726de3a4042c624a55c58a8bf6d393b316
             ->where('evaluation_id', '=', $this->property('evaluationID'))
             ;
           })
