@@ -123,15 +123,16 @@ class Posts extends RainLabPosts
         ->with(['posts' => function($query) {
           $category = $this->category ? $this->category->id : null;
           $query
-          ->Where(function ($query) {
+          /*->Where(function ($query) {
             $query
             ->where($this->user_field, '=', $this->property('userID'))
             ->where('evaluation_id', '=', $this->property('evaluationID'))
             ;
-          })
-          ->orWhere(function ($query) {
+	  })*/
+          ->Where(function ($query) {
             $query
-            ->where($this->user_field, '=', $this->property('ownerID'))
+            ->where($this->user_field, '=', $this->property('userID'))
+	    ->orWhere($this->user_field, '=', $this->property('ownerID'))
             ->where('evaluation_id', '=', $this->property('evaluationID'))
             ;
           })
