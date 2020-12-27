@@ -207,7 +207,8 @@ slug = "{{ :slug }}"
       <div class="row">
         <div class="col-sm-3 col-xs-12">
           <div class="team-member text-center">
-            <img class="img-responsive center-block avatar-responsive" src="https://graph.facebook.com/528931910/picture?type=normal" onClick="window.location.href = '/u/2';">
+
+            {% partial 'user/avatar' id=user.id facebookID=user.facebook_id style='img-responsive center-block avatar-responsive' redirect=1 %}
             <div class="info" style="font-size:17px;">
               Unnop Sricharoenchai
               <p class="text-muted">Administrator</p>
