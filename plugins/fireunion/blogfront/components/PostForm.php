@@ -43,7 +43,7 @@ class PostForm extends ComponentBase {
 						'placeholderText' => 'Add Image',
 						'deferredBinding' => true,
 						//'fileTypes' => 'jpg',
-						'maxSize' => '3',
+						'maxSize' => '6',
 					]
 				);
 				$component->bindModel('featured_images', $this->post);

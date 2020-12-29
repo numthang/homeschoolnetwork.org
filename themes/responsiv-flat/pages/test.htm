@@ -5,6 +5,12 @@ is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
 
-[actorform]
+[imageUploader]
+placeholderText = "Click or drag images to upload"
+maxSize = 5
+fileTypes = ".gif,.jpg,.jpeg,.png"
+imageWidth = 100
+imageHeight = 100
+imageMode = "crop"
 ==
-{% component 'actorform' %}
+{% component 'imageUploader' %}

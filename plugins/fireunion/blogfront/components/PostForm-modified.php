@@ -6,9 +6,9 @@ use System\Classes\PluginManager;
 use RainLab\Blog\Models\Post as BlogPost;
 use Input;
 use DB;
-
+//Numthang added
 use GinoPane\BlogTaxonomy\Models\Series as Series;
-
+use Auth;
 
 class PostForm extends ComponentBase {
 	use \FireUnion\BlogFront\Traits\Loaders;
@@ -43,7 +43,7 @@ class PostForm extends ComponentBase {
 						'placeholderText' => 'Add Image',
 						'deferredBinding' => true,
 						//'fileTypes' => 'jpg',
-						'maxSize' => '3',
+						'maxSize' => '6',
 					]
 				);
 				$component->bindModel('featured_images', $this->post);
@@ -88,6 +88,7 @@ class PostForm extends ComponentBase {
 			return null;
     }
     /*Numthang insert tag*/
+    $user = Auth::getUser();
 		post('id') ? $id = post('id') : $id = DB::table('rainlab_blog_posts')->max('id');
 		$post = BlogPost::find($id);
     $post->tags()->detach(); //delete all tags relation to post
@@ -95,25 +96,26 @@ class PostForm extends ComponentBase {
       foreach($tags as $tagID) {
         \GinoPane\BlogTaxonomy\Models\Tag::extend(function($model) {//extend beforevalidate method add unique slug
           $model->rules = [//override validation no checking thai alphabet
-            'name' => "required|unique:" .$model->table. "|min:2|regex:/^[\w\-][ก-๛]+$/iu"
+            #'name' => "required|unique:" .$model->table. "|min:2|regex:/^[\w\-][ก-๛\a-z0-9]+$/iu"
           ];
           $model->bindEvent('model.beforeValidate', function() use ($model) {
             $model->slug = DB::table('ginopane_blogtaxonomy_tags')->max('id') + 1;
           });
         });
-        if(!is_numeric($tagID)) {//If get letter is new tag adding
+        if(!is_numeric($tagID)) {//If is not nubmer or get letter is new tag adding
           $newTag = new \GinoPane\BlogTaxonomy\Models\Tag;
           $newTag->name = $tagID;
+          $newTag->user_id = $user->id;
           $newTag->save();
           $newTags[] = $newArray[] = $newTag->id;
         } else {
           $newArray[] = $tagID;
         }
       }
-      $post->tags()->attach($newArray);//attach all tags list
-
+      $post->tags()->attach($newArray);//attach all tags relation to post again
       if(isset($newTags)) {//insert serie of mod eg: post, portfolio
-        $serie = Series::where('slug', $this->param('mod'))->first();
+        empty($this->param('mod')) ? $mod = 'portfolio' : $mod = $this->param('mod');
+        $serie = Series::where('slug', $mod)->first();
         #$serie->tags()->detach();
         $serie->tags()->attach($newTags);//attach only new tags
       }
