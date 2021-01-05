@@ -14,6 +14,6 @@ class Movies extends Controller
     public function __construct()
     {
         parent::__construct();
-        //BackendMenu::setContext('Watchlearn.Movies', 'main-menu-item');
+        BackendMenu::setContext('Watchlearn.Movies', 'main-menu-item');
     }
 }
