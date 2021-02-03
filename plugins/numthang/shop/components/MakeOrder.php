@@ -64,12 +64,12 @@ class MakeOrder extends LovataMakeOrder
         ];
 
         Mail::send(['text' => 'lovata.ordersshopaholic::mail.create_order_user'], $data, function($message) use ($user) {
-          $sale_address = 'hsnetwork.org@gmail.com';
-          $message->replyTo($sale_address, 'Homeschool Network');
+          $sale_address = Config::get('mail.from.address');
+          $message->replyTo($sale_address, Config::get('mail.from.address.name'));
           $message->to($user->email, $user->name);
         });
         Mail::send(['text' => 'lovata.ordersshopaholic::mail.create_order_manager'], $data, function($message) use ($user) {
-          $sale_address = 'hsnetwork.org@gmail.com';
+          $sale_address = Config::get('mail.from.address');
           $message->from($user->email, $user->name);
           $message->replyTo($user->email, $user->name);
           $message->to($sale_address);
