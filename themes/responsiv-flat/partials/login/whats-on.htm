@@ -1,3 +1,5 @@
+[viewBag]
+
 [evaluations]
 results = 0
 byUserID = "{{ user_id }}"
@@ -9,8 +11,6 @@ limit = 0
 enableTagFilter = "never"
 tagPage = 404
 tagsPage = 404
-
-[viewBag]
 ==
 {% set student_evaluations = evaluations.student_evaluations %}
 {% set evaluations = evaluations.evaluations %}
