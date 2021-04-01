@@ -41,7 +41,7 @@ redirect = "login/login"
     $this->page['title'] = $this->evaluationform->record->name;
     $year = $this->evaluationform->record->graduated-543;
     $this->page['from'] = $year.'-03-31';//กำหนดให้เลือก blog จากปีการศึกษาปัจจุบัน
-    $this->page['to'] = ($year+1).'-04-31';//จนถึงปีหน้าประเมิน จบเทอมประมาณ 31 มีนา
+    $this->page['to'] = ($year+1).'-04-31';//จนถึงปีหน้าประเมิน จบเทอมประมาณ 31 เมษา
     
     //ถ้ามีการนำเข้าผู้แต่งจากภายนอก ให้เลือกโพสต์ (author_id) ผู้แต่งจากภายนอก
     $this->page['author_id'] = $this->evaluationform->record->portfolio_id;
