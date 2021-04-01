@@ -22,7 +22,7 @@ ownerID = "{{ owner }}"
 
 {% for tag in tags['name'] %}
   {% set tag_id = tags['id'][loop.index0] %}
-  <h4 style="font-family: 'Kanit'; font-size:25px; color:#34495e;"><a name="port-{{ tag_id }}" id="port-{{ tag_id }}"></a> <span class="glyphicon glyphicon-tags" aria-hidden="true"></span> กลุ่มประสบการณ์ <!--{{ loop.index }}--> : {{ tag }}</h4>
+  <h4 style="font-family: 'Kanit'; font-size:25px; color:#34495e;"><a name="port-{{ tag_id }}" id="port-{{ tag_id }}"></a> <span class="glyphicon glyphicon-tags" aria-hidden="true"></span> &nbsp;กลุ่มประสบการณ์ <!--{{ loop.index }}--> : {{ tag }}</h4>
   {% set parent = loop.index %}
   {% set continue = true %}
   {% set child = 1 %}
