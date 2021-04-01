@@ -17,6 +17,9 @@ default ชื่อบ้านเรียนในแผน
 - default Evaluation
 - สร้าง component postform extended ใน blog plugin ตอนนี้ component postแform โมมั่วไปหมดแล้ว
 ===================================================================
+แก้ไขปีการศึกษา /themes/responsiv-flat/pages/user/evaluation.htm
+ถ้ามีให้แก้ไข publish date ก็จบเรื่อง
+==
 Future
 1. recent tweet
 Introduction
