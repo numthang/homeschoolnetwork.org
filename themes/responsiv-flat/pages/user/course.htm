@@ -66,26 +66,26 @@ public function onEnd() {
 
 </div>
 <div class="page other">
-  <a name="first" id="first"><h2>1. ข้อมูลพื้นฐานของครอบครัว</h2></a>
+  <a name="first" id="first"><h3>1. ข้อมูลพื้นฐานของครอบครัว</h3></a>
   <strong>บิดา {{ this.page.father_name }} อายุ {{ this.page.father_age }} ปี </strong><br>
-  การศึกษา : {{ this.page.father_degree }} <br>
-  ประสบการณ์ : {{ this.page.father_exp }}<br>
-  อาชีพ : {{ this.page.father_job}}<br>
-  ที่อยู่ปัจจุบัน : {{ this.page.father_addr }}<br>
-  ติดต่อ : {{ this.page.father_contact}}
+  <b>การศึกษา</b> : {{ this.page.father_degree }} <br>
+  <b>ประสบการณ์</b> : {{ this.page.father_exp|raw }}<br>
+  <b>อาชีพ</b> : {{ this.page.father_job }}<br>
+  <b>ที่อยู่ปัจจุบัน</b> : {{ this.page.father_addr }}<br>
+  <b>ติดต่อ</b> : {{ this.page.father_contact}}
   <br><br>
   <strong>มารดา {{ this.page.mother_name }} อายุ {{ this.page.mother_age }} ปี </strong><br>
-  การศึกษา : {{ this.page.mother_degree }} <br>
-  ประสบการณ์ : {{ this.page.mother_exp }}<br>
-  อาชีพ : {{ this.page.mother_job}}<br>
-  ที่อยู่ปัจจุบัน : {{ this.page.mother_addr }}<br>
-  ติดต่อ : {{ this.page.mother_contact }}
+  <b>การศึกษา</b> : {{ this.page.mother_degree }} <br>
+  <b>ประสบการณ์</b> : {{ this.page.mother_exp|raw }}<br>
+  <b>อาชีพ</b> : {{ this.page.mother_job }}<br>
+  <b>ที่อยู่ปัจจุบัน</b> : {{ this.page.mother_addr }}<br>
+  <b>ติดต่อ</b> : {{ this.page.mother_contact }}
   <br><br>
-  <a name="second" id="second"><h2>2. ข้อมูลพื้นฐานของผู้เรียน</h2></a>
+  <a name="second" id="second"><h3>2. ข้อมูลพื้นฐานของผู้เรียน</h3></a>
   <strong>2.1 ข้อมูลของผู้เรียน</strong><br>
   {{ record.student_name|raw }} อายุ {{ ("now"|date('Y')+543)-record.birth_date|date('Y') }} ปี  <!--เพศ {{ record.gender }}--><br>
-  วัน-เดือน-ปีเกิด {{ record.birth_date|date('d/m/Y') }}<br>
-  ประวัติการศึกษา : {{ record.school_exp|nl2br }}
+  <b>วัน-เดือน-ปีเกิด</b> {{ record.birth_date|date('d/m/Y') }}<br>
+  <b>ประวัติการศึกษา</b> : {{ record.school_exp|nl2br }}
   <br><br>
   <strong>2.2 พัฒนาการของผู้เรียน</strong><br>
   {{ record.development|nl2br }}
@@ -115,7 +115,7 @@ public function onEnd() {
   {{ record.part4|raw }}</textarea>
 </div>
 {% put scripts %}
-<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+<script src="https://cdn.tiny.cloud/1/k8riw8mk1vc80o1cye8sdq8b8b6i6t7qb455jj35we3rwn4m/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
   var editor_config = {
     selector: "textarea.mytinymce",

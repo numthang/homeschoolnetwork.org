@@ -85,19 +85,19 @@ redirect = "login/login"
   {% if evaluation.course_id %}
   <a name="first" id="first"><h3>ข้อมูลพื้นฐานของครอบครัว</h3></a>
   <strong>บิดา {{ this.page.father_name }} อายุ {{ this.page.father_age }} ปี </strong><br>
-  การศึกษา : {{ this.page.father_degree }} <br>
-  ประสบการณ์ : {{ this.page.father_exp }}<br>
-  อาชีพ : {{ this.page.father_job}}<br>
-  ที่อยู่ปัจจุบัน : {{ this.page.father_addr }}<br>
-  ติดต่อ : {{ this.page.father_contact}}<br><br>
-
+  <b>การศึกษา</b> : {{ this.page.father_degree }} <br>
+  <b>ประสบการณ์</b> : {{ this.page.father_exp|raw }}<br>
+  <b>อาชีพ</b> : {{ this.page.father_job }}<br>
+  <b>ที่อยู่ปัจจุบัน</b> : {{ this.page.father_addr }}<br>
+  <b>ติดต่อ</b> : {{ this.page.father_contact}}
+  <br><br>
   <strong>มารดา {{ this.page.mother_name }} อายุ {{ this.page.mother_age }} ปี </strong><br>
-  การศึกษา : {{ this.page.mother_degree }} <br>
-  ประสบการณ์ : {{ this.page.mother_exp }}<br>
-  อาชีพ : {{ this.page.mother_job}}<br>
-  ที่อยู่ปัจจุบัน : {{ this.page.mother_addr }}<br>
-  ติดต่อ : {{ this.page.mother_contact }}<br><br>
-
+  <b>การศึกษา</b> : {{ this.page.mother_degree }} <br>
+  <b>ประสบการณ์</b> : {{ this.page.mother_exp|raw }}<br>
+  <b>อาชีพ</b> : {{ this.page.mother_job}}<br>
+  <b>ที่อยู่ปัจจุบัน</b> : {{ this.page.mother_addr }}<br>
+  <b>ติดต่อ</b> : {{ this.page.mother_contact }}
+  <br><br>
   <a name="second" id="second"><h3>ข้อมูลพื้นฐานของผู้เรียน</h3></a>
   <strong>ข้อมูลของผู้เรียน</strong><br>
   {{ course.student_name|raw }} อายุ {{ "now"|date('Y')+543 - course.birth_date|date('Y') }} ปี  <!--เพศ {{ course.gender }}--><br>
