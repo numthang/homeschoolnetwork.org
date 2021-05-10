@@ -168,9 +168,9 @@
 						</div>
             <div class="col-sm-3">
               <div class="form-group">
-                <label>วัน เดือน ปี เกิด</label>
+                <label>วัน เดือน ปี (พ.ศ.) เกิด</label>
                 <div class="input-group date" data-provide="datepicker">
-                  <input type="text" class="form-control" name="birth" id="datepicker" value="{% if this.page.birth %}{{ this.page.birth }}{% else %}{{ "now"|date("d/m/Y") }} {% endif %}">
+                  <input type="text" class="form-control" name="birth" id="datepicker" value="{% if this.page.birth %}{{ this.page.birth }}{% else %}{{ "now"|date("d/m/") }}{{ "now"|date('Y')+543 }} {% endif %}">
                     <div class="input-group-addon">
                       <span class="fui-calendar"></span>
                     </div>
