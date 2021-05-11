@@ -85,7 +85,7 @@ public function onEnd() {
   <strong>2.1 ข้อมูลของผู้เรียน</strong><br>
   {{ record.student_name|raw }} อายุ {{ ("now"|date('Y')+543)-record.birth_date|date('Y') }} ปี  <!--เพศ {{ record.gender }}--><br>
   <b>วัน-เดือน-ปีเกิด</b> {{ record.birth_date|date('d/m/Y') }}<br>
-  <b>ประวัติการศึกษา</b> : {{ record.school_exp|nl2br }}
+  <b>ประวัติการศึกษา</b> : {{ record.school_exp|raw }}
   <br><br>
   <strong>2.2 พัฒนาการของผู้เรียน</strong><br>
   {{ record.development|nl2br }}
