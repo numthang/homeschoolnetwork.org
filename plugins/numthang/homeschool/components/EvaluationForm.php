@@ -63,12 +63,17 @@ class EvaluationForm extends ComponentBase
         return ['#flash_message' => $this->renderPartial('flash.htm', ['message' => $validator->errors()->first(), 'type' => 'error'])];
         #return Redirect::back()->withErrors($validator);
       }
-
+      
       if($this->param('id') && Input::get('save_as') == 0)//ถ้ามีการ update และไม่ได้กดปุ่ม save as จะส่ง query id ของแผนการศึกษาเข้ามา ให้ค้นหากรองด้วย id ก่อน
         $evaluation = Evaluation::find($this->param('id'));
       else
         $evaluation = new Evaluation();
 
+      //dump(Input::get('graduated'));
+      if(Input::get('graduated')) {
+		    $date = explode('/', Input::get('graduated'));
+		    $_POST['evaluation_date'] = $evaluation->evaluation_date = $date[2].'-'.$date[1].'-'.$date[0];
+      }
       $evaluation->fill(post());//กำหนด fillable field ใน Models/Evaluation
       $evaluation->save();
       Flash::success('Evaluation '.$evaluation->name.' saved!');

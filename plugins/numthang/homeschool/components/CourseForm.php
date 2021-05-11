@@ -75,8 +75,6 @@ class CourseForm extends ComponentBase
 		    $date = explode('/', Input::get('birth'));
 		    $_POST['birth_date'] = $course->birth_date = $date[2].'-'.$date[1].'-'.$date[0];
 		  }
-      //$date = explode('/', Input::get('birth_date'));
-      //$_POST['birth_date'] = $course->birth_date = '2010-01-01';
 
       //ถ้าเราเป็นโค้ชหรือเป็นเจ้าของคอร์สและไม่มีโค้ชจองอยู่ จะสามารถ save ได้
       if(($course->moderator_id == $user->id) || ($course->user_id == $user->id && $course->moderator_id == 0)) {

@@ -48,6 +48,8 @@ public function onEnd() {
     $date = explode('-', $course->attributes['birth_date']);
     $this->page['birth_date'] = $date[2].'/'.$date[1].'/'.$date[0];
   }
+  $date = explode('-', $this->evaluationform->record->attributes['evaluation_date']);
+  $this->page['graduated'] = $date[2].'/'.$date[1].'/'.$date[0];
 }
 ?>
 ==

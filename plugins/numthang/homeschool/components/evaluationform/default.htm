@@ -81,8 +81,16 @@
 			</select>
 		</div>
 		<div class="col-md-3">
-			<label>ปีการศึกษา</label> * (นับก่อน 31 เมษายน)
-			<select class="form-control select select-primary" data-toggle="" name="graduated" style="width:100%">
+      <div class="form-group">
+        <label>วันประเมิน</label> * (พ.ศ.)
+        <div class="input-group date" data-provide="datepicker">
+          <input type="text" class="form-control" name="graduated" id="datepicker" value="{% if this.page.graduated %}{{ this.page.graduated }}{% else %}{{ "now"|date("d/m/") }}{{ "now"|date('Y')+543 }} {% endif %}">
+            <div class="input-group-addon">
+              <span class="fui-calendar"></span>
+            </div>
+        </div>
+      </div>
+			<!--<select class="form-control select select-primary" data-toggle="" name="graduated" style="width:100%">
 				<option value="">{{ 'Select Year'|_ }}</option>
 				{% set year = "now"|date("Y")+543 %}
 				{% if evaluation.template %}
@@ -93,7 +101,7 @@
 				{% for i in 2561..year %}
 					<option value="{{ i }}" {{ graduated == i ? 'selected' : '' }}>{{ i }}</option>
 				{% endfor %}
-			</select>
+			</select>-->
 		</div>
   </div>
   <div class="board-inner">
@@ -302,12 +310,11 @@
 							<div class="form-group">
 								<label>นำเข้าผู้แต่ง</label>
 								<select name="portfolio_id" class="s2 select-default">
-									<option value="">{{ 'Select external author'|_ }}</option>
-									<option value="">{{ 'None'|_ }}</option>
+									<option value="0">{{ 'None'|_ }}</option>
 									{% for key,author in authors %}
 									<option value="{{ key }}" {% if key == evaluation.portfolio_id %} selected {% endif %}>{{ author }}</option>
 						      {% endfor %}
-								</select>
+								</select> (ใช้กรณีที่มีผู้เขียนร่วม โดยผู้ใช้งานท่านอื่น)
 							</div>
 						</div>
 	        </div>

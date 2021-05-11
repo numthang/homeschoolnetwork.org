@@ -39,9 +39,14 @@ redirect = "login/login"
       #$this->page['title'] = $this->evaluationform->record->name;
     }
     $this->page['title'] = $this->evaluationform->record->name;
-    $year = $this->evaluationform->record->graduated-543;
-    $this->page['from'] = $year.'-05-31';//กำหนดให้เลือก blog จากปีการศึกษาปัจจุบัน
-    $this->page['to'] = ($year+1).'-05-31';//จนถึงปีหน้าประเมิน จบเทอมประมาณ 31 เมษา
+
+    $date = explode('-', $this->evaluationform->record->evaluation_date);
+    $christian_year = $date[0]-543;
+    $this->page['from'] = ($christian_year-1).'-'.$date[1].'-'.$date[2];
+    $this->page['to'] = $christian_year.'-'.$date[1].'-'.$date[2];
+
+    #$this->page['from'] = $year.'-05-31';//กำหนดให้เลือก blog จากปีการศึกษาปัจจุบัน
+    #$this->page['to'] = ($year+1).'-05-31';//จนถึงปีหน้าประเมิน จบเทอมประมาณ 31 พ.ค.
     
     //ถ้ามีการนำเข้าผู้แต่งจากภายนอก ให้เลือกโพสต์ (author_id) ผู้แต่งจากภายนอก
     $this->page['author_id'] = $this->evaluationform->record->portfolio_id;

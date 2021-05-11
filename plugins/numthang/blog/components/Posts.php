@@ -179,6 +179,7 @@ class Posts extends RainLabPosts
         */
       $isPublished = !$this->checkEditor(); //if backend user logged in and can access post then isPublished is false also show unpublished
       #dump($this->property('userID')); dump($this->property('ownerID')); dump($this->property('evaluationID'));
+      #dump($this->to);
       $query = BlogPost::with('categories')->with('tags');
       if($this->property('evaluationID') && ($this->property('userID') || $this->property('ownerID'))) {
         $query->Where(function ($query) {
