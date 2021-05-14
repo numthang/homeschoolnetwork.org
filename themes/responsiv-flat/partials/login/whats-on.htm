@@ -45,13 +45,13 @@ tagsPage = 404
         <select name="evaluation_id" class="form-control select select-primary" data-toggle="">
           <option value="">{{ 'Select Evaluation'|_ }}</option>
           {% for e in student_evaluations %}
-            <option value="{{ e.id }}" {% if(e.evaluation_date == ("now"|date("Y")+543) and PostForm.post.id == null) or (PostForm.post.evaluation_id == e.id) %} selected {%else %} none {% endif %}> {{PostForm.post.evaluation_id}}{{ e.name }}</option>
+            <option value="{{ e.id }}" {% if(e.evaluation_date|slice(0, 4)-1 == ("now"|date("Y")+543) and PostForm.post.id == null) or (PostForm.post.evaluation_id == e.id) %} selected {%else %} none {% endif %}> {{PostForm.post.evaluation_id}}{{ e.name }}</option>
           {% endfor %}
 
           {% for e in evaluations %}
             {% if e.template == 0 %}
               {% if e.evaluation_date >= '2562-01-01' %}
-                <option value="{{ e.id }}" {% if(e.evaluation_date == ("now"|date("Y")+543) and PostForm.post.id == null) or (PostForm.post.evaluation_id == e.id) %} selected {% endif %}> {{ e.name }}</option>
+                <option value="{{ e.id }}" {% if(e.evaluation_date|slice(0, 4)-1 == ("now"|date("Y")+543) and PostForm.post.id == null) or (PostForm.post.evaluation_id == e.id) %} selected {% endif %}> {{ e.name }}</option>
               {% endif %}
             {% endif %}
           {% endfor %}
