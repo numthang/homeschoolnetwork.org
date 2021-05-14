@@ -28,7 +28,7 @@
 			<div class="form-group {% if errors.first('course_id') %} has-error {% endif %}">
 				<label>{{ 'Courses'|_ }} </label>
 				<select class="form-control select select-primary" data-toggle="" name="course_id" style="width:100%">
-					<option value="">{{ 'Select Course'|_ }}</option>
+					<option value="0">{{ 'Select Course'|_ }}</option>
 					{% for c in courses %}
 						{% if c.template == 0 or can('edit_course_template') %}
 						<option value="{{ c.id }}" {{ course.id == c.id ? 'selected' : '' }}>{{ c.name }}</option>
@@ -84,7 +84,7 @@
       <div class="form-group">
         <label>วันประเมิน</label> * (พ.ศ.)
         <div class="input-group date" data-provide="datepicker">
-          <input type="text" class="form-control" name="graduated" id="datepicker" value="{% if this.page.graduated %}{{ this.page.graduated }}{% else %}{{ "now"|date("d/m/") }}{{ "now"|date('Y')+543+1 }} {% endif %}">
+          <input type="text" class="form-control" name="graduated" id="datepicker" value="{% if this.page.graduated and evaluation.template != '1' %}{{ this.page.graduated }}{% else %}01/05/{{"now"|date('Y')+543+1}}{% endif %}">
             <div class="input-group-addon">
               <span class="fui-calendar"></span>
             </div>
