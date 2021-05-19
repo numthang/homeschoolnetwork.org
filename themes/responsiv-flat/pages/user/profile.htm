@@ -140,28 +140,30 @@ ownerID = 0
           {{ 'No posts found'|_ }}
         {% endif %}
       </p>
-      <h4><a href="/add/course">{{ 'Course'|_ }}</a></h4>
-      <p>
-        {% for c in courses %}
-          {% if c.template != 1 %}
-            <a href="/course/{{ c.created_at|date('U') }}"><span class="fa fa-fw" aria-hidden="true">&#xf0f6;</span> {{ c.name }}</a> <br>
-          {% endif %}
-        {% endfor %}
-        {% for e in student_courses %}
-          <a href="/course/{{ e.course.created_at|date('U') }}"> <span class="fa fa-fw" aria-hidden="true">&#xf0f6;</span> {{ e.course.name }}</a><br>
-        {% endfor %}
-      </p>
-      <h4><a href="/add/evaluation">{{ 'Evaluation'|_ }}</a></h4>
-      <p>
-        {% for e in evaluations %}
-          {% if e.template != 1 %}
-            <a href="/evaluation/{{ e.created_at|date('U') }}"><span class="fa fa-fw" aria-hidden="true">&#xf1c5;</span> {{ e.name }}</a> (<a href="/reportfolio/{{ e.created_at|date('U') }}">{{ 'portfolio'|_ }}</a>) <br>
-          {% endif %}
-        {% endfor %}
-        {% for e in student_evaluations %}
-          <a href="/evaluation/{{ e.created_at|date('U') }}"> <span class="fa fa-fw" aria-hidden="true">&#xf1c5;</span> {{ e.name }}</a><br>
-        {% endfor %}
-      </p>
+      {% if record.id == user.id  or can('edit_course_template') %}
+        <h4><a href="/add/course">{{ 'Course'|_ }}</a></h4>
+        <p>
+          {% for c in courses %}
+            {% if c.template != 1 %}
+              <a href="/course/{{ c.created_at|date('U') }}"><span class="fa fa-fw" aria-hidden="true">&#xf0f6;</span> {{ c.name }}</a> <br>
+            {% endif %}
+          {% endfor %}
+          {% for e in student_courses %}
+            <a href="/course/{{ e.course.created_at|date('U') }}"> <span class="fa fa-fw" aria-hidden="true">&#xf0f6;</span> {{ e.course.name }}</a><br>
+          {% endfor %}
+        </p>
+        <h4><a href="/add/evaluation">{{ 'Evaluation'|_ }}</a></h4>
+        <p>
+          {% for e in evaluations %}
+            {% if e.template != 1 %}
+              <a href="/evaluation/{{ e.created_at|date('U') }}"><span class="fa fa-fw" aria-hidden="true">&#xf1c5;</span> {{ e.name }}</a> (<a href="/reportfolio/{{ e.created_at|date('U') }}">{{ 'portfolio'|_ }}</a>) <br>
+            {% endif %}
+          {% endfor %}
+          {% for e in student_evaluations %}
+            <a href="/evaluation/{{ e.created_at|date('U') }}"> <span class="fa fa-fw" aria-hidden="true">&#xf1c5;</span> {{ e.name }}</a><br>
+          {% endfor %}
+        </p>
+      {% endif %}
     </div>
 
     <div class="col-md-5">
