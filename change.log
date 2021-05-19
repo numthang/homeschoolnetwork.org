@@ -6,6 +6,9 @@ try
 ไฟล์ที่แก้ไขเพิ่มใน homeschoolnetwork.org.upgrade2 คือ ซึ่งไฟล์ล่าสุดใน server ไม่ได้ ดึงจาก git แล้ว แต่ใช้วิธีแก้บน server โดยตรง
 plugins/numthang/blog/components/Posts.php
 ==
+draft fail
+thelmaramida@gmail.com - 07AwJ70r
+==
 TRUNCATE `ginopane_blogtaxonomy_taggables`;
 TRUNCATE `ginopane_blogtaxonomy_tags`;
 TRUNCATE `numthang_homeschool_evaluations`;

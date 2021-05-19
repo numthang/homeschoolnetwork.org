@@ -64,11 +64,13 @@ redirect = "login/login"
 </script>
 <div class="page cover" style="font-family:Kanit;">
   {{ evaluation.cover|raw }}
+  <img src="https://chart.googleapis.com/chart?chs=120x120&cht=qr&chl={{ ''| page }}&choe=UTF-8&chld=L|3" title="Link to {{ evaluation.name }}" style="border-style:none;" align="right"/>
 </div>
 <div class="page other" style="font-family:Kanit;">
   <div align="left">
-    <div align="center"><a name="index" id="index"><h2 style="font-size:46px; color:#34495e;">สารบัญ</h2></a>
-    <img src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl={{ ''| page }}&choe=UTF-8" title="Link to {{ evaluation.name }}" /></div>
+    <div align="left"><a name="index" id="index"><h2 style="font-size:46px; color:#34495e;">สารบัญ</h2></a>
+    <!--<img src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl={{ ''| page }}&choe=UTF-8" title="Link to {{ evaluation.name }}" />--></div>
+    <hr>
     {% if this.param.mod == 'evaluation' %}
       {% if evaluation.course_id %}
       <h2><a href="#first">ข้อมูลพื้นฐานของครอบครัว</a><br><br>
