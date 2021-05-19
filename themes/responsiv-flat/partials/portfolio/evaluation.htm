@@ -30,7 +30,7 @@ ownerID = "{{ owner }}"
     {% if(post.tag_id == tag_id and post.skip != 1) %}
       <hr>
       <a href="/blog/{{post.slug}}" name="post-{{ post.slug }}">
-        <h5 style="font-family: 'Kanit';  font-size:22px;"><!--{{ parent }}.{{ child }}--><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span> {% set child = child+1 %} {{ post.title }}</h5>
+        <h5 style="font-family: 'Kanit';  font-size:22px;"><!--{{ parent }}.{{ child }}--><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span> {% set child = child+1 %} {{ post.title }}</h5>
       </a>
       {% if post.excerpt %}
         <blockquote>
@@ -47,6 +47,12 @@ ownerID = "{{ owner }}"
       </div>
       {% endif %}
       {{ post.content_html|raw }}<br>
+      {% set break = false %}
+    {% elseif (post.tag_id == tag_id and post.skip == 1) %}
+      <hr>
+      <a href="#post-{{ post.slug }}" name="post-{{ post.slug }}">
+        <h5 style="font-family: 'Kanit';  font-size:22px;"><!--{{ parent }}.{{ child }}--><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span> {% set child = child+1 %} {{ post.title }}</h5>
+      </a>
       {% set break = false %}
     {% else %}
       {% set break = true %}
