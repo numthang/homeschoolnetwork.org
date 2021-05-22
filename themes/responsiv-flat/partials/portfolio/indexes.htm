@@ -28,7 +28,7 @@ ownerID = "{{ owner }}"
   {% set child = 1 %}
   {% for post in postsbytag if continue %}
     {% if(post.tag_id == tag_id) %}
-      <h5 style="font-size:22px;"><a href="#post-{{ post.slug }}"><!--{{ parent }}.{{ child }}-->  <span class="glyphicon glyphicon-picture" aria-hidden="true"></span> {% set child = child+1 %} {{ post.title }}</a> {{ post.evaluation_id }}</h5>
+      <h5 style="font-size:22px;"><a href="#post-{{ post.slug }}"><!--{{ parent }}.{{ child }}-->  <span class="glyphicon glyphicon-picture" aria-hidden="true"></span> {% set child = child+1 %} {{ post.title }}</a> </h5>
       {% set break = false %}
     {% else %}
       {% set break = true %}
