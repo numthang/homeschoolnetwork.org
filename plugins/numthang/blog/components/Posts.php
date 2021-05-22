@@ -80,8 +80,8 @@ class Posts extends RainLabPosts
             $this->posts = $this->page['posts'] = $this->listDraftPosts();
         else {
             $this->posts = $this->page['posts'] = $this->listPosts();
-            if($this->property('evaluationID'))//in case of using evaluation field
-              $this->postsbytag = $this->sortPostsbyTags();
+          if($this->property('evaluationID'))//in case of using evaluation field
+            $this->postsbytag = $this->sortPostsbyTags();
         }
         /*
          * If the page number is not valid, redirect
@@ -124,20 +124,17 @@ class Posts extends RainLabPosts
         ->with(['posts' => function($query) {
           $category = $this->category ? $this->category->id : null;
           $query
-          /*->Where(function ($query) {
-            $query
-            ->where($this->user_field, '=', $this->property('userID'))
-            ->where('evaluation_id', '=', $this->property('evaluationID'))
-            ;
-          })old code error some posts may not appear*/
           ->Where(function ($query) {
             $query
             ->where($this->user_field, '=', $this->property('userID'))
             ->orwhere($this->user_field, '=', $this->property('ownerID'))
             ->where('evaluation_id', '=', $this->property('evaluationID'))
             ;
-          })
-          ->whereBetween('created_at', [$this->from, $this->to])
+          });
+          if($this->from != '1900-01-01')//in case of no spcific date
+            $query->whereBetween('created_at', [$this->from, $this->to]);
+          $query
+          ->where('evaluation_id', '=', $this->property('evaluationID'))
           ->listFrontEnd([
             'category'  => $category,
             'sort'      => $this->property('sortOrder'),
@@ -154,6 +151,8 @@ class Posts extends RainLabPosts
           $list[$i]['title'] = $value->title;
           $list[$i]['excerpt'] = $value->excerpt;
           $list[$i]['content_html'] = $value->content_html;
+          $list[$i]['evaluation_id'] = $value->evaluation_id;
+
           if(in_array($value->id, $already))
             $list[$i]['skip'] = 1;
           else {
@@ -195,11 +194,14 @@ class Posts extends RainLabPosts
       }
       else if($this->property('userID'))
         $query->where($this->user_field, '=', $this->property('userID'));
+
       if($this->property('featured'))
         $query->where('featured', '=', $this->property('featured'));
-      $posts = $query
-        ->whereBetween('created_at', [$this->from, $this->to])
-        ->listFrontEnd([
+      
+      if($this->from != '1900-01-01')//in case of no spcific date
+        $query->whereBetween('created_at', [$this->from, $this->to]);
+      
+      $posts = $query->listFrontEnd([
           'page'             => $this->property('pageNumber'),
           'sort'             => $this->property('sortOrder'),
           'perPage'          => $this->property('postsPerPage'),
