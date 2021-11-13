@@ -116,8 +116,9 @@ class Posts extends RainLabPosts
     protected function sortPostsbyTags() {
       #$category = $this->category ? $this->category->id : null;
       $tags = $this->tags;
+      #dump($tags);
       $i = 0; $list = array(); $already = array();
-      #dump($this->property('userID')); #dump($this->property('userID')); #dump($this->property('ownerID')); #dump($this->property('evaluationID'));
+      #dump($this->property('userID')); dump($this->property('ownerID')); dump($this->property('evaluationID'));
       #echo $this->user_field.'-'.$this->property('userID').'-'.$this->property('ownerID');
       foreach ($tags['id'] as $key1 => $tag_id) {
         $posts = Tag::Where('id', $tag_id)
@@ -128,8 +129,7 @@ class Posts extends RainLabPosts
             $query
             ->where($this->user_field, '=', $this->property('userID'))
             ->orwhere($this->user_field, '=', $this->property('ownerID'))
-            ->where('evaluation_id', '=', $this->property('evaluationID'))
-            ;
+            ->where('evaluation_id', '=', $this->property('evaluationID'));
           });
           if($this->from != '1900-01-01')//in case of no spcific date
             $query->whereBetween('created_at', [$this->from, $this->to]);
@@ -137,10 +137,14 @@ class Posts extends RainLabPosts
           ->where('evaluation_id', '=', $this->property('evaluationID'))
           ->listFrontEnd([
             'category'  => $category,
-            'sort'      => $this->property('sortOrder'),
+            'page' => $this->property('pageNumber'),
+            'sort' => $this->property('sortOrder'),
+            'perPage' => $this->property('postsPerPage'),
             'published' => $this->property('isPublished')
           ]);
         }])->get();
+        #dump($posts[0]->posts);
+        //แสดงสูงสุดแค่ 30 แสดงว่า listfrontend อาจมี limit
         foreach ($posts[0]->posts as $key => $value) {
           // code...
           //echo $value->title.'<br>';
@@ -152,6 +156,7 @@ class Posts extends RainLabPosts
           $list[$i]['excerpt'] = $value->excerpt;
           $list[$i]['content_html'] = $value->content_html;
           $list[$i]['evaluation_id'] = $value->evaluation_id;
+          $list[$i]['created_at'] = $value->created_at;
 
           if(in_array($value->id, $already))
             $list[$i]['skip'] = 1;
@@ -214,7 +219,7 @@ class Posts extends RainLabPosts
             : explode(',', $this->property('exceptCategories')),
         ]);
   
-      //dd($posts[0]);
+      #dump($posts);
       //prepareVars tags list from this author
       $tags['id'] = $tags['name'] = Array();
       for($i=0;$i<count($posts);$i++) {
