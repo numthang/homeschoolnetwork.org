@@ -9,7 +9,7 @@ plugins/numthang/blog/components/Posts.php
 draft fail
 thelmaramida@gmail.com - 07AwJ70r
 ==
-//กรณีเอาข้อมูล blog ลงมาทดสอบ
+//กรณีเอาข้อมูล blog ลงมาทดสอบ เอา forerin key ออก
 TRUNCATE `ginopane_blogtaxonomy_taggables`;
 TRUNCATE `ginopane_blogtaxonomy_tags`;
 TRUNCATE `numthang_homeschool_evaluations`;
