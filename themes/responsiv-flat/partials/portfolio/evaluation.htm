@@ -32,6 +32,7 @@ ownerID = "{{ owner }}"
       <a href="/blog/{{post.slug}}" name="post-{{ post.slug }}">
         <h5 style="font-family: 'Kanit';  font-size:22px;"><!--{{ parent }}.{{ child }}--><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span> {% set child = child+1 %} {{ post.title }}</h5>
       </a>
+      {{ post.updated_at|date('d F Y') }}
       {% if post.excerpt %}
         <blockquote>
           {{ post.excerpt|raw }}
