@@ -80,10 +80,20 @@ slug = "{{ :slug }}"
                 id="userSigninPassword"
                 placeholder="Enter your password" />
             </div>
-            <button type="submit" style="width:225px; height:35px; padding-top: 5px; margin-top:5px;" class="btn  btn-default">Sign in</button>
-            <a href="/flynsarmy/sociallogin/Facebook"><img src="{{ 'assets/images/fb-login.png'|theme }}" class="social-login"></a>
-            <a href="/flynsarmy/sociallogin/Google"><img src="{{ 'assets/images/g-login.png'|theme }}" class="social-login"></a>
-            <a href="/flynsarmy/sociallogin/Twitter"><img src="{{ 'assets/images/t-login.png'|theme }}" class="social-login"></a>
+            <div class="row">
+              <div class="col-sm-6">
+                <button type="submit" style="width:100%;" class="btn btn-default">{{ 'Sign in'|_ }}</button>
+              </div>
+              <div class="col-sm-2 col-xs-4" align="center" style="margin-top: 5px;">
+                <a href="/flynsarmy/sociallogin/Facebook"><img src="{{ 'assets/images/facebook.png'|theme }}" width="100%"></a>
+              </div>
+              <div class="col-sm-2 col-xs-4" align="center" style="margin-top: 5px;">
+                <a href="/flynsarmy/sociallogin/Google"><img src="{{ 'assets/images/googleplus.png'|theme }}" width="100%"></a>
+              </div>
+              <div class="col-sm-2 col-xs-4" align="center" style="margin-top: 5px;">
+                <a href="/flynsarmy/sociallogin/Twitter"><img src="{{ 'assets/images/twitter.png'|theme }}" width="100%"></a>
+              </div>
+            </div>
           </form>
           <div class="col-sm-12" style="padding-top:5px;text-align: right;">
             {{ 'No account ?'|_ }} <a href="/login">{{ 'Register'|_ }}</a>
