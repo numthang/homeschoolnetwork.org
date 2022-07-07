@@ -14,13 +14,18 @@ slug = "{{ :slug }}"
 ==
 <section id="layout-title">
   <div class="container">
-      <h3>Top Posts</h3>
+    <h3>{{ 'Top Posts'|_ }}</h3>
   </div>
 </section>
 
 <div class="container">
   <div class="row">
+    <div class="col-sm-12 col-md-3">
+      {% partial 'blog/sidebar' %}
+    </div>
     <div class="col-sm-12 col-md-9">
+      {% partial 'ads/central' id='Leaderboard in Content 1st' %}
+      <br>
       {% set mostVisitedPosts = topPosts.mostVisitedPosts %}
       <div class="popular-post">
     		{% for post in mostVisitedPosts %}
@@ -30,9 +35,6 @@ slug = "{{ :slug }}"
           <hr>
     		{% endfor %}
       </div>
-    </div>
-    <div class="col-sm-12 col-md-3">
-      {% partial 'blog/sidebar' %}
     </div>
   </div>
 </div>

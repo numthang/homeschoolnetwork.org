@@ -1,0 +1,205 @@
+<!--Top-->
+{% set slot_fixed = '' %}
+{% set fixed_price = 1900 %}
+{% set slot = 4 %}
+{% set slot_price = (fixed_price/slot)+75 %}
+{% set ads_position = id %}
+{% set slot_0 = '
+    <div style="margin: 10px; border:1px #dddddd solid;">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-9939363335105757"
+          data-ad-slot="5281729921"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>' %}
+{% set slot_1 = '
+    <div class="ads-container">
+      <img src="/themes/responsiv-flat/assets/images/ads/leader-board.jpg" width="100%" class="ads">
+      <div class="ads-centered-leaderboard">
+        โปรดติดต่อลงโฆษณา <br> เพื่อร่วมสนับสนุนแพลตฟอร์มฟรีของเราต่อไป 
+        <br>'~ads_position~' 
+        <br>Fixed '~fixed_price|number_format~' baht/month
+        <br>Slot '~slot_price|number_format~' baht/month
+      </div>
+    </div>' %}
+{% set slot_2 = slot_1 %}
+{% set slot_3 = slot_1 %}
+{% set slot_4 = slot_1 %}
+{% if id == 'Top Leaderboard' %}
+  {% if slot_fixed %}
+    {{ slot_fixed | raw }}
+  {% else %}
+    {% set value = random(0,slot) %}
+    {% if value == 1 %}
+      {{ slot_1 | raw }}
+    {% elseif value == 2 %}
+      {{ slot_2 | raw }}
+    {% elseif value == 3 %}
+      {{ slot_3 | raw }}
+    {% elseif value == 4 %}
+      {{ slot_4 | raw }}
+    {% else %}
+      {{ slot_0 | raw }}
+    {% endif %}
+  {% endif %}
+{% endif %}
+
+<!--leaderboard-1-->
+{% set slot_fixed = '' %}
+{% set fixed_price = 1000 %}
+{% set slot = 4 %}
+{% set slot_price = (fixed_price/slot)+50 %}
+{% set ads_position = id %}
+{% set slot_0 = '
+    <div style="margin: 10px; border:1px #dddddd solid;">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-9939363335105757"
+          data-ad-slot="5281729921"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>' %}
+{% set slot_1 = '
+    <div class="ads-container" style="padding: 5px;">
+      <img src="/themes/responsiv-flat/assets/images/ads/leader-board.jpg" width="100%" class="ads">
+      <div class="ads-centered-leaderboard">
+        ติดต่อลงโฆษณา
+        <br>'~ads_position~' 
+        <br>Fixed '~fixed_price|number_format~' baht/month
+        <br>Slot '~slot_price|number_format~' baht/month
+      </div>
+    </div>' %}
+{% set slot_2 = slot_1 %}
+{% set slot_3 = slot_1 %}
+{% set slot_4 = slot_1 %}
+{% if id == 'Leaderboard in Content 1st' %}
+  {% if slot_fixed %}
+    {{ slot_fixed | raw }}
+  {% else %}
+    {% set value = random(0,slot) %}
+    {% if value == 1 %}
+      {{ slot_1 | raw }}
+    {% elseif value == 2 %}
+      {{ slot_2 | raw }}
+    {% elseif value == 3 %}
+      {{ slot_3 | raw }}
+    {% elseif value == 4 %}
+      {{ slot_4 | raw }}
+    {% else %}
+      {{ slot_0 | raw }}
+    {% endif %}
+  {% endif %}
+{% endif %}
+
+<!--Medium Rectangle Sidebar 1st-->
+{% set slot_fixed = '' %}
+{% set fixed_price = 1000 %}
+{% set slot = 4 %}
+{% set slot_price = (fixed_price/slot)+50 %}
+{% set ads_position = id %}
+{% set slot_0 = '
+    <div style="margin: 10px; border:1px #dddddd solid;">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- Homeschool Network Side -->
+      <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-9939363335105757"
+          data-ad-slot="1138470787"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>' %}
+{% set slot_1 = '
+    <div class="ads-container">
+      <img src="/themes/responsiv-flat/assets/images/ads/medium-rectangle.jpg" width="100%" class="ads">
+      <div class="ads-centered-rectangle">
+        ติดต่อลงโฆษณา
+        <br>'~ads_position~' 
+        <br>Fixed '~fixed_price|number_format~' baht/month
+        <br>Slot '~slot_price|number_format~' baht/month
+      </div>
+    </div>' %}
+{% set slot_2 = slot_1 %}
+{% set slot_3 = slot_1 %}
+{% set slot_4 = slot_1 %}
+{% if id == 'Medium Rectangle Sidebar 1st' %}
+  {% if slot_fixed %}
+    {{ slot_fixed | raw }}
+  {% else %}
+    {% set value = random(0,slot) %}
+    {% if value == 1 %}
+      {{ slot_1 | raw }}
+    {% elseif value == 2 %}
+      {{ slot_2 | raw }}
+    {% elseif value == 3 %}
+      {{ slot_3 | raw }}
+    {% elseif value == 4 %}
+      {{ slot_4 | raw }}
+    {% else %}
+      {{ slot_0 | raw }}
+    {% endif %}
+  {% endif %}
+{% endif %}
+
+<!--Bottom Leaderboard-->
+{% set slot_fixed = '' %}
+{% set fixed_price = 800 %}
+{% set slot = 4 %}
+{% set slot_price = (fixed_price/slot)+50 %}
+{% set ads_position = id %}
+{% set slot_0 = '
+  <div style="margin: 10px; border:1px #dddddd solid;">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- Homeschool Network Bottom -->
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-9939363335105757"
+       data-ad-slot="8326216739"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+  </div>' %}
+{% set slot_1 = '
+    <div class="ads-container">
+      <img src="/themes/responsiv-flat/assets/images/ads/leader-board.jpg" width="100%" class="ads">
+      <div class="ads-centered-leaderboard">
+        โปรดติดต่อลงโฆษณา <br> เพื่อร่วมสนับสนุนแพลตฟอร์มฟรีของเราต่อไป 
+        <br>'~ads_position~' 
+        <br>Fixed '~fixed_price|number_format~' baht/month
+        <br>Slot '~slot_price|number_format~' baht/month
+      </div>
+    </div>' %}
+{% set slot_2 = slot_1 %}
+{% set slot_3 = slot_1 %}
+{% set slot_4 = slot_1 %}
+{% if id == 'Bottom Leaderboard' %}
+  {% if slot_fixed %}
+    {{ slot_fixed | raw }}
+  {% else %}
+    {% set value = random(0,slot) %}
+    {% if value == 1 %}
+      {{ slot_1 | raw }}
+    {% elseif value == 2 %}
+      {{ slot_2 | raw }}
+    {% elseif value == 3 %}
+      {{ slot_3 | raw }}
+    {% elseif value == 4 %}
+      {{ slot_4 | raw }}
+    {% else %}
+      {{ slot_0 | raw }}
+    {% endif %}
+  {% endif %}
+{% endif %}

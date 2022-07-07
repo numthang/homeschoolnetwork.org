@@ -97,13 +97,12 @@ slug = "{{ :slug }}"
           </form>
           <div class="col-sm-12" style="padding-top:5px;text-align: right;">
             {{ 'No account ?'|_ }} <a href="/login">{{ 'Register'|_ }}</a>
-            <!--<div class="additional-links">
-              By signing up you agree to <a href="#">Terms of Use</a> and <a href="/blog/privacy-policy">Privacy Policy</a>
-            </div>-->
           </div>
           {% else %}
             {% partial 'login/whats-on'  %}
-          {% endif %}
+            <div class="col-sm-12" style="padding-top:5px;text-align: right;">
+              {{ 'What\'s on note'|_ }} <a href="/add/evaluation">{{ 'New evaluation'|_ }}</a>
+            </div>          {% endif %}
           <div class="col-sm-12" align="right">
             <a href="/blog/how-to-use"><i class="fa fa-question-circle-o"></i> {{ 'How to use'|_ }}</a>
           </div>
@@ -134,6 +133,7 @@ slug = "{{ :slug }}"
       </div>
     </div>
   </div>
+  {% partial 'ads/central' id='Leaderboard in Content 1st' %}
   <!-- Services -->
   <div class="row our-services" style="margin-top:10px;">
     <div class="col-sm-12">
@@ -212,14 +212,12 @@ slug = "{{ :slug }}"
     </div>
 
   </div>
-  {% partial "ads/bottom" %}
   <div class="row our-team">
     <div class="col-sm-8">
       <h4 class="headline"><span>{{ 'Our team'|_ }}</span></h4>
       <div class="row">
         <div class="col-sm-3 col-xs-12">
           <div class="team-member text-center">
-
             {% partial 'user/avatar' id=user.id facebookID=user.facebook_id style='img-responsive center-block avatar-responsive' redirect=1 %}
             <div class="info" style="font-size:17px;">
               Unnop Sricharoenchai
@@ -238,11 +236,11 @@ slug = "{{ :slug }}"
         </div>
         <div class="col-sm-3 col-xs-12">
           <div class="team-member text-center">
-            <img class="img-responsive center-block avatar-responsive" src="https://graph.facebook.com/100000122460462/picture?type=normal" onClick="window.location.href = '/u/12';">
+            <!--<img class="img-responsive center-block avatar-responsive" src="https://graph.facebook.com/100000122460462/picture?type=normal" onClick="window.location.href = '/u/12';">
             <div class="info" style="font-size:17px;">
               Patai Wonganutrohd
               <p class="text-muted">Editor & Writer</p>
-            </div>
+            </div>-->
           </div>
         </div>
         <div class="col-sm-3 col-xs-12">
@@ -257,7 +255,6 @@ slug = "{{ :slug }}"
       </div>
     </div>
     <div class="col-sm-4">
-
       <h4 class="headline"><span>Find Us on Facebook</span></h4>
       <div class="fb-page"
         data-href="https://www.facebook.com/HomeschoolNetwork"
@@ -266,7 +263,6 @@ slug = "{{ :slug }}"
         data-adapt-container-width="true"></div>
     </div>
   </div>
-  {% partial 'ads/link' %}
   <!--<div class="recent-tweets">
     <h4 class="headline"><span>Recent tweets</span></h4>
     <div class="tweet">

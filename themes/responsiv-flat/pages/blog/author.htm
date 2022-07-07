@@ -44,7 +44,6 @@ function onRender() {
 <div class="container">
     <div class="row">
         <div class="col-sm-12 col-md-9">
-          {% partial 'ads/top' %}
           {% set posts = scopePosts.posts %}
           {% set i = 0 %}
           {% for post in posts %}
@@ -55,7 +54,7 @@ function onRender() {
             <a href="/blog/{{ post.slug }}">{{ post.title }}</a> {% if post.author.id == user.id %} <a href="/edit/post/{{ post.slug }}">{{ 'Edit'|_ }}</a> {% endif %} <span class="text-muted">by <a href="/u/{{post.author_id}}">{{ post.author.name }}</a> on {{ post.updated_at|date('M d, Y') }}</span>
             {% set i = i + 1 %}
             {% if i == 2 or i == 7 or i == 15 %}
-              {% partial 'ads/new-in-feed' %}
+              {% partial 'ads/central' id='Leaderboard in Content 1st' %}
             {% endif %}
             <hr>
           {% endfor %}

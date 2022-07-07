@@ -110,31 +110,31 @@ function onEnd() {
 </section>
 
 <div class="container">
-  <div id="projectImages" class="project-images" align="center">
-    {% if post.featured_images.count %}
-      <div>
-        <div class="image"><img data-src="{{ post.featured_images[0].filename }}"  src="{{ post.featured_images[0].path | resize(0, 600) }}" class="img-responsive" alt="{{ post.featured_images[0].description }}" /></div>
-        <div class="caption">{{ post.featured_images[0].title }}</div>
-      </div>
-      
-      {% for image in post.featured_images %}
-        {% if loop.index0 > 0 %}
-          <div>
-            <div class="image"><img data-src="{{ image.filename }}"  src="{{ image.path | resize(0, 600) }}" class="img-responsive" alt="{{ image.description }}" /></div>
-            <div class="caption">{{ image.title }}</div>
-          </div>
-          {% put meta %}
-          <meta property="og:image" content="{{ image.path | resize(650, 650) }}" />
-          {% endput %}
-        {% endif %}
-      {% endfor %}
-    {% endif %}
-  </div>
   <div class="row">
     <div class="col-md-9 col-sm-12">
+      <div id="projectImages" class="project-images" align="center">
+        {% if post.featured_images.count %}
+          <div>
+            <div class="image"><img data-src="{{ post.featured_images[0].filename }}"  src="{{ post.featured_images[0].path | resize(0, 600) }}" class="img-responsive" alt="{{ post.featured_images[0].description }}" /></div>
+            <div class="caption">{{ post.featured_images[0].title }}</div>
+          </div>
+          
+          {% for image in post.featured_images %}
+            {% if loop.index0 > 0 %}
+              <div>
+                <div class="image"><img data-src="{{ image.filename }}"  src="{{ image.path | resize(0, 600) }}" class="img-responsive" alt="{{ image.description }}" /></div>
+                <div class="caption">{{ image.title }}</div>
+              </div>
+              {% put meta %}
+              <meta property="og:image" content="{{ image.path | resize(650, 650) }}" />
+              {% endput %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      </div>
+      {% partial 'ads/central' id='Leaderboard in Content 1st' %}
       <!-- Project description -->
       <div class="blog-desc">
-        {% partial "ads/in-article" %}
         {% if post.excerpt %}
           <blockquote>
             {{ post.excerpt|raw }}
@@ -143,9 +143,8 @@ function onEnd() {
         {% else %}
           {{ post.excerpt|raw }}
         {% endif %}
-        {{ post.content_html|raw }}        
+        {{ post.content_html|raw }} 
         {% partial 'ads/matched-content' %}
-
         <!-- Pagination -->
         <ul class="pager pull-right">
           {% if post.nextPost.slug  %}
@@ -201,8 +200,9 @@ function onEnd() {
           {% endfor %}
         {% endif %}
       </p>
+      {% partial 'ads/central' id='Medium Rectangle Sidebar 1st' %}
       <p class="info">
-        <h6>{{ 'Tags'|_ }}</h6>
+        <h6><a href="/blog/tags">{{ 'Tags'|_ }}</a></h6>
         {% set tags = tagList.tags %}
 
         {% if tagList.tagFilterEnabled %}
@@ -256,7 +256,7 @@ function onEnd() {
         {% else %}
           {{ "ginopane.blogtaxonomy::lang.components.tag_list.no_tags_message" | trans }}
         {% endif %}
-      </p>          
+      </p>         
       <h6>{{ 'Related posts by category'|_ }}</h6>
       <ul class="related-posts">
         {% for relate in related %}

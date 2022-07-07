@@ -18,6 +18,8 @@ tagsPage = 404
   <div class="gcse-search"></div>
 </div>
 <br class="clearfix">
+{% partial 'ads/central' id='Medium Rectangle Sidebar 1st' %}
+<br class="clearfix">
 <!-- Categories -->
 <div class="panel panel-default">
   <div class="panel-heading">
@@ -44,13 +46,10 @@ tagsPage = 404
   {% endfor %}
   </ul>
 </div>
-{% partial 'ads/link' %}
-
-
 <!-- Tags -->
 <div class="panel panel-default">
   <div class="panel-heading">
-      {{ 'Tags'|_ }}
+      <a href="/blog/tags">{{ 'Tags'|_ }}</a>
   </div>
   <ul class="list-group">
     {% for tag in tagList.tags %}
@@ -58,8 +57,6 @@ tagsPage = 404
     {% endfor %}
   </ul>
 </div>
-
-
 <!-- External -->
 <div class="panel panel-default">
   <div class="panel-heading">
@@ -69,5 +66,3 @@ tagsPage = 404
     <li class="list-group-item"><a href="https://homeschoolthailand.wordpress.com/">ภาคีเครือข่ายบ้านเรียนไทย</a></li>
   </ul>
 </div>
-
-{% partial 'ads/side' %}

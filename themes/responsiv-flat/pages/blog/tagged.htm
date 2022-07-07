@@ -26,58 +26,58 @@ categoryPage = "blog/category"
 
 <div class="container">
     <div class="row">
-        <div class="col-sm-12 col-md-9">
-          {% partial 'ads/top' %}
-          {% if posts | length %}
-              <ul id="{{ postsWithTag.alias }}-list">
-                  {% partial postsWithTag ~ '::list' %}
-              </ul>
-              {% if posts.lastPage > 1 %}
-              <ul class="pagination">
-                  {% if posts.currentPage > 1 %}
-                      <li><a href="{{ this.page.baseFileName|page({ (postsWithTag.pageParam): (posts.currentPage-1) }) }}">&larr; Prev</a></li>
-                  {% endif %}
-    
-                  {% for page in 1..posts.lastPage %}
-                      <li class="{{ posts.currentPage == page ? 'active' : null }}">
-                          <a href="{{ this.page.baseFileName|page({ (postsWithTag.pageParam): page }) }}">{{ page }}</a>
-                      </li>
-                  {% endfor %}
-    
-                  {% if posts.lastPage > posts.currentPage %}
-                      <li><a href="{{ this.page.baseFileName|page({ (postsWithTag.pageParam): (posts.currentPage+1) }) }}">Next &rarr;</a></li>
-                  {% endif %}
-              </ul>
-              {% endif %}
-              <!--<nav id="{{ postsWithTag.alias }}-pagination">
-                  {% partial postsWithTag ~ '::pagination' %}
-              </nav>-->
-          {% else %}
-              {{ "ginopane.blogtaxonomy::lang.components.tag_posts.no_posts_message" | trans }}
-          {% endif %}
-
-          
-          <!--{% if postsWithTag.posts %}
-              <ul>
-                  {% for Post in postsWithTag.tag.posts %}
-                       <li>
-                           <a href="{{Post.url}}">{{ Post.title }}</a>
-                           {% if Post.categories %}
-                           - published in
-                              {% for category in Post.categories %}
-                                  <a href="{{category.url|e}}">{{category.name}}</a>{% if not loop.last %}, {% endif %}
-                              {% endfor %}
-                           {% endif %}
-                       </li>
-                  {% endfor %}
-              </ul>
-          {% else %}
-              No posts found.
-          {% endif %}-->
-
-        </div>
         <div class="col-sm-12 col-md-3">
-          {% partial 'blog/sidebar' %}
+            {% partial 'blog/sidebar' %}
+        </div>
+        <div class="col-sm-12 col-md-9">
+        {% partial 'ads/central' id='Leaderboard in Content 1st' %}
+            {% if posts | length %}
+                <ul id="{{ postsWithTag.alias }}-list">
+                    {% partial postsWithTag ~ '::list' %}
+                </ul>
+                {% if posts.lastPage > 1 %}
+                <ul class="pagination">
+                    {% if posts.currentPage > 1 %}
+                        <li><a href="{{ this.page.baseFileName|page({ (postsWithTag.pageParam): (posts.currentPage-1) }) }}">&larr; Prev</a></li>
+                    {% endif %}
+
+                    {% for page in 1..posts.lastPage %}
+                        <li class="{{ posts.currentPage == page ? 'active' : null }}">
+                            <a href="{{ this.page.baseFileName|page({ (postsWithTag.pageParam): page }) }}">{{ page }}</a>
+                        </li>
+                    {% endfor %}
+
+                    {% if posts.lastPage > posts.currentPage %}
+                        <li><a href="{{ this.page.baseFileName|page({ (postsWithTag.pageParam): (posts.currentPage+1) }) }}">Next &rarr;</a></li>
+                    {% endif %}
+                </ul>
+                {% endif %}
+                <!--<nav id="{{ postsWithTag.alias }}-pagination">
+                    {% partial postsWithTag ~ '::pagination' %}
+                </nav>-->
+            {% else %}
+                {{ "ginopane.blogtaxonomy::lang.components.tag_posts.no_posts_message" | trans }}
+            {% endif %}
+
+            
+            <!--{% if postsWithTag.posts %}
+                <ul>
+                    {% for Post in postsWithTag.tag.posts %}
+                        <li>
+                            <a href="{{Post.url}}">{{ Post.title }}</a>
+                            {% if Post.categories %}
+                            - published in
+                                {% for category in Post.categories %}
+                                    <a href="{{category.url|e}}">{{category.name}}</a>{% if not loop.last %}, {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                No posts found.
+            {% endif %}-->
+
         </div>
     </div>
 </div>

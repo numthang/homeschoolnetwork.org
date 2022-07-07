@@ -31,59 +31,59 @@ function onEnd() {
 </section>
 
 <div class="container">
-    <div class="row">
-        <div class="col-sm-12 col-md-9">
-          {% set i = 0 %}
-          {% for post in posts %}
-          <!-- Blog Post -->
-            <h6>
-              {% partial 'user/avatar' id=post.author_id facebookID=post.author.facebook_id style='avatar-sm' redirect=1 %}
-              <a href="{{ post.url }}">{{ post.title }}</a> {% if post.author.id == user.id %} <a href="/edit/post/{{ post.slug }}">{{ 'Edit'|_ }}</a> {% endif %} </h6><span class="text-muted">{{ 'by'|_ }} <a href="/u/{{post.author_id}}">{{ post.author.name }}</a> {{ 'on'|_ }} {{ post.updated_at|date('M d, Y') }}</span>
-            
-            <p class="excerpt">
-              {% if post.excerpt %}
-                <blockquote>
-                  {{ post.excerpt|raw }}
-                </blockquote>
-              {% else %}
-              {% endif %}
-            </p>
-              <!--<p class="excerpt">{{ post.summary|raw }}</p>
-              <a href="{{ post.url }}"><img class="img-responsive" src="{{ post.featured_images[0].path }}" alt=""></a>
-              <p class="info">
-                Posted
-                {% if post.categories.count %} in {% endif %}
-                {% for category in post.categories %}
-                    <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
-                {% endfor %}
-              </p>
-              <a class="btn btn-lg btn-default" href="{{ post.url }}">{{ 'Read More'|_}} ...</a>-->
-            <!--{% set i = i + 1 %}
-            {% if i == 2 or i == 7 or i == 15 %}-->
-            {% partial 'ads/new-in-feed' %}
-            <!--{% endif %}-->
-          {% endfor %}
-          <br>
-          {% if posts.lastPage > 1 %}
-          <ul class="pagination">
-              {% if posts.currentPage > 1 %}
-                  <li><a href="{{ this.page.baseFileName|page({ (blogPosts.pageParam): (posts.currentPage-1) }) }}">&larr; Prev</a></li>
-              {% endif %}
-
-              {% for page in 1..posts.lastPage %}
-                  <li class="{{ posts.currentPage == page ? 'active' : null }}">
-                      <a href="{{ this.page.baseFileName|page({ (blogPosts.pageParam): page }) }}">{{ page }}</a>
-                  </li>
-              {% endfor %}
-
-              {% if posts.lastPage > posts.currentPage %}
-                  <li><a href="{{ this.page.baseFileName|page({ (blogPosts.pageParam): (posts.currentPage+1) }) }}">Next &rarr;</a></li>
-              {% endif %}
-          </ul>
-          {% endif %}
-        </div>
-        <div class="col-sm-12 col-md-3">
-          {% partial 'blog/sidebar' %}
-        </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-3">
+      {% partial 'blog/sidebar' %}
     </div>
+    <div class="col-sm-12 col-md-9">
+      {% set i = 0 %}
+      {% for post in posts %}
+      <!-- Blog Post -->
+        <h6>
+          {% partial 'user/avatar' id=post.author_id facebookID=post.author.facebook_id style='avatar-sm' redirect=1 %}
+          <a href="{{ post.url }}">{{ post.title }}</a> {% if post.author.id == user.id %} <a href="/edit/post/{{ post.slug }}">{{ 'Edit'|_ }}</a> {% endif %} </h6><span class="text-muted">{{ 'by'|_ }} <a href="/u/{{post.author_id}}">{{ post.author.name }}</a> {{ 'on'|_ }} {{ post.updated_at|date('M d, Y') }}</span>
+        
+        <p class="excerpt">
+          {% if post.excerpt %}
+            <blockquote>
+              {{ post.excerpt|raw }}
+            </blockquote>
+          {% else %}
+          {% endif %}
+        </p>
+          <!--<p class="excerpt">{{ post.summary|raw }}</p>
+          <a href="{{ post.url }}"><img class="img-responsive" src="{{ post.featured_images[0].path }}" alt=""></a>
+          <p class="info">
+            Posted
+            {% if post.categories.count %} in {% endif %}
+            {% for category in post.categories %}
+                <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+            {% endfor %}
+          </p>
+          <a class="btn btn-lg btn-default" href="{{ post.url }}">{{ 'Read More'|_}} ...</a>-->
+        <!--{% set i = i + 1 %}
+        {% if i == 2 or i == 7 or i == 15 %}-->
+        {% partial 'ads/central' id='Leaderboard in Content 1st' %}
+        <!--{% endif %}-->
+      {% endfor %}
+      <br>
+      {% if posts.lastPage > 1 %}
+      <ul class="pagination">
+          {% if posts.currentPage > 1 %}
+              <li><a href="{{ this.page.baseFileName|page({ (blogPosts.pageParam): (posts.currentPage-1) }) }}">&larr; Prev</a></li>
+          {% endif %}
+
+          {% for page in 1..posts.lastPage %}
+              <li class="{{ posts.currentPage == page ? 'active' : null }}">
+                  <a href="{{ this.page.baseFileName|page({ (blogPosts.pageParam): page }) }}">{{ page }}</a>
+              </li>
+          {% endfor %}
+
+          {% if posts.lastPage > posts.currentPage %}
+              <li><a href="{{ this.page.baseFileName|page({ (blogPosts.pageParam): (posts.currentPage+1) }) }}">Next &rarr;</a></li>
+          {% endif %}
+      </ul>
+      {% endif %}
+    </div>
+  </div>
 </div>

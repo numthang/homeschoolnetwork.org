@@ -331,3 +331,27 @@ footer {
 .btn-toolbarm, .panel-heading {
   font-family: Kanit;
 }
+.ads{
+  border: 2px solid #7f8c8d;
+  border-radius: 5px;
+}
+.ads-container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+/* Centered text */
+.ads-centered-leaderboard {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.6vw;
+}
+.ads-centered-rectangle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.4rem;
+}
