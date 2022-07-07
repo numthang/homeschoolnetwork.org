@@ -331,9 +331,9 @@ footer {
 .btn-toolbarm, .panel-heading {
   font-family: Kanit;
 }
-.ads{
-  border: 2px solid #7f8c8d;
-  border-radius: 5px;
+
+.ads {
+  width: 100%;
 }
 .ads-container {
   position: relative;
@@ -352,7 +352,20 @@ footer {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 1.6vw;
+  font-size: 2.9vw;
+}
+@media screen and (min-width: 820px) {/*ถ้าจอใหญ่กว่า 820px*/
+  .top-ads-slot-1 {
+    content:url('/themes/responsiv-flat/assets/images/ads/top-full-leader-board-slot-1.jpg');
+    width: 100%;
+  }
+  .bottom-ads-slot-1 {
+    content:url('/themes/responsiv-flat/assets/images/ads/bottom-full-leader-board-slot-1.jpg');
+    width: 100%;
+  }
+  .ads-centered-leaderboard {
+    font-size:  2.9vh;
+  }
 }
 .ads-centered-rectangle {
   position: absolute;
