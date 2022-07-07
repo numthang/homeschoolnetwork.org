@@ -340,6 +340,12 @@ footer {
   text-align: center;
   color: white;
 }
+.ads-container a {
+  color: white;
+}
+.ads-container a:hover {
+  color: #e89c43;
+}
 /* Centered text */
 .ads-centered-leaderboard {
   position: absolute;
