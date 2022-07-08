@@ -358,6 +358,8 @@ footer {
   .top-ads-slot-1 {
     content:url('/themes/responsiv-flat/assets/images/ads/top-full-leader-board-slot-1.jpg');
     width: 100%;
+    margin: 0px;
+    padding: 0px;
   }
   .bottom-ads-slot-1 {
     content:url('/themes/responsiv-flat/assets/images/ads/bottom-full-leader-board-slot-1.jpg');
