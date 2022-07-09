@@ -34,7 +34,7 @@
   {% if slot_fixed %}
     {{ slot_fixed | raw }}
   {% else %}
-    {% set value = random(0,slot) %}
+    {% set value = random(1,slot) %}
     {% if value == 1 %}
       {{ slot_1 | raw }}
     {% elseif value == 2 %}
