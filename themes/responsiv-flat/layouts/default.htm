@@ -96,10 +96,20 @@ security = "all"
     <link rel="apple-touch-icon-precomposed apple-touch-icon" href="{{ 'assets/images/icon-green.png'|theme }}">-->
 
     {% styles %}
-    <link href="{{ [
+    
+    {% if user.theme == 'light' %}
+      <link href="{{ [
+      'assets/less/light-theme.less',
+      'assets/css/custom.css',
+      'assets/css/light-custom.css',
+      ]|theme }}" rel="stylesheet">
+    {% else %}
+      <link href="{{ [
       'assets/less/theme.less',
       'assets/css/custom.css',
       ]|theme }}" rel="stylesheet">
+    {% endif %}
+    
     <meta property="fb:admins" content="528931910" />
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
     <!--[if lt IE 9]>

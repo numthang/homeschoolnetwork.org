@@ -73,5 +73,21 @@ class Post extends RainLabPost
     {
         return Page::sortBy('baseFileName')->lists('baseFileName', 'baseFileName');
     }
+    public function onSave()
+    {
+        $user = Auth::getUser();
+
+        Auth::logout();
+
+        if ($user) {
+            Event::fire('rainlab.user.logout', [$user]);
+        }
+
+        $url = post('redirect', Request::fullUrl());
+
+        Flash::success(Lang::get('rainlab.user::lang.session.logout'));
+
+        return Redirect::to($url);
+    }
 
 }

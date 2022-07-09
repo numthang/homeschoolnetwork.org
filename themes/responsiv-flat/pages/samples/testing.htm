@@ -14,11 +14,14 @@ function onSubmitContactForm()
 ?>
 ==
 {% component 'sociallogin' %}
+<input type="checkbox" data-toggle="switch" id="custom-switch-02">
+<label class="checkbox" for="checkbox2">
+  <input type="checkbox" checked="checked" value="" id="checkbox2"  class="custom-checkbox"><span class="icons"><span class="icon-unchecked"></span><span class="icon-checked"></span></span>
+  Checked
+</label>
 
-<<<<<<< HEAD
+<input type="checkbox" checked="checked" value="" id="checkbox2" data-toggle="checkbox" class="custom-checkbox">
 
-=======
->>>>>>> ebd4f29fcabcf843a76890cc09924b45a0687f3f
 <select class="js-example-basic" name="state">
   <option value="AL">Alabama</option>
     ...

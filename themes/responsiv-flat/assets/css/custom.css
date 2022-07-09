@@ -1,3 +1,8 @@
+@media (min-width: 768px) {
+  .navbar-collapse .navbar-nav.navbar-right:last-child {
+  margin-right: -50px;
+  }
+}
 .user-icon {
   font-size: 55px;
   /*box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);*/
@@ -29,25 +34,26 @@
 }
 .avatar-whatson {
   border-radius: 100px;
-  height: 60px;
+  height: 70px;
   cursor:pointer;
-  width: 60px;
+  width: 70px;
   box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.1);
-  margin-top: 15px;
-  margin-left: 15px;
+  margin-top: 7px;
+  margin-left: 25px;
 }
 .user-menu {
   font-size: 15px;
   margin-left: 5px;
   text-align: center;
 }
-
-
 .brand-title {
   display: none;
 }
 .navbar-brand {
     font-size: 24px;
+}
+.navbar-toggle {
+  margin: 0 0px 0 0px;
 }
 @media screen and (min-width: 360px) {
   .brand-title {
@@ -67,7 +73,7 @@
 	height:30px;
 }
 .home-login {
-	padding-bottom: 20px;
+	padding-bottom: 0px;
 	border: 0px #ddd solid;
 	border-radius: 10px;
 }
@@ -111,7 +117,8 @@ hr {
 .form-control, .select2-search input[type="text"] {
   font-size: 18px;
   line-height: 43px;
-  height:50px;
+  height: 50px;
+  color: #2d2d2d;
 }
 .multiple-select-box {
   border: 2px solid #949a9b;
@@ -152,7 +159,7 @@ textarea.form-control, textarea.select2-search {
 blockquote {
   font-family: Kanit;
   font-size: 18px;
-  background: #f9f9f9;
+  background: #3b3c32;
   border-left: 5px solid #ccc;
   margin: 1.5em 10px;
   padding: 0.5em 10px;
@@ -327,24 +334,25 @@ blockquote p {
 }
 footer {
   word-break: break-all;
+  background-color: #404138;
+  font-size: 15px;
+  padding: 0;
 }
-.btn-toolbarm, .panel-heading {
+.btn-toolbarm {
   font-family: Kanit;
 }
-
 .ads {
   width: 100%;
 }
 .ads-container {
   position: relative;
   text-align: center;
-  color: white;
 }
 .ads-container a {
-  color: white;
+  color: #e89c43;
 }
 .ads-container a:hover {
-  color: #e89c43;
+  color: #bdc3c7;
 }
 /* Centered text */
 .ads-centered-leaderboard {
@@ -354,7 +362,7 @@ footer {
   transform: translate(-50%, -50%);
   font-size: 2.9vw;
 }
-@media screen and (min-width: 820px) {/*ถ้าจอใหญ่กว่า 820px*/
+@media screen and (min-width: 913px) {/*ถ้าจอใหญ่กว่า 820px จึงจะแสดงแบบ full ไม่เช่นนั้นแสดงแบบ half*/
   .top-ads-slot-1 {
     content:url('/themes/responsiv-flat/assets/images/ads/top-full-leader-board-slot-1.jpg');
     width: 100%;
@@ -375,4 +383,15 @@ footer {
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 1.4rem;
+}
+#layout-title {
+  background-color: #3b3c32;
+}
+.panel .panel-heading {
+  font-family: Kanit;
+  color: #bdc3c7;
+  background-color: #3b3c32;
+}
+.list-group-item {
+  background-color: #2d2d2d;
 }

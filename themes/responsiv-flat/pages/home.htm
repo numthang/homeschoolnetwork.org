@@ -45,21 +45,18 @@ category = 0
 postPerPage = 4
 postPage = "blog/post"
 slug = "{{ :slug }}"
-
-
 ==
 {%  set student_evaluations = evaluations.student_evaluations %}
 {%  set courses = courses.courses %}
 {%  set student_courses = evaluations.student_courses %}
 {%  set evaluations = evaluations.evaluations %}
-
 <section class="home-title">
   <div class="container">
     <div class="row">
       <div class="col-sm-12 col-md-5 home-login">
         <div class="signup - form">
           {% if not user %}
-          <h4 class="headline">
+          <h4>
             <span>{{ 'Login'|_ }}</span>
           </h4> 
           <form data-request="onSignin">
@@ -109,21 +106,22 @@ slug = "{{ :slug }}"
         </div>
       </div>
       <div class="col-sm-12 col-md-7">
+        <a href="/blog/changelog" class="btn btn-block btn-lg btn-info">{{ 'Annoucement Note' }}</a>
         {% partial 'slide' %}
       </div>
     </div>
   </div>
 </section>
 <div class="container">
-  <div class="row our-services" style="margin-top:10px;">
+  <div class="row our-services">
     <div class="col-sm-5">
-      <h4 class="headline"><span><a href="/blog/how-to-use">{{ 'What we do'|_ }}</a></span></h4>
+      <h4><span><a href="/blog/how-to-use">{{ 'What we do'|_ }}</a></span></h4>
       <p>"เครือข่ายบ้านเรียน" เว็บกลางสำหรับสมาชิกบ้านเรียนหรือโฮมสคูลในเมืองไทย สามารถติดต่อ แลกเปลี่ยน หาความรู้ในการทำโฮมสคูล โดยสมาชิกจะสามารถ ค้นฐานข้อมูลสมาชิกบ้านเรียน, เขียนแผนการศึกษาออนไลน์, เขียนแบบประเมินและร่องรอยการเรียนรู้และสามารถร่วมเขียนเนื้อหาหรือบันทึกใดๆ อ่านเพิ่มเติม <a href="/blog/about">เกี่ยวกับเรา</a></p>
     </div>
     <div class="col-sm-7">
       {% set mostVisitedPosts = topPosts.mostVisitedPosts %}
       <div class="popular-post">
-        <h4 class="headline"><span><a href="/blog/top-posts">{{ 'Top Publications'|_ }}</a></span></h4>
+        <h4><span><a href="/blog/top-posts">{{ 'Top Publications'|_ }}</a></span></h4>
         {% for post in mostVisitedPosts %}
           <div class="post-content" style="margin-bottom:10px;">
             {% partial 'user/avatar' id=post.author_id facebookID=post.author.facebook_id style='avatar-sm' redirect=1 %}
@@ -214,7 +212,7 @@ slug = "{{ :slug }}"
   </div>
   <div class="row our-team">
     <div class="col-sm-8">
-      <h4 class="headline"><span>{{ 'Our team'|_ }}</span></h4>
+      <h4><span>{{ 'Our team'|_ }}</span></h4>
       <div class="row">
         <div class="col-sm-3 col-xs-12">
           <div class="team-member text-center">
@@ -255,7 +253,7 @@ slug = "{{ :slug }}"
       </div>
     </div>
     <div class="col-sm-4">
-      <h4 class="headline"><span>Find Us on Facebook</span></h4>
+      <h4><span>Find Us on Facebook</span></h4>
       <div class="fb-page"
         data-href="https://www.facebook.com/HomeschoolNetwork"
         data-hide-cover="false"
@@ -264,7 +262,7 @@ slug = "{{ :slug }}"
     </div>
   </div>
   <!--<div class="recent-tweets">
-    <h4 class="headline"><span>Recent tweets</span></h4>
+    <h4><span>Recent tweets</span></h4>
     <div class="tweet">
         <i class="fa fa-twitter"></i>
         <p>

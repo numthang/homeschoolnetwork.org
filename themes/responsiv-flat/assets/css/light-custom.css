@@ -1,0 +1,23 @@
+blockquote {
+  background: #f9f9f9;
+}
+.ads-container {
+  color: white;
+}
+.ads-container a {
+  color: #e89c43;
+}
+.ads-container a:hover {
+  color: #bdc3c7;
+}
+#layout-title {
+  background-color: #e7ead3;
+}
+.panel .panel-heading {
+  font-family: Kanit;
+  color: #333333;
+  background-color: #fff;
+}
+.list-group-item {
+  background-color: #fff;
+}

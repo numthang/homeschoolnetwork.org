@@ -27,7 +27,8 @@ class Plugin extends PluginBase
           'district_id',
           'note',
           'facebook_id',
-          'twitter'
+          'twitter',
+          'theme'
         ]);
       });
       UsersController::extendFormFields(function($form, $model, $context) {//เพิ่ม user form ใน backend
@@ -49,6 +50,11 @@ class Plugin extends PluginBase
           ],
           'status' => [
             'label' => 'Status',
+            'type' => 'text',
+            'tab' => 'rainlab.userplus::lang.tab.profile'
+          ],
+          'theme' => [
+            'label' => 'Theme',
             'type' => 'text',
             'tab' => 'rainlab.userplus::lang.tab.profile'
           ]

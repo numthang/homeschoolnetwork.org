@@ -13,3 +13,6 @@
 1.0.6:
     - 'Add amphure_id, district_id'
     - add_new_fields6.php
+1.0.7:
+    - 'Add theme'
+    - add_new_fields7.php

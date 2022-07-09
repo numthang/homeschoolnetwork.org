@@ -288,7 +288,7 @@ function onEnd() {
         {{ "ginopane.blogtaxonomy::lang.components.related_posts.no_posts_message" | trans }}
       {% endif %}
       <br>
-      <a href="#" class="btn btn-info btn-lg btn-block">Project page</a>
+      <a href="/u/{{post.author_id}}" class="btn btn-info btn-lg btn-block">{{ 'Author page'|_ }}</a>
       <br>
     </div>
   </div>

@@ -37,24 +37,28 @@ sortOrder = "name asc"
 }
 ?>
 ==
-<section id="">
-  <div class="container">
-    <div class="col-sm-12">
-      <div style="padding: 10px 0px 10px 00px;">
-        {% partial imageUploader ~ '::image-single' %}
-        <!--<h5>{{ user.name }} {{ user.surname }}</h5>-->
-      </div>
+<div class="container">
+  {% flash %}
+    <p data-control="flash-message" data-interval="5" class="{{ type == 'error' ? 'danger' : type }}">{{ message }}<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></p>
+  {% endflash %}
+  {{ form_ajax('onUpdate', { 'autocomplete': 'off' }) }}
+  <div class="row">
+    <div class="col-sm-2">
+      <div style="padding: 20px 20px 0px 7px;">{% partial imageUploader ~ '::image-single' %}</div>
+    </div>
+    <div class="col-sm-10">
+      <h4>{{ user.name }} {{ user.surname }}</h4>
+      <h5>{{ user.company }}</h5>
+      <!--light : <input type="radio" name="theme" value="light">
+      dark : <input type="radio" name="theme" value="dark">-->
+      <input type="hidden" name="theme" value="light">
+      <input type="checkbox" name="theme" value="dark" data-toggle="switch" {% if user.theme == 'dark' %} checked {% endif %} > {{ 'Dark mode'|_ }} 
     </div>
   </div>
-</section>
-<div class="container">
+  <br>
   <div class="row">
       <div class="col-md-12">
-        {% flash %}
-          <p data-control="flash-message" data-interval="5" class="{{ type == 'error' ? 'danger' : type }}">{{ message }}<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></p>
-        {% endflash %}
-        {{ form_ajax('onUpdate', { 'autocomplete': 'off' }) }}
-          <div class="accordion">
+           <div class="accordion">
             <dl>
               <dt><a class="accordionTitle accordionTitleActive" href="#"><i class="fui-user"></i> {{ 'Profile'|_ }}</a></dt>
               <dd class="accordionItem ">
@@ -245,8 +249,8 @@ sortOrder = "name asc"
             </div>
           </div>
           <br>
-        {{ form_close() }}
       </div>
   </div>
+  {{ form_close() }}
 </div>
 <br>
