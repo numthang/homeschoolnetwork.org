@@ -1,6 +1,16 @@
 @media (min-width: 768px) {
-  .navbar-collapse .navbar-nav.navbar-right:last-child {
-  margin-right: -50px;
+  .container {
+    width: 776px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
   }
 }
 .user-icon {
@@ -363,7 +373,14 @@ footer {
   transform: translate(-50%, -50%);
   font-size: 2.9vw;
 }
-@media screen and (min-width: 913px) {/*ถ้าจอใหญ่กว่า 820px จึงจะแสดงแบบ full ไม่เช่นนั้นแสดงแบบ half*/
+.ads-centered-rectangle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.9vw;
+}
+@media screen and (min-width: 1024px) {/*ถ้าจอใหญ่กว่า 820px จึงจะแสดงแบบ full ไม่เช่นนั้นแสดงแบบ half*/
   .top-ads-slot-1 {
     content:url('/themes/responsiv-flat/assets/images/ads/top-full-leader-board-slot-1.jpg');
     width: 100%;
@@ -375,16 +392,13 @@ footer {
     width: 100%;
   }
   .ads-centered-leaderboard {
-    font-size:  2.9vh;
+    font-size:  2.6vh;
+  }
+  .ads-centered-rectangle {
+    font-size:  1.9vh;
   }
 }
-.ads-centered-rectangle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 1.4rem;
-}
+
 #layout-title {
   background-color: #3b3c32;
 }
