@@ -174,7 +174,7 @@ ownerID = 0
             <ul>
                 <li>{{ record.company }} </li>
                 <li>{{ record.street_addr }} {{ record.city }} {{ record.state.name }} {{ record.zip }}</li>
-                <li>{{ 'Mobile'|_ }}: {{ record.mobile }}</li>
+                <li>{{ 'Mobile'|_ }}: โปรดติดต่อทางอีเมล์ Facebook หรือ LINE<!--{{ record.mobile }}--></li>
                 <li>{{ 'Phone'|_ }}: {{ record.phone }}</li>
                 <li>{{ 'Email'|_ }}: <a href="mail-to:{{ record.username }}">{% component 'builderDetails' %}</a></li>
                 <li>{{ 'Facebook'|_ }}: <a href="https://www.facebook.com/{{ record.facebook }}">{{ record.facebook }}</a></li>
