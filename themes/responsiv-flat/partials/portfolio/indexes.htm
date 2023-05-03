@@ -22,13 +22,13 @@ ownerID = "{{ owner }}"
 
 {% for tag in tags['name'] %}
   {% set tag_id = tags['id'][loop.index0] %}
-  <h4 style="font-family: 'Kanit'; font-size:25px; color:#34495e;"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> <a href="#port-{{ tags['id'][loop.index0] }}" style="font-family: 'Kanit'; font-size:25px; color:#34495e;">&nbsp;กลุ่มประสบการณ์ <!--{{ loop.index }}--> :  {{ tag }}</a></h4>
+  <h4 style="font-family: 'Kanit'; font-size:20px; color:#34495e;"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> <a href="#port-{{ tags['id'][loop.index0] }}" style="font-family: 'Kanit'; font-size:20px; color:#34495e;">&nbsp;กลุ่มประสบการณ์ <!--{{ loop.index }}--> :  {{ tag }}</a></h4>
   {% set parent = loop.index %}
   {% set continue = true %}
   {% set child = 1 %}
   {% for post in postsbytag if continue %}
     {% if(post.tag_id == tag_id) %}
-      <h5 style="font-size:22px;"><a href="#post-{{ post.slug }}"><!--{{ parent }}.{{ child }}-->  <span class="glyphicon glyphicon-picture" aria-hidden="true"></span> {% set child = child+1 %} {{ post.title }}</a> </h5>
+      <h5 style="font-size:18px;"><a href="#post-{{ post.slug }}"><!--{{ parent }}.{{ child }}-->  <span class="glyphicon glyphicon-picture" aria-hidden="true"></span> {% set child = child+1 %} {{ post.title }}</a> </h5>
       {% set break = false %}
     {% else %}
       {% set break = true %}
