@@ -17,6 +17,7 @@ localeMeta_title[en] = "Homeschool Network"
 redirect = "home"
 paramCode = "code"
 forceSecure = 0
+requirePassword = 0
 
 [courses]
 results = 3
@@ -39,6 +40,12 @@ slug = "{{ :slug }}"
 listPage = "blog/blog"
 postPage = "blog/post"
 
+[topPosts]
+period = 2
+category = 0
+postPerPage = 5
+postPage = "blog/post"
+slug = "{{ :slug }}"
 ==
 {%  set student_evaluations = evaluations.student_evaluations %}
 {%  set courses = courses.courses %}

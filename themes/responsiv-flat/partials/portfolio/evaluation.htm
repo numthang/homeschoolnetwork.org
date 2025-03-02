@@ -45,7 +45,7 @@ ownerID = "{{ owner }}"
       <div class="featured-images">
         {% for image in post.featured_images %}
           {% if image %}
-            <p><img src="{{ image }}"/></p>
+            <p><img src="{{ image | resize(800, 800) }}"/></p>
           {% endif %}
         {% endfor %}
       </div>
